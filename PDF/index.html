@@ -34,7 +34,6 @@
             flex-wrap: wrap;
         }
         .header-left h1 { font-size: 1.8em; margin: 0; }
-        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
         .header-sub {
             display: flex; align-items: center; gap: 8px;
             margin-top: 6px; flex-wrap: wrap;
@@ -89,6 +88,18 @@
         }
         .pdf-item a:hover { color: #2b6cb0; text-decoration: underline; }
 
+        .estado {
+            text-align: center;
+            padding: 30px 20px;
+            color: #718096;
+        }
+        .estado i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+            color: #a0aec0;
+        }
+
         .footer-cierre {
             text-align: center; padding: 30px 20px 20px;
             margin-top: 10px; position: relative;
@@ -134,8 +145,9 @@
     <div class="section">
         <h2><i class="fas fa-file-pdf"></i> Documentos PDF disponibles</h2>
 
-        <!-- Los PDFs se generan aquí automáticamente desde la lista de abajo -->
-        <div id="listaPDFs" class="lista-pdfs"></div>
+        <div id="listaPDFs" class="lista-pdfs">
+            <div class="estado"><i class="fas fa-spinner fa-spin"></i>Cargando documentos…</div>
+        </div>
 
         <div class="footer-cierre">
             <div class="icono-cierre">
@@ -147,43 +159,118 @@
 </div>
 
 <script>
-    // ============================================================
-    // 👇 EDITA AQUÍ: escribe los nombres EXACTOS de tus archivos PDF
-    //    (con extensión .pdf, respetando mayúsculas y tildes)
-    // ============================================================
-    const PDFS = [
-        "U01 - La física y la química como ciencias experimentales.pdf",
-        "U02 - Estructura atómica.pdf",
-        "U03 - Leyes y conceptos básicos en química.pdf",
-        "U04 - Estequiometría y química industrial.pdf",
-        "U05 - Química del carbono.pdf",
-        "U06 - Cinemática del punto material.pdf",
-        "U07 - Dinámica.pdf",
-        "U08 - Trabajo y energía mecánica.pdf",
-        "U09 - Termodinámica.pdf",
-        "U10 - Interacción electrostática.pdf"
-        // Añade o quita líneas según tus archivos reales
-    ];
+/* ============================================================
+   DETECCIÓN AUTOMÁTICA DE PDFs EN LA CARPETA
+   ------------------------------------------------------------
+   Usa la API pública de GitHub para listar el contenido de
+   esta misma carpeta. No requiere configuración: deduce el
+   usuario, el repositorio y la carpeta a partir de la URL
+   actual de GitHub Pages.
+   ============================================================ */
+(function () {
 
-    function renderizarPDFs() {
-        const contenedor = document.getElementById('listaPDFs');
-        if (!PDFS.length) {
-            contenedor.innerHTML = '<p style="color:#718096;">No hay PDFs disponibles.</p>';
-            return;
-        }
-        contenedor.innerHTML = PDFS.map(nombre => {
-            // Quitamos la extensión .pdf para mostrarlo más limpio
-            const etiqueta = nombre.replace(/\.pdf$/i, '');
-            return `
-                <div class="pdf-item">
-                    <i class="fas fa-file-pdf"></i>
-                    <a href="${encodeURIComponent(nombre)}" target="_blank" rel="noopener">${etiqueta}</a>
-                </div>
-            `;
-        }).join('');
+    function mostrarEstado(html) {
+        document.getElementById('listaPDFs').innerHTML =
+            `<div class="estado" style="grid-column: 1 / -1;">${html}</div>`;
     }
 
-    document.addEventListener('DOMContentLoaded', renderizarPDFs);
+    /**
+     * Deduce { usuario, repo, carpeta } a partir de la URL actual.
+     *  - usuario.github.io/PDF/...              → repo = usuario.github.io
+     *  - usuario.github.io/mi-repo/PDF/...      → repo = mi-repo
+     */
+    function obtenerInfoRepo() {
+        const host = window.location.hostname;
+
+        if (!host.endsWith('.github.io')) return null;
+        const usuario = host.replace('.github.io', '');
+
+        // Partes de la ruta, sin cadenas vacías
+        let partes = decodeURIComponent(window.location.pathname)
+            .split('/')
+            .filter(Boolean);
+
+        // Si el último elemento es un archivo (p.ej. index.html), lo quitamos
+        if (partes.length && partes[partes.length - 1].includes('.')) {
+            partes.pop();
+        }
+
+        if (partes.length === 0) return null;
+
+        const carpeta = partes[partes.length - 1];
+
+        // Si hay algo antes de la carpeta, es el nombre del repositorio;
+        // si no, el repositorio es el propio usuario.github.io
+        const repo = partes.length >= 2
+            ? partes[partes.length - 2]
+            : `${usuario}.github.io`;
+
+        return { usuario, repo, carpeta };
+    }
+
+    async function cargarPDFs() {
+        const info = obtenerInfoRepo();
+        if (!info) {
+            mostrarEstado('<i class="fas fa-exclamation-triangle"></i>No se pudo determinar el repositorio de GitHub.');
+            return;
+        }
+
+        const url = `https://api.github.com/repos/${info.usuario}/${info.repo}/contents/${encodeURIComponent(info.carpeta)}`;
+
+        try {
+            const resp = await fetch(url, {
+                headers: { 'Accept': 'application/vnd.github+json' }
+            });
+
+            if (!resp.ok) {
+                if (resp.status === 404) {
+                    mostrarEstado('<i class="fas fa-folder-open"></i>No se encontró la carpeta en el repositorio.');
+                } else if (resp.status === 403) {
+                    mostrarEstado('<i class="fas fa-hourglass-half"></i>Demasiadas peticiones a GitHub. Vuelve a intentarlo en unos minutos.');
+                } else {
+                    mostrarEstado(`<i class="fas fa-exclamation-circle"></i>Error ${resp.status} al consultar GitHub.`);
+                }
+                return;
+            }
+
+            const datos = await resp.json();
+
+            // Nos quedamos sólo con archivos PDF (no subcarpetas)
+            const pdfs = datos
+                .filter(item =>
+                    item.type === 'file' &&
+                    /\.pdf$/i.test(item.name)
+                )
+                .sort((a, b) =>
+                    a.name.localeCompare(b.name, 'es', { numeric: true })
+                );
+
+            if (pdfs.length === 0) {
+                mostrarEstado('<i class="fas fa-inbox"></i>No hay archivos PDF en esta carpeta.');
+                return;
+            }
+
+            const html = pdfs.map(item => {
+                const etiqueta = item.name.replace(/\.pdf$/i, '');
+                return `
+                    <div class="pdf-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="${encodeURIComponent(item.name)}"
+                           target="_blank" rel="noopener">${etiqueta}</a>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('listaPDFs').innerHTML = html;
+
+        } catch (err) {
+            console.error(err);
+            mostrarEstado('<i class="fas fa-wifi"></i>No se pudo conectar con GitHub para listar los archivos.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarPDFs);
+})();
 </script>
 </body>
 </html>
