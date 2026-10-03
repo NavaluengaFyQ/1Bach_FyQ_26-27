@@ -179,6 +179,58 @@
         .cns-importancia strong {
             color: #fde68a;
         }
+
+        /* --- Tabla de prefijos dentro del bloque CNS --- */
+        .cns-tabla-prefijos {
+            margin-top: 16px;
+            background: rgba(255,255,255,0.98);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+        .cns-tabla-prefijos h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.05em;
+            color: #1e3a8a;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cns-tabla-prefijos table {
+            margin: 0;
+            box-shadow: none;
+            font-size: 0.9em;
+            background: white;
+        }
+        .cns-tabla-prefijos th {
+            background: #6d28d9;
+            color: #ffffff;
+            font-weight: 800;
+            padding: 8px 6px;
+        }
+        .cns-tabla-prefijos td {
+            padding: 6px 4px;
+            color: #1e293b;
+            font-weight: 700;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .cns-tabla-prefijos tbody tr:nth-child(even) td {
+            background: #f5f3ff;
+            color: #1e293b;
+        }
+        .cns-tabla-prefijos tbody tr:hover td {
+            background: #ede9fe;
+            color: #1e293b;
+        }
+        .cns-tabla-nota {
+            margin: 8px 0 0 0;
+            font-size: 0.85em;
+            color: #1e293b;
+            font-weight: 600;
+            font-style: italic;
+            text-align: center;
+        }
+
         .cns-lema {
             text-align: center;
             margin: 14px 0 0 0;
@@ -514,9 +566,41 @@
             Las tres letras resumen <strong>las tres decisiones</strong> que hay que tomar siempre, en ese orden, antes de escribir el nombre IUPAC.
         </div>
 
+        <!-- TABLA DE PREFIJOS DE CADENA -->
+        <div class="cns-tabla-prefijos">
+            <h3>📏 Prefijos de cadena según el número de carbonos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº de C</th>
+                        <th>Prefijo</th>
+                        <th>Alcano lineal</th>
+                        <th>Fórmula molecular</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>met-</td><td>metano</td><td>CH<sub>4</sub></td></tr>
+                    <tr><td>2</td><td>et-</td><td>etano</td><td>C<sub>2</sub>H<sub>6</sub></td></tr>
+                    <tr><td>3</td><td>prop-</td><td>propano</td><td>C<sub>3</sub>H<sub>8</sub></td></tr>
+                    <tr><td>4</td><td>but-</td><td>butano</td><td>C<sub>4</sub>H<sub>10</sub></td></tr>
+                    <tr><td>5</td><td>pent-</td><td>pentano</td><td>C<sub>5</sub>H<sub>12</sub></td></tr>
+                    <tr><td>6</td><td>hex-</td><td>hexano</td><td>C<sub>6</sub>H<sub>14</sub></td></tr>
+                    <tr><td>7</td><td>hept-</td><td>heptano</td><td>C<sub>7</sub>H<sub>16</sub></td></tr>
+                    <tr><td>8</td><td>oct-</td><td>octano</td><td>C<sub>8</sub>H<sub>18</sub></td></tr>
+                    <tr><td>9</td><td>non-</td><td>nonano</td><td>C<sub>9</sub>H<sub>20</sub></td></tr>
+                    <tr><td>10</td><td>dec-</td><td>decano</td><td>C<sub>10</sub>H<sub>22</sub></td></tr>
+                </tbody>
+            </table>
+            <p class="cns-tabla-nota">Estos prefijos se usan para nombrar la <strong>cadena principal</strong> y también aparecen en los sustituyentes (metilo, etilo, propilo…).</p>
+        </div>
+
         <p class="cns-lema">“Primero la <strong>C</strong>adena, luego la <strong>N</strong>umeración, después los <strong>S</strong>ustituyentes.”</p>
     </div>
 
+
+
+
+    
     <!-- ENUNCIADO -->
     <div class="section enunciado">
         <h2>📘 Enunciado</h2>
@@ -536,7 +620,7 @@
 
         <div class="figura">
             <img <img src="../imagenes/00-Formulación/Alcanos-teoria01.gif" alt="Esquema de un alcano ramificado">
-
+            
 
         </div>
     </div>
