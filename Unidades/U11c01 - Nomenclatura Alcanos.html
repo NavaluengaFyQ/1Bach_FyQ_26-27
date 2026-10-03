@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c01 - Formulación orgánica: Nomenclatura de alcanos (Reglas IUPAC)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        /* ============================================
+           BLOQUE MNEMOTECNIA CNS
+           ============================================ */
+        .cns-bloque {
+            margin: 20px 15px 5px 15px;
+            padding: 22px 24px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #6d28d9 100%);
+            color: #f8fafc;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.25);
+            border: 2px solid #c7d2fe;
+        }
+        .cns-bloque h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.35em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+        }
+        .cns-bloque .cns-sub {
+            font-size: 0.98em;
+            margin: 0 0 16px 0;
+            color: #e0e7ff;
+        }
+        .cns-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 10px 0 14px 0;
+        }
+        .cns-card {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 12px;
+            padding: 14px 12px;
+            text-align: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .cns-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.2);
+        }
+        .cns-letra {
+            display: inline-block;
+            font-size: 2.2em;
+            font-weight: 900;
+            line-height: 1;
+            color: #fde68a;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+        }
+        .cns-palabra {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 800;
+            margin: 6px 0 4px 0;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+        .cns-desc {
+            font-size: 0.9em;
+            color: #e0e7ff;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .cns-importancia {
+            background: rgba(255,255,255,0.15);
+            border-left: 4px solid #fde68a;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 0.95em;
+            line-height: 1.55;
+            color: #f8fafc;
+        }
+        .cns-importancia strong {
+            color: #fde68a;
+        }
+        .cns-lema {
+            text-align: center;
+            margin: 14px 0 0 0;
+            font-style: italic;
+            font-size: 1em;
+            color: #fef3c7;
+            letter-spacing: 0.3px;
+        }
+        @media (max-width: 600px) {
+            .cns-grid { grid-template-columns: 1fr; }
+        }
+
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (AHORA DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+        .ejercicio-card .card-body .resolucion {
+            background: #f0fff4;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            margin-top: 10px;
+        }
+        .ejercicio-card .card-body .resolucion .paso {
+            margin: 8px 0;
+        }
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <span class="codigo">#U100c01 </span>
+                <span class="texto">Formulación orgánica: Nomenclatura de alcanos (Reglas IUPAC)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ==================================================
+         MNEMOTECNIA PRINCIPAL: CNS
+         ================================================== -->
+    <div class="cns-bloque">
+        <h2>🧭 Mnemotecnia principal: <span style="color:#fde68a;">CNS</span></h2>
+        <p class="cns-sub">
+            Antes de aplicar cualquier regla IUPAC, memoriza el orden <strong>C&nbsp;→&nbsp;N&nbsp;→&nbsp;S</strong>.
+            Es la estrategia base para nombrar <strong>cualquier hidrocarburo</strong>.
+        </p>
+
+        <div class="cns-grid">
+            <div class="cns-card">
+                <span class="cns-letra">C</span>
+                <span class="cns-palabra">Cadena</span>
+                <p class="cns-desc">Elegir la <strong>cadena principal</strong>: la más larga y, en empate, la más ramificada.</p>
+            </div>
+            <div class="cns-card">
+                <span class="cns-letra">N</span>
+                <span class="cns-palabra">Numeración</span>
+                <p class="cns-desc"><strong>Numerar</strong> la cadena desde el extremo que dé los localizadores más bajos.</p>
+            </div>
+            <div class="cns-card">
+                <span class="cns-letra">S</span>
+                <span class="cns-palabra">Sustituyente</span>
+                <p class="cns-desc">Nombrar y ordenar los <strong>sustituyentes</strong> alfabéticamente con sus localizadores.</p>
+            </div>
+        </div>
+
+        <div class="cns-importancia">
+            <strong>¿Por qué es tan importante CNS?</strong> Sin <em>Cadena</em> no hay esqueleto que nombrar;
+            sin <em>Numeración</em> no hay posición que indicar; sin <em>Sustituyentes</em> no hay identidad de las ramificaciones.
+            Las tres letras resumen <strong>las tres decisiones</strong> que hay que tomar siempre, en ese orden, antes de escribir el nombre IUPAC.
+        </div>
+
+        <p class="cns-lema">“Primero la <strong>C</strong>adena, luego la <strong>N</strong>umeración, después los <strong>S</strong>ustituyentes.”</p>
+    </div>
+
+    <!-- ENUNCIADO -->
+    <div class="section enunciado">
+        <h2>📘 Enunciado</h2>
+        <p>Los <strong>alcanos</strong> son hidrocarburos saturados, formados únicamente por carbono e hidrógeno unidos mediante enlaces simples (C–C y C–H). Responden a la fórmula molecular general:</p>
+
+        <div class="formula-box">
+            \[ \text{C}_n\text{H}_{2n+2} \qquad (n \geq 1) \]
+        </div>
+
+        <p>Se pide <strong>nombrar y formular alcanos ramificados</strong> aplicando correctamente las reglas de la IUPAC (Unión Internacional de Química Pura y Aplicada), que se resumen en cuatro reglas básicas:</p>
+        <ul>
+            <li><strong>Regla 1:</strong> elección de la cadena principal (la más larga; en caso de empate, la más ramificada).</li>
+            <li><strong>Regla 2:</strong> numeración de la cadena principal (desde el extremo más cercano a un sustituyente).</li>
+            <li><strong>Regla 3:</strong> construcción del nombre (sustituyentes alfabéticamente con sus localizadores + nombre de la cadena principal).</li>
+            <li><strong>Regla 4:</strong> reconocimiento de los sustituyentes con nombres comunes.</li>
+        </ul>
+
+        <div class="figura">
+            <img <img src="../imagenes/00-Formulación/Alcanos-teoria01.gif" alt="Esquema de un alcano ramificado">
+
+
+        </div>
+    </div>
+
+    <!-- OBJETIVO -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <p>Al finalizar este bloque, el estudiante debe ser capaz de:</p>
+        <ul>
+            <li>Identificar la <strong>cadena principal</strong> de un alcano ramificado, eligiendo la de mayor longitud y, en caso de empate, la más ramificada.</li>
+            <li><strong>Numerar</strong> correctamente la cadena principal atendiendo a la posición de los sustituyentes.</li>
+            <li>Escribir el <strong>nombre IUPAC</strong> ordenando los sustituyentes alfabéticamente y colocando sus localizadores.</li>
+            <li>Reconocer los <strong>sustituyentes de nombre común</strong> (isopropilo, isobutilo, sec-butilo, tert-butilo…).</li>
+            <li>Aplicar los <strong>prefijos multiplicadores</strong> (di-, tri-, tetra-…) y las reglas de alfabetización.</li>
+            <li>Dada una fórmula desarrollada, obtener su <strong>fórmula molecular</strong> y su <strong>fórmula condensada</strong>.</li>
+            <li>Recorrer el camino inverso: <strong>dibujar la estructura</strong> a partir del nombre.</li>
+        </ul>
+    </div>
+
+    <!-- FUNDAMENTO TEÓRICO -->
+    <div class="section procedimiento">
+        <h2>⚙️ Fundamento teórico y procedimiento</h2>
+
+        <div class="step">
+            <span class="step-num">1</span>
+            <strong>Regla 1. Elección de la cadena principal.</strong> Se elige como cadena principal la de <strong>mayor longitud</strong>. Si dos cadenas tienen la misma longitud, se toma como principal la <strong>más ramificada</strong> (la que tenga mayor número de sustituyentes).
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-teoria01.gif" alt="Selección de la cadena principal">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">2</span>
+            <strong>Regla 2. Numeración de la cadena principal.</strong> La numeración parte del <strong>extremo más cercano a un sustituyente</strong>. Si por ambos lados hay sustituyentes a igual distancia de los extremos, se tienen en cuenta el <strong>resto de sustituyentes</strong> del alcano, buscando el conjunto de localizadores más bajo posible.
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-teoria02.gif" alt="Numeración de la cadena principal">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">3</span>
+            <strong>Regla 3. Construcción del nombre.</strong> El nombre del alcano comienza especificando los <strong>sustituyentes</strong>, ordenados <strong>alfabéticamente</strong> y precedidos de sus respectivos <strong>localizadores</strong>. Para terminar, se indica el nombre de la <strong>cadena principal</strong>.
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-teoria03.gif" alt="Construcción del nombre IUPAC">
+            </div>
+            <div class="note">
+                <strong>Claves de alfabetización:</strong>
+                <ul style="margin-bottom:0;">
+                    <li>Los <strong>prefijos multiplicadores</strong> (<span class="nomenclatura"><span class="pref">di</span></span>-, <span class="nomenclatura"><span class="pref">tri</span></span>-, <span class="nomenclatura"><span class="pref">tetra</span></span>-…) <strong>no</strong> cuentan para el orden alfabético.</li>
+                    <li>Los prefijos <span class="nomenclatura"><span class="pref">iso</span></span>-, <span class="nomenclatura"><span class="pref">neo</span></span>- y <span class="nomenclatura"><span class="pref">ciclo</span></span>- <strong>sí</strong> alfabetizan (forman parte del nombre del sustituyente).</li>
+                    <li>Los prefijos <span class="nomenclatura"><span class="pref">sec</span></span>- y <span class="nomenclatura"><span class="pref">tert</span></span>- <strong>no</strong> alfabetizan (se consideran junto a la raíz del sustituyente).</li>
+                    <li>El nombre completo se escribe <strong>todo junto</strong>, sin espacios, separando números con comas y números de letras con guiones.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">4</span>
+            <strong>Regla 4. Sustituyentes con nombres comunes.</strong> Algunos sustituyentes ramificados tienen nombres comunes que conviene memorizar:
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre común</th>
+                        <th>Nombre sistemático</th>
+                        <th>Fórmula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="nomenclatura"><span class="rad">metilo</span></span></td><td>metilo</td><td>–CH<sub>3</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="rad">etilo</span></span></td><td>etilo</td><td>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="rad">propilo</span></span></td><td>propilo</td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span></td><td>1-metiletilo</td><td>–CH(CH<sub>3</sub>)<sub>2</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="rad">butilo</span></span></td><td>butilo</td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span></td><td>1-metilpropilo</td><td>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span></td><td>2-metilpropilo</td><td>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">tert</span>-<span class="rad">butilo</span></span></td><td>1,1-dimetiletilo</td><td>–C(CH<sub>3</sub>)<sub>3</sub></td></tr>
+                </tbody>
+            </table>
+
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-teoria04.gif" alt="Sustituyentes comunes">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">5</span>
+            <strong>Procedimiento práctico para nombrar un alcano.</strong>
+            <ol>
+                <li>Localiza todas las cadenas carbonadas posibles y <strong>elige la más larga</strong> (Regla 1).</li>
+                <li>Si hay empate, cuenta los sustituyentes de cada candidata y quédate con la <strong>más ramificada</strong>.</li>
+                <li>Numera la cadena por los dos extremos y compara los localizadores obtenidos; elige la numeración que dé los <strong>números más bajos</strong> (Regla 2).</li>
+                <li>Identifica y nombra cada sustituyente, agrupando los repetidos con los prefijos <em>di-, tri-, tetra-</em>…</li>
+                <li>Ordena los sustituyentes <strong>alfabéticamente</strong> con sus localizadores (Regla 3).</li>
+                <li>Añade al final el nombre de la <strong>cadena principal</strong> con la terminación <em>-ano</em>.</li>
+            </ol>
+        </div>
+
+        <div class="note">
+            <strong>Observaciones:</strong> escribe siempre los localizadores separados por comas y entre el último número y la primera letra un guion (por ejemplo, <span class="nomenclatura"><span class="num">2,4,6</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span>). Recuerda que la terminación <em>-ano</em> indica hidrocarburo saturado de cadena abierta. Antes de dar por bueno un nombre, comprueba siempre que la cadena principal es realmente la más larga y que la numeración es la de localizadores más bajos.
+        </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="section resultado">
+        <h2>✅ Resultado</h2>
+        <div class="formula-box">
+            <strong>Esquema general del nombre IUPAC de un alcano</strong>
+            <p style="font-size: 1.05em; margin: 10px 0 0 0;">
+                \[ \boxed{\text{localizador}-\text{sustituyente}(\,-\text{localizador}-\text{sustituyente}\ldots) + \text{cadena principal} } \]
+            </p>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-box" style="border-color: #48bb78;">
+                <div class="title" style="color: #276749;">Cadena principal</div>
+                <p>La más <strong>larga</strong></p>
+                <p>En empate, la más <strong>ramificada</strong></p>
+                <p>Da el nombre base (<em>…ano</em>)</p>
+            </div>
+            <div class="comparison-box" style="border-color: #4299e1;">
+                <div class="title" style="color: #2b6cb0;">Sustituyentes</div>
+                <p>Orden <strong>alfabético</strong></p>
+                <p>Con sus <strong>localizadores</strong></p>
+                <p>Prefijos <em>di-, tri-, tetra-</em> si se repiten</p>
+            </div>
+        </div>
+
+        <p>La aplicación ordenada de las cuatro reglas permite nombrar cualquier alcano ramificado sin ambigüedad y, a la inversa, dibujar la estructura a partir de su nombre.</p>
+
+        <div style="background: #e6fffa; border-radius: 8px; padding: 10px; margin-top: 12px; border-left: 4px solid #319795;">
+            <p style="margin: 0;"><strong>📌 Conclusión:</strong> el nombre IUPAC de un alcano es una «dirección» inequívoca de la molécula: la cadena principal indica el esqueleto, los localizadores la posición y los nombres de los sustituyentes la identidad de las ramificaciones. Dominar las cuatro reglas es la base para nombrar cualquier compuesto orgánico posterior (alquenos, alquinos, derivados halogenados, alcoholes…).</p>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 DESMITIFICANDO la teoría: problemas resueltos</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- EJERCICIO 1 (desplegable, cerrado) -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 1</span>
+                    Formular a partir del nombre
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del <span class="nomenclatura"><span class="num">2,4,6</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">adecano</span></span>.
+                    </div>
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+                        <div class="paso"><strong>1. Cadena principal:</strong> el sufijo <em>-octadecano</em> indica un alcano de <strong>18 carbonos</strong> en cadena lineal.</div>
+                        <div class="paso"><strong>2. Sustituyentes:</strong> el prefijo <em>tri-</em> con el nombre <em>metilo</em> indica <strong>tres grupos –CH<sub>3</sub></strong>, situados en las posiciones <strong>2, 4 y 6</strong> de la cadena principal.</div>
+                        <div class="paso"><strong>3. Fórmula molecular:</strong> \(\text{C}_{18}\text{H}_{38}\) (coincide con \(\text{C}_n\text{H}_{2n+2}\) para \(n=18\)).</div>
+                        <div class="paso"><strong>4. Fórmula condensada:</strong><br>
+                            \(\text{CH}_3-\text{CH}(\text{CH}_3)-\text{CH}_2-\text{CH}(\text{CH}_3)-\text{CH}_2-\text{CH}(\text{CH}_3)-(\text{CH}_2)_{11}-\text{CH}_3\)
+                        </div>
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-problema3-01.gif" alt="Fórmula desarrollada del 2,4,6-trimetiloctadecano">
+                        </div>
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ Resultado: cadena de 18 carbonos con metilos en C2, C4 y C6.
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- EJERCICIO 2 (desplegable, cerrado) -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 2</span>
+                    Fórmula molecular, condensada y número de hidrógenos
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da la fórmula molecular, la fórmula condensada e indica el número de hidrógenos que tiene cada carbono en la molécula de <span class="nomenclatura"><span class="alc">oct</span><span class="suf">ano</span></span>.
+                    </div>
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+                        <div class="paso"><strong>1. Fórmula molecular:</strong> un alcano de 8 carbonos tiene \(2 \cdot 8 + 2 = 18\) hidrógenos. Por tanto: <strong>\(\text{C}_8\text{H}_{18}\)</strong>.</div>
+                        <div class="paso"><strong>2. Fórmula condensada:</strong> \(\text{CH}_3-(\text{CH}_2)_6-\text{CH}_3\), que responde a la forma general \(\text{CH}_3(\text{CH}_2)_n\text{CH}_3\) (con \(n=6\)).</div>
+                        <div class="paso"><strong>3. Hidrógenos por carbono:</strong></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Carbono</th>
+                                    <th>Tipo</th>
+                                    <th>Nº de H</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>C1 y C8 (extremos)</td><td>–CH<sub>3</sub></td><td>3 H cada uno</td></tr>
+                                <tr><td>C2 a C7 (interiores)</td><td>–CH<sub>2</sub>–</td><td>2 H cada uno</td></tr>
+                                <tr><td class="media">Total</td><td class="media">8 carbonos</td><td class="media">3 + 3 + 6·2 = 18 H</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-problema2-01.gif" alt="Fórmula desarrollada del octano">
+                        </div>
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ La suma de hidrógenos coincide con la fórmula molecular \(\text{C}_8\text{H}_{18}\).
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- EJERCICIO 3 (desplegable, cerrado) -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 3</span>
+                    Nombrar compuestos (IUPAC)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC de los siguientes compuestos.
+                    </div>
+
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/Alcanos-problema4-01.gif" alt="Estructuras de los compuestos a, b y c">
+                    </div>
+
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+
+                        <div class="paso" style="margin-bottom:10px;"><strong>Compuesto a)</strong></div>
+                        <ul>
+                            <li><strong>Cadena principal:</strong> se elige la de mayor longitud, <strong>8 carbonos</strong> (octano).</li>
+                            <li><strong>Numeración:</strong> comienza por el extremo más próximo a un sustituyente.</li>
+                            <li><strong>Sustituyentes:</strong> metilos en 2, 4 y 6; etilo en 5.</li>
+                            <li><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">5</span>-<span class="rad">Etil</span>-<span class="num">2,4,6</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span></li>
+                        </ul>
+
+                        <div class="paso" style="margin:15px 0 10px 0;"><strong>Compuesto b)</strong></div>
+                        <ul>
+                            <li><strong>Cadena principal:</strong> <strong>6 carbonos</strong> (hexano).</li>
+                            <li><strong>Numeración:</strong> comienza por la izquierda (metilo en 2). Por la derecha el etilo estaría en 3.</li>
+                            <li><strong>Sustituyentes:</strong> etilo en 4 y metilo en 2.</li>
+                            <li><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">2</span>-<span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></li>
+                        </ul>
+
+                        <div class="paso" style="margin:15px 0 10px 0;"><strong>Compuesto c)</strong></div>
+                        <ul>
+                            <li><strong>Cadena principal:</strong> la cadena más larga es de <strong>10 carbonos</strong> (decano).</li>
+                            <li><strong>Numeración:</strong> empieza por la izquierda, ya que así se encuentra antes el primer sustituyente.</li>
+                            <li><strong>Sustituyentes:</strong> metilos en 2 y 6; etilo en 8; isopropilo en 4.</li>
+                            <li><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">8</span>-<span class="rad">Etil</span>-<span class="num">4</span>-<span class="pref">iso</span><span class="rad">propil</span>-<span class="num">2,6</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">dec</span><span class="suf">ano</span></span></li>
+                        </ul>
+
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-problema4-02.gif" alt="Resolución con la cadena principal y la numeración">
+                        </div>
+
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ En los tres casos los sustituyentes se han ordenado alfabéticamente (etilo &lt; isopropilo &lt; metilo) y los localizadores son los más bajos posibles.
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+
+
+            <!-- PIE DIDÁCTICO (fuera de los sub-desplegables) -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones claves:</strong> nombrar un alcano es aplicar <em>siempre</em> las mismas cuatro reglas y en el mismo orden: (1) cadena principal más larga y, en empate, más ramificada; (2) numeración desde el extremo que dé los localizadores más bajos; (3) sustituyentes alfabéticamente con sus localizadores; (4) reconocimiento de los nombres comunes (<span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span>, <span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span>, <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span>, <span class="nomenclatura"><span class="pref">tert</span>-<span class="rad">butilo</span></span>). Los errores más habituales son elegir una cadena que no es la más larga, numerar por el extremo equivocado y olvidar que los prefijos <em>di-, tri-, tetra-</em> no alfabetizan mientras que <em>iso-</em> sí lo hace. Como valoración crítica, conviene practicar el camino inverso (dibujar a partir del nombre) porque es la mejor forma de detectar si la cadena elegida era realmente la principal.
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable (principal o de problema)
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</body>
+</html>

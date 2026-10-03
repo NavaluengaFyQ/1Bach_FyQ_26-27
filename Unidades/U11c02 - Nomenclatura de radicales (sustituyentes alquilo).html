@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c02 - Formulación orgánica: Nomenclatura de radicales (sustituyentes alquilo)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+        .ejercicio-card .card-body .resolucion {
+            background: #f0fff4;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            margin-top: 10px;
+        }
+        .ejercicio-card .card-body .resolucion .paso {
+            margin: 8px 0;
+        }
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <span class="codigo">#U100c02 </span>
+                <span class="texto">Formulación orgánica: Nomenclatura de radicales (sustituyentes alquilo)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ENUNCIADO -->
+    <div class="section enunciado">
+        <h2>📘 Enunciado</h2>
+        <p>Los <strong>alcanos ramificados</strong> se obtienen sustituyendo uno o varios hidrógenos de un alcano lineal por <strong>radicales alquilo</strong>, también llamados <strong>sustituyentes</strong>.</p>
+
+        <p>Un <strong>radical alquilo</strong> se forma quitando un hidrógeno (H) al alcano correspondiente y cambiando la terminación <em>-ano</em> por <em>-ilo</em>:</p>
+
+        <div class="formula-box">
+            \[ \text{Alcano } \xrightarrow{-\text{H}} \text{Radical alquilo} \qquad (-\text{ano} \rightarrow -\text{ilo}) \]
+        </div>
+
+        <p>Además de los radicales lineales (<span class="nomenclatura"><span class="rad">metilo</span></span>, <span class="nomenclatura"><span class="rad">etilo</span></span>, <span class="nomenclatura"><span class="rad">propilo</span></span>…), existen <strong>sustituyentes tradicionales</strong> que se designan con los prefijos específicos <span class="nomenclatura"><span class="pref">iso</span></span>-, <span class="nomenclatura"><span class="pref">sec</span></span>-, <span class="nomenclatura"><span class="pref">terc</span></span>- y <span class="nomenclatura"><span class="pref">neo</span></span>-. Se pide <strong>reconocer, formular y nombrar</strong> correctamente todos estos radicales.</p>
+
+        <div class="figura">
+            <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-iso.jpg" alt="Radicales con prefijo iso-">
+            <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-sec.jpg" alt="Radicales con prefijo sec-">
+            <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-terc.jpg" alt="Radicales con prefijo terc-">
+            <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-neo.jpg" alt="Radicales con prefijo neo-">
+        </div>
+    </div>
+
+    <!-- OBJETIVO -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <p>Al finalizar este bloque, el estudiante debe ser capaz de:</p>
+        <ul>
+            <li>Formar un <strong>radical alquilo</strong> a partir de un alcano, quitando un H y cambiando <em>-ano</em> por <em>-ilo</em>.</li>
+            <li>Reconocer y escribir los <strong>radicales lineales básicos</strong>: <span class="nomenclatura"><span class="rad">metilo</span></span>, <span class="nomenclatura"><span class="rad">etilo</span></span>, <span class="nomenclatura"><span class="rad">propilo</span></span>, <span class="nomenclatura"><span class="rad">butilo</span></span>…</li>
+            <li>Identificar la geometría característica de cada prefijo tradicional: <span class="nomenclatura"><span class="pref">iso</span></span>- (forma de «Y»), <span class="nomenclatura"><span class="pref">neo</span></span>- (forma de «+»), <span class="nomenclatura"><span class="pref">sec</span></span>- y <span class="nomenclatura"><span class="pref">terc</span></span>-.</li>
+            <li>Establecer las <strong>equivalencias</strong> entre nombres tradicionales y sistemáticos (por ejemplo, <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> = <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">propilo</span></span> = <span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>).</li>
+            <li>Formular correctamente los radicales ramificados con sus hidrógenos correspondientes.</li>
+            <li>Utilizar estos sustituyentes en la nomenclatura de alcanos ramificados.</li>
+        </ul>
+    </div>
+
+    <!-- FUNDAMENTO TEÓRICO -->
+    <div class="section procedimiento">
+        <h2>⚙️ Fundamento teórico y procedimiento</h2>
+
+        <div class="step">
+            <span class="step-num">1</span>
+            <strong>Radicales lineales básicos.</strong> Se obtienen quitando un hidrógeno a un alcano lineal. La terminación <em>-ano</em> se transforma en <em>-ilo</em>. El punto de unión (el carbono que ha perdido el H) se representa con un guion.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alcano de partida</th>
+                        <th>Radical</th>
+                        <th>Fórmula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>metano (CH<sub>4</sub>)</td><td><span class="nomenclatura"><span class="rad">metilo</span></span></td><td>–CH<sub>3</sub></td></tr>
+                    <tr><td>etano (C<sub>2</sub>H<sub>6</sub>)</td><td><span class="nomenclatura"><span class="rad">etilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td>propano (C<sub>3</sub>H<sub>8</sub>)</td><td><span class="nomenclatura"><span class="rad">propilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                    <tr><td>butano (C<sub>4</sub>H<sub>10</sub>)</td><td><span class="nomenclatura"><span class="rad">butilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                </tbody>
+            </table>
+            <div class="note">
+                <strong>Nota:</strong> para hidrocarburos de más de 2 carbonos pueden formarse <em>varios radicales distintos</em> según el carbono del que se retire el H. Por ejemplo, del propano se obtienen el <span class="nomenclatura"><span class="rad">propilo</span></span> (H del C1) y el <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> (H del C2).
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">2</span>
+            <strong>Prefijo ISO-.</strong> El prefijo <span class="nomenclatura"><span class="pref">iso</span></span>- indica un radical ramificado cuya <strong>forma recuerda a una «Y»</strong> y cuyo punto de unión se encuentra en el <strong>comienzo</strong> del radical. El grupo terminal es siempre un <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> (–CH(CH<sub>3</sub>)<sub>2</sub>).
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre tradicional</th>
+                        <th>Carbonos</th>
+                        <th>Fórmula</th>
+                        <th>Nombre sistemático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span></td><td>3</td><td>–CH(CH<sub>3</sub>)<sub>2</sub></td><td><span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span></td><td>4</td><td>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub></td><td><span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">pentilo</span></span></td><td>5</td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub></td><td><span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">but</span><span class="suf">ilo</span></span></td></tr>
+                </tbody>
+            </table>
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-iso.jpg" alt="Radicales con prefijo iso-">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">3</span>
+            <strong>Prefijo NEO-.</strong> El prefijo <span class="nomenclatura"><span class="pref">neo</span></span>- indica un radical cuya <strong>forma recuerda a una «+»</strong> y cuyo punto de unión se encuentra en la <strong>terminación</strong> del radical. El grupo terminal es siempre un <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span> (–C(CH<sub>3</sub>)<sub>3</sub>).
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre tradicional</th>
+                        <th>Carbonos</th>
+                        <th>Fórmula</th>
+                        <th>Nombre sistemático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="nomenclatura"><span class="pref">neo</span><span class="rad">pentilo</span></span></td><td>5</td><td>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="num">2,2</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">prop</span><span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">neo</span><span class="rad">hexilo</span></span></td><td>6</td><td>–CH<sub>2</sub>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">but</span><span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">neo</span><span class="rad">heptilo</span></span></td><td>7</td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="num">4,4</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">pent</span><span class="suf">ilo</span></span></td></tr>
+                </tbody>
+            </table>
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-neo.jpg" alt="Radicales con prefijo neo-">
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">4</span>
+            <strong>Prefijo SEC-.</strong> El prefijo <span class="nomenclatura"><span class="pref">sec</span></span>- (del inglés <em>secondary</em>) indica que el punto de unión es un <strong>carbono secundario</strong>, es decir, un carbono unido a otros dos carbonos. Se localiza en el <strong>comienzo</strong> del radical.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre tradicional</th>
+                        <th>Carbonos</th>
+                        <th>Fórmula</th>
+                        <th>Nombre sistemático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">propilo</span></span></td><td>3</td><td>–CH(CH<sub>3</sub>)<sub>2</sub></td><td><span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span></td><td>4</td><td>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub></td><td><span class="nomenclatura"><span class="alc">but</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">pentilo</span></span></td><td>5</td><td>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td><td><span class="nomenclatura"><span class="alc">pent</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                </tbody>
+            </table>
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-sec.jpg" alt="Radicales con prefijo sec-">
+            </div>
+            <div class="note">
+                <strong>Equivalencia importante:</strong> <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">propilo</span></span> = <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> = <span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>. Los tres nombres designan el mismo sustituyente.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">5</span>
+            <strong>Prefijo TERC-.</strong> El prefijo <span class="nomenclatura"><span class="pref">terc</span></span>- (del inglés <em>tertiary</em>) indica que el punto de unión es un <strong>carbono terciario</strong>, es decir, un carbono unido a otros tres carbonos. Se localiza en el <strong>comienzo</strong> del radical.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre tradicional</th>
+                        <th>Carbonos</th>
+                        <th>Fórmula</th>
+                        <th>Nombre sistemático</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span></td><td>4</td><td>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">pentilo</span></span></td><td>5</td><td>–C(CH<sub>3</sub>)<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td><td><span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">but</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                    <tr><td><span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">hexilo</span></span></td><td>6</td><td>–C(CH<sub>3</sub>)<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td><td><span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">pent</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                </tbody>
+            </table>
+            <div class="figura">
+                <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-terc.jpg" alt="Radicales con prefijo terc-">
+            </div>
+            <div class="note">
+                <strong>Equivalencia importante:</strong> <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span> = <span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-num">6</span>
+            <strong>Resumen comparativo de los cuatro prefijos.</strong>
+            <div class="comparison">
+                <div class="comparison-box" style="border-color: #48bb78;">
+                    <div class="title" style="color: #276749;">ISO- (forma de «Y»)</div>
+                    <p>Punto de unión al <strong>comienzo</strong></p>
+                    <p>Grupo terminal: –CH(CH<sub>3</sub>)<sub>2</sub></p>
+                    <p>Ej.: <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span>, <span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span></p>
+                </div>
+                <div class="comparison-box" style="border-color: #4299e1;">
+                    <div class="title" style="color: #2b6cb0;">NEO- (forma de «+»)</div>
+                    <p>Punto de unión en la <strong>terminación</strong></p>
+                    <p>Grupo terminal: –C(CH<sub>3</sub>)<sub>3</sub></p>
+                    <p>Ej.: <span class="nomenclatura"><span class="pref">neo</span><span class="rad">pentilo</span></span>, <span class="nomenclatura"><span class="pref">neo</span><span class="rad">hexilo</span></span></p>
+                </div>
+                <div class="comparison-box" style="border-color: #ed8936;">
+                    <div class="title" style="color: #c05621;">SEC-</div>
+                    <p>Punto de unión en <strong>carbono secundario</strong></p>
+                    <p>Unión al comienzo del radical</p>
+                    <p>Ej.: <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span>, <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">pentilo</span></span></p>
+                </div>
+                <div class="comparison-box" style="border-color: #9f7aea;">
+                    <div class="title" style="color: #553c9a;">TERC-</div>
+                    <p>Punto de unión en <strong>carbono terciario</strong></p>
+                    <p>Unión al comienzo del radical</p>
+                    <p>Ej.: <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span>, <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">pentilo</span></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="section resultado">
+        <h2>✅ Resultado</h2>
+        <div class="formula-box">
+            <strong>Esquema general de un radical alquilo</strong>
+            <p style="font-size: 1.05em; margin: 10px 0 0 0;">
+                \[ \boxed{\text{Alcano} - \text{H} \longrightarrow \text{Radical alquilo} \; (-\text{ilo}) } \]
+            </p>
+            <p style="font-size: 1.05em; margin: 10px 0 0 0;">
+                \[ \boxed{\text{prefijo tradicional (iso-, sec-, terc-, neo-)} + \text{raíz} + \text{-ilo} } \]
+            </p>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-box" style="border-color: #48bb78;">
+                <div class="title" style="color: #276749;">Radicales lineales</div>
+                <p><span class="nomenclatura"><span class="rad">metilo</span></span>, <span class="nomenclatura"><span class="rad">etilo</span></span></p>
+                <p><span class="nomenclatura"><span class="rad">propilo</span></span>, <span class="nomenclatura"><span class="rad">butilo</span></span></p>
+                <p>Punto de unión en el extremo</p>
+            </div>
+            <div class="comparison-box" style="border-color: #4299e1;">
+                <div class="title" style="color: #2b6cb0;">Radicales ramificados</div>
+                <p>Prefijos <em>iso-</em>, <em>sec-</em>, <em>terc-</em>, <em>neo-</em></p>
+                <p>Punto de unión interior o en grupo terminal</p>
+                <p>Equivalencias con nombres sistemáticos</p>
+            </div>
+        </div>
+
+        <p>El dominio de los radicales alquilo es imprescindible para poder nombrar y formular correctamente cualquier alcano ramificado. Los prefijos <span class="nomenclatura"><span class="pref">iso</span></span>- y <span class="nomenclatura"><span class="pref">neo</span></span>- <strong>sí alfabetizan</strong> (forman parte del nombre del sustituyente), mientras que <span class="nomenclatura"><span class="pref">sec</span></span>- y <span class="nomenclatura"><span class="pref">terc</span></span>- <strong>no alfabetizan</strong>.</p>
+
+        <div style="background: #e6fffa; border-radius: 8px; padding: 10px; margin-top: 12px; border-left: 4px solid #319795;">
+            <p style="margin: 0;"><strong>📌 Conclusión:</strong> los radicales alquilo son los «ladrillos» con los que se construyen los nombres de los alcanos ramificados. Reconocer su geometría (lineal, en «Y» o en «+») y su punto de unión permite formular y nombrar sin ambigüedad, y establece la base para comprender los grupos funcionales de cursos posteriores.</p>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 DESMITIFICANDO la teoría: problemas resueltos</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- EJERCICIO 1 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 1</span>
+                    Radicales lineales a partir del alcano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el nombre y la fórmula de los radicales que se obtienen al quitar un hidrógeno del metano, etano, propano y butano (considerando el punto de unión en el extremo de la cadena).
+                    </div>
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+                        <div class="paso"><strong>1. Regla general:</strong> se quita un H del alcano y se cambia la terminación <em>-ano</em> por <em>-ilo</em>.</div>
+                        <div class="paso"><strong>2. Metano (CH<sub>4</sub>):</strong> al quitar un H queda –CH<sub>3</sub> → <span class="nomenclatura"><span class="rad">metilo</span></span>.</div>
+                        <div class="paso"><strong>3. Etano (CH<sub>3</sub>–CH<sub>3</sub>):</strong> al quitar un H queda –CH<sub>2</sub>–CH<sub>3</sub> → <span class="nomenclatura"><span class="rad">etilo</span></span>.</div>
+                        <div class="paso"><strong>4. Propano (CH<sub>3</sub>–CH<sub>2</sub>–CH<sub>3</sub>):</strong> si el H se quita de un carbono terminal, queda –CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub> → <span class="nomenclatura"><span class="rad">propilo</span></span> (n-propilo).</div>
+                        <div class="paso"><strong>5. Butano (CH<sub>3</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub>):</strong> si el H se quita de un carbono terminal, queda –CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub> → <span class="nomenclatura"><span class="rad">butilo</span></span> (n-butilo).</div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Alcano</th>
+                                    <th>Radical</th>
+                                    <th>Fórmula</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>metano</td><td><span class="nomenclatura"><span class="rad">metilo</span></span></td><td>–CH<sub>3</sub></td></tr>
+                                <tr><td>etano</td><td><span class="nomenclatura"><span class="rad">etilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                                <tr><td>propano</td><td><span class="nomenclatura"><span class="rad">propilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                                <tr><td>butano</td><td><span class="nomenclatura"><span class="rad">butilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ Los cuatro radicales son lineales y su punto de unión está en el extremo de la cadena.
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- EJERCICIO 2 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 2</span>
+                    Reconocer los prefijos iso-, sec-, terc- y neo-
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Para cada uno de los siguientes radicales, identifica el prefijo tradicional que le corresponde, dibuja su fórmula desarrollada y escribe su nombre sistemático (terminación <em>-ilo</em> con localizador).
+                        <ol style="margin-top:8px;">
+                            <li>–CH(CH<sub>3</sub>)<sub>2</sub></li>
+                            <li>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></li>
+                            <li>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub></li>
+                            <li>–C(CH<sub>3</sub>)<sub>3</sub></li>
+                        </ol>
+                    </div>
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+
+                        <div class="paso"><strong>a) –CH(CH<sub>3</sub>)<sub>2</sub>:</strong></div>
+                        <ul>
+                            <li>Forma de «Y» → prefijo <span class="nomenclatura"><span class="pref">iso</span></span>- (también <span class="nomenclatura"><span class="pref">sec</span></span>-).</li>
+                            <li>3 carbonos → raíz <em>prop</em>.</li>
+                            <li>Punto de unión en C2 → <span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> = <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">propilo</span></span>.</li>
+                        </ul>
+
+                        <div class="paso" style="margin-top:12px;"><strong>b) –CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub>:</strong></div>
+                        <ul>
+                            <li>Forma de «+» → prefijo <span class="nomenclatura"><span class="pref">neo</span></span>-.</li>
+                            <li>5 carbonos → raíz <em>pent</em>.</li>
+                            <li>Punto de unión en C1 y dos metilos en C2 → <span class="nomenclatura"><span class="num">2,2</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">prop</span><span class="suf">ilo</span></span>.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">neo</span><span class="rad">pentilo</span></span>.</li>
+                        </ul>
+
+                        <div class="paso" style="margin-top:12px;"><strong>c) –CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub>:</strong></div>
+                        <ul>
+                            <li>Punto de unión en carbono secundario → prefijo <span class="nomenclatura"><span class="pref">sec</span></span>-.</li>
+                            <li>4 carbonos → raíz <em>but</em>.</li>
+                            <li>Punto de unión en C2 → <span class="nomenclatura"><span class="alc">but</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span>.</li>
+                        </ul>
+
+                        <div class="paso" style="margin-top:12px;"><strong>d) –C(CH<sub>3</sub>)<sub>3</sub>:</strong></div>
+                        <ul>
+                            <li>Punto de unión en carbono terciario → prefijo <span class="nomenclatura"><span class="pref">terc</span></span>-.</li>
+                            <li>4 carbonos → raíz <em>but</em>.</li>
+                            <li>Punto de unión en C2 y dos metilos en C2 → <span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span>.</li>
+                        </ul>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fórmula</th>
+                                    <th>Prefijo</th>
+                                    <th>Nombre tradicional</th>
+                                    <th>Nombre sistemático</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>–CH(CH<sub>3</sub>)<sub>2</sub></td><td><span class="nomenclatura"><span class="pref">iso</span></span>- / <span class="nomenclatura"><span class="pref">sec</span></span>-</td><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span></td><td><span class="nomenclatura"><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                                <tr><td>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="pref">neo</span></span>-</td><td><span class="nomenclatura"><span class="pref">neo</span><span class="rad">pentilo</span></span></td><td><span class="nomenclatura"><span class="num">2,2</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">prop</span><span class="suf">ilo</span></span></td></tr>
+                                <tr><td>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub></td><td><span class="nomenclatura"><span class="pref">sec</span></span>-</td><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span></td><td><span class="nomenclatura"><span class="alc">but</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                                <tr><td>–C(CH<sub>3</sub>)<sub>3</sub></td><td><span class="nomenclatura"><span class="pref">terc</span></span>-</td><td><span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span></td><td><span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span></td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ La geometría del radical (lineal, «Y» o «+») y la posición del punto de unión determinan el prefijo tradicional.
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- EJERCICIO 3 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 3</span>
+                    Nombrar radicales ramificados
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el nombre tradicional y el nombre sistemático de los siguientes radicales:
+                        <ol style="margin-top:8px;">
+                            <li>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub></li>
+                            <li>–CH<sub>2</sub>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub></li>
+                            <li>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></li>
+                        </ol>
+                    </div>
+                    <div class="resolucion">
+                        <strong>Resolución paso a paso:</strong>
+
+                        <div class="paso"><strong>a) –CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub>:</strong></div>
+                        <ul>
+                            <li>Cadena principal: 3 carbonos (propano) con un metilo en C2.</li>
+                            <li>Punto de unión en C1.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span>.</li>
+                            <li>Nombre sistemático: <span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">prop</span><span class="suf">ilo</span></span>.</li>
+                        </ul>
+
+                        <div class="paso" style="margin-top:12px;"><strong>b) –CH<sub>2</sub>–CH<sub>2</sub>–C(CH<sub>3</sub>)<sub>3</sub>:</strong></div>
+                        <ul>
+                            <li>Cadena principal: 4 carbonos (butano) con dos metilos en C3.</li>
+                            <li>Punto de unión en C1.</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">neo</span><span class="rad">hexilo</span></span>.</li>
+                            <li>Nombre sistemático: <span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">but</span><span class="suf">ilo</span></span>.</li>
+                        </ul>
+
+                        <div class="paso" style="margin-top:12px;"><strong>c) –CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub>:</strong></div>
+                        <ul>
+                            <li>Cadena principal: 4 carbonos (butano).</li>
+                            <li>Punto de unión en C2 (carbono secundario).</li>
+                            <li>Nombre tradicional: <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">pentilo</span></span>.</li>
+                            <li>Nombre sistemático: <span class="nomenclatura"><span class="alc">pent</span><span class="suf">an</span>-<span class="num">2</span>-<span class="suf">ilo</span></span>.</li>
+                        </ul>
+
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-grupo-sustituyente-terc.jpg" alt="Radicales ramificados resueltos">
+                        </div>
+
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✔ Los nombres tradicionales son más cómodos de escribir, pero conviene conocer también los sistemáticos para evitar ambigüedades.
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- PIE DIDÁCTICO -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones claves:</strong> los radicales alquilo son los sustituyentes que aparecen en los alcanos ramificados. Su nombre se obtiene cambiando <em>-ano</em> por <em>-ilo</em>. Los prefijos tradicionales <span class="nomenclatura"><span class="pref">iso</span></span>-, <span class="nomenclatura"><span class="pref">sec</span></span>-, <span class="nomenclatura"><span class="pref">terc</span></span>- y <span class="nomenclatura"><span class="pref">neo</span></span>- aportan información sobre la geometría del radical y la posición del punto de unión. Los errores más habituales son: (1) confundir <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> con <span class="nomenclatura"><span class="rad">propilo</span></span>, (2) olvidar que <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">propilo</span></span> y <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> son el mismo grupo, y (3) no recordar que <span class="nomenclatura"><span class="pref">iso</span></span>- y <span class="nomenclatura"><span class="pref">neo</span></span>- alfabetizan mientras que <span class="nomenclatura"><span class="pref">sec</span></span>- y <span class="nomenclatura"><span class="pref">terc</span></span>- no. Practicar el paso inverso (dibujar el radical a partir del nombre) es la mejor forma de fijar estos conceptos.
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable (principal o de problema)
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</body>
+</html>
