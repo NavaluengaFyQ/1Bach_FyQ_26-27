@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c03 - Formulación orgánica: Alcanos ramificados (Problemas)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+
+        /* ============================================
+           SUB-DESPLEGABLE DE SOLUCIÓN
+           ============================================ */
+        details.solucion-card {
+            margin: 14px 0 0 0;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+        details.solucion-card > summary.solucion-header {
+            background: #e6fffa;
+            padding: 10px 16px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #276749;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        details.solucion-card > summary.solucion-header::-webkit-details-marker {
+            display: none;
+        }
+        details.solucion-card > summary.solucion-header:hover {
+            background: #d9f7f2;
+        }
+        details.solucion-card > summary.solucion-header .fa-chevron-down {
+            margin-left: auto;
+            color: #38a169;
+            transition: transform 0.3s ease;
+        }
+        details.solucion-card[open] > summary.solucion-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.solucion-card > .solucion-body {
+            padding: 14px 18px;
+            border-left: 4px solid #48bb78;
+            border-radius: 0 0 10px 10px;
+        }
+        .solucion-body .paso {
+            margin: 8px 0;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.ejercicio-card > summary.card-header { font-size: 0.95em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c03 </span>
+                <span class="texto">Formulación orgánica: Alcanos ramificados (Problemas)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ENUNCIADO / PRESENTACIÓN -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Colección de <strong>problemas resueltos</strong> de formulación y nomenclatura de <strong>alcanos lineales y ramificados</strong>, según las reglas IUPAC.</p>
+        <p>Se abordan, de forma progresiva:</p>
+        <ul>
+            <li>Alcanos lineales de hasta diez carbonos y alcanos de cadena muy larga (20, 30, 40, 50 y 100 carbonos).</li>
+            <li>Radicales alquilo (sustituyentes) con menos de cinco carbonos, incluidos los tradicionales <span class="nomenclatura"><span class="pref">iso</span></span>-, <span class="nomenclatura"><span class="pref">sec</span></span>-, <span class="nomenclatura"><span class="pref">terc</span></span>- y <span class="nomenclatura"><span class="pref">neo</span></span>-.</li>
+            <li>Elección de la cadena principal, numeración y ordenación alfabética de los sustituyentes.</li>
+            <li>Paso inverso: escribir la fórmula estructural a partir del nombre.</li>
+            <li>Errores frecuentes al nombrar alcanos ramificados.</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Escribir la fórmula molecular y semidesarrollada de un alcano lineal a partir de su nombre y viceversa.</li>
+            <li>Formar y nombrar los radicales alquilo derivados de los alcanos de menos de cinco carbonos.</li>
+            <li>Seleccionar la <strong>cadena principal</strong> (la más larga; en caso de empate, la que tenga más sustituyentes).</li>
+            <li>Numerar la cadena de modo que los sustituyentes reciban los <strong>localizadores más bajos</strong>.</li>
+            <li>Construir el nombre respetando el <strong>orden alfabético</strong> y las reglas de puntuación (guiones, comas, ausencia de espacios).</li>
+            <li>Detectar y corregir nombres incorrectos de alcanos ramificados.</li>
+        </ul>
+    </div>
+
+    <!-- ==================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 PROBLEMAS RESUELTOS de alcanos</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- ================= PROBLEMA 1 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 1</span>
+                    Alcanos lineales con menos de diez carbonos
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe las fórmulas y los nombres de los alcanos lineales con menos de diez carbonos.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p>Los cuatro primeros alcanos se nombran con los prefijos <em>met-</em> (C<sub>1</sub>), <em>et-</em> (C<sub>2</sub>), <em>prop-</em> (C<sub>3</sub>), <em>but-</em> (C<sub>4</sub>), terminando el nombre con el sufijo <em>-ano</em>.</p>
+
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 01a.gif" alt="Cuatro primeros alcanos lineales">
+                                <div class="pie">Metano, etano, propano y butano.</div>
+                            </div>
+
+                            <p>Los otros seis alcanos lineales se nombran con los prefijos griegos <em>pent-</em> (C<sub>5</sub>), <em>hex-</em> (C<sub>6</sub>), <em>hept-</em> (C<sub>7</sub>), <em>oct-</em> (C<sub>8</sub>), <em>non-</em> (C<sub>9</sub>) y <em>dec-</em> (C<sub>10</sub>), que indican el número de carbonos, terminando el nombre con el sufijo <em>-ano</em>.</p>
+
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 01b.gif" alt="Alcanos lineales de cinco a nueve carbonos">
+                                <div class="pie">Pentano, hexano, heptano, octano y nonano.</div>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nº de C</th>
+                                        <th>Prefijo</th>
+                                        <th>Nombre</th>
+                                        <th>Fórmula molecular</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>met-</td><td><span class="nomenclatura"><span class="alc">met</span><span class="suf">ano</span></span></td><td>CH<sub>4</sub></td></tr>
+                                    <tr><td>2</td><td>et-</td><td><span class="nomenclatura"><span class="alc">et</span><span class="suf">ano</span></span></td><td>C<sub>2</sub>H<sub>6</sub></td></tr>
+                                    <tr><td>3</td><td>prop-</td><td><span class="nomenclatura"><span class="alc">prop</span><span class="suf">ano</span></span></td><td>C<sub>3</sub>H<sub>8</sub></td></tr>
+                                    <tr><td>4</td><td>but-</td><td><span class="nomenclatura"><span class="alc">but</span><span class="suf">ano</span></span></td><td>C<sub>4</sub>H<sub>10</sub></td></tr>
+                                    <tr><td>5</td><td>pent-</td><td><span class="nomenclatura"><span class="alc">pent</span><span class="suf">ano</span></span></td><td>C<sub>5</sub>H<sub>12</sub></td></tr>
+                                    <tr><td>6</td><td>hex-</td><td><span class="nomenclatura"><span class="alc">hex</span><span class="suf">ano</span></span></td><td>C<sub>6</sub>H<sub>14</sub></td></tr>
+                                    <tr><td>7</td><td>hept-</td><td><span class="nomenclatura"><span class="alc">hept</span><span class="suf">ano</span></span></td><td>C<sub>7</sub>H<sub>16</sub></td></tr>
+                                    <tr><td>8</td><td>oct-</td><td><span class="nomenclatura"><span class="alc">oct</span><span class="suf">ano</span></span></td><td>C<sub>8</sub>H<sub>18</sub></td></tr>
+                                    <tr><td>9</td><td>non-</td><td><span class="nomenclatura"><span class="alc">non</span><span class="suf">ano</span></span></td><td>C<sub>9</sub>H<sub>20</sub></td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                                ✔ Todos los alcanos lineales responden a la fórmula molecular C<sub>n</sub>H<sub>2n+2</sub>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 2 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 2</span>
+                    Alcanos lineales de 20, 30, 40, 50 y 100 carbonos
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula molecular, la fórmula semidesarrollada y nombra los alcanos lineales de 20, 30, 40, 50 y 100 carbonos.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p>El alcano de 20 carbonos se llama <strong>Eicosano</strong>, su fórmula molecular es <strong>C<sub>20</sub>H<sub>42</sub></strong> (todos los alcanos responden a la fórmula C<sub>n</sub>H<sub>2n+2</sub>). En la fórmula semidesarrollada se escriben los metilos de los extremos y se indica entre paréntesis el número de CH<sub>2</sub> que posee el alcano: <strong>CH<sub>3</sub>(CH<sub>2</sub>)<sub>18</sub>CH<sub>3</sub></strong>.</p>
+
+                            <p>El alcano de 30 carbonos se llama <strong>Triacontano</strong>. Fórmula molecular: <strong>C<sub>30</sub>H<sub>62</sub></strong>. Fórmula semidesarrollada: <strong>CH<sub>3</sub>(CH<sub>2</sub>)<sub>28</sub>CH<sub>3</sub></strong>.</p>
+
+                            <p>Con 40 carbonos: <strong>Tetracontano</strong>. Fórmula molecular: <strong>C<sub>40</sub>H<sub>82</sub></strong>. Fórmula semidesarrollada: <strong>CH<sub>3</sub>(CH<sub>2</sub>)<sub>38</sub>CH<sub>3</sub></strong>.</p>
+
+                            <p>Con 50 carbonos: <strong>Pentacontano</strong>. Fórmula molecular: <strong>C<sub>50</sub>H<sub>102</sub></strong>. Fórmula semidesarrollada: <strong>CH<sub>3</sub>(CH<sub>2</sub>)<sub>48</sub>CH<sub>3</sub></strong>.</p>
+
+                            <p>El alcano de 100 carbonos recibe el nombre de <strong>Hectano</strong>.</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nº de C</th>
+                                        <th>Nombre</th>
+                                        <th>Fórmula molecular</th>
+                                        <th>Fórmula semidesarrollada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>20</td><td>Eicosano</td><td>C<sub>20</sub>H<sub>42</sub></td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>18</sub>CH<sub>3</sub></td></tr>
+                                    <tr><td>30</td><td>Triacontano</td><td>C<sub>30</sub>H<sub>62</sub></td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>28</sub>CH<sub>3</sub></td></tr>
+                                    <tr><td>40</td><td>Tetracontano</td><td>C<sub>40</sub>H<sub>82</sub></td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>38</sub>CH<sub>3</sub></td></tr>
+                                    <tr><td>50</td><td>Pentacontano</td><td>C<sub>50</sub>H<sub>102</sub></td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>48</sub>CH<sub>3</sub></td></tr>
+                                    <tr><td>100</td><td>Hectano</td><td>C<sub>100</sub>H<sub>202</sub></td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>98</sub>CH<sub>3</sub></td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                                ✔ Regla general: un alcano lineal de <em>n</em> carbonos tiene fórmula molecular C<sub>n</sub>H<sub>2n+2</sub> y fórmula semidesarrollada CH<sub>3</sub>(CH<sub>2</sub>)<sub>n−2</sub>CH<sub>3</sub>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 3 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 3</span>
+                    Radicales alquilo con menos de cinco carbonos ★
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe y nombra los radicales alquilo con menos de cinco carbonos.
+                        <br><em>(Muy bueno para ser un crack con los radicales.)</em>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p>Los radicales alquilo se obtienen al eliminar un hidrógeno del alcano. Así, al quitar un hidrógeno al metano se obtiene el radical metilo. Los radicales se nombran cambiando la terminación <em>-ano</em> por <em>-ilo</em>.</p>
+
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 03a.gif" alt="Radicales alquilo lineales">
+                                <div class="pie">Radicales alquilo lineales derivados de los alcanos.</div>
+                            </div>
+
+                            <p>También se pueden construir <strong>radicales ramificados</strong>, algunos de los cuales tienen nombres comunes ampliamente utilizados en nomenclatura.</p>
+
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 03b.gif" alt="Radicales alquilo ramificados">
+                                <div class="pie">Radicales ramificados: isopropilo, isobutilo, sec-butilo y terc-butilo.</div>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fórmula</th>
+                                        <th>Tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><span class="nomenclatura"><span class="rad">metilo</span></span></td><td>–CH<sub>3</sub></td><td>lineal</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="rad">etilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>3</sub></td><td>lineal</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="rad">propilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td><td>lineal</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span></td><td>–CH(CH<sub>3</sub>)<sub>2</sub></td><td>ramificado (iso-)</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="rad">butilo</span></span></td><td>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>3</sub></td><td>lineal</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span></td><td>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>3</sub></td><td>ramificado (sec-)</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span></td><td>–CH<sub>2</sub>–CH(CH<sub>3</sub>)<sub>2</sub></td><td>ramificado (iso-)</td></tr>
+                                    <tr><td><span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span></td><td>–C(CH<sub>3</sub>)<sub>3</sub></td><td>ramificado (terc-)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Info:</strong> los radicales <span class="nomenclatura"><span class="pref">sec</span>-<span class="rad">butilo</span></span> y <span class="nomenclatura"><span class="pref">terc</span>-<span class="rad">butilo</span></span> ordenan alfabéticamente por la «<strong>b</strong>», mientras que <span class="nomenclatura"><span class="pref">iso</span><span class="rad">propilo</span></span> e <span class="nomenclatura"><span class="pref">iso</span><span class="rad">butilo</span></span> ordenan por la «<strong>i</strong>».
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 4 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 4</span>
+                    Nombra el alcano ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano ramificado.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 04.jpg" alt="Alcano ramificado del problema 4">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 04b.gif" alt="Resolución del problema 4">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> se elige como cadena principal la de mayor longitud. Dará nombre al alcano (<em>butano</em>).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> se numera para que los sustituyentes (metilos) tomen los menores localizadores.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> dos metilos en posición 2. Cuando hay dos sustituyentes iguales se emplea el prefijo <em>di-</em>, precedido de los localizadores, separados por comas.</div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,2</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">but</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 5 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 5</span>
+                    Nombra el alcano ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano ramificado.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 05.jpg" alt="Alcano ramificado del problema 5">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 05b.gif" alt="Resolución del problema 5">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> la cadena más larga es de cinco carbonos (pentano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> la numeración comienza por la izquierda para asignar localizador 2 a los metilos.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> dos metilos en posición 2.</div>
+                            <div class="paso"><strong>4. Nombre:</strong> sustituyentes precedidos por sus localizadores, terminando con el nombre de la cadena principal.</div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,2</span>-<span class="pref">Dimetil</span><span class="alc">pent</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 6 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 6</span>
+                    Nombra el alcano ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano ramificado.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 06.jpg" alt="Alcano ramificado del problema 6">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 06b.gif" alt="Resolución del problema 6">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> en este caso la cadena principal no es la horizontal, que sólo tiene cinco carbonos.</div>
+                            <div class="paso"><strong>2. Numeración:</strong> comienza por el extremo que tiene más cerca algún sustituyente (izquierda).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> la cadena principal contiene tres sustituyentes iguales (metilos), que se nombran utilizando el prefijo <em>tri-</em>, precedido de los localizadores que indican la posición en la cadena principal (2,2,4).</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,2,4</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 7 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 7</span>
+                    Cadena principal, numeración y nombre
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Para el siguiente alcano ramificado, elige la cadena principal, numérala y nombra el compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 07.jpg" alt="Alcano ramificado del problema 7">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 07b.jpg" alt="Resolución del problema 7">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> la cadena principal es la de mayor longitud de la molécula (en rojo). Si hay dos cadenas de igual longitud se toma como principal la que tiene mayor número de sustituyentes. Como la cadena principal tiene diez carbonos, el nombre del alcano termina en <em>decano</em>.</div>
+                            <div class="paso"><strong>2. Numeración:</strong> numeramos la cadena principal comenzando por el extremo que tenga más cerca un carbono con sustituyentes. Empezando por la derecha encontramos sustituyentes en 2, mientras que comenzando la numeración por la izquierda el primer sustituyente está en 3.</div>
+                            <div class="paso"><strong>3. Construcción del nombre:</strong> nombramos primero los sustituyentes precedidos por los localizadores que indican su posición en la cadena principal, terminando con el nombre de la cadena principal. Los sustituyentes son: metilos en 2,2,7,8; etilos en 4,5.</div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4,5</span>-<span class="pref">Di</span><span class="rad">etil</span>-<span class="num">2,2,7,8</span>-<span class="pref">tetra</span><span class="rad">metil</span><span class="alc">dec</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                Los prefijos de cantidad <em>di</em>, <em>tri</em>, <em>tetra</em>, <em>penta</em> no se consideran al ordenar alfabéticamente los sustituyentes. Así, <em>dietil</em> ordena por la «e» de <em>etil</em> y <em>tetrametil</em> ordena por la «m» de <em>metil</em>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 8 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 8</span>
+                    Cadena principal, numeración y nombre
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Para el siguiente alcano ramificado, elige la cadena principal, numérala y nombra el compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 08.jpg" alt="Alcano ramificado del problema 8">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 08b.jpg" alt="Resolución del problema 8">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> la cadena principal tiene 9 carbonos (nonano). De ella parten tres sustituyentes: etilo, isopropilo y metilo.</div>
+                            <div class="paso"><strong>2. Numeración:</strong> la numeración de la cadena principal empieza por el extremo izquierdo, ya que en posición 3 encontramos el metilo. Si numeramos desde la derecha encontraríamos el isopropilo en posición 4, lo que nos da localizadores más grandes.</div>
+                            <div class="paso"><strong>3. Construcción del nombre:</strong> nombramos los sustituyentes ordenados alfabéticamente: etilo, isopropilo y metilo. El nombre de cada sustituyente se precede del localizador que indica su posición en la cadena principal: 4-etil, 6-isopropil, 3-metil. Se termina con el nombre de la cadena principal (nonano).</div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">6</span>-<span class="pref">iso</span><span class="rad">propil</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">non</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                <strong>Alerta:</strong> al construir el nombre se separan los números de las letras por guiones. Si van varios localizadores seguidos se separan por comas. Sin embargo, <strong>nunca se dejan espacios</strong>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 9 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 9</span>
+                    Hidrocarburo saturado con sustituyentes complejos
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente hidrocarburo saturado.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 09.jpg" alt="Hidrocarburo del problema 9">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 09b.jpg" alt="Resolución del problema 9">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> la cadena de 12 carbonos (undecano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> el metilo obliga a numerar la cadena principal empezando por la derecha. Numeramos las cadenas laterales de las posiciones 6 y 7, dando localizador 1 al carbono que se une a la cadena principal.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> 1,2-dimetilpropil en posición 7 y 3-metilbutil en posición 6.</div>
+
+                            <div class="note">
+                                <strong>Alerta:</strong> obsérvese que en sustituyentes complejos se tienen en cuenta los prefijos de cantidad (<em>di</em>, <em>tri</em>, <em>tetra</em>…) a la hora de alfabetizar. Cuando los nombres se vuelven complejos conviene utilizar paréntesis para separar unos sustituyentes de otros.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 10 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 10</span>
+                    Hidrocarburo saturado con empate de localizadores
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente hidrocarburo saturado.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 10.jpg" alt="Hidrocarburo del problema 10">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 10b.jpg" alt="Resolución del problema 10">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> cadena de 11 carbonos (undecano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> tanto si comenzamos la numeración por la derecha como si lo hacemos por la izquierda encontramos sustituyente en posición 4. En estos casos, el sustituyente que va antes en el orden alfabético toma el localizador más bajo al numerar.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> etilo en posición 4 y metilo en 8.</div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">8</span>-<span class="rad">metil</span><span class="alc">undec</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                <strong>Alerta:</strong> cuando los sustituyentes están a la misma distancia de ambos extremos de la molécula, se comienza a numerar por el extremo que asigne el localizador más bajo al sustituyente que va antes en el orden alfabético.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 11 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 11</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 11.jpg" alt="Compuesto del problema 11">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 11b.jpg" alt="Resolución del problema 11">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 5 carbonos (pentano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> para que el metilo tome el menor localizador (2).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en posición 2.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">Metil</span><span class="alc">pent</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 12 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 12</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 12.jpg" alt="Compuesto del problema 12">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 12b.jpg" alt="Resolución del problema 12">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 6 carbonos (hexano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> de izquierda a derecha con sustituyentes en 2,3,3.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en 2,3,3.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,3,3</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 13 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 13</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 13.jpg" alt="Compuesto del problema 13">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 13b.jpg" alt="Resolución del problema 13">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 7 carbonos (heptano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> de derecha a izquierda con sustituyentes en 2,5.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en 2 y etilo en 5.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">5</span>-<span class="rad">Etil</span>-<span class="num">2</span>-<span class="rad">metil</span><span class="alc">hept</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 14 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 14</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 14.jpg" alt="Compuesto del problema 14">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 14b.jpg" alt="Resolución del problema 14">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 8 carbonos (octano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> de derecha a izquierda con sustituyentes en 3,3,5.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> tres metilos en 3,3,5.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,3,5</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 15 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 15</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 15.jpg" alt="Compuesto del problema 15">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 15b.jpg" alt="Resolución del problema 15">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 8 carbonos (octano). Obsérvese que no coincide con la cadena horizontal.</div>
+                            <div class="paso"><strong>2. Numeración:</strong> de izquierda a derecha nos encontramos el primer sustituyente en 3. Numerando de derecha a izquierda los primeros sustituyentes aparecen en posición 4.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en posiciones 3,5; etilo en posición 5.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">5</span>-<span class="rad">Etil</span>-<span class="num">3,5</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 16 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 16</span>
+                    Nombre IUPAC
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Da el nombre IUPAC del siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 16.jpg" alt="Compuesto del problema 16">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 16b.jpg" alt="Resolución del problema 16">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> de 9 carbonos (nonano).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> izquierda-derecha, posición de los sustituyentes 3,4,5,7. Derecha-izquierda, posición de los sustituyentes 3,5,6,7. El segundo sustituyente toma un localizador menor en la numeración de izquierda a derecha.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> cuatro metilos en 3,4,5,7.</div>
+                            <div class="paso"><strong>4. Nombre:</strong></div>
+
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,4,5,7</span>-<span class="pref">Tetra</span><span class="rad">metil</span><span class="alc">non</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 17 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 17</span>
+                    Fórmula estructural: 6-isopropil-2,5-dimetilnonano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">6</span>-<span class="pref">iso</span><span class="rad">propil</span>-<span class="num">2,5</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">non</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 17b.jpg" alt="Fórmula estructural del problema 17">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 18 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 18</span>
+                    Fórmula estructural: 4-terc-butil-3-metilheptano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">4</span>-<span class="pref">terc</span>-<span class="rad">butil</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">hept</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 18b.jpg" alt="Fórmula estructural del problema 18">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 19 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 19</span>
+                    Fórmula estructural: Pentacosano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="alc">Pentacos</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 19b.jpg" alt="Fórmula estructural del problema 19">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="note">
+                                El <strong>pentacosano</strong> es un alcano lineal de 25 carbonos: C<sub>25</sub>H<sub>52</sub>, cuya fórmula semidesarrollada es CH<sub>3</sub>(CH<sub>2</sub>)<sub>23</sub>CH<sub>3</sub>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 20 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 20</span>
+                    Fórmula estructural: 4-etil-4-metilheptano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">hept</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 20b.jpg" alt="Fórmula estructural del problema 20">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 21 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 21</span>
+                    Fórmula estructural: 2,3-dimetilpentano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">2,3</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">pent</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 21b.jpg" alt="Fórmula estructural del problema 21">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 22 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 22</span>
+                    Fórmula estructural: 5,5-dietil-2-metil-4-propildecano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">5,5</span>-<span class="pref">Di</span><span class="rad">etil</span>-<span class="num">2</span>-<span class="rad">metil</span>-<span class="num">4</span>-<span class="rad">propil</span><span class="alc">dec</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 22b.jpg" alt="Fórmula estructural del problema 22">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 23 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 23</span>
+                    Fórmula estructural: 2,3,4-trimetiloctano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">2,3,4</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 23b.jpg" alt="Fórmula estructural del problema 23">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 24 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 24</span>
+                    Fórmula estructural: 4-terc-butiloctano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">4</span>-<span class="pref">terc</span>-<span class="rad">Butil</span><span class="alc">oct</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 24b.jpg" alt="Fórmula estructural del problema 24">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 25 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 25</span>
+                    Fórmula estructural: 3-etil-6,7-dimetil-4-propildodecano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Etil</span>-<span class="num">6,7</span>-<span class="pref">di</span><span class="rad">metil</span>-<span class="num">4</span>-<span class="rad">propil</span><span class="alc">dodec</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 25b.jpg" alt="Fórmula estructural del problema 25">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 26 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 26</span>
+                    Fórmula estructural: 4,5-dietil-5-isopropil-3,4-dimetil-6-propilundecano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe la fórmula estructural del siguiente alcano:
+                        <br><span class="nomenclatura"><span class="num">4,5</span>-<span class="pref">Di</span><span class="rad">etil</span>-<span class="num">5</span>-<span class="pref">iso</span><span class="rad">propil</span>-<span class="num">3,4</span>-<span class="pref">di</span><span class="rad">metil</span>-<span class="num">6</span>-<span class="rad">propil</span><span class="alc">undec</span><span class="suf">ano</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 26b.jpg" alt="Fórmula estructural del problema 26">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 27 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 27</span>
+                    Nombra la molécula
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra la siguiente molécula.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 27.jpg" alt="Molécula del problema 27">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 27b.jpg" alt="Resolución del problema 27">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 28 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 28</span>
+                    Nombra la molécula
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra la siguiente molécula.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 28.jpg" alt="Molécula del problema 28">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 28b.jpg" alt="Resolución del problema 28">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 29 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 29</span>
+                    Nombra la molécula
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra la siguiente molécula.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 29.jpg" alt="Molécula del problema 29">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/Alcanos-Prob 29b.jpg" alt="Resolución del problema 29">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 30 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 30</span>
+                    Nombra el siguiente alcano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 30.jpg" alt="Alcano del problema 30">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p style="margin-top:10px;"><strong>Solución:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 31 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 31</span>
+                    Nombra el siguiente alcano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 31.jpg" alt="Alcano del problema 31">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p style="margin-top:10px;"><strong>Solución:</strong> <span class="nomenclatura"><span class="num">3,4</span>-<span class="pref">di</span><span class="rad">etil</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 32 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 32</span>
+                    Nombra el siguiente alcano (¡ojo con el error!)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 32.jpg" alt="Alcano del problema 32">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p style="margin-top:10px;"><strong>La solución correcta sería:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                <strong>Sería un error nombrarlo:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">etil</span><span class="alc">pent</span><span class="suf">ano</span></span>. La cadena principal debe ser la más larga (6 carbonos, hexano), no la de 5 carbonos.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 33 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 33</span>
+                    Nombra el siguiente alcano (¡ojo con el error!)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 33.jpg" alt="Alcano del problema 33">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p style="margin-top:10px;"><strong>La solución correcta sería:</strong> <span class="nomenclatura"><span class="num">5</span>-<span class="pref">iso</span><span class="rad">propil</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">oct</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                <strong>Sería un error nombrarlo:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">metil</span>-<span class="num">5</span>-<span class="pref">iso</span><span class="rad">propil</span><span class="alc">oct</span><span class="suf">ano</span></span>. Al ordenar alfabéticamente, <em>isopropil</em> (i) va antes que <em>metil</em> (m).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= PROBLEMA 34 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 34</span>
+                    Nombra el siguiente alcano (¡ojo con los errores!)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alcano.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/Alcanos-Prob 34.jpg" alt="Alcano del problema 34">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p style="margin-top:10px;"><strong>La solución correcta sería:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">etil</span>-<span class="num">2,2,4</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span></p>
+
+                            <div class="note">
+                                <strong>Sería un error nombrarlo:</strong> <span class="nomenclatura"><span class="num">2,2,4</span>-<span class="pref">tri</span><span class="rad">metil</span>-<span class="num">4</span>-<span class="rad">etil</span><span class="alc">hex</span><span class="suf">ano</span></span> (los sustituyentes deben citarse en orden alfabético: <em>etil</em> antes que <em>metil</em>).
+                            </div>
+
+                            <div class="note">
+                                <strong>También sería un error nombrarlo:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">etil</span>-<span class="num">3,5,5</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span> (la numeración debe dar los localizadores más bajos al conjunto de sustituyentes).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- PIE DIDÁCTICO -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave:</strong>
+                <ul style="margin-top:8px;">
+                    <li>La <strong>cadena principal</strong> es siempre la más larga; si hay empate, la que tenga más sustituyentes.</li>
+                    <li>Se numera por el extremo que proporcione los <strong>localizadores más bajos</strong> al conjunto de sustituyentes.</li>
+                    <li>Si hay empate en la numeración, se asigna el localizador más bajo al sustituyente que va <strong>primero en orden alfabético</strong>.</li>
+                    <li>Los prefijos de cantidad (<em>di</em>, <em>tri</em>, <em>tetra</em>…) <strong>no alfabetizan</strong>; los prefijos <em>iso</em> y <em>neo</em> <strong>sí alfabetizan</strong>, mientras que <em>sec</em> y <em>terc</em> <strong>no alfabetizan</strong>.</li>
+                    <li>Puntuación: los números se separan de las letras con <strong>guiones</strong>, los localizadores entre sí con <strong>comas</strong> y <strong>nunca se dejan espacios</strong>.</li>
+                    <li>Error típico: elegir como principal una cadena corta (por ejemplo, nombrar <span class="nomenclatura"><span class="num">2</span>-<span class="rad">etil</span><span class="alc">pent</span><span class="suf">ano</span></span> en lugar de <span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">hex</span><span class="suf">ano</span></span>).</li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</body>
+</html>
