@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U11c04 - Formulación orgánica: Cicloalcanos (Problemas)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+
+        /* ============================================
+           SUB-DESPLEGABLE DE SOLUCIÓN
+           ============================================ */
+        details.solucion-card {
+            margin: 14px 0 0 0;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+        details.solucion-card > summary.solucion-header {
+            background: #e6fffa;
+            padding: 10px 16px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #276749;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        details.solucion-card > summary.solucion-header::-webkit-details-marker {
+            display: none;
+        }
+        details.solucion-card > summary.solucion-header:hover {
+            background: #d9f7f2;
+        }
+        details.solucion-card > summary.solucion-header .fa-chevron-down {
+            margin-left: auto;
+            color: #38a169;
+            transition: transform 0.3s ease;
+        }
+        details.solucion-card[open] > summary.solucion-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.solucion-card > .solucion-body {
+            padding: 14px 18px;
+            border-left: 4px solid #48bb78;
+            border-radius: 0 0 10px 10px;
+        }
+        .solucion-body .paso {
+            margin: 8px 0;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.ejercicio-card > summary.card-header { font-size: 0.95em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c04 </span>
+                <span class="texto">Formulación orgánica: Cicloalcanos (Problemas)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ENUNCIADO / PRESENTACIÓN -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Colección de <strong>problemas resueltos</strong> de formulación y nomenclatura de <strong>cicloalcanos</strong> (y algunos cicloalquenos y cicloalquinos), según las reglas IUPAC.</p>
+        <p>Los cicloalcanos son alcanos cuyos extremos de cadena están unidos formando un ciclo. Tienen dos hidrógenos menos que el alcano del que derivan, por lo que su fórmula molecular es <strong>C<sub>n</sub>H<sub>2n</sub></strong>.</p>
+        <p>Se abordan, de forma progresiva:</p>
+        <ul>
+            <li>Cicloalcanos sin sustituyentes (ciclopropano, ciclobutano, ciclopentano, ciclohexano).</li>
+            <li>Cicloalquenos y cicloalquenos con varios dobles enlaces (ciclohexeno, ciclooctadieno…).</li>
+            <li>Cicloalcanos con uno, dos y tres o más sustituyentes.</li>
+            <li>Ciclos con sustituyentes complejos y con dobles/triples enlaces en cadenas laterales.</li>
+            <li>Paso inverso: dibujar la estructura a partir del nombre IUPAC.</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Reconocer la estructura de un cicloalcano y aplicar el prefijo <em>ciclo-</em>.</li>
+            <li>Identificar cuándo el ciclo actúa como <strong>cadena principal</strong> y cuándo como <strong>sustituyente</strong> (cicloalquilo).</li>
+            <li>Numerar correctamente el ciclo: localizadores más bajos al conjunto de sustituyentes y, en caso de empate, al sustituyente que va antes en orden alfabético.</li>
+            <li>Dar prioridad al doble/triple enlace frente a los sustituyentes a la hora de numerar.</li>
+            <li>Construir el nombre respetando el <strong>orden alfabético</strong> y las reglas de puntuación (guiones, comas, ausencia de espacios).</li>
+            <li>Detectar y corregir nombres incorrectos de cicloalcanos.</li>
+        </ul>
+    </div>
+
+    <!-- ==================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 TEORÍA Y PROBLEMAS RESUELTOS de cicloalcanos</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- ================= TEORÍA ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Teoría</span>
+                    Nomenclatura de los cicloalcanos
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Resumen:</strong> reglas básicas para nombrar cicloalcanos, cicloalquenos y cicloalquinos, con o sin sustituyentes.
+                    </div>
+
+                    <p>Los cicloalcanos son alcanos que tienen los extremos de la cadena unidos, formando un ciclo. Tienen dos hidrógenos menos que el alcano del que derivan, por ello su fórmula molecular es <strong>C<sub>n</sub>H<sub>2n</sub></strong>. Se nombran utilizando el prefijo <em>ciclo</em> seguido del nombre del alcano.</p>
+
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N_Cicloalcano-01.gif" alt="Cicloalcanos: ciclopropano, ciclobutano, ciclopentano y ciclohexano">
+                        <div class="pie">Ciclopropano, ciclobutano, ciclopentano y ciclohexano.</div>
+                    </div>
+
+                    <p>Es frecuente representar las moléculas indicando sólo su esqueleto. Cada vértice representa un carbono unido a dos hidrógenos.</p>
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <strong>Regla 1.- Cicloalcanos con un solo sustituyente:</strong> se toma el ciclo como cadena principal de la molécula. Es innecesaria la numeración del ciclo.
+                    </div>
+
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N_Cicloalcano-02.gif" alt="Cicloalcano con un único sustituyente: metilciclopentano">
+                        <div class="pie">Ejemplo: metilciclopentano.</div>
+                    </div>
+
+                    <p>Si la cadena lateral es compleja, puede tomarse como cadena principal de la molécula y el ciclo como un sustituyente. Los cicloalcanos como sustituyentes se nombran cambiando la terminación <em>–ano</em> por <em>–ilo</em>.</p>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <strong>Regla 2.- Cicloalcano con dos sustituyentes:</strong> se nombran por orden alfabético. Se numera el ciclo comenzando por el sustituyente que va antes en el nombre.
+                    </div>
+
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N_Cicloalcano-03.gif" alt="Cicloalcano con dos sustituyentes">
+                        <div class="pie">Dos sustituyentes: se numera empezando por el que va antes alfabéticamente.</div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <strong>Regla 3.- Cicloalcano con tres o más sustituyentes:</strong> se nombran por orden alfabético. La numeración del ciclo se hace de forma que se otorguen los localizadores más bajos a los sustituyentes.
+                    </div>
+
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N_Cicloalcano-04.gif" alt="Cicloalcano con tres o más sustituyentes">
+                        <div class="pie">Tres o más sustituyentes: localizadores más bajos al conjunto.</div>
+                    </div>
+
+                    <p>En caso de obtener los mismos localizadores al numerar comenzando por diferentes posiciones, se tiene en cuenta el orden alfabético.</p>
+
+                    <div class="note">
+                        <strong>🧠 Recuerda:</strong>
+                        <ul style="margin-top:8px;">
+                            <li>Los <strong>dobles y triples enlaces</strong> tienen prioridad sobre los sustituyentes a la hora de numerar: deben recibir los localizadores más bajos posibles (normalmente 1 y 2, o 1, 3… si están conjugados).</li>
+                            <li>El nombre del ciclo (por ejemplo <em>ciclohex-1-eno</em>) puede escribirse también como <em>1-ciclohexeno</em>, pero la forma preferida por IUPAC coloca el localizador del enlace justo antes del sufijo.</li>
+                            <li>Cuando el ciclo actúa como sustituyente se usa el sufijo <em>-il</em>: <em>ciclopropil</em>, <em>ciclobutil</em>, <em>ciclopentil</em>, <em>ciclohexil</em>…</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 1 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 1</span>
+                    Ciclopropano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>ciclopropano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob01.gif" alt="Ciclopropano">
+                                <div class="pie">Ciclopropano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario:</strong> ciclo de <strong>3 carbonos</strong>. Al no tener sustituyentes, no es necesaria numeración alguna. Fórmula molecular: <strong>C<sub>3</sub>H<sub>6</sub></strong>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 2 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 2</span>
+                    Ciclobutano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>ciclobutano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob02.gif" alt="Ciclobutano">
+                                <div class="pie">Ciclobutano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario:</strong> ciclo de <strong>4 carbonos</strong>. Sin sustituyentes: no se numera. Fórmula molecular: <strong>C<sub>4</sub>H<sub>8</sub></strong>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 3 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 3</span>
+                    Ciclopentano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>ciclopentano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob03.gif" alt="Ciclopentano">
+                                <div class="pie">Ciclopentano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario:</strong> ciclo de <strong>5 carbonos</strong>. Sin sustituyentes: no se numera. Fórmula molecular: <strong>C<sub>5</sub>H<sub>10</sub></strong>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 4 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 4</span>
+                    Ciclohexano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>ciclohexano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob04.gif" alt="Ciclohexano">
+                                <div class="pie">Ciclohexano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario:</strong> ciclo de <strong>6 carbonos</strong>. Sin sustituyentes: no se numera. Fórmula molecular: <strong>C<sub>6</sub>H<sub>12</sub></strong>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 5 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 5</span>
+                    Ciclohexeno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>ciclohexeno</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob05.gif" alt="Ciclohexeno">
+                                <div class="pie">Ciclohexeno.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario:</strong> ciclo de <strong>6 carbonos con un doble enlace</strong>. Como el doble enlace debe recibir los localizadores más bajos, se numera de forma que quede entre C1 y C2. Al ser simétrico, no importa el sentido de numeración.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 6 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 6</span>
+                    1,5-ciclooctadieno o cicloocta-1,5-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>1,5-ciclooctadieno</strong> (o <strong>cicloocta-1,5-dieno</strong>).
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob06.gif" alt="1,5-ciclooctadieno">
+                                <div class="pie">Cicloocta-1,5-dieno.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> ciclo de <strong>8 carbonos con dos dobles enlaces</strong>. Los dobles enlaces deben recibir los localizadores más bajos posibles. Numerando en un sentido obtenemos <strong>1,5</strong>; en el sentido contrario obtendríamos 3,7 (peor). Por eso el nombre correcto es <em>cicloocta-1,5-dieno</em>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 7 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 7</span>
+                    1,1,2-trimetilciclopentano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>1,1,2-trimetilciclopentano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob07.gif" alt="1,1,2-trimetilciclopentano">
+                                <div class="pie">1,1,2-trimetilciclopentano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> ciclo de <strong>5 carbonos con tres metilos</strong>. Se numera para dar el conjunto de localizadores más bajo posible. Comenzando por el carbono que lleva <strong>dos metilos</strong> obtenemos <strong>1,1,2</strong>; si empezáramos por el otro lado obtendríamos 1,2,2, que es equivalente pero no preferible. La regla práctica es: cuando hay dos sustituyentes iguales sobre el mismo carbono, ese carbono es el C1.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 8 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 8</span>
+                    4-etil-4,5-dimetilciclohexeno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>4-etil-4,5-dimetilciclohexeno</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob08.gif" alt="4-etil-4,5-dimetilciclohexeno">
+                                <div class="pie">4-etil-4,5-dimetilciclohexeno.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> el <strong>doble enlace</strong> ocupa las posiciones 1 y 2 (prioridad sobre los sustituyentes). A partir de ahí, se numera en el sentido que proporcione los localizadores más bajos al conjunto de sustituyentes (etilo y dos metilos). Resultado: etilo en 4, metilos en 4 y 5.</div>
+                            <div class="note"><strong>Alfabetización:</strong> <em>etil</em> (e) va antes que <em>metil</em> (m), por lo que se cita primero el etilo. Los prefijos <em>di-</em>, <em>tri-</em>… no alfabetizan.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 9 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 9</span>
+                    4-etil-1,1,3-trimetilciclohexano
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>4-etil-1,1,3-trimetilciclohexano</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i>
+                            Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob09.gif" alt="4-etil-1,1,3-trimetilciclohexano">
+                                <div class="pie">4-etil-1,1,3-trimetilciclohexano.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> ciclohexano con <strong>tres metilos y un etilo</strong>. El carbono que lleva los dos metilos actúa como C1 (conjunto 1,1,3,4), que es más bajo que cualquier otra numeración alternativa (por ejemplo 1,1,4,5 o 3,3,4,6). Los sustituyentes se citan en orden alfabético: <em>etil</em> antes que <em>metil</em>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 10 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 10</span>
+                    4-etil-3-metilciclopenteno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la fórmula estructural del <strong>4-etil-3-metilciclopenteno</strong>.
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob10.gif" alt="4-etil-3-metilciclopenteno">
+                                <div class="pie">4-etil-3-metilciclopenteno.</div>
+                            </div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> el doble enlace define C1–C2. Los sustituyentes (etilo y metilo) deben recibir los localizadores más bajos posibles <strong>compatibles con el doble enlace en 1</strong>. Resultado: etilo en 4 y metilo en 3.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 11 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 11</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob11.gif" alt="Compuesto del ejercicio 11">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">1,2,3</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">ciclopent</span><span class="suf">ano</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclopentano con <strong>tres metilos</strong>. Se numera para obtener el conjunto de localizadores más bajo posible: <strong>1,2,3</strong> en lugar de 1,3,5 o 2,3,4. Como los tres sustituyentes son iguales, no hay ambigüedad por orden alfabético.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 12 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 12</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob12.gif" alt="Compuesto del ejercicio 12">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">etil</span>-<span class="num">1,2</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">ciclohex</span><span class="suf">ano</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclohexano con <strong>etilo y dos metilos</strong>. Se numera para dar el conjunto más bajo: <strong>1,2,4</strong>. Como hay empate potencial, el orden alfabético decide: <em>etil</em> antes que <em>metil</em>, pero aquí los localizadores más bajos corresponden a los metilos, que van en 1 y 2.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 13 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 13</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob13.gif" alt="Compuesto del ejercicio 13">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,4,5</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">ciclohex-1-eno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclohexeno con <strong>tres metilos</strong>. El <strong>doble enlace</strong> toma el localizador 1 (y 2). A partir de ahí, se numera en el sentido que dé el conjunto más bajo a los metilos: <strong>3,4,5</strong>.</div>
+                            <div class="note">Forma equivalente: <em>3,4,5-trimetil-1-ciclohexeno</em>, aunque la forma preferida por IUPAC es colocar el localizador del doble enlace justo antes del sufijo: <em>ciclohex-1-eno</em>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 14 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 14</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob14.gif" alt="Compuesto del ejercicio 14">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,5</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">ciclohexa-1,3-dieno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclohexano con <strong>dos dobles enlaces</strong> y <strong>dos metilos</strong>. Los dobles enlaces tienen prioridad: deben recibir los localizadores más bajos, es decir <strong>1,3</strong>. Los metilos quedan entonces en 2 y 5. Se podría numerar en el otro sentido, pero obtendríamos 1,4 para los dobles (peor).</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 15 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 15</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob15.gif" alt="Compuesto del ejercicio 15">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">etil</span>-<span class="num">1</span>-<span class="rad">etinil</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">ciclohex</span><span class="suf">ano</span></span></p>
+                            <div class="paso"><strong>Comentario de alfabetización:</strong> los sustituyentes son <em>etil</em>, <em>etinil</em> y <em>metil</em>. Al comparar <em>etil</em> y <em>etinil</em>, se ve que coinciden hasta <em>eti-</em>; en la siguiente letra <em>l</em> &lt; <em>n</em>, por lo que <em>etil</em> va antes que <em>etinil</em>.</div>
+                            <div class="paso"><strong>Comentario de numeración:</strong> se numera el ciclohexano para dar los localizadores más bajos al conjunto de sustituyentes: <strong>1,2,4</strong>, asignando el 1 al <em>etinil</em> (que es el primero en orden alfabético entre los que compiten por el 1).</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 16 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 16</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob16.gif" alt="Compuesto del ejercicio 16">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">1,3</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">ciclohexa-1,3-dieno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclohexano con <strong>dos dobles enlaces conjugados</strong> y <strong>dos metilos</strong>. Los dobles enlaces se sitúan en 1 y 3. Los metilos se colocan sobre los carbonos 1 y 3 para que el conjunto de localizadores sea el más bajo posible: <strong>1,3</strong> para ambos tipos de sustituyentes.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 17 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 17</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob17.gif" alt="Compuesto del ejercicio 17">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,6</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">ciclohepta-1,3-dieno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> cicloheptano con <strong>dos dobles enlaces</strong> y <strong>dos metilos</strong>. Los dobles enlaces reciben los localizadores más bajos: <strong>1,3</strong>. Los metilos quedan en <strong>2 y 6</strong>. Si se numerase al revés, los dobles quedarían en 1,5 (peor).</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 18 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 18</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob18.gif" alt="Compuesto del ejercicio 18">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">1,2,4</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">ciclohept</span><span class="suf">ano</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> cicloheptano con <strong>tres metilos</strong>. Se numera para dar el conjunto de localizadores más bajo posible. El conjunto <strong>1,2,4</strong> es el más bajo (comparado con 1,3,5 o 2,4,6).</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 19 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 19</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob19.gif" alt="Compuesto del ejercicio 19">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">etil</span>-<span class="num">1,6</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">cicloocta-1,3,5-trieno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclooctano con <strong>tres dobles enlaces</strong> y sustituyentes (etilo y dos metilos). Los tres dobles enlaces reciben los localizadores más bajos: <strong>1,3,5</strong>. El etilo y los metilos se sitúan de modo que el conjunto sea el más bajo compatible con los dobles.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ================= EJERCICIO 20 ================= -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Ejercicio 20</span>
+                    Nombra el siguiente compuesto
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N_Cicloalcano-Prob20.gif" alt="Compuesto del ejercicio 20">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,6,8</span>-<span class="pref">tri</span><span class="rad">metil</span><span class="alc">cicloocta-1,3-dieno</span></span></p>
+                            <div class="paso"><strong>Comentario:</strong> ciclooctano con <strong>dos dobles enlaces</strong> y <strong>tres metilos</strong>. Los dobles enlaces ocupan 1 y 3. Los metilos quedan en 2, 6 y 8 (conjunto más bajo posible).</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- PIE DIDÁCTICO -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave para cicloalcanos:</strong>
+                <ul style="margin-top:8px;">
+                    <li>Fórmula molecular general: <strong>C<sub>n</sub>H<sub>2n</sub></strong> (dos hidrógenos menos que el alcano lineal correspondiente).</li>
+                    <li>El <strong>ciclo</strong> es la cadena principal cuando el número de carbonos del ciclo es <strong>mayor o igual</strong> que el de la cadena lateral más larga.</li>
+                    <li>Si la cadena lateral es más larga o más compleja que el ciclo, el ciclo pasa a ser un <strong>sustituyente</strong> (<em>ciclopropil</em>, <em>ciclobutil</em>, <em>ciclopentil</em>, <em>ciclohexil</em>…).</li>
+                    <li>Con <strong>un solo sustituyente</strong> no se numera (siempre es 1).</li>
+                    <li>Con <strong>dos o más sustituyentes</strong>: se numera para dar los localizadores más bajos al conjunto; en caso de empate, se asigna el más bajo al sustituyente que va primero en orden alfabético.</li>
+                    <li>Los <strong>dobles y triples enlaces</strong> tienen prioridad sobre los sustituyentes a la hora de numerar.</li>
+                    <li>Los prefijos de cantidad (<em>di</em>, <em>tri</em>, <em>tetra</em>…) <strong>no alfabetizan</strong>; los prefijos <em>iso</em> y <em>neo</em> <strong>sí alfabetizan</strong>.</li>
+                    <li>Puntuación: los números se separan de las letras con <strong>guiones</strong>, los localizadores entre sí con <strong>comas</strong> y <strong>nunca se dejan espacios</strong>.</li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</body>
+</html>
