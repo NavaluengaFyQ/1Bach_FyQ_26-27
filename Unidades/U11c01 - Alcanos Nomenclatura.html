@@ -566,6 +566,25 @@
             Las tres letras resumen <strong>las tres decisiones</strong> que hay que tomar siempre, en ese orden, antes de escribir el nombre IUPAC.
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- TABLA DE PREFIJOS DE CADENA -->
         <div class="cns-tabla-prefijos">
             <h3>📏 Prefijos de cadena según el número de carbonos</h3>
@@ -623,12 +642,431 @@
         </div>
 
         <p>Se pide <strong>nombrar y formular alcanos ramificados</strong> aplicando correctamente las reglas de la IUPAC (Unión Internacional de Química Pura y Aplicada), que se resumen en cuatro reglas básicas:</p>
-        <ul>
-            <li><strong>Regla 1:</strong> elección de la cadena principal (la más larga; en caso de empate, la más ramificada).</li>
-            <li><strong>Regla 2:</strong> numeración de la cadena principal (desde el extremo más cercano a un sustituyente).</li>
-            <li><strong>Regla 3:</strong> construcción del nombre (sustituyentes alfabéticamente con sus localizadores + nombre de la cadena principal).</li>
-            <li><strong>Regla 4:</strong> reconocimiento de los sustituyentes con nombres comunes.</li>
-        </ul>
+
+
+
+
+
+
+
+
+<!-- ============================================================
+     BLOQUE: CÓMO NOMBRAR UN ALCANO EN 3 PASOS (PLEGABLE)
+     ============================================================ -->
+<div style="
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+">
+
+    <div style="
+        background: linear-gradient(135deg, #1e3a8a 0%, #6d28d9 100%);
+        color: #f8fafc;
+        padding: 20px 24px;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 10px 30px rgba(30, 58, 138, 0.25);
+    ">
+
+        <p style="margin: 6px 0 0 0; font-size: 0.95em; color: #e0e7ff;">
+            Pulsa cada bloque para desplegarlo. Orden recomendado: <strong>Cadena → Numeración → Sustituyentes</strong>.
+        </p>
+    </div>
+
+    <!-- ============================================================
+         PASO 1 — CADENA
+         ============================================================ -->
+    <details style="
+        margin: 0;
+        background: #fefefe;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        border-radius: 0;
+    ">
+        <summary style="
+            padding: 16px 24px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            user-select: none;
+        ">
+            <span style="
+                display:inline-block;
+                background:#667eea;
+                color:white;
+                width:30px;height:30px;
+                border-radius:50%;
+                text-align:center;line-height:30px;
+                font-weight:bold;
+            ">1</span>
+            <span>Cadena principal (la <em>C</em> de CNS)</span>
+            <span style="margin-left:auto; font-size:0.8em; color:#64748b; font-weight:400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div style="padding: 0 24px 20px 24px; border-top: 1px solid #e2e8f0;">
+            <p style="line-height:1.7; margin-top:14px;">
+                <strong>Objetivo:</strong> encontrar el esqueleto que dará nombre al alcano.
+            </p>
+            <ol style="line-height:1.8; margin-left: 20px;">
+                <li>Localiza <strong>todas las cadenas carbonadas posibles</strong>.</li>
+                <li>Elige la <strong>más larga</strong> (mayor número de carbonos).</li>
+                <li>Si hay <strong>empate en longitud</strong>, elige la que tenga <strong>más sustituyentes</strong> (la más ramificada).</li>
+            </ol>
+            <div style="
+                background:#fffbeb;
+                border:1px solid #f6e05e;
+                border-radius:8px;
+                padding:12px 14px;
+                margin-top:12px;
+                font-size:0.95em;
+                color:#744210;
+            ">
+                <strong>💡 Truco:</strong> la cadena horizontal del dibujo <em>no siempre</em> es la principal. Gira mentalmente la molécula antes de decidir.
+            </div>
+        </div>
+    </details>
+
+    <!-- ============================================================
+         PASO 2 — NUMERACIÓN
+         ============================================================ -->
+    <details style="
+        margin: 0;
+        background: #fefefe;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        border-radius: 0;
+    ">
+        <summary style="
+            padding: 16px 24px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            user-select: none;
+        ">
+            <span style="
+                display:inline-block;
+                background:#667eea;
+                color:white;
+                width:30px;height:30px;
+                border-radius:50%;
+                text-align:center;line-height:30px;
+                font-weight:bold;
+            ">2</span>
+            <span>Numeración de la cadena (la <em>N</em> de CNS)</span>
+            <span style="margin-left:auto; font-size:0.8em; color:#64748b; font-weight:400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div style="padding: 0 24px 20px 24px; border-top: 1px solid #e2e8f0;">
+            <p style="line-height:1.7; margin-top:14px;">
+                <strong>Objetivo:</strong> que los sustituyentes reciban los <strong>localizadores más bajos posibles</strong>.
+            </p>
+            <ol style="line-height:1.8; margin-left: 20px;">
+                <li>Numera la cadena <strong>por los dos extremos</strong> y compara los localizadores obtenidos.</li>
+                <li>Elige la numeración que dé el <strong>conjunto de localizadores más bajo</strong>.</li>
+                <li>Si sigue habiendo empate, asigna el localizador más bajo al sustituyente que va <strong>antes en orden alfabético</strong>.</li>
+            </ol>
+            <div style="
+                background:#fffbeb;
+                border:1px solid #f6e05e;
+                border-radius:8px;
+                padding:12px 14px;
+                margin-top:12px;
+                font-size:0.95em;
+                color:#744210;
+            ">
+                <strong>⚠️ Error típico:</strong> empezar a numerar por el extremo «que queda más cerca del primer sustituyente que veo», sin comparar las dos direcciones.
+            </div>
+        </div>
+    </details>
+
+    <!-- ============================================================
+         PASO 3 — SUSTITUYENTES
+         ============================================================ -->
+    <details style="
+        margin: 0;
+        background: #fefefe;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+    ">
+        <summary style="
+            padding: 16px 24px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            user-select: none;
+            border-radius: 0 0 16px 16px;
+        ">
+            <span style="
+                display:inline-block;
+                background:#667eea;
+                color:white;
+                width:30px;height:30px;
+                border-radius:50%;
+                text-align:center;line-height:30px;
+                font-weight:bold;
+            ">3</span>
+            <span>Sustituyentes y construcción del nombre (la <em>S</em> de CNS)</span>
+            <span style="margin-left:auto; font-size:0.8em; color:#64748b; font-weight:400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div style="padding: 0 24px 20px 24px; border-top: 1px solid #e2e8f0;">
+            <p style="line-height:1.7; margin-top:14px;">
+                <strong>Objetivo:</strong> escribir el nombre completo: <em>localizador-sustituyente + cadena principal</em>.
+            </p>
+            <ol style="line-height:1.8; margin-left: 20px;">
+                <li>Identifica cada sustituyente y su posición (localizador).</li>
+                <li>Agrupa los <strong>repetidos</strong> con prefijos: <em>di-</em>, <em>tri-</em>, <em>tetra-</em>, <em>penta-</em>…</li>
+                <li>Ordena los sustituyentes <strong>alfabéticamente</strong>.</li>
+                <li>Termina con el nombre de la <strong>cadena principal</strong> acabado en <em>-ano</em>.</li>
+            </ol>
+            <div style="
+                background:#ebf8ff;
+                border-left:4px solid #4299e1;
+                border-radius:8px;
+                padding:12px 14px;
+                margin-top:14px;
+                font-size:0.95em;
+                color:#2b6cb0;
+            ">
+                <strong>🧩 Ejemplo completo:</strong><br>
+                <span class="nomenclatura">
+                    <span style="color:#dc2626; font-weight:700;">4</span>-<span style="color:#1d4ed8; font-weight:700;">etil</span>-<span style="color:#dc2626; font-weight:700;">2,2,4</span>-<span style="font-style:italic;">tri</span><span style="color:#1d4ed8; font-weight:700;">metil</span><span style="font-weight:700;">hex</span><span style="font-weight:700; text-decoration:underline;">ano</span>
+                </span>
+            </div>
+        </div>
+    </details>
+
+    <!-- ============================================================
+         OBSERVACIONES CLAVE (PLEGABLE)
+         ============================================================ -->
+    <details style="
+        margin: 16px 0 0 0;
+        background: #fef9e7;
+        border: 2px solid #f59e0b;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <summary style="
+            padding: 16px 24px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #78350f;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fef3c7;
+            border-radius: 12px;
+            user-select: none;
+        ">
+            <i class="fas fa-exclamation-triangle" style="color:#d97706;"></i>
+            <span>Observaciones clave (comas, guiones, alfabetización…)</span>
+            <span style="margin-left:auto; font-size:0.8em; color:#92400e; font-weight:400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div style="padding: 0 24px 20px 24px;">
+
+            <!-- 1. Comas -->
+            <h3 style="
+                margin: 16px 0 6px 0;
+                font-size: 1.05em;
+                color: #92400e;
+            ">🔹 1. Comas: separan números entre sí</h3>
+            <p style="line-height:1.7; margin:0 0 8px 0;">
+                Cuando hay <strong>varios localizadores seguidos</strong>, se separan con <strong>comas</strong>, sin espacios.
+            </p>
+            <div style="
+                background:#ffffff;
+                border:1px solid #fcd34d;
+                border-radius:8px;
+                padding:10px 14px;
+                font-size:0.95em;
+            ">
+                ✅ <span class="nomenclatura"><span style="color:#dc2626; font-weight:700;">2,2,4</span>-<span style="font-style:italic;">tri</span><span style="color:#1d4ed8; font-weight:700;">metil</span><span style="font-weight:700;">hex</span><span style="font-weight:700; text-decoration:underline;">ano</span></span><br>
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">2.2.4-trimetilhexano</span><br>
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">2, 2, 4 - trimetilhexano</span>
+            </div>
+
+            <!-- 2. Guiones -->
+            <h3 style="
+                margin: 18px 0 6px 0;
+                font-size: 1.05em;
+                color: #92400e;
+            ">🔹 2. Guiones: separan números de letras</h3>
+            <p style="line-height:1.7; margin:0 0 8px 0;">
+                Entre el <strong>último número</strong> y la <strong>primera letra</strong> se escribe un <strong>guión</strong>. También entre un localizador y su sustituyente si van seguidos.
+            </p>
+            <div style="
+                background:#ffffff;
+                border:1px solid #fcd34d;
+                border-radius:8px;
+                padding:10px 14px;
+                font-size:0.95em;
+            ">
+                ✅ <span class="nomenclatura"><span style="color:#dc2626; font-weight:700;">3</span>-<span style="color:#1d4ed8; font-weight:700;">metil</span><span style="font-weight:700;">hex</span><span style="font-weight:700; text-decoration:underline;">ano</span></span><br>
+                ✅ <span class="nomenclatura"><span style="color:#dc2626; font-weight:700;">5</span>-<span style="color:#1d4ed8; font-weight:700;">etil</span>-<span style="color:#dc2626; font-weight:700;">2</span>-<span style="color:#1d4ed8; font-weight:700;">metil</span><span style="font-weight:700;">hept</span><span style="font-weight:700; text-decoration:underline;">ano</span></span>
+            </div>
+
+            <!-- 3. Todo junto -->
+            <h3 style="
+                margin: 18px 0 6px 0;
+                font-size: 1.05em;
+                color: #92400e;
+            ">🔹 3. Todo junto, sin espacios</h3>
+            <p style="line-height:1.7; margin:0 0 8px 0;">
+                El nombre se escribe como <strong>una sola palabra</strong>. Los únicos signos permitidos son <strong>comas</strong> (entre números) y <strong>guiones</strong> (entre número y letra).
+            </p>
+            <div style="
+                background:#ffffff;
+                border:1px solid #fcd34d;
+                border-radius:8px;
+                padding:10px 14px;
+                font-size:0.95em;
+            ">
+                ✅ <span class="nomenclatura"><span style="color:#dc2626; font-weight:700;">4</span>-<span style="color:#1d4ed8; font-weight:700;">etil</span>-<span style="color:#dc2626; font-weight:700;">2,2,4</span>-<span style="font-style:italic;">tri</span><span style="color:#1d4ed8; font-weight:700;">metil</span><span style="font-weight:700;">hex</span><span style="font-weight:700; text-decoration:underline;">ano</span></span><br>
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">4 etil 2,2,4 trimetil hexano</span>
+            </div>
+
+            <!-- 4. Orden alfabético -->
+            <h3 style="
+                margin: 18px 0 6px 0;
+                font-size: 1.05em;
+                color: #92400e;
+            ">🔹 4. Orden alfabético de los sustituyentes</h3>
+            <p style="line-height:1.7; margin:0 0 8px 0;">
+                Los sustituyentes se citan <strong>en orden alfabético</strong>, pero hay prefijos que «cuentan» y otros que «no cuentan»:
+            </p>
+
+            <table style="
+                width:100%;
+                border-collapse:collapse;
+                font-size:0.92em;
+                background:#ffffff;
+                border-radius:8px;
+                overflow:hidden;
+                margin: 8px 0;
+            ">
+                <thead>
+                    <tr style="background:#f59e0b; color:#ffffff;">
+                        <th style="padding:8px 6px;">Prefijo</th>
+                        <th style="padding:8px 6px;">¿Alfabetiza?</th>
+                        <th style="padding:8px 6px;">Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>di-, tri-, tetra-</em></td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center; color:#b91c1c; font-weight:700;">NO</td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>dietil</em> ordena por la <strong>e</strong> de <em>etil</em></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>iso-</em></td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center; color:#15803d; font-weight:700;">SÍ</td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>isopropil</em> ordena por la <strong>i</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>neo-</em></td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center; color:#15803d; font-weight:700;">SÍ</td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>neopentil</em> ordena por la <strong>n</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>sec-</em></td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center; color:#b91c1c; font-weight:700;">NO</td>
+                        <td style="padding:7px 6px; border-bottom:1px solid #fde68a; text-align:center;"><em>sec-butil</em> ordena por la <strong>b</strong> de <em>butil</em></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:7px 6px; text-align:center;"><em>terc-</em></td>
+                        <td style="padding:7px 6px; text-align:center; color:#b91c1c; font-weight:700;">NO</td>
+                        <td style="padding:7px 6px; text-align:center;"><em>terc-butil</em> ordena por la <strong>b</strong> de <em>butil</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 5. sec / terc con guion, iso / neo sin guion -->
+            <h3 style="
+                margin: 18px 0 6px 0;
+                font-size: 1.05em;
+                color: #92400e;
+            ">🔹 5. <em>sec-</em> y <em>terc-</em> llevan guion; <em>iso-</em> y <em>neo-</em> no</h3>
+            <p style="line-height:1.7; margin:0 0 8px 0;">
+                Es una regla puramente <strong>ortográfica</strong> que conviene memorizar:
+            </p>
+            <div style="
+                background:#ffffff;
+                border:1px solid #fcd34d;
+                border-radius:8px;
+                padding:12px 14px;
+                font-size:0.95em;
+                line-height:2;
+            ">
+                ✅ <span class="nomenclatura"><span style="font-style:italic;">sec</span>-<span style="color:#1d4ed8; font-weight:700;">butil</span></span> &nbsp;·&nbsp;
+                ✅ <span class="nomenclatura"><span style="font-style:italic;">terc</span>-<span style="color:#1d4ed8; font-weight:700;">butil</span></span><br>
+                ✅ <span class="nomenclatura"><span style="font-style:italic;">iso</span><span style="color:#1d4ed8; font-weight:700;">propil</span></span> &nbsp;·&nbsp;
+                ✅ <span class="nomenclatura"><span style="font-style:italic;">neo</span><span style="color:#1d4ed8; font-weight:700;">pentil</span></span><br>
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">iso-propil</span> &nbsp;·&nbsp;
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">neo-pentil</span><br>
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">secbutil</span> &nbsp;·&nbsp;
+                ❌ <span style="text-decoration:line-through; color:#b91c1c;">tercbutil</span>
+            </div>
+
+            <!-- 6. Cierre -->
+            <div style="
+                background:#fef3c7;
+                border-left:5px solid #d97706;
+                border-radius:8px;
+                padding:12px 14px;
+                margin-top:16px;
+                font-size:0.95em;
+                color:#78350f;
+            ">
+                <strong>🧠 Resumen final:</strong> <em>Cadena</em> (la más larga / más ramificada) → <em>Numeración</em> (localizadores más bajos) → <em>Sustituyentes</em> (alfabéticos, con <em>di-/tri-/tetra-</em> si se repiten) + cadena principal con terminación <em>-ano</em>. Comas entre números, guiones entre número y letra, todo junto y sin espacios.
+            </div>
+
+        </div>
+    </details>
+
+</div>
+<!-- ============================================================
+     FIN DEL BLOQUE
+     ============================================================ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="figura">
             <img <img src="../imagenes/00-Formulación/Alcanos-teoria01.gif" alt="Esquema de un alcano ramificado">
