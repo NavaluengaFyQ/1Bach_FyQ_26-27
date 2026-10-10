@@ -487,6 +487,889 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============ BLOQUE: Uso de la calculadora — Tercera ecuación del MRUA ============ -->
+<details class="mrua3-outer">
+  <summary>🖩 Uso de la calculadora científica — Tercera ecuación del MRUA (6 problemas resueltos)</summary>
+
+  <div class="mrua3-wrapper">
+    <style>
+      /* ---------- CONTENEDOR ---------- */
+      .mrua3-wrapper{
+        max-width:900px;margin:1.2rem auto;padding:1rem 1.2rem;
+        font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+        color:#1f2937;line-height:1.6;background:#fff;
+        border:1px solid #e5e7eb;border-radius:14px;
+      }
+      .mrua3-wrapper h1{
+        font-size:1.35rem;margin:.2rem 0 1rem;color:#0b3d91;
+        border-bottom:2px solid #e5e7eb;padding-bottom:.4rem;
+      }
+      .mrua3-wrapper h2{font-size:1.1rem;color:#0b3d91;margin:.6rem 0 .4rem;}
+
+      /* ---------- DETAILS / SUMMARY ---------- */
+      .mrua3-wrapper details{
+        background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;
+        padding:.4rem .7rem;margin:.6rem 0;
+      }
+      .mrua3-wrapper summary{
+        cursor:pointer;font-weight:600;color:#0b3d91;
+        padding:.35rem .2rem;list-style:none;
+      }
+      .mrua3-wrapper summary::marker{content:"";}
+      .mrua3-wrapper summary::before{
+        content:"▶ ";display:inline-block;color:#0078D4;
+        transition:transform .2s;
+      }
+      .mrua3-wrapper details[open] > summary::before{transform:rotate(90deg);}
+
+      /* ---------- TECLAS ---------- */
+      .mrua3-wrapper kbd{
+        display:inline-block;padding:1px 6px;
+        border:1px solid #b6c2d1;border-bottom-width:2px;border-radius:5px;
+        background:#f1f5f9;font-family:ui-monospace,Consolas,monospace;
+        font-size:.86em;box-shadow:0 1px 0 #cbd5e1;white-space:nowrap;
+        margin-right:1px;
+      }
+
+      /* ---------- FORMULA DESTACADA ---------- */
+      .mrua3-wrapper .formula{
+        border-left:4px solid #0078D4;background:#eff6ff;
+        padding:.5rem .8rem;margin:.6rem 0;border-radius:0 8px 8px 0;
+        overflow-x:auto;
+      }
+
+      /* ---------- BLOQUES DE ENTRADA CALCULADORA ---------- */
+      .mrua3-wrapper .entrada-calc{
+        background:#f6f9fc;border:1px solid #d6e4f0;border-radius:8px;
+        padding:.6rem .8rem;margin:.8rem 0;
+      }
+      .mrua3-wrapper .entrada-latex{
+        background:#fff;border-left:4px solid #0078D4;
+        padding:.4rem .7rem;border-radius:4px;overflow-x:auto;
+      }
+      .mrua3-wrapper .pantalla{
+        font-family:"Courier New",monospace;background:#20301f;
+        color:#b9f6a0;border:2px solid #4a5a49;border-radius:6px;
+        padding:.4rem .7rem;letter-spacing:.5px;overflow-x:auto;
+        white-space:nowrap;
+      }
+      .mrua3-wrapper .entrada-rotulo,
+      .mrua3-wrapper .pantalla-rotulo,
+      .mrua3-wrapper .teclas-rotulo{
+        font-weight:600;color:#005a9e;margin:.5rem 0 .2rem;
+      }
+
+      /* ---------- AVISOS ---------- */
+      .mrua3-wrapper .ok{background:#ecfdf5;border-left:4px solid #10b981;padding:.5rem .8rem;border-radius:0 8px 8px 0;margin:.5rem 0;}
+      .mrua3-wrapper .warn{background:#fffbeb;border-left:4px solid #f59e0b;padding:.5rem .8rem;border-radius:0 8px 8px 0;margin:.5rem 0;}
+      .mrua3-wrapper .dato{background:#f5f3ff;border-left:4px solid #8b5cf6;padding:.5rem .8rem;border-radius:0 8px 8px 0;margin:.5rem 0;}
+      .mrua3-wrapper .aviso{background:#fef2f2;border-left:4px solid #ef4444;padding:.5rem .8rem;border-radius:0 8px 8px 0;margin:.5rem 0;}
+
+      /* ---------- TABLA RESUMEN ---------- */
+      .mrua3-wrapper table{
+        width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.92rem;
+      }
+      .mrua3-wrapper th,.mrua3-wrapper td{
+        border:1px solid #d1d5db;padding:.4rem .55rem;text-align:left;
+      }
+      .mrua3-wrapper th{background:#eff6ff;color:#0b3d91;}
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width:600px){
+        .mrua3-wrapper{padding:.6rem;font-size:.95rem;}
+        .mrua3-wrapper h1{font-size:1.1rem;}
+        .mrua3-wrapper .pantalla{font-size:.82rem;}
+      }
+    </style>
+
+    <h1>Tercera ecuación del MRUA — resolución con calculadora científica</h1>
+
+    <p>Ecuación única usada en todos los problemas (F3 del tema):</p>
+    <div class="formula">\[ v^2 \;=\; v_0^2 \,+\, 2\,a\,(x-x_0) \;=\; v_0^2 \,+\, 2\,a\,\Delta x \]</div>
+
+    <!-- ================= PROBLEMA 1 ================= -->
+    <details>
+      <summary>Problema 1 — Coche que parte del reposo y acelera en 80 m</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Un coche parte del reposo (\(v_0=0\)) y acelera a \(a=2{,}0\ \text{m/s}^2\) en una pista recta. ¿Qué velocidad alcanza después de recorrer \(\Delta x=80\ \text{m}\)?</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=0\ \text{m/s}\), \(a=2{,}0\ \text{m/s}^2\), \(\Delta x=80\ \text{m}\).<br>
+          <strong>Incógnita:</strong> \(v\) en m/s.
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <p>De F3, con \(v_0=0\):</p>
+        <div class="formula">\[ v \;=\; \sqrt{v_0^2 + 2a\,\Delta x}\;=\;\sqrt{2\cdot 2{,}0\cdot 80} \]</div>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(v=\sqrt{v_0^2+2a\Delta x}\) → expresión a teclear (paso 1):</p>
+          <div class="entrada-latex">\[ v=\sqrt{v_0^2+2a\,\Delta x}\;\rightarrow\;\sqrt{(0^2+2\times 2.0\times 80)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(0²+2×2.0×80)</div>
+          <p class="teclas-rotulo">Secuencia de teclas:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>+</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>×</kbd>][<kbd>8</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Resultado \(v\) (paso 2):</p>
+          <div class="entrada-latex">\[ v \;\rightarrow\; 17.88854382 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">17.88854382</div>
+          <p class="teclas-rotulo">Resultado final:</p>
+          <p class="teclas">[<kbd>=</kbd>]</p>
+        </div>
+        <p><strong>\(v \approx 17{,}9\ \text{m/s}\)</strong> (unos \(64{,}4\ \text{km/h}\)).</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE (opcional)</summary>
+        <p>Como la incógnita ya está despejada, SOLVE no es necesario; se incluye solo como comprobación resolviendo \(X^2=320\).</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Ecuación \(v^2=320\) → introducir como \(X^2=320\) (paso 1):</p>
+          <div class="entrada-latex">\[ v^2=320\;\rightarrow\;X^2=320 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">X²=320</div>
+          <p class="teclas-rotulo">Secuencia de teclas (fx-570 / fx-991):</p>
+          <p class="teclas">[<kbd>ALPHA</kbd>][<kbd>)</kbd>][<kbd>x²</kbd>][<kbd>=</kbd>][<kbd>3</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>CALC</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Semilla recomendada \(X=20\) (positiva, coherente con la raíz física). La fx-82 / fx-85 no dispone de SOLVE.</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(a=2{,}0\) en A (paso 1):</p>
+          <div class="entrada-latex">\[ a=2.0\;\rightarrow\;A \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">2.0→A</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(\Delta x=80\) en B (paso 2):</p>
+          <div class="entrada-latex">\[ \Delta x=80\;\rightarrow\;B \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">80→B</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>8</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(v=\sqrt{2AB}\) → expresión final (paso 3):</p>
+          <div class="entrada-latex">\[ v=\sqrt{2AB}\;\rightarrow\;\sqrt{(2\times A\times B)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×A×B)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <p>Si cambias solo \(\Delta x\) reasignando B, obtienes directamente la nueva \(v\).</p>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — por partes con [Ans]</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Calcular \(2a\Delta x\) (paso 1):</p>
+          <div class="entrada-latex">\[ 2a\Delta x\;\rightarrow\;2\times 2.0\times 80 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">2×2.0×80</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>×</kbd>][<kbd>8</kbd>][<kbd>0</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Tomar raíz cuadrada de [Ans] (paso 2):</p>
+          <div class="entrada-latex">\[ v=\sqrt{\text{Ans}}\;\rightarrow\;\sqrt{\text{Ans}} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√Ans</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>Ans</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v^2 = 17{,}8885^2 \approx 320 \;=\; 2\cdot 2{,}0\cdot 80 \;\checkmark \]</div>
+        <div class="ok">Resultado positivo, coherente con un coche acelerando; \(17{,}9\ \text{m/s}\) equivale a \(64{,}4\ \text{km/h}\), magnitud razonable.</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Olvidar que \(v_0=0\) obliga a meter \(0^2\) o suprimir el término \(v_0^2\) correctamente.</li>
+          <li>Escribir \(\sqrt{2\cdot 2{,}0\cdot 80}\) sin paréntesis en la calculadora es correcto; pero \(\sqrt{2\times 2.0}\times 80\) es <em>incorrecto</em> (raíz solo de 4).</li>
+          <li>Redondear \(v\) antes de elevar al cuadrado en la comprobación.</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= PROBLEMA 2 ================= -->
+    <details>
+      <summary>Problema 2 — Distancia de frenado de un tren</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Un tren viaja a \(90\ \text{km/h}\) (\(25\ \text{m/s}\)) y frena con \(a=-2{,}5\ \text{m/s}^2\) hasta detenerse. ¿Qué distancia recorre durante el frenado?</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=25\ \text{m/s}\), \(v=0\), \(a=-2{,}5\ \text{m/s}^2\).<br>
+          <strong>Incógnita:</strong> \(\Delta x\) en m.
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <p>De F3, despejamos \(\Delta x\):</p>
+        <div class="formula">\[ \Delta x \;=\; \frac{v^2 - v_0^2}{2a} \;=\; \frac{0 - 25^2}{2(-2{,}5)} \;=\; \frac{-625}{-5} \;=\; 125\ \text{m} \]</div>
+        <p>Otra forma equivalente (sin manejar negativos en la fórmula): usar \(|a|\) sabiendo que \(\Delta x = \dfrac{v_0^2}{2|a|}\).</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(\Delta x=\dfrac{v_0^2}{2|a|}\) → expresión (paso 1):</p>
+          <div class="entrada-latex">\[ \Delta x=\frac{v_0^2}{2|a|}\;\rightarrow\;25^2\div(2\times 2.5) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">25²÷(2×2.5)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>5</kbd>][<kbd>x²</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Resultado \(\Delta x\) (paso 2):</p>
+          <div class="entrada-latex">\[ \Delta x\;\rightarrow\;125 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">125</div>
+          <p class="teclas-rotulo">Resultado final:</p>
+          <p class="teclas">[<kbd>=</kbd>]</p>
+        </div>
+        <p><strong>\(\Delta x = 125\ \text{m}\)</strong>.</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE</summary>
+        <p>Útil para comprobar el signo sin reordenar a mano:</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Ecuación \(0 = 25^2 + 2(-2{,}5)X\) → introducir (paso 1):</p>
+          <div class="entrada-latex">\[ 0=25^2+2\cdot(-2.5)\cdot X\;\rightarrow\;0=25^2+2\times(-2.5)\times X \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">0=25²+2×(-2.5)×X</div>
+          <p class="teclas-rotulo">Secuencia (fx-570 / fx-991):</p>
+          <p class="teclas">[<kbd>0</kbd>][<kbd>=</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>x²</kbd>][<kbd>+</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>(-)</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>)</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>)</kbd>][<kbd>SHIFT</kbd>][<kbd>CALC</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Semilla \(X=100\). El signo negativo se introduce con la tecla <kbd>(-)</kbd>, nunca con la resta <kbd>−</kbd>.</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(v_0=25\) en A (paso 1):</p>
+          <div class="entrada-latex">\[ v_0=25\;\rightarrow\;A \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">25→A</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(|a|=2{,}5\) en B (paso 2):</p>
+          <div class="entrada-latex">\[ |a|=2.5\;\rightarrow\;B \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">2.5→B</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(\Delta x=\dfrac{A^2}{2B}\) → expresión final (paso 3):</p>
+          <div class="entrada-latex">\[ \Delta x=\frac{A^2}{2B}\;\rightarrow\;A^2\div(2B) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">A²÷(2B)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>x²</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — fórmula con signo explícito</summary>
+        <p>Equivale a usar \(\Delta x=\dfrac{v^2-v_0^2}{2a}\) con \(a=-2{,}5\) en vez de \(|a|\):</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Expresión completa (paso 1):</p>
+          <div class="entrada-latex">\[ \Delta x=\frac{0-25^2}{2\times(-2.5)}\;\rightarrow\;(0-25^2)\div(2\times(-2.5)) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">(0−25²)÷(2×(−2.5))</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(</kbd>][<kbd>0</kbd>][<kbd>−</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>(-)</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="ok">Da \(125\), confirmando que el signo negativo se cancela y la distancia es positiva.</div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v^2 = v_0^2 + 2a\Delta x = 625 + 2(-2{,}5)(125) = 625 - 625 = 0 \;\checkmark \]</div>
+        <div class="ok">\(\Delta x=125\ \text{m}\) es coherente: tren rápido y deceleración moderada → distancia larga.</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Usar <kbd>−</kbd> en vez de <kbd>(-)</kbd> para introducir \(a=-2{,}5\).</li>
+          <li>Poner el signo de \(a\) positivo al sustituir en \(\Delta x=\frac{-v_0^2}{2a}\) y perder el signo.</li>
+          <li>Confundir \(v_0=25\ \text{m/s}\) con \(90\ \text{km/h}\) y no convertir a m/s.</li>
+          <li>Omitir el paréntesis en \(2\times(-2.5)\) y calcular \(2\times 2.5\) con signo positivo.</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= PROBLEMA 3 ================= -->
+    <details>
+      <summary>Problema 3 — Despeje de la aceleración (de 10 a 30 m/s en 200 m)</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Un móvil pasa de \(10\ \text{m/s}\) a \(30\ \text{m/s}\) mientras recorre \(200\ \text{m}\). ¿Cuál es la aceleración constante?</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=10\ \text{m/s}\), \(v=30\ \text{m/s}\), \(\Delta x=200\ \text{m}\).<br>
+          <strong>Incógnita:</strong> \(a\) en m/s².
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <div class="formula">\[ a \;=\; \frac{v^2 - v_0^2}{2\,\Delta x} \;=\; \frac{30^2 - 10^2}{2\cdot 200} \;=\; \frac{800}{400} \;=\; 2{,}0\ \text{m/s}^2 \]</div>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(a=\dfrac{v^2-v_0^2}{2\Delta x}\) → expresión (paso 1):</p>
+          <div class="entrada-latex">\[ a=\frac{v^2-v_0^2}{2\Delta x}\;\rightarrow\;(30^2-10^2)\div(2\times 200) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">(30²−10²)÷(2×200)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(</kbd>][<kbd>3</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Resultado \(a\) (paso 2):</p>
+          <div class="entrada-latex">\[ a\;\rightarrow\;2 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">2</div>
+          <p class="teclas-rotulo">Resultado final:</p>
+          <p class="teclas">[<kbd>=</kbd>]</p>
+        </div>
+        <p><strong>\(a = 2{,}0\ \text{m/s}^2\)</strong>.</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Ecuación \(30^2=10^2+2X\cdot 200\) → introducir (paso 1):</p>
+          <div class="entrada-latex">\[ 30^2=10^2+2X\cdot 200\;\rightarrow\;30^2=10^2+2X\times 200 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">30²=10²+2X×200</div>
+          <p class="teclas-rotulo">Secuencia (fx-570 / fx-991):</p>
+          <p class="teclas">[<kbd>3</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>+</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>)</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>CALC</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Semilla \(X=1\) (orden de magnitud esperado). En fx-82 / fx-85 no hay SOLVE.</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(v_0=10\) en A y \(v=30\) en B, \(\Delta x=200\) en C (paso 1):</p>
+          <div class="entrada-latex">\[ v_0\!\rightarrow\!A,\; v\!\rightarrow\!B,\; \Delta x\!\rightarrow\!C \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">10→A, 30→B, 200→C</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>1</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>][<kbd>3</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>C</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(a=\dfrac{B^2-A^2}{2C}\) → expresión final (paso 2):</p>
+          <div class="entrada-latex">\[ a=\frac{B^2-A^2}{2C}\;\rightarrow\;(B^2-A^2)\div(2C) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">(B²−A²)÷(2C)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>x²</kbd>][<kbd>−</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>C</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — identidad notable y cálculo por partes</summary>
+        <p>\(v^2-v_0^2=(v-v_0)(v+v_0)=20\cdot 40=800\), y luego se divide entre \(2\Delta x\):</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Producto \((v-v_0)(v+v_0)\) (paso 1):</p>
+          <div class="entrada-latex">\[ (v-v_0)(v+v_0)\;\rightarrow\;(30-10)\times(30+10) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">(30−10)×(30+10)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(</kbd>][<kbd>3</kbd>][<kbd>0</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>3</kbd>][<kbd>0</kbd>][<kbd>+</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Dividir entre \(2\Delta x\) (paso 2):</p>
+          <div class="entrada-latex">\[ a=\frac{\text{Ans}}{2\Delta x}\;\rightarrow\;\text{Ans}\div(2\times 200) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">Ans÷(2×200)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>Ans</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="ok">Ventaja: evita elevar al cuadrado números grandes; útil si \(v\) y \(v_0\) tienen muchas cifras.</div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v^2 = 10^2 + 2\cdot 2\cdot 200 = 100+800 = 900 \Rightarrow v=30\ \text{m/s}\;\checkmark \]</div>
+        <div class="ok">Positivo y de orden razonable para un móvil que gana \(20\ \text{m/s}\) en \(200\ \text{m}\).</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Poner \(\Delta x\) en el numerador en vez del denominador.</li>
+          <li>Escribir \(30^2-10^2\) sin paréntesis y que la calculadora reste \(10^2/400\) por orden de operaciones.</li>
+          <li>Confundir \(v^2-v_0^2\) con \((v-v_0)^2\).</li>
+          <li>No incluir el factor 2 del denominador.</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= PROBLEMA 4 ================= -->
+    <details>
+      <summary>Problema 4 — Caída libre: velocidad de impacto desde 75 m</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Se deja caer una piedra desde un acantilado de \(75\ \text{m}\) de altura. ¿Con qué velocidad impacta en el agua? (\(g=9{,}8\ \text{m/s}^2\))</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=0\), \(a=g=9{,}8\ \text{m/s}^2\) (hacia abajo), \(\Delta y=75\ \text{m}\).<br>
+          <strong>Incógnita:</strong> \(v\) en m/s.
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <div class="formula">\[ v \;=\;\sqrt{v_0^2+2g\,\Delta y} \;=\;\sqrt{2\cdot 9{,}8\cdot 75} \;=\;\sqrt{1470} \;\approx\; 38{,}34\ \text{m/s} \]</div>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(v=\sqrt{2g\Delta y}\) → expresión (paso 1):</p>
+          <div class="entrada-latex">\[ v=\sqrt{2g\,\Delta y}\;\rightarrow\;\sqrt{(2\times 9.8\times 75)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×9.8×75)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>9</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>×</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Resultado \(v\) (paso 2):</p>
+          <div class="entrada-latex">\[ v\;\rightarrow\;38.34057903 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">38.34057903</div>
+          <p class="teclas-rotulo">Resultado final:</p>
+          <p class="teclas">[<kbd>=</kbd>]</p>
+        </div>
+        <p><strong>\(v \approx 38{,}3\ \text{m/s}\)</strong> hacia abajo (unos \(138\ \text{km/h}\)).</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Resolver \(X^2=1470\) (paso 1):</p>
+          <div class="entrada-latex">\[ v^2=2\cdot 9.8\cdot 75\;\rightarrow\;X^2=1470 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">X²=1470</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>ALPHA</kbd>][<kbd>)</kbd>][<kbd>x²</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>4</kbd>][<kbd>7</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>CALC</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Semilla \(X=40\) (positiva, orden de magnitud correcto). Elegir la raíz positiva.</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(g=9{,}8\) en A y \(\Delta y=75\) en B (paso 1):</p>
+          <div class="entrada-latex">\[ g\!\rightarrow\!A,\; \Delta y\!\rightarrow\!B \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">9.8→A, 75→B</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>9</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(v=\sqrt{2AB}\) (paso 2):</p>
+          <div class="entrada-latex">\[ v=\sqrt{2AB}\;\rightarrow\;\sqrt{(2\times A\times B)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×A×B)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — usando constante predefinida</summary>
+        <p>En fx-570 / fx-991 se puede llamar a la constante \(g\) precargada (menú CONST):</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Expresión con constante \(g\) predefinida (paso 1):</p>
+          <div class="entrada-latex">\[ v=\sqrt{2g_{\text{calc}}\Delta y}\;\rightarrow\;\sqrt{(2\times g\times 75)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×g×75)</div>
+          <p class="teclas-rotulo">Secuencia (fx-991EX / fx-570EX):</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>CONST</kbd>][<kbd>▶</kbd>][<kbd>g</kbd>][<kbd>×</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Si tu modelo no tiene menú CONST, introduce \(9{,}8\) a mano. El valor almacenado suele ser \(9{,}80665\): en ese caso el resultado cambia ligeramente a \(38{,}35\ \text{m/s}\).</div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v^2 = 2\cdot 9{,}8\cdot 75 = 1470 \Rightarrow v = \sqrt{1470}\approx 38{,}3\ \text{m/s} \;\checkmark \]</div>
+        <div class="ok">Coherente con caída desde \(75\ \text{m}\): tiempo de caída \(t\approx\sqrt{2h/g}\approx 3{,}9\ \text{s}\), \(v\approx gt\approx 38\ \text{m/s}\).</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Confundir \(g\) con \(9{,}81\) y mezclar dos valores distintos en pasos intermedios.</li>
+          <li>Olvidar el factor 2 en \(2g\Delta y\).</li>
+          <li>Elegir la raíz negativa al resolver con SOLVE.</li>
+          <li>Usar \(\Delta y=75\) como si fuera velocidad (error de unidades).</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= PROBLEMA 5 ================= -->
+    <details>
+      <summary>Problema 5 — Dos vehículos parten del reposo con distinta aceleración</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Dos vehículos parten del reposo en el mismo punto y recorren \(100\ \text{m}\). El A acelera a \(2{,}5\ \text{m/s}^2\) y el B a \(3{,}5\ \text{m/s}^2\). ¿Qué velocidad lleva cada uno al final y cuál es la diferencia?</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=0\), \(a_A=2{,}5\ \text{m/s}^2\), \(a_B=3{,}5\ \text{m/s}^2\), \(\Delta x=100\ \text{m}\) (idéntico).<br>
+          <strong>Incógnitas:</strong> \(v_A\), \(v_B\), \(v_B-v_A\).
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <div class="formula">\[ v_A=\sqrt{2a_A\Delta x},\qquad v_B=\sqrt{2a_B\Delta x} \]</div>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo (los dos por separado)</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Velocidad de A (paso 1):</p>
+          <div class="entrada-latex">\[ v_A=\sqrt{2a_A\Delta x}\;\rightarrow\;\sqrt{(2\times 2.5\times 100)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×2.5×100)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Velocidad de B (paso 2):</p>
+          <div class="entrada-latex">\[ v_B=\sqrt{2a_B\Delta x}\;\rightarrow\;\sqrt{(2\times 3.5\times 100)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2×3.5×100)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <p>Resultados: \(v_A\approx 22{,}36\ \text{m/s}\), \(v_B\approx 26{,}46\ \text{m/s}\).</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE (no aplica aquí)</summary>
+        <div class="warn">La incógnita está despejada; SOLVE no aporta ventaja. Se reserva para casos con \(X\) dentro de raíces anidadas o en exponentes.</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(a_A=2{,}5\) en A, \(a_B=3{,}5\) en B, \(\Delta x=100\) en C (paso 1):</p>
+          <div class="entrada-latex">\[ a_A\!\rightarrow\!A,\; a_B\!\rightarrow\!B,\; \Delta x\!\rightarrow\!C \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">2.5→A, 3.5→B, 100→C</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>C</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Velocidad de A: \(\sqrt{2AC}\) (paso 2):</p>
+          <div class="entrada-latex">\[ v_A=\sqrt{2AC}\;\rightarrow\;\sqrt{(2AC)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2AC)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>ALPHA</kbd>][<kbd>C</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Velocidad de B: \(\sqrt{2BC}\) (paso 3):</p>
+          <div class="entrada-latex">\[ v_B=\sqrt{2BC}\;\rightarrow\;\sqrt{(2BC)} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√(2BC)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>ALPHA</kbd>][<kbd>C</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Diferencia \(v_B-v_A\) (paso 4):</p>
+          <div class="entrada-latex">\[ v_B-v_A\;\rightarrow\;26.45751311-22.36067977 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">26.45751311−22.36067977</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>6</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>5</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>1</kbd>][<kbd>3</kbd>][<kbd>1</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>2</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>3</kbd>][<kbd>6</kbd>][<kbd>0</kbd>][<kbd>6</kbd>][<kbd>7</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — factorización de la raíz</summary>
+        <p>Como \(2\Delta x=200\) es común, \(v=\sqrt{200\cdot a}=\sqrt{200}\cdot\sqrt{a}\):</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Factor común \(\sqrt{200}\) (paso 1):</p>
+          <div class="entrada-latex">\[ \sqrt{2\Delta x}=\sqrt{200}\;\rightarrow\;\sqrt{200} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">√200</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>√</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>0</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Multiplicar por \(\sqrt{a_A}\) y por \(\sqrt{a_B}\) (paso 2):</p>
+          <div class="entrada-latex">\[ v=\text{Ans}\cdot\sqrt{a}\;\rightarrow\;\text{Ans}\times\sqrt{2.5}\;\text{y}\;\text{Ans}\times\sqrt{3.5} \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">Ans×√2.5  |  Ans×√3.5</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>Ans</kbd>][<kbd>×</kbd>][<kbd>√</kbd>][<kbd>2</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>=</kbd>] &nbsp;y luego&nbsp; [<kbd>Ans</kbd>][<kbd>×</kbd>][<kbd>√</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>5</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="ok">Útil cuando hay que comparar muchas aceleraciones con el mismo \(\Delta x\).</div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v_A^2 = 500 \Rightarrow 500 = 2\cdot 2{,}5\cdot 100 \;\checkmark \qquad v_B^2 = 700 \Rightarrow 700 = 2\cdot 3{,}5\cdot 100 \;\checkmark \]</div>
+        <div class="ok">Aunque \(a_B/a_A=1{,}4\), la velocidad solo aumenta en factor \(\sqrt{1{,}4}\approx 1{,}18\). Diferencia \(\approx 4{,}1\ \text{m/s}\).</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Sumar las velocidades en vez de restarlas para la diferencia.</li>
+          <li>Suponer que \(v\) es proporcional a \(a\) (en realidad \(v\propto\sqrt{a}\) para el mismo \(\Delta x\)).</li>
+          <li>Confundir las aceleraciones A y B al sustituir.</li>
+          <li>Redondear antes de restar y obtener una diferencia errónea.</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= PROBLEMA 6 ================= -->
+    <details>
+      <summary>Problema 6 (propuesto) — Frenado con conversión km/h → m/s</summary>
+
+      <details>
+        <summary>📋 Enunciado y datos</summary>
+        <p>Un coche circula a \(72\ \text{km/h}\) y debe detenerse por completo en \(40\ \text{m}\). ¿Qué deceleración constante, en \(\text{m/s}^2\), necesitan los frenos?</p>
+        <div class="dato">
+          <strong>Datos:</strong> \(v_0=72\ \text{km/h}\), \(v=0\), \(\Delta x=40\ \text{m}\).<br>
+          <strong>Incógnita:</strong> \(a\) (negativa) en m/s².
+        </div>
+      </details>
+
+      <details>
+        <summary>🧮 Planteamiento y despeje</summary>
+        <p><strong>Paso 1:</strong> pasar \(v_0\) a m/s:</p>
+        <div class="formula">\[ v_0 = 72\ \tfrac{\text{km}}{\text{h}} = \frac{72}{3{,}6} = 20\ \text{m/s} \]</div>
+        <p><strong>Paso 2:</strong> despejar \(a\) de F3:</p>
+        <div class="formula">\[ a = \frac{v^2-v_0^2}{2\Delta x} = \frac{0-20^2}{2\cdot 40} = \frac{-400}{80} = -5{,}0\ \text{m/s}^2 \]</div>
+      </details>
+
+      <details>
+        <summary>🖩 Método 1: cálculo directo</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Conversión \(v_0\ (\text{km/h})\to v_0\ (\text{m/s})\) (paso 1):</p>
+          <div class="entrada-latex">\[ v_0=\frac{72}{3.6}\;\rightarrow\;72\div 3.6 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">72÷3.6</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>7</kbd>][<kbd>2</kbd>][<kbd>÷</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>=</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Aceleración \(a=\dfrac{0-v_0^2}{2\Delta x}\) (paso 2):</p>
+          <div class="entrada-latex">\[ a=\frac{0-v_0^2}{2\Delta x}\;\rightarrow\;(0-20^2)\div(2\times 40) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">(0−20²)÷(2×40)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(</kbd>][<kbd>0</kbd>][<kbd>−</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>4</kbd>][<kbd>0</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <p><strong>\(a=-5{,}0\ \text{m/s}^2\)</strong> (deceleración de \(5{,}0\ \text{m/s}^2\)).</p>
+      </details>
+
+      <details>
+        <summary>🖩 Método 2: SOLVE</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Ecuación \(0=20^2+2X\cdot 40\) → introducir (paso 1):</p>
+          <div class="entrada-latex">\[ 0=20^2+2X\cdot 40\;\rightarrow\;0=20^2+2X\times 40 \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">0=20²+2X×40</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>0</kbd>][<kbd>=</kbd>][<kbd>2</kbd>][<kbd>0</kbd>][<kbd>x²</kbd>][<kbd>+</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>)</kbd>][<kbd>×</kbd>][<kbd>4</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>CALC</kbd>][<kbd>=</kbd>]</p>
+        </div>
+        <div class="warn">Semilla \(X=-1\) (se espera signo negativo). El resultado que da la calculadora es \(X=-5\).</div>
+      </details>
+
+      <details>
+        <summary>💾 Método 3: memorias STO</summary>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(v_0=20\) en A, \(\Delta x=40\) en B (paso 1):</p>
+          <div class="entrada-latex">\[ v_0\!\rightarrow\!A,\; \Delta x\!\rightarrow\!B \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">20→A, 40→B</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>2</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>][<kbd>4</kbd>][<kbd>0</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Fórmula \(a=-\dfrac{A^2}{2B}\) (paso 2):</p>
+          <div class="entrada-latex">\[ a=-\frac{A^2}{2B}\;\rightarrow\;-A^2\div(2B) \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">−A²÷(2B)</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>(-)</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>x²</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>🔀 Método 4: alternativa — factor de conversión 1/3,6 con Ans</summary>
+        <p>Muy útil si hay que convertir varias velocidades seguidas:</p>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Guardar \(1/3{,}6\) en M (paso 1):</p>
+          <div class="entrada-latex">\[ \tfrac{1}{3.6}\!\rightarrow\!M\;\rightarrow\;1\div 3.6\to M \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">1÷3.6→M</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>=</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>M</kbd>]</p>
+        </div>
+
+        <div class="entrada-calc">
+          <p class="entrada-rotulo">Convertir cualquier km/h a m/s multiplicando por M (paso 2):</p>
+          <div class="entrada-latex">\[ 72\ \text{km/h}=72\cdot M\;\rightarrow\;72\times M \]</div>
+          <p class="pantalla-rotulo">Pantalla:</p>
+          <div class="pantalla">72×M</div>
+          <p class="teclas-rotulo">Secuencia:</p>
+          <p class="teclas">[<kbd>7</kbd>][<kbd>2</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>M</kbd>][<kbd>=</kbd>]</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>✅ Comprobación</summary>
+        <div class="formula">\[ v^2 = 20^2 + 2(-5)(40) = 400 - 400 = 0 \;\checkmark \]</div>
+        <div class="ok">La deceleración típica de un coche en asfalto seco está entre \(6\) y \(8\ \text{m/s}^2\); \(5\ \text{m/s}^2\) es realista (frenada suave).</div>
+      </details>
+
+      <details>
+        <summary>⚠️ Errores frecuentes en este problema</summary>
+        <ul>
+          <li>Dividir por \(60\) en vez de por \(3{,}6\) al convertir km/h a m/s.</li>
+          <li>Escribir el resultado como positivo y perder la información de que es una deceleración.</li>
+          <li>Meter \(v_0=72\) sin convertir: aparecería \(a=-2592\ \text{m/s}^2\), absurdo.</li>
+          <li>Usar \((-)\) en vez de la resta al escribir \((0-20^2)\).</li>
+        </ul>
+      </details>
+    </details>
+
+    <!-- ================= RESUMEN ================= -->
+    <details>
+      <summary>📊 Resumen de resultados</summary>
+      <table>
+        <thead>
+          <tr>
+            <th>Problema</th>
+            <th>Fórmula</th>
+            <th>Incógnita</th>
+            <th>Resultado</th>
+            <th>Unidad</th>
+            <th>Método recomendado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1 · Coche desde reposo en 80 m</td><td>\(v=\sqrt{v_0^2+2a\Delta x}\)</td><td>\(v\)</td><td>17,9</td><td>m/s</td><td>M1 (directo con √)</td></tr>
+          <tr><td>2 · Frenado tren 25 m/s</td><td>\(\Delta x=\dfrac{v_0^2}{2|a|}\)</td><td>\(\Delta x\)</td><td>125</td><td>m</td><td>M1 o M3 (STO)</td></tr>
+          <tr><td>3 · Despeje de \(a\) en 200 m</td><td>\(a=\dfrac{v^2-v_0^2}{2\Delta x}\)</td><td>\(a\)</td><td>2,0</td><td>m/s²</td><td>M1 o M4 (identidad)</td></tr>
+          <tr><td>4 · Caída libre 75 m</td><td>\(v=\sqrt{2g\Delta y}\)</td><td>\(v\)</td><td>38,3</td><td>m/s</td><td>M1 o M3 (STO)</td></tr>
+          <tr><td>5 · Dos vehículos A y B</td><td>\(v=\sqrt{2a\Delta x}\)</td><td>\(v_A,\;v_B,\;\Delta v\)</td><td>22,4 · 26,5 · 4,1</td><td>m/s</td><td>M3 (STO) o M4</td></tr>
+          <tr><td>6 · Frenado con km/h → m/s</td><td>\(a=\dfrac{0-v_0^2}{2\Delta x}\)</td><td>\(a\)</td><td>−5,0</td><td>m/s²</td><td>M1 + conversión M</td></tr>
+        </tbody>
+      </table>
+      <div class="ok">En los seis casos basta con la tercera ecuación del MRUA; la clave de calculadora es respetar paréntesis, signos con <kbd>(-)</kbd> y elegir la raíz positiva al calcular \(v\).</div>
+    </details>
+
+  </div>
+</details>
+<!-- ============ FIN BLOQUE: Uso de la calculadora — Tercera ecuación del MRUA ============ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
