@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
                 
-        /* ===== ESTILOS PARA EL DESPLEGABLE ===== */
+        /* ===== ESTILOS PARA EL DESPLEGABLE GENÉRICO ===== */
         details {
             margin: 30px 20px 20px 20px;
             border: 1px solid #cbd5e0;
@@ -290,18 +290,6 @@
             border-radius: 50%;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* ---------- ACCESO A PDFs ---------- */
 .acceso-pdf {
     margin: 30px 20px 10px 20px;
@@ -350,11 +338,145 @@
 
 
 
+        /* ============================================
+           ACCESO A MEMORIA RAM (desplegable plegado)
+           ============================================
+           Este bloque contiene:
+           - Un desplegable <details> con cabecera estilo
+             "tarjeta degradada" (idéntica estética al bloque PDF).
+           - El desplegable aparece PLEGADO por defecto (no lleva
+             el atributo `open`).
+           - En su interior, distribuido en vertical:
+               1) Texto introductorio.
+               2) Texto sobre la curva del olvido.
+               3) Imagen "Curva del olvido.jpg" (ancho completo).
+               4) Imagen "Ram.png" (ancho completo).
+               5) Imagen "Dos tipos de Ram.png" (ancho completo).
 
+           NOTA: se ha eliminado por completo la lectura de la
+           fecha de modificación del archivo Ram.png.
+        */
+        details.ram-details {
+            /* Reiniciamos el estilo genérico de <details> */
+            margin: 20px 20px 10px 20px;
+            border: 1px solid #cbd5e0;
+            border-radius: 14px;
+            padding: 0;
+            background: #f8fafc;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: box-shadow 0.2s ease;
+        }
+        details.ram-details:hover {
+            box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+        }
 
+        /* Cabecera del desplegable (summary) */
+        details.ram-details > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 16px 22px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0;
+        }
+        details.ram-details > summary::-webkit-details-marker { display: none; }
 
+        /* Icono izquierdo (chip de memoria): NO debe rotar */
+        details.ram-details > summary i.fa-memory {
+            font-size: 1.2em;
+            transition: none;
+            transform: none;
+        }
+        details.ram-details[open] > summary i.fa-memory {
+            transform: none;
+        }
 
+        /* Título central */
+        details.ram-details > summary .ram-titulo {
+            flex: 1;
+            text-align: left;
+        }
 
+        /* Badge "Púlsame" */
+        details.ram-details > summary .ram-pulsame {
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Chevron derecho: rota al abrir */
+        details.ram-details > summary i.ram-chevron {
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+        details.ram-details[open] > summary i.ram-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Cuerpo interior del desplegable: columna vertical */
+        .ram-contenido {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            padding: 22px 24px;
+            background: #f8fafc;
+        }
+        .ram-texto {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-width: 0;
+        }
+        .ram-texto p {
+            color: #2d3748;
+            line-height: 1.65;
+            font-size: 1em;
+            margin: 0;
+        }
+
+        /* Cada imagen del bloque RAM ocupa todo el ancho disponible */
+        .ram-imagen {
+            width: 100%;
+            display: block;
+        }
+        .ram-imagen img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .ram-imagen img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+        }
+
+        /* Adaptación del bloque RAM a móviles */
+        @media (max-width: 640px) {
+            .ram-contenido {
+                padding: 16px 14px;
+                gap: 16px;
+            }
+            details.ram-details > summary {
+                padding: 14px 16px;
+                font-size: 1.05em;
+            }
+            details.ram-details > summary .ram-pulsame {
+                display: none;
+            }
+        }
 
 
 
@@ -416,10 +538,6 @@
 
 
 
-
-
-
-
 <!-- ============================================
      ACCESO A LA CARPETA DE PDFs
      ============================================ -->
@@ -435,9 +553,107 @@
 </div>
 
 
+<!-- ============================================
+     ACCESO A MEMORIA RAM (desplegable plegado)
+     ============================================
+     Contenido del desplegable (en vertical):
+       1) Texto: objetivo didáctico del apartado.
+       2) Texto: reflexión sobre la curva del olvido.
+       3) Imagen "Curva del olvido.jpg" (ancho completo).
+       4) Imagen "Ram.png" (ancho completo).
+       5) Imagen "Dos tipos de Ram.png" (ancho completo).
+
+     NOTA: al no incluir el atributo `open`, el desplegable
+     aparece PLEGADO por defecto. La lectura de la fecha de
+     modificación del archivo ha sido eliminada.
+-->
+<details class="ram-details">
+    <!-- Cabecera clicable del desplegable -->
+    <summary>
+        <i class="fas fa-memory"></i>
+        <span class="ram-titulo">Memoria RAM</span>
+        <span class="ram-pulsame">Púlsame</span>
+        <i class="fas fa-chevron-down ram-chevron"></i>
+    </summary>
+
+    <!-- Cuerpo del bloque: texto + imágenes apiladas -->
+    <div class="ram-contenido">
+
+        <!-- 1) Texto introductorio -->
+        <div class="ram-texto">
+            <p>
+                El objetivo de este apartado es que el alumnado construya sus
+                <strong>propios apuntes</strong>, incorporando anotaciones clave
+                que destilen lo esencial de cada unidad didáctica. Se trata de un
+                ejercicio personal de <strong>síntesis</strong> que persigue dos
+                metas complementarias: por un lado, <strong>retener los
+                conocimientos fundamentales con el mínimo esfuerzo y la máxima
+                claridad</strong>; y por otro, disponer de un material de repaso
+                ágil que permita refrescar las ideas básicas antes de un examen
+                o al abordar contenidos más complejos.
+            </p>
+            <p>
+                Al elaborar estos resúmenes, el alumnado no se limita a memorizar:
+                <strong>comprende, reorganiza y relaciona</strong> la información,
+                consolidando así un aprendizaje significativo y duradero. La
+                memoria RAM de cada unidad se convierte, de este modo, en una
+                herramienta de estudio personal que prioriza la comprensión sobre
+                la repetición mecánica.
+            </p>
+        </div>
+
+        <!-- 2) Texto sobre la curva del olvido -->
+        <div class="ram-texto">
+            <p>
+                En 1º de Bachillerato, la Física y la Química requieren
+                <strong>constancia</strong>. No se trata de memorizar por un día,
+                sino de construir un conocimiento sólido. Cada repaso (primer,
+                segundo, tercer repaso...) hará que tu conocimiento se estabilice
+                y no se caiga. La clave no es estudiar más horas, sino
+                <strong>estudiar de forma espaciada y continua</strong> durante
+                todo el curso. ¡Entrena tu cerebro como un músculo!
+            </p>
+        </div>
+
+        <!-- 3) Imagen: Curva del olvido (ancho completo) -->
+        <div class="ram-imagen">
+            <img src="imagenes/00-Ram/Curva del olvido.jpg" alt="Curva del olvido">
+        </div>
+
+        <!-- 4) Imagen: Ram.png (ancho completo) -->
+        <div class="ram-imagen">
+            <img src="imagenes/00-Ram/Ram.png" alt="Memoria RAM">
+        </div>
+
+        <!-- 5) Imagen: Dos tipos de Ram.png (ancho completo) -->
+        <div class="ram-imagen">
+            <img src="imagenes/00-Ram/Dos tipos de Ram.png" alt="Dos tipos de RAM">
+        </div>
+
+
+        <!-- 6) Imagen: niño mirando.png (un cuarto del ancho) -->
+        <div class="ram-imagen" style="text-align: center; margin: 20px auto;">
+
+            <img src="imagenes/00-Ram/Niño mirando y señalando.png"
+                alt="Dos tipos de RAM"
+                style="display: block; width: 25%; height: auto; margin: 0 auto; border-radius: 12px;">
+
+            <p style="margin-top: 12px;
+                    font-family: 'Trebuchet MS', sans-serif;
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: #2874A6;
+                    text-align: center;
+                    letter-spacing: 0.5px;">
+                ✨ El tiempo de los repasos lo decides tú ✨
+            </p>
+
+        </div>
+
+    </div>
+</details>
+
  
-
-
 
 
 
@@ -922,7 +1138,9 @@
     // ============================================================
     // 4. EJECUCIÓN
     // ============================================================
-    document.addEventListener('DOMContentLoaded', renderizarUnidades);
+    document.addEventListener('DOMContentLoaded', () => {
+        renderizarUnidades();   // Pinta la lista de unidades
+    });
 </script>
 
 </body>
