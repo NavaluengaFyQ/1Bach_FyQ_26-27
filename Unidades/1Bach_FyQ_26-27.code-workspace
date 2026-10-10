@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../3ESO_FyQ_26-27"
+		},
+		{
+			"path": "../../4ESO_TallerLab_26-27"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "1Bach_FyQ_26-27"
+	}
+}
