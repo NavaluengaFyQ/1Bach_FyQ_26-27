@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c05 - Formulación orgánica: Alquenos (Problemas)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+
+        /* ============================================
+           SUB-DESPLEGABLE DE SOLUCIÓN
+           ============================================ */
+        details.solucion-card {
+            margin: 14px 0 0 0;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+        details.solucion-card > summary.solucion-header {
+            background: #e6fffa;
+            padding: 10px 16px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #276749;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        details.solucion-card > summary.solucion-header::-webkit-details-marker {
+            display: none;
+        }
+        details.solucion-card > summary.solucion-header:hover {
+            background: #d9f7f2;
+        }
+        details.solucion-card > summary.solucion-header .fa-chevron-down {
+            margin-left: auto;
+            color: #38a169;
+            transition: transform 0.3s ease;
+        }
+        details.solucion-card[open] > summary.solucion-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.solucion-card > .solucion-body {
+            padding: 14px 18px;
+            border-left: 4px solid #48bb78;
+            border-radius: 0 0 10px 10px;
+        }
+        .solucion-body .paso {
+            margin: 8px 0;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.ejercicio-card > summary.card-header { font-size: 0.95em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ============================================================
+         CABECERA
+         ============================================================ -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c05 </span>
+                <span class="texto">Formulación orgánica: Alquenos (Problemas)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ============================================================
+         PRESENTACIÓN
+         ============================================================ -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Colección de <strong>problemas resueltos</strong> de formulación y nomenclatura de <strong>alquenos</strong>, según las reglas IUPAC.</p>
+        <p>Se abordan, de forma progresiva:</p>
+        <ul>
+            <li>Alquenos lineales y ramificados, con uno o varios dobles enlaces (dienos, trienos…).</li>
+            <li>Elección de la cadena principal que contenga el mayor número de dobles enlaces.</li>
+            <li>Numeración que otorga el localizador más bajo al doble enlace.</li>
+            <li>Isomería geométrica: notación <strong>cis/trans</strong> y notación <strong>(Z)/(E)</strong>.</li>
+            <li>Nomenclatura de <strong>cicloalquenos</strong>: el doble enlace ocupa siempre la posición 1.</li>
+            <li>Paso inverso: escribir la fórmula estructural a partir del nombre.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         OBJETIVO
+         ============================================================ -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Reconocer el grupo funcional <strong>doble enlace C=C</strong> y la fórmula general C<sub>n</sub>H<sub>2n</sub>.</li>
+            <li>Seleccionar la <strong>cadena principal</strong>: la más larga que contenga el doble enlace; en caso de empate, la que tenga más dobles enlaces.</li>
+            <li>Numerar la cadena de modo que el <strong>doble enlace</strong> reciba el localizador más bajo (con preferencia sobre los sustituyentes).</li>
+            <li>Aplicar la terminación <strong>-eno</strong> (o <em>-dieno</em>, <em>-trieno</em>… según el número de dobles enlaces).</li>
+            <li>Distinguir los isómeros geométricos con la notación <strong>cis/trans</strong> o <strong>(Z)/(E)</strong>.</li>
+            <li>Nombrar <strong>cicloalquenos</strong> asignando la posición 1 al doble enlace.</li>
+            <li>Escribir la fórmula estructural de un alqueno a partir de su nombre IUPAC.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         RECORDATORIO TEÓRICO (DESPLEGABLE)
+         ============================================================ -->
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>📚 Recordatorio teórico: reglas de nomenclatura</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <div class="section procedimiento">
+                <h2>🧪 ¿Qué es un alqueno?</h2>
+                <p>Los <strong>alquenos</strong> son hidrocarburos que contienen al menos un <strong>doble enlace carbono-carbono (C=C)</strong>. Responden a la fórmula molecular general <strong>C<sub>n</sub>H<sub>2n</sub></strong> (para alquenos con un solo doble enlace).</p>
+                <div class="formula-box">
+                    C<sub>n</sub>H<sub>2n</sub>
+                </div>
+            </div>
+
+            <div class="section resultado">
+                <h2>📝 Nomenclatura de alquenos: 4 reglas básicas</h2>
+
+                <div class="step">
+                    <span class="step-num">1</span><strong>Prefijo + sufijo -eno:</strong> se nombran con el mismo prefijo que los alcanos (met-, et-, prop-, but-…) pero cambiando el sufijo <em>-ano</em> por <strong>-eno</strong>.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alqueno-01.png" alt="Regla 1: sufijo -eno">
+                        <div class="pie">Regla 1.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">2</span><strong>Cadena principal:</strong> se toma como cadena principal la <strong>más larga</strong> que contenga el doble enlace. Si hay varios dobles enlaces, se elige la cadena que contenga el <strong>mayor número de dobles enlaces</strong> (aunque no sea la más larga).
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alqueno-02.png" alt="Regla 2: elección de cadena principal">
+                        <div class="pie">Regla 2.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">3</span><strong>Numeración:</strong> comienza por el extremo que otorgue al doble enlace el <strong>localizador más bajo posible</strong>. Los dobles enlaces tienen preferencia sobre los sustituyentes.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alqueno-03.png" alt="Regla 3: numeración">
+                        <div class="pie">Regla 3.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">4</span><strong>Isomería geométrica:</strong> los alquenos pueden existir como <strong>isómeros espaciales</strong> que se distinguen con la notación <strong>cis/trans</strong> (o <strong>Z/E</strong>).
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alqueno-04.png" alt="Regla 4: isomería cis/trans">
+                        <div class="pie">Regla 4.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section objetivo">
+                <h2>🔬 Notación (Z)/(E) frente a cis/trans</h2>
+                <ul>
+                    <li><strong>(Z)</strong> (del alemán <em>zusammen</em>, «juntos»): los grupos de mayor prioridad de cada carbono del doble enlace están situados en el <strong>mismo lado</strong>.</li>
+                    <li><strong>(E)</strong> (del alemán <em>entgegen</em>, «opuestos»): los grupos de mayor prioridad están en <strong>lados opuestos</strong>.</li>
+                    <li><strong>cis</strong>: los grupos <em>iguales</em> del doble enlace están al mismo lado.</li>
+                    <li><strong>trans</strong>: los grupos <em>iguales</em> del doble enlace están en lados opuestos.</li>
+                </ul>
+                <div class="note">
+                    La notación <strong>(Z)/(E)</strong> es más general (usa prioridades CIP) y sustituye a <strong>cis/trans</strong> cuando los grupos no son idénticos en ambos carbonos del doble enlace.
+                </div>
+            </div>
+
+            <div class="section procedimiento">
+                <h2>🔄 Cicloalquenos</h2>
+                <ul>
+                    <li>En moléculas <strong>cíclicas</strong>, el doble enlace ocupa siempre la <strong>posición 1</strong> y este localizador se puede <strong>omitir</strong> al nombrar (en ausencia de grupos funcionales prioritarios).</li>
+                    <li>La numeración continúa en el sentido que dé los <strong>localizadores más bajos</strong> a los sustituyentes.</li>
+                    <li>Si hay más de un doble enlace, se elige el sentido que otorgue el <strong>conjunto de localizadores más bajo</strong>.</li>
+                </ul>
+            </div>
+
+        </div>
+    </details>
+
+    <!-- ==================================================
+         BLOQUE PRINCIPAL: PROBLEMAS RESUELTOS
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 PROBLEMAS RESUELTOS de alquenos</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- P1 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 1</span>
+                    Nombra el alqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p01.png" alt="Alqueno del problema 1">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos con doble enlace (buteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo al doble enlace (1).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> no tiene.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">1</span>-<span class="alc">But</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P2 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 2</span>
+                    Nombra el alqueno (isomería geométrica)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p02.png" alt="Alqueno del problema 2">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos (hexeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> doble enlace en posición 2.</div>
+                            <div class="paso"><strong>3. Isomería:</strong> grupos iguales (H) en lados opuestos → <em>trans</em>.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="pref">Trans</span>-<span class="num">2</span>-<span class="alc">Hex</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P3 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 3</span>
+                    Nombra el alqueno ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p03.png" alt="Alqueno del problema 3">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos con doble enlace (hexeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo al doble enlace (1).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> bromo en 6 y propilo en 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">6</span>-<span class="rad">Bromo</span>-<span class="num">3</span>-<span class="rad">propil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P4 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 4</span>
+                    Nombra el alqueno (notación Z/E)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p4.png" alt="Alqueno del problema 4">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos, doble enlace en 2 (hex-2-eno).</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> bromo en 2 y cloro en 4.</div>
+                            <div class="paso"><strong>3. Isomería:</strong> grupos prioritarios al mismo lado → <strong>(Z)</strong>.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="pref">(Z)</span>-<span class="num">2</span>-<span class="rad">Bromo</span>-<span class="num">4</span>-<span class="rad">cloro</span><span class="alc">hex</span>-<span class="num">2</span>-<span class="suf">eno</span></span></p>
+                            <div class="note">
+                                <strong>Info:</strong> la letra <strong>Z</strong> viene del alemán <em>zusammen</em>, «juntos». Indica que los grupos de mayor prioridad de cada carbono del doble enlace están situados en el <strong>mismo lado</strong>. La letra <strong>E</strong> (<em>entgegen</em>, «opuestos») indicaría que están en lados opuestos.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P5 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 5</span>
+                    Nombra el alqueno (notación E)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p05.png" alt="Alqueno del problema 5">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos, doble enlace en 3 (hex-3-eno).</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> bromo en 2 y metilo en 4.</div>
+                            <div class="paso"><strong>3. Isomería:</strong> grupos prioritarios en lados opuestos → <strong>(E)</strong>.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="pref">(E)</span>-<span class="num">2</span>-<span class="rad">Bromo</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">3</span>-<span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P6 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 6</span>
+                    Nombra el alqueno con isomería (E)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p01.png" alt="Alqueno del problema 6">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos, doble enlace en 4 (oct-4-eno).</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> metilos en 3 y 5.</div>
+                            <div class="paso"><strong>3. Isomería:</strong> grupos prioritarios en lados opuestos → <strong>(E)</strong>.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="pref">(E)</span>-<span class="num">3,5</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">oct</span>-<span class="num">4</span>-<span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P7 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 7</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p07.png" alt="Cicloalqueno del problema 7">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 5 miembros con un doble enlace (ciclopenteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> el doble enlace ocupa la posición 1; los metilos en 3 y 4.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,4</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">ciclopent</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P8 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 8</span>
+                    Nombra el cicloalqueno ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p08.png" alt="Cicloalqueno del problema 8">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 6 miembros con un doble enlace (ciclohexeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> el doble enlace en posición 1; sentido que dé localizadores más bajos a los sustituyentes.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en 3 y etilo en 4.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">ciclohex</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P9 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 9</span>
+                    Nombra el alqueno (con pasos)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p09.png" alt="Alqueno del problema 9">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p09b.png" alt="Resolución del problema 9">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos con doble enlace (buteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo al doble enlace.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> no tiene.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">But</span>-<span class="num">1</span>-<span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P10 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 10</span>
+                    Nombra el alqueno (con pasos)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p10.png" alt="Alqueno del problema 10">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p10b.png" alt="Resolución del problema 10">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos con doble enlace (penteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo al doble enlace (2).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> no tiene.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Pent</span>-<span class="num">2</span>-<span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P11 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 11</span>
+                    Nombra el dieno ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p11.png" alt="Dieno del problema 11">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p11b.png" alt="Resolución del problema 11">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos con dos dobles enlaces (butadieno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> dobles enlaces a igual distancia; se numera para que el metilo tome el menor localizador.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en posición 2.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">Metil</span><span class="alc">buta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P12 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 12</span>
+                    Nombra el dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p12.png" alt="Dieno del problema 12">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p12b.png" alt="Resolución del problema 12">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 9 carbonos con dos dobles enlaces (nonadieno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo a los dobles enlaces (2,6).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en posiciones 4 y 7.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4,7</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">nona</span>-<span class="num">2,6</span>-<span class="pref">di</span><span class="suf">eno</span></span></p>
+                            <div class="note">
+                                Se elige como cadena principal la de mayor longitud que contenga el mayor número de dobles enlaces.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P13 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 13</span>
+                    Nombra el dieno ramificado
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p13.png" alt="Dieno del problema 13">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p13b.png" alt="Resolución del problema 13">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos con dos dobles enlaces (hexadieno). Obsérvese que <strong>no</strong> es la más larga.</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo a los dobles enlaces (1,4).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> etilo en posición 2 y metilo en 5.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2</span>-<span class="rad">Etil</span>-<span class="num">5</span>-<span class="rad">metil</span><span class="alc">hexa</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P14 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 14</span>
+                    Nombra el dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente alqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p14.png" alt="Dieno del problema 14">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p14b.png" alt="Resolución del problema 14">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos con dos dobles enlaces (octadieno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizador más bajo a los dobles enlaces (1,4).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en posición 7,7.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">7,7</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">octa</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P15 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 15</span>
+                    Dibuja: 2-Metilhexa-1,5-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">2</span>-<span class="rad">Metil</span><span class="alc">hexa</span>-<span class="num">1,5</span>-<span class="pref">di</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p15.png" alt="Fórmula estructural del problema 15">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos (hexa-).</div>
+                            <div class="paso"><strong>2. Dobles enlaces:</strong> en posiciones 1 y 5 (dieno).</div>
+                            <div class="paso"><strong>3. Sustituyente:</strong> metilo en posición 2.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P16 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 16</span>
+                    Dibuja: 2,3,4-Trimetilocta-1,4,6-trieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">2,3,4</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">octa</span>-<span class="num">1,4,6</span>-<span class="pref">tri</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p16.png" alt="Fórmula estructural del problema 16">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos (octa-).</div>
+                            <div class="paso"><strong>2. Dobles enlaces:</strong> en 1, 4 y 6 (trieno).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> tres metilos en 2, 3 y 4.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P17 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 17</span>
+                    Dibuja: 4-terc-Butil-2-clorohept-1-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">4</span>-<span class="pref">terc</span>-<span class="rad">Butil</span>-<span class="num">2</span>-<span class="rad">cloro</span><span class="alc">hept</span>-<span class="num">1</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p17.png" alt="Fórmula estructural del problema 17">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 7 carbonos (hept-).</div>
+                            <div class="paso"><strong>2. Doble enlace:</strong> posición 1.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> terc-butil en 4 y cloro en 2.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P18 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 18</span>
+                    Dibuja: 3-Etil-2,4-dimetilhept-3-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Etil</span>-<span class="num">2,4</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">hept</span>-<span class="num">3</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p18.png" alt="Fórmula estructural del problema 18">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 7 carbonos (hept-).</div>
+                            <div class="paso"><strong>2. Doble enlace:</strong> posición 3.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> etilo en 3; metilos en 2 y 4.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P19 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 19</span>
+                    Dibuja: 3,4-Diisopropil-2,5-dimetilhex-3-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">3,4</span>-<span class="pref">Di</span><span class="rad">isopropil</span>-<span class="num">2,5</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">hex</span>-<span class="num">3</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p19.png" alt="Fórmula estructural del problema 19">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos (hex-).</div>
+                            <div class="paso"><strong>2. Doble enlace:</strong> posición 3.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> isopropilos en 3,4 y metilos en 2,5.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P20 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 20</span>
+                    Dibuja: Hept-1-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="alc">Hept</span>-<span class="num">1</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p20.png" alt="Fórmula estructural del problema 20">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 7 carbonos, doble enlace en 1.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P21 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 21</span>
+                    Dibuja: cis-Oct-3-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="pref">cis</span>-<span class="alc">Oct</span>-<span class="num">3</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p21.png" alt="Fórmula estructural del problema 21">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos, doble enlace en 3.</div>
+                            <div class="note">
+                                La notación <strong>cis</strong> indica que los grupos iguales (hidrógenos) de las posiciones 3 y 4 van orientados al mismo lado del alqueno.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P22 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 22</span>
+                    Dibuja: 3-Etilpent-2-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Etil</span><span class="alc">pent</span>-<span class="num">2</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p22.png" alt="Fórmula estructural del problema 22">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos, doble enlace en 2.</div>
+                            <div class="paso"><strong>2. Sustituyente:</strong> etilo en 3.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P23 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 23</span>
+                    Dibuja: trans-1,4-Dibromobut-2-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="pref">trans</span>-<span class="num">1,4</span>-<span class="pref">Di</span><span class="rad">bromo</span><span class="alc">but</span>-<span class="num">2</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p23.png" alt="Fórmula estructural del problema 23">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos, doble enlace en 2.</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> bromos en 1 y 4.</div>
+                            <div class="note">
+                                La notación <strong>trans</strong> indica que los grupos iguales del doble enlace (hidrógenos) van orientados a lados opuestos.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P24 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 24</span>
+                    Dibuja: 3-Clorohex-2-eno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Cloro</span><span class="alc">hex</span>-<span class="num">2</span>-<span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p24.png" alt="Fórmula estructural del problema 24">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos, doble enlace en 2.</div>
+                            <div class="paso"><strong>2. Sustituyente:</strong> cloro en 3.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P25 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 25</span>
+                    Dibuja: Buta-1,3-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="alc">Buta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p25.png" alt="Fórmula estructural del problema 25">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos con dobles enlaces conjugados en 1 y 3.</div>
+                            <div class="paso"><strong>2. Estructura:</strong> CH<sub>2</sub>=CH–CH=CH<sub>2</sub>.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P26 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 26</span>
+                    Dibuja: Hexa-1,4-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="alc">Hexa</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p26.png" alt="Fórmula estructural del problema 26">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos con dobles en 1 y 4.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P27 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 27</span>
+                    Dibuja: 5-Metil-3-propilocta-1,4,6-trieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">5</span>-<span class="rad">Metil</span>-<span class="num">3</span>-<span class="rad">propil</span><span class="alc">octa</span>-<span class="num">1,4,6</span>-<span class="pref">tri</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p27.png" alt="Fórmula estructural del problema 27">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos, dobles en 1, 4 y 6.</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> metilo en 5 y propilo en 3.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P28 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 28</span>
+                    Dibuja: 6-Metil-6-propilnona-2,4,7-trieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">6</span>-<span class="rad">Metil</span>-<span class="num">6</span>-<span class="rad">propil</span><span class="alc">nona</span>-<span class="num">2,4,7</span>-<span class="pref">tri</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p28.png" alt="Fórmula estructural del problema 28">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 9 carbonos, dobles en 2, 4 y 7.</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> metilo y propilo, ambos en posición 6.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P29 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 29</span>
+                    Dibuja: 2,3,5-Trimetilocta-1,4-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">2,3,5</span>-<span class="pref">Tri</span><span class="rad">metil</span><span class="alc">octa</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p29.png" alt="Fórmula estructural del problema 29">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 8 carbonos, dobles en 1 y 4.</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> metilos en 2, 3 y 5.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P30 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 30</span>
+                    Dibuja: 3-Propilhepta-1,5-dieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Dibuja la forma del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Propil</span><span class="alc">hepta</span>-<span class="num">1,5</span>-<span class="pref">di</span><span class="suf">eno</span></span>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p30.png" alt="Fórmula estructural del problema 30">
+                                <div class="pie">Fórmula estructural.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> 7 carbonos, dobles en 1 y 5.</div>
+                            <div class="paso"><strong>2. Sustituyente:</strong> propilo en 3.</div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P31 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 31</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p31.png" alt="Cicloalqueno del problema 31">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p31b.png" alt="Resolución del problema 31">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 3 miembros (ciclopropeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> el doble enlace toma los menores localizadores.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en posición 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">cicloprop</span><span class="suf">eno</span></span></p>
+                            <div class="note">
+                                En moléculas cíclicas el doble enlace siempre ocupará la posición 1 y se puede omitir este localizador al nombrar el alqueno (esto se cumple en ausencia de grupos funcionales).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P32 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 32</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p32.png" alt="Cicloalqueno del problema 32">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p32b.png" alt="Resolución del problema 32">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 4 miembros (ciclobuteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> se empieza en el carbono del metilo para que el doble enlace y los sustituyentes tomen los menores localizadores.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en posición 1 y etilo en 4.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Etil</span>-<span class="num">1</span>-<span class="rad">metil</span><span class="alc">ciclobut</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P33 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 33</span>
+                    Nombra el ciclodieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p33.png" alt="Ciclodieno del problema 33">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p33b.png" alt="Resolución del problema 33">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 5 miembros con dos dobles enlaces (ciclopentadieno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizadores más bajos posibles a los dobles enlaces y a los metilos.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en posición 1 y 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">1,3</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">ciclopenta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P34 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 34</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p34.png" alt="Cicloalqueno del problema 34">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p34b.png" alt="Resolución del problema 34">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 6 miembros (ciclohexeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> desde el doble enlace, de modo que el isopropilo tome el localizador más bajo.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> isopropilo en posición 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="pref">Iso</span><span class="rad">propil</span><span class="alc">ciclohex</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P35 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 35</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p35.png" alt="Cicloalqueno del problema 35">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p35b.png" alt="Resolución del problema 35">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 7 miembros (ciclohepteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> desde el doble enlace, de modo que los metilos tomen el localizador más bajo posible.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilos en posición 3,3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">ciclohept</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P36 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 36</span>
+                    Nombra el ciclotrieno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p36.png" alt="Ciclotrieno del problema 36">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p36b.png" alt="Resolución del problema 36">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 8 miembros (ciclooctatrieno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> localizadores más bajos posibles a los dobles enlaces (1, 3, 5).</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> no tiene.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Cicloocta</span>-<span class="num">1,3,5</span>-<span class="pref">tri</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P37 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 37</span>
+                    Nombra el cicloalqueno (repaso)
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p37.png" alt="Cicloalqueno del problema 37">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p37b.png" alt="Resolución del problema 37">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 6 miembros (ciclohexeno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> desde el doble enlace, de modo que el isopropilo tome el localizador más bajo.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> isopropilo en posición 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="pref">Iso</span><span class="rad">propil</span><span class="alc">ciclohex</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- P38 -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 38</span>
+                    Nombra el cicloalqueno
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Nombra el siguiente cicloalqueno.
+                        <div class="figura">
+                            <img src="../imagenes/00-Formulación/N-Alqueno-p38.png" alt="Cicloalqueno del problema 38">
+                            <div class="pie">Molécula del enunciado.</div>
+                        </div>
+                    </div>
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alqueno-p38b.png" alt="Resolución del problema 38">
+                                <div class="pie">Resolución.</div>
+                            </div>
+                            <div class="paso"><strong>1. Cadena principal:</strong> ciclo de 5 miembros (ciclopenteno).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> desde el doble enlace para que el metilo tome el menor localizador.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> metilo en posición 3.</div>
+                            <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">ciclopent</span><span class="suf">eno</span></span></p>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- PIE DIDÁCTICO -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave:</strong>
+                <ul style="margin-top:8px;">
+                    <li>La <strong>cadena principal</strong> es la más larga que contenga el doble enlace; si hay varios, la que tenga más dobles enlaces.</li>
+                    <li>Se numera por el extremo que dé al <strong>doble enlace</strong> el localizador más bajo.</li>
+                    <li>El nombre termina en <strong>-eno</strong>, <strong>-dieno</strong>, <strong>-trieno</strong>… según el número de dobles enlaces.</li>
+                    <li>Los dobles enlaces tienen <strong>preferencia sobre los sustituyentes</strong> en la numeración.</li>
+                    <li>Isomería geométrica: <strong>cis/trans</strong> (grupos iguales) o <strong>(Z)/(E)</strong> (grupos de mayor prioridad). Z = mismo lado; E = lados opuestos.</li>
+                    <li>En <strong>cicloalquenos</strong> el doble enlace ocupa la posición 1 (se omite el localizador si no hay grupos prioritarios).</li>
+                    <li>Puntuación: los números se separan de las letras con <strong>guiones</strong>, los localizadores entre sí con <strong>comas</strong> y <strong>nunca se dejan espacios</strong>.</li>
+                </ul>
+            </div>
+
+        </div>
+    </details>
+
+</div>
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE"
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

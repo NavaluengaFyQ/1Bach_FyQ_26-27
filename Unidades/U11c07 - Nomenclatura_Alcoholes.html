@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c04 - Formulación orgánica: Alcoholes y fenoles (Problemas)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA (IUPAC)
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        /* Localizadores numéricos: rojo + negrita */
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        /* Prefijos multiplicadores/alfabetizables: cursiva */
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        /* Radicales / sustituyentes: azul + negrita */
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        /* Raíz del alcano principal: negrita */
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        /* Terminación de alcano/insaturación: negrita + subrayado */
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        /* NUEVO: terminación -ol / -diol / -triol (alcohol/fenol): verde + negrita + subrayado */
+        .nomenclatura .ol {
+            color: #059669;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           TARJETAS DE EJERCICIO (DESPLEGABLES)
+           ============================================ */
+        details.ejercicio-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.ejercicio-card > summary.card-header {
+            background: #edf2f7;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        details.ejercicio-card > summary.card-header::-webkit-details-marker {
+            display: none;
+        }
+        details.ejercicio-card > summary.card-header:hover {
+            background: #e2e8f0;
+        }
+        details.ejercicio-card > summary.card-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+        details.ejercicio-card > summary.card-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.ejercicio-card[open] > summary.card-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicio-card > .card-body {
+            padding: 18px 20px;
+        }
+        .ejercicio-card .card-body .enunciado-ej {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+
+        /* ============================================
+           SUB-DESPLEGABLE DE SOLUCIÓN
+           ============================================ */
+        details.solucion-card {
+            margin: 14px 0 0 0;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+        details.solucion-card > summary.solucion-header {
+            background: #e6fffa;
+            padding: 10px 16px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #276749;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        details.solucion-card > summary.solucion-header::-webkit-details-marker {
+            display: none;
+        }
+        details.solucion-card > summary.solucion-header:hover {
+            background: #d9f7f2;
+        }
+        details.solucion-card > summary.solucion-header .fa-chevron-down {
+            margin-left: auto;
+            color: #38a169;
+            transition: transform 0.3s ease;
+        }
+        details.solucion-card[open] > summary.solucion-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.solucion-card > .solucion-body {
+            padding: 14px 18px;
+            border-left: 4px solid #48bb78;
+            border-radius: 0 0 10px 10px;
+        }
+        .solucion-body .paso {
+            margin: 8px 0;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 16px 16px 16px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.ejercicio-card > summary.card-header { font-size: 0.95em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ============================================================
+         CABECERA: título, código de la unidad y logos institucionales.
+         ============================================================ -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c04 </span>
+                <span class="texto">Formulación orgánica: Alcoholes y fenoles (Problemas)</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ============================================================
+         ENUNCIADO / PRESENTACIÓN
+         ============================================================ -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Colección de <strong>problemas resueltos</strong> de formulación y nomenclatura de <strong>alcoholes y fenoles</strong>, según las reglas IUPAC.</p>
+        <p>Se abordan, de forma progresiva:</p>
+        <ul>
+            <li>El grupo funcional hidroxilo (–OH) y su prioridad frente a otros grupos.</li>
+            <li>Clasificación de los alcoholes en <strong>primarios</strong>, <strong>secundarios</strong> y <strong>terciarios</strong> según el tipo de carbono al que se une el –OH.</li>
+            <li>Reglas de nomenclatura: elección de la cadena principal, numeración, sufijo <span class="nomenclatura"><span class="ol">-ol</span></span>, prefijo <span class="nomenclatura"><span class="pref">hidroxi</span>-</span> y prioridad sobre alquenos y alquinos.</li>
+            <li>Nomenclatura de <strong>fenoles</strong> y uso de los prefijos <span class="nomenclatura"><span class="pref">orto</span>-</span>, <span class="nomenclatura"><span class="pref">meta</span>-</span> y <span class="nomenclatura"><span class="pref">para</span>-</span>.</li>
+            <li>Paso inverso: escribir la fórmula estructural a partir del nombre.</li>
+            <li>Errores frecuentes al nombrar alcoholes y fenoles.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         OBJETIVO
+         ============================================================ -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Identificar el grupo hidroxilo (–OH) y distinguir alcoholes de fenoles.</li>
+            <li>Clasificar un alcohol como primario, secundario o terciario a partir de su estructura.</li>
+            <li>Seleccionar la <strong>cadena principal</strong> que contenga el –OH y numerarla para darle el <strong>localizador más bajo</strong>.</li>
+            <li>Aplicar la terminación <span class="nomenclatura"><span class="ol">-ol</span></span> y la posición del localizador del grupo hidroxilo.</li>
+            <li>Reconocer cuándo el alcohol pasa a ser un simple sustituyente (<span class="nomenclatura"><span class="pref">hidroxi</span>-</span>) por existir grupos de mayor prioridad.</li>
+            <li>Nombrar fenoles y utilizar correctamente los prefijos <span class="nomenclatura"><span class="pref">o</span>-</span>, <span class="nomenclatura"><span class="pref">m</span>-</span> y <span class="nomenclatura"><span class="pref">p</span>-</span>.</li>
+            <li>Escribir la fórmula estructural de un alcohol o fenol a partir de su nombre IUPAC.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         RECORDATORIO TEÓRICO: CLASIFICACIÓN Y REGLAS
+         ============================================================ -->
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>📚 Recordatorio teórico: clasificación y reglas de nomenclatura</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- Definición -->
+            <div class="section procedimiento">
+                <h2>🧪 ¿Qué es un alcohol?</h2>
+                <p>Los <strong>alcoholes</strong> son compuestos orgánicos que contienen el grupo funcional <strong>hidroxilo (–OH)</strong> unido a un carbono con hibridación sp³ (carbono saturado).</p>
+                <div class="formula-box">
+                    R–OH
+                </div>
+                <p>Si el –OH se une a un anillo aromático (benceno), el compuesto se denomina <strong>fenol</strong> y su fórmula general es <strong>Ar–OH</strong>.</p>
+            </div>
+
+            <!-- Clasificación -->
+            <div class="section objetivo">
+                <h2>🔬 Clasificación: primarios, secundarios y terciarios</h2>
+                <p>El alcohol se clasifica según el <strong>tipo de carbono</strong> al que esté unido el grupo –OH:</p>
+                <ul>
+                    <li><strong>Primario:</strong> el –OH se une a un carbono primario (unido a un solo carbono).</li>
+                    <li><strong>Secundario:</strong> el –OH se une a un carbono secundario (unido a dos carbonos).</li>
+                    <li><strong>Terciario:</strong> el –OH se une a un carbono terciario (unido a tres carbonos).</li>
+                </ul>
+
+                <div class="figura">
+                    <img src="../imagenes/00-Formulación/N-Alcohol-00a-Carbono1234a.png" alt="Carbonos primarios, secundarios y terciarios">
+                    <div class="pie">Carbonos primarios, secundarios y terciarios.</div>
+                </div>
+                <div class="figura">
+                    <img src="../imagenes/00-Formulación/N-Alcohol-00a-Carbono1234b.png" alt="Carbonos primarios, secundarios y terciarios (2)">
+                    <div class="pie">Carbonos primarios, secundarios y terciarios (2).</div>
+                </div>
+                <div class="figura">
+                    <img src="../imagenes/00-Formulación/N-Alcohol-00a-Alcoholes1234.jpg" alt="Alcoholes primarios, secundarios y terciarios">
+                    <div class="pie">Alcoholes primarios, secundarios y terciarios.</div>
+                </div>
+            </div>
+
+            <!-- Reglas de nomenclatura -->
+            <div class="section resultado">
+                <h2>📝 Nomenclatura de alcoholes: 5 reglas básicas</h2>
+
+                <div class="step">
+                    <span class="step-num">1</span><strong>Cadena principal:</strong> se elige como cadena principal la de <strong>mayor longitud</strong> que contenga el grupo –OH.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alcohol-01.png" alt="Regla 1: elección de la cadena principal">
+                        <div class="pie">Regla 1.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">2</span><strong>Numeración:</strong> se numera la cadena principal para que el grupo –OH tome el <strong>localizador más bajo</strong>. El hidroxilo tiene preferencia sobre cadenas carbonadas, halógenos, dobles y triples enlaces.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alcohol-02.png" alt="Regla 2: numeración">
+                        <div class="pie">Regla 2.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">3</span><strong>Sufijo:</strong> el nombre del alcohol se construye cambiando la terminación <em>-o</em> del alcano con igual número de carbonos por <span class="nomenclatura"><span class="ol">-ol</span></span>.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alcohol-03.png" alt="Regla 3: sufijo -ol">
+                        <div class="pie">Regla 3.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">4</span><strong>Grupos de mayor prioridad:</strong> cuando en la molécula hay grupos funcionales de mayor prioridad, el alcohol pasa a ser un mero sustituyente y se llama <span class="nomenclatura"><span class="pref">hidroxi</span>-</span>. Son prioritarios frente a los alcoholes: ácidos carboxílicos, anhídridos, ésteres, haluros de alcanoilo, amidas, nitrilos, aldehídos y cetonas.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alcohol-04.png" alt="Regla 4: prefijo hidroxi-">
+                        <div class="pie">Regla 4.</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-num">5</span><strong>Prioridad sobre alquenos y alquinos:</strong> el grupo –OH es prioritario frente a los alquenos y alquinos. La numeración otorga el localizador más bajo al –OH y el nombre de la molécula termina en <span class="nomenclatura"><span class="ol">-ol</span></span>.
+                    <div class="figura">
+                        <img src="../imagenes/00-Formulación/N-Alcohol-05.png" alt="Regla 5: prioridad frente a insaturaciones">
+                        <div class="pie">Regla 5.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nomenclatura de fenoles -->
+            <div class="section procedimiento">
+                <h2>🌸 Nomenclatura de fenoles</h2>
+                <ul>
+                    <li>La sustitución del átomo de H se produce en un <strong>benceno</strong>.</li>
+                    <li>La fórmula general es: <strong>Ar–OH</strong> (aromático).</li>
+                    <li>Terminación <span class="nomenclatura"><span class="alc">fen</span><span class="ol">ol</span></span>, comenzando la numeración en el –OH (posición 1).</li>
+                    <li>En caso de dos sustituyentes se usan los prefijos:
+                        <ul>
+                            <li><span class="nomenclatura"><span class="pref">o</span>-</span> (orto-): posición 1,2-</li>
+                            <li><span class="nomenclatura"><span class="pref">m</span>-</span> (meta-): posición 1,3-</li>
+                            <li><span class="nomenclatura"><span class="pref">p</span>-</span> (para-): posición 1,4-</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+    <!-- ==================================================
+         BLOQUE DESPLEGABLE PRINCIPAL:
+         PROBLEMAS RESUELTOS de alcoholes y fenoles
+         ================================================== -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 PROBLEMAS RESUELTOS de alcoholes y fenoles</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- ==================================================
+                 PROBLEMA 1 — 3-Metilbutan-1-ol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 1</span>
+                    Escribe el diagrama: <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">butan</span>-<span class="num">1</span>-<span class="ol">ol</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el diagrama del siguiente alcohol:
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">butan</span>-<span class="num">1</span>-<span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-01b.png" alt="Resolución del problema 1">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos (butano), con el –OH en posición 1.</div>
+                            <div class="paso"><strong>2. Sustituyentes:</strong> metilo en posición 3.</div>
+                            <div class="paso"><strong>3. Estructura:</strong> CH<sub>3</sub>–CH(CH<sub>3</sub>)–CH<sub>2</sub>–CH<sub>2</sub>OH.</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> el –OH tiene preferencia para tomar el localizador más bajo (1).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 2 — Pent-4-en-2-ol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 2</span>
+                    Escribe el diagrama: <span class="nomenclatura"><span class="alc">Pent</span>-<span class="num">4</span>-<span class="suf">en</span>-<span class="num">2</span>-<span class="ol">ol</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el diagrama del siguiente alcohol:
+                        <br><span class="nomenclatura"><span class="alc">Pent</span>-<span class="num">4</span>-<span class="suf">en</span>-<span class="num">2</span>-<span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-02b.png" alt="Resolución del problema 2">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos (pent-), con un doble enlace en posición 4.</div>
+                            <div class="paso"><strong>2. Grupo –OH:</strong> en posición 2 (tiene prioridad para el localizador más bajo).</div>
+                            <div class="paso"><strong>3. Estructura:</strong> CH<sub>2</sub>=CH–CH<sub>2</sub>–CH(OH)–CH<sub>3</sub>.</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> el –OH es prioritario frente al doble enlace, por lo que se numera desde el extremo que le asigne el localizador más bajo (2 frente a 3 si se numerara por el otro extremo).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 3 — Hex-2-in-1,6-diol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 3</span>
+                    Escribe el diagrama: <span class="nomenclatura"><span class="alc">Hex</span>-<span class="num">2</span>-<span class="suf">in</span>-<span class="num">1,6</span>-<span class="pref">di</span><span class="ol">ol</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el diagrama del siguiente alcohol:
+                        <br><span class="nomenclatura"><span class="alc">Hex</span>-<span class="num">2</span>-<span class="suf">in</span>-<span class="num">1,6</span>-<span class="pref">di</span><span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <p><strong>Estructura:</strong> CH<sub>2</sub>OH–CH<sub>2</sub>–CH<sub>2</sub>–C≡C–CH<sub>2</sub>OH</p>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos (hex-).</div>
+                            <div class="paso"><strong>2. Insaturación:</strong> triple enlace en posición 2 (in-).</div>
+                            <div class="paso"><strong>3. Grupos –OH:</strong> dos hidroxilos en posiciones 1 y 6 (diol).</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> cuando hay dos grupos –OH se usa el prefijo <em>di-</em> ante el sufijo <span class="nomenclatura"><span class="ol">-ol</span></span>, quedando <span class="nomenclatura"><span class="pref">di</span><span class="ol">ol</span></span>. El triple enlace cede prioridad en la numeración al –OH.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 4 — 4-Cloro-3-metilhex-1-en-2-ol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 4</span>
+                    Escribe el diagrama: <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Cloro</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">2</span>-<span class="ol">ol</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el diagrama del siguiente alcohol:
+                        <br><span class="nomenclatura"><span class="num">4</span>-<span class="rad">Cloro</span>-<span class="num">3</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">2</span>-<span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-04b.png" alt="Resolución del problema 4">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <p><strong>Estructura:</strong> CH<sub>2</sub>=C(OH)–CH(CH<sub>3</sub>)–CHCl–CH<sub>2</sub>–CH<sub>3</sub></p>
+
+                            <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos (hex-).</div>
+                            <div class="paso"><strong>2. Insaturación:</strong> doble enlace en posición 1 (en-).</div>
+                            <div class="paso"><strong>3. Grupo –OH:</strong> en posición 2, prioritario en la numeración.</div>
+                            <div class="paso"><strong>4. Sustituyentes:</strong> cloro en 4 y metilo en 3.</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> el –OH es prioritario frente al doble enlace y frente a los halógenos y radicales alquilo. Por eso toma el localizador 2, aunque el doble enlace tome el 1.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 5 — Fenol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 5</span>
+                    Escribe el diagrama: <span class="nomenclatura"><span class="alc">Fen</span><span class="ol">ol</span></span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> Escribe el diagrama del siguiente compuesto:
+                        <br><span class="nomenclatura"><span class="alc">Fen</span><span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-05b.png" alt="Resolución del problema 5">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <p><strong>Estructura:</strong> C<sub>6</sub>H<sub>5</sub>–OH (benceno con un grupo –OH en posición 1).</p>
+
+                            <div class="note">
+                                <strong>Info:</strong> el fenol es el compuesto aromático más sencillo con grupo hidroxilo. El anillo bencénico aporta el nombre base <span class="nomenclatura"><span class="alc">fen</span><span class="ol">ol</span></span>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 6 — 2-Metilfenol (o o-Metilfenol)
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 6</span>
+                    ¿A qué fórmula corresponde el <span class="nomenclatura"><span class="num">2</span>-<span class="rad">Metil</span><span class="alc">fen</span><span class="ol">ol</span></span>?
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> ¿A qué alcohol corresponde esta fórmula?
+                        <br><span class="nomenclatura"><span class="num">2</span>-<span class="rad">Metil</span><span class="alc">fen</span><span class="ol">ol</span></span> (o <span class="nomenclatura"><span class="pref">o</span>-<span class="rad">Metil</span><span class="alc">fen</span><span class="ol">ol</span></span>)
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-06b.png" alt="Resolución del problema 6">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Base:</strong> anillo bencénico con –OH (fenol).</div>
+                            <div class="paso"><strong>2. Sustituyente:</strong> metilo en posición 2 respecto al –OH.</div>
+                            <div class="paso"><strong>3. Posición relativa:</strong> 1,2 = <em>orto</em>.</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> el –OH ocupa la posición 1 y el CH<sub>3</sub> la 2 (1,2 = orto). También puede nombrarse como <em>o-cresol</em>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 7 — 2-Etilfenol (o o-Etilfenol)
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 7</span>
+                    ¿A qué fórmula corresponde el <span class="nomenclatura"><span class="num">2</span>-<span class="rad">Etil</span><span class="alc">fen</span><span class="ol">ol</span></span>?
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> ¿A qué alcohol corresponde esta fórmula?
+                        <br><span class="nomenclatura"><span class="num">2</span>-<span class="rad">Etil</span><span class="alc">fen</span><span class="ol">ol</span></span> (o <span class="nomenclatura"><span class="pref">o</span>-<span class="rad">Etil</span><span class="alc">fen</span><span class="ol">ol</span></span>)
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-07b.png" alt="Resolución del problema 7">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Base:</strong> anillo bencénico con –OH (fenol).</div>
+                            <div class="paso"><strong>2. Sustituyente:</strong> etilo (–CH<sub>2</sub>CH<sub>3</sub>) en posición 2 respecto al –OH.</div>
+                            <div class="paso"><strong>3. Posición relativa:</strong> 1,2 = <em>orto</em>.</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> el –OH ocupa la posición 1 y el etilo la 2 (1,2 = orto).
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 PROBLEMA 8 — 3-Cloro-4-metilfenol
+                 ================================================== -->
+            <details class="ejercicio-card">
+                <summary class="card-header">
+                    <span class="badge">Problema 8</span>
+                    ¿A qué fórmula corresponde el <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Cloro</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">fen</span><span class="ol">ol</span></span>?
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="card-body">
+                    <div class="enunciado-ej">
+                        <strong>Enunciado:</strong> ¿A qué alcohol corresponde esta fórmula?
+                        <br><span class="nomenclatura"><span class="num">3</span>-<span class="rad">Cloro</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">fen</span><span class="ol">ol</span></span>
+                    </div>
+
+                    <details class="solucion-card">
+                        <summary class="solucion-header">
+                            <i class="fas fa-lightbulb"></i> Solución
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="solucion-body">
+                            <div class="figura">
+                                <img src="../imagenes/00-Formulación/N-Alcohol-08b.png" alt="Resolución del problema 8">
+                                <div class="pie">Resolución.</div>
+                            </div>
+
+                            <div class="paso"><strong>1. Base:</strong> anillo bencénico con –OH (fenol).</div>
+                            <div class="paso"><strong>2. Numeración:</strong> el –OH ocupa la posición 1.</div>
+                            <div class="paso"><strong>3. Sustituyentes:</strong> cloro en posición 3 y metilo en posición 4 (orden alfabético: cloro antes que metilo).</div>
+
+                            <div class="note">
+                                <strong>Info:</strong> cuando hay más de dos sustituyentes ya no se emplean los prefijos <span class="nomenclatura"><span class="pref">o</span>-</span>, <span class="nomenclatura"><span class="pref">m</span>-</span>, <span class="nomenclatura"><span class="pref">p</span>-</span>; se usan localizadores numéricos. El orden alfabético coloca <em>cloro</em> antes que <em>metil</em>.
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 PIE DIDÁCTICO: resumen de reglas
+                 ============================================================ -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave:</strong>
+                <ul style="margin-top:8px;">
+                    <li>La <strong>cadena principal</strong> debe contener el grupo –OH y ser la más larga posible.</li>
+                    <li>Se numera por el extremo que dé al <strong>–OH el localizador más bajo</strong>.</li>
+                    <li>El nombre termina en <span class="nomenclatura"><span class="ol">-ol</span></span> (o <span class="nomenclatura"><span class="ol">-diol</span></span>, <span class="nomenclatura"><span class="ol">-triol</span></span>… si hay varios hidroxilos).</li>
+                    <li>El –OH es prioritario frente a halógenos, dobles y triples enlaces; pero cede frente a ácidos, ésteres, amidas, aldehídos, cetonas y nitrilos (se nombra entonces como <span class="nomenclatura"><span class="pref">hidroxi</span>-</span>).</li>
+                    <li>Los <strong>fenoles</strong> se nombran terminando en <span class="nomenclatura"><span class="alc">fen</span><span class="ol">ol</span></span>, con el –OH en la posición 1.</li>
+                    <li>Con dos sustituyentes en el anillo se usan <span class="nomenclatura"><span class="pref">o</span>-</span> (1,2), <span class="nomenclatura"><span class="pref">m</span>-</span> (1,3) y <span class="nomenclatura"><span class="pref">p</span>-</span> (1,4); con tres o más se emplean localizadores numéricos.</li>
+                    <li>Puntuación: los números se separan de las letras con <strong>guiones</strong>, los localizadores entre sí con <strong>comas</strong> y <strong>nunca se dejan espacios</strong>.</li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</body>
+</html>
