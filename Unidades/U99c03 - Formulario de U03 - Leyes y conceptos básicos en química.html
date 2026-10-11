@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U99c03 - Formulario de U03 - Leyes y conceptos básicos en química</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === NUEVA SECCIÓN: OBSERVACIONES DE INTERÉS (tono verde) === */
+        .observacion {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+
+        .observacion strong { color: #276749; }
+
+        .observacion::before {
+            content: "🌿 ";
+            font-size: 0.95em;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99.c03</span>
+                <span class="texto">Leyes y conceptos básicos en química</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ==================== CATEGORÍA: LEYES (c-1) ==================== -->
+
+        <!-- Tarjeta 1: Ley de Proust -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Ley de las Proporciones Definidas (Proust)</h2>
+                <span class="badge-centro">Leyes</span>
+            </div>
+            <div class="formula-box">
+                \[ \frac{m_{\text{A}}}{m_{\text{B}}} = \frac{x \cdot M_{\text{A}}}{y \cdot M_{\text{B}}} = \text{cte} \]
+            </div>
+            <p class="note">De la definición de compuesto químico: los elementos que lo forman se combinan siempre en una proporción de masa fija e invariable, independientemente de su procedencia.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(m_{\text{A}}\)</td><td data-label="Significado">Masa del elemento A en el compuesto</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(m_{\text{B}}\)</td><td data-label="Significado">Masa del elemento B en el compuesto</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(x, y\)</td><td data-label="Significado">Subíndices de la fórmula (átomos de cada elemento)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(M_{\text{A}}, M_{\text{B}}\)</td><td data-label="Significado">Masas molares de los elementos A y B</td><td data-label="Unidades">g/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> En el MgO, \(2{,}40\ \text{g}\) de Mg reaccionan con \(1{,}50\ \text{g}\) de O → \(m_{\text{Mg}}/m_{\text{O}} = 2{,}40/1{,}50 = 1{,}60\).</p>
+            <p class="observacion"><strong>Observación:</strong> Proust formuló esta ley en 1799 tras estudiar carbonatos. Es válida para <em>compuestos puros</em>, no para mezclas ni aleaciones. Los isótopos pueden alterar ligeramente la proporción en muestras muy enriquecidas.</p>
+        </article>
+
+        <!-- Tarjeta 2: Ley de Dalton -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Ley de las Proporciones Múltiples (Dalton)</h2>
+                <span class="badge-centro">Leyes</span>
+            </div>
+            <div class="formula-box">
+                \[ \frac{m_{\text{B, comp. 1}}}{m_{\text{B, comp. 2}}} = \frac{b \cdot c}{a \cdot d} = \text{números enteros sencillos} \]
+            </div>
+            <p class="note">Al comparar dos compuestos formados por los mismos elementos A y B con una masa fija de A, las masas de B están en relación de números enteros sencillos.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(m_{\text{B, comp. 1}}\)</td><td data-label="Significado">Masa de B en el compuesto 1 (con masa fija de A)</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(m_{\text{B, comp. 2}}\)</td><td data-label="Significado">Masa de B en el compuesto 2 (con la misma masa fija de A)</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(a, b, c, d\)</td><td data-label="Significado">Subíndices de las fórmulas \(A_aB_b\) y \(A_cB_d\)</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Con \(16{,}0\ \text{g}\) de O fijos, el CuO tiene \(63{,}5\ \text{g}\) de Cu y el Cu₂O tiene \(127{,}0\ \text{g}\) de Cu → \(127{,}0/63{,}5 = 2/1\).</p>
+            <p class="observacion"><strong>Observación:</strong> No debe confundirse con la <em>Ley de Dalton de las presiones parciales</em> (tarjeta 7). Ambas llevan el nombre del mismo científico, pero tratan fenómenos distintos: proporciones múltiples vs. mezclas gaseosas.</p>
+        </article>
+
+        <!-- Tarjeta 3: Ley de Lavoisier -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Ley de Conservación de la Masa (Lavoisier)</h2>
+                <span class="badge-centro">Leyes</span>
+            </div>
+            <div class="formula-box">
+                \[ \sum m_{\text{reactivos}} = \sum m_{\text{productos}} \]
+            </div>
+            <p class="note">Del principio de conservación de los átomos: en una reacción química ordinaria en sistema cerrado, los átomos se redistribuyen pero no se crean ni se destruyen.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(m_{\text{reactivos}}\)</td><td data-label="Significado">Masa total de las sustancias que reaccionan</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(m_{\text{productos}}\)</td><td data-label="Significado">Masa total de las sustancias formadas</td><td data-label="Unidades">g</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(2{,}40\ \text{g}\) de Mg + \(1{,}60\ \text{g}\) de O₂ → \(4{,}00\ \text{g}\) de MgO. La masa total se conserva.</p>
+            <p class="observacion"><strong>Observación:</strong> En <em>reacciones nucleares</em> hay defecto de masa (\(E=mc^2\)), por lo que la ley no se cumple estrictamente. En sistemas <em>abiertos</em> puede parecer que no se conserva si escapan gases, de ahí la importancia de trabajar en recipiente cerrado.</p>
+        </article>
+
+        <!-- ==================== CATEGORÍA: GASES (c-2) ==================== -->
+
+        <!-- Tarjeta 4: Hipótesis de Avogadro -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Hipótesis de Avogadro y Volúmenes de Combinación</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[ \frac{V_1}{n_1} = \frac{V_2}{n_2} = V_m \quad \text{(mismas } p, T\text{)} \]
+            </div>
+            <p class="note">De la Ley de los Volúmenes de Combinación de Gay-Lussac, al postular que volúmenes iguales de gases en las mismas condiciones contienen el mismo número de moléculas.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(V_1, V_2\)</td><td data-label="Significado">Volúmenes de dos gases en las mismas condiciones</td><td data-label="Unidades">L</td></tr>
+                    <tr><td data-label="Símbolo">\(n_1, n_2\)</td><td data-label="Significado">Cantidad de sustancia (moles) de cada gas</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(V_m\)</td><td data-label="Significado">Volumen molar en las condiciones dadas</td><td data-label="Unidades">L/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> En \(N_2 + 3H_2 \rightarrow 2NH_3\), 1 L de N₂ reacciona con 3 L de H₂ y produce 2 L de NH₃.</p>
+            <p class="observacion"><strong>Observación:</strong> La hipótesis de Avogadro solo es estricta para <em>gases ideales</em>; a presiones altas o temperaturas bajas los gases reales se desvían. Fue clave para distinguir entre átomos y moléculas (p. ej., H₂ frente a H).</p>
+        </article>
+
+        <!-- Tarjeta 5: Ecuación de Clapeyron -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Ecuación de Estado de los Gases Ideales (Clapeyron)</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[ pV = nRT \]
+            </div>
+            <p class="note">Combinando las leyes de Boyle-Mariotte, Charles y Gay-Lussac, e incorporando la cantidad de sustancia \(n\) según la hipótesis de Avogadro.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(p\)</td><td data-label="Significado">Presión del gas</td><td data-label="Unidades">atm</td></tr>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Volumen ocupado por el gas</td><td data-label="Unidades">L</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Cantidad de sustancia (moles)</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Constante universal de los gases ideales</td><td data-label="Unidades">atm·L/(mol·K)</td></tr>
+                    <tr><td data-label="Símbolo">\(T\)</td><td data-label="Significado">Temperatura absoluta</td><td data-label="Unidades">K</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(n = \dfrac{pV}{RT} = \dfrac{2{,}5 \times 5{,}0}{0{,}082 \times 300} \approx 0{,}508\ \text{mol}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Para gases reales se introduce el <em>factor de compresibilidad</em> \(Z = pV/(nRT)\) (\(Z=1\) en gas ideal). La ecuación de Van der Waals corrige \(p\) y \(V\) con las constantes \(a\) y \(b\).</p>
+        </article>
+
+        <!-- Tarjeta 6: Densidad-Masa molecular -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Relación Densidad-Masa Molecular</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[ pM = dRT \quad \Longleftrightarrow \quad M = \frac{dRT}{p} \quad ; \quad d = \frac{pM}{RT} \]
+            </div>
+            <p class="note">Al sustituir \(n = m/M\) en la ecuación de Clapeyron y reconocer que \(d = m/V\) es la densidad del gas.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(p\)</td><td data-label="Significado">Presión del gas</td><td data-label="Unidades">atm</td></tr>
+                    <tr><td data-label="Símbolo">\(M\)</td><td data-label="Significado">Masa molar del gas</td><td data-label="Unidades">g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(d\)</td><td data-label="Significado">Densidad del gas</td><td data-label="Unidades">g/L</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Constante universal de los gases</td><td data-label="Unidades">atm·L/(mol·K)</td></tr>
+                    <tr><td data-label="Símbolo">\(T\)</td><td data-label="Significado">Temperatura absoluta</td><td data-label="Unidades">K</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Para \(d = 3{,}17\ \text{g/L}\), \(T = 298\ \text{K}\), \(p = 1{,}2\ \text{atm}\): \(M = \dfrac{3{,}17 \times 0{,}082 \times 298}{1{,}2} \approx 64{,}6\ \text{g/mol}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Este método (Dumas, Bunsen) permite determinar masas molares midiendo densidades gaseosas. La <em>densidad relativa</em> respecto al aire (\(M_{\text{aire}}\approx 28{,}9\ \text{g/mol}\)) es útil para identificar gases por su "peso".</p>
+        </article>
+
+        <!-- Tarjeta 7: Fracción molar y presiones parciales -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Fracción Molar y Presiones Parciales (Ley de Dalton)</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[ x_i = \frac{n_i}{n_{\text{total}}} \quad ; \quad p_i = x_i \cdot p_{\text{total}} \]
+            </div>
+            <p class="note">De la ecuación de Clapeyron aplicada a cada componente y a la mezcla total: \(p_iV = n_iRT\) y \(p_{\text{total}}V = n_{\text{total}}RT\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(x_i\)</td><td data-label="Significado">Fracción molar del componente \(i\)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(n_i\)</td><td data-label="Significado">Moles del componente \(i\)</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(n_{\text{total}}\)</td><td data-label="Significado">Moles totales de la mezcla</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(p_i\)</td><td data-label="Significado">Presión parcial del componente \(i\)</td><td data-label="Unidades">atm</td></tr>
+                    <tr><td data-label="Símbolo">\(p_{\text{total}}\)</td><td data-label="Significado">Presión total de la mezcla</td><td data-label="Unidades">atm</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Si \(n_{\text{He}} = 0{,}50\ \text{mol}\) de un total de \(1{,}00\ \text{mol}\) y \(p_T = 2{,}0\ \text{atm}\): \(x_{\text{He}} = 0{,}50\) y \(p_{\text{He}} = 0{,}50 \times 2{,}0 = 1{,}0\ \text{atm}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Siempre se cumple \(\sum x_i = 1\) y \(\sum p_i = p_{\text{total}}\). Es válida si los gases <em>no reaccionan entre sí</em>. En gases recogidos sobre agua hay que restar la presión de vapor del agua a esa temperatura.</p>
+        </article>
+
+        <!-- ==================== CATEGORÍA: DISOLUCIONES (c-3) ==================== -->
+
+        <!-- Tarjeta 8: Ley de Raoult -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Ley de Raoult (Disminución de la Presión de Vapor)</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[ p = x_{\text{disolvente}} \cdot p^0 \quad ; \quad \Delta p = x_{\text{soluto}} \cdot p^0 \]
+            </div>
+            <p class="note">Del modelo cinético de evaporación: el soluto no volátil ocupa posiciones en la superficie, reduciendo la fracción de disolvente que puede evaporarse.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(p\)</td><td data-label="Significado">Presión de vapor de la disolución</td><td data-label="Unidades">mmHg o atm</td></tr>
+                    <tr><td data-label="Símbolo">\(x_{\text{disolvente}}\)</td><td data-label="Significado">Fracción molar del disolvente</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(p^0\)</td><td data-label="Significado">Presión de vapor del disolvente puro</td><td data-label="Unidades">mmHg o atm</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta p\)</td><td data-label="Significado">Descenso de la presión de vapor</td><td data-label="Unidades">mmHg o atm</td></tr>
+                    <tr><td data-label="Símbolo">\(x_{\text{soluto}}\)</td><td data-label="Significado">Fracción molar del soluto</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Con \(x_{\text{agua}} = 0{,}9901\) y \(p^0 = 23{,}76\ \text{mmHg}\): \(p = 0{,}9901 \times 23{,}76 = 23{,}52\ \text{mmHg}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Estricta para <em>disoluciones ideales</em> con soluto no volátil. Si el soluto también es volátil (\(p = x_1 p_1^0 + x_2 p_2^0\), ley generalizada). Para gases disueltos se usa la <em>Ley de Henry</em>.</p>
+        </article>
+
+        <!-- Tarjeta 9: Molalidad -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Molalidad (independiente de la temperatura)</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[ m = \frac{n_{\text{soluto}}}{m_{\text{disolvente (kg)}}} \]
+            </div>
+            <p class="note">De la definición de concentración molal: moles de soluto por kilogramo de disolvente. Al ser la masa invariante con \(T\), la molalidad no depende de la temperatura.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Molalidad de la disolución</td><td data-label="Unidades">mol/kg</td></tr>
+                    <tr><td data-label="Símbolo">\(n_{\text{soluto}}\)</td><td data-label="Significado">Moles de soluto</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(m_{\text{disolvente}}\)</td><td data-label="Significado">Masa del disolvente (en kg)</td><td data-label="Unidades">kg</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(25{,}0\ \text{g}\) de NaCl (\(M = 58{,}5\)) en \(200\ \text{g}\) de agua: \(n = 0{,}427\ \text{mol}\) → \(m = 0{,}427/0{,}200 = 2{,}14\ \text{mol/kg}\).</p>
+            <p class="observacion"><strong>Observación:</strong> No confundir la <em>molalidad</em> (mol/kg disolvente, símbolo \(m\)) con la <em>molaridad</em> (mol/L disolución, símbolo \(M\)) ni con la masa (también \(m\)). Es imprescindible en las propiedades coligativas.</p>
+        </article>
+
+        <!-- Tarjeta 10: Descenso crioscópico -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Descenso Crioscópico</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[ \Delta T_f = K_f \cdot m \]
+            </div>
+            <p class="note">De la Ley de Raoult y del equilibrio líquido-sólido: el soluto baja la presión de vapor del líquido, desplazando el punto de congelación a una temperatura menor.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\Delta T_f\)</td><td data-label="Significado">Descenso del punto de congelación</td><td data-label="Unidades">°C</td></tr>
+                    <tr><td data-label="Símbolo">\(K_f\)</td><td data-label="Significado">Constante crioscópica molal del disolvente</td><td data-label="Unidades">°C·kg/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Molalidad del soluto</td><td data-label="Unidades">mol/kg</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Para \(m = 0{,}200\ \text{mol/kg}\) en agua (\(K_f = 1{,}86\)): \(\Delta T_f = 1{,}86 \times 0{,}200 = 0{,}372\ \text{°C}\) → \(T_f = -0{,}372\ \text{°C}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Aplicaciones típicas: <em>anticongelantes</em> en radiadores, sal en carreteras, líquido refrigerante. Existe el fenómeno simétrico, el <em>aumento ebulloscópico</em> \(\Delta T_e = K_e \cdot m\), aunque suele ser numéricamente menor.</p>
+        </article>
+
+        <!-- Tarjeta 11: Presión osmótica -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Presión Osmótica (Ley de Van 't Hoff)</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[ \pi V = nRT \quad \Longleftrightarrow \quad \pi = cRT \quad ; \quad \pi = i \cdot c \cdot R \cdot T \]
+            </div>
+            <p class="note">Por analogía con la ecuación de estado de los gases ideales: las moléculas de soluto en disolución diluida se comportan como un gas ideal contra la membrana semipermeable.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\pi\)</td><td data-label="Significado">Presión osmótica</td><td data-label="Unidades">atm</td></tr>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Volumen de la disolución</td><td data-label="Unidades">L</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Moles de soluto</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(c\)</td><td data-label="Significado">Concentración molar del soluto</td><td data-label="Unidades">mol/L</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Constante universal de los gases</td><td data-label="Unidades">atm·L/(mol·K)</td></tr>
+                    <tr><td data-label="Símbolo">\(T\)</td><td data-label="Significado">Temperatura absoluta</td><td data-label="Unidades">K</td></tr>
+                    <tr><td data-label="Símbolo">\(i\)</td><td data-label="Significado">Factor de Van 't Hoff (nº de iones por fórmula)</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Para \(c = 0{,}050\ \text{M}\), \(T = 293\ \text{K}\) y \(i = 2\) (KCl): \(\pi = 2 \times 0{,}050 \times 0{,}082 \times 293 = 2{,}40\ \text{atm}\).</p>
+            <p class="observacion"><strong>Observación:</strong> Fenómeno esencial en biología (turgencia celular, función renal). Aplicación industrial: <em>ósmosis inversa</em> para desalinizar agua de mar. Es la propiedad coligativa más sensible, por lo que permite medir masas molares de macromoléculas (proteínas, polímeros).</p>
+        </article>
+
+        <!-- ==================== CATEGORÍA: ESTEQUIOMETRÍA (c-4) ==================== -->
+
+        <!-- Tarjeta 12: Puente masa-moles-entidades -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Puente Conceptual Masa-Moles-Entidades</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[ n = \frac{m}{M} \quad ; \quad N = n \cdot N_{\text{A}} \quad ; \quad N = \frac{m \cdot N_{\text{A}}}{M} \]
+            </div>
+            <p class="note">De la definición de mol y de masa molar: el mol es la unidad que conecta la masa medible en balanza con el número de entidades microscópicas.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa de la sustancia</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\(M\)</td><td data-label="Significado">Masa molar de la sustancia</td><td data-label="Unidades">g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Cantidad de sustancia (moles)</td><td data-label="Unidades">mol</td></tr>
+                    <tr><td data-label="Símbolo">\(N\)</td><td data-label="Significado">Número de entidades elementales</td><td data-label="Unidades">entidades</td></tr>
+                    <tr><td data-label="Símbolo">\(N_{\text{A}}\)</td><td data-label="Significado">Número de Avogadro</td><td data-label="Unidades">entidades/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(36{,}0\ \text{g}\) de agua (\(M = 18\ \text{g/mol}\)) → \(n = 2{,}00\ \text{mol}\) → \(N = 2{,}00 \times 6{,}022\times10^{23} = 1{,}204\times10^{24}\) moléculas.</p>
+            <p class="observacion"><strong>Observación:</strong> Desde 2019, el mol se define fijando exactamente \(N_{\text{A}} = 6{,}02214076\times10^{23}\ \text{mol}^{-1}\). Ojo: "mol de átomos", "mol de moléculas" o "mol de iones" pueden tener masas diferentes para una misma fórmula.</p>
+        </article>
+
+        <!-- Tarjeta 13: Composición centesimal -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Composición Centesimal</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[ \%(\text{A}) = \frac{a \cdot A_r(\text{A})}{M(\text{compuesto})} \times 100 \]
+            </div>
+            <p class="note">De la fórmula química y las masas atómicas relativas: el porcentaje en masa de cada elemento es la masa de ese elemento en un mol de compuesto dividida por la masa molar.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\%(\text{A})\)</td><td data-label="Significado">Porcentaje en masa del elemento A</td><td data-label="Unidades">%</td></tr>
+                    <tr><td data-label="Símbolo">\(a\)</td><td data-label="Significado">Número de átomos de A en la fórmula</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(A_r(\text{A})\)</td><td data-label="Significado">Masa atómica relativa del elemento A</td><td data-label="Unidades">u o g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(M(\text{compuesto})\)</td><td data-label="Significado">Masa molar del compuesto</td><td data-label="Unidades">g/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> En \(C_3H_8\) (\(M = 44\ \text{g/mol}\)): \(\%(\text{C}) = \dfrac{36}{44} \times 100 = 81{,}8\%\).</p>
+            <p class="observacion"><strong>Observación:</strong> La suma de porcentajes debe dar \(100\%\), lo que sirve como <em>control de cálculo</em>. Es la base para determinar fórmulas empíricas (tarjeta siguiente) y para verificar la pureza de muestras.</p>
+        </article>
+
+        <!-- Tarjeta 14: Fórmula empírica y molecular -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Fórmula Empírica y Molecular</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[ x:y:z = \frac{\%(\text{A})}{A_r(\text{A})} : \frac{\%(\text{B})}{A_r(\text{B})} : \frac{\%(\text{C})}{A_r(\text{C})} \]
+                \[ n = \frac{M_{\text{molecular}}}{M_{\text{empírica}}} \]
+            </div>
+            <p class="note">De la composición centesimal: se convierten los porcentajes en moles relativos y se dividen por el menor para obtener la proporción mínima. La fórmula molecular se obtiene con la masa molar experimental.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\%(\text{A})\)</td><td data-label="Significado">Porcentaje en masa del elemento A</td><td data-label="Unidades">%</td></tr>
+                    <tr><td data-label="Símbolo">\(A_r\)</td><td data-label="Significado">Masa atómica relativa</td><td data-label="Unidades">u</td></tr>
+                    <tr><td data-label="Símbolo">\(x, y, z\)</td><td data-label="Significado">Subíndices de la fórmula empírica</td><td data-label="Unidades">enteros</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Factor de multiplicación</td><td data-label="Unidades">entero</td></tr>
+                    <tr><td data-label="Símbolo">\(M_{\text{molecular}}\)</td><td data-label="Significado">Masa molar experimental</td><td data-label="Unidades">g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(M_{\text{empírica}}\)</td><td data-label="Significado">Masa molar de la fórmula empírica</td><td data-label="Unidades">g/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(40{,}0\%\) C, \(6{,}7\%\) H, \(53{,}3\%\) O → \(C:3{,}33\), \(H:6{,}7\), \(O:3{,}33\) → \(CH_2O\). Si \(M = 90\ \text{g/mol}\), \(n = 90/30 = 3\) → \(C_3H_6O_3\).</p>
+            <p class="observacion"><strong>Observación:</strong> Compuestos muy distintos pueden compartir la misma fórmula empírica: \(CH_2O\) corresponde a formaldehído (\(CH_2O\)), ácido acético (\(C_2H_4O_2\)) y glucosa (\(C_6H_{12}O_6\)). La fórmula molecular requiere siempre un dato experimental (masa molar).</p>
+        </article>
+
+        <!-- Tarjeta 15: Molaridad y normalidad -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Relación entre Molaridad y Normalidad</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[ N = a \cdot M \quad ; \quad N_1 V_1 = N_2 V_2 \]
+            </div>
+            <p class="note">De las definiciones de molaridad y normalidad: la normalidad es la molaridad multiplicada por el factor de valencia \(a\) (número de equivalentes por mol).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(N\)</td><td data-label="Significado">Normalidad de la disolución</td><td data-label="Unidades">eq/L</td></tr>
+                    <tr><td data-label="Símbolo">\(M\)</td><td data-label="Significado">Molaridad de la disolución</td><td data-label="Unidades">mol/L</td></tr>
+                    <tr><td data-label="Símbolo">\(a\)</td><td data-label="Significado">Factor de valencia (equivalentes por mol)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(V_1, V_2\)</td><td data-label="Significado">Volúmenes de las disoluciones que reaccionan</td><td data-label="Unidades">L</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(H_2SO_4\) 0,25 M (\(a = 2\)) → \(N = 2 \times 0{,}25 = 0{,}50\ \text{N}\). En valoración: \(0{,}50 \times V_{\text{ác}} = 0{,}40 \times 18{,}0\ \text{mL}\).</p>
+            <p class="observacion"><strong>Observación:</strong> El valor de \(a\) depende del tipo de reacción: en ácido-base son los \(H^+\) o \(OH^-\) transferidos; en redox, los electrones intercambiados; en precipitación, las cargas del ion. La IUPAC recomienda usar concentración molar y equivalentes explícitamente.</p>
+        </article>
+
+        <!-- ==================== CATEGORÍA: CONSTANTES (c-5) ==================== -->
+
+        <!-- Tarjeta 16: Constantes y datos -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">16</span>
+                <h2>Constantes, Equivalencias y Datos Numéricos</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[ N_{\text{A}} = 6{,}022\times10^{23}\ \text{entidades/mol} \]
+                \[ R = 0{,}082\ \text{atm·L/(mol·K)} = 8{,}314\ \text{J/(mol·K)} \]
+                \[ V_m(\text{CN}) = 22{,}4\ \text{L/mol} \]
+                \[ K_f(\text{agua}) = 1{,}86\ \text{°C·kg/mol} \]
+            </div>
+            <p class="note">Valores fundamentales para resolver los cálculos estequiométricos y de disoluciones. Condiciones normales (CN): \(0\ \text{°C}\) y \(1\ \text{atm}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(N_{\text{A}}\)</td><td data-label="Significado">Número de Avogadro</td><td data-label="Unidades">entidades/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Constante universal de los gases ideales</td><td data-label="Unidades">atm·L/(mol·K) o J/(mol·K)</td></tr>
+                    <tr><td data-label="Símbolo">\(V_m\)</td><td data-label="Significado">Volumen molar en condiciones normales</td><td data-label="Unidades">L/mol</td></tr>
+                    <tr><td data-label="Símbolo">\(K_f\)</td><td data-label="Significado">Constante crioscópica del agua</td><td data-label="Unidades">°C·kg/mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Usa \(R = 0{,}082\ \text{atm·L/(mol·K)}\) al sustituir en \(pV = nRT\) (tarjeta 5), y \(N_{\text{A}}\) al calcular el número de entidades en la tarjeta 12.</p>
+            <p class="observacion"><strong>Observación:</strong> Valores actualizados según CODATA/IUPAC. Desde 2019, \(R = 8{,}314462618\ldots\ \text{J/(mol·K)}\) y \(N_{\text{A}}\) tienen valores <em>exactos</em>. Ojo con \(V_m(\text{CN}) = 22{,}4\ \text{L/mol}\), que es un valor aproximado (el exacto es \(22{,}414\) a 0 °C y 1 atm).</p>
+        </article>
+
+        <!-- ==================== LEYENDA DE COLORES ==================== -->
+
+        <article class="card span-all">
+            <h2>Leyenda de colores</h2>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Color</th><th>Clase</th><th>Categoría</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Leyes (Proust, Dalton, Lavoisier)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Gases (Avogadro, Clapeyron, densidades, presiones parciales)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Disoluciones (Raoult, molalidad, crioscopía, ósmosis)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Estequiometría (masa-moles, composición, fórmulas, concentración)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes y datos numéricos</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">observacion</td>
+                        <td data-label="Categoría">Observaciones de interés (tono verde)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 10px 28px;">
+        💡 <strong>Recordatorio:</strong> Todas las temperaturas deben expresarse en kelvin (\(T = t + 273\)). En los cálculos con gases, usa unidades coherentes con el valor de \(R\) elegido. En disoluciones, distingue entre molaridad (mol/L de disolución) y molalidad (mol/kg de disolvente).
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+</div>
+</body>
+</html>

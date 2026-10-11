@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c01 - Formulario de U01 - La física y química como ciencias experimentales</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99c01</span>
+                <span class="texto">La física y química como ciencias experimentales</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ============================================================ -->
+        <!-- 1. ERROR ABSOLUTO                                             -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Error absoluto</h2>
+                <span class="badge-centro">Errores</span>
+            </div>
+            <div class="formula-box">
+                \[
+                \varepsilon_{a} = \left| v_{\text{aprox}} - v_{\text{real}} \right|
+                \]
+            </div>
+            <p class="note">De la definición de error absoluto como la diferencia entre el valor medido (o aproximado) y el valor real (o de referencia), tomada en valor absoluto para que sea siempre positiva.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\varepsilon_{a}\)</td><td data-label="Significado">Error absoluto</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(v_{\text{aprox}}\)</td><td data-label="Significado">Valor medido o aproximado</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(v_{\text{real}}\)</td><td data-label="Significado">Valor real o de referencia</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> al medir un lápiz de \(18{,}0\ \text{cm}\) se obtiene \(18{,}2\ \text{cm}\): \(\varepsilon_{a} = |18{,}2 - 18{,}0| = 0{,}2\ \text{cm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El error absoluto tiene las mismas unidades que la magnitud medida, por lo que <strong>no sirve para comparar</strong> la precisión de medidas de magnitudes distintas (0,2&nbsp;cm y 0,2&nbsp;kg no son comparables).</li>
+                    <li>Siempre es <strong>positivo</strong> (o cero si la medida coincide exactamente con el valor real).</li>
+                    <li>Se suele expresar como \(v = v_{\text{aprox}} \pm \varepsilon_a\), indicando el intervalo en el que probablemente se encuentra el valor real.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 2. ERROR RELATIVO                                             -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Error relativo</h2>
+                <span class="badge-centro">Errores</span>
+            </div>
+            <div class="formula-box">
+                \[
+                \varepsilon_{r} = \frac{\left| v_{\text{aprox}} - v_{\text{real}} \right|}{v_{\text{real}}} \times 100\,\%
+                \]
+            </div>
+            <p class="note">Al sustituir la definición de error absoluto (fórmula 1) en el cociente entre error absoluto y valor real, y multiplicar por 100 para expresarlo en porcentaje.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\varepsilon_{r}\)</td><td data-label="Significado">Error relativo</td><td data-label="Unidades">Adimensional (o %)</td></tr>
+                    <tr><td data-label="Símbolo">\(v_{\text{aprox}}\)</td><td data-label="Significado">Valor medido o aproximado</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(v_{\text{real}}\)</td><td data-label="Significado">Valor real o de referencia</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para la medida anterior, \(\varepsilon_{r} = \dfrac{0{,}2}{18{,}0} \times 100 \approx 1{,}1\,\%\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es <strong>adimensional</strong> y permite comparar la calidad de medidas de magnitudes distintas.</li>
+                    <li>Un error relativo <strong>menor</strong> indica siempre mejor medida, aunque el error absoluto sea mayor.</li>
+                    <li>Es la forma habitual de expresar la precisión de una medida experimental en el laboratorio.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 3. PROPAGACIÓN SUMA/RESTA                                    -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Propagación en suma y resta</h2>
+                <span class="badge-centro">Errores</span>
+            </div>
+            <div class="formula-box">
+                \[
+                \Delta (A \pm B) = \Delta A + \Delta B
+                \]
+            </div>
+            <p class="note">Al calcular el valor máximo y el valor mínimo del resultado \(A \pm B\) teniendo en cuenta las incertidumbres de cada sumando: los errores absolutos siempre se suman.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(A, B\)</td><td data-label="Significado">Magnitudes medidas</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta A, \Delta B\)</td><td data-label="Significado">Errores absolutos de \(A\) y \(B\)</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta(A \pm B)\)</td><td data-label="Significado">Error absoluto del resultado</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(A = 12{,}3 \pm 0{,}2\ \text{cm}\) y \(B = 8{,}7 \pm 0{,}3\ \text{cm}\). Entonces \(A+B = 21{,}0 \pm 0{,}5\ \text{cm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>En una <strong>resta</strong> los errores también se suman (nunca se restan), porque el peor caso es que un error vaya en un sentido y el otro en sentido contrario.</li>
+                    <li>El error absoluto del resultado tiene las mismas unidades que los sumandos.</li>
+                    <li>Si hay más de dos sumandos, la regla se generaliza: \(\Delta(A+B+C) = \Delta A + \Delta B + \Delta C\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 4. PROPAGACIÓN PRODUCTO/COCIENTE                             -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Propagación en producto y cociente</h2>
+                <span class="badge-centro">Errores</span>
+            </div>
+            <div class="formula-box">
+                \[
+                \frac{\Delta (A \cdot B)}{|A \cdot B|} = \frac{\Delta (A / B)}{|A / B|} = \frac{\Delta A}{|A|} + \frac{\Delta B}{|B|}
+                \]
+            </div>
+            <p class="note">Al desarrollar el valor máximo y mínimo del producto (o cociente) y quedarse con los términos de primer orden en los errores, se obtiene que los errores relativos se suman.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(A, B\)</td><td data-label="Significado">Magnitudes medidas</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta A, \Delta B\)</td><td data-label="Significado">Errores absolutos</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta A / |A|\)</td><td data-label="Significado">Error relativo de \(A\)</td><td data-label="Unidades">Adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(b = 5{,}2 \pm 0{,}1\ \text{cm}\), \(h = 8{,}4 \pm 0{,}2\ \text{cm}\). Área \(= 43{,}7 \pm 1{,}9\ \text{cm}^2\) (\(\varepsilon_r \approx 4{,}3\,\%\)).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Válida para <strong>errores pequeños</strong> y magnitudes independientes.</li>
+                    <li>Si las magnitudes están correlacionadas (por ejemplo, midiendo dos lados con la misma regla mal calibrada), la fórmula cambia.</li>
+                    <li>La regla es la misma para el producto y para el cociente: se suman los errores relativos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 5. CIFRAS SIGNIFICATIVAS (MULT/DIV)                          -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Cifras significativas: producto y cociente</h2>
+                <span class="badge-centro">Medidas</span>
+            </div>
+            <div class="formula-box">
+                \[
+                n_{\text{CS}}(\text{resultado}) = \min\{ n_{\text{CS}}(A),\, n_{\text{CS}}(B) \}
+                \]
+            </div>
+            <p class="note">De la ley de propagación de errores en producto y cociente (fórmula 4): como los errores relativos se suman, el factor con menos cifras significativas (mayor error relativo) limita la precisión del resultado.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(n_{\text{CS}}\)</td><td data-label="Significado">Número de cifras significativas</td><td data-label="Unidades">Adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(A, B\)</td><td data-label="Significado">Factores de la operación</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(12{,}4\ \text{cm} \times 3{,}2\ \text{cm} = 39{,}68\ \text{cm}^2\). Como \(3{,}2\) tiene 2 CS, el área es \(40\ \text{cm}^2\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los ceros a la derecha sin coma decimal son <strong>ambiguos</strong> (\(1200\) puede tener 2, 3 o 4 CS). La notación científica elimina esa duda: \(1{,}2\times10^{3}\) tiene 2 CS.</li>
+                    <li>Los ceros a la izquierda (0,0042) <strong>nunca</strong> son significativos; solo indican la posición de la coma.</li>
+                    <li>En multiplicaciones y divisiones se cuentan <strong>cifras significativas</strong>, no decimales.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 6. CIFRAS SIGNIFICATIVAS (SUMA/RESTA)                        -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Cifras significativas: suma y resta</h2>
+                <span class="badge-centro">Medidas</span>
+            </div>
+            <div class="formula-box">
+                \[
+                n_{\text{dec}}(\text{resultado}) = \min\{ n_{\text{dec}}(A),\, n_{\text{dec}}(B) \}
+                \]
+            </div>
+            <p class="note">De la ley de propagación de errores en suma y resta (fórmula 3): como los errores absolutos se suman, el término con menos decimales (mayor error absoluto) limita la precisión del resultado.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(n_{\text{dec}}\)</td><td data-label="Significado">Número de decimales</td><td data-label="Unidades">Adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(A, B\)</td><td data-label="Significado">Términos de la suma o resta</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(15{,}23 + 0{,}6 + 2{,}145 = 17{,}975\ \text{g}\). Como \(0{,}6\) tiene 1 decimal, el resultado es \(18{,}0\ \text{g}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>En sumas y restas se cuentan <strong>decimales</strong>, no cifras significativas.</li>
+                    <li>Si los términos tienen distintas unidades, conviértelos antes de operar.</li>
+                    <li>El redondeo se aplica <strong>al final</strong>, no en pasos intermedios, para evitar acumulación de errores.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 7. PRECISIÓN, EXACTITUD Y SENSIBILIDAD                       -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Precisión, exactitud y sensibilidad</h2>
+                <span class="badge-centro">Medidas</span>
+            </div>
+            <div class="formula-box">
+                \[
+                S = \frac{\Delta L}{\Delta M} \qquad \text{(sensibilidad)}
+                \]
+            </div>
+            <p class="note">De la definición de sensibilidad como el cociente entre la variación de la indicación del instrumento \(\Delta L\) y la variación de la magnitud medida \(\Delta M\). Precisión (repetibilidad de las medidas) y exactitud (cercanía al valor real) son cualidades independientes.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(S\)</td><td data-label="Significado">Sensibilidad del instrumento</td><td data-label="Unidades">Adimensional (o unidad de salida / unidad de entrada)</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta L\)</td><td data-label="Significado">Variación de la indicación</td><td data-label="Unidades">Unidad de la escala</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta M\)</td><td data-label="Significado">Variación de la magnitud</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> una balanza siempre marca \(1{,}5\ \text{kg}\) de más: es muy <em>precisa</em> (mismos valores) pero poco <em>exacta</em> (error sistemático). Alta sensibilidad no garantiza alta precisión.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los errores <strong>sistemáticos</strong> (calibración, cero mal ajustado) afectan a la exactitud y se corrigen.</li>
+                    <li>Los errores <strong>aleatorios</strong> afectan a la precisión y se reducen promediando muchas medidas.</li>
+                    <li>Un instrumento muy sensible puede ser poco preciso si su lectura fluctúa mucho.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 8. MAGNITUDES ESCALARES Y VECTORIALES                        -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Magnitudes escalares y vectoriales</h2>
+                <span class="badge-centro">Medidas</span>
+            </div>
+            <div class="formula-box">
+                \[
+                S = \{ \text{número},\ \text{unidad} \} \qquad \vec{V} = \{ |\vec{V}|,\ \text{unidad},\ \text{dirección},\ \text{sentido} \}
+                \]
+            </div>
+            <p class="note">De la definición de magnitud física como toda propiedad medible. Una magnitud es vectorial cuando su descripción completa requiere especificar dirección y sentido; si no, es escalar.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(S\)</td><td data-label="Significado">Magnitud escalar (ej. masa, tiempo)</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{V}\)</td><td data-label="Significado">Magnitud vectorial (ej. velocidad, fuerza)</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                    <tr><td data-label="Símbolo">\(|\vec{V}|\)</td><td data-label="Significado">Módulo del vector</td><td data-label="Unidades">Unidad de la magnitud</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> caminar \(5\ \text{km}\) al este y \(12\ \text{km}\) al norte: distancia total \(17\ \text{km}\) (escalar), desplazamiento \(13\ \text{km}\) al \(67{,}4^\circ\) norte del este (vectorial).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Dos vectores con el mismo módulo pero distinta dirección o sentido son <strong>vectores distintos</strong>.</li>
+                    <li>Al operar con vectores no basta sumar números: hay que <strong>componerlos vectorialmente</strong>.</li>
+                    <li>Notación: los vectores se escriben con flecha (\(\vec{V}\)) o en negrita (\(\mathbf{V}\)); su módulo, con barras (\(|\vec{V}|\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 9. FACTOR DE CONVERSIÓN                                      -->
+        <!-- ============================================================ -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Factor de conversión y consistencia dimensional</h2>
+                <span class="badge-centro">Unidades</span>
+            </div>
+            <div class="formula-box">
+                \[
+                Q_{\text{origen}} \times \prod_{i} \frac{u_{i+1}}{u_{i}} = Q_{\text{destino}}
+                \]
+            </div>
+            <p class="note">De la definición de factor de conversión como cociente entre dos cantidades equivalentes expresadas en unidades distintas. Como dicho cociente vale 1, multiplicar por él no altera el valor numérico pero sí las unidades, que se cancelan algebraicamente.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(Q_{\text{origen}}\)</td><td data-label="Significado">Cantidad en unidades de partida</td><td data-label="Unidades">Unidad origen</td></tr>
+                    <tr><td data-label="Símbolo">\(u_{i}\)</td><td data-label="Significado">Unidad que se cancela en el paso \(i\)</td><td data-label="Unidades">Unidad</td></tr>
+                    <tr><td data-label="Símbolo">\(Q_{\text{destino}}\)</td><td data-label="Significado">Cantidad en unidades finales</td><td data-label="Unidades">Unidad destino</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(120\ \dfrac{\text{km}}{\text{h}} \times \dfrac{1000\ \text{m}}{1\ \text{km}} \times \dfrac{1\ \text{h}}{3600\ \text{s}} = 33{,}3\ \text{m/s}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Se pueden encadenar <strong>tantos factores</strong> como haga falta.</li>
+                    <li>Coloca siempre la unidad a cancelar en el <strong>denominador</strong> para verificar que el resultado queda en las unidades deseadas.</li>
+                    <li>Es la mejor forma de comprobar si un cálculo es correcto: si las unidades no salen, hay un error.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 10. LEY DE HOOKE                                             -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Ley de Hooke</h2>
+                <span class="badge-centro">Leyes</span>
+            </div>
+            <div class="formula-box">
+                \[
+                F = k \cdot x
+                \]
+            </div>
+            <p class="note">Del análisis gráfico de los datos experimentales fuerza-alargamiento de un muelle: al representar \(F\) frente a \(x\) se obtiene una recta que pasa por el origen, cuya pendiente es la constante elástica \(k\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Fuerza aplicada</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(k\)</td><td data-label="Significado">Constante elástica (rigidez)</td><td data-label="Unidades">N/m</td></tr>
+                    <tr><td data-label="Símbolo">\(x\)</td><td data-label="Significado">Alargamiento del muelle</td><td data-label="Unidades">m (o cm)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> muelle con \(k = 250\ \text{N/m}\) alargado \(x = 0{,}080\ \text{m}\): \(F = 250 \times 0{,}080 = 20\ \text{N}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo es válida dentro del <strong>límite elástico</strong> del muelle. Superado ese límite, la deformación es permanente y la gráfica \(F\)–\(x\) deja de ser una recta.</li>
+                    <li>La constante \(k\) es característica de cada muelle: cuanto mayor es \(k\), más rígido es.</li>
+                    <li>La fuerza recuperadora del muelle tiene sentido opuesto al alargamiento: \(\vec{F} = -k\,\vec{x}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 11. LEY DE BOYLE-MARIOTTE                                    -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Ley de Boyle-Mariotte</h2>
+                <span class="badge-centro">Leyes</span>
+            </div>
+            <div class="formula-box">
+                \[
+                p \cdot V = \text{cte} \qquad (\text{a } T \text{ constante})
+                \]
+            </div>
+            <p class="note">Del análisis de datos experimentales de presión y volumen de una cantidad fija de gas a temperatura constante: el producto \(p \cdot V\) se mantiene constante (hipérbola isoterma). Es un caso particular de \(pV = nRT\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(p\)</td><td data-label="Significado">Presión del gas</td><td data-label="Unidades">Pa (o atm)</td></tr>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Volumen ocupado</td><td data-label="Unidades">m³ (o L)</td></tr>
+                    <tr><td data-label="Símbolo">\(p \cdot V\)</td><td data-label="Significado">Constante del proceso isotermo</td><td data-label="Unidades">Pa·m³ (o atm·L)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> gas a \(3{,}0\ \text{atm}\) y \(4{,}0\ \text{L}\) se expande a \(10{,}0\ \text{L}\): \(p_2 = \dfrac{3{,}0 \times 4{,}0}{10{,}0} = 1{,}2\ \text{atm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo se cumple si \(T\) y la cantidad de gas permanecen constantes, y si el gas se comporta como ideal.</li>
+                    <li>A presiones altas o temperaturas muy bajas la ley deja de ajustarse.</li>
+                    <li>Forma práctica: \(p_1 V_1 = p_2 V_2\) para un proceso isotermo.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 12. CONSTANTES Y DATOS                                       -->
+        <!-- ============================================================ -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Constantes y datos numéricos</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[
+                g = 9{,}8\ \text{m/s}^{2} \quad;\quad R = 8{,}31\ \text{J/(mol·K)} \quad;\quad 1\ \text{atm} = 101325\ \text{Pa}
+                \]
+            </div>
+            <p class="note">Valores de referencia del Sistema Internacional y equivalencias de uso habitual en problemas de Física y Química. Se emplean al sustituir en las fórmulas anteriores.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades / valor</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades / valor">\(9{,}8\ \text{m/s}^{2}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Constante de los gases ideales</td><td data-label="Unidades / valor">\(8{,}31\ \text{J/(mol·K)}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{atm}\)</td><td data-label="Significado">Presión atmosférica estándar</td><td data-label="Unidades / valor">\(101325\ \text{Pa}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{mi}\)</td><td data-label="Significado">Milla terrestre</td><td data-label="Unidades / valor">\(1{,}609\ \text{km}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{L}\)</td><td data-label="Significado">Litro</td><td data-label="Unidades / valor">\(10^{-3}\ \text{m}^{3}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{kWh}\)</td><td data-label="Significado">Kilovatio-hora</td><td data-label="Unidades / valor">\(3{,}6 \times 10^{6}\ \text{J}\)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> usa \(R = 8{,}31\ \text{J/(mol·K)}\) al sustituir en \(n = pV/(RT)\) (fórmula 11) y \(g = 9{,}8\ \text{m/s}^{2}\) al calcular pesos en la Ley de Hooke (fórmula 10).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Conviene trabajar siempre en <strong>unidades del SI</strong>.</li>
+                    <li>Si usas presión en atm y volumen en L, debes cambiar el valor de \(R\) a \(0{,}082\ \text{atm·L/(mol·K)}\).</li>
+                    <li>Otras equivalencias útiles: 1 atm = 760 mmHg; 1 bar = 10⁵ Pa; 1 cal = 4,18 J.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Errores</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Medidas</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Unidades</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Leyes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> este formulario resume los conceptos clave del Tema 1 (magnitudes, errores y leyes fundamentales). Repasa la procedencia y el ejemplo de cada tarjeta: entender <em>de dónde sale</em> cada fórmula es tan importante como saber aplicarla.
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

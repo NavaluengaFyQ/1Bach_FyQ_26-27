@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c04 - Formulario de U04 - Estequiometría y química industrial</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99c04</span>
+                <span class="texto">Estequiometría y química industrial</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ============================================================ -->
+        <!-- 1. CONSERVACIÓN DE LA MASA Y AJUSTE                          -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Ajuste y conservación de la masa</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[\sum_{i} \nu_i \cdot \mathbf{A}_i = \mathbf{0}\]
+            </div>
+            <p class="note">De la ley de Lavoisier (conservación de la masa) y de la definición de ecuación química ajustada: la combinación lineal de las composiciones atómicas de todas las especies es nula.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\nu_i\)</td>
+                        <td data-label="Significado">Coeficiente estequiométrico (negativo reactivos, positivo productos)</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\mathbf{A}_i\)</td>
+                        <td data-label="Significado">Fórmula química de la especie \(i\)</td>
+                        <td data-label="Unidades">—</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\mathrm{CH_4 + 2\,O_2 \rightarrow CO_2 + 2\,H_2O}\): C: \(1=1\); H: \(4=4\); O: \(4=4\). La ecuación está ajustada.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los coeficientes estequiométricos deben ser los <strong>números enteros más pequeños posibles</strong>. Se pueden usar fracciones como paso intermedio (p.&nbsp;ej. \(\tfrac{1}{2}\mathrm{O_2}\)), pero la ecuación final ha de quedar con enteros.</li>
+                    <li>Si al ajustar aparece un coeficiente fraccionario, multiplica <em>toda</em> la ecuación por el denominador común.</li>
+                    <li>El ajuste <strong>no altera</strong> las fórmulas químicas: nunca cambies un subíndice para cuadrar átomos (eso cambia la sustancia).</li>
+                    <li>Comprueba átomo a átomo y también la <strong>carga eléctrica</strong> si trabajas con iones (en medio ácido/básico añade H⁺, OH⁻ o H₂O según convenga).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 2. FACTOR DE CONVERSIÓN ESTEQUIOMÉTRICO                      -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Factor de conversión estequiométrico</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[n_B = n_A \times \frac{\nu_B}{\nu_A}\]
+            </div>
+            <p class="note">De la ecuación química ajustada, donde los coeficientes estequiométricos actúan como puente entre cantidades de sustancia (avance de reacción \(\xi\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(n_A,\, n_B\)</td>
+                        <td data-label="Significado">Cantidad de sustancia de A y B</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\nu_A,\, \nu_B\)</td>
+                        <td data-label="Significado">Coeficientes estequiométricos</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> en \(\mathrm{N_2 + 3\,H_2 \rightarrow 2\,NH_3}\), con \(n_{\mathrm{N_2}}=2{,}0\ \text{mol}\): \(n_{\mathrm{NH_3}} = 2{,}0 \times \tfrac{2}{1} = 4{,}0\ \text{mol}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El factor \(\nu_B/\nu_A\) solo es válido entre sustancias de la <strong>misma ecuación ajustada</strong>. No puedes saltar de un reactivo a otro sin pasar por un producto (o por el avance de reacción).</li>
+                    <li>Trabaja siempre en <strong>moles</strong>: si te dan gramos, primero convierte con \(n = m/M\); si te dan disoluciones, con \(n = c\cdot V\); si te dan gases, con \(n = pV/RT\).</li>
+                    <li>El avance de reacción \(\xi\) es único para toda la ecuación: \(n_i = n_i^0 + \nu_i\,\xi\). Es la forma más elegante de resolver estequiometría con varios reactivos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 3. REACTIVO LIMITANTE                                        -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Reactivo limitante</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[\text{Limitante} = \arg\min_i\left(\frac{n_i^0}{\nu_i}\right)\]
+            </div>
+            <p class="note">De la comparación del avance máximo permitido por cada reactivo: el reactivo que da el cociente \(n_i^0/\nu_i\) mínimo se agota primero y limita la reacción.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(n_i^0\)</td>
+                        <td data-label="Significado">Cantidad inicial del reactivo \(i\)</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\nu_i\)</td>
+                        <td data-label="Significado">Coeficiente estequiométrico del reactivo \(i\)</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(\mathrm{N_2 + 3\,H_2 \rightarrow 2\,NH_3}\) con \(5{,}0\ \text{mol N}_2\) y \(12{,}0\ \text{mol H}_2\): \(q_{\mathrm{N_2}}=5{,}0\); \(q_{\mathrm{H_2}}=4{,}0\). El \(\mathrm{H_2}\) es el limitante.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Si <strong>todos</strong> los cocientes \(n_i^0/\nu_i\) son iguales, la mezcla es estequiométrica: no hay limitante (se agotan todos a la vez).</li>
+                    <li>El reactivo limitante es el que <strong>determina el rendimiento máximo</strong>. Los demás son "en exceso".</li>
+                    <li>En problemas con disoluciones o gases, primero calcula \(n\) de cada reactivo y luego compara; no compares masas ni volúmenes directamente.</li>
+                    <li>Cuidado con confundir "en exceso" con "sobrante": el exceso sobrante se calcula como \(n_{\text{sobra}} = n^0 - \nu\cdot\xi_{\max}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 4. RENDIMIENTO                                               -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Rendimiento de una reacción</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">
+                \[\eta\,(\%) = \frac{n_{\text{real}}}{n_{\text{teórico}}} \times 100 = \frac{m_{\text{real}}}{m_{\text{teórico}}} \times 100\]
+            </div>
+            <p class="note">De la definición de rendimiento como cociente entre la cantidad real de producto obtenida y la máxima cantidad teórica calculada a partir del reactivo limitante.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\eta\)</td>
+                        <td data-label="Significado">Rendimiento porcentual</td>
+                        <td data-label="Unidades">%</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(n_{\text{real}},\, n_{\text{teórico}}\)</td>
+                        <td data-label="Significado">Cantidades real y teórica de producto</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> se esperaban \(9{,}79\ \text{g}\) de \(\mathrm{O_2}\) y se obtuvieron \(8{,}50\ \text{g}\): \(\eta = \tfrac{8{,}50}{9{,}79}\times 100 = 86{,}8\%\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El rendimiento <strong>nunca puede superar el 100%</strong>. Si ocurre, hay un error: producto húmedo/impurificado, reactivo de partida impuro o error de cálculo.</li>
+                    <li>No confundas <strong>rendimiento</strong> (cuánto producto se obtiene) con <strong>pureza</strong> (qué fracción de la muestra es realmente producto).</li>
+                    <li>Si el enunciado da el rendimiento y pide la masa real obtenida, multiplica: \(m_{\text{real}} = \eta\cdot m_{\text{teórico}}\). Si da la masa real y pide el teórico, despeja.</li>
+                    <li>En reacciones consecutivas, los rendimientos se <strong>multiplican</strong>: \(\eta_{\text{total}} = \eta_1\cdot\eta_2\cdot\ldots\)</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 5. ECUACIÓN DE LOS GASES IDEALES                             -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Ecuación de los gases ideales (Clapeyron)</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[pV = nRT\]
+            </div>
+            <p class="note">Combinando las leyes de Boyle (\(pV=\text{cte}\)), Charles-Gay-Lussac (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)) se obtiene la ecuación de estado del gas ideal.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p\)</td>
+                        <td data-label="Significado">Presión del gas</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V\)</td>
+                        <td data-label="Significado">Volumen</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(n\)</td>
+                        <td data-label="Significado">Cantidad de sustancia</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Significado">Constante universal de los gases</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T\)</td>
+                        <td data-label="Significado">Temperatura absoluta</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(n=2{,}50\ \text{mol}\), \(T=298\ \text{K}\), \(p=150\ \text{kPa}\): \(V=\tfrac{2{,}50\cdot 8{,}314\cdot 298}{150\,000}=4{,}13\times10^{-2}\ \text{m}^3=41{,}3\ \text{L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La ecuación del gas ideal es una <strong>aproximación</strong>: falla a presiones altas y temperaturas bajas (las moléculas interaccionan y tienen volumen propio). Para gases reales se usa la ecuación de Van der Waals: \(\left(p+\tfrac{an^2}{V^2}\right)(V-nb)=nRT\).</li>
+                    <li><strong>La temperatura siempre en kelvin</strong>: \(T(\text{K}) = t(^\circ\text{C}) + 273{,}15\).</li>
+                    <li>La masa del gas se relaciona con \(n\) mediante la masa molar: \(n = m/M\). Combinando: \(pV = \tfrac{m}{M}RT\), y de ahí \(\rho = \tfrac{pM}{RT}\).</li>
+                    <li>R cambia según las unidades. Comprueba siempre la coherencia dimensional antes de sustituir.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 6. ESTEQUIOMETRÍA EN VOLUMEN DE GASES                        -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Estequiometría en volumen de gases</h2>
+                <span class="badge-centro">Gases</span>
+            </div>
+            <div class="formula-box">
+                \[\frac{V_A}{\nu_A} = \frac{V_B}{\nu_B} \quad\Rightarrow\quad V_i = V_j \times \frac{\nu_i}{\nu_j}\]
+            </div>
+            <p class="note">De la ecuación de Clapeyron a \(p\) y \(T\) constantes: \(V \propto n\), de modo que las relaciones volumétricas coinciden con los coeficientes estequiométricos (Ley de Gay-Lussac).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(V_A,\,V_B\)</td>
+                        <td data-label="Significado">Volúmenes de los gases A y B</td>
+                        <td data-label="Unidades">L (o m³)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\nu_A,\,\nu_B\)</td>
+                        <td data-label="Significado">Coeficientes estequiométricos</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> en \(\mathrm{CH_4 + 2\,O_2 \rightarrow CO_2 + 2\,H_2O}\), para \(25{,}0\ \text{L}\) de \(\mathrm{CH_4}\): \(V_{\mathrm{O_2}} = 25{,}0\times\tfrac{2}{1} = 50{,}0\ \text{L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo válido para sustancias en <strong>estado gaseoso</strong> y a la <strong>misma presión y temperatura</strong>. No se aplica a sólidos ni líquidos.</li>
+                    <li>En <strong>condiciones normales</strong> (0&nbsp;°C, 1&nbsp;atm) 1 mol de cualquier gas ocupa 22,4&nbsp;L. Útil para pasar de moles a litros sin usar \(R\).</li>
+                    <li>Si los gases están en condiciones distintas, primero pasa todo a moles con \(pV=nRT\) y luego aplica los coeficientes.</li>
+                    <li>El volumen es aditivo si los gases no reaccionan entre sí; si reaccionan, se calcula a partir de los moles finales.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 7. LEY DE HESS                                               -->
+        <!-- ============================================================ -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Ley de Hess</h2>
+                <span class="badge-centro">Termoquímica</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta H_{A\to B} = \sum_i \Delta H_i \qquad ; \qquad \sum_{\text{ciclo}} \Delta H_i = 0\]
+            </div>
+            <p class="note">De la entalpía \(H = U + pV\) como función de estado: su variación solo depende del estado inicial y final, no del camino seguido.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta H\)</td>
+                        <td data-label="Significado">Variación de entalpía</td>
+                        <td data-label="Unidades">kJ (o kJ·mol⁻¹)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> si \(A\to B\) tiene \(\Delta H=+50\ \text{kJ}\) y \(A\to C\) tiene \(\Delta H=-120\ \text{kJ}\), entonces \(B\to C\): \(\Delta H = -120-50 = -170\ \text{kJ}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Si <strong>inviertes</strong> una reacción, cambia el signo de \(\Delta H\). Si la <strong>multiplicas</strong> por un factor, \(\Delta H\) se multiplica por ese factor.</li>
+                    <li>Los <strong>diagramas entálpicos</strong> ayudan mucho: dibuja la energía de reactivos y productos y traza caminos alternativos.</li>
+                    <li>\(\Delta H < 0\) → reacción <strong>exotérmica</strong> (libera calor). \(\Delta H > 0\) → <strong>endotérmica</strong> (absorbe calor).</li>
+                    <li>La Ley de Hess es la base del método de entalpías de formación y del método de energías de enlace.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 8. CÁLCULO DE LA ENTALPÍA DE REACCIÓN                        -->
+        <!-- ============================================================ -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Cálculo de la entalpía de reacción</h2>
+                <span class="badge-centro">Termoquímica</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta H_r^\circ = \sum_i \nu_i\,\Delta H_f^\circ(\text{prod}) - \sum_j \nu_j\,\Delta H_f^\circ(\text{react})\]
+                \[\Delta H_r = \sum E_{\text{rotos}} - \sum E_{\text{formados}}\]
+            </div>
+            <p class="note">Aplicando la Ley de Hess a un ciclo que pasa por los elementos (método de formación, exacto) o por los átomos aislados (método de enlaces, aproximado).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta H_f^\circ\)</td>
+                        <td data-label="Significado">Entalpía estándar de formación</td>
+                        <td data-label="Unidades">kJ·mol⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(E_{\text{rotos}},\,E_{\text{formados}}\)</td>
+                        <td data-label="Significado">Energías de enlace rotos y formados</td>
+                        <td data-label="Unidades">kJ·mol⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\mathrm{N_2 + 3\,H_2 \rightarrow 2\,NH_3}\), con \(\Delta H_f^\circ(\mathrm{NH_3})=-46{,}1\): \(\Delta H_r^\circ = 2(-46{,}1) - 0 = -92{,}2\ \text{kJ}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>¡Clave!</strong> La entalpía estándar de formación de <strong>cualquier elemento en su estado estándar</strong> (forma más estable a 25&nbsp;°C y 1&nbsp;atm) es <strong>CERO</strong>: \(\Delta H_f^\circ(\mathrm{O_2(g)})=0\), \(\Delta H_f^\circ(\mathrm{N_2(g)})=0\), \(\Delta H_f^\circ(\mathrm{H_2(g)})=0\), \(\Delta H_f^\circ(\mathrm{C(grafito)})=0\), \(\Delta H_f^\circ(\mathrm{Br_2(l)})=0\), \(\Delta H_f^\circ(\mathrm{Fe(s)})=0\), etc.</li>
+                    <li>Cuidado con las <strong>formas alotrópicas</strong>: el estado estándar del carbono es grafito, no diamante (por eso \(\Delta H_f^\circ(\text{diamante}) \neq 0\)). El del oxígeno es O₂(g), no O₃(g). El del azufre es S₈(rómbico).</li>
+                    <li>Las <strong>energías de enlace</strong> son siempre <strong>positivas</strong> (romper un enlace requiere energía). El método de enlaces es aproximado porque los valores tabulados son promedios.</li>
+                    <li>\(\Delta H_f^\circ\) es una propiedad <strong>intensiva pero referida a 1 mol</strong> de sustancia. Recuerda multiplicar por los coeficientes estequiométricos.</li>
+                    <li>El método de formación es <strong>exacto</strong> (datos tabulados); el de enlaces es <strong>aproximado</strong> (solo para moléculas gaseosas covalentes).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 9. RIQUEZA, DENSIDAD Y CONCENTRACIÓN MOLAR                   -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Riqueza, densidad y concentración molar</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[c\,(\text{mol/L}) = \frac{\%\,m/m}{100} \times \frac{\rho\,(\text{g/mL}) \times 1000}{M\,(\text{g/mol})}\]
+            </div>
+            <p class="note">De las definiciones de riqueza (\(r = m_{\text{soluto}}/m_{\text{disolución}}\)), densidad (\(\rho = m/V\)) y molaridad (\(c = n/V\)), sustituyendo y cancelando \(V\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(c\)</td>
+                        <td data-label="Significado">Concentración molar</td>
+                        <td data-label="Unidades">mol·L⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\%\,m/m\)</td>
+                        <td data-label="Significado">Riqueza en masa</td>
+                        <td data-label="Unidades">%</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\rho\)</td>
+                        <td data-label="Significado">Densidad de la disolución</td>
+                        <td data-label="Unidades">g·mL⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(M\)</td>
+                        <td data-label="Significado">Masa molar del soluto</td>
+                        <td data-label="Unidades">g·mol⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> HCl comercial al \(37\%\) y \(\rho=1{,}18\ \text{g/mL}\), con \(M=36{,}5\ \text{g/mol}\): \(c = 0{,}37\times\tfrac{1180}{36{,}5}=11{,}96\ \text{mol/L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La <strong>densidad es de la disolución</strong>, no del soluto puro. Los ácidos y bases comerciales (HCl, H₂SO₄, HNO₃, NH₃) son disoluciones concentradas: hay que usar su \(\rho\) para pasar de %&nbsp;m/m a molaridad.</li>
+                    <li>No confundas <strong>% m/m</strong> (masa soluto / masa disolución × 100) con <strong>% m/v</strong> (masa soluto / volumen disolución × 100) ni con <strong>% v/v</strong> (volumen soluto / volumen disolución × 100).</li>
+                    <li>Al <strong>diluir</strong> una disolución se conserva el número de moles de soluto: \(c_1V_1 = c_2V_2\).</li>
+                    <li>En cálculos con disoluciones, el volumen suele venir en mL pero la molaridad en mol/L: convierte siempre a litros (divide entre 1000).</li>
+                    <li>Recuerda: <strong>1 mL = 1 cm³</strong>; \(\rho\) en g/mL equivale a g/cm³.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 10. NEUTRALIZACIÓN Y NORMALIDAD                              -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Neutralización ácido-base y normalidad</h2>
+                <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="formula-box">
+                \[N = M \cdot a \qquad ; \qquad V_a \cdot N_a = V_b \cdot N_b\]
+            </div>
+            <p class="note">De la condición de neutralización completa: \(n(\mathrm{H^+})_{\text{total}} = n(\mathrm{OH^-})_{\text{total}}\), con la definición de equivalente (1 mol de H⁺ o OH⁻ transferido).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(N\)</td>
+                        <td data-label="Significado">Normalidad (equivalentes por litro)</td>
+                        <td data-label="Unidades">eq·L⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(M\)</td>
+                        <td data-label="Significado">Molaridad</td>
+                        <td data-label="Unidades">mol·L⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(a\)</td>
+                        <td data-label="Significado">Valencia (H⁺ o OH⁻ intercambiables)</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V_a,\,V_b\)</td>
+                        <td data-label="Significado">Volúmenes de ácido y base</td>
+                        <td data-label="Unidades">L (o mL)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(25{,}0\ \text{mL}\) de HCl valorados con NaOH \(0{,}15\ \text{M}\) gastando \(32{,}0\ \text{mL}\): \(M_a = \tfrac{32{,}0\cdot 0{,}15}{25{,}0} = 0{,}192\ \text{mol/L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La <strong>valencia \(a\)</strong> coincide con el número de H⁺ (ácidos) o OH⁻ (bases) que puede ceder/aceptar: HCl → 1; H₂SO₄ → 2; H₃PO₄ → 3 (si se neutraliza totalmente); NaOH → 1; Ca(OH)₂ → 2.</li>
+                    <li>En el <strong>punto de equivalencia</strong> se cumple \(n(\mathrm{H^+}) = n(\mathrm{OH^-})\), pero el <strong>pH no tiene por qué ser 7</strong>: depende de la hidrólisis de la sal formada. Ácido fuerte + base débil → pH ácido; ácido débil + base fuerte → pH básico.</li>
+                    <li>Solo si ambos son <strong>fuertes</strong> (HCl + NaOH, HNO₃ + KOH, etc.) el pH es exactamente 7.</li>
+                    <li>La normalidad está cayendo en desuso (la IUPAC recomienda la molaridad), pero sigue apareciendo en problemas clásicos. Si puedes, trabaja en moles y usa \(n_{\mathrm{H^+}} = n_{\mathrm{OH^-}}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 11. CONSTANTES Y EQUIVALENCIAS                               -->
+        <!-- ============================================================ -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Constantes y equivalencias</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[R = 8{,}314\ \tfrac{\text{J}}{\text{mol·K}} = 0{,}082\ \tfrac{\text{atm·L}}{\text{mol·K}} = 8{,}314\ \tfrac{\text{kPa·L}}{\text{mol·K}}\]
+                \[N_A = 6{,}022\times10^{23}\ \text{mol}^{-1}\]
+                \[V_m^{\text{CN}} = 22{,}4\ \text{L/mol}\quad (0\ ^\circ\text{C},\ 1\ \text{atm})\]
+            </div>
+            <p class="note">De la ecuación de Clapeyron evaluada en condiciones normales y de la definición de mol (constante de Avogadro).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Significado">Constante universal de los gases</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹ (o atm·L·mol⁻¹·K⁻¹)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(N_A\)</td>
+                        <td data-label="Significado">Constante de Avogadro</td>
+                        <td data-label="Unidades">mol⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V_m^{\text{CN}}\)</td>
+                        <td data-label="Significado">Volumen molar en condiciones normales</td>
+                        <td data-label="Unidades">L·mol⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\ \text{atm}\)</td>
+                        <td data-label="Significado">Equivalencia de presión</td>
+                        <td data-label="Unidades">\(101\,325\ \text{Pa}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T(\text{K})\)</td>
+                        <td data-label="Significado">Conversión Celsius → Kelvin</td>
+                        <td data-label="Unidades">\(T = t + 273{,}15\)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> usa \(R = 8{,}314\ \text{J·mol}^{-1}\text{·K}^{-1}\) al sustituir en la fórmula 5 si trabajas en unidades del SI; usa \(R = 0{,}082\ \text{atm·L·mol}^{-1}\text{·K}^{-1}\) si empleas atm y litros.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>El valor de \(R\) depende de las unidades.</strong> Comprueba siempre que \(p\), \(V\), \(n\) y \(T\) estén en unidades coherentes con la \(R\) elegida. La forma más segura: pasar todo al SI (\(p\) en Pa, \(V\) en m³, \(T\) en K) y usar \(R = 8{,}314\ \text{J·mol}^{-1}\text{·K}^{-1}\).</li>
+                    <li><strong>Cuidado con "condiciones normales":</strong>
+                        <ul>
+                            <li>Definición <em>tradicional</em> (la que usa \(V_m = 22{,}4\ \text{L}\)): 0&nbsp;°C y 1&nbsp;atm.</li>
+                            <li>Definición <em>actual IUPAC</em>: 0&nbsp;°C y 1&nbsp;bar (10⁵ Pa) → \(V_m = 22{,}7\ \text{L}\).</li>
+                            <li>El problema te indicará cuál usar. Si no dice nada, usa la tradicional (22,4 L).</li>
+                        </ul>
+                    </li>
+                    <li>\(N_A\) permite pasar de moles a <strong>número de partículas</strong>: \(N = n\cdot N_A\).</li>
+                    <li>Recuerda: <strong>1 mol de cualquier sustancia contiene \(6{,}022\times10^{23}\) entidades elementales</strong> (átomos, moléculas, iones…).</li>
+                    <li>Otras equivalencias útiles: 1&nbsp;atm = 760&nbsp;mmHg = 101&nbsp;325&nbsp;Pa; 1&nbsp;bar = 10⁵&nbsp;Pa; 1&nbsp;L = 10⁻³&nbsp;m³; 1&nbsp;cal = 4,18&nbsp;J.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Estequiometría</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Gases</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Termoquímica</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Disoluciones</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> antes de aplicar cualquier fórmula, escribe siempre la <em>ecuación química ajustada</em>. Comprueba la coherencia de unidades (especialmente \(R\) en gases) y usa la coma decimal. En problemas con reactivo limitante, calcula primero los cocientes \(n_i^0/\nu_i\).
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

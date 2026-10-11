@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U99c05 - Formulario de U05 - Química del carbono</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 24px 16px;
+        color: #2d3748;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        overflow: hidden;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        padding: 28px 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .header h1 {
+        font-size: 1.9rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+
+    .header .subtitulo {
+        font-size: 1rem;
+        opacity: 0.95;
+    }
+
+    .header .codigo {
+        display: inline-block;
+        background: rgba(255,255,255,0.22);
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-weight: 600;
+        margin-right: 6px;
+    }
+
+    .header .badge-centro {
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.5);
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+        gap: 22px;
+        padding: 28px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #667eea;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .card.c-1 { border-left-color: #667eea; }
+    .card.c-2 { border-left-color: #ed8936; }
+    .card.c-3 { border-left-color: #4299e1; }
+    .card.c-4 { border-left-color: #48bb78; }
+    .card.c-5 { border-left-color: #38b2ac; }
+
+    .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+
+    .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #667eea;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+
+    .card.c-1 .num { background: #667eea; }
+    .card.c-2 .num { background: #ed8936; }
+    .card.c-3 .num { background: #4299e1; }
+    .card.c-4 .num { background: #48bb78; }
+    .card.c-5 .num { background: #38b2ac; }
+
+    .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+    }
+
+    /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+    .card .cabecera .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+
+    .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+    }
+
+    .note {
+        background: #fffbeb;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+    }
+
+    .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+    }
+
+    .ejemplo strong { color: #2b6cb0; }
+
+    /* === OBSERVACIONES DE INTERÉS === */
+    .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .obs strong { color: #276749; }
+    .obs ul {
+        margin: 6px 0 0 18px;
+        padding: 0;
+    }
+    .obs li {
+        margin-bottom: 4px;
+    }
+    .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+
+    .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+
+    .mag-table thead th {
+        background: #667eea;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+
+    .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+
+    .mag-table tbody tr:nth-child(even) {
+        background: #f7fafc;
+    }
+
+    .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+
+    .span-all {
+        grid-column: 1 / -1;
+    }
+
+    .footer-cta {
+        text-align: center;
+        padding: 22px 20px 30px 20px;
+    }
+
+    .footer-cta a {
+        display: inline-block;
+        padding: 12px 28px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .footer-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+    }
+
+    @media (max-width: 620px) {
+        .header {
+            padding: 22px 20px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .header h1 { font-size: 1.5rem; }
+        .grid { padding: 18px 14px; gap: 16px; }
+        .card { padding: 16px 16px 18px 16px; }
+        .mag-table thead { display: none; }
+        .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+            display: block;
+            width: 100%;
+        }
+        .mag-table tr {
+            margin-bottom: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 0;
+            background: #f7fafc;
+        }
+        .mag-table td {
+            border: none;
+            padding: 6px 12px;
+            text-align: left;
+        }
+        .mag-table td::before {
+            content: attr(data-label);
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <header class="header">
+        <div>
+            <h1>Formulario de fórmulas</h1>
+            <p class="subtitulo"><span class="codigo">#T05</span> Química del carbono</p>
+        </div>
+        <div class="badge-centro">IES Valle del Alberche</div>
+    </header>
+
+    <div class="grid">
+
+        <!-- 1 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Fórmula general de los alcanos acíclicos</h2>
+                <span class="badge-centro">Alcanos</span>
+            </div>
+            <div class="formula-box">\[ C_nH_{2n+2} \]</div>
+            <p class="note">Del conteo de enlaces en una cadena saturada abierta: existen \(n-1\) enlaces C—C, por lo que los enlaces C—H disponibles son \(4n-2(n-1)=2n+2\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( C_nH_{2n+2} \)</td><td data-label="Significado">Fórmula molecular del alcano</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Número de átomos de carbono (\(n \geq 1\))</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( C \)</td><td data-label="Significado">Carbono tetravalente, hibridación \( sp^3 \)</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( H \)</td><td data-label="Significado">Hidrógeno monovalente</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \( n=4 \), \( C_4H_{2\cdot4+2}=C_4H_{10} \) (butano).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La fórmula \(C_nH_{2n+2}\) es válida <strong>solo para alcanos acíclicos y saturados</strong>. No se aplica a cicloalcanos, alquenos ni alquinos.</li>
+                    <li>La nomenclatura usa prefijos griegos: met- (1), et- (2), prop- (3), but- (4), pent- (5), hex- (6), hept- (7), oct- (8), non- (9), dec- (10).</li>
+                    <li>Los alcanos con \(n \leq 4\) son gases a temperatura ambiente; con \(5 \leq n \leq 17\) son líquidos; con \(n \geq 18\) son sólidos cerosos.</li>
+                    <li>Todos los átomos de carbono tienen hibridación \(sp^3\), por lo que la cadena adopta forma de <strong>zigzag</strong> (no lineal).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Fórmula general de alquenos y cicloalcanos</h2>
+                <span class="badge-centro">Alcanos</span>
+            </div>
+            <div class="formula-box">\[ C_nH_{2n} \]</div>
+            <p class="note">Al restar 2 hidrógenos al alcano de referencia por cada grado de insaturación: un doble enlace C=C o un anillo consumen 2 H.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( C_nH_{2n} \)</td><td data-label="Significado">Fórmula molecular del alqueno o cicloalcano</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Número de átomos de carbono (\(n \geq 2\))</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \( n=3 \), \( C_3H_6 \) (propeno o ciclopropano).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Esta fórmula la comparten dos familias: <strong>alquenos</strong> (con doble enlace C=C) y <strong>cicloalcanos</strong> (con anillo). Son <em>isómeros de función</em> entre sí.</li>
+                    <li>El cicloalcano más pequeño es el ciclopropano (\(C_3H_6\)); el alqueno más pequeño es el eteno (\(C_2H_4\)).</li>
+                    <li>Los alquenos presentan <strong>isomería cis-trans</strong> si cada carbono del doble enlace tiene dos sustituyentes distintos.</li>
+                    <li>Los cicloalcanos de 3 y 4 eslabones son muy reactivos por la <strong>tensión angular</strong> (ángulos muy alejados de 109,5°).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Fórmula general de alquinos y alcadienos</h2>
+                <span class="badge-centro">Alcanos</span>
+            </div>
+            <div class="formula-box">\[ C_nH_{2n-2} \]</div>
+            <p class="note">Dos grados de insaturación respecto al alcano de referencia: un triple enlace C≡C o dos dobles enlaces restan 4 H.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( C_nH_{2n-2} \)</td><td data-label="Significado">Fórmula molecular del alquino o alcadieno</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Número de átomos de carbono (\(n \geq 2\))</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \( n=2 \), \( C_2H_2 \) (etino).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los alquinos <strong>terminales</strong> (con H unido al C del triple enlace, como el etino) tienen carácter ácido débil: reaccionan con bases fuertes (NaNH₂) o con disoluciones de plata o cobre amoniacales.</li>
+                    <li>El <strong>acetileno</strong> (\(C_2H_2\)) se usa en el soplete oxiacetilénico porque su combustión alcanza temperaturas muy altas (~3000 °C).</li>
+                    <li>Los alcadienos con dobles enlaces <strong>conjugados</strong> (alternados) son más estables y participan en reacciones de adición 1,4.</li>
+                    <li>El alquino más sencillo es el etino (acetileno); el alcadieno más sencillo es el propadieno (\(C_3H_4\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Serie homóloga: incremento de \( -CH_2- \)</h2>
+                <span class="badge-centro">Alcanos</span>
+            </div>
+            <div class="formula-box">\[ C_nH_{2n+2} + CH_2 \longrightarrow C_{n+1}H_{2n+4} \]</div>
+            <p class="note">De la definición de serie homóloga: compuestos con el mismo grupo funcional que se diferencian sistemáticamente en un grupo metileno (\( -CH_2- \)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( C_nH_{2n+2} \)</td><td data-label="Significado">Miembro de partida de la serie</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( CH_2 \)</td><td data-label="Significado">Grupo metileno añadido</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( \Delta M \)</td><td data-label="Significado">Incremento de masa molar por miembro</td><td data-label="Unidades">\( \text{g/mol} \) (14)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> metano \( CH_4 \) \( + \) \( CH_2 \) \( \rightarrow \) etano \( C_2H_6 \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Cada miembro consecutivo de una serie homóloga tiene <strong>14 g/mol más</strong> de masa molar (masa del grupo \(CH_2\)).</li>
+                    <li>Dentro de una serie homóloga, la reactividad química es <strong>cualitativamente la misma</strong> (mismo grupo funcional), pero las propiedades físicas (p.&nbsp;ej. punto de ebullición) varían de forma regular.</li>
+                    <li>El incremento de propiedades físicas <strong>no es lineal</strong>: la diferencia de punto de ebullición entre miembros consecutivos <em>disminuye</em> al aumentar \(n\).</li>
+                    <li>Series homólogas importantes: alcanos (\(C_nH_{2n+2}\)), alcoholes (\(C_nH_{2n+1}OH\)), ácidos carboxílicos (\(C_nH_{2n+1}COOH\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Grado de insaturación (IHD)</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ IHD = \dfrac{2x+2-y}{2} \]</div>
+            <p class="note">Al comparar \( C_xH_y \) con el alcano saturado de referencia \( C_xH_{2x+2} \): cada insaturación (anillo o enlace π) resta exactamente 2 H.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( IHD \)</td><td data-label="Significado">Índice de deficiencia de hidrógeno</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( x \)</td><td data-label="Significado">Número de átomos de carbono</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( y \)</td><td data-label="Significado">Número de átomos de hidrógeno</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \( C_6H_6 \), \( IHD = (12+2-6)/2 = 4 \) (benceno: 3 dobles + 1 anillo).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Con <strong>heteroátomos</strong> la fórmula se modifica:
+                        <ul>
+                            <li>Oxígeno: <em>no cambia</em> el numerador (los O no aportan H).</li>
+                            <li>Nitrógeno: <strong>suma 1 H</strong> por cada N → \(IHD = (2x+2+N-y)/2\).</li>
+                            <li>Halógenos (F, Cl, Br, I): se cuentan como H → \(IHD = (2x+2-y-z)/2\), con \(z =\) nº de halógenos.</li>
+                        </ul>
+                    </li>
+                    <li>Cada grado de insaturación equivale a: 1 anillo, 1 doble enlace o <strong>medio triple enlace</strong> (un triple enlace = 2 IHD).</li>
+                    <li>Un resultado no entero indica <strong>error</strong> en la fórmula molecular o en la aplicación de la fórmula.</li>
+                    <li>Para compuestos aromáticos como el benceno, \(IHD = 4\) (3 dobles + 1 anillo).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Combustión completa de un hidrocarburo</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ C_xH_y + \left(x+\dfrac{y}{4}\right)O_2 \longrightarrow x\,CO_2 + \dfrac{y}{2}\,H_2O \]</div>
+            <p class="note">Del balanceo estequiométrico por conservación de átomos: todo el C pasa a \( CO_2 \) y todo el H a \( H_2O \); el \( O_2 \) se ajusta contando los O de los productos.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( x \)</td><td data-label="Significado">Número de átomos de C del hidrocarburo</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( y \)</td><td data-label="Significado">Número de átomos de H del hidrocarburo</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( x+\tfrac{y}{4} \)</td><td data-label="Significado">Coeficiente estequiométrico del \( O_2 \)</td><td data-label="Unidades">mol</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \( CH_4 + 2O_2 \rightarrow CO_2 + 2H_2O \) (metano).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Si el coeficiente \(x + \tfrac{y}{4}\) sale fraccionario (p.&nbsp;ej. octano: 12,5), multiplica <strong>toda</strong> la ecuación por 2 para trabajar con enteros: \(2C_8H_{18} + 25O_2 \to 16CO_2 + 18H_2O\).</li>
+                    <li>La <strong>combustión incompleta</strong> (falta de \(O_2\)) produce \(CO\) y hollín (C), además de \(CO_2\) y \(H_2O\).</li>
+                    <li>El volumen de <strong>aire</strong> necesario es ~5 veces el de \(O_2\), porque el aire contiene ~21% de oxígeno.</li>
+                    <li>La combustión de hidrocarburos es la principal fuente de \(CO_2\) antropogénico y contribuye al efecto invernadero.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Conservación de la masa en combustión</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ m_C = m_{CO_2}\cdot\dfrac{12}{44} \qquad ; \qquad m_H = m_{H_2O}\cdot\dfrac{2}{18} \]</div>
+            <p class="note">Del principio de conservación de la masa (Lavoisier): todo el C del hidrocarburo aparece en el \( CO_2 \) y todo el H en el \( H_2O \).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( m_C \)</td><td data-label="Significado">Masa de carbono en la muestra</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">\( m_H \)</td><td data-label="Significado">Masa de hidrógeno en la muestra</td><td data-label="Unidades">g</td></tr>
+                    <tr><td data-label="Símbolo">12/44</td><td data-label="Significado">Fracción másica de C en \( CO_2 \)</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">2/18</td><td data-label="Significado">Fracción másica de H en \( H_2O \)</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \( 0{,}88\ \text{g} \) de \( CO_2 \) contienen \( 0{,}88 \times 12/44 = 0{,}24\ \text{g} \) de C.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El error más común es <strong>olvidar que cada molécula de agua contiene 2 átomos de H</strong>. Por eso en \(m_H\) aparece el factor \(2/18\), no \(1/18\).</li>
+                    <li>Si el compuesto contiene <strong>oxígeno</strong>, este se calcula por diferencia: \(m_O = m_{\text{muestra}} - m_C - m_H\).</li>
+                    <li>Si el compuesto es un <strong>hidrocarburo puro</strong> (solo C e H), se debe cumplir \(m_C + m_H = m_{\text{muestra}}\); si no, hay error experimental o el compuesto contiene heteroátomos.</li>
+                    <li>Este método (análisis elemental por combustión) es la base de la <strong>determinación experimental de la fórmula empírica</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Masa molar de un alcano</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ M = 14n + 2 \]</div>
+            <p class="note">Al sumar las masas atómicas de \( C_nH_{2n+2} \): \( 12n + 1\cdot(2n+2) = 14n+2 \).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( M \)</td><td data-label="Significado">Masa molar del alcano</td><td data-label="Unidades">\( \text{g/mol} \)</td></tr>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Número de átomos de carbono</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \( n=5 \), \( M = 14\cdot5+2 = 72\ \text{g/mol} \) (pentano).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Para <strong>cicloalcanos y alquenos</strong> (fórmula \(C_nH_{2n}\)), la masa molar es \(M = 14n\).</li>
+                    <li>Para <strong>alquinos y alcadienos</strong> (fórmula \(C_nH_{2n-2}\)), la masa molar es \(M = 14n - 2\).</li>
+                    <li>Esta fórmula permite <strong>determinar \(n\)</strong> a partir de la masa molar experimental: \(n = (M-2)/14\).</li>
+                    <li>Un compuesto con masa molar 58 g/mol y fórmula \(C_nH_{2n+2}\) daría \(n = (58-2)/14 = 4\) → butano (\(C_4H_{10}\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Masa molar a partir de la densidad de un gas</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ M = \dfrac{dRT}{p} \]</div>
+            <p class="note">Al despejar \( M \) en la ecuación de Clapeyron \( pV=nRT \) tras sustituir \( n = m/M \) e introducir \( d = m/V \).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( M \)</td><td data-label="Significado">Masa molar del gas</td><td data-label="Unidades">\( \text{g/mol} \)</td></tr>
+                    <tr><td data-label="Símbolo">\( d \)</td><td data-label="Significado">Densidad del gas</td><td data-label="Unidades">\( \text{g/L} \)</td></tr>
+                    <tr><td data-label="Símbolo">\( R \)</td><td data-label="Significado">Constante de los gases ideales</td><td data-label="Unidades">\( 0{,}082\ \text{atm·L/(mol·K)} \)</td></tr>
+                    <tr><td data-label="Símbolo">\( T \)</td><td data-label="Significado">Temperatura absoluta</td><td data-label="Unidades">K</td></tr>
+                    <tr><td data-label="Símbolo">\( p \)</td><td data-label="Significado">Presión del gas</td><td data-label="Unidades">atm</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> en CN, \( d = 1{,}96\ \text{g/L} \Rightarrow M = 1{,}96 \times 22{,}4 = 43{,}9\ \text{g/mol} \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>Cuidado con las unidades</strong>: si usas \(R = 0{,}082\) debes expresar \(p\) en atm, \(V\) en L y \(d\) en g/L. Si usas \(R = 8{,}314\) debes expresar \(p\) en Pa, \(V\) en m³ y \(d\) en kg/m³.</li>
+                    <li>En <strong>condiciones normales</strong> (0 °C, 1 atm), la fórmula se simplifica: \(M = d \cdot 22{,}4\) (con \(d\) en g/L).</li>
+                    <li>A partir de \(M\) se puede obtener la <strong>fórmula molecular</strong> combinando con la fórmula empírica.</li>
+                    <li>Esta es una de las aplicaciones más útiles de la ecuación de Clapeyron: permite "pesar" moléculas de gas sin necesidad de espectrometría de masas.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Fórmula molecular y fórmula empírica</h2>
+                <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="formula-box">\[ \text{F. molecular} = n \times \text{F. empírica} \quad ; \quad n = \dfrac{M_{\text{molecular}}}{M_{\text{empírica}}} \]</div>
+            <p class="note">De la definición de fórmula empírica como proporción más sencilla entre los átomos que forman el compuesto.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Factor entero multiplicador</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( M_{\text{molecular}} \)</td><td data-label="Significado">Masa molar real</td><td data-label="Unidades">\( \text{g/mol} \)</td></tr>
+                    <tr><td data-label="Símbolo">\( M_{\text{empírica}} \)</td><td data-label="Significado">Masa molar de la fórmula empírica</td><td data-label="Unidades">\( \text{g/mol} \)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> empírica \( CH_2O \) y \( M = 90\ \text{g/mol} \Rightarrow n = 90/30 = 3 \Rightarrow C_3H_6O_3 \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La <strong>fórmula empírica</strong> se obtiene experimentalmente por análisis elemental (composición centesimal).</li>
+                    <li>La <strong>fórmula molecular</strong> requiere además conocer la masa molar (por espectrometría de masas, densidad de gas, etc.).</li>
+                    <li><strong>Muchos compuestos comparten la misma fórmula empírica</strong>: el eteno (\(C_2H_4\)), el ciclobutano (\(C_4H_8\)) y el ciclohexano (\(C_6H_{12}\)) tienen todos fórmula empírica \(CH_2\).</li>
+                    <li>Solo la <strong>fórmula semidesarrollada</strong> revela la conectividad atómica y el grupo funcional; la molecular no distingue isómeros.</li>
+                    <li>La fórmula empírica se calcula dividiendo los subíndices por su MCD.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Hibridación \( sp^3 \) y geometría tetraédrica</h2>
+                <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="formula-box">\[ sp^3 \;\longrightarrow\; \text{tetraédrica} \;\longrightarrow\; 109{,}5^\circ \]</div>
+            <p class="note">De la combinación lineal de 1 orbital \( s \) y 3 orbitales \( p \); la repulsión electrónica mínima (TRPECV) impone el ángulo \( \arccos(-1/3) \).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( sp^3 \)</td><td data-label="Significado">Hibridación con 4 orbitales equivalentes</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( 109{,}5^\circ \)</td><td data-label="Significado">Ángulo de enlace tetraédrico</td><td data-label="Unidades">°</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el metano \( CH_4 \) presenta 4 enlaces \( \sigma \) con ángulos de \( 109{,}5^\circ \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La hibridación es un <strong>modelo teórico</strong>, no un proceso físico real. Se usa para explicar la geometría observada experimentalmente.</li>
+                    <li>El ángulo exacto es \( \arccos(-1/3) \approx 109{,}47^\circ \), que se redondea a \(109{,}5^\circ\).</li>
+                    <li>La forma <strong>zigzag</strong> de las cadenas de alcanos es consecuencia directa de esta geometría tetraédrica.</li>
+                    <li>Con un carbono \(sp^3\) con 4 sustituyentes distintos aparece un <strong>centro quiral</strong> → isomería óptica.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Hibridación \( sp^2 \) y geometría trigonal plana</h2>
+                <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="formula-box">\[ sp^2 \;\longrightarrow\; \text{trigonal plana} \;\longrightarrow\; 120^\circ \]</div>
+            <p class="note">De la combinación de 1 orbital \( s \) y 2 \( p \); el orbital \( p \) puro restante, perpendicular al plano, forma el enlace \( \pi \).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( sp^2 \)</td><td data-label="Significado">Hibridación con 3 orbitales coplanarios</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( 120^\circ \)</td><td data-label="Significado">Ángulo de enlace en el plano</td><td data-label="Unidades">°</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el eteno \( C_2H_4 \) presenta 3 enlaces \( \sigma \) + 1 \( \pi \) con ángulos de \( 120^\circ \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El enlace \( \pi \) impide la <strong>rotación libre</strong> alrededor del doble enlace C=C → origen de la isomería cis-trans.</li>
+                    <li>El benceno (\(C_6H_6\)) tiene todos sus carbonos \(sp^2\) y forma un anillo plano con 6 electrones \( \pi \) deslocalizados.</li>
+                    <li>La longitud del enlace C=C (~1,34 Å) es <strong>más corta</strong> que la del enlace C—C simple (~1,54 Å), porque el orden de enlace es 2.</li>
+                    <li>Los dobles enlaces C=O (grupo carbonilo de aldehídos y cetonas) también implican carbono \(sp^2\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Hibridación \( sp \) y geometría lineal</h2>
+                <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="formula-box">\[ sp \;\longrightarrow\; \text{lineal} \;\longrightarrow\; 180^\circ \]</div>
+            <p class="note">De la combinación de 1 orbital \( s \) y 1 \( p \); quedan 2 orbitales \( p \) puros que forman dos enlaces \( \pi \) ortogonales.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( sp \)</td><td data-label="Significado">Hibridación con 2 orbitales opuestos</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( 180^\circ \)</td><td data-label="Significado">Ángulo de enlace lineal</td><td data-label="Unidades">°</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el etino \( C_2H_2 \) es lineal con ángulo \( 180^\circ \) y dos enlaces \( \pi \).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La longitud del enlace C≡C (~1,20 Å) es <strong>más corta</strong> que la del doble enlace C=C (~1,34 Å), porque el orden de enlace es 3.</li>
+                    <li>Los alquinos terminales tienen el H unido a un carbono \(sp\), lo que le confiere <strong>carácter ácido débil</strong> (reacciona con NaNH₂ o con Ag⁺/Cu⁺ amoniacales).</li>
+                    <li>El carbono \(sp\) aparece también en el HCN (cianuro de hidrógeno) y en los nitrilos (R—C≡N).</li>
+                    <li>El carbono con hibridación \(sp\) <strong>nunca</strong> puede ser un centro quiral, porque sus dos sustituyentes son colineales.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Regla de Hückel: aromaticidad</h2>
+                <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="formula-box">\[ \text{Electrones } \pi = 4n + 2 \]</div>
+            <p class="note">De la teoría de orbitales moleculares aplicada a sistemas cíclicos, planos y conjugados: la deslocalización \( \pi \) genera estabilidad aromática.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( n \)</td><td data-label="Significado">Número entero (\( 0,1,2,\dots \))</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( 4n+2 \)</td><td data-label="Significado">Nº de electrones \( \pi \) en sistemas aromáticos</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el benceno, con \( n=1 \), tiene \( 6 \) electrones \( \pi \) y es aromático.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Además de cumplir \(4n+2\), un compuesto debe ser <strong>cíclico, plano y conjugado</strong> para ser aromático.</li>
+                    <li>El <strong>ciclobutadieno</strong> (\(4\,\pi\)) NO es aromático (es antiaromático); el <strong>ciclopentadienuro</strong> (\(6\,\pi\)) sí es aromático.</li>
+                    <li>La <strong>energía de resonancia</strong> del benceno (~152 kJ/mol) mide la estabilidad adicional que confiere la deslocalización.</li>
+                    <li>El naftaleno (\(C_{10}H_8\)) cumple Hückel con \(n=2\) (10 electrones \( \pi \)) y también es aromático.</li>
+                    <li>Los electrones \( \pi \) deslocalizados son responsables de la <strong>conductividad eléctrica</strong> del grafito.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Clasificación de la isomería estructural</h2>
+                <span class="badge-centro">Isomería</span>
+            </div>
+            <div class="formula-box">\[ \text{Isomería estructural} = \{\text{cadena, posición, función}\} \]</div>
+            <p class="note">De la definición de isómeros estructurales: misma fórmula molecular, pero distinta conectividad entre los átomos (distinta fórmula semidesarrollada).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">Cadena</td><td data-label="Significado">Distinto esqueleto carbonado (lineal/ramificado)</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">Posición</td><td data-label="Significado">Mismo grupo funcional en distinta posición</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">Función</td><td data-label="Significado">Distinto grupo funcional</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el butano y el 2-metilpropano (\( C_4H_{10} \)) presentan isomería de cadena.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Truco para clasificar: pregunta primero <strong>¿cambia el esqueleto?</strong> (cadena) → <strong>¿mismo grupo funcional?</strong> (sí → posición; no → función).</li>
+                    <li>La isomería <strong>geométrica cis-trans</strong> NO es estructural: misma conectividad, solo cambia la disposición espacial (es <em>estereoisomería</em>).</li>
+                    <li>El número de isómeros de cadena crece rápidamente con \(n\): 3 isómeros para \(C_5H_{12}\), 5 para \(C_6H_{14}\), 9 para \(C_7H_{16}\)…</li>
+                    <li>La isomería de función es especialmente importante en química orgánica: aldehído vs cetona, ácido vs éster, alcohol vs éter.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 16 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">16</span>
+                <h2>Condiciones de la isomería geométrica cis-trans</h2>
+                <span class="badge-centro">Isomería</span>
+            </div>
+            <div class="formula-box">\[ \text{Rigidez} \;+\; \text{2 sustituyentes distintos por C} \]</div>
+            <p class="note">De la imposibilidad de rotación en torno al doble enlace C=C (el enlace \( \pi \) se rompería) o en anillos pequeños.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">Rigidez</td><td data-label="Significado">Doble enlace o anillo que impide la rotación</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">Sustituyentes</td><td data-label="Significado">Cada C del doble enlace debe tener 2 grupos distintos</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el but-2-eno presenta cis-trans; el 2-metilbut-2-eno no.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La <strong>nomenclatura E/Z</strong> (IUPAC) generaliza cis/trans usando las reglas de Cahn-Ingold-Prelog: E = <em>entgegen</em> (opuestos), Z = <em>zusammen</em> (juntos).</li>
+                    <li>Los isómeros cis y trans tienen <strong>propiedades físicas diferentes</strong>: puntos de fusión, ebullición, densidad, momento dipolar.</li>
+                    <li>Ejemplo bioquímico: el <strong>ácido oleico</strong> (cis) es líquido; el <strong>elaídico</strong> (trans) es sólido. Esta diferencia afecta a las membranas celulares.</li>
+                    <li>También presentan isomería cis-trans los compuestos con C=N (iminas) y N=N (azocompuestos).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 17 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">17</span>
+                <h2>Carbono asimétrico y quiralidad</h2>
+                <span class="badge-centro">Isomería</span>
+            </div>
+            <div class="formula-box">\[ C^* \equiv \text{C unido a 4 sustituyentes diferentes} \]</div>
+            <p class="note">De la geometría tetraédrica \( sp^3 \): si los cuatro sustituyentes son distintos, la imagen especular no es superponible → isomería óptica.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( C^* \)</td><td data-label="Significado">Carbono asimétrico o quiral</td><td data-label="Unidades">—</td></tr>
+                    <tr><td data-label="Símbolo">\( 2^n \)</td><td data-label="Significado">Nº máximo de estereoisómeros (\(n\) = nº de \(C^*\))</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> el 2-clorobutano presenta isomería óptica; el 2-cloropropano no.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Dos cadenas de <strong>longitud diferente</strong> son grupos distintos, aunque estén formadas por C e H (p.&nbsp;ej. \(-CH_3\) vs \(-CH_2CH_3\)).</li>
+                    <li>Si hay <strong>varios centros quirales</strong> con los mismos sustituyentes, puede aparecer un compuesto <strong>meso</strong> (ópticamente inactivo por simetría interna); entonces el número de estereoisómeros es menor que \(2^n\).</li>
+                    <li>Los <strong>enantiómeros</strong> tienen propiedades físicas idénticas, salvo que desvían el plano de luz polarizada en sentidos opuestos (\(+\) o \(d\) y \(-\) o \(l\)).</li>
+                    <li>La quiralidad es crucial en bioquímica y farmacia: solo el enantiómero \( (S) \) del ibuprofeno es antiinflamatorio activo.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 18 -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">18</span>
+                <h2>Constantes, equivalencias y datos numéricos</h2>
+                <span class="badge-centro">Datos</span>
+            </div>
+            <div class="formula-box">\[ R = 0{,}082\ \tfrac{\text{atm·L}}{\text{mol·K}} = 8{,}314\ \tfrac{\text{J}}{\text{mol·K}} \]</div>
+            <p class="note">Valores de referencia universales empleados en los cálculos estequiométricos y de gases ideales.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\( M(C) \)</td><td data-label="Significado">Masa atómica del carbono</td><td data-label="Unidades">12 g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\( M(H) \)</td><td data-label="Significado">Masa atómica del hidrógeno</td><td data-label="Unidades">1 g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\( M(O) \)</td><td data-label="Significado">Masa atómica del oxígeno</td><td data-label="Unidades">16 g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\( M(N) \)</td><td data-label="Significado">Masa atómica del nitrógeno</td><td data-label="Unidades">14 g/mol</td></tr>
+                    <tr><td data-label="Símbolo">\( V_m \) (CN)</td><td data-label="Significado">Volumen molar en condiciones normales</td><td data-label="Unidades">22,4 L/mol</td></tr>
+                    <tr><td data-label="Símbolo">\( 1\ \text{atm} \)</td><td data-label="Significado">Equivalencia de presión</td><td data-label="Unidades">760 mmHg = 101325 Pa</td></tr>
+                    <tr><td data-label="Símbolo">\( T(\text{K}) \)</td><td data-label="Significado">Conversión de temperatura</td><td data-label="Unidades">\( t(^\circ\text{C}) + 273 \)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> usa \( R = 0{,}082\ \text{atm·L/(mol·K)} \) al sustituir en la fórmula 9 (densidad-masa molar) trabajando en atm y L.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>El valor de R depende de las unidades</strong> utilizadas. Comprueba siempre la coherencia dimensional antes de sustituir.</li>
+                    <li>Las <strong>condiciones normales (CN)</strong> tradicionales son 0 °C y 1 atm (\(V_m = 22{,}4\) L/mol). La IUPAC actual define CN como 0 °C y 1 bar (\(V_m = 22{,}7\) L/mol).</li>
+                    <li>Recuerda las equivalencias de presión: 1 atm = 760 mmHg = 101 325 Pa; 1 bar = 10⁵ Pa.</li>
+                    <li>La <strong>constante de Avogadro</strong> \(N_A = 6{,}022\times10^{23}\ \text{mol}^{-1}\) permite pasar de moles a número de partículas.</li>
+                    <li>En termoquímica: 1 cal = 4,18 J; 1 kJ = 1000 J.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- LEYENDA -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Color</th><th>Clase</th><th>Categoría</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Alcanos (fórmulas generales de hidrocarburos y series homólogas)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Isomería (estructural, geométrica y óptica)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Hibridación (geometría molecular, aromaticidad y alótropos)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Estequiometría (IHD, combustión y cálculos con gases)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Datos (constantes y equivalencias)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> la fórmula general del alcano \( C_nH_{2n+2} \) es la referencia para deducir las demás (alquenos, alquinos, cicloalcanos). Cada grado de insaturación resta 2 H, lo que da lugar al IHD. La hibridación del carbono (\( sp^3 \), \( sp^2 \), \( sp \)) determina la geometría y explica la isomería cis-trans y la quiralidad.
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

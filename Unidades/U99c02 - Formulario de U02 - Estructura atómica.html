@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c02 - Formulario de U02 - Estructura atómica</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99c02</span>
+                <span class="texto">Estructura atómica</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ============================================================ -->
+        <!-- 1. COMPOSICIÓN NUCLEAR                                       -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Composición nuclear</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ A = Z + N \]
+            </div>
+            <p class="note">De la definición de número másico como suma del número de protones (\(Z\)) y del número de neutrones (\(N\)) presentes en el núcleo.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(A\)</td><td data-label="Significado">Número másico (protones + neutrones)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(Z\)</td><td data-label="Significado">Número atómico (nº de protones)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(N\)</td><td data-label="Significado">Número de neutrones</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(Z = 11\) y \(N = 12\), \(A = 11 + 12 = 23\) (sodio-23).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(Z\) identifica al elemento (todos los átomos del mismo elemento tienen igual \(Z\)); al variar \(N\) se obtienen <strong>isótopos</strong>.</li>
+                    <li>\(A\) y \(Z\) <strong>no cambian</strong> al formar iones: solo se ganan o pierden electrones.</li>
+                    <li>La notación habitual es \(^{A}_{Z}\text{X}\), donde X es el símbolo del elemento.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 2. MASA ATÓMICA PONDERADA                                    -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Masa atómica ponderada</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ A = \frac{A_1 \cdot \%_1 + A_2 \cdot \%_2 + \dots + A_n \cdot \%_n}{100} \]
+            </div>
+            <p class="note">Al calcular la media ponderada de las masas de los isótopos según su abundancia relativa en la naturaleza.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(A\)</td><td data-label="Significado">Masa atómica media del elemento</td><td data-label="Unidades">u</td></tr>
+                    <tr><td data-label="Símbolo">\(A_i\)</td><td data-label="Significado">Masa del isótopo \(i\)</td><td data-label="Unidades">u</td></tr>
+                    <tr><td data-label="Símbolo">\(\%_i\)</td><td data-label="Significado">Abundancia del isótopo \(i\)</td><td data-label="Unidades">%</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> con \(^{10}\text{B}\) (19,9 %) y \(^{11}\text{B}\) (80,1 %), \(A = (10 \cdot 19{,}9 + 11 \cdot 80{,}1)/100 = 10{,}81\ \text{u}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El resultado suele ser <strong>decimal</strong> y <em>no coincide</em> con la masa de ningún isótopo concreto.</li>
+                    <li>Es la masa que aparece en la tabla periódica del elemento.</li>
+                    <li>Recuerda que \(\sum \%_i = 100\); si te dan fracciones en lugar de porcentajes, usa \(A = \sum A_i \cdot x_i\) con \(\sum x_i = 1\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 3. CAPACIDAD ELECTRÓNICA DE UN NIVEL                         -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Capacidad electrónica de un nivel</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ N_{\text{máx}} = 2n^2 \]
+            </div>
+            <p class="note">Al sumar los \(2l+1\) orbitales de cada subnivel (\(l = 0,\dots,n-1\)) y multiplicar por los dos estados de spin permitidos por el principio de Pauli.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(N_{\text{máx}}\)</td><td data-label="Significado">Nº máximo de electrones del nivel</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Número cuántico principal</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(n = 3\), \(N_{\text{máx}} = 2 \cdot 3^2 = 18\) electrones (2 en \(3s\), 6 en \(3p\), 10 en \(3d\)).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(N_{\text{máx}}\) es el cupo <strong>teórico</strong> del nivel, no siempre alcanzado.</li>
+                    <li>Los subniveles se llenan según la <strong>regla de Madelung</strong> (\(1s,\,2s,\,2p,\,3s,\,3p,\,4s,\,3d,\dots\)).</li>
+                    <li>Nivel \(n=1\): 2 electrones; \(n=2\): 8; \(n=3\): 18; \(n=4\): 32. La capacidad crece como \(2n^2\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 4. POSICIÓN EN LA TABLA PERIÓDICA                            -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Posición en la tabla periódica</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ \text{Periodo} = n_{\text{máx}} \quad ; \quad \text{Grupo} = f(e^-_{\text{valencia}}) \]
+            </div>
+            <p class="note">De la relación entre la capa de valencia (nivel más externo ocupado) y la posición del elemento en la tabla periódica según el bloque \(s\), \(p\) o \(d\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">Periodo</td><td data-label="Significado">Nivel más externo ocupado</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">Grupo (\(s\))</td><td data-label="Significado">\(=e^-_{\text{val}}\) (grupos 1 y 2)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">Grupo (\(p\))</td><td data-label="Significado">\(=e^-_{\text{val}} + 10\) (grupos 13–18)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">Grupo (\(d\))</td><td data-label="Significado">\(=e^-_{(n-1)d} + 2\) (grupos 3–12)</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> cloro (\(3s^2 3p^5\)): periodo 3 y grupo \(7 + 10 = 17\) (halógenos).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los <strong>gases nobles</strong> (grupo 18) tienen la capa de valencia completa.</li>
+                    <li>Ojo: en los <strong>metales de transición</strong> hay excepciones (p. ej. Cr, Cu) por la mayor estabilidad de configuraciones con subniveles semillenos o llenos.</li>
+                    <li>Bloque \(s\): grupos 1–2; bloque \(p\): grupos 13–18; bloque \(d\): grupos 3–12; bloque \(f\): lantánidos y actínidos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 5. ELECTROVALENCIA                                           -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Electrovalencia</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ q = +e^-_{\text{val}} \ \text{(metales)} \quad ; \quad q = -(8 - e^-_{\text{val}}) \ \text{(no metales)} \]
+            </div>
+            <p class="note">De la regla del octeto: los átomos ganan o pierden electrones hasta alcanzar la configuración electrónica de gas noble (8 electrones).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(q\)</td><td data-label="Significado">Carga iónica más estable</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(e^-_{\text{val}}\)</td><td data-label="Significado">Electrones de valencia</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Na (\(3s^1\)): \(q = +1\). Cl (\(3s^2 3p^5\)): \(q = -(8-7) = -1\). Forman NaCl.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Los <strong>metales de transición</strong> pueden presentar varias electrovalencias (p. ej. Fe²⁺/Fe³⁺).</li>
+                    <li>El hidrógeno es un caso especial: puede ganar 1 electrón (H⁻) o cederlo (H⁺).</li>
+                    <li>Esta regla es una aproximación útil para los elementos representativos; los metales de transición y los elementos pesados presentan más matices.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 6. COVALENCIA                                                -->
+        <!-- ============================================================ -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Covalencia</h2>
+                <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="formula-box">
+                \[ \text{Covalencia} = 8 - e^-_{\text{val}} \quad (\text{H: } 1) \]
+            </div>
+            <p class="note">De la regla del octeto aplicada a no metales: cada átomo comparte los pares de electrones que le faltan para completar su capa de valencia.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">Covalencia</td><td data-label="Significado">Nº de pares de electrones compartidos</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(e^-_{\text{val}}\)</td><td data-label="Significado">Electrones de valencia</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> O (\(2s^2 2p^4\)) → covalencia \(8-6 = 2\), como en H\(_2\)O. N (\(2s^2 2p^3\)) → covalencia 3, como en NH\(_3\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La covalencia coincide con el <strong>número de enlaces</strong> que forma el átomo.</li>
+                    <li>El H (1 electrón de valencia) solo forma <strong>1 enlace</strong>.</li>
+                    <li>El C puede presentar covalencia 4 y dar lugar a cadenas (química orgánica).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 7. RELACIÓN ONDULATORIA DE LA RADIACIÓN                      -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Relación ondulatoria de la radiación</h2>
+                <span class="badge-centro">Ondas</span>
+            </div>
+            <div class="formula-box">
+                \[ c = \lambda \, \nu \]
+            </div>
+            <p class="note">De la definición de velocidad de propagación de una onda (\(c = \lambda/T\)) y de la frecuencia como inversa del periodo (\(\nu = 1/T\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(c\)</td><td data-label="Significado">Velocidad de la luz en el vacío</td><td data-label="Unidades">m·s⁻¹</td></tr>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\nu\)</td><td data-label="Significado">Frecuencia</td><td data-label="Unidades">Hz (s⁻¹)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\lambda = 3{,}0\ \text{m}\), \(\nu = c/\lambda = 1{,}0\times10^{8}\ \text{Hz}\) (banda de FM).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(\lambda\) y \(\nu\) son <strong>inversamente proporcionales</strong>.</li>
+                    <li>Al atravesar un medio distinto del vacío, la velocidad y la longitud de onda cambian, pero la <strong>frecuencia permanece constante</strong>.</li>
+                    <li>Unidades típicas: \(\lambda\) en nm o Å (\(1\ \text{Å} = 10^{-10}\ \text{m}\)); \(\nu\) en Hz (s⁻¹).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 8. FÓRMULA DE RYDBERG                                        -->
+        <!-- ============================================================ -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Fórmula de Rydberg</h2>
+                <span class="badge-centro">Ondas</span>
+            </div>
+            <div class="formula-box">
+                \[ \frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]
+            </div>
+            <p class="note">Al igualar la energía del fotón emitido (\(hc/\lambda\)) con la diferencia de energía entre dos niveles de Bohr, \(\Delta E = 13{,}6 (1/n_1^2 - 1/n_2^2)\ \text{eV}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda de la radiación</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(R_\infty\)</td><td data-label="Significado">Constante de Rydberg</td><td data-label="Unidades">m⁻¹</td></tr>
+                    <tr><td data-label="Símbolo">\(n_1\)</td><td data-label="Significado">Nivel final (menor)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(n_2\)</td><td data-label="Significado">Nivel inicial (mayor)</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> línea H\(\alpha\) de Balmer (\(n_2 = 3 \to n_1 = 2\)), \(\lambda = 656\ \text{nm}\) (rojo).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es válida estrictamente para el <strong>átomo de hidrógeno</strong> (y para hidrogenoides como He⁺, Li²⁺).</li>
+                    <li>Recuerda que \(n_2 > n_1\) y que el resultado de \(1/\lambda\) sale en \(\text{m}^{-1}\).</li>
+                    <li>Series espectrales: Lyman (\(n_1=1\), UV), Balmer (\(n_1=2\), visible), Paschen (\(n_1=3\), IR), Brackett (\(n_1=4\), IR).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 9. ENERGÍA DE UN FOTÓN                                       -->
+        <!-- ============================================================ -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Energía de un fotón</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E = h \, \nu = \frac{h \, c}{\lambda} \]
+            </div>
+            <p class="note">De la hipótesis de Planck sobre la cuantización de la energía (\(E = h\nu\)) y la relación ondulatoria \(c = \lambda\nu\) (fórmula 7).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E\)</td><td data-label="Significado">Energía del fotón</td><td data-label="Unidades">J (o eV)</td></tr>
+                    <tr><td data-label="Símbolo">\(h\)</td><td data-label="Significado">Constante de Planck</td><td data-label="Unidades">J·s</td></tr>
+                    <tr><td data-label="Símbolo">\(\nu\)</td><td data-label="Significado">Frecuencia</td><td data-label="Unidades">Hz</td></tr>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\lambda = 500\ \text{nm}\), \(E = hc/\lambda \approx 4{,}0\times10^{-19}\ \text{J} \approx 2{,}5\ \text{eV}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La energía de un fotón es <strong>proporcional a \(\nu\)</strong> e <strong>inversamente proporcional a \(\lambda\)</strong>.</li>
+                    <li>Para pasar de J a eV divide entre \(1{,}602\times10^{-19}\).</li>
+                    <li>El resultado es siempre <strong>positivo</strong> (es energía).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 10. NIVELES DE ENERGÍA DEL HIDRÓGENO                         -->
+        <!-- ============================================================ -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Niveles de energía del hidrógeno</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E_n = -\frac{13{,}6\ \text{eV}}{n^2} \]
+            </div>
+            <p class="note">Al sustituir el radio y la velocidad del electrón en la energía total \(E = E_c + E_p = \tfrac{1}{2} m v^2 - k e^2 / r\) del modelo de Bohr.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E_n\)</td><td data-label="Significado">Energía del nivel \(n\)</td><td data-label="Unidades">eV</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Número cuántico principal</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(n = 2\), \(E_2 = -13{,}6/4 = -3{,}40\ \text{eV}\). Ionización desde \(n=2\): \(3{,}40\ \text{eV}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Las energías son <strong>negativas</strong> porque el electrón está ligado. \(E_\infty = 0\) corresponde al átomo ionizado.</li>
+                    <li>La <strong>energía de ionización</strong> desde \(n\) es \(|E_n|\) (siempre positiva).</li>
+                    <li>Para el estado fundamental (\(n=1\)), \(|E_1| = 13{,}6\ \text{eV}\) es la energía de ionización del hidrógeno.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 11. DESPEJE DE λ EN RYDBERG                                  -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Despeje de \(\lambda\) en Rydberg</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ \lambda = \frac{1}{R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)} \]
+            </div>
+            <p class="note">Al despejar \(\lambda\) en la fórmula de Rydberg (fórmula 8): se invierte la expresión tras aislar \(1/\lambda\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(R_\infty\)</td><td data-label="Significado">Constante de Rydberg</td><td data-label="Unidades">m⁻¹</td></tr>
+                    <tr><td data-label="Símbolo">\(n_1, n_2\)</td><td data-label="Significado">Niveles final e inicial (\(n_2 > n_1\))</td><td data-label="Unidades">adimensional</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(n_1 = 2\) y \(n_2 = 4\), \(\lambda = 1/[R_\infty(1/4-1/16)] \approx 4{,}86\times10^{-7}\ \text{m} = 486\ \text{nm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El paréntesis debe ser <strong>positivo</strong>; si sale negativo, has intercambiado \(n_1\) y \(n_2\).</li>
+                    <li>El resultado en metros suele ser muy pequeño: multiplica por \(10^9\) para pasar a nm.</li>
+                    <li>Recuerda que \(n_2 > n_1\) siempre (nivel inicial mayor que nivel final).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 12. DESPEJE DE n₂ EN RYDBERG                                 -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Despeje de \(n_2\) en Rydberg</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ n_2 = \sqrt{\frac{1}{\frac{1}{n_1^2} - \frac{1}{\lambda R_\infty}}} \]
+            </div>
+            <p class="note">Al despejar \(n_2\) en la fórmula de Rydberg (fórmula 8): se aísla \(1/n_2^2\) y se invierte para obtener \(n_2\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(n_2\)</td><td data-label="Significado">Nivel inicial (mayor)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(n_1\)</td><td data-label="Significado">Nivel final (menor)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda medida</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(R_\infty\)</td><td data-label="Significado">Constante de Rydberg</td><td data-label="Unidades">m⁻¹</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> con \(\lambda = 486{,}1\ \text{nm}\) (Balmer, \(n_1 = 2\)), se obtiene \(n_2 \approx 4\) (transición \(4 \to 2\)).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Antes de sustituir, <strong>convierte \(\lambda\) a metros</strong>.</li>
+                    <li>El resultado debe ser un número <strong>entero positivo</strong> y mayor que \(n_1\).</li>
+                    <li>Si sale un valor no entero, revisa unidades o datos del enunciado.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 13. DESPEJE DE n₁ EN RYDBERG                                 -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Despeje de \(n_1\) en Rydberg</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ n_1 = \sqrt{\frac{1}{\frac{1}{n_2^2} + \frac{1}{\lambda R_\infty}}} \]
+            </div>
+            <p class="note">Al despejar \(n_1\) en la fórmula de Rydberg (fórmula 8): se aísla \(1/n_1^2\) y se invierte. Nótese el signo \(+\) delante de \(1/(\lambda R_\infty)\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(n_1\)</td><td data-label="Significado">Nivel final (menor)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(n_2\)</td><td data-label="Significado">Nivel inicial (mayor, conocido)</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda medida</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(R_\infty\)</td><td data-label="Significado">Constante de Rydberg</td><td data-label="Unidades">m⁻¹</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> con \(\lambda = 1875\ \text{nm}\) y \(n_2 = 4\), se obtiene \(n_1 \approx 3\) (transición \(4 \to 3\), serie de Paschen).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>¡No confundir con la fórmula 12!</strong> Aquí el signo dentro del paréntesis es \(+\).</li>
+                    <li>El resultado debe verificar \(n_1 < n_2\).</li>
+                    <li>Si el resultado no es un entero, revisa las unidades de \(\lambda\) (debe estar en metros).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 14. DESPEJES EN c = λ·ν                                      -->
+        <!-- ============================================================ -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Despejes en \(c = \lambda\nu\)</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ \nu = \frac{c}{\lambda} \quad ; \quad \lambda = \frac{c}{\nu} \]
+            </div>
+            <p class="note">Al despejar \(\nu\) y \(\lambda\) en la relación ondulatoria \(c = \lambda\nu\) (fórmula 7). Como \(c\) es constante, \(\lambda\) y \(\nu\) son inversamente proporcionales.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\nu\)</td><td data-label="Significado">Frecuencia</td><td data-label="Unidades">Hz (s⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(\lambda\)</td><td data-label="Significado">Longitud de onda</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(c\)</td><td data-label="Significado">Velocidad de la luz en el vacío</td><td data-label="Unidades">m·s⁻¹</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\lambda = 500\ \text{nm} = 5{,}0\times10^{-7}\ \text{m}\), \(\nu = c/\lambda = 6{,}0\times10^{14}\ \text{Hz}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Trabaja siempre en <strong>unidades del S.I.</strong></li>
+                    <li>Si el enunciado da \(\lambda\) en nm, conviértelo a m antes de sustituir (\(1\ \text{nm} = 10^{-9}\ \text{m}\)).</li>
+                    <li>Comprueba la coherencia dimensional del resultado.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- 15. CONSTANTES Y EQUIVALENCIAS                               -->
+        <!-- ============================================================ -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Constantes y equivalencias</h2>
+                <span class="badge-centro">Datos</span>
+            </div>
+            <div class="formula-box">
+                \[ \text{Valores numéricos de referencia} \]
+            </div>
+            <p class="note">Valores aceptados por la IUPAC y utilizados habitualmente en los ejercicios de estructura atómica. Se emplean directamente al sustituir en las fórmulas anteriores.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades / Valor</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(c\)</td><td data-label="Significado">Velocidad de la luz en el vacío</td><td data-label="Unidades / Valor">\(3{,}00\times10^{8}\ \text{m·s}^{-1}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(h\)</td><td data-label="Significado">Constante de Planck</td><td data-label="Unidades / Valor">\(6{,}626\times10^{-34}\ \text{J·s}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(hc\)</td><td data-label="Significado">Producto \(h \cdot c\)</td><td data-label="Unidades / Valor">\(1{,}988\times10^{-25}\ \text{J·m}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(R_\infty\)</td><td data-label="Significado">Constante de Rydberg</td><td data-label="Unidades / Valor">\(1{,}097\times10^{7}\ \text{m}^{-1}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{eV}\)</td><td data-label="Significado">Equivalencia electrón-voltio</td><td data-label="Unidades / Valor">\(1{,}602\times10^{-19}\ \text{J}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(E_1(\text{H})\)</td><td data-label="Significado">Energía fundamental del hidrógeno</td><td data-label="Unidades / Valor">\(-13{,}6\ \text{eV}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{nm}\)</td><td data-label="Significado">Equivalencia de longitud</td><td data-label="Unidades / Valor">\(10^{-9}\ \text{m}\)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo de uso:</strong> al sustituir en la fórmula 9, usa \(hc = 1{,}988\times10^{-25}\ \text{J·m}\); al sustituir en las fórmulas 8 y 11–13, usa \(R_\infty = 1{,}097\times10^{7}\ \text{m}^{-1}\). Para pasar de J a eV, divide entre \(1{,}602\times10^{-19}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Para no arrastrar errores, mantén al menos <strong>3 cifras significativas</strong> y redondea solo al final.</li>
+                    <li>El uso de \(hc\) ya calculado ahorra sustituciones repetidas.</li>
+                    <li>Otras equivalencias útiles: \(1\ \text{Å} = 10^{-10}\ \text{m}\); \(1\ \text{eV} = 1{,}602\times10^{-19}\ \text{J}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Atómica (composición nuclear, isótopos, capacidad electrónica, posición periódica y valencias)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Ondas (relación \(c = \lambda\nu\) y fórmula de Rydberg)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Energía (fotón y niveles cuánticos del hidrógeno)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Despeje (variables aisladas de las fórmulas anteriores)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Datos (constantes, equivalencias y valores numéricos de referencia)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> las fórmulas están numeradas; en los ejercicios conviene citar el número para justificar el paso seguido. Recuerda trabajar siempre en unidades del S.I. (m, Hz, J) y convertir a eV o nm solo al final si el enunciado lo requiere.
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>
