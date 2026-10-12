@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c10 - Formulario de U10 - Interacción electrostática</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .note .pregunta {
+          display: block;
+          font-weight: 700;
+          color: #975a16;
+          margin-bottom: 4px;
+          font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+          display: block;
+          color: #744210;
+          padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99c10</span>
+                <span class="texto">Formulario de U10 · Interacción electrostática</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ============================================================ -->
+        <!-- CATEGORÍA: ELECTROSTÁTICA (c-1)                              -->
+        <!-- ============================================================ -->
+
+        <!-- 1. LEY DE COULOMB -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Ley de Coulomb</h2>
+                <span class="badge-centro">Electrostática</span>
+            </div>
+            <div class="formula-box">
+                \[\vec{F} = K \frac{q_1 \cdot q_2}{r^2} \hat{u}_r \qquad F = K \frac{|q_1| \cdot |q_2|}{r^2}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la generalización de la observación experimental de Coulomb: la fuerza entre cargas puntuales es proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia, con dirección radial.</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{F}\)</td><td data-label="Significado">Fuerza electrostática entre las cargas</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(K\)</td><td data-label="Significado">Constante de Coulomb en el vacío, \(K=1/(4\pi\varepsilon_0)\)</td><td data-label="Unidades">N·m²·C⁻²</td></tr>
+                    <tr><td data-label="Símbolo">\(q_1,\,q_2\)</td><td data-label="Significado">Cargas puntuales que interaccionan</td><td data-label="Unidades">C</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Distancia entre las cargas</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\hat{u}_r\)</td><td data-label="Significado">Vector unitario de \(q_1\) hacia \(q_2\)</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(q_1=+4{,}0\,\mu\text{C}\), \(q_2=-6{,}0\,\mu\text{C}\) y \(r=0{,}12\,\text{m}\), \(F=8{,}99\times10^9 \cdot \tfrac{(4{,}0\times10^{-6})(6{,}0\times10^{-6})}{0{,}12^2}\approx 15{,}0\,\text{N}\) (atractiva).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo es válida para <strong>cargas puntuales</strong> o distribuciones esféricas. Para cuerpos arbitrarios hay que dividir la carga en elementos diferenciales e integrar.</li>
+                    <li>Cumple la <strong>tercera ley de Newton</strong>: \(\vec{F}_{12}=-\vec{F}_{21}\). Es una fuerza central y conservativa.</li>
+                    <li>El <strong>signo</strong> del producto \(q_1 q_2\) determina el sentido: mismo signo → repulsiva; signos opuestos → atractiva.</li>
+                    <li>La constante \(K\) depende del <strong>medio</strong>: en un dieléctrico de constante relativa \(\varepsilon_r\), se divide por \(\varepsilon_r\) (\(K_{\text{medio}} = K/\varepsilon_r\)).</li>
+                    <li>Formalmente es análoga a la ley de gravitación de Newton (\(F=G M m / r^2\)), pero la fuerza eléctrica puede ser atractiva o repulsiva y es mucho más intensa.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 2. CAMPO ELÉCTRICO DE UNA CARGA PUNTUAL -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Campo eléctrico de una carga puntual</h2>
+                <span class="badge-centro">Electrostática</span>
+            </div>
+            <div class="formula-box">
+                \[\vec{E} = K \frac{Q}{r^2} \hat{u}_r \qquad E = K \frac{|Q|}{r^2}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo sustituir la fuerza de Coulomb \(\vec{F}=K Q q_0 \hat{u}_r/r^2\) en la definición operacional de campo eléctrico \(\vec{E}=\vec{F}/q_0\) y cancelar la carga de prueba.</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{E}\)</td><td data-label="Significado">Vector intensidad de campo eléctrico</td><td data-label="Unidades">N·C⁻¹ (o V·m⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(Q\)</td><td data-label="Significado">Carga fuente que crea el campo</td><td data-label="Unidades">C</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Distancia de \(Q\) al punto considerado</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\hat{u}_r\)</td><td data-label="Significado">Vector unitario radial desde \(Q\) hacia el punto</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(Q=+3{,}0\,\mu\text{C}\) y \(r=4{,}0\,\text{cm}\), \(E=8{,}99\times10^9\cdot\tfrac{3{,}0\times10^{-6}}{(0{,}040)^2}\approx 1{,}69\times10^{7}\,\text{N/C}\), hacia fuera de la carga.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El campo <strong>existe aunque no haya carga de prueba</strong> en el punto: es una propiedad local del espacio.</li>
+                    <li>La dirección del campo se define como la fuerza sobre una carga <strong>positiva</strong>: sale de \(Q>0\) y entra hacia \(Q<0\).</li>
+                    <li>Depende de \(1/r^2\) (igual que el campo gravitatorio). Es radial y decrece rápidamente con la distancia.</li>
+                    <li>La unidad \(\text{N·C}^{-1}\) es equivalente a \(\text{V·m}^{-1}\), útil en problemas de potencial.</li>
+                    <li>El concepto de campo evita la <strong>acción a distancia</strong> y prepara el terreno para las ondas electromagnéticas.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 3. PRINCIPIO DE SUPERPOSICIÓN -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Principio de superposición</h2>
+                <span class="badge-centro">Electrostática</span>
+            </div>
+            <div class="formula-box">
+                \[\vec{E}_R = \sum_{i=1}^{n} \vec{E}_i = \sum_{i=1}^{n} K \frac{q_i}{r_i^2} \hat{u}_{r_i}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la <strong>linealidad</strong> de las ecuaciones del campo eléctrico en el vacío: al dividir la fuerza total \(\vec{F}_R=\sum\vec{F}_i\) por \(q_0\), sale directamente \(\vec{E}_R=\sum\vec{E}_i\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{E}_R\)</td><td data-label="Significado">Campo eléctrico resultante en el punto \(P\)</td><td data-label="Unidades">N·C⁻¹</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{E}_i\)</td><td data-label="Significado">Campo creado por la carga \(q_i\) en \(P\)</td><td data-label="Unidades">N·C⁻¹</td></tr>
+                    <tr><td data-label="Símbolo">\(r_i\)</td><td data-label="Significado">Distancia de \(q_i\) al punto \(P\)</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Número de cargas puntuales del sistema</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> con \(q_1=+5{,}0\,\mu\text{C}\) en \(x=0\) y \(q_2=-2{,}0\,\mu\text{C}\) en \(x=8{,}0\,\text{cm}\), en \(P(x=4\,\text{cm})\): \(E_R=(2{,}81+1{,}12)\times10^{7}\approx 3{,}93\times10^{7}\,\text{N/C}\,\hat{x}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es consecuencia de la <strong>linealidad en el vacío</strong>: no se aplica en medios materiales, donde las cargas inducidas modifican el campo original.</li>
+                    <li>¡Cuidado con la "trampa" más frecuente! Hay que <strong>sumar vectores</strong>, no módulos. Dibuja siempre los vectores \(\vec{E}_i\) y descompón en ejes.</li>
+                    <li>Para <strong>distribuciones continuas</strong> de carga, la suma se convierte en integral: \(\vec{E}=\int K \tfrac{dq}{r^2}\hat{u}_r\).</li>
+                    <li>También se aplica al <strong>potencial</strong> (pero allí la suma es algebraica, no vectorial, porque \(V\) es escalar).</li>
+                    <li>Cuando dos cargas crean campos opuestos, puede existir un punto donde \(\vec{E}_R=0\) (se igualan módulos y se oponen direcciones).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 4. DEFINICIÓN DE CAMPO ELÉCTRICO -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Definición de campo eléctrico</h2>
+                <span class="badge-centro">Electrostática</span>
+            </div>
+            <div class="formula-box">
+                \[\vec{E} = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0} \qquad \vec{F} = q_0 \cdot \vec{E}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la <strong>definición operacional</strong> de campo eléctrico: se define como la fuerza eléctrica por unidad de carga positiva colocada en el punto. El límite \(q_0 \to 0\) garantiza que la carga de prueba no perturbe el campo que se quiere medir.</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{E}\)</td><td data-label="Significado">Vector intensidad de campo eléctrico en el punto</td><td data-label="Unidades">N·C⁻¹ (o V·m⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{F}\)</td><td data-label="Significado">Fuerza eléctrica sobre la carga de prueba</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(q_0\)</td><td data-label="Significado">Carga de prueba positiva colocada en el punto</td><td data-label="Unidades">C</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> si sobre una carga \(q_0=+2{,}0\,\text{nC}\) situada en un punto actúa una fuerza \(\vec{F}=5{,}0\times10^{-5}\,\text{N}\,\hat{\imath}\), el campo en ese punto es \(E=5{,}0\times10^{-5}/2{,}0\times10^{-9}=2{,}5\times10^{4}\,\text{N/C}\,\hat{\imath}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El campo es una <strong>propiedad del punto</strong>, independiente de \(q_0\): existe aunque no haya carga de prueba.</li>
+                    <li>Se define como fuerza sobre carga <strong>positiva</strong>: sale de las cargas positivas y entra en las negativas.</li>
+                    <li>Es una magnitud <strong>vectorial</strong>: se suma vectorialmente al aplicar superposición.</li>
+                    <li>La unidad \(\text{N·C}^{-1}\) equivale a \(\text{V·m}^{-1}\).</li>
+                    <li>Es una definición <strong>operacional</strong> introducida por Faraday para evitar la idea de acción a distancia.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- CATEGORÍA: POTENCIAL (c-2)                                   -->
+        <!-- ============================================================ -->
+
+        <!-- 5. RELACIÓN CAMPO–POTENCIAL (CAMPO UNIFORME) -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Relación campo–potencial (campo uniforme)</h2>
+                <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="formula-box">
+                \[E = \frac{V_A - V_B}{d} \qquad V_A - V_B = E \cdot d\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo igualar el trabajo del campo \(W_{A\to B}=q E d\) con la definición de diferencia de potencial \(V_B-V_A=-W_{A\to B}/q\), y reordenar. En forma general \(\vec{E}=-\vec{\nabla}V\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E\)</td><td data-label="Significado">Intensidad del campo eléctrico uniforme</td><td data-label="Unidades">N·C⁻¹ (o V·m⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(V_A-V_B\)</td><td data-label="Significado">Diferencia de potencial entre A y B</td><td data-label="Unidades">V</td></tr>
+                    <tr><td data-label="Símbolo">\(d\)</td><td data-label="Significado">Distancia entre A y B medida en la dirección del campo</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para dos placas separadas \(d=3{,}0\,\text{cm}\) con \(V_A-V_B=1500\,\text{V}\), \(E=1500/0{,}030=5{,}0\times10^{4}\,\text{N/C}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>Solo válida para campos uniformes</strong> (placas paralelas). En campos radiales (carga puntual) hay que usar la forma diferencial \(E=-dV/dr\).</li>
+                    <li>El <strong>signo negativo</strong> indica que el campo apunta en la dirección de <strong>disminución</strong> del potencial.</li>
+                    <li>El campo es <strong>vectorial</strong>, pero el potencial es <strong>escalar</strong>: por eso se prefiere el potencial para cálculos energéticos.</li>
+                    <li>Se mide en \(\text{V·m}^{-1}\) o \(\text{N·C}^{-1}\) indistintamente, porque \(\text{1 V·m}^{-1}=\text{1 N·C}^{-1}\).</li>
+                    <li>Es la base del funcionamiento de condensadores, aceleradores de partículas y tubos de rayos catódicos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 6. POTENCIAL DE UNA CARGA PUNTUAL -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Potencial eléctrico de una carga puntual</h2>
+                <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="formula-box">
+                \[V = K \frac{Q}{r}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo integrar el trabajo externo necesario para traer una carga de prueba desde el infinito (donde \(V_\infty=0\)) hasta una distancia \(r\): \(W_{\infty\to r}^{\text{ext}}=q_0 K Q/r\), y dividir por \(q_0\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Potencial eléctrico en el punto considerado</td><td data-label="Unidades">V (J·C⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(Q\)</td><td data-label="Significado">Carga fuente que crea el potencial</td><td data-label="Unidades">C</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Distancia desde \(Q\) al punto</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(Q=-5{,}0\,\mu\text{C}\) y \(r=0{,}12\,\text{m}\), \(V=8{,}99\times10^9\cdot\tfrac{-5{,}0\times10^{-6}}{0{,}12}\approx -3{,}75\times10^{5}\,\text{V}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es una magnitud <strong>escalar</strong>: la superposición se reduce a <strong>suma algebraica</strong>. ¡Mucho más fácil que sumar campos vectoriales!</li>
+                    <li>Puede ser <strong>negativo</strong> (si \(Q<0\)) y se anula en el infinito por convenio.</li>
+                    <li>Disminuye como \(1/r\) (más lentamente que el campo, que lo hace como \(1/r^2\)).</li>
+                    <li>La elección \(V_\infty=0\) es un <strong>convenio matemático</strong>, no una necesidad física. Para cargas infinitas se elige otro punto de referencia.</li>
+                    <li>Es análogo a la energía potencial gravitatoria \(U=-GMm/r\), aunque con signos opuestos en la fórmula de \(V\) por convenio.</li>
+                    <li>La energía potencial de una carga \(q\) en un punto es \(U=q\cdot V\). El trabajo externo entre dos puntos es \(W_{A\to B}^{\text{ext}}=q(V_B-V_A)\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 7. DEFINICIÓN DE POTENCIAL ELÉCTRICO -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Definición de potencial eléctrico</h2>
+                <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="formula-box">
+                \[V_A = \frac{W_{\infty \to A}^{\text{ext}}}{q} \qquad V_A - V_B = \frac{W_{A \to B}^{\text{campo}}}{q}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la <strong>definición</strong> de potencial en un punto A como el trabajo por unidad de carga que realiza un agente externo para traer una carga positiva desde el infinito hasta A (tomando \(V_\infty=0\) por convenio). La d.d.p. entre A y B es el trabajo por unidad de carga que realiza el campo al ir de A→B.</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(V_A\)</td><td data-label="Significado">Potencial eléctrico en el punto A</td><td data-label="Unidades">V (J·C⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{\infty\to A}^{\text{ext}}\)</td><td data-label="Significado">Trabajo del agente externo desde el infinito hasta A</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{A\to B}^{\text{campo}}\)</td><td data-label="Significado">Trabajo del campo eléctrico desde A hasta B</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(q\)</td><td data-label="Significado">Carga de prueba (positiva) sobre la que se actúa</td><td data-label="Unidades">C</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> si un agente externo realiza un trabajo \(W_{\infty\to A}^{\text{ext}}=2{,}0\times10^{-4}\,\text{J}\) para traer una carga \(q=+4{,}0\times10^{-6}\,\text{C}\) desde el infinito hasta A, entonces \(V_A=2{,}0\times10^{-4}/4{,}0\times10^{-6}=50\,\text{V}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es una magnitud <strong>escalar</strong> (no vectorial): en la superposición se suman valores con signo, no vectores.</li>
+                    <li>El convenio \(V_\infty=0\) es <strong>arbitrario</strong>: sólo tienen sentido físico las diferencias de potencial (d.d.p.).</li>
+                    <li>El trabajo del campo \(W_{A\to B}^{\text{campo}}\) es el <strong>opuesto</strong> al trabajo externo: \(W_{A\to B}^{\text{ext}}=-W_{A\to B}^{\text{campo}}\).</li>
+                    <li>La energía potencial de una carga \(q\) en A es \(U_A=q\cdot V_A\); por tanto \(W_{A\to B}^{\text{campo}}=-\Delta U=q(V_A-V_B)\).</li>
+                    <li>Se mide en <strong>voltios</strong>: \(1\,\text{V}=1\,\text{J·C}^{-1}\).</li>
+                    <li>Para distribuciones de carga, el potencial total es la <strong>suma algebraica</strong> de los potenciales individuales (escalar).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 8. CRITERIO DE SIGNOS -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Criterio de signos en electrostática</h2>
+                <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta U = U_B - U_A = q\,(V_B - V_A)\]
+                \[W_{A\to B}^{\text{campo}} = -\Delta U = q\,(V_A - V_B) = -W_{A\to B}^{\text{ext}}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo aplicar coherentemente la definición de trabajo \(W_{A\to B}=\vec{F}\cdot\Delta\vec{r}\) junto con la relación \(W_{A\to B}^{\text{campo}}=-\Delta U\) y el convenio \(V_\infty=0\). Los signos no son un capricho: reflejan si el campo realiza trabajo a favor del desplazamiento (positivo) o si hay que vencerlo (negativo).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Criterio / Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(q\)</td><td data-label="Significado">Carga que se desplaza</td><td data-label="Criterio">\(q>0\) o \(q<0\)</td></tr>
+                    <tr><td data-label="Símbolo">\(V_A-V_B\)</td><td data-label="Significado">Diferencia de potencial entre A y B</td><td data-label="Criterio">Positiva si \(V_A>V_B\)</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta U = U_B - U_A\)</td><td data-label="Significado">Variación de energía potencial</td><td data-label="Criterio">\(>0\) gana \(U\); \(<0\) pierde \(U\)</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{A\to B}^{\text{campo}}\)</td><td data-label="Significado">Trabajo del campo eléctrico al ir de A→B</td><td data-label="Criterio">\(>0\) arrastra; \(<0\) frena</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{A\to B}^{\text{ext}}\)</td><td data-label="Significado">Trabajo del agente externo al ir de A→B</td><td data-label="Criterio">Opuesto al del campo</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un protón (\(q=+1{,}6\times10^{-19}\,\text{C}\)) se mueve de A (\(V_A=+500\,\text{V}\)) a B (\(V_B=+100\,\text{V}\)). \(\Delta U=q(V_B-V_A)=+1{,}6\times10^{-19}(100-500)=-6{,}4\times10^{-17}\,\text{J}\) (disminuye); \(W_{A\to B}^{\text{campo}}=-\Delta U=+6{,}4\times10^{-17}\,\text{J}\) (positivo, el campo lo arrastra); \(W_{A\to B}^{\text{ext}}=-6{,}4\times10^{-17}\,\text{J}\) (negativo, hay que frenarlo).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Las cargas <strong>positivas</strong> se mueven espontáneamente hacia potenciales <strong>decrecientes</strong> (\(V_A>V_B\)); las <strong>negativas</strong>, hacia potenciales <strong>crecientes</strong>.</li>
+                    <li>El campo \(\vec{E}\) apunta siempre en el sentido de \(V\) <strong>decreciente</strong>, independientemente del signo de la carga de prueba.</li>
+                    <li>\(W_{A\to B}^{\text{campo}}>0\) cuando el campo "arrastra" la carga (pierde \(U\)); \(<0\) cuando hay que empujar contra él (gana \(U\)).</li>
+                    <li>El trabajo externo es siempre el opuesto del trabajo del campo: \(W_{A\to B}^{\text{ext}}=-W_{A\to B}^{\text{campo}}\).</li>
+                    <li>En la Ley de Coulomb, el signo del producto \(q_1 q_2\) da el sentido de la fuerza: \(>0\) repulsiva; \(<0\) atractiva.</li>
+                    <li>Cuidado con el doble signo: en \(V_A-V_B=-W_{A\to B}^{\text{campo}}/q\) el signo menos procede de la definición \(W=-\Delta U\); es la fuente de error más común.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- CATEGORÍA: CIRCUITOS (c-3)                                   -->
+        <!-- ============================================================ -->
+
+        <!-- 9. RESISTENCIAS EN SERIE -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Resistencias en serie</h2>
+                <span class="badge-centro">Circuitos</span>
+            </div>
+            <div class="formula-box">
+                \[R_{\text{eq}} = R_1 + R_2 + \cdots + R_n = \sum_{i=1}^{n} R_i\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo aplicar la Ley de Ohm a cada resistencia (misma intensidad \(I\)) y sumar las caídas de potencial: \(V_{\text{total}}=I(R_1+R_2+\cdots+R_n)\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(R_{\text{eq}}\)</td><td data-label="Significado">Resistencia equivalente del conjunto en serie</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(R_i\)</td><td data-label="Significado">Resistencia de cada elemento</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Número de resistencias en serie</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> tres resistencias de \(15\,\Omega\), \(22\,\Omega\) y \(47\,\Omega\) en serie: \(R_{\text{eq}}=15+22+47=84\,\Omega\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(R_{\text{eq}}\) en serie es <strong>siempre mayor</strong> que la mayor de las resistencias. Al sumar resistencias se incrementa la longitud efectiva del conductor.</li>
+                    <li>La <strong>intensidad es la misma</strong> en todos los elementos (conservación de la carga).</li>
+                    <li>La tensión se <strong>reparte proporcionalmente</strong> a cada \(R\): \(V_i=I\cdot R_i\). Es la base del <strong>divisor de tensión</strong>.</li>
+                    <li>Analogía hidráulica: tuberías estrechas conectadas en línea; cada obstrucción limita el flujo total.</li>
+                    <li>Aplicación típica: bombillas en serie (peor solución práctica, porque si una falla se apaga todo).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 10. RESISTENCIAS EN PARALELO -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Resistencias en paralelo</h2>
+                <span class="badge-centro">Circuitos</span>
+            </div>
+            <div class="formula-box">
+                \[\frac{1}{R_{\text{eq}}} = \sum_{i=1}^{n} \frac{1}{R_i} \qquad R_{\text{eq}} = \frac{R_1 \cdot R_2}{R_1 + R_2}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo aplicar la Ley de Ohm a cada rama (misma tensión \(V\)) y sumar las intensidades según la conservación de la carga en el nodo: \(I_{\text{total}}=V(1/R_1+1/R_2+\cdots)\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(R_{\text{eq}}\)</td><td data-label="Significado">Resistencia equivalente del conjunto en paralelo</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(R_i\)</td><td data-label="Significado">Resistencia de cada rama</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(n\)</td><td data-label="Significado">Número de ramas en paralelo</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> dos resistencias de \(30\,\Omega\) y \(60\,\Omega\) en paralelo: \(R_{\text{eq}}=\tfrac{30\cdot 60}{30+60}=20\,\Omega\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(R_{\text{eq}}\) en paralelo es <strong>siempre menor</strong> que la menor de las resistencias. Añadir ramas equivale a aumentar la sección transversal efectiva.</li>
+                    <li>La <strong>tensión es común</strong> a todas las ramas; la corriente se reparte inversamente proporcional a cada \(R\).</li>
+                    <li>En <strong>instalaciones domésticas</strong> todos los aparatos se conectan en paralelo: así cada uno recibe 230 V y funciona independientemente.</li>
+                    <li>Si las resistencias son iguales: \(R_{\text{eq}}=R/n\) (fórmula rápida para \(n\) ramas idénticas).</li>
+                    <li>Analogía hidráulica: tuberías adicionales en derivación; el flujo total aumenta.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 11. LEY DE OHM GENERALIZADA -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Ley de Ohm generalizada</h2>
+                <span class="badge-centro">Circuitos</span>
+            </div>
+            <div class="formula-box">
+                \[V = \varepsilon - I \cdot r \qquad V = \varepsilon \cdot \frac{R}{R + r}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo el balance energético por unidad de carga en un generador real: la fem \(\varepsilon\) se reparte entre la caída interna \(I r\) y la tensión terminal \(V\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Diferencia de potencial en bornes del generador</td><td data-label="Unidades">V</td></tr>
+                    <tr><td data-label="Símbolo">\(\varepsilon\)</td><td data-label="Significado">Fuerza electromotriz (fem) del generador</td><td data-label="Unidades">V</td></tr>
+                    <tr><td data-label="Símbolo">\(I\)</td><td data-label="Significado">Intensidad que suministra el generador</td><td data-label="Unidades">A</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Resistencia interna del generador</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Resistencia externa del circuito</td><td data-label="Unidades">Ω</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> batería con \(\varepsilon=12\,\text{V}\) y \(r=0{,}50\,\Omega\) que suministra \(I=3{,}0\,\text{A}\): \(V=12-3{,}0\cdot 0{,}50=10{,}5\,\text{V}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>En <strong>circuito abierto</strong> (\(I=0\)) se cumple \(V=\varepsilon\): por eso un voltímetro ideal mide la fem.</li>
+                    <li>Una <strong>batería desgastada</strong> tiene \(r\) grande; al demandar corriente, la tensión terminal cae mucho más.</li>
+                    <li>Cuando \(R\gg r\) (carga ligera) se cumple \(V\approx\varepsilon\). Cuando \(R\to 0\) (cortocircuito) \(V\to 0\) e \(I\to\varepsilon/r\) (máxima).</li>
+                    <li>Los generadores de calidad (fuentes de laboratorio) tienen \(r\) muy pequeña para mantener \(V\approx\varepsilon\) incluso con carga variable.</li>
+                    <li>Es <strong>imprescindible</strong> no confundir \(\varepsilon\) (propiedad intrínseca del generador) con \(V\) (que depende de la carga conectada).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- CATEGORÍA: ENERGÍA (c-4)                                     -->
+        <!-- ============================================================ -->
+
+        <!-- 12. LEY DE JOULE -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Ley de Joule</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo combinar la definición de potencia eléctrica \(P=W_{A\to B}/t\) con \(W_{A\to B}=V q\) e \(I=q/t\) (de ahí \(P=V I\)), y sustituir \(V=IR\) o \(I=V/R\) usando la Ley de Ohm. La energía disipada es \(E=P\,t\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(P\)</td><td data-label="Significado">Potencia disipada en la resistencia</td><td data-label="Unidades">W</td></tr>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Diferencia de potencial aplicada</td><td data-label="Unidades">V</td></tr>
+                    <tr><td data-label="Símbolo">\(I\)</td><td data-label="Significado">Intensidad que circula</td><td data-label="Unidades">A</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Resistencia del elemento</td><td data-label="Unidades">Ω</td></tr>
+                    <tr><td data-label="Símbolo">\(E\)</td><td data-label="Significado">Energía total disipada en un tiempo \(t\)</td><td data-label="Unidades">J (o kWh)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> calentador conectado a \(230\,\text{V}\) por el que circulan \(8{,}5\,\text{A}\): \(P=230\cdot 8{,}5=1955\,\text{W}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Las tres formas son <strong>equivalentes</strong>: elige la que se ajuste a tus datos. Si tienes \(V\) e \(I\) → \(VI\). Si tienes \(I\) y \(R\) → \(I^2 R\). Si tienes \(V\) y \(R\) → \(V^2/R\).</li>
+                    <li>Como \(P\propto I^2\), en <strong>transporte de energía</strong> se eleva la tensión para reducir \(I\) y minimizar las pérdidas por efecto Joule.</li>
+                    <li>El efecto Joule es la base de <strong>hornos, secadores, fusibles y estufas</strong>; también es el origen de las pérdidas en conductores.</li>
+                    <li>La energía en <strong>kWh</strong> es la unidad habitual de la factura eléctrica: \(1\,\text{kWh}=3{,}6\times10^{6}\,\text{J}\).</li>
+                    <li>Cuidado: \(P=I^2 R\) muestra que <strong>más corriente</strong> significa más calor, con factor cuadrático. Es la razón por la que un mal contacto o cable fino se calienta peligrosamente.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 13. EFICIENCIA Y CARNOT -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Eficiencia energética y rendimiento de Carnot</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[\eta = \frac{E_{\text{útil}}}{E_{\text{total}}} = 1 - \frac{E_{\text{pérdidas}}}{E_{\text{total}}} \qquad \eta_{\text{Carnot}} = 1 - \frac{T_{\text{f}}}{T_{\text{c}}}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de eficiencia como cociente entre energía útil y total (aplicando la conservación de la energía), y el límite que fija la segunda ley para máquinas térmicas reversibles: \(\eta_{\text{Carnot}}\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\eta\)</td><td data-label="Significado">Eficiencia (a veces en %)</td><td data-label="Unidades">— (o %)</td></tr>
+                    <tr><td data-label="Símbolo">\(E_{\text{útil}}\)</td><td data-label="Significado">Energía útil obtenida en la transformación</td><td data-label="Unidades">J (o kWh)</td></tr>
+                    <tr><td data-label="Símbolo">\(E_{\text{total}}\)</td><td data-label="Significado">Energía total consumida</td><td data-label="Unidades">J (o kWh)</td></tr>
+                    <tr><td data-label="Símbolo">\(T_{\text{c}},\,T_{\text{f}}\)</td><td data-label="Significado">Temperaturas absolutas del foco caliente y frío</td><td data-label="Unidades">K</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> caldera que consume \(50\,\text{kWh}\) y produce \(40\,\text{kWh}\) útiles: \(\eta=40/50=0{,}80=80\%\). Para \(T_{\text{c}}=600\,\text{K}\) y \(T_{\text{f}}=300\,\text{K}\), \(\eta_{\text{Carnot}}=50\%\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>Ninguna máquina térmica</strong> puede alcanzar \(\eta=1\): requeriría \(T_{\text{f}}=0\ \text{K}\) o \(T_{\text{c}}\to\infty\), ambos imposibles por la segunda ley.</li>
+                    <li>Los <strong>motores eléctricos</strong> <em>no</em> son máquinas térmicas: no están sujetos al límite de Carnot y pueden superar el 90 %.</li>
+                    <li>Los <strong>motores de gasolina</strong> tienen \(\eta_{\text{Carnot}}\approx 60\%\) y en la práctica solo \(25\text{--}30\%\) por fricción, bombeo, etc.</li>
+                    <li>El rendimiento de Carnot <strong>solo depende de las temperaturas</strong>, no de la sustancia de trabajo.</li>
+                    <li>En <strong>reacciones consecutivas</strong> o cadenas de transformación, los rendimientos se multiplican: \(\eta_{\text{global}}=\eta_1\cdot\eta_2\cdots\)</li>
+                    <li>No confundir <strong>eficiencia</strong> (cociente de energías) con <strong>rendimiento</strong> en ingeniería (que a veces se refiere a potencia útil/potencia indicada).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 14. DEFINICIÓN DE POTENCIA -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Definición de potencia</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[P = \frac{dW}{dt} \qquad P_{\text{media}} = \frac{W_{A \to B}}{t_B - t_A} = \frac{\Delta W}{\Delta t}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la <strong>definición</strong> de potencia como la rapidez con que se realiza un trabajo o se transfiere energía. En forma media, \(P=W_{A\to B}/\Delta t\). En circuitos, como el trabajo por unidad de carga es \(V\) y la carga por unidad de tiempo es \(I\), se obtiene \(P=V\cdot I\).</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(P\)</td><td data-label="Significado">Potencia (instantánea o media)</td><td data-label="Unidades">W (J·s⁻¹)</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{A\to B}\)</td><td data-label="Significado">Trabajo realizado en el trayecto de A a B</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta t = t_B - t_A\)</td><td data-label="Significado">Intervalo de tiempo entre A y B</td><td data-label="Unidades">s</td></tr>
+                    <tr><td data-label="Símbolo">\(V\)</td><td data-label="Significado">Diferencia de potencial (trabajo por unidad de carga)</td><td data-label="Unidades">V</td></tr>
+                    <tr><td data-label="Símbolo">\(I\)</td><td data-label="Significado">Intensidad de corriente (carga por unidad de tiempo)</td><td data-label="Unidades">A</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> si un motor realiza un trabajo \(W_{A\to B}=3{,}6\times10^{3}\,\text{J}\) durante un intervalo \(\Delta t=t_B-t_A=4{,}0\,\text{s}\), su potencia media es \(P=3{,}6\times10^{3}/4{,}0=900\,\text{W}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La unidad de potencia es el <strong>vatio</strong>: \(1\,\text{W}=1\,\text{J·s}^{-1}\).</li>
+                    <li>En corriente continua: \(P=V\cdot I\); combinando con la Ley de Ohm: \(P=I^2 R=V^2/R\).</li>
+                    <li>Se distingue entre <strong>potencia instantánea</strong> \(P=dW/dt\) y <strong>potencia media</strong> \(P_{\text{media}}=W_{A\to B}/\Delta t\).</li>
+                    <li>La energía consumida en un intervalo es \(E=P\cdot t\); en la factura eléctrica se usa el <strong>kWh</strong> (\(1\,\text{kWh}=3{,}6\times10^{6}\,\text{J}\)).</li>
+                    <li>Equivalencia útil: \(1\,\text{CV}\approx 735{,}5\,\text{W}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- CATEGORÍA: CONSTANTES (c-5)                                  -->
+        <!-- ============================================================ -->
+
+        <!-- 15. CONSTANTES Y EQUIVALENCIAS -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Constantes, equivalencias y datos</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[K = \frac{1}{4\pi\varepsilon_0} \approx 8{,}99\times10^{9}\ \text{N·m}^2\text{·C}^{-2}\]
+                \[q_e = 1{,}60\times10^{-19}\ \text{C} \qquad G = 6{,}67\times10^{-11}\ \text{N·m}^2\text{·kg}^{-2}\]
+            </div>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">En general son valores aceptados por la IUPAC/CODATA y aparecen en todas las expresiones de campo, potencial y energía. Es útil tenerlos siempre a mano.</span>
+            </p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Valor y unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(K\)</td><td data-label="Significado">Constante de Coulomb en el vacío</td><td data-label="Valor">\(8{,}99\times10^{9}\ \text{N·m}^2\text{·C}^{-2}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(\varepsilon_0\)</td><td data-label="Significado">Permitividad eléctrica del vacío</td><td data-label="Valor">\(8{,}85\times10^{-12}\ \text{C}^2\text{·N}^{-1}\text{·m}^{-2}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(q_e\)</td><td data-label="Significado">Carga elemental (electrón / protón)</td><td data-label="Valor">\(\pm 1{,}60\times10^{-19}\ \text{C}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(m_e\)</td><td data-label="Significado">Masa del electrón</td><td data-label="Valor">\(9{,}11\times10^{-31}\ \text{kg}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(m_p\)</td><td data-label="Significado">Masa del protón</td><td data-label="Valor">\(1{,}67\times10^{-27}\ \text{kg}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(G\)</td><td data-label="Significado">Constante de gravitación universal</td><td data-label="Valor">\(6{,}67\times10^{-11}\ \text{N·m}^2\text{·kg}^{-2}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \mu\text{C}\)</td><td data-label="Significado">Equivalencia de microculombio</td><td data-label="Valor">\(10^{-6}\ \text{C}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{nC}\)</td><td data-label="Significado">Equivalencia de nanoculombio</td><td data-label="Valor">\(10^{-9}\ \text{C}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(1\ \text{eV}\)</td><td data-label="Significado">Electronvoltio</td><td data-label="Valor">\(1{,}60\times10^{-19}\ \text{J}\)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Uso:</strong> emplea \(K=8{,}99\times10^{9}\ \text{N·m}^2\text{·C}^{-2}\) al sustituir en las fórmulas 1, 2, 3 y 6; usa \(q_e=1{,}60\times10^{-19}\ \text{C}\) en problemas de cargas elementales (protón, electrón).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Usa siempre \(K=8{,}99\times10^{9}\ \text{N·m}^2\text{·C}^{-2}\) para problemas en el vacío o el aire.</li>
+                    <li>En un <strong>dieléctrico</strong>, la constante \(K\) se divide por la constante dieléctrica relativa \(\varepsilon_r\) del medio: \(K_{\text{medio}}=K/\varepsilon_r\).</li>
+                    <li>La carga elemental \(q_e\) aparece en la <strong>cuantización</strong> de la carga: \(q=n\cdot q_e\).</li>
+                    <li>Compara fuerzas: \(F_e/F_g \sim 10^{39}\) en el átomo de hidrógeno (la eléctrica domina a escala atómica).</li>
+                    <li>Recuerda que \(1\ \text{eV}=1{,}60\times10^{-19}\ \text{J}\) es la energía que adquiere un electrón al pasar por una \(d.p.\) de 1 V (muy útil en física atómica y nuclear).</li>
+                    <li>Otras constantes útiles: \(c=3{,}00\times10^{8}\ \text{m·s}^{-1}\); \(h=6{,}63\times10^{-34}\ \text{J·s}\); \(N_A=6{,}022\times10^{23}\ \text{mol}^{-1}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Electrostática</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Potencial</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Circuitos</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Energía</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> el campo eléctrico es una magnitud <em>vectorial</em>: al usar el principio de superposición hay que sumar <strong>componente a componente</strong>. La Ley de Ohm generalizada solo es válida para generadores reales; en circuito abierto \(V=\varepsilon\). Y recuerda: antes de sustituir en cualquier fórmula, comprueba la coherencia de unidades y expresa los resultados con sus unidades y un número razonable de cifras significativas (con coma decimal).
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

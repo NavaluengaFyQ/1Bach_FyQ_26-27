@@ -190,6 +190,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+            display: block;
+            font-weight: 700;
+            color: #975a16;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+            display: block;
+            color: #744210;
+            padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -354,7 +369,10 @@
             <div class="formula-box">
                 \[ W = F \cdot \Delta x \cdot \cos\alpha \]
             </div>
-            <p class="note">De la definición de trabajo como producto escalar entre el vector fuerza y el vector desplazamiento, \(W = \vec{F}\cdot\Delta\vec{r}\), siendo \(\alpha\) el ángulo entre ambos.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de trabajo como producto escalar entre el vector fuerza y el vector desplazamiento, \(W = \vec{F}\cdot\Delta\vec{r}\), siendo \(\alpha\) el ángulo entre ambos.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -387,7 +405,10 @@
             <div class="formula-box">
                 \[ W = \int_{i}^{f} \vec{F} \cdot d\vec{r} \]
             </div>
-            <p class="note">De la definición diferencial del trabajo \(dW = \vec{F}\cdot d\vec{r}\), integrando a lo largo de la trayectoria cuando la fuerza no es constante.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición diferencial del trabajo \(dW = \vec{F}\cdot d\vec{r}\), integrada a lo largo de la trayectoria cuando la fuerza no es constante.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -420,7 +441,10 @@
             <div class="formula-box">
                 \[ W_r = -\mu \cdot m \cdot g \cdot \Delta x \]
             </div>
-            <p class="note">De la definición de trabajo aplicada a la fuerza de rozamiento \(F_r = \mu N = \mu mg\), que se opone al movimiento (\(\alpha = 180^{\circ}\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de trabajo aplicada a la fuerza de rozamiento \(F_r = \mu N = \mu mg\), que se opone al movimiento (\(\alpha = 180^{\circ}\)).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -454,7 +478,10 @@
             <div class="formula-box">
                 \[ P_m = \frac{W}{\Delta t} \qquad P = F \cdot v \]
             </div>
-            <p class="note">De la definición de potencia como trabajo por unidad de tiempo; la instantánea se obtiene al derivar \(dW = F\,dx\) respecto al tiempo, cuando la fuerza es paralela a la velocidad.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de potencia como trabajo por unidad de tiempo; la instantánea se obtiene al derivar \(dW = F\,dx\) respecto al tiempo, cuando la fuerza es paralela a la velocidad.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -488,7 +515,10 @@
             <div class="formula-box">
                 \[ E_c = \frac{1}{2} m v^{2} \]
             </div>
-            <p class="note">Al sustituir la ecuación de Torricelli \(v^2 - v_0^2 = 2a\Delta x\) en la expresión \(W = ma\Delta x\) del trabajo de la fuerza neta.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de sustituir la ecuación de Torricelli \(v^2 - v_0^2 = 2a\Delta x\) en la expresión \(W = ma\Delta x\) del trabajo de la fuerza neta.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -520,7 +550,10 @@
             <div class="formula-box">
                 \[ E_p = m \cdot g \cdot h \]
             </div>
-            <p class="note">Del trabajo realizado contra el peso (fuerza conservativa) para elevar un cuerpo una altura \(h\): \(W_{\text{ext}} = mgh\), almacenado como energía potencial.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado del trabajo realizado contra el peso (fuerza conservativa) para elevar un cuerpo una altura \(h\): \(W_{\text{ext}} = mgh\), almacenado como energía potencial.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -553,7 +586,10 @@
             <div class="formula-box">
                 \[ F = -k \cdot \Delta x \]
             </div>
-            <p class="note">De la ley experimental de Hooke: la fuerza recuperadora de un muelle ideal es proporcional y de sentido opuesto a la deformación \(\Delta x\) respecto a su longitud natural.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la ley experimental de Hooke: la fuerza recuperadora de un muelle ideal es proporcional y de sentido opuesto a la deformación \(\Delta x\) respecto a su longitud natural.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -585,7 +621,10 @@
             <div class="formula-box">
                 \[ E_e = \frac{1}{2} k (\Delta x)^{2} \]
             </div>
-            <p class="note">Al integrar el trabajo de la fuerza elástica variable de la fórmula 7 entre \(0\) y \(\Delta x\): \(W = \int_0^{\Delta x} kx\,dx = \tfrac{1}{2}k(\Delta x)^2\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de integrar el trabajo de la fuerza elástica variable de la fórmula 7 entre \(0\) y \(\Delta x\): \(W = \int_0^{\Delta x} kx\,dx = \tfrac{1}{2}k(\Delta x)^2\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -617,7 +656,10 @@
             <div class="formula-box">
                 \[ E = m \cdot c^{2} \]
             </div>
-            <p class="note">De los postulados de la relatividad especial de Einstein: la masa en reposo de un cuerpo es una forma de energía intrínseca.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo un postulado de la relatividad especial de Einstein: la masa en reposo de un cuerpo es una forma de energía intrínseca.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -649,7 +691,10 @@
             <div class="formula-box">
                 \[ E_m = E_c + E_p = \text{constante} \]
             </div>
-            <p class="note">Del teorema de las fuerzas vivas aplicado cuando solo actúan fuerzas conservativas (\(W_{nc} = 0\)): \(\Delta E_c + \Delta E_p = 0\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de aplicar el teorema de las fuerzas vivas cuando solo actúan fuerzas conservativas (\(W_{nc} = 0\)): \(\Delta E_c + \Delta E_p = 0\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -681,7 +726,10 @@
             <div class="formula-box">
                 \[ W_{\text{neto}} = \Delta E_c = \frac{1}{2} m v_f^{2} - \frac{1}{2} m v_i^{2} \]
             </div>
-            <p class="note">De la segunda ley de Newton \(F = ma\) y de la definición de trabajo, integrando \(m\vec{a}\cdot d\vec{r}\) entre las posiciones inicial y final.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de combinar la segunda ley de Newton \(F = ma\) y la definición de trabajo, integrando \(m\vec{a}\cdot d\vec{r}\) entre las posiciones inicial y final.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -714,7 +762,10 @@
             <div class="formula-box">
                 \[ v = \sqrt{2 g L (1 - \cos\theta)} \]
             </div>
-            <p class="note">De la conservación de la energía mecánica entre el extremo (altura \(h = L(1-\cos\theta)\)) y el punto más bajo del péndulo.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de aplicar la conservación de la energía mecánica entre el extremo (altura \(h = L(1-\cos\theta)\)) y el punto más bajo del péndulo.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -747,7 +798,10 @@
             <div class="formula-box">
                 \[ v = \sqrt{\frac{2 E_c}{m}} \]
             </div>
-            <p class="note">Al despejar \(v\) en la fórmula 5 (\(E_c = \tfrac{1}{2}mv^2\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo despejar de \(E_c = \tfrac{1}{2}mv^2\) (fórmula 5).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -779,7 +833,10 @@
             <div class="formula-box">
                 \[ h = \frac{E_p}{m \cdot g} \]
             </div>
-            <p class="note">Al despejar \(h\) en la fórmula 6 (\(E_p = mgh\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo despejar de \(E_p = mgh\) (fórmula 6).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -812,7 +869,10 @@
             <div class="formula-box">
                 \[ \Delta x = \sqrt{\frac{2 E_e}{k}} \]
             </div>
-            <p class="note">Al despejar \(\Delta x\) en la fórmula 8 (\(E_e = \tfrac{1}{2}k(\Delta x)^2\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo despejar de \(E_e = \tfrac{1}{2}k(\Delta x)^2\) (fórmula 8).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -844,7 +904,10 @@
             <div class="formula-box">
                 \[ v_f = \sqrt{v_i^{2} + \frac{2 W_{\text{neto}}}{m}} \]
             </div>
-            <p class="note">Al despejar \(v_f\) en la fórmula 11 (\(W_{\text{neto}} = \tfrac{1}{2}mv_f^2 - \tfrac{1}{2}mv_i^2\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo despejar de \(W_{\text{neto}} = \tfrac{1}{2}mv_f^2 - \tfrac{1}{2}mv_i^2\) (fórmula 11).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -877,7 +940,10 @@
             <div class="formula-box">
                 \[ \Delta x = \frac{v_i^{2}}{2 \mu g} \]
             </div>
-            <p class="note">Al igualar el trabajo de rozamiento (fórmula 3) con la variación de energía cinética (fórmula 11) cuando el cuerpo se detiene (\(v_f = 0\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver el problema de la distancia de frenado igualando el trabajo de rozamiento (fórmula 3) con la variación de energía cinética (fórmula 11) cuando el cuerpo se detiene (\(v_f = 0\)).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>

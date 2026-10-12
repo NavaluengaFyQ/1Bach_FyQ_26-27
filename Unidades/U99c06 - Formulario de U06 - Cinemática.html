@@ -190,6 +190,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+            display: block;
+            font-weight: 700;
+            color: #975a16;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+            display: block;
+            color: #744210;
+            padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -356,7 +371,10 @@
             <div class="formula-box">
                 \[ v = v_0 + a\,t \]
             </div>
-            <p class="note">De la definición de aceleración constante como pendiente del gráfico \(v\text{-}t\): \(a = (v-v_0)/t\). Al despejar \(v\) se obtiene la expresión.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de aceleración como pendiente del gráfico \(v\text{-}t\): \(a = \dfrac{v-v_0}{t}\). Al despejar \(v\) se obtiene la expresión.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -412,7 +430,10 @@
             <div class="formula-box">
                 \[ x = x_0 + v_0 t + \tfrac{1}{2}a t^{2} \]
             </div>
-            <p class="note">Del área bajo la curva del gráfico \(v\text{-}t\) (un trapecio) que representa el desplazamiento, sustituyendo en él \(v = v_0 + at\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente el área bajo la curva del gráfico \(v\text{-}t\) (un trapecio) que representa el desplazamiento, sustituyendo en ella \(v = v_0 + at\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -473,7 +494,10 @@
             <div class="formula-box">
                 \[ v^{2} = v_0^{2} + 2\,a\,(x - x_0) \]
             </div>
-            <p class="note">Al eliminar el tiempo entre la primera y la segunda ecuación del MRUA (fórmulas 1 y 2).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo eliminar el tiempo entre las dos ecuaciones anteriores: despejando \(t = \dfrac{v-v_0}{a}\) de \(v = v_0 + a\,t\) y sustituyéndolo en \(x = x_0 + v_0 t + \tfrac{1}{2}a t^{2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -529,7 +553,10 @@
             <div class="formula-box">
                 \[ v = v_0 - g\,t \]
             </div>
-            <p class="note">Al sustituir \(a = -g\) en la primera ecuación del MRUA (fórmula 1), tomando el eje \(Oy\) orientado hacia arriba.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo sustituir \(a = -g\) en la primera ecuación del MRUA \(v = v_0 + a\,t\), tomando el eje \(Oy\) orientado hacia arriba.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -585,7 +612,10 @@
             <div class="formula-box">
                 \[ y = y_0 + v_0 t - \tfrac{1}{2}g t^{2} \]
             </div>
-            <p class="note">Al sustituir \(a = -g\) en la segunda ecuación del MRUA (fórmula 2) y renombrar la posición como \(y\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo sustituir \(a = -g\) en la segunda ecuación del MRUA \(y = y_0 + v_0 t + \tfrac{1}{2}a t^{2}\) y renombrar la posición como \(y\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -647,7 +677,10 @@
                 \[ x = v_0\cos\theta\cdot t \]
                 \[ y = y_0 + v_0\sin\theta\cdot t - \tfrac{1}{2}g t^{2} \]
             </div>
-            <p class="note">De la descomposición del movimiento en sus dos componentes independientes: <strong>MRU horizontal</strong> (sin aceleración) y <strong>MRUA vertical</strong> con \(a=-g\) (fórmulas 1 y 2 aplicadas a cada eje).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente el principio de independencia de los movimientos (Galileo): el movimiento se descompone en un <strong>MRU horizontal</strong> (sin aceleración) y un <strong>MRUA vertical</strong> con \(a=-g\), compartiendo ambos el mismo tiempo \(t\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -718,7 +751,10 @@
             <div class="formula-box">
                 \[ y = x\tan\theta - \frac{g\,x^{2}}{2\,v_0^{2}\cos^{2}\theta} \]
             </div>
-            <p class="note">Al eliminar el tiempo entre las ecuaciones paramétricas del tiro oblicuo (fórmula 6).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo eliminar el tiempo entre las ecuaciones paramétricas del tiro oblicuo: despejando \(t = \dfrac{x}{v_0\cos\theta}\) de \(x = v_0\cos\theta\,t\) y sustituyéndolo en \(y = y_0 + v_0\sin\theta\,t - \tfrac{1}{2}g t^{2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -779,7 +815,10 @@
             <div class="formula-box">
                 \[ t_H = \frac{v_0\,\sin\theta}{g} \]
             </div>
-            <p class="note">Al imponer \(v_y = 0\) en la componente vertical de la velocidad del tiro oblicuo: \(v_y = v_0\sin\theta - g\,t = 0\) (fórmula 6).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo imponer \(v_y = 0\) en la componente vertical de la velocidad del tiro oblicuo, \(v_y = v_0\sin\theta - g\,t = 0\), y despejar \(t\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -835,7 +874,10 @@
             <div class="formula-box">
                 \[ H = \frac{v_0^{2}\,\sin^{2}\theta}{2\,g} \]
             </div>
-            <p class="note">Al sustituir el tiempo de ascenso \(t_H\) (fórmula 8) en la ecuación vertical de la posición (fórmula 6).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo sustituir el tiempo de ascenso \(t_H = \dfrac{v_0\sin\theta}{g}\) en la ecuación vertical de la posición \(y = y_0 + v_0\sin\theta\,t - \tfrac{1}{2}g t^{2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -891,7 +933,10 @@
             <div class="formula-box">
                 \[ R = \frac{v_0^{2}\,\sin(2\theta)}{g} \]
             </div>
-            <p class="note">Al imponer \(y=0\) (lanzamiento y llegada al mismo nivel), obtener el tiempo de vuelo \(T = 2v_0\sin\theta/g\) y sustituirlo en \(x = v_0\cos\theta\cdot T\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver el problema de imponer \(y=0\), obtener el tiempo de vuelo \(T = \dfrac{2v_0\sin\theta}{g}\) y sustituirlo en \(x = v_0\cos\theta\cdot T\), usando la identidad \(2\sin\theta\cos\theta = \sin(2\theta)\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -947,7 +992,10 @@
             <div class="formula-box">
                 \[ v = \omega\,r \]
             </div>
-            <p class="note">De la definición de radián \(\Delta s = r\,\Delta\theta\) y de la definición de velocidad lineal \(v = \Delta s/\Delta t\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de radián \(\Delta s = r\,\Delta\theta\) combinada con la definición de velocidad lineal \(v = \dfrac{\Delta s}{\Delta t}\): las magnitudes se relacionan proporcionalmente, \(v \propto \omega\) y \(v \propto r\), de donde \(v = \omega\,r\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -998,7 +1046,10 @@
             <div class="formula-box">
                 \[ a_c = \frac{v^{2}}{r} = \omega^{2}\,r \]
             </div>
-            <p class="note">Del análisis geométrico del cambio de dirección del vector velocidad en un intervalo muy pequeño (\(\Delta t \to 0\)), sustituyendo después \(v = \omega r\) (fórmula 11).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es sólo el análisis geométrico del cambio de dirección del vector velocidad en un intervalo muy pequeño (\(\Delta t \to 0\)): \(a_c = \dfrac{\Delta v}{\Delta t} = \dfrac{v^{2}}{r}\), y sustituyendo después \(v = \omega r\) se llega a \(a_c = \omega^{2} r\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1054,7 +1105,10 @@
             <div class="formula-box">
                 \[ g = 9{,}8\ \text{m/s}^{2} \quad ; \quad 1\ \text{m/s} = 3{,}6\ \text{km/h} \]
             </div>
-            <p class="note">Valores de referencia y factores de conversión empleados en todas las fórmulas anteriores del bloque de Cinemática.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">En general son valores aceptados por la IUPAC y el Sistema Internacional: \(g = 9{,}8\ \text{m/s}^{2}\) como valor estándar de la gravedad en la superficie terrestre, junto con los factores de conversión \(1\ \text{m/s} = 3{,}6\ \text{km/h}\), \(2\pi\ \text{rad} = 360°\) y \(1\ \text{rpm} = \tfrac{2\pi}{60}\ \text{rad/s}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
