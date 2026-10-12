@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c09 - Formulario de U09 - Termodinámica</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U99c09</span>
+                <span class="texto">Formulario de Termodinámica</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- ============================================================ -->
+        <!-- BLOQUE 1: CONCEPTOS BÁSICOS Y PRIMER PRINCIPIO               -->
+        <!-- ============================================================ -->
+
+        <!-- 1. PRIMER PRINCIPIO -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Primer Principio de la Termodinámica</h2>
+                <span class="badge-centro">Primer Principio</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta U = Q + W\]
+            </div>
+            <p class="note">Expresión matemática de la conservación de la energía aplicada a sistemas termodinámicos: la variación de energía interna es la suma algebraica del calor y del trabajo intercambiados con el entorno.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta U\)</td>
+                        <td data-label="Significado">Variación de energía interna</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q\)</td>
+                        <td data-label="Significado">Calor intercambiado (+ absorbido, − cedido)</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(W\)</td>
+                        <td data-label="Significado">Trabajo intercambiado (+ sobre el sistema, − por el sistema)</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un sistema absorbe \(450\,\text{cal}\) (\(=1881\,\text{J}\)) y recibe \(250\,\text{J}\) de trabajo: \(\Delta U = 1881 + 250 = 2131\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Un sistema <strong>nunca "tiene" calor ni trabajo</strong>: son energías en tránsito, no propiedades.</li>
+                    <li>La energía interna \(U\) sí es una <strong>función de estado</strong>: su variación solo depende del estado inicial y final, no del camino recorrido.</li>
+                    <li>Analogía útil: \(U\) = saldo bancario; \(Q\) y \(W\) = ingresos y gastos. El saldo no "tiene" ingresos.</li>
+                    <li>El Primer Principio es una expresión de la <strong>conservación de la energía</strong> aplicada a sistemas termodinámicos.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 2. CRITERIO DE SIGNOS (NUEVA) -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Criterio de signos del Primer Principio</h2>
+                <span class="badge-centro">Convenio</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta U = Q + W\]
+                \[
+                \begin{cases}
+                Q > 0:\ \text{calor absorbido por el sistema} \\
+                Q < 0:\ \text{calor cedido por el sistema} \\
+                W > 0:\ \text{trabajo realizado sobre el sistema} \\
+                W < 0:\ \text{trabajo realizado por el sistema}
+                \end{cases}
+                \]
+            </div>
+            <p class="note">Se adopta el <strong>convenio IUPAC</strong> (también llamado "convenio egoísta"): se considera positivo todo intercambio que <em>aporta</em> energía al sistema y negativo el que <em>extrae</em> energía de él. Así, la ecuación del Primer Principio se escribe siempre con dos sumandos positivos en el segundo miembro.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th>Signo</th>
+                        <th>Situación física</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Magnitud">\(Q\)</td>
+                        <td data-label="Signo">\(+\)</td>
+                        <td data-label="Situación">El sistema <strong>absorbe</strong> calor del entorno.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Magnitud">\(Q\)</td>
+                        <td data-label="Signo">\(-\)</td>
+                        <td data-label="Situación">El sistema <strong>cede</strong> calor al entorno.</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Magnitud">\(W\)</td>
+                        <td data-label="Signo">\(+\)</td>
+                        <td data-label="Situación">El entorno realiza <strong>trabajo sobre</strong> el sistema (compresión).</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Magnitud">\(W\)</td>
+                        <td data-label="Signo">\(-\)</td>
+                        <td data-label="Situación">El sistema realiza <strong>trabajo sobre</strong> el entorno (expansión).</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un gas se expande realizando \(300\,\text{J}\) de trabajo y absorbe \(500\,\text{J}\) de calor. Con el criterio IUPAC: \(W = -300\,\text{J}\), \(Q = +500\,\text{J}\), luego \(\Delta U = +500 - 300 = +200\,\text{J}\). La energía interna del gas ha aumentado \(200\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>En muchos libros anglosajones se usa el convenio alternativo \(\Delta U = Q - W\), donde \(W\) es el trabajo realizado <em>por</em> el sistema. Los resultados físicos son idénticos: solo cambia el signo con que se escribe \(W\). <strong>Lee siempre la convención del enunciado antes de sustituir.</strong></li>
+                    <li>El calor <strong>no es una propiedad del sistema</strong>: no tiene sentido decir "este cuerpo tiene 100&nbsp;J de calor". Solo cabe hablar de calor <em>intercambiado</em> durante un proceso.</li>
+                    <li>Si en un problema obtienes \(Q < 0\), solo significa que el sistema ha <strong>cedido</strong> calor al entorno. Un \(\Delta U < 0\) indica que la energía interna ha disminuido.</li>
+                    <li>Recuerda que \(\Delta U\) puede ser positivo, negativo o nulo: los signos de \(Q\) y \(W\) se <strong>suman algebraicamente</strong> con su signo.</li>
+                    <li>Este convenio coincide con el que se usa en Química (IUPAC). En Física y en algunos textos de Ingeniería es frecuente encontrar el convenio opuesto: comprueba siempre la notación de cada asignatura.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 3. TRABAJO ELEMENTAL -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Trabajo mecánico elemental</h2>
+                <span class="badge-centro">Primer Principio</span>
+            </div>
+            <div class="formula-box">
+                \[\mathrm{d}W = -p\,\mathrm{d}V\]
+            </div>
+            <p class="note">De la definición mecánica \(\mathrm{d}W = F\,\mathrm{d}x\) y de \(p = F/S\), \(V = S\,x\), para un proceso cuasiestático reversible.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\mathrm{d}W\)</td>
+                        <td data-label="Significado">Trabajo infinitesimal</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(p\)</td>
+                        <td data-label="Significado">Presión del sistema</td>
+                        <td data-label="Unidades">Pa</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\mathrm{d}V\)</td>
+                        <td data-label="Significado">Variación infinitesimal de volumen</td>
+                        <td data-label="Unidades">m³</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> expansión de un gas a \(2\,\text{atm}\) que aumenta \(0{,}5\,\text{L}\): \(\mathrm{d}W = -2\times 0{,}5 = -1\,\text{atm·L} \approx -101{,}3\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo es aplicable a procesos <strong>reversibles</strong> (cuasiestáticos). En una expansión libre contra el vacío, el trabajo es cero aunque \(\Delta V \neq 0\).</li>
+                    <li>En un diagrama \(p\)-\(V\), el trabajo <strong>es el área bajo la curva</strong>. Si el proceso va hacia la derecha (expansión), el sistema cede energía.</li>
+                    <li>Si el camino de ida y vuelta no coincide (ciclo), el área encerrada representa el <strong>trabajo neto del ciclo</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 4. ENERGÍA INTERNA GAS IDEAL -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Energía interna de un gas ideal</h2>
+                <span class="badge-centro">Primer Principio</span>
+            </div>
+            <div class="formula-box">
+                \[\Delta U = n\,C_V\,\Delta T = m\,c_V\,\Delta T\]
+            </div>
+            <p class="note">Consecuencia del modelo cinético-molecular del gas ideal: la energía interna depende exclusivamente de la temperatura (no del volumen ni de la presión).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(n,\,m\)</td>
+                        <td data-label="Significado">Cantidad de sustancia / masa de gas</td>
+                        <td data-label="Unidades">mol / kg</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(C_V,\,c_V\)</td>
+                        <td data-label="Significado">Calor molar y específico a volumen constante</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹ / J·kg⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta T\)</td>
+                        <td data-label="Significado">Variación de temperatura</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(2\,\text{mol}\) de gas monoatómico (\(C_V = \tfrac{3}{2}R\)) que se calienta \(50\,\text{K}\): \(\Delta U = 2 \times 1{,}5 \times 8{,}31 \times 50 = 1246{,}5\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Este resultado es exclusivo de <strong>gases ideales</strong>: en gases reales \(U\) también depende del volumen (fuerzas intermoleculares).</li>
+                    <li>Es la clave para demostrar que en un proceso isotérmico \(\Delta U = 0 \Rightarrow Q = -W\).</li>
+                    <li>Si \(T\) aumenta, \(U\) aumenta, <strong>independientemente</strong> de cómo haya variado \(p\) o \(V\) durante el proceso.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- BLOQUE 2: GASES IDEALES                                      -->
+        <!-- ============================================================ -->
+
+        <!-- 5. CLAPEYRON -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Ecuación de Clapeyron (gas ideal)</h2>
+                <span class="badge-centro">Gases ideales</span>
+            </div>
+            <div class="formula-box">
+                \[pV = nRT\]
+            </div>
+            <p class="note">Combinando las leyes de Boyle (\(pV=\text{cte}\)), Charles (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)) se obtiene la ecuación de estado del gas ideal.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p\)</td>
+                        <td data-label="Significado">Presión</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V\)</td>
+                        <td data-label="Significado">Volumen</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(n\)</td>
+                        <td data-label="Significado">Cantidad de sustancia</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Significado">Constante universal de los gases</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T\)</td>
+                        <td data-label="Significado">Temperatura absoluta</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(2{,}5\,\text{mol}\) a \(27\,^\circ\text{C}\) (\(300\,\text{K}\)) y \(1{,}8\,\text{atm}\): \(V = \tfrac{2{,}5 \cdot 0{,}082 \cdot 300}{1{,}8} \approx 34{,}2\,\text{L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La ley se puede escribir también como \(pV = N k_B T\), donde \(N\) es el número de moléculas y \(k_B = 1{,}38 \times 10^{-23} \text{ J/K}\) es la constante de Boltzmann.</li>
+                    <li>Ningún gas real cumple exactamente esta ecuación: a altas presiones o bajas temperaturas aparecen <strong>desviaciones</strong> por el volumen molecular y las fuerzas intermoleculares.</li>
+                    <li>Un gas se comporta como ideal a <strong>baja presión y alta temperatura</strong> (respecto a su punto crítico).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 6. BOYLE-MARIOTTE -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Ley de Boyle-Mariotte (isoterma)</h2>
+                <span class="badge-centro">Gases ideales</span>
+            </div>
+            <div class="formula-box">
+                \[p_1 V_1 = p_2 V_2 \quad (T = \text{cte})\]
+            </div>
+            <p class="note">Particularizando \(pV = nRT\) con \(T\) y \(n\) constantes: el producto \(pV\) es invariante.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p_1,\,p_2\)</td>
+                        <td data-label="Significado">Presiones en los estados inicial y final</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V_1,\,V_2\)</td>
+                        <td data-label="Significado">Volúmenes en los estados inicial y final</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un gas a \(4{,}0\,\text{L}\) y \(1{,}5\,\text{atm}\) se comprime a \(2{,}0\,\text{L}\): \(p_2 = \tfrac{1{,}5\times 4{,}0}{2{,}0} = 3{,}0\,\text{atm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Aplicación médica: explica por qué un buceador no debe ascender rápidamente; el aire de los pulmones se expande al disminuir la presión y puede provocar una <strong>embolia gaseosa</strong>.</li>
+                    <li>Cuanto mayor es la temperatura, más alejada del origen está la hipérbola en el diagrama \(p\)-\(V\).</li>
+                    <li>El producto \(pV\) es proporcional a \(T\) y a \(n\): \(pV = nRT\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 7. CHARLES -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Ley de Charles (isobárica)</h2>
+                <span class="badge-centro">Gases ideales</span>
+            </div>
+            <div class="formula-box">
+                \[\frac{V_1}{T_1} = \frac{V_2}{T_2} \quad (p = \text{cte})\]
+            </div>
+            <p class="note">Particularizando \(pV = nRT\) con \(p\) y \(n\) constantes: \(V/T = nR/p = \text{cte}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(V_1,\,V_2\)</td>
+                        <td data-label="Significado">Volúmenes en los estados inicial y final</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_1,\,T_2\)</td>
+                        <td data-label="Significado">Temperaturas absolutas inicial y final</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(3{,}0\,\text{L}\) a \(20\,^\circ\text{C}\) (\(293\,\text{K}\)) se calientan a \(80\,^\circ\text{C}\) (\(353\,\text{K}\)): \(V_2 = 3{,}0\times\tfrac{353}{293} \approx 3{,}61\,\text{L}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Al <strong>extrapolar</strong> la recta \(V\)-\(T\) hasta \(V = 0\) se llega al <strong>cero absoluto</strong> (\(-273{,}15\,^\circ\text{C}\)), concepto introducido por Kelvin.</li>
+                    <li>Explica el funcionamiento del <strong>globo aerostático</strong>: al calentar el aire, su volumen (y por tanto su empuje) aumenta.</li>
+                    <li>Es la base del <strong>termómetro de gas a presión constante</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 8. GAY-LUSSAC -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Ley de Gay-Lussac (isocórica)</h2>
+                <span class="badge-centro">Gases ideales</span>
+            </div>
+            <div class="formula-box">
+                \[\frac{p_1}{T_1} = \frac{p_2}{T_2} \quad (V = \text{cte})\]
+            </div>
+            <p class="note">Particularizando \(pV = nRT\) con \(V\) y \(n\) constantes: \(p/T = nR/V = \text{cte}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p_1,\,p_2\)</td>
+                        <td data-label="Significado">Presiones inicial y final</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_1,\,T_2\)</td>
+                        <td data-label="Significado">Temperaturas absolutas inicial y final</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un recipiente rígido a \(2{,}5\,\text{atm}\) y \(25\,^\circ\text{C}\) (\(298\,\text{K}\)) se calienta a \(85\,^\circ\text{C}\) (\(358\,\text{K}\)): \(p_2 = 2{,}5\times\tfrac{358}{298} \approx 3{,}00\,\text{atm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Explica por qué <strong>NUNCA</strong> se debe calentar un aerosol cerrado: al aumentar \(T\) con \(V\) constante, la presión crece y puede producirse una explosión.</li>
+                    <li>También explica por qué los <strong>neumáticos</strong> suben de presión tras una marcha prolongada (calentamiento del aire).</li>
+                    <li>En procesos isocóricos, \(W = 0\), por lo que todo el calor se invierte en variar la energía interna: \(\Delta U = Q_V\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 9. LEY COMBINADA -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Ley combinada de los gases</h2>
+                <span class="badge-centro">Gases ideales</span>
+            </div>
+            <div class="formula-box">
+                \[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2} \quad (n = \text{cte})\]
+            </div>
+            <p class="note">Forma práctica de la ecuación de Clapeyron cuando se comparan dos estados con la misma cantidad de gas pero varían \(p\), \(V\) y \(T\) a la vez.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p_1,\,V_1,\,T_1\)</td>
+                        <td data-label="Significado">Presión, volumen y temperatura del estado 1</td>
+                        <td data-label="Unidades">Pa, m³, K (o atm, L, K)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(p_2,\,V_2,\,T_2\)</td>
+                        <td data-label="Significado">Presión, volumen y temperatura del estado 2</td>
+                        <td data-label="Unidades">Pa, m³, K (o atm, L, K)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(6{,}0\,\text{L}\), \(1{,}2\,\text{atm}\), \(15\,^\circ\text{C}\) (\(288\,\text{K}\)) → \(2{,}5\,\text{L}\), \(75\,^\circ\text{C}\) (\(348\,\text{K}\)): \(p_2 = 1{,}2\times\tfrac{6{,}0}{2{,}5}\times\tfrac{348}{288} \approx 3{,}48\,\text{atm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es la forma <strong>práctica</strong> de la ecuación de Clapeyron cuando no interesa conocer \(n\).</li>
+                    <li>Muy útil en problemas de <strong>meteorología</strong>: una masa de aire que asciende ve reducida su presión y su temperatura simultáneamente.</li>
+                    <li>Recuerda: cada vez que compares dos estados, usa <strong>kelvin</strong>, no grados Celsius.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- BLOQUE 3: TRABAJO EN PROCESOS REVERSIBLES                    -->
+        <!-- ============================================================ -->
+
+        <!-- 10. TRABAJO ISOBÁRICO -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Trabajo a presión constante (isobárico)</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[W = -p\,\Delta V = -p\,(V_f - V_i)\]
+            </div>
+            <p class="note">Integrando \(\mathrm{d}W = -p\,\mathrm{d}V\) cuando \(p\) permanece constante durante todo el proceso.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(W\)</td>
+                        <td data-label="Significado">Trabajo realizado por el sistema</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(p\)</td>
+                        <td data-label="Significado">Presión (constante)</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V_i,\,V_f\)</td>
+                        <td data-label="Significado">Volumen inicial y final</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> expansión de \(4{,}0\,\text{L}\) a \(9{,}5\,\text{L}\) a \(2{,}5\,\text{atm}\): \(W = -2{,}5\times 5{,}5 = -13{,}75\,\text{atm·L} \approx -1393\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>En un <strong>motor de combustión</strong>, la carrera de expansión se aproxima a una isóbara: los gases empujan el pistón y realizan trabajo útil.</li>
+                    <li>El signo negativo proviene del <strong>convenio termodinámico</strong>, no de la física mecánica. En Mecánica, el trabajo motor suele considerarse positivo.</li>
+                    <li>La conversión práctica: \(1\,\text{atm·L} = 101{,}3\,\text{J}\); memorizarla ahorra tiempo en los problemas.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 11. TRABAJO ISOTÉRMICO -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Trabajo en proceso isotérmico reversible</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[W = -nRT\,\ln\!\left(\frac{V_f}{V_i}\right) = -nRT\,\ln\!\left(\frac{p_i}{p_f}\right)\]
+            </div>
+            <p class="note">Integrando \(\mathrm{d}W = -\tfrac{nRT}{V}\,\mathrm{d}V\) entre \(V_i\) y \(V_f\) con \(T\) constante.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(W\)</td>
+                        <td data-label="Significado">Trabajo realizado por el sistema</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(n\)</td>
+                        <td data-label="Significado">Cantidad de sustancia</td>
+                        <td data-label="Unidades">mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Significado">Constante universal de los gases</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T\)</td>
+                        <td data-label="Significado">Temperatura absoluta (constante)</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V_i,\,V_f\)</td>
+                        <td data-label="Significado">Volúmenes inicial y final</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(p_i,\,p_f\)</td>
+                        <td data-label="Significado">Presiones inicial y final</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(2\,\text{mol}\) a \(300\,\text{K}\) se expanden de \(10\) a \(30\,\text{L}\): \(W = -2\times 8{,}31\times 300\times \ln 3 \approx -5478\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El <strong>trabajo reversible es el máximo posible</strong>: para la misma expansión, cualquier proceso irreversible (p. ej., contra presión externa constante) produce menos trabajo en valor absoluto.</li>
+                    <li>En la práctica no existe un proceso perfectamente reversible: es un <strong>modelo ideal</strong> que fija el límite superior.</li>
+                    <li>La fórmula incluye un logaritmo neperiano: si \(V_f > V_i\), \(W < 0\) (el sistema cede energía).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 12. TRABAJO ISOCÓRICO -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Trabajo en proceso isocórico</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[W = 0 \quad\Rightarrow\quad \Delta U = Q_V\]
+            </div>
+            <p class="note">Si \(V\) es constante, \(\mathrm{d}V = 0\) y por tanto \(\mathrm{d}W = 0\). Todo el calor intercambiado modifica la energía interna.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(W\)</td>
+                        <td data-label="Significado">Trabajo (nulo en isocórico)</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q_V\)</td>
+                        <td data-label="Significado">Calor intercambiado a volumen constante</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta U\)</td>
+                        <td data-label="Significado">Variación de energía interna</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un gas en un recipiente rígido que absorbe \(500\,\text{J}\): \(W = 0\) y \(\Delta U = +500\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Por eso el calor específico a volumen constante \(c_V\) mide directamente la variación de energía interna del gas ideal.</li>
+                    <li>En un <strong>recipiente rígido</strong> (sin émbolo) cualquier calentamiento es isocórico por definición.</li>
+                    <li>Cuando se mide \(c_V\) experimentalmente, se hace en un <strong>calorímetro de volumen constante</strong> (bomba calorimétrica).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 13. TRABAJO ADIABÁTICO -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Trabajo en proceso adiabático reversible</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[W = \Delta U = n\,C_V\,(T_f - T_i)\]
+            </div>
+            <p class="note">Con \(Q = 0\), el Primer Principio queda \(\Delta U = W\): todo el trabajo se realiza a expensas de la energía interna del gas.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(W\)</td>
+                        <td data-label="Significado">Trabajo realizado por el sistema</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta U\)</td>
+                        <td data-label="Significado">Variación de energía interna</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(C_V\)</td>
+                        <td data-label="Significado">Calor molar a volumen constante</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_i,\,T_f\)</td>
+                        <td data-label="Significado">Temperaturas inicial y final</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(1\,\text{mol}\) de gas monoatómico que se expande adiabáticamente de \(400\,\text{K}\) a \(250\,\text{K}\): \(W = 1\times 1{,}5\times 8{,}31 \times(-150) \approx -1870\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Explica el <strong>enfriamiento por descompresión</strong>: el aire que sale de un pulverizador o de una bombona a presión está frío.</li>
+                    <li>En un <strong>compresor</strong> adiabático el gas se calienta al comprimirse: por eso los compresores reales tienen refrigeración.</li>
+                    <li>En la atmósfera, el ascenso del aire es aproximadamente adiabático: al expandirse se enfría y se forman <strong>nubes</strong> cuando alcanza el punto de rocío.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- BLOQUE 4: CALORES ESPECÍFICOS Y ADIABÁTICAS                  -->
+        <!-- ============================================================ -->
+
+        <!-- 14. CALOR ESPECÍFICO -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Calor específico y calor molar</h2>
+                <span class="badge-centro">Calores</span>
+            </div>
+            <div class="formula-box">
+                \[Q = m\,c\,\Delta T = n\,C\,\Delta T\]
+            </div>
+            <p class="note">De la definición operativa de calor específico: energía necesaria para elevar 1&nbsp;kg (o 1&nbsp;mol) de sustancia 1&nbsp;K.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(Q\)</td>
+                        <td data-label="Significado">Calor intercambiado</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(m,\,n\)</td>
+                        <td data-label="Significado">Masa / cantidad de sustancia</td>
+                        <td data-label="Unidades">kg / mol</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(c\)</td>
+                        <td data-label="Significado">Calor específico</td>
+                        <td data-label="Unidades">J·kg⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(C = M\,c\)</td>
+                        <td data-label="Significado">Calor molar</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\Delta T\)</td>
+                        <td data-label="Significado">Variación de temperatura</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(0{,}1\,\text{kg}\) de aire con \(c_V = 718\,\text{J·kg}^{-1}\text{·K}^{-1}\) que sube \(100\,\text{K}\): \(Q_V = 0{,}1\times 718\times 100 = 7180\,\text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El calor específico <strong>no es una constante universal</strong>: depende del gas y de las condiciones en que se mida (\(c_p\) o \(c_V\)).</li>
+                    <li>En gases monoatómicos \(C_V = \tfrac{3}{2}R\) (solo energía de traslación); en diatómicos a \(T\) ambiente \(C_V = \tfrac{5}{2}R\) (traslación + rotación).</li>
+                    <li>A muy altas temperaturas aparecen grados de libertad vibracionales y \(C_V\) aumenta.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 15. RELACIÓN DE MAYER -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Relación de Mayer</h2>
+                <span class="badge-centro">Calores</span>
+            </div>
+            <div class="formula-box">
+                \[c_p = c_V + \frac{R}{M} \qquad ; \qquad C_p = C_V + R\]
+            </div>
+            <p class="note">Comparando el Primer Principio en un proceso isobárico (con trabajo de expansión) y en uno isocórico (sin trabajo) para el mismo \(\Delta T\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(c_p,\,c_V\)</td>
+                        <td data-label="Significado">Calores específicos a presión y volumen constante</td>
+                        <td data-label="Unidades">J·kg⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(C_p,\,C_V\)</td>
+                        <td data-label="Significado">Calores molares a presión y volumen constante</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Significado">Constante universal de los gases</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(M\)</td>
+                        <td data-label="Significado">Masa molar del gas</td>
+                        <td data-label="Unidades">kg·mol⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> N₂ (\(M = 28\,\text{g/mol}\)) con \(c_V = 740\,\text{J·kg}^{-1}\text{·K}^{-1}\): \(c_p = 740 + \tfrac{8{,}31}{0{,}028} \approx 1037\,\text{J·kg}^{-1}\text{·K}^{-1}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>¿Por qué \(c_p > c_V\)?</strong> A presión constante, el gas se expande y realiza trabajo; a volumen constante, todo el calor se queda como energía interna.</li>
+                    <li>La diferencia \(c_p - c_V = R/M\) es una <strong>constante universal</strong> independiente del gas, solo depende de su masa molar.</li>
+                    <li>Se cumple exclusivamente para <strong>gases ideales</strong>; en líquidos y sólidos la diferencia es muy pequeña (\(c_p \approx c_V\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 16. GAMMA -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">16</span>
+                <h2>Coeficiente adiabático \(\gamma\)</h2>
+                <span class="badge-centro">Calores</span>
+            </div>
+            <div class="formula-box">
+                \[\gamma = \frac{c_p}{c_V} = \frac{C_p}{C_V} > 1\]
+            </div>
+            <p class="note">Cociente entre los calores específicos. Aparece en las ecuaciones de Poisson de los procesos adiabáticos reversibles.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\gamma\)</td>
+                        <td data-label="Significado">Coeficiente adiabático (o exponente de Poisson)</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(c_p,\,c_V\)</td>
+                        <td data-label="Significado">Calores específicos a \(p\) y \(V\) constantes</td>
+                        <td data-label="Unidades">J·kg⁻¹·K⁻¹</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(C_p,\,C_V\)</td>
+                        <td data-label="Significado">Calores molares a \(p\) y \(V\) constantes</td>
+                        <td data-label="Unidades">J·mol⁻¹·K⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para un gas diatómico: \(C_p = C_V + R = \tfrac{7}{2}R\) y \(\gamma = \tfrac{7/2\,R}{5/2\,R} = 1{,}4\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>\(\gamma\) es una <strong>propiedad molecular</strong>: nos informa de la geometría de la molécula (mono, di o poliatómica).</li>
+                    <li>Aparece en las ecuaciones de los procesos adiabáticos (Poisson): \(pV^\gamma = \text{cte}\).</li>
+                    <li>En gases reales \(\gamma\) varía con la temperatura; los valores anteriores son aproximaciones a \(T\) ambiente.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 17. POISSON -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">17</span>
+                <h2>Ecuaciones de Poisson (adiabáticas)</h2>
+                <span class="badge-centro">Calores</span>
+            </div>
+            <div class="formula-box">
+                \[pV^\gamma = \text{cte} \quad ; \quad TV^{\gamma-1} = \text{cte} \quad ; \quad \frac{T^\gamma}{p^{\gamma-1}} = \text{cte}\]
+            </div>
+            <p class="note">Integrando el Primer Principio con \(Q = 0\) y \(\mathrm{d}W = -p\,\mathrm{d}V\) para un gas ideal en un proceso adiabático reversible.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(p\)</td>
+                        <td data-label="Significado">Presión</td>
+                        <td data-label="Unidades">Pa (o atm)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(V\)</td>
+                        <td data-label="Significado">Volumen</td>
+                        <td data-label="Unidades">m³ (o L)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T\)</td>
+                        <td data-label="Significado">Temperatura absoluta</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(\gamma\)</td>
+                        <td data-label="Significado">Coeficiente adiabático</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> gas diatómico (\(\gamma=1{,}4\)) que pasa de \(2{,}0\,\text{atm}\), \(4{,}0\,\text{L}\) a \(8{,}0\,\text{L}\): \(p_2 = 2{,}0\times(0{,}5)^{1{,}4} \approx 0{,}76\,\text{atm}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>Comparación clave</strong>: en una isoterma \(pV = \text{cte}\); en una adiabática \(pV^\gamma = \text{cte}\). Como \(\gamma > 1\), la adiabática cae más rápidamente al expandirse.</li>
+                    <li>Base del <strong>motor diésel</strong>: la compresión adiabática del aire eleva su temperatura por encima de la de ignición del combustible.</li>
+                    <li>También explican el <strong>enfriamiento atmosférico</strong> que forma nubes y el funcionamiento de los <strong>refrigeradores por compresión</strong>.</li>
+                    <li>Solo se cumplen si el proceso es <strong>reversible y adiabático</strong>; una expansión adiabática irreversible contra presión constante no sigue estas curvas.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- BLOQUE 5: MÁQUINAS TÉRMICAS, FRIGORÍFICAS Y EQUIVALENCIAS    -->
+        <!-- ============================================================ -->
+
+        <!-- 18. RENDIMIENTO MÁQUINA TÉRMICA -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">18</span>
+                <h2>Rendimiento de una máquina térmica</h2>
+                <span class="badge-centro">Máquinas</span>
+            </div>
+            <div class="formula-box">
+                \[\eta = \frac{|W|}{Q_c} = 1 - \frac{Q_f}{Q_c}\]
+            </div>
+            <p class="note">De la definición de rendimiento como cociente entre el trabajo neto producido y el calor absorbido del foco caliente.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\eta\)</td>
+                        <td data-label="Significado">Rendimiento (puede expresarse en %)</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(|W|\)</td>
+                        <td data-label="Significado">Trabajo neto producido por ciclo</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q_c\)</td>
+                        <td data-label="Significado">Calor absorbido del foco caliente</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q_f\)</td>
+                        <td data-label="Significado">Calor cedido al foco frío</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> una máquina que absorbe \(1{,}8\,\text{kJ}\) y cede \(0{,}9\,\text{kJ}\): \(\eta = 1 - \tfrac{0{,}9}{1{,}8} = 50\%\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Que \(\eta < 1\) no es una limitación técnica, sino un <strong>principio fundamental</strong> (Segundo Principio de la Termodinámica).</li>
+                    <li>Es imposible convertir íntegramente el calor en trabajo en un proceso cíclico: siempre hay que ceder calor a un foco frío.</li>
+                    <li>Los motores reales rara vez superan el 40% de rendimiento, muy por debajo del límite de Carnot.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 19. CARNOT -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">19</span>
+                <h2>Rendimiento máximo de Carnot</h2>
+                <span class="badge-centro">Máquinas</span>
+            </div>
+            <div class="formula-box">
+                \[\eta_{\text{Carnot}} = 1 - \frac{T_f}{T_c} = \frac{T_c - T_f}{T_c}\]
+            </div>
+            <p class="note">Del estudio del ciclo de Carnot (dos isotermas + dos adiabáticas reversibles), aplicando la relación \(\tfrac{Q_f}{Q_c} = \tfrac{T_f}{T_c}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\eta_{\text{Carnot}}\)</td>
+                        <td data-label="Significado">Rendimiento máximo teórico</td>
+                        <td data-label="Unidades">adimensional</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_c\)</td>
+                        <td data-label="Significado">Temperatura absoluta del foco caliente</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_f\)</td>
+                        <td data-label="Significado">Temperatura absoluta del foco frío</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> máquina entre \(600\,\text{K}\) y \(300\,\text{K}\): \(\eta = 1 - \tfrac{300}{600} = 0{,}50 = 50\%\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo podría alcanzarse \(\eta = 1\) si \(T_f = 0\,\text{K}\), imposible por el <strong>Tercer Principio</strong>.</li>
+                    <li>Un motor de combustión típico (\(T_c \approx 2500\,\text{K}\), \(T_f \approx 300\,\text{K}\)) tendría \(\eta_{\text{Carnot}} \approx 88\%\), pero en la práctica ronda el 25-30%.</li>
+                    <li>La diferencia entre Carnot y la máquina real mide la <strong>irreversibilidad</strong> del proceso real (rozamiento, pérdidas térmicas, etc.).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 20. COP FRIGORÍFICO -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">20</span>
+                <h2>Coeficiente de rendimiento frigorífico</h2>
+                <span class="badge-centro">Frigoríficas</span>
+            </div>
+            <div class="formula-box">
+                \[\varepsilon_{\text{frigorífico}} = \frac{Q_f}{|W|} = \frac{T_f}{T_c - T_f}\]
+            </div>
+            <p class="note">Invirtiendo el ciclo de Carnot: se consume trabajo para extraer calor del foco frío. Aplicando \(Q_c = Q_f + |W|\) y \(\tfrac{Q_f}{Q_c} = \tfrac{T_f}{T_c}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\varepsilon_{\text{frigorífico}}\)</td>
+                        <td data-label="Significado">Coeficiente de rendimiento (COP)</td>
+                        <td data-label="Unidades">adimensional (puede ser &gt; 1)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q_f\)</td>
+                        <td data-label="Significado">Calor extraído del foco frío</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(|W|\)</td>
+                        <td data-label="Significado">Trabajo consumido por el ciclo</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_c,\,T_f\)</td>
+                        <td data-label="Significado">Temperaturas absolutas de los focos caliente y frío</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> frigorífico entre \(-5\,^\circ\text{C}\) (\(268\,\text{K}\)) y \(25\,^\circ\text{C}\) (\(298\,\text{K}\)): \(\varepsilon = \tfrac{268}{30} \approx 8{,}93\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Un frigorífico doméstico típico tiene \(\varepsilon \approx 3\text{-}5\): por cada julio eléctrico extrae 3-5 J del interior.</li>
+                    <li>Cuanto <strong>menor sea la diferencia \(T_c - T_f\)</strong>, mayor es el rendimiento. Por eso un frigorífico consume más en verano.</li>
+                    <li>El COP <strong>no es un "rendimiento" en el sentido energético</strong>: es una relación beneficio/coste. No se compara con el 100%.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 21. COP BOMBA DE CALOR -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">21</span>
+                <h2>Coeficiente de rendimiento de bomba de calor</h2>
+                <span class="badge-centro">Frigoríficas</span>
+            </div>
+            <div class="formula-box">
+                \[\varepsilon_{\text{bomba}} = \frac{Q_c}{|W|} = \frac{T_c}{T_c - T_f} = \varepsilon_{\text{frigorífico}} + 1\]
+            </div>
+            <p class="note">Mismo ciclo invertido, pero ahora el objetivo útil es el calor cedido al foco caliente. Relación inmediata con el COP frigorífico.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(\varepsilon_{\text{bomba}}\)</td>
+                        <td data-label="Significado">Coeficiente de rendimiento como bomba de calor</td>
+                        <td data-label="Unidades">adimensional (puede ser &gt; 1)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(Q_c\)</td>
+                        <td data-label="Significado">Calor cedido al foco caliente (útil)</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(|W|\)</td>
+                        <td data-label="Significado">Trabajo consumido por el ciclo</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(T_c,\,T_f\)</td>
+                        <td data-label="Significado">Temperaturas absolutas de los focos caliente y frío</td>
+                        <td data-label="Unidades">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> aire acondicionado con COP frigorífico \(5{,}0\) funcionando como bomba de calor: \(\varepsilon_{\text{bomba}} = 5{,}0 + 1 = 6{,}0\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Las <strong>bombas de calor geotérmicas</strong> son especialmente eficientes porque el suelo mantiene una temperatura casi constante (10-15&nbsp;°C) todo el año.</li>
+                    <li>A igualdad de focos, la bomba de calor siempre es más eficiente que la calefacción eléctrica directa (\(\varepsilon > 1\)).</li>
+                    <li>En climas muy fríos, el COP baja porque \(T_f\) disminuye, lo que puede hacerla menos rentable que una caldera de gas.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 22. EQUIVALENTE MECÁNICO -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">22</span>
+                <h2>Equivalente mecánico del calor</h2>
+                <span class="badge-centro">Equivalencias</span>
+            </div>
+            <div class="formula-box">
+                \[1\,\text{cal} = 4{,}1868\,\text{J} \approx 4{,}19\,\text{J}\]
+                \[1\,\text{kcal} = 4186{,}8\,\text{J} \approx 4{,}187\,\text{kJ}\]
+            </div>
+            <p class="note">Determinado experimentalmente por Joule (1843-1850) mediante el descenso de masas que agitan agua en un calorímetro.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{cal}\)</td>
+                        <td data-label="Significado">Caloría (unidad tradicional de calor)</td>
+                        <td data-label="Unidades">cal</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{J}\)</td>
+                        <td data-label="Significado">Julio (unidad del SI para calor y trabajo)</td>
+                        <td data-label="Unidades">J</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{kcal}\)</td>
+                        <td data-label="Significado">Kilocaloría (usada en nutrición como "Caloría")</td>
+                        <td data-label="Unidades">kcal</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(J\)</td>
+                        <td data-label="Significado">Equivalente mecánico del calor</td>
+                        <td data-label="Unidades">J·cal⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> una barrita de \(220\,\text{Cal}\) (= \(220\,\text{kcal}\)) contiene \(220\times 4{,}1868 \approx 921\,\text{kJ}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li><strong>Contexto histórico</strong>: antes de Joule se creía que el calor era un fluido ("calórico"). Su experimento demostró que es una forma de energía.</li>
+                    <li>En el SI, <strong>el calor y el trabajo se miden en julios</strong>. La caloría es una unidad residual de uso práctico (nutrición, dietética).</li>
+                    <li>Ojo con la ambigüedad: en etiquetas de alimentos "Calorías" (con mayúscula) son en realidad <strong>kilocalorías</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 23. EQUIVALENCIAS DE PRESIÓN Y VOLUMEN -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">23</span>
+                <h2>Equivalencias de presión y volumen</h2>
+                <span class="badge-centro">Equivalencias</span>
+            </div>
+            <div class="formula-box">
+                \[1\,\text{atm} = 101\,325\,\text{Pa}\]
+                \[1\,\text{L} = 10^{-3}\,\text{m}^3\]
+                \[1\,\text{atm·L} = 101{,}325\,\text{J} \approx 101{,}3\,\text{J}\]
+            </div>
+            <p class="note">De las definiciones de atmósfera (101 325 Pa) y litro (\(10^{-3}\) m³), y del producto \(pV\) con unidades coherentes.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Significado</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{atm}\)</td>
+                        <td data-label="Significado">Atmósfera estándar</td>
+                        <td data-label="Unidades">\(101\,325\,\text{Pa}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{bar}\)</td>
+                        <td data-label="Significado">Bar</td>
+                        <td data-label="Unidades">\(10^5\,\text{Pa}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{L}\)</td>
+                        <td data-label="Significado">Litro</td>
+                        <td data-label="Unidades">\(10^{-3}\,\text{m}^3\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Símbolo">\(1\,\text{atm·L}\)</td>
+                        <td data-label="Significado">Producto presión · volumen</td>
+                        <td data-label="Unidades">\(101{,}325\,\text{J}\)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> \(25\,\text{atm·L}\) de trabajo equivalen a \(25\times 101{,}325 \approx 2533\,\text{J} \approx 605\,\text{cal}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Trabajar en <strong>atm·L</strong> es cómodo para gases (valores "humanos") pero es obligatorio convertir a julios antes de aplicar el Primer Principio.</li>
+                    <li>El factor \(101{,}3\) es una de las equivalencias que más errores causa; memorizarlo con tres cifras (\(101\)) suele ser suficiente.</li>
+                    <li>La presión también se mide en <strong>bar</strong> (\(1\,\text{bar} = 10^5\,\text{Pa}\)) y en <strong>mm Hg</strong> (\(1\,\text{atm} = 760\,\text{mmHg}\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Conceptos básicos y Primer Principio</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Gases ideales</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Trabajo en procesos reversibles</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Calores específicos y adiabáticas</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Máquinas, frigoríficas y equivalencias</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- TABLA RESUMEN DE CONSTANTES                                  -->
+        <!-- ============================================================ -->
+        <article class="card span-all c-5">
+            <div class="cabecera">
+                <span class="num">Σ</span>
+                <h2>Constantes y equivalencias de uso frecuente</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Constante</th>
+                        <th>Símbolo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Constante">Constante universal de los gases</td>
+                        <td data-label="Símbolo">\(R\)</td>
+                        <td data-label="Valor">\(8{,}31\,\text{J·mol}^{-1}\text{·K}^{-1} = 0{,}082\,\text{atm·L·mol}^{-1}\text{·K}^{-1}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Equivalente mecánico del calor</td>
+                        <td data-label="Símbolo">\(J\)</td>
+                        <td data-label="Valor">\(4{,}1868\,\text{J·cal}^{-1}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Presión atmosférica estándar</td>
+                        <td data-label="Símbolo">\(p_0\)</td>
+                        <td data-label="Valor">\(101\,325\,\text{Pa}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Cero absoluto</td>
+                        <td data-label="Símbolo">\(0\,\text{K}\)</td>
+                        <td data-label="Valor">\(-273{,}15\,^\circ\text{C}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Calor específico del agua</td>
+                        <td data-label="Símbolo">\(c_e\)</td>
+                        <td data-label="Valor">\(1\,\text{cal·g}^{-1}\text{·}^\circ\text{C}^{-1} = 4186{,}8\,\text{J·kg}^{-1}\text{·K}^{-1}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Constante de Boltzmann</td>
+                        <td data-label="Símbolo">\(k_B\)</td>
+                        <td data-label="Valor">\(1{,}38 \times 10^{-23}\,\text{J·K}^{-1}\)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Constante">Equivalencia atm·L → J</td>
+                        <td data-label="Símbolo">—</td>
+                        <td data-label="Valor">\(1\,\text{atm·L} = 101{,}325\,\text{J} \approx 101{,}3\,\text{J}\)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <!-- NOTA FINAL -->
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> usa siempre <em>temperatura absoluta</em> (K) en las ecuaciones de gases, comprueba el <em>convenio de signos</em> (\(W > 0\) sobre el sistema; \(Q > 0\) absorbido) y verifica la coherencia de unidades (especialmente \(R\)). En procesos adiabáticos \(Q = 0 \Rightarrow \Delta U = W\); en isotérmicos de gas ideal \(\Delta U = 0 \Rightarrow Q = -W\); en isocóricos \(W = 0 \Rightarrow \Delta U = Q\).
+    </div>
+
+    <!-- BOTÓN VOLVER -->
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

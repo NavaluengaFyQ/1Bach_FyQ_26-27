@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c08 - Formulario de U08 - Trabajo y energía mecánica</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c08 </span>
+                <span class="texto">Trabajo y energía mecánica</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- 1 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Trabajo mecánico</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[ W = F \cdot \Delta x \cdot \cos\alpha \]
+            </div>
+            <p class="note">De la definición de trabajo como producto escalar entre el vector fuerza y el vector desplazamiento, \(W = \vec{F}\cdot\Delta\vec{r}\), siendo \(\alpha\) el ángulo entre ambos.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(W\)</td><td data-label="Significado">Trabajo mecánico</td><td data-label="Unidades">J (julio)</td></tr>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Módulo de la fuerza aplicada</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Desplazamiento</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\alpha\)</td><td data-label="Significado">Ángulo entre fuerza y desplazamiento</td><td data-label="Unidades">° o rad</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(F = 50\ \text{N}\), \(\Delta x = 4{,}0\ \text{m}\) y \(\alpha = 0^{\circ}\): \(W = 50 \cdot 4{,}0 \cdot 1 = 200\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El trabajo es una magnitud <strong>escalar</strong>, no vectorial. Puede ser positivo (motor), negativo (resistente) o nulo.</li>
+                    <li>Si \(\alpha = 90^{\circ}\) → \(W = 0\), aunque existan fuerza y desplazamiento (por ejemplo, la normal o el peso en un desplazamiento horizontal).</li>
+                    <li>Signos: \(0^{\circ}<\alpha<90^{\circ}\Rightarrow W>0\); \(90^{\circ}<\alpha<180^{\circ}\Rightarrow W<0\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Trabajo de una fuerza variable</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[ W = \int_{i}^{f} \vec{F} \cdot d\vec{r} \]
+            </div>
+            <p class="note">De la definición diferencial del trabajo \(dW = \vec{F}\cdot d\vec{r}\), integrando a lo largo de la trayectoria cuando la fuerza no es constante.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(W\)</td><td data-label="Significado">Trabajo total</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{F}\)</td><td data-label="Significado">Fuerza (variable)</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(d\vec{r}\)</td><td data-label="Significado">Desplazamiento infinitesimal</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(i, f\)</td><td data-label="Significado">Posiciones inicial y final</td><td data-label="Unidades">—</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> al estirar un muelle (\(F = kx\)) desde \(x = 0\) hasta \(x = 0{,}10\ \text{m}\) con \(k = 200\ \text{N/m}\): \(W = \int_0^{0{,}10} 200x\,dx = 1{,}0\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Si la fuerza es constante, la integral se reduce a \(W = F\,\Delta x\cos\alpha\).</li>
+                    <li><strong>Interpretación gráfica:</strong> el trabajo es el área bajo la curva \(F\)–\(x\).</li>
+                    <li>Para \(F=kx\) (Ley de Hooke), el área es un triángulo: \(W = \tfrac{1}{2}kx^2\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Trabajo de la fuerza de rozamiento</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[ W_r = -\mu \cdot m \cdot g \cdot \Delta x \]
+            </div>
+            <p class="note">De la definición de trabajo aplicada a la fuerza de rozamiento \(F_r = \mu N = \mu mg\), que se opone al movimiento (\(\alpha = 180^{\circ}\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(W_r\)</td><td data-label="Significado">Trabajo de rozamiento</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(\mu\)</td><td data-label="Significado">Coeficiente de rozamiento cinético</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Distancia recorrida</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(\mu = 0{,}25\), \(m = 4{,}0\ \text{kg}\) y \(\Delta x = 3{,}0\ \text{m}\): \(W_r = -0{,}25 \cdot 4{,}0 \cdot 9{,}8 \cdot 3{,}0 = -29{,}4\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El rozamiento <strong>nunca realiza trabajo positivo</strong>: o es negativo (disipa energía) o nulo (sin desplazamiento).</li>
+                    <li>La energía disipada se transforma en <strong>calor</strong> (energía interna) y no se recupera: es un proceso irreversible.</li>
+                    <li>En un plano inclinado, la normal es \(N = mg\cos\alpha\), por lo que \(W_r = -\mu\,m\,g\cos\alpha\,\Delta x\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Potencia media e instantánea</h2>
+                <span class="badge-centro">Trabajo</span>
+            </div>
+            <div class="formula-box">
+                \[ P_m = \frac{W}{\Delta t} \qquad P = F \cdot v \]
+            </div>
+            <p class="note">De la definición de potencia como trabajo por unidad de tiempo; la instantánea se obtiene al derivar \(dW = F\,dx\) respecto al tiempo, cuando la fuerza es paralela a la velocidad.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(P_m\)</td><td data-label="Significado">Potencia media</td><td data-label="Unidades">W (vatio)</td></tr>
+                    <tr><td data-label="Símbolo">\(P\)</td><td data-label="Significado">Potencia instantánea</td><td data-label="Unidades">W</td></tr>
+                    <tr><td data-label="Símbolo">\(W\)</td><td data-label="Significado">Trabajo total</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta t\)</td><td data-label="Significado">Intervalo de tiempo</td><td data-label="Unidades">s</td></tr>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad instantánea</td><td data-label="Unidades">m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> una grúa realiza \(W = 3600\ \text{J}\) en \(\Delta t = 12\ \text{s}\): \(P_m = 300\ \text{W}\). Si \(F = 200\ \text{N}\) y \(v = 5{,}0\ \text{m/s}\): \(P = 1000\ \text{W}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>No confundir <strong>potencia (W)</strong> con <strong>energía (J o kWh)</strong>: \(1\ \text{kWh} = 3{,}6\times 10^{6}\ \text{J}\).</li>
+                    <li>Para un motor de potencia constante, \(F = P/v\): a mayor velocidad, menor fuerza disponible.</li>
+                    <li>Equivalencias: \(1\ \text{CV} = 735{,}5\ \text{W}\); \(1\ \text{HP} = 746\ \text{W}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Energía cinética</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E_c = \frac{1}{2} m v^{2} \]
+            </div>
+            <p class="note">Al sustituir la ecuación de Torricelli \(v^2 - v_0^2 = 2a\Delta x\) en la expresión \(W = ma\Delta x\) del trabajo de la fuerza neta.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E_c\)</td><td data-label="Significado">Energía cinética</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Módulo de la velocidad</td><td data-label="Unidades">m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(m = 2{,}0\ \text{kg}\) y \(v = 6{,}0\ \text{m/s}\): \(E_c = \tfrac{1}{2}\cdot 2{,}0 \cdot 36 = 36\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es <strong>siempre positiva o nula</strong>: no puede ser negativa.</li>
+                    <li>Depende del <strong>cuadrado de la velocidad</strong>: si \(v\) se duplica, \(E_c\) se cuadruplica.</li>
+                    <li>El factor \(1/2\) no es arbitrario: surge de la integración del trabajo de la fuerza neta.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Energía potencial gravitatoria</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E_p = m \cdot g \cdot h \]
+            </div>
+            <p class="note">Del trabajo realizado contra el peso (fuerza conservativa) para elevar un cuerpo una altura \(h\): \(W_{\text{ext}} = mgh\), almacenado como energía potencial.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E_p\)</td><td data-label="Significado">Energía potencial gravitatoria</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(h\)</td><td data-label="Significado">Altura respecto al nivel de referencia</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(m = 3{,}0\ \text{kg}\) y \(h = 5{,}0\ \text{m}\): \(E_p = 3{,}0 \cdot 9{,}8 \cdot 5{,}0 = 147\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Su valor <strong>depende del nivel de referencia</strong> elegido; las variaciones \(\Delta E_p\) no.</li>
+                    <li>\(h\) es la <strong>coordenada vertical</strong>, no el camino recorrido (¡ojo en planos inclinados!).</li>
+                    <li>Solo válida cerca de la superficie terrestre, donde \(g\) es prácticamente constante.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 7 · LEY DE HOOKE (separada) -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Ley de Hooke</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ F = -k \cdot \Delta x \]
+            </div>
+            <p class="note">De la ley experimental de Hooke: la fuerza recuperadora de un muelle ideal es proporcional y de sentido opuesto a la deformación \(\Delta x\) respecto a su longitud natural.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Fuerza recuperadora del muelle</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(k\)</td><td data-label="Significado">Constante elástica del muelle (rigidez)</td><td data-label="Unidades">N/m</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Deformación respecto a la longitud natural</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(k = 300\ \text{N/m}\) y un estiramiento \(\Delta x = 0{,}05\ \text{m}\): \(|F| = 300 \cdot 0{,}05 = 15\ \text{N}\), dirigida hacia la posición de equilibrio.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El <strong>signo negativo</strong> indica que la fuerza se opone siempre a la deformación (restauradora).</li>
+                    <li>Es una ley <strong>empírica</strong>: solo válida en el régimen elástico, para deformaciones pequeñas.</li>
+                    <li>La fuerza <strong>no es constante</strong>: crece linealmente con la deformación, lo que obliga a integrar para calcular el trabajo (fórmula 2).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 8 · ENERGÍA POTENCIAL ELÁSTICA (separada) -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Energía potencial elástica</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E_e = \frac{1}{2} k (\Delta x)^{2} \]
+            </div>
+            <p class="note">Al integrar el trabajo de la fuerza elástica variable de la fórmula 7 entre \(0\) y \(\Delta x\): \(W = \int_0^{\Delta x} kx\,dx = \tfrac{1}{2}k(\Delta x)^2\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E_e\)</td><td data-label="Significado">Energía potencial elástica</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(k\)</td><td data-label="Significado">Constante elástica del muelle</td><td data-label="Unidades">N/m</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Deformación respecto a la longitud natural</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(k = 400\ \text{N/m}\) y \(\Delta x = 0{,}10\ \text{m}\): \(E_e = \tfrac{1}{2}\cdot 400 \cdot 0{,}10^2 = 2{,}0\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La energía es <strong>siempre positiva o nula</strong> y la <strong>misma en estiramiento y compresión</strong>, porque depende de \((\Delta x)^2\).</li>
+                    <li>El factor \(1/2\) proviene del <strong>área del triángulo</strong> bajo la recta \(F=kx\) (interpretación gráfica del trabajo).</li>
+                    <li>El trabajo de deformación es <strong>recuperable íntegramente</strong> si no hay histéresis ni rozamiento interno.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Equivalencia masa-energía</h2>
+                <span class="badge-centro">Energía</span>
+            </div>
+            <div class="formula-box">
+                \[ E = m \cdot c^{2} \]
+            </div>
+            <p class="note">De los postulados de la relatividad especial de Einstein: la masa en reposo de un cuerpo es una forma de energía intrínseca.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E\)</td><td data-label="Significado">Energía en reposo</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(c\)</td><td data-label="Significado">Velocidad de la luz en el vacío</td><td data-label="Unidades">m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(m = 1{,}0\times 10^{-3}\ \text{kg}\) (1 g): \(E = 1{,}0\times 10^{-3} \cdot (3{,}0\times10^{8})^2 = 9{,}0\times 10^{13}\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>No significa que la masa "se convierta" en energía: la masa <strong>es</strong> una forma de energía.</li>
+                    <li>El factor \(c^2\) es enorme (\(9\times10^{16}\ \text{m}^2/\text{s}^2\)): solo es apreciable en procesos nucleares.</li>
+                    <li>En reacciones químicas, \(\Delta m \approx 10^{-9}\) de la masa total: imperceptible.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Conservación de la energía mecánica</h2>
+                <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="formula-box">
+                \[ E_m = E_c + E_p = \text{constante} \]
+            </div>
+            <p class="note">Del teorema de las fuerzas vivas aplicado cuando solo actúan fuerzas conservativas (\(W_{nc} = 0\)): \(\Delta E_c + \Delta E_p = 0\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(E_m\)</td><td data-label="Significado">Energía mecánica total</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(E_c\)</td><td data-label="Significado">Energía cinética</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(E_p\)</td><td data-label="Significado">Energía potencial (gravitatoria o elástica)</td><td data-label="Unidades">J</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> un objeto cae desde \(h = 5{,}0\ \text{m}\) partiendo del reposo: \(v = \sqrt{2gh} = \sqrt{2 \cdot 9{,}8 \cdot 5{,}0} \approx 9{,}9\ \text{m/s}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo puede aplicarse si <strong>todas las fuerzas son conservativas</strong> (sin rozamiento ni resistencias).</li>
+                    <li>Si hay fuerzas no conservativas, hay que usar el teorema general: \(W_{nc} = \Delta E_m\).</li>
+                    <li>Permite resolver problemas <strong>sin conocer aceleraciones ni tiempos</strong>: solo posiciones y velocidades.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Teorema de las fuerzas vivas</h2>
+                <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="formula-box">
+                \[ W_{\text{neto}} = \Delta E_c = \frac{1}{2} m v_f^{2} - \frac{1}{2} m v_i^{2} \]
+            </div>
+            <p class="note">De la segunda ley de Newton \(F = ma\) y de la definición de trabajo, integrando \(m\vec{a}\cdot d\vec{r}\) entre las posiciones inicial y final.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(W_{\text{neto}}\)</td><td data-label="Significado">Trabajo neto (suma de todos los trabajos)</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta E_c\)</td><td data-label="Significado">Variación de energía cinética</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(v_i, v_f\)</td><td data-label="Significado">Velocidades inicial y final</td><td data-label="Unidades">m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(m = 2{,}0\ \text{kg}\), \(v_i = 3{,}0\ \text{m/s}\) y \(v_f = 7{,}0\ \text{m/s}\): \(W_{\text{neto}} = \tfrac{1}{2}\cdot 2{,}0 \cdot (49 - 9) = 40\ \text{J}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es <strong>más general</strong> que la conservación de \(E_m\): siempre se cumple, con o sin rozamiento.</li>
+                    <li>Al separar trabajos: \(W_{nc} = \Delta E_c + \Delta E_p = \Delta E_m\), lo que permite cuantificar la energía disipada.</li>
+                    <li>Históricamente se le llamó "teorema de las fuerzas vivas" (vis viva, Leibniz).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Velocidad en el péndulo simple</h2>
+                <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="formula-box">
+                \[ v = \sqrt{2 g L (1 - \cos\theta)} \]
+            </div>
+            <p class="note">De la conservación de la energía mecánica entre el extremo (altura \(h = L(1-\cos\theta)\)) y el punto más bajo del péndulo.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad en el punto más bajo</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(L\)</td><td data-label="Significado">Longitud del péndulo</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\theta\)</td><td data-label="Significado">Ángulo inicial respecto a la vertical</td><td data-label="Unidades">° o rad</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(L = 1{,}0\ \text{m}\) y \(\theta = 60^{\circ}\): \(v = \sqrt{2\cdot 9{,}8 \cdot 1{,}0 \cdot (1 - 0{,}5)} \approx 3{,}1\ \text{m/s}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La velocidad <strong>no depende de la masa</strong> ni del arco recorrido, solo de la altura inicial.</li>
+                    <li>Cuidado: \(h = L(1-\cos\theta)\) es la <strong>altura</strong>, no \(L\theta\), que es la longitud del arco.</li>
+                    <li>Sin rozamiento, el péndulo alcanza la <strong>misma altura</strong> en el extremo opuesto (simetría).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Despeje de \(v\) en la energía cinética</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ v = \sqrt{\frac{2 E_c}{m}} \]
+            </div>
+            <p class="note">Al despejar \(v\) en la fórmula 5 (\(E_c = \tfrac{1}{2}mv^2\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(E_c\)</td><td data-label="Significado">Energía cinética</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(E_c = 36\ \text{J}\) y \(m = 2{,}0\ \text{kg}\): \(v = \sqrt{2\cdot 36 / 2{,}0} = 6{,}0\ \text{m/s}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La velocidad se toma siempre en <strong>valor positivo</strong> (módulo).</li>
+                    <li>Comprueba las unidades: \(E_c\) en julios y \(m\) en kg dan \(v\) en m/s.</li>
+                    <li>Útil cuando conoces la energía cinética y la masa, y necesitas la velocidad sin pasar por la aceleración.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Despeje de \(h\) en la energía potencial</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ h = \frac{E_p}{m \cdot g} \]
+            </div>
+            <p class="note">Al despejar \(h\) en la fórmula 6 (\(E_p = mgh\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(h\)</td><td data-label="Significado">Altura respecto al nivel de referencia</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(E_p\)</td><td data-label="Significado">Energía potencial gravitatoria</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(E_p = 147\ \text{J}\) y \(m = 3{,}0\ \text{kg}\): \(h = 147/(3{,}0\cdot 9{,}8) = 5{,}0\ \text{m}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La altura es <strong>relativa al mismo nivel de referencia</strong> usado para \(E_p\).</li>
+                    <li>Cambiar el origen cambia \(h\) y \(E_p\), pero no sus variaciones.</li>
+                    <li>Si la masa se duplica, para la misma \(E_p\) la altura se reduce a la mitad.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Despeje de \(\Delta x\) en la energía elástica</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ \Delta x = \sqrt{\frac{2 E_e}{k}} \]
+            </div>
+            <p class="note">Al despejar \(\Delta x\) en la fórmula 8 (\(E_e = \tfrac{1}{2}k(\Delta x)^2\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Deformación del muelle</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(E_e\)</td><td data-label="Significado">Energía potencial elástica</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(k\)</td><td data-label="Significado">Constante elástica</td><td data-label="Unidades">N/m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(E_e = 2{,}0\ \text{J}\) y \(k = 400\ \text{N/m}\): \(\Delta x = \sqrt{2\cdot 2{,}0/400} = 0{,}10\ \text{m}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Se toma el <strong>valor absoluto</strong>: el signo solo indica estiramiento (+) o compresión (−).</li>
+                    <li>La energía almacenada es <strong>idéntica</strong> en estiramiento y compresión.</li>
+                    <li>Cuanto mayor sea \(k\) (muelle más rígido), menor deformación para una misma energía.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 16 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">16</span>
+                <h2>Despeje de \(v_f\) en el teorema de las fuerzas vivas</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ v_f = \sqrt{v_i^{2} + \frac{2 W_{\text{neto}}}{m}} \]
+            </div>
+            <p class="note">Al despejar \(v_f\) en la fórmula 11 (\(W_{\text{neto}} = \tfrac{1}{2}mv_f^2 - \tfrac{1}{2}mv_i^2\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(v_f\)</td><td data-label="Significado">Velocidad final</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(v_i\)</td><td data-label="Significado">Velocidad inicial</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(W_{\text{neto}}\)</td><td data-label="Significado">Trabajo neto</td><td data-label="Unidades">J</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(m = 2{,}0\ \text{kg}\), \(v_i = 3{,}0\ \text{m/s}\) y \(W_{\text{neto}} = 40\ \text{J}\): \(v_f = \sqrt{9 + 40} = 7{,}0\ \text{m/s}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Si el radicando sale <strong>negativo</strong>, el cuerpo se detiene antes de completar el recorrido.</li>
+                    <li>El trabajo neto incluye <strong>todos</strong> los trabajos: peso, normal, rozamiento, fuerza aplicada…</li>
+                    <li>Es especialmente útil en problemas con rozamiento, donde no se conserva \(E_m\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 17 -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">17</span>
+                <h2>Despeje de \(\Delta x\) en la distancia de frenado</h2>
+                <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="formula-box">
+                \[ \Delta x = \frac{v_i^{2}}{2 \mu g} \]
+            </div>
+            <p class="note">Al igualar el trabajo de rozamiento (fórmula 3) con la variación de energía cinética (fórmula 11) cuando el cuerpo se detiene (\(v_f = 0\)).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Distancia de frenado</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(v_i\)</td><td data-label="Significado">Velocidad inicial</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(\mu\)</td><td data-label="Significado">Coeficiente de rozamiento cinético</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> para \(v_i = 20\ \text{m/s}\) y \(\mu = 0{,}50\): \(\Delta x = 400/(2\cdot 0{,}50\cdot 9{,}8) \approx 40{,}8\ \text{m}\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La distancia de frenado es <strong>independiente de la masa</strong> en el modelo ideal.</li>
+                    <li>Crece con el <strong>cuadrado de la velocidad</strong>: al duplicar \(v_i\), la distancia se cuadruplica.</li>
+                    <li>En la realidad, \(\mu\) no es constante (depende del estado de los neumáticos, asfalto, etc.).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 18 -->
+        <article class="card c-5">
+            <div class="cabecera">
+                <span class="num">18</span>
+                <h2>Constantes y datos numéricos</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[ g = 9{,}8\ \text{m/s}^{2} \qquad c = 3{,}00\times 10^{8}\ \text{m/s} \]
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Magnitud</th><th>Símbolo</th><th>Valor y unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Magnitud">Aceleración de la gravedad</td><td data-label="Símbolo">\(g\)</td><td data-label="Valor">\(9{,}8\ \text{m/s}^{2}\)</td></tr>
+                    <tr><td data-label="Magnitud">Velocidad de la luz</td><td data-label="Símbolo">\(c\)</td><td data-label="Valor">\(3{,}00\times 10^{8}\ \text{m/s}\)</td></tr>
+                    <tr><td data-label="Magnitud">Caballo de vapor</td><td data-label="Símbolo">1 CV</td><td data-label="Valor">\(735{,}5\ \text{W}\)</td></tr>
+                    <tr><td data-label="Magnitud">Kilovatio-hora</td><td data-label="Símbolo">1 kWh</td><td data-label="Valor">\(3{,}6\times 10^{6}\ \text{J}\)</td></tr>
+                    <tr><td data-label="Magnitud">Electronvoltio</td><td data-label="Símbolo">1 eV</td><td data-label="Valor">\(1{,}602\times 10^{-19}\ \text{J}\)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> usa \(g = 9{,}8\ \text{m/s}^2\) al sustituir en las fórmulas 3, 6, 10, 12 y 17; y \(c = 3{,}00\times 10^{8}\ \text{m/s}\) en la fórmula 9.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Verifica siempre las <strong>unidades</strong> antes de sustituir: trabajo y energía en J; potencia en W.</li>
+                    <li>No mezcles <strong>kW (potencia)</strong> con <strong>kWh (energía)</strong>: \(1\ \text{kWh} = 3{,}6\times 10^{6}\ \text{J}\).</li>
+                    <li>Usa \(g = 9{,}8\ \text{m/s}^2\) salvo indicación contraria; en problemas de ingeniería a veces se redondea a \(g = 10\ \text{m/s}^2\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- ============================================================ -->
+        <!-- LEYENDA DE COLORES                                           -->
+        <!-- ============================================================ -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Clase</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Trabajo</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Energía</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Conservación</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Despeje</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div>
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> antes de aplicar cualquier fórmula, identifica el tipo de fuerzas que actúan. Usa \(W = F\Delta x\cos\alpha\) solo para fuerzas constantes; recurre al teorema de las fuerzas vivas \(W_{\text{neto}} = \Delta E_c\) como balance general; y aplica \(E_m = \text{cte}\) únicamente si no hay rozamiento ni otras fuerzas no conservativas. Escribe los decimales con coma y las unidades en el SI.
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div>
+</body>
+</html>

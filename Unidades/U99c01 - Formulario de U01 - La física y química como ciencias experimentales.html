@@ -190,6 +190,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+            display: block;
+            font-weight: 700;
+            color: #975a16;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+            display: block;
+            color: #744210;
+            padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -358,7 +373,10 @@
                 \varepsilon_{a} = \left| v_{\text{aprox}} - v_{\text{real}} \right|
                 \]
             </div>
-            <p class="note">De la definición de error absoluto como la diferencia entre el valor medido (o aproximado) y el valor real (o de referencia), tomada en valor absoluto para que sea siempre positiva.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de error absoluto como la diferencia entre el valor medido (o aproximado) y el valor real (o de referencia), tomada en valor absoluto para que sea siempre positiva.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -394,7 +412,12 @@
                 \varepsilon_{r} = \frac{\left| v_{\text{aprox}} - v_{\text{real}} \right|}{v_{\text{real}}} \times 100\,\%
                 \]
             </div>
-            <p class="note">Al sustituir la definición de error absoluto (fórmula 1) en el cociente entre error absoluto y valor real, y multiplicar por 100 para expresarlo en porcentaje.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente sustituir la definición de error absoluto (fórmula 1) en el cociente entre error absoluto y valor real, y multiplicar por 100 para expresarlo en porcentaje: \[
+                \varepsilon_{r} = \frac{\varepsilon_{a}}{v_{\text{real}}} \times 100\,\%
+                \]</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -430,7 +453,10 @@
                 \Delta (A \pm B) = \Delta A + \Delta B
                 \]
             </div>
-            <p class="note">Al calcular el valor máximo y el valor mínimo del resultado \(A \pm B\) teniendo en cuenta las incertidumbres de cada sumando: los errores absolutos siempre se suman.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de calcular el valor máximo y el valor mínimo de \(A \pm B\) teniendo en cuenta las incertidumbres de cada sumando: los errores absolutos siempre se suman, \(\Delta(A \pm B) = \Delta A + \Delta B\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -466,7 +492,12 @@
                 \frac{\Delta (A \cdot B)}{|A \cdot B|} = \frac{\Delta (A / B)}{|A / B|} = \frac{\Delta A}{|A|} + \frac{\Delta B}{|B|}
                 \]
             </div>
-            <p class="note">Al desarrollar el valor máximo y mínimo del producto (o cociente) y quedarse con los términos de primer orden en los errores, se obtiene que los errores relativos se suman.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de desarrollar el valor máximo y mínimo del producto (o cociente) y quedarse con los términos de primer orden en los errores; así se obtiene que los errores relativos se suman: \[
+                \frac{\Delta (A \cdot B)}{|A \cdot B|} = \frac{\Delta (A / B)}{|A / B|} = \frac{\Delta A}{|A|} + \frac{\Delta B}{|B|}
+                \]</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -502,7 +533,10 @@
                 n_{\text{CS}}(\text{resultado}) = \min\{ n_{\text{CS}}(A),\, n_{\text{CS}}(B) \}
                 \]
             </div>
-            <p class="note">De la ley de propagación de errores en producto y cociente (fórmula 4): como los errores relativos se suman, el factor con menos cifras significativas (mayor error relativo) limita la precisión del resultado.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la consecuencia de la ley de propagación de errores en producto y cociente (fórmula 4): como los errores relativos se suman, el factor con menos cifras significativas (mayor error relativo) limita la precisión del resultado.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -537,7 +571,10 @@
                 n_{\text{dec}}(\text{resultado}) = \min\{ n_{\text{dec}}(A),\, n_{\text{dec}}(B) \}
                 \]
             </div>
-            <p class="note">De la ley de propagación de errores en suma y resta (fórmula 3): como los errores absolutos se suman, el término con menos decimales (mayor error absoluto) limita la precisión del resultado.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la consecuencia de la ley de propagación de errores en suma y resta (fórmula 3): como los errores absolutos se suman, el término con menos decimales (mayor error absoluto) limita la precisión del resultado.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -572,7 +609,10 @@
                 S = \frac{\Delta L}{\Delta M} \qquad \text{(sensibilidad)}
                 \]
             </div>
-            <p class="note">De la definición de sensibilidad como el cociente entre la variación de la indicación del instrumento \(\Delta L\) y la variación de la magnitud medida \(\Delta M\). Precisión (repetibilidad de las medidas) y exactitud (cercanía al valor real) son cualidades independientes.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición de sensibilidad como el cociente entre la variación de la indicación del instrumento \(\Delta L\) y la variación de la magnitud medida \(\Delta M\): \(S=\Delta L/\Delta M\). Precisión (repetibilidad de las medidas) y exactitud (cercanía al valor real) son cualidades independientes.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -608,7 +648,10 @@
                 S = \{ \text{número},\ \text{unidad} \} \qquad \vec{V} = \{ |\vec{V}|,\ \text{unidad},\ \text{dirección},\ \text{sentido} \}
                 \]
             </div>
-            <p class="note">De la definición de magnitud física como toda propiedad medible. Una magnitud es vectorial cuando su descripción completa requiere especificar dirección y sentido; si no, es escalar.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición de magnitud física como toda propiedad medible. Una magnitud es vectorial cuando su descripción completa requiere especificar dirección y sentido; si no, es escalar.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -644,7 +687,10 @@
                 Q_{\text{origen}} \times \prod_{i} \frac{u_{i+1}}{u_{i}} = Q_{\text{destino}}
                 \]
             </div>
-            <p class="note">De la definición de factor de conversión como cociente entre dos cantidades equivalentes expresadas en unidades distintas. Como dicho cociente vale 1, multiplicar por él no altera el valor numérico pero sí las unidades, que se cancelan algebraicamente.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición de factor de conversión como cociente entre dos cantidades equivalentes expresadas en unidades distintas. Como dicho cociente vale 1, multiplicar por él no altera el valor numérico pero sí las unidades, que se cancelan algebraicamente.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -680,7 +726,10 @@
                 F = k \cdot x
                 \]
             </div>
-            <p class="note">Del análisis gráfico de los datos experimentales fuerza-alargamiento de un muelle: al representar \(F\) frente a \(x\) se obtiene una recta que pasa por el origen, cuya pendiente es la constante elástica \(k\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la relación intuitiva de las magnitudes fuerza \(F\) y alargamiento \(x\), que se relacionan proporcionalmente (\(F \propto x\)): del análisis gráfico de datos experimentales fuerza-alargamiento de un muelle se obtiene una recta que pasa por el origen, cuya pendiente es la constante elástica \(k\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -716,7 +765,10 @@
                 p \cdot V = \text{cte} \qquad (\text{a } T \text{ constante})
                 \]
             </div>
-            <p class="note">Del análisis de datos experimentales de presión y volumen de una cantidad fija de gas a temperatura constante: el producto \(p \cdot V\) se mantiene constante (hipérbola isoterma). Es un caso particular de \(pV = nRT\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la relación intuitiva de las magnitudes presión \(p\) y volumen \(V\), que se relacionan inversamente proporcional (\(p \propto 1/V\)): del análisis de datos experimentales de una cantidad fija de gas a temperatura constante, el producto \(p \cdot V\) se mantiene constante (hipérbola isoterma). Es un caso particular de \(pV = nRT\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -752,7 +804,10 @@
                 g = 9{,}8\ \text{m/s}^{2} \quad;\quad R = 8{,}31\ \text{J/(mol·K)} \quad;\quad 1\ \text{atm} = 101325\ \text{Pa}
                 \]
             </div>
-            <p class="note">Valores de referencia del Sistema Internacional y equivalencias de uso habitual en problemas de Física y Química. Se emplean al sustituir en las fórmulas anteriores.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">En general, son valores aceptados por la IUPAC y el SI, y equivalencias de uso habitual en problemas de Física y Química. Se emplean al sustituir en las fórmulas anteriores.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades / valor</th></tr>

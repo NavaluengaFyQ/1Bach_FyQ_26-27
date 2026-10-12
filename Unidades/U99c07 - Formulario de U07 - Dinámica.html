@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U99c07 - Formulario de U07 - Dinámica</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 28px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitulo {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .header .codigo {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .header .badge-centro {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        /* === Reglas para la nueva estructura de cabecera === */
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+            gap: 22px;
+            padding: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 22px 22px 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card.c-1 { border-left-color: #667eea; }
+        .card.c-2 { border-left-color: #ed8936; }
+        .card.c-3 { border-left-color: #4299e1; }
+        .card.c-4 { border-left-color: #48bb78; }
+        .card.c-5 { border-left-color: #38b2ac; }
+
+        .card .cabecera {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        .card .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .card.c-1 .num { background: #667eea; }
+        .card.c-2 .num { background: #ed8936; }
+        .card.c-3 .num { background: #4299e1; }
+        .card.c-4 .num { background: #48bb78; }
+        .card.c-5 .num { background: #38b2ac; }
+
+        .card h2 {
+            font-size: 1.12rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        /* === ETIQUETA DE CATEGORÍA (pequeña, solo dentro de las tarjetas) === */
+        .card .cabecera .badge-centro {
+            padding: 3px 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: #edf2f7;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            border-radius: 20px;
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #fffbeb;
+            border-left: 4px solid #f6e05e;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #744210;
+        }
+
+        .ejemplo {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #2a4365;
+        }
+
+        .ejemplo strong { color: #2b6cb0; }
+
+        /* === OBSERVACIONES DE INTERÉS === */
+        .obs {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #22543d;
+        }
+        .obs strong { color: #276749; }
+        .obs ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+        .obs li {
+            margin-bottom: 4px;
+        }
+        .obs .titulo-obs {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #276749;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .mag-table thead th {
+            background: #667eea;
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mag-table tbody td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .mag-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .mag-table tbody td:first-child {
+            font-weight: 600;
+            color: #2b6cb0;
+            white-space: nowrap;
+        }
+
+        .span-all {
+            grid-column: 1 / -1;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 22px 20px 30px 20px;
+        }
+
+        .footer-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 18px rgba(102,126,234,0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .footer-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(102,126,234,0.6);
+        }
+
+        @media (max-width: 620px) {
+            .header {
+                padding: 22px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header h1 { font-size: 1.5rem; }
+            .grid { padding: 18px 14px; gap: 16px; }
+            .card { padding: 16px 16px 18px 16px; }
+            .mag-table thead { display: none; }
+            .mag-table, .mag-table tbody, .mag-table tr, .mag-table td {
+                display: block;
+                width: 100%;
+            }
+            .mag-table tr {
+                margin-bottom: 12px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 6px 0;
+                background: #f7fafc;
+            }
+            .mag-table td {
+                border: none;
+                padding: 6px 12px;
+                text-align: left;
+            }
+            .mag-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #4a5568;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#T07</span>
+                <span class="texto">Dinámica</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- 1. Primera Ley de Newton -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">1</span>
+                <h2>Primera Ley de Newton</h2>
+                <span class="badge-centro">Newton</span>
+            </div>
+            <div class="formula-box">
+                \[ \sum \vec{F} = \vec{0} \quad \Rightarrow \quad \vec{v} = \text{constante} \]
+            </div>
+            <p class="note">De la definición de fuerza neta como suma vectorial de fuerzas y del concepto de sistema de referencia inercial. Si la fuerza neta es nula, la aceleración es nula y la velocidad permanece constante.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\sum \vec{F}\)</td><td data-label="Significado">Fuerza neta (suma vectorial)</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{v}\)</td><td data-label="Significado">Velocidad del cuerpo</td><td data-label="Unidades">m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un coche de 1000 kg se mueve a 20 m/s constante. La fuerza neta es cero. Si \(\sum F = 0\), \(a = 0\), \(v = 20\) m/s constante.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Solo es válida en <strong>sistemas de referencia inerciales</strong> (reposo o MRU respecto a otro inercial).</li>
+                    <li>En la vida cotidiana el rozamiento <strong>enmascara la inercia</strong>; por eso Aristóteles creyó erróneamente que la fuerza era necesaria para mantener el movimiento.</li>
+                    <li>La tendencia natural de un cuerpo no es "pararse", sino <strong>mantener su estado de movimiento</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 2. Segunda Ley de Newton -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">2</span>
+                <h2>Segunda Ley de Newton</h2>
+                <span class="badge-centro">Newton</span>
+            </div>
+            <div class="formula-box">
+                \[ \vec{F}_{\text{neta}} = m \vec{a} \]
+            </div>
+            <p class="note">De la definición general de fuerza como derivada temporal de la cantidad de movimiento \(\vec{F} = d\vec{p}/dt\). Para masa constante, \(\vec{F} = m d\vec{v}/dt = m \vec{a}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{F}_{\text{neta}}\)</td><td data-label="Significado">Fuerza neta</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{a}\)</td><td data-label="Significado">Aceleración</td><td data-label="Unidades">m/s²</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un bloque de 5 kg experimenta una fuerza neta de 20 N. \(a = F/m = 20/5 = 4\) m/s².</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La aceleración tiene <strong>la misma dirección y sentido que la fuerza neta</strong>, no necesariamente la de una fuerza individual.</li>
+                    <li>La masa mide la <strong>inercia</strong>: a mayor masa, menor aceleración para la misma fuerza.</li>
+                    <li>Ecuación <strong>vectorial</strong>: se descompone en \(F_x = ma_x\), \(F_y = ma_y\), \(F_z = ma_z\).</li>
+                    <li>En el SI, \(1\ \text{N} = 1\ \text{kg·m·s}^{-2}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 3. Tercera Ley de Newton -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">3</span>
+                <h2>Tercera Ley de Newton</h2>
+                <span class="badge-centro">Newton</span>
+            </div>
+            <div class="formula-box">
+                \[ \vec{F}_{A \to B} = -\vec{F}_{B \to A} \]
+            </div>
+            <p class="note">Del principio de conservación del momento lineal para un sistema aislado de dos partículas. Al ser \(d\vec{p}_{\text{total}}/dt = 0\), las fuerzas internas se anulan mutuamente.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{F}_{A \to B}\)</td><td data-label="Significado">Fuerza que A ejerce sobre B</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{F}_{B \to A}\)</td><td data-label="Significado">Fuerza que B ejerce sobre A</td><td data-label="Unidades">N</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Dos patinadores en reposo se empujan. A (60 kg) sale a 3 m/s. B (80 kg) sale a -2,25 m/s. Las fuerzas mutuas son iguales y opuestas.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Las fuerzas de acción y reacción actúan sobre <strong>cuerpos distintos</strong>, por lo que <em>no se anulan entre sí</em>.</li>
+                    <li>Error frecuente: confundir el par acción-reacción con un par de fuerzas <strong>equilibradas sobre el mismo cuerpo</strong>.</li>
+                    <li>Son del mismo <strong>tipo físico</strong> (contacto, gravitatoria, eléctrica…) y se producen <strong>simultáneamente</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 4. Equilibrio estático -->
+        <article class="card c-1">
+            <div class="cabecera">
+                <span class="num">4</span>
+                <h2>Equilibrio Estático de un Punto Material</h2>
+                <span class="badge-centro">Newton</span>
+            </div>
+            <div class="formula-box">
+                \[ \sum \vec{F} = \vec{0} \quad \Leftrightarrow \quad \sum F_x = 0 \; ; \; \sum F_y = 0 \; ; \; \sum F_z = 0 \]
+            </div>
+            <p class="note">De la primera ley de Newton. Si un punto está en reposo permanente, su aceleración es nula y, por la segunda ley, la fuerza neta debe ser nula. La condición vectorial se descompone en cada eje cartesiano.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\sum F_x\)</td><td data-label="Significado">Suma de fuerzas en el eje x</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\sum F_y\)</td><td data-label="Significado">Suma de fuerzas en el eje y</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\sum F_z\)</td><td data-label="Significado">Suma de fuerzas en el eje z</td><td data-label="Unidades">N</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un cuerpo de 10 kg cuelga de dos cuerdas que forman 30° y 45° con la horizontal. Se plantean \(\sum F_x=0\) y \(\sum F_y=0\) para hallar las tensiones.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Distingue entre <strong>equilibrio estático</strong> (reposo, \(\vec{v}=\vec{0}\)) y <strong>equilibrio dinámico</strong> (MRU, \(\vec{v}=\text{cte}\neq\vec{0}\)). En ambos \(\sum\vec{F}=\vec{0}\).</li>
+                    <li>Dibuja siempre el <strong>diagrama de cuerpo libre</strong> antes de plantear las ecuaciones.</li>
+                    <li>En 2D, las dos ecuaciones escalares permiten despejar <strong>hasta dos incógnitas</strong> (tensiones, ángulos…).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 5. Rozamiento horizontal -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">5</span>
+                <h2>Fuerza de Rozamiento en Plano Horizontal</h2>
+                <span class="badge-centro">Rozamiento</span>
+            </div>
+            <div class="formula-box">
+                \[ F_r = \mu N = \mu m g \]
+            </div>
+            <p class="note">De la ley empírica de rozamiento: la fuerza de rozamiento es proporcional a la fuerza normal. En un plano horizontal, la normal equilibra al peso: \(N = mg\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F_r\)</td><td data-label="Significado">Fuerza de rozamiento</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\mu\)</td><td data-label="Significado">Coeficiente de rozamiento</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(N\)</td><td data-label="Significado">Fuerza normal</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un bloque de 15 kg sobre superficie horizontal con \(\mu=0,4\). \(N = 15 \cdot 9,8 = 147\) N. \(F_r = 0,4 \cdot 147 = 58,8\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El coeficiente de rozamiento es <strong>adimensional</strong> y <strong>no depende del área aparente</strong> de contacto.</li>
+                    <li>Puede ser mayor que 1 (p.&nbsp;ej. caucho sobre asfalto seco).</li>
+                    <li>Distingue entre \(\mu_e\) (estático, se ajusta hasta un máximo) y \(\mu_c\) (cinético, constante, con \(\mu_c < \mu_e\)).</li>
+                    <li>La fuerza de rozamiento <strong>no es una fuerza especial</strong>: es una fuerza más que hay que incluir en \(\sum\vec{F}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 6. Rozamiento plano inclinado -->
+        <article class="card c-2">
+            <div class="cabecera">
+                <span class="num">6</span>
+                <h2>Fuerza de Rozamiento en Plano Inclinado</h2>
+                <span class="badge-centro">Rozamiento</span>
+            </div>
+            <div class="formula-box">
+                \[ a = g (\sin \alpha - \mu_c \cos \alpha) \quad ; \quad \tan \alpha_0 = \mu_e \]
+            </div>
+            <p class="note">De la segunda ley de Newton aplicada en ejes paralelo y perpendicular al plano. Se descompone el peso y se iguala la componente paralela menos el rozamiento a \(ma\). El ángulo de reposo se obtiene al igualar \(P_x = F_{r,\text{máx}}\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(a\)</td><td data-label="Significado">Aceleración de descenso</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(\alpha\)</td><td data-label="Significado">Ángulo del plano inclinado</td><td data-label="Unidades">°</td></tr>
+                    <tr><td data-label="Símbolo">\(\mu_c\)</td><td data-label="Significado">Coeficiente de rozamiento cinético</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(\mu_e\)</td><td data-label="Significado">Coeficiente de rozamiento estático</td><td data-label="Unidades">adimensional</td></tr>
+                    <tr><td data-label="Símbolo">\(\alpha_0\)</td><td data-label="Significado">Ángulo de reposo</td><td data-label="Unidades">°</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un bloque desciende por un plano de 25° con \(\mu_c=0,3\). \(a = 9,8(\sin 25° - 0,3 \cos 25°) \approx 1,48\) m/s². El ángulo de reposo para \(\mu_e=0,55\) es \(\arctan(0,55) \approx 28,8°\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La masa <strong>se cancela</strong> en la expresión de \(a\): todos los cuerpos descienden con la misma aceleración.</li>
+                    <li>El <strong>ángulo de reposo</strong> permite determinar \(\mu_e\) experimentalmente: \(\mu_e = \tan\alpha_0\).</li>
+                    <li>Conviene elegir los ejes <strong>paralelo y perpendicular</strong> al plano para simplificar el problema.</li>
+                    <li>Si \(\tan\alpha > \mu_c\), el cuerpo desciende; si \(\tan\alpha \le \mu_e\), permanece en reposo.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 7. Ley de Hooke -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">7</span>
+                <h2>Ley de Hooke y Constante Elástica</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ F = k \Delta x \]
+            </div>
+            <p class="note">De la observación experimental de que, para deformaciones pequeñas, la fuerza recuperadora de un muelle es proporcional a su deformación. La constante \(k\) es la constante elástica.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Fuerza aplicada o recuperadora</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(k\)</td><td data-label="Significado">Constante elástica del muelle</td><td data-label="Unidades">N/m</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta x\)</td><td data-label="Significado">Deformación (alargamiento o compresión)</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un muelle de \(k = 250\) N/m se estira 5 cm. \(F = 250 \cdot 0,05 = 12,5\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La ley de Hooke es <strong>empírica</strong>: solo es lineal dentro del <strong>límite elástico</strong>. Superado este, el muelle sufre deformación permanente.</li>
+                    <li>La constante \(k\) mide la <strong>rigidez</strong>: a mayor \(k\), más fuerza se necesita para deformar el muelle.</li>
+                    <li>En <strong>paralelo</strong>: \(k_{\text{eq}} = k_1 + k_2\). En <strong>serie</strong>: \(\tfrac{1}{k_{\text{eq}}} = \tfrac{1}{k_1} + \tfrac{1}{k_2}\).</li>
+                    <li>El dinamómetro es una aplicación directa: muelle calibrado cuya deformación indica la fuerza.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 8. Momento de una fuerza -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">8</span>
+                <h2>Momento de una Fuerza y Equilibrio de Rotación</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ M = F d \quad ; \quad \sum M = 0 \]
+            </div>
+            <p class="note">De la definición de momento como producto vectorial \(\vec{M} = \vec{r} \times \vec{F}\). Para equilibrio rotacional, la suma de momentos debe ser nula.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(M\)</td><td data-label="Significado">Momento de una fuerza</td><td data-label="Unidades">N·m</td></tr>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Fuerza aplicada</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(d\)</td><td data-label="Significado">Brazo de palanca (distancia perpendicular)</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Una barra de 1,2 m con apoyo a 0,4 m del extremo. Fuerza de 60 N en el extremo. Para equilibrar, \(60 \cdot 0,4 = F_2 \cdot 0,8 \Rightarrow F_2 = 30\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El punto respecto al cual se calculan los momentos es <strong>arbitrario</strong>: si \(\sum\vec{F}=\vec{0}\), \(\sum M\) es la misma respecto a cualquier punto.</li>
+                    <li>Se elige el punto donde actúa una <strong>fuerza desconocida</strong> para eliminar su momento de la ecuación.</li>
+                    <li>Signo positivo: giro <strong>antihorario</strong>; negativo: giro <strong>horario</strong>.</li>
+                    <li>El momento es máximo cuando la fuerza es <strong>perpendicular</strong> al brazo (\(\theta = 90°\)).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 9. Fuerza centrípeta -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">9</span>
+                <h2>Fuerza Centrípeta en Movimiento Circular Uniforme</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ F_c = \frac{m v^2}{R} = m \omega^2 R \]
+            </div>
+            <p class="note">De la segunda ley de Newton aplicada a la aceleración normal del MCU. La aceleración centrípeta es \(a_c = v^2/R\), y la fuerza neta debe ser \(F = m a_c\).</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F_c\)</td><td data-label="Significado">Fuerza centrípeta</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(m\)</td><td data-label="Significado">Masa del cuerpo</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad lineal</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Radio de la trayectoria</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(\omega\)</td><td data-label="Significado">Velocidad angular</td><td data-label="Unidades">rad/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un coche de 1200 kg toma una curva de 50 m a 20 m/s. \(F_c = 1200 \cdot 20^2 / 50 = 9600\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La fuerza centrípeta <strong>no es una fuerza nueva</strong>: es el nombre que recibe la fuerza neta cuando su efecto es mantener un movimiento circular.</li>
+                    <li>La <strong>"fuerza centrífuga" es ficticia</strong>: solo aparece en sistemas de referencia no inerciales (rotantes).</li>
+                    <li>Puede estar proporcionada por la <strong>tensión</strong>, el <strong>rozamiento</strong>, la <strong>gravedad</strong>, la <strong>normal</strong>, etc.</li>
+                    <li>En curvas horizontales, la velocidad máxima <strong>no depende de la masa</strong>: \(v_{\text{máx}} = \sqrt{\mu g R}\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 10. Peralte de una curva -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">10</span>
+                <h2>Peralte de una Curva sin Rozamiento</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ \tan \alpha = \frac{v^2}{g R} \]
+            </div>
+            <p class="note">De la segunda ley de Newton en ejes horizontal y vertical. La componente horizontal de la normal proporciona la fuerza centrípeta, y la vertical equilibra el peso. Igualando y despejando se obtiene la tangente del ángulo.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\alpha\)</td><td data-label="Significado">Ángulo de peralte</td><td data-label="Unidades">°</td></tr>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad del vehículo</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(R\)</td><td data-label="Significado">Radio de la curva</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Para \(R=150\) m y \(v=25\) m/s, \(\tan \alpha = 25^2 / (9,8 \cdot 150) \approx 0,425 \Rightarrow \alpha \approx 23°\).</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>El ángulo depende del <strong>cuadrado de la velocidad</strong>: pequeñas variaciones de \(v\) exigen grandes cambios en \(\alpha\).</li>
+                    <li>A la <strong>velocidad de diseño</strong>, el vehículo no tiende a deslizarse ni hacia dentro ni hacia fuera.</li>
+                    <li>Si \(v\) es menor que la de diseño, tiende a deslizarse hacia el <strong>interior</strong>; si es mayor, hacia el <strong>exterior</strong>.</li>
+                    <li>En curvas reales, el rozamiento residual proporciona un <strong>margen de seguridad</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 11. Conservación del momento lineal -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">11</span>
+                <h2>Conservación del Momento Lineal</h2>
+                <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="formula-box">
+                \[ \vec{p}_{\text{total}} = \sum m_i \vec{v}_i = \text{cte} \quad \text{si } \vec{F}_{\text{ext}} = \vec{0} \]
+            </div>
+            <p class="note">De la tercera ley de Newton. Las fuerzas internas se anulan por pares, por lo que la derivada del momento total es igual a la suma de fuerzas externas. Si el sistema está aislado, la derivada es nula.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{p}_{\text{total}}\)</td><td data-label="Significado">Momento lineal total del sistema</td><td data-label="Unidades">kg·m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(m_i\)</td><td data-label="Significado">Masa de la partícula i</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{v}_i\)</td><td data-label="Significado">Velocidad de la partícula i</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{F}_{\text{ext}}\)</td><td data-label="Significado">Fuerza externa neta</td><td data-label="Unidades">N</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Un vagón de \(2\times10^4\) kg a 2 m/s choca y se acopla con otro de \(1,5\times10^4\) kg en reposo. \(v' = (2\times10^4 \cdot 2) / (3,5\times10^4) \approx 1,14\) m/s.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es válido también en <strong>mecánica relativista y cuántica</strong>: es una de las leyes más universales de la física.</li>
+                    <li>Se aplica al <strong>sistema completo</strong>, no a cada cuerpo individualmente.</li>
+                    <li>Válido para <strong>cualquier tipo de colisión</strong> (elástica o inelástica).</li>
+                    <li>Las fuerzas internas pueden cambiar radicalmente los momentos individuales, pero <strong>su suma vectorial permanece</strong>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 12. Teorema del impulso -->
+        <article class="card c-4">
+            <div class="cabecera">
+                <span class="num">12</span>
+                <h2>Teorema del Impulso y la Cantidad de Movimiento</h2>
+                <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="formula-box">
+                \[ \vec{I} = \vec{F} \Delta t = \Delta \vec{p} \]
+            </div>
+            <p class="note">De la segunda ley de Newton en forma \(\vec{F} = d\vec{p}/dt\). Integrando en el tiempo, el impulso de la fuerza neta es igual a la variación del momento lineal.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(\vec{I}\)</td><td data-label="Significado">Impulso mecánico</td><td data-label="Unidades">N·s</td></tr>
+                    <tr><td data-label="Símbolo">\(\vec{F}\)</td><td data-label="Significado">Fuerza neta (constante)</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta t\)</td><td data-label="Significado">Intervalo de tiempo</td><td data-label="Unidades">s</td></tr>
+                    <tr><td data-label="Símbolo">\(\Delta \vec{p}\)</td><td data-label="Significado">Variación de la cantidad de movimiento</td><td data-label="Unidades">kg·m/s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Una pelota de 0,2 kg llega a 15 m/s y rebota a 10 m/s. \(\Delta p = 0,2(-10 - 15) = -5\) kg·m/s. Si \(\Delta t=0,03\) s, \(F = -5/0,03 \approx -167\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Una fuerza pequeña aplicada durante mucho tiempo puede producir el mismo impulso que una fuerza grande durante un instante.</li>
+                    <li>Los <strong>airbags</strong> aprovechan este principio: aumentan \(\Delta t\) para reducir la fuerza media.</li>
+                    <li>Para fuerzas variables: \(\vec{I} = \int \vec{F}(t)\,dt\), pero el teorema \(\vec{I} = \Delta\vec{p}\) sigue siendo válido.</li>
+                    <li>Es la base del análisis de <strong>colisiones y golpes</strong>, donde \(\Delta t\) es muy breve y \(F\) es enorme (fuerza impulsiva).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 13. Ley de gravitación universal -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">13</span>
+                <h2>Ley de Gravitación Universal de Newton</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ F = G \frac{M m}{r^2} \]
+            </div>
+            <p class="note">De las leyes de Kepler y la segunda ley de Newton. Igualando la fuerza centrípeta con la gravitatoria y aplicando la tercera ley de Kepler, se deduce la proporcionalidad con las masas e inversa al cuadrado de la distancia.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(F\)</td><td data-label="Significado">Fuerza gravitatoria</td><td data-label="Unidades">N</td></tr>
+                    <tr><td data-label="Símbolo">\(G\)</td><td data-label="Significado">Constante de gravitación universal</td><td data-label="Unidades">N·m²/kg²</td></tr>
+                    <tr><td data-label="Símbolo">\(M, m\)</td><td data-label="Significado">Masas de los cuerpos</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Distancia entre los centros de masa</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Dos masas de 5 kg y 8 kg separadas 0,2 m. \(F = 6,67\times10^{-11} \cdot 5 \cdot 8 / 0,2^2 = 6,67\times10^{-8}\) N.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Es una ley de <strong>inversa al cuadrado</strong>: extremadamente débil para objetos cotidianos, pero dominante a escala astronómica.</li>
+                    <li>Para <strong>cuerpos esféricos homogéneos</strong>, la masa se considera concentrada en el centro.</li>
+                    <li>Es una fuerza <strong>siempre atractiva</strong> y forma un par de acción-reacción.</li>
+                    <li>Newton unificó la física <strong>terrestre y celestial</strong> bajo esta ley.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 14. Gravedad terrestre -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">14</span>
+                <h2>Relación entre Gravedad Terrestre y Masa de la Tierra</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ g = G \frac{M_T}{R_T^2} \]
+            </div>
+            <p class="note">De igualar el peso \(mg\) con la fuerza gravitatoria \(G M_T m / R_T^2\). La masa del objeto se cancela, demostrando que \(g\) no depende de ella.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad</td><td data-label="Unidades">m/s²</td></tr>
+                    <tr><td data-label="Símbolo">\(G\)</td><td data-label="Significado">Constante de gravitación universal</td><td data-label="Unidades">N·m²/kg²</td></tr>
+                    <tr><td data-label="Símbolo">\(M_T\)</td><td data-label="Significado">Masa de la Tierra</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(R_T\)</td><td data-label="Significado">Radio de la Tierra</td><td data-label="Unidades">m</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Con \(M_T = 5,98\times10^{24}\) kg y \(R_T = 6,38\times10^6\) m, \(g = 6,67\times10^{-11} \cdot 5,98\times10^{24} / (6,38\times10^6)^2 \approx 9,8\) m/s².</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La masa <strong>inercial</strong> y la <strong>gravitatoria</strong> son experimentalmente idénticas (<strong>principio de equivalencia</strong>), base de la relatividad general.</li>
+                    <li>Con la altura: \(g(h) = g_0 \left(\dfrac{R_T}{R_T+h}\right)^2\).</li>
+                    <li>Explica por qué todos los cuerpos caen con la misma aceleración en el vacío.</li>
+                    <li>Permite "pesar la Tierra" conociendo \(g\) y \(R_T\).</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 15. Velocidad orbital y período -->
+        <article class="card c-3">
+            <div class="cabecera">
+                <span class="num">15</span>
+                <h2>Velocidad Orbital y Período de un Satélite</h2>
+                <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="formula-box">
+                \[ v = \sqrt{\frac{G M_T}{r}} \quad ; \quad T = 2\pi \sqrt{\frac{r^3}{G M_T}} \]
+            </div>
+            <p class="note">De igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para una órbita circular. Al despejar \(v\) se obtiene la velocidad orbital, y de \(v = 2\pi r / T\) se obtiene el período.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(v\)</td><td data-label="Significado">Velocidad orbital</td><td data-label="Unidades">m/s</td></tr>
+                    <tr><td data-label="Símbolo">\(G\)</td><td data-label="Significado">Constante de gravitación universal</td><td data-label="Unidades">N·m²/kg²</td></tr>
+                    <tr><td data-label="Símbolo">\(M_T\)</td><td data-label="Significado">Masa del astro central</td><td data-label="Unidades">kg</td></tr>
+                    <tr><td data-label="Símbolo">\(r\)</td><td data-label="Significado">Radio de la órbita</td><td data-label="Unidades">m</td></tr>
+                    <tr><td data-label="Símbolo">\(T\)</td><td data-label="Significado">Período de revolución</td><td data-label="Unidades">s</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Satélite a 300 km de altura: \(r = 6,38\times10^6 + 3\times10^5 = 6,68\times10^6\) m. \(v = \sqrt{6,67\times10^{-11} \cdot 5,98\times10^{24} / 6,68\times10^6} \approx 7,73\times10^3\) m/s. \(T \approx 5430\) s ≈ 90,5 min.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>La velocidad orbital <strong>no depende de la masa del satélite</strong>: por eso el astronauta "flota" (caída libre continua).</li>
+                    <li>A mayor altura \(h\): <strong>menor velocidad</strong> y <strong>mayor período</strong>.</li>
+                    <li>La tercera ley de Kepler emerge naturalmente: \(\dfrac{T^2}{r^3} = \dfrac{4\pi^2}{G M_T} = \text{cte}\).</li>
+                    <li>Satélite geoestacionario: \(T = 24\) h → \(h \approx 35\,800\) km.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- 16. Constantes y datos -->
+        <article class="card c-5 span-all">
+            <div class="cabecera">
+                <span class="num">16</span>
+                <h2>Constantes, Equivalencias y Datos Numéricos</h2>
+                <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="formula-box">
+                \[ G = 6{,}67\times10^{-11}\ \text{N·m}^2/\text{kg}^2 \]
+                \[ g = 9{,}8\ \text{m/s}^2 \]
+                \[ M_T = 5{,}98\times10^{24}\ \text{kg} \]
+                \[ R_T = 6{,}38\times10^6\ \text{m} \]
+            </div>
+            <p class="note">Recopilación de constantes físicas y equivalencias útiles para los cálculos de este tema.</p>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Significado</th><th>Valor y unidades</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Símbolo">\(G\)</td><td data-label="Significado">Constante de gravitación universal</td><td data-label="Valor y unidades">\(6{,}67\times10^{-11}\ \text{N·m}^2/\text{kg}^2\)</td></tr>
+                    <tr><td data-label="Símbolo">\(g\)</td><td data-label="Significado">Aceleración de la gravedad en la superficie terrestre</td><td data-label="Valor y unidades">\(9{,}8\ \text{m/s}^2\)</td></tr>
+                    <tr><td data-label="Símbolo">\(M_T\)</td><td data-label="Significado">Masa de la Tierra</td><td data-label="Valor y unidades">\(5{,}98\times10^{24}\ \text{kg}\)</td></tr>
+                    <tr><td data-label="Símbolo">\(R_T\)</td><td data-label="Significado">Radio medio de la Tierra</td><td data-label="Valor y unidades">\(6{,}38\times10^6\ \text{m}\)</td></tr>
+                </tbody>
+            </table>
+            <p class="ejemplo"><strong>Ejemplo:</strong> Usa \(G = 6{,}67\times10^{-11}\ \text{N·m}^2/\text{kg}^2\) al sustituir en la fórmula 13.</p>
+            <div class="obs">
+                <span class="titulo-obs">Observaciones de interés</span>
+                <ul>
+                    <li>Comprueba siempre la <strong>coherencia de unidades</strong> antes de sustituir en las fórmulas.</li>
+                    <li>En el SI: fuerzas en N, masas en kg, distancias en m, tiempos en s.</li>
+                    <li>Decimales con <strong>coma</strong> en español: \(9{,}8\) no \(9.8\).</li>
+                    <li>Los valores de \(g\) varían ligeramente con la latitud y la altitud; \(9{,}8\) m/s² es una aproximación estándar.</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Leyenda de colores -->
+        <article class="card span-all">
+            <div class="cabecera">
+                <span class="num">★</span>
+                <h2>Leyenda de colores</h2>
+                <span class="badge-centro">Leyenda</span>
+            </div>
+            <table class="mag-table">
+                <thead>
+                    <tr><th>Color</th><th>Clase</th><th>Categoría</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #667eea;"></span></td>
+                        <td data-label="Clase">c-1</td>
+                        <td data-label="Categoría">Newton</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #ed8936;"></span></td>
+                        <td data-label="Clase">c-2</td>
+                        <td data-label="Categoría">Rozamiento</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #4299e1;"></span></td>
+                        <td data-label="Clase">c-3</td>
+                        <td data-label="Categoría">Fuerzas</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
+                        <td data-label="Clase">c-4</td>
+                        <td data-label="Categoría">Conservación</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #38b2ac;"></span></td>
+                        <td data-label="Clase">c-5</td>
+                        <td data-label="Categoría">Constantes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+    </div> <!-- fin grid -->
+
+    <div class="note" style="margin: 0 28px 8px 28px;">
+        <strong>Recordatorio:</strong> Este formulario resume las fórmulas clave del tema de Dinámica. Cada tarjeta incluye su <em>procedencia</em>, un <em>ejemplo de aplicación</em> y un bloque de <em>observaciones de interés</em>. Utiliza la leyenda de colores para identificar rápidamente la categoría de cada tarjeta.
+    </div>
+
+    <div class="footer-cta">
+        <a href="../index.html">Volver al inicio</a>
+    </div>
+
+</div> <!-- fin container -->
+</body>
+</html>
