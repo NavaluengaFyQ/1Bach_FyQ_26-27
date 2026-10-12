@@ -188,6 +188,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+            display: block;
+            font-weight: 700;
+            color: #975a16;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+            display: block;
+            color: #744210;
+            padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -355,7 +370,10 @@
             <div class="formula-box">
                 \[\Delta U = Q + W\]
             </div>
-            <p class="note">Expresión matemática de la conservación de la energía aplicada a sistemas termodinámicos: la variación de energía interna es la suma algebraica del calor y del trabajo intercambiados con el entorno.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la expresión matemática del Primer Principio de la Termodinámica, es decir, la conservación de la energía aplicada a sistemas termodinámicos: \(\Delta U = Q + W\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -412,7 +430,10 @@
                 \end{cases}
                 \]
             </div>
-            <p class="note">Se adopta el <strong>convenio IUPAC</strong> (también llamado "convenio egoísta"): se considera positivo todo intercambio que <em>aporta</em> energía al sistema y negativo el que <em>extrae</em> energía de él. Así, la ecuación del Primer Principio se escribe siempre con dos sumandos positivos en el segundo miembro.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente el <strong>convenio de signos IUPAC</strong> (también llamado "convenio egoísta"): se considera positivo todo intercambio que <em>aporta</em> energía al sistema y negativo el que <em>extrae</em> energía de él. Así, \(\Delta U = Q + W\) se escribe siempre con dos sumandos positivos en el segundo miembro.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -467,7 +488,10 @@
             <div class="formula-box">
                 \[\mathrm{d}W = -p\,\mathrm{d}V\]
             </div>
-            <p class="note">De la definición mecánica \(\mathrm{d}W = F\,\mathrm{d}x\) y de \(p = F/S\), \(V = S\,x\), para un proceso cuasiestático reversible.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo combinar la definición mecánica \(\mathrm{d}W = F\,\mathrm{d}x\) con \(p = F/S\) y \(V = S\,x\), de donde \(\mathrm{d}W = -p\,\mathrm{d}V\) para un proceso cuasiestático reversible.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -515,7 +539,10 @@
             <div class="formula-box">
                 \[\Delta U = n\,C_V\,\Delta T = m\,c_V\,\Delta T\]
             </div>
-            <p class="note">Consecuencia del modelo cinético-molecular del gas ideal: la energía interna depende exclusivamente de la temperatura (no del volumen ni de la presión).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es una consecuencia del modelo cinético-molecular del gas ideal: como \(U\) depende exclusivamente de la temperatura (no del volumen ni de la presión), \(\Delta U = n\,C_V\,\Delta T = m\,c_V\,\Delta T\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -567,7 +594,10 @@
             <div class="formula-box">
                 \[pV = nRT\]
             </div>
-            <p class="note">Combinando las leyes de Boyle (\(pV=\text{cte}\)), Charles (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)) se obtiene la ecuación de estado del gas ideal.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la ecuación de estado del gas ideal que resulta de combinar las leyes de Boyle (\(pV=\text{cte}\)), Charles (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)): \(pV=nRT\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -625,7 +655,10 @@
             <div class="formula-box">
                 \[p_1 V_1 = p_2 V_2 \quad (T = \text{cte})\]
             </div>
-            <p class="note">Particularizando \(pV = nRT\) con \(T\) y \(n\) constantes: el producto \(pV\) es invariante.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo particularizar \(pV = nRT\) con \(T\) y \(n\) constantes: el producto \(pV\) es invariante, \(p_1 V_1 = p_2 V_2\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -668,7 +701,10 @@
             <div class="formula-box">
                 \[\frac{V_1}{T_1} = \frac{V_2}{T_2} \quad (p = \text{cte})\]
             </div>
-            <p class="note">Particularizando \(pV = nRT\) con \(p\) y \(n\) constantes: \(V/T = nR/p = \text{cte}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo particularizar \(pV = nRT\) con \(p\) y \(n\) constantes: \(V/T = nR/p = \text{cte}\), es decir, \(\frac{V_1}{T_1} = \frac{V_2}{T_2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -711,7 +747,10 @@
             <div class="formula-box">
                 \[\frac{p_1}{T_1} = \frac{p_2}{T_2} \quad (V = \text{cte})\]
             </div>
-            <p class="note">Particularizando \(pV = nRT\) con \(V\) y \(n\) constantes: \(p/T = nR/V = \text{cte}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo particularizar \(pV = nRT\) con \(V\) y \(n\) constantes: \(p/T = nR/V = \text{cte}\), es decir, \(\frac{p_1}{T_1} = \frac{p_2}{T_2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -754,7 +793,10 @@
             <div class="formula-box">
                 \[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2} \quad (n = \text{cte})\]
             </div>
-            <p class="note">Forma práctica de la ecuación de Clapeyron cuando se comparan dos estados con la misma cantidad de gas pero varían \(p\), \(V\) y \(T\) a la vez.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es una forma práctica de la ecuación de Clapeyron cuando se comparan dos estados con la misma cantidad de gas: \(\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -801,7 +843,10 @@
             <div class="formula-box">
                 \[W = -p\,\Delta V = -p\,(V_f - V_i)\]
             </div>
-            <p class="note">Integrando \(\mathrm{d}W = -p\,\mathrm{d}V\) cuando \(p\) permanece constante durante todo el proceso.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo integrar \(\mathrm{d}W = -p\,\mathrm{d}V\) cuando \(p\) permanece constante durante todo el proceso: \(W = -p\,\Delta V = -p\,(V_f - V_i)\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -849,7 +894,10 @@
             <div class="formula-box">
                 \[W = -nRT\,\ln\!\left(\frac{V_f}{V_i}\right) = -nRT\,\ln\!\left(\frac{p_i}{p_f}\right)\]
             </div>
-            <p class="note">Integrando \(\mathrm{d}W = -\tfrac{nRT}{V}\,\mathrm{d}V\) entre \(V_i\) y \(V_f\) con \(T\) constante.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo integrar \(\mathrm{d}W = -\frac{nRT}{V}\,\mathrm{d}V\) entre \(V_i\) y \(V_f\) con \(T\) constante: \(W = -nRT\,\ln(V_f/V_i)\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -912,7 +960,10 @@
             <div class="formula-box">
                 \[W = 0 \quad\Rightarrow\quad \Delta U = Q_V\]
             </div>
-            <p class="note">Si \(V\) es constante, \(\mathrm{d}V = 0\) y por tanto \(\mathrm{d}W = 0\). Todo el calor intercambiado modifica la energía interna.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la consecuencia directa de \(\mathrm{d}W = -p\,\mathrm{d}V\) con \(V\) constante: \(W = 0\) y \(\Delta U = Q_V\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -960,7 +1011,10 @@
             <div class="formula-box">
                 \[W = \Delta U = n\,C_V\,(T_f - T_i)\]
             </div>
-            <p class="note">Con \(Q = 0\), el Primer Principio queda \(\Delta U = W\): todo el trabajo se realiza a expensas de la energía interna del gas.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Si es solo aplicar el Primer Principio \(\Delta U = Q + W\) con \(Q = 0\): \(\Delta U = W = n\,C_V\,(T_f - T_i)\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1017,7 +1071,10 @@
             <div class="formula-box">
                 \[Q = m\,c\,\Delta T = n\,C\,\Delta T\]
             </div>
-            <p class="note">De la definición operativa de calor específico: energía necesaria para elevar 1&nbsp;kg (o 1&nbsp;mol) de sustancia 1&nbsp;K.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición operativa de calor específico y calor molar: energía necesaria para elevar 1&nbsp;kg (o 1&nbsp;mol) de sustancia 1&nbsp;K, \(Q = m\,c\,\Delta T = n\,C\,\Delta T\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1075,7 +1132,10 @@
             <div class="formula-box">
                 \[c_p = c_V + \frac{R}{M} \qquad ; \qquad C_p = C_V + R\]
             </div>
-            <p class="note">Comparando el Primer Principio en un proceso isobárico (con trabajo de expansión) y en uno isocórico (sin trabajo) para el mismo \(\Delta T\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la relación de Mayer, que se obtiene comparando el Primer Principio en un proceso isobárico (con trabajo de expansión) y en uno isocórico (sin trabajo) para el mismo \(\Delta T\): \(C_p = C_V + R\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1128,7 +1188,10 @@
             <div class="formula-box">
                 \[\gamma = \frac{c_p}{c_V} = \frac{C_p}{C_V} > 1\]
             </div>
-            <p class="note">Cociente entre los calores específicos. Aparece en las ecuaciones de Poisson de los procesos adiabáticos reversibles.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es solo la definición del coeficiente adiabático: \(\gamma = \frac{c_p}{c_V} = \frac{C_p}{C_V} > 1\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1176,7 +1239,10 @@
             <div class="formula-box">
                 \[pV^\gamma = \text{cte} \quad ; \quad TV^{\gamma-1} = \text{cte} \quad ; \quad \frac{T^\gamma}{p^{\gamma-1}} = \text{cte}\]
             </div>
-            <p class="note">Integrando el Primer Principio con \(Q = 0\) y \(\mathrm{d}W = -p\,\mathrm{d}V\) para un gas ideal en un proceso adiabático reversible.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Son las ecuaciones de Poisson, que resultan de integrar el Primer Principio con \(Q = 0\) y \(\mathrm{d}W = -p\,\mathrm{d}V\) para un gas ideal en un proceso adiabático reversible: \(pV^\gamma = \text{cte}\), \(TV^{\gamma-1} = \text{cte}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1234,7 +1300,10 @@
             <div class="formula-box">
                 \[\eta = \frac{|W|}{Q_c} = 1 - \frac{Q_f}{Q_c}\]
             </div>
-            <p class="note">De la definición de rendimiento como cociente entre el trabajo neto producido y el calor absorbido del foco caliente.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición de rendimiento como cociente entre el trabajo neto producido y el calor absorbido del foco caliente: \(\eta = \frac{|W|}{Q_c} = 1 - \frac{Q_f}{Q_c}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1287,7 +1356,10 @@
             <div class="formula-box">
                 \[\eta_{\text{Carnot}} = 1 - \frac{T_f}{T_c} = \frac{T_c - T_f}{T_c}\]
             </div>
-            <p class="note">Del estudio del ciclo de Carnot (dos isotermas + dos adiabáticas reversibles), aplicando la relación \(\tfrac{Q_f}{Q_c} = \tfrac{T_f}{T_c}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el rendimiento máximo de Carnot, que se deduce del estudio del ciclo de Carnot (dos isotermas + dos adiabáticas reversibles) aplicando \(\frac{Q_f}{Q_c} = \frac{T_f}{T_c}\): \(\eta_{\text{Carnot}} = 1 - \frac{T_f}{T_c}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1335,7 +1407,10 @@
             <div class="formula-box">
                 \[\varepsilon_{\text{frigorífico}} = \frac{Q_f}{|W|} = \frac{T_f}{T_c - T_f}\]
             </div>
-            <p class="note">Invirtiendo el ciclo de Carnot: se consume trabajo para extraer calor del foco frío. Aplicando \(Q_c = Q_f + |W|\) y \(\tfrac{Q_f}{Q_c} = \tfrac{T_f}{T_c}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el COP frigorífico, que se obtiene invirtiendo el ciclo de Carnot y aplicando \(Q_c = Q_f + |W|\) y \(\frac{Q_f}{Q_c} = \frac{T_f}{T_c}\): \(\varepsilon_{\text{frigorífico}} = \frac{Q_f}{|W|} = \frac{T_f}{T_c - T_f}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1388,7 +1463,10 @@
             <div class="formula-box">
                 \[\varepsilon_{\text{bomba}} = \frac{Q_c}{|W|} = \frac{T_c}{T_c - T_f} = \varepsilon_{\text{frigorífico}} + 1\]
             </div>
-            <p class="note">Mismo ciclo invertido, pero ahora el objetivo útil es el calor cedido al foco caliente. Relación inmediata con el COP frigorífico.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el COP de bomba de calor, el mismo ciclo invertido pero contabilizando el calor útil cedido al foco caliente: \(\varepsilon_{\text{bomba}} = \frac{Q_c}{|W|} = \frac{T_c}{T_c - T_f} = \varepsilon_{\text{frigorífico}} + 1\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1442,7 +1520,10 @@
                 \[1\,\text{cal} = 4{,}1868\,\text{J} \approx 4{,}19\,\text{J}\]
                 \[1\,\text{kcal} = 4186{,}8\,\text{J} \approx 4{,}187\,\text{kJ}\]
             </div>
-            <p class="note">Determinado experimentalmente por Joule (1843-1850) mediante el descenso de masas que agitan agua en un calorímetro.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Son valores experimentales del equivalente mecánico del calor, determinados por Joule (1843-1850) mediante el descenso de masas que agitan agua en un calorímetro: \(1\,\text{cal} = 4{,}1868\,\text{J} \approx 4{,}19\,\text{J}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -1497,7 +1578,10 @@
                 \[1\,\text{L} = 10^{-3}\,\text{m}^3\]
                 \[1\,\text{atm·L} = 101{,}325\,\text{J} \approx 101{,}3\,\text{J}\]
             </div>
-            <p class="note">De las definiciones de atmósfera (101 325 Pa) y litro (\(10^{-3}\) m³), y del producto \(pV\) con unidades coherentes.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Son equivalencias que salen de las definiciones de atmósfera (101 325 Pa) y litro (\(10^{-3}\) m³), y del producto \(pV\) con unidades coherentes: \(1\,\text{atm} = 101\,325\,\text{Pa}\), \(1\,\text{L} = 10^{-3}\,\text{m}^3\), \(1\,\text{atm·L} = 101{,}325\,\text{J}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>

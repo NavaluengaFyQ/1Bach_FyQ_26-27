@@ -190,6 +190,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+          display: block;
+          font-weight: 700;
+          color: #975a16;
+          margin-bottom: 4px;
+          font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+          display: block;
+          color: #744210;
+          padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -356,7 +371,10 @@
             <div class="formula-box">
                 \[\sum_{i} \nu_i \cdot \mathbf{A}_i = \mathbf{0}\]
             </div>
-            <p class="note">De la ley de Lavoisier (conservación de la masa) y de la definición de ecuación química ajustada: la combinación lineal de las composiciones atómicas de todas las especies es nula.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la ley de Lavoisier (conservación de la masa) y la definición de ecuación química ajustada: la combinación lineal de las composiciones atómicas de todas las especies es nula.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -402,7 +420,10 @@
             <div class="formula-box">
                 \[n_B = n_A \times \frac{\nu_B}{\nu_A}\]
             </div>
-            <p class="note">De la ecuación química ajustada, donde los coeficientes estequiométricos actúan como puente entre cantidades de sustancia (avance de reacción \(\xi\)).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la relación que se obtiene de la ecuación química ajustada, donde los coeficientes estequiométricos actúan como puente entre cantidades de sustancia (avance de reacción \(\xi\)).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -447,7 +468,10 @@
             <div class="formula-box">
                 \[\text{Limitante} = \arg\min_i\left(\frac{n_i^0}{\nu_i}\right)\]
             </div>
-            <p class="note">De la comparación del avance máximo permitido por cada reactivo: el reactivo que da el cociente \(n_i^0/\nu_i\) mínimo se agota primero y limita la reacción.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la comparación del avance máximo permitido por cada reactivo: el reactivo que da el cociente \(n_i^0/\nu_i\) mínimo se agota primero y limita la reacción.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -493,7 +517,10 @@
             <div class="formula-box">
                 \[\eta\,(\%) = \frac{n_{\text{real}}}{n_{\text{teórico}}} \times 100 = \frac{m_{\text{real}}}{m_{\text{teórico}}} \times 100\]
             </div>
-            <p class="note">De la definición de rendimiento como cociente entre la cantidad real de producto obtenida y la máxima cantidad teórica calculada a partir del reactivo limitante.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de rendimiento como cociente entre la cantidad real de producto obtenida y la máxima cantidad teórica calculada a partir del reactivo limitante.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -539,7 +566,10 @@
             <div class="formula-box">
                 \[pV = nRT\]
             </div>
-            <p class="note">Combinando las leyes de Boyle (\(pV=\text{cte}\)), Charles-Gay-Lussac (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)) se obtiene la ecuación de estado del gas ideal.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de combinar las leyes de Boyle (\(pV=\text{cte}\)), Charles-Gay-Lussac (\(V/T=\text{cte}\)) y Avogadro (\(V/n=\text{cte}\)) para obtener la ecuación de estado del gas ideal.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -600,7 +630,10 @@
             <div class="formula-box">
                 \[\frac{V_A}{\nu_A} = \frac{V_B}{\nu_B} \quad\Rightarrow\quad V_i = V_j \times \frac{\nu_i}{\nu_j}\]
             </div>
-            <p class="note">De la ecuación de Clapeyron a \(p\) y \(T\) constantes: \(V \propto n\), de modo que las relaciones volumétricas coinciden con los coeficientes estequiométricos (Ley de Gay-Lussac).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la relación intuitiva de las magnitudes \(V\) y \(n\) que se relacionan proporcionalmente (\(V \propto n\)) a \(p\) y \(T\) constantes, de modo que las relaciones volumétricas coinciden con los coeficientes estequiométricos (Ley de Gay-Lussac).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -646,7 +679,10 @@
             <div class="formula-box">
                 \[\Delta H_{A\to B} = \sum_i \Delta H_i \qquad ; \qquad \sum_{\text{ciclo}} \Delta H_i = 0\]
             </div>
-            <p class="note">De la entalpía \(H = U + pV\) como función de estado: su variación solo depende del estado inicial y final, no del camino seguido.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la consecuencia de que la entalpía \(H = U + pV\) es una función de estado: su variación solo depende del estado inicial y final, no del camino seguido.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -688,7 +724,10 @@
                 \[\Delta H_r^\circ = \sum_i \nu_i\,\Delta H_f^\circ(\text{prod}) - \sum_j \nu_j\,\Delta H_f^\circ(\text{react})\]
                 \[\Delta H_r = \sum E_{\text{rotos}} - \sum E_{\text{formados}}\]
             </div>
-            <p class="note">Aplicando la Ley de Hess a un ciclo que pasa por los elementos (método de formación, exacto) o por los átomos aislados (método de enlaces, aproximado).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es el resultado de aplicar la Ley de Hess a un ciclo que pasa por los elementos (método de formación, exacto) o por los átomos aislados (método de enlaces, aproximado).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -735,7 +774,10 @@
             <div class="formula-box">
                 \[c\,(\text{mol/L}) = \frac{\%\,m/m}{100} \times \frac{\rho\,(\text{g/mL}) \times 1000}{M\,(\text{g/mol})}\]
             </div>
-            <p class="note">De las definiciones de riqueza (\(r = m_{\text{soluto}}/m_{\text{disolución}}\)), densidad (\(\rho = m/V\)) y molaridad (\(c = n/V\)), sustituyendo y cancelando \(V\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver el problema de pasar de % m/m a molaridad igualando las definiciones de riqueza (\(r = m_{\text{soluto}}/m_{\text{disolución}}\)), densidad (\(\rho = m/V\)) y molaridad (\(c = n/V\)), y despejando \(c\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -792,7 +834,10 @@
             <div class="formula-box">
                 \[N = M \cdot a \qquad ; \qquad V_a \cdot N_a = V_b \cdot N_b\]
             </div>
-            <p class="note">De la condición de neutralización completa: \(n(\mathrm{H^+})_{\text{total}} = n(\mathrm{OH^-})_{\text{total}}\), con la definición de equivalente (1 mol de H⁺ o OH⁻ transferido).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la condición de neutralización completa: \(n(\mathrm{H^+})_{\text{total}} = n(\mathrm{OH^-})_{\text{total}}\), con la definición de equivalente (1 mol de H⁺ o OH⁻ transferido).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>
@@ -850,7 +895,10 @@
                 \[N_A = 6{,}022\times10^{23}\ \text{mol}^{-1}\]
                 \[V_m^{\text{CN}} = 22{,}4\ \text{L/mol}\quad (0\ ^\circ\text{C},\ 1\ \text{atm})\]
             </div>
-            <p class="note">De la ecuación de Clapeyron evaluada en condiciones normales y de la definición de mol (constante de Avogadro).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">En general son valores aceptados por la IUPAC, obtenidos de evaluar la ecuación de Clapeyron en condiciones normales y de la definición de mol (constante de Avogadro).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr>

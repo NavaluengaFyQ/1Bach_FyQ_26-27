@@ -190,6 +190,21 @@
             color: #744210;
         }
 
+        .note .pregunta {
+            display: block;
+            font-weight: 700;
+            color: #975a16;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .note .pregunta::before { content: "❓ "; }
+        .note .respuesta {
+            display: block;
+            color: #744210;
+            padding-left: 18px;
+        }
+        .note .respuesta::before { content: "💡 "; }
+
         .ejemplo {
             background: #ebf8ff;
             border-left: 4px solid #4299e1;
@@ -354,7 +369,10 @@
             <div class="formula-box">
                 \[ \sum \vec{F} = \vec{0} \quad \Rightarrow \quad \vec{v} = \text{constante} \]
             </div>
-            <p class="note">De la definición de fuerza neta como suma vectorial de fuerzas y del concepto de sistema de referencia inercial. Si la fuerza neta es nula, la aceleración es nula y la velocidad permanece constante.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición de fuerza neta como suma vectorial de fuerzas y del concepto de sistema de referencia inercial: si \(\sum \vec{F} = \vec{0}\), entonces \(\vec{a} = \vec{0}\) y \(\vec{v} = \text{constante}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -385,7 +403,10 @@
             <div class="formula-box">
                 \[ \vec{F}_{\text{neta}} = m \vec{a} \]
             </div>
-            <p class="note">De la definición general de fuerza como derivada temporal de la cantidad de movimiento \(\vec{F} = d\vec{p}/dt\). Para masa constante, \(\vec{F} = m d\vec{v}/dt = m \vec{a}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Qué va!!! si es sólo la definición general de fuerza como derivada temporal de la cantidad de movimiento, \(\vec{F} = d\vec{p}/dt\); para masa constante, \(\vec{F} = m\,d\vec{v}/dt = m\vec{a}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -418,7 +439,10 @@
             <div class="formula-box">
                 \[ \vec{F}_{A \to B} = -\vec{F}_{B \to A} \]
             </div>
-            <p class="note">Del principio de conservación del momento lineal para un sistema aislado de dos partículas. Al ser \(d\vec{p}_{\text{total}}/dt = 0\), las fuerzas internas se anulan mutuamente.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la consecuencia de la conservación del momento lineal en un sistema aislado de dos partículas: como \(d\vec{p}_{\text{total}}/dt = \vec{0}\), las fuerzas internas se anulan mutuamente, \(\vec{F}_{A \to B} = -\vec{F}_{B \to A}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -449,7 +473,10 @@
             <div class="formula-box">
                 \[ \sum \vec{F} = \vec{0} \quad \Leftrightarrow \quad \sum F_x = 0 \; ; \; \sum F_y = 0 \; ; \; \sum F_z = 0 \]
             </div>
-            <p class="note">De la primera ley de Newton. Si un punto está en reposo permanente, su aceleración es nula y, por la segunda ley, la fuerza neta debe ser nula. La condición vectorial se descompone en cada eje cartesiano.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la condición de equilibrio estático que se deduce de la primera ley de Newton: si \(\vec{a} = \vec{0}\), por la segunda ley \(\sum \vec{F} = m\vec{a} = \vec{0}\), y en componentes \(\sum F_x = 0\), \(\sum F_y = 0\), \(\sum F_z = 0\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -481,7 +508,10 @@
             <div class="formula-box">
                 \[ F_r = \mu N = \mu m g \]
             </div>
-            <p class="note">De la ley empírica de rozamiento: la fuerza de rozamiento es proporcional a la fuerza normal. En un plano horizontal, la normal equilibra al peso: \(N = mg\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la ley empírica del rozamiento, \(F_r = \mu N\), particularizada a un plano horizontal donde la normal equilibra al peso, \(N = mg\), de modo que \(F_r = \mu mg\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -516,7 +546,10 @@
             <div class="formula-box">
                 \[ a = g (\sin \alpha - \mu_c \cos \alpha) \quad ; \quad \tan \alpha_0 = \mu_e \]
             </div>
-            <p class="note">De la segunda ley de Newton aplicada en ejes paralelo y perpendicular al plano. Se descompone el peso y se iguala la componente paralela menos el rozamiento a \(ma\). El ángulo de reposo se obtiene al igualar \(P_x = F_{r,\text{máx}}\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver la segunda ley de Newton en ejes paralelo y perpendicular al plano inclinado: \(P_x - F_r = ma\), \(N = P_y\), con \(P_x = mg\sin\alpha\), \(P_y = mg\cos\alpha\), \(F_r = \mu_c N\); igualando \(P_x = F_{r,\text{máx}}\) para el reposo se obtiene \(\tan\alpha_0 = \mu_e\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -552,7 +585,10 @@
             <div class="formula-box">
                 \[ F = k \Delta x \]
             </div>
-            <p class="note">De la observación experimental de que, para deformaciones pequeñas, la fuerza recuperadora de un muelle es proporcional a su deformación. La constante \(k\) es la constante elástica.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la ley de Hooke, empírica: para deformaciones pequeñas, \(F \propto \Delta x\), y la constante de proporcionalidad es la constante elástica \(k\), \(F = k\Delta x\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -585,7 +621,10 @@
             <div class="formula-box">
                 \[ M = F d \quad ; \quad \sum M = 0 \]
             </div>
-            <p class="note">De la definición de momento como producto vectorial \(\vec{M} = \vec{r} \times \vec{F}\). Para equilibrio rotacional, la suma de momentos debe ser nula.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la definición de momento de una fuerza, \(\vec{M} = \vec{r} \times \vec{F}\), y la condición de equilibrio rotacional \(\sum \vec{M} = \vec{0}\), que en módulo se escribe \(M = Fd\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -618,7 +657,10 @@
             <div class="formula-box">
                 \[ F_c = \frac{m v^2}{R} = m \omega^2 R \]
             </div>
-            <p class="note">De la segunda ley de Newton aplicada a la aceleración normal del MCU. La aceleración centrípeta es \(a_c = v^2/R\), y la fuerza neta debe ser \(F = m a_c\).</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la segunda ley de Newton aplicada a la aceleración normal del MCU: \(a_c = v^2/R = \omega^2 R\), por lo que \(F_c = m a_c = m v^2/R = m \omega^2 R\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -653,7 +695,10 @@
             <div class="formula-box">
                 \[ \tan \alpha = \frac{v^2}{g R} \]
             </div>
-            <p class="note">De la segunda ley de Newton en ejes horizontal y vertical. La componente horizontal de la normal proporciona la fuerza centrípeta, y la vertical equilibra el peso. Igualando y despejando se obtiene la tangente del ángulo.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver el problema del peralte igualando la componente horizontal de la normal con la fuerza centrípeta y la vertical con el peso: \(N\sin\alpha = m v^2/R\), \(N\cos\alpha = mg\); dividiendo se despeja \(\tan\alpha = v^2/(gR)\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -687,7 +732,10 @@
             <div class="formula-box">
                 \[ \vec{p}_{\text{total}} = \sum m_i \vec{v}_i = \text{cte} \quad \text{si } \vec{F}_{\text{ext}} = \vec{0} \]
             </div>
-            <p class="note">De la tercera ley de Newton. Las fuerzas internas se anulan por pares, por lo que la derivada del momento total es igual a la suma de fuerzas externas. Si el sistema está aislado, la derivada es nula.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la conservación del momento lineal deducida de la tercera ley de Newton: las fuerzas internas se anulan por pares, \(d\vec{p}_{\text{total}}/dt = \sum \vec{F}_{\text{ext}}\); si \(\sum \vec{F}_{\text{ext}} = \vec{0}\), entonces \(\vec{p}_{\text{total}} = \text{cte}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -721,7 +769,10 @@
             <div class="formula-box">
                 \[ \vec{I} = \vec{F} \Delta t = \Delta \vec{p} \]
             </div>
-            <p class="note">De la segunda ley de Newton en forma \(\vec{F} = d\vec{p}/dt\). Integrando en el tiempo, el impulso de la fuerza neta es igual a la variación del momento lineal.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es simplemente la segunda ley de Newton escrita como \(\vec{F} = d\vec{p}/dt\) e integrada en el tiempo: \(\vec{I} = \int \vec{F}\,dt = \Delta\vec{p}\); para fuerza constante, \(\vec{I} = \vec{F}\Delta t = \Delta\vec{p}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -755,7 +806,10 @@
             <div class="formula-box">
                 \[ F = G \frac{M m}{r^2} \]
             </div>
-            <p class="note">De las leyes de Kepler y la segunda ley de Newton. Igualando la fuerza centrípeta con la gravitatoria y aplicando la tercera ley de Kepler, se deduce la proporcionalidad con las masas e inversa al cuadrado de la distancia.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es la ley de gravitación universal, que se deduce combinando las leyes de Kepler y la segunda ley de Newton: igualando \(F_c = m v^2/r\) con la fuerza gravitatoria y usando \(T^2 \propto r^3\) se obtiene \(F = G \frac{M m}{r^2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -789,7 +843,10 @@
             <div class="formula-box">
                 \[ g = G \frac{M_T}{R_T^2} \]
             </div>
-            <p class="note">De igualar el peso \(mg\) con la fuerza gravitatoria \(G M_T m / R_T^2\). La masa del objeto se cancela, demostrando que \(g\) no depende de ella.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es sólo igualar el peso con la fuerza gravitatoria en la superficie terrestre: \(mg = G \frac{M_T m}{R_T^2}\); al cancelar \(m\) queda \(g = G \frac{M_T}{R_T^2}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -823,7 +880,10 @@
             <div class="formula-box">
                 \[ v = \sqrt{\frac{G M_T}{r}} \quad ; \quad T = 2\pi \sqrt{\frac{r^3}{G M_T}} \]
             </div>
-            <p class="note">De igualar la fuerza gravitatoria con la fuerza centrípeta necesaria para una órbita circular. Al despejar \(v\) se obtiene la velocidad orbital, y de \(v = 2\pi r / T\) se obtiene el período.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">Es resolver el problema de una órbita circular igualando la fuerza gravitatoria con la centrípeta: \(G \frac{M_T m}{r^2} = m \frac{v^2}{r}\), de donde \(v = \sqrt{\frac{G M_T}{r}}\); usando \(v = 2\pi r/T\) se despeja \(T = 2\pi \sqrt{\frac{r^3}{G M_T}}\).</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
@@ -861,7 +921,10 @@
                 \[ M_T = 5{,}98\times10^{24}\ \text{kg} \]
                 \[ R_T = 6{,}38\times10^6\ \text{m} \]
             </div>
-            <p class="note">Recopilación de constantes físicas y equivalencias útiles para los cálculos de este tema.</p>
+            <p class="note">
+                <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                <span class="respuesta">En general, son datos y constantes aceptados internacionalmente: \(G = 6{,}67\times10^{-11}\ \text{N·m}^2/\text{kg}^2\) (CODATA), \(g = 9{,}8\ \text{m/s}^2\) (valor estándar), \(M_T = 5{,}98\times10^{24}\ \text{kg}\) y \(R_T = 6{,}38\times10^6\ \text{m}\) (datos astronómicos de la Tierra); se usan como valores de referencia en los cálculos.</span>
+            </p>
             <table class="mag-table">
                 <thead>
                     <tr><th>Símbolo</th><th>Significado</th><th>Valor y unidades</th></tr>
