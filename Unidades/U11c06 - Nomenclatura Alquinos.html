@@ -152,6 +152,75 @@
             font-size: 0.95em;
         }
 
+
+/* ============================================
+   FÓRMULAS SEMIDESARROLLADAS VISUALES
+   ============================================ */
+.formula-bloque {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #cbd5e0;
+    border-radius: 12px;
+    padding: 18px 15px;
+    margin: 14px 0;
+    text-align: center;
+    overflow-x: auto;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+}
+.formula-sd {
+    display: inline-block;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 1.2em;
+    line-height: 1.9;
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+    padding: 4px 8px;
+}
+.formula-sd .num {
+    color: #9333ea;
+    font-size: 0.72em;
+    font-weight: 700;
+    vertical-align: super;
+    padding-right: 1px;
+}
+.formula-sd .triple {
+    color: #dc2626;
+    font-weight: 800;
+    padding: 0 1px;
+}
+.formula-sd .doble {
+    color: #ea580c;
+    font-weight: 800;
+    padding: 0 1px;
+}
+.formula-sd .subs {
+    color: #2563eb;
+    font-weight: 800;
+}
+.formula-sd .c {
+    color: #1e293b;
+}
+.formula-leyenda {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 0.82em;
+    color: #475569;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+.formula-leyenda .lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.formula-leyenda .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+        
         /* ============================================
            FIGURAS / IMÁGENES DE APOYO
            ============================================ */
@@ -495,7 +564,7 @@
                 <div class="formula-box">
                     C<sub>n</sub>H<sub>2n−2</sub>
                 </div>
-                <p>El alquino más sencillo es el <strong>etino</strong> (acetileno), HC≡CH, con n = 2.</p>
+                <p>El alquino más sencillo es el <strong><span class="nomenclatura"><span class="alc">et</span><span class="suf">ino</span></span></strong> (acetileno), HC≡CH, con n = 2.</p>
             </div>
 
             <!-- Reglas -->
@@ -618,6 +687,687 @@
                     </details>
                 </div>
             </details>
+
+
+
+
+
+
+
+
+<!-- ==================================================
+     PROBLEMA 2 — Propino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 2</span>
+        Nombra el siguiente alquino
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 3 carbonos → raíz <em>prop-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> el triple enlace recibe el localizador más bajo posible (1).</div>
+                <div class="paso"><strong>3. Sin sustituyentes.</strong></div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Prop</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="alc">prop</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> en cadenas muy cortas el localizador puede omitirse, pero la IUPAC prefiere <em><span class="nomenclatura"><span class="alc">prop</span>-<span class="num">1</span>-<span class="suf">ino</span></span></em> para evitar ambigüedades.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 3 — But-1-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 3</span>
+        Nombra el siguiente alquino lineal
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH<sub>2</sub></span>–<span class="num">4</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos → <em>but-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> se empieza por el extremo más cercano al triple enlace, que queda en la posición 1.</div>
+                <div class="paso"><strong>3. Sin sustituyentes.</strong></div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">But</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">1</span>-<span class="alc">but</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> si numerásemos por el otro extremo, el triple quedaría en la posición 3, que es peor. Siempre se busca el localizador más bajo para el enlace múltiple.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 4 — Pent-2-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 4</span>
+        Nombra el siguiente alquino con triple central
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>3</sub></span>–<span class="num">2</span><span class="c">C</span><span class="triple">≡</span><span class="num">3</span><span class="c">C</span>–<span class="num">4</span><span class="c">CH<sub>2</sub></span>–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos → <em>pent-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> el triple está en el centro. Numerando por la izquierda queda en 2; por la derecha, en 3. Se elige 2 (el menor).</div>
+                <div class="paso"><strong>3. Sin sustituyentes.</strong></div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Pent</span>-<span class="num">2</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">2</span>-<span class="alc">pent</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> con el triple en el centro, la numeración debe darle el localizador más bajo posible (2 mejor que 3).
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 5 — 3-Metilbut-1-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 5</span>
+        Alquino ramificado: <span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino ramificado.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">4</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> la cadena más larga que contiene el triple enlace tiene 4 carbonos → <em>but-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> se numera desde el extremo del triple (posición 1).</div>
+                <div class="paso"><strong>3. Sustituyente:</strong> grupo <span class="subs">metilo</span> en el carbono 3.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span>-<span class="num">1</span>-<span class="alc">but</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> el sustituyente se nombra antes de la cadena principal, precedido de su localizador y con guion. Nunca se dejan espacios entre número, letra y sufijo.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 6 — 4-Metilpent-1-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 6</span>
+        Cadena principal de 5 carbonos con metilo
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH<sub>2</sub></span>–<span class="num">4</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos → <em>pent-</em>. Se escoge la cadena más larga que contenga el triple enlace.</div>
+                <div class="paso"><strong>2. Numeración:</strong> desde el extremo del triple → localizador 1 para el triple.</div>
+                <div class="paso"><strong>3. Sustituyente:</strong> metilo en el carbono 4.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">4</span>-<span class="rad">Metil</span><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">4</span>-<span class="rad">metil</span>-<span class="num">1</span>-<span class="alc">pent</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> cuidado de no confundir la cadena principal con la ramificación. La cadena principal es la que contiene el triple enlace y es la más larga posible.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 7 — 3,3-Dimetilbut-1-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 7</span>
+        Dos sustituyentes iguales: <span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">C</span>(<span class="subs">CH<sub>3</sub></span>)(<span class="subs">CH<sub>3</sub></span>)–<span class="num">4</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos → <em>but-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> desde el extremo del triple (posición 1).</div>
+                <div class="paso"><strong>3. Sustituyentes:</strong> dos grupos metilo sobre el mismo carbono (C3) → <strong>3,3-dimetil</strong>.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">3,3</span>-<span class="pref">dimetil</span>-<span class="num">1</span>-<span class="alc">but</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> cuando un sustituyente aparece varias veces se usan los prefijos <em>di-, tri-, tetra-…</em> y se repiten los localizadores separados por comas. El carbono 3 queda cuaternario (unido a otros 4 carbonos).
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 8 — Nombre → fórmula: 4,4-dimetilpent-2-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 8</span>
+        A partir del nombre, escribe la fórmula
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Escribe la fórmula semidesarrollada del <strong><span class="nomenclatura"><span class="num">4,4</span>-<span class="pref">di</span><span class="rad">metil</span><span class="alc">pent</span>-<span class="num">2</span>-<span class="suf">ino</span></span></strong>.
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> <em>pent-</em> → 5 carbonos. El sufijo <em>-ino</em> indica triple enlace.</div>
+                <div class="paso"><strong>2. Localizador del triple:</strong> posición 2 → entre C2 y C3.</div>
+                <div class="paso"><strong>3. Sustituyentes:</strong> <em>4,4-dimetil</em> → dos metilos sobre el C4.</div>
+                <div class="paso"><strong>4. Colocamos los hidrógenos</strong> para completar la valencia de cada carbono.</div>
+                <div class="formula-bloque">
+                    <div class="formula-sd">
+                        <span class="num">1</span><span class="c">CH<sub>3</sub></span>–<span class="num">2</span><span class="c">C</span><span class="triple">≡</span><span class="num">3</span><span class="c">C</span>–<span class="num">4</span><span class="c">C</span>(<span class="subs">CH<sub>3</sub></span>)(<span class="subs">CH<sub>3</sub></span>)–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                    </div>
+                </div>
+                <div class="note">
+                    <strong>Info:</strong> el C2 y el C3 forman el triple enlace (cada uno con un solo enlace disponible). El C4 soporta los dos metilos, por eso queda escrito como <em>C(CH₃)(CH₃)</em>.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 9 — Buta-1,3-diino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 9</span>
+        Dos triples enlaces: <span class="nomenclatura"><span class="alc">buta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente diino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">CH</span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> contiene el <strong>mayor número de triples enlaces</strong> (2 triples) → 4 carbonos.</div>
+                <div class="paso"><strong>2. Numeración:</strong> los dos triples quedan en 1 y 3 (igual por ambos extremos).</div>
+                <div class="paso"><strong>3. Sufijo:</strong> <em>-diino</em> (dos triples).</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Buta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">1,3</span>-<span class="alc">buta</span><span class="pref">di</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> cuando la cadena principal tiene varios enlaces múltiples, se elige la que contenga el mayor número posible de ellos y se numera para que el conjunto de localizadores sea lo más bajo posible.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 10 — Hexa-2,4-diino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 10</span>
+        Diino interno: <span class="nomenclatura"><span class="alc">hexa</span>-<span class="num">2,4</span>-<span class="pref">di</span><span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente diino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>3</sub></span>–<span class="num">2</span><span class="c">C</span><span class="triple">≡</span><span class="num">3</span><span class="c">C</span>–<span class="num">4</span><span class="c">C</span><span class="triple">≡</span><span class="num">5</span><span class="c">C</span>–<span class="num">6</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos con dos triples → <em>hexa-…-diino</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> los triples ocupan las posiciones 2 y 4 (o 3 y 5). Se elige {2,4} que es menor.</div>
+                <div class="paso"><strong>3. Sin sustituyentes.</strong></div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Hexa</span>-<span class="num">2,4</span>-<span class="pref">di</span><span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">2,4</span>-<span class="alc">hexa</span><span class="pref">di</span><span class="suf">ino</span></span>)</em></p>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 11 — Nombre → fórmula: penta-1,3-diino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 11</span>
+        A partir del nombre: <span class="nomenclatura"><span class="alc">penta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Escribe la fórmula semidesarrollada del <strong><span class="nomenclatura"><span class="alc">penta</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">ino</span></span></strong>.
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1.</strong> <em>Penta-</em> → 5 carbonos.</div>
+                <div class="paso"><strong>2.</strong> <em>1,3-diino</em> → dos triples en C1 y C3.</div>
+                <div class="paso"><strong>3.</strong> Colocamos los hidrógenos necesarios.</div>
+                <div class="formula-bloque">
+                    <div class="formula-sd">
+                        <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">C</span>–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                    </div>
+                </div>
+                <div class="note">
+                    <strong>Info:</strong> el C2 queda entre los dos triples; sólo puede llevar hidrógenos (CH₂) porque ya está unido a C1 y C3 por triples.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 12 — But-1-en-3-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 12</span>
+        Compuesto mixto: <span class="nomenclatura"><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente compuesto con doble y triple enlace.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">CH</span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 4 carbonos con doble y triple → <em>but-…-en-…-ino</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> hay un empate {1,3} por ambos extremos. En caso de empate <strong>tiene preferencia el doble enlace</strong>. Por eso se numera desde el doble → eno en 1, ino en 3.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">But</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="alc">but</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info clave:</strong> cuando doble y triple están a la misma distancia de los extremos, <strong>la numeración otorga el localizador más bajo al doble enlace</strong>. Terminación: <em>-eno-ino</em>.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 13 — Pent-1-en-4-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 13</span>
+        Doble y triple separados: <span class="nomenclatura"><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">4</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente compuesto mixto.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">CH<sub>2</sub></span>–<span class="num">4</span><span class="c">C</span><span class="triple">≡</span><span class="num">5</span><span class="c">CH</span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 5 carbonos → <em>pent-</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> localizadores {1,4} por la izquierda y {1,4} por la derecha → empate. Gana el doble → se numera desde el doble.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Pent</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">4</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">4</span>-<span class="suf">ino</span></span>)</em></p>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 14 — Hexa-1,3-dien-5-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 14</span>
+        Dos dobles + un triple: <span class="nomenclatura"><span class="alc">hexa</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">en</span>-<span class="num">5</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">CH</span><span class="doble">=</span><span class="num">4</span><span class="c">CH</span>–<span class="num">5</span><span class="c">C</span><span class="triple">≡</span><span class="num">6</span><span class="c">CH</span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos → <em>hexa-</em>, con 2 dobles (<em>dien</em>) y 1 triple (<em>ino</em>).</div>
+                <div class="paso"><strong>2. Numeración:</strong> localizadores {1,3,5} por la izquierda y {1,3,5} por la derecha → empate. Gana el doble: se numera desde la izquierda (doble en 1).</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="alc">Hexa</span>-<span class="num">1,3</span>-<span class="pref">di</span><span class="suf">en</span>-<span class="num">5</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="alc">hexa</span>-<span class="num">1,3</span>-<span class="pref">dien</span>-<span class="num">5</span>-<span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> el prefijo <em>di-</em> (multiplicador) no cuenta para el orden alfabético, pero sí debe aparecer justo antes de la terminación <em>-en</em>.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 15 — Nombre → fórmula: pent-1-en-3-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 15</span>
+        A partir del nombre: <span class="nomenclatura"><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Escribe la fórmula semidesarrollada del <strong><span class="nomenclatura"><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span></strong>.
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1.</strong> <em>Pent-</em> → 5 carbonos.</div>
+                <div class="paso"><strong>2.</strong> <em>1-en</em> → doble en C1–C2.</div>
+                <div class="paso"><strong>3.</strong> <em>3-ino</em> → triple en C3–C4.</div>
+                <div class="paso"><strong>4.</strong> Se completan los hidrógenos.</div>
+                <div class="formula-bloque">
+                    <div class="formula-sd">
+                        <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">C</span>–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                    </div>
+                </div>
+                <div class="note">
+                    <strong>Info:</strong> el C3 y el C4 forman el triple enlace, por eso el C3 solo se une a C2 y a C4 (no lleva H) y el C4 solo se une a C3 y a C5.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 16 — 5-Metilhex-1-en-3-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 16</span>
+        Mixto con ramificación: <span class="nomenclatura"><span class="num">5</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">C</span>–<span class="num">5</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">6</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos → <em>hex-</em>, con un doble (1) y un triple (3).</div>
+                <div class="paso"><strong>2. Numeración:</strong> desde el doble (extremo más cercano a un enlace múltiple, con preferencia del doble en caso de empate).</div>
+                <div class="paso"><strong>3. Sustituyente:</strong> metilo en C5.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">5</span>-<span class="rad">Metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">5</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>)</em></p>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 17 — 3-Etil-4-metilpent-1-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 17</span>
+        Dos sustituyentes distintos: etil y metil
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH</span>(<span class="subs">CH<sub>2</sub>CH<sub>3</sub></span>)–<span class="num">4</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">5</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> la más larga que contiene el triple → 5 carbonos → <em><span class="nomenclatura"><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">ino</span></span></em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> desde el triple (posición 1).</div>
+                <div class="paso"><strong>3. Sustituyentes:</strong> etilo en C3 y metilo en C4.</div>
+                <div class="paso"><strong>4. Orden alfabético:</strong> <em>etil</em> (e) antes que <em>metil</em> (m).</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Etil</span>-<span class="num">4</span>-<span class="rad">metil</span><span class="alc">pent</span>-<span class="num">1</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">3</span>-<span class="rad">etil</span>-<span class="num">4</span>-<span class="rad">metil</span>-<span class="num">1</span>-<span class="alc">pent</span><span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> los prefijos multiplicadores (<em>di-, tri-</em>…) NO cuentan para el orden alfabético, pero el nombre del sustituyente sí (<em>etil</em> antes que <em>metil</em>).
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 18 — 3-Metilpenta-1,4-diino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 18</span>
+        Diino con ramificación: <span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">penta</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente compuesto.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">HC</span><span class="triple">≡</span><span class="num">2</span><span class="c">C</span>–<span class="num">3</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">4</span><span class="c">C</span><span class="triple">≡</span><span class="num">5</span><span class="c">CH</span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> la que contiene los dos triples → 5 carbonos → <em>penta-1,4-diino</em>.</div>
+                <div class="paso"><strong>2. Numeración:</strong> los triples quedan en 1 y 4 (igual por ambos extremos).</div>
+                <div class="paso"><strong>3. Sustituyente:</strong> metilo en C3.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">3</span>-<span class="rad">Metil</span><span class="alc">penta</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">3</span>-<span class="rad">metil</span><span class="alc">penta</span>-<span class="num">1,4</span>-<span class="pref">di</span><span class="suf">ino</span></span>)</em></p>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 19 — 2,5-Dimetilhex-3-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 19</span>
+        Triple interno con dos ramificaciones
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Nombra el siguiente alquino.
+            <div class="formula-bloque">
+                <div class="formula-sd">
+                    <span class="num">1</span><span class="c">CH<sub>3</sub></span>–<span class="num">2</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">C</span>–<span class="num">5</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">6</span><span class="c">CH<sub>3</sub></span>
+                </div>
+            </div>
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1. Cadena principal:</strong> 6 carbonos → <em>hex-3-ino</em> (triple en el centro).</div>
+                <div class="paso"><strong>2. Numeración:</strong> el triple queda en 3 por ambos extremos. Se elige la dirección que asigne los localizadores más bajos a los sustituyentes.</div>
+                <div class="paso"><strong>3. Sustituyentes:</strong> dos metilos en 2 y 5.</div>
+                <p style="margin-top:10px;"><strong>Nombre:</strong> <span class="nomenclatura"><span class="num">2,5</span>-<span class="pref">Di</span><span class="rad">metil</span><span class="alc">hex</span>-<span class="num">3</span>-<span class="suf">ino</span></span> <em>(<span class="nomenclatura"><span class="num">2,5</span>-<span class="pref">dimetil</span><span class="alc">hex</span>-<span class="num">3</span>-<span class="suf">ino</span></span>)</em></p>
+                <div class="note">
+                    <strong>Info:</strong> cuando el enlace múltiple está en el centro, la numeración se decide por los localizadores de los sustituyentes (2,5 mejor que 2,5 — es simétrico, da igual el sentido).
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+<!-- ==================================================
+     PROBLEMA 20 — Nombre → fórmula: 5-metilhex-1-en-3-ino
+     ================================================== -->
+<details class="ejercicio-card">
+    <summary class="card-header">
+        <span class="badge">Problema 20</span>
+        A partir del nombre: <span class="nomenclatura"><span class="num">5</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span>
+        <i class="fas fa-chevron-down"></i>
+    </summary>
+    <div class="card-body">
+        <div class="enunciado-ej">
+            <strong>Enunciado:</strong> Escribe la fórmula semidesarrollada del <strong><span class="nomenclatura"><span class="num">5</span>-<span class="rad">metil</span><span class="alc">hex</span>-<span class="num">1</span>-<span class="suf">en</span>-<span class="num">3</span>-<span class="suf">ino</span></span></strong>.
+        </div>
+        <details class="solucion-card">
+            <summary class="solucion-header">
+                <i class="fas fa-lightbulb"></i> Solución
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="solucion-body">
+                <div class="paso"><strong>1.</strong> <em>Hex-</em> → 6 carbonos.</div>
+                <div class="paso"><strong>2.</strong> <em>1-en</em> → doble C1=C2. <em>3-ino</em> → triple C3≡C4.</div>
+                <div class="paso"><strong>3.</strong> <em>5-metil</em> → metilo sobre C5.</div>
+                <div class="paso"><strong>4.</strong> Se completan los hidrógenos.</div>
+                <div class="formula-bloque">
+                    <div class="formula-sd">
+                        <span class="num">1</span><span class="c">CH<sub>2</sub></span><span class="doble">=</span><span class="num">2</span><span class="c">CH</span>–<span class="num">3</span><span class="c">C</span><span class="triple">≡</span><span class="num">4</span><span class="c">C</span>–<span class="num">5</span><span class="c">CH</span>(<span class="subs">CH<sub>3</sub></span>)–<span class="num">6</span><span class="c">CH<sub>3</sub></span>
+                    </div>
+                </div>
+                <div class="note">
+                    <strong>Info:</strong> el C3 y el C4 forman el triple (sin H). El C5 lleva un metilo (por eso es <em>CH</em> y no <em>CH₂</em>). El compuesto tiene 7 carbonos en total.
+                </div>
+            </div>
+        </details>
+    </div>
+</details>
+
+
+
+
+
 
             <!-- ==================================================
                  PIE DIDÁCTICO
