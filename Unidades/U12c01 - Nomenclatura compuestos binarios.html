@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c07 - Formulación inorgánica: Compuestos binarios (Óxidos, Peróxidos, Hidruros, Sales y No metálicos)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           CATEGORÍAS ANIDADAS (desplegables de primer nivel)
+           ============================================ */
+        details.categoria-card {
+            margin: 18px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        details.categoria-card > summary.categoria-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 22px;
+            font-size: 1.15em;
+            font-weight: 700;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            transition: filter 0.2s;
+        }
+        details.categoria-card > summary.categoria-header::-webkit-details-marker {
+            display: none;
+        }
+        details.categoria-card > summary.categoria-header:hover {
+            filter: brightness(1.08);
+        }
+        details.categoria-card > summary.categoria-header .fa-chevron-down {
+            margin-left: auto;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        details.categoria-card[open] > summary.categoria-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.categoria-card > .categoria-body {
+            padding: 6px 18px 18px 18px;
+        }
+
+        /* ============================================
+           SUB-CATEGORÍAS (desplegables de segundo nivel)
+           ============================================ */
+        details.subcategoria-card {
+            margin: 14px 0;
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            background: #f8fafc;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.subcategoria-card > summary.subcategoria-header {
+            background: #edf2f7;
+            padding: 12px 18px;
+            font-size: 1.02em;
+            font-weight: 700;
+            color: #2d3748;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        details.subcategoria-card > summary.subcategoria-header::-webkit-details-marker {
+            display: none;
+        }
+        details.subcategoria-card > summary.subcategoria-header:hover {
+            background: #e2e8f0;
+        }
+        details.subcategoria-card > summary.subcategoria-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-size: 0.75em;
+            white-space: nowrap;
+        }
+        details.subcategoria-card > summary.subcategoria-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.subcategoria-card[open] > summary.subcategoria-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.subcategoria-card > .subcategoria-body {
+            padding: 16px 20px;
+            background: #ffffff;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 12px 12px 12px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.categoria-card > summary.categoria-header { font-size: 1em; padding: 12px 14px; }
+            details.subcategoria-card > summary.subcategoria-header { font-size: 0.9em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ============================================================
+         CABECERA
+         ============================================================ -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c07 </span>
+                <span class="texto">Formulación inorgánica: Compuestos binarios</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ============================================================
+         PRESENTACIÓN
+         ============================================================ -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Esta guía reúne los <strong>compuestos binarios oxigenados</strong> (óxidos y peróxidos), los <strong>compuestos binarios hidrogenados</strong> (hidruros), las <strong>sales binarias</strong> y los <strong>compuestos binarios no metálicos</strong>, con sus nomenclaturas de composición IUPAC.</p>
+        <p>El contenido está organizado en <strong>desplegables anidados</strong> para facilitar el estudio progresivo. Todo está plegado por defecto: haz clic en cada categoría para desplegar la información.</p>
+    </div>
+
+    <!-- ============================================================
+         OBJETIVO
+         ============================================================ -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Clasificar correctamente los compuestos binarios: óxidos básicos, óxidos ácidos, peróxidos, hidruros, sales binarias y compuestos binarios no metálicos.</li>
+            <li>Escribir fórmulas a partir de nombres y viceversa.</li>
+            <li>Aplicar las tres nomenclaturas de composición IUPAC con precisión.</li>
+            <li>Distinguir el uso de números romanos (estado de oxidación) de los arábigos con signo (número de carga).</li>
+            <li>Reconocer y nombrar los hidruros mediante la nomenclatura de sustitución.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ============================================================ -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 TEORÍA Y EJEMPLOS de compuestos binarios</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- ==================================================
+                 SECCIÓN TEÓRICA INICIAL: CONCEPTOS GENERALES Y ESQUEMA
+                 ================================================== -->
+            <div class="section procedimiento">
+                <h2>📖 0. Conceptos generales y esquema</h2>
+                <p>Los <strong>compuestos binarios</strong> están formados por dos elementos químicos. Se clasifican en seis grandes familias según la naturaleza de sus componentes:</p>
+
+                <div class="comparison">
+                    <div class="comparison-box">
+                        <div class="title">Óxidos</div>
+                        <p style="font-size: 0.9em; margin: 0;">Oxígeno + Metal / No metal</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El oxígeno actúa con <strong>n.º oxidación −2</strong> (salvo en peróxidos).</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Básicos (M₂Oₙ) / Ácidos (X₂Oₙ)</p>
+                    </div>
+                    <div class="comparison-box">
+                        <div class="title">Peróxidos</div>
+                        <p style="font-size: 0.9em; margin: 0;">Metal + Ion O₂²⁻</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El oxígeno actúa con <strong>n.º oxidación −1</strong>.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El subíndice 2 <strong>nunca se simplifica</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="comparison" style="margin-top: 10px;">
+                    <div class="comparison-box">
+                        <div class="title">Hidruros metálicos</div>
+                        <p style="font-size: 0.9em; margin: 0;">Metal + Hidrógeno</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El hidrógeno actúa con <strong>n.º oxidación −1</strong>.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Fórmula general: MHₙ (H a la derecha).</p>
+                    </div>
+                    <div class="comparison-box">
+                        <div class="title">Hidruros no metálicos</div>
+                        <p style="font-size: 0.9em; margin: 0;">No metal + Hidrógeno</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El hidrógeno actúa con <strong>+1</strong> si el no metal es más electronegativo que él (C, N, P, As, Sb, Bi, O, S, Se, Te, halógenos) y con <strong>−1</strong> si es menos electronegativo (B, Si, Ge, Sn).</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Fórmula según grupo: HₙX o XHₙ.</p>
+                    </div>
+                </div>
+
+                <div class="comparison" style="margin-top: 10px;">
+                    <div class="comparison-box">
+                        <div class="title">Sales binarias</div>
+                        <p style="font-size: 0.9em; margin: 0;">Metal + No metal (sin O ni H)</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El no metal actúa con <strong>n.º oxidación negativo</strong>.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Fórmula general: MₘXₙ (X = no metal).</p>
+                    </div>
+                    <div class="comparison-box">
+                        <div class="title">Compuestos binarios no metálicos</div>
+                        <p style="font-size: 0.9em; margin: 0;">No metal + No metal</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Son covalentes. El elemento menos electronegativo se escribe primero en la fórmula y se nombra en segundo lugar.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Fórmula: XₘYₙ (Y = más electronegativo).</p>
+                    </div>
+                </div>
+
+<!-- ESQUEMA VISUAL DE CLASIFICACIÓN -->
+<div class="figura">
+  <style>
+    .figura { margin: 1.75rem 0; }
+    .figura *, .figura *::before, .figura *::after { box-sizing: border-box; }
+
+    .figura .arbol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      font-family: inherit;
+      overflow-x: auto;
+      padding: 4px 2px 8px;
+    }
+
+    .figura .nodo-raiz {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(43, 108, 176, .28);
+    }
+
+    .figura .tronco {
+      width: 2px;
+      height: 22px;
+      background: #cbd5e0;
+    }
+
+    .figura .ramas {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .figura .rama {
+      position: relative;
+      display: flex;
+      padding: 26px 12px 0;
+    }
+
+    .figura .rama::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: #cbd5e0;
+    }
+    .figura .rama:first-child::before { left: 50%; }
+    .figura .rama:last-child::before  { right: 50%; }
+
+    .figura .rama::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 2px; height: 26px;
+      background: #cbd5e0;
+      transform: translateX(-1px);
+    }
+
+    .figura .tarjeta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 210px;
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+    }
+
+    .figura .tarjeta-titulo {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .figura .t-oxigeno   { background: #ebf8ff; color: #2b6cb0; }
+    .figura .t-hidrogeno { background: #f0fff4; color: #276749; }
+    .figura .t-otros     { background: #faf5ff; color: #553c9a; }
+
+    .figura .hijos {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .figura .hijo {
+      background: var(--bg);
+      border-left: 4px solid var(--c);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--tx);
+    }
+
+    .figura .hijo .nombre {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .figura .hijo .formula {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      opacity: .8;
+    }
+
+    .figura .pie {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #718096;
+    }
+
+    @media (max-width: 800px) {
+      .figura .tronco { display: none; }
+
+      .figura .ramas {
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 20px;
+      }
+
+      .figura .rama {
+        display: block;
+        padding: 0 0 0 20px;
+        margin-bottom: 14px;
+      }
+      .figura .rama:last-child { margin-bottom: 0; }
+
+      .figura .rama::before {
+        left: -20px;
+        right: auto;
+        top: 24px;
+        width: 20px;
+        height: 2px;
+      }
+
+      .figura .rama::after {
+        left: -20px;
+        top: 24px;
+        bottom: -14px;
+        width: 2px;
+        height: auto;
+        transform: none;
+      }
+      .figura .rama:last-child::after { display: none; }
+
+      .figura .tarjeta { min-width: 0; }
+    }
+  </style>
+
+  <div class="arbol">
+
+    <div class="nodo-raiz">Compuestos binarios</div>
+    <div class="tronco"></div>
+
+    <div class="ramas">
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-oxigeno">Con oxígeno</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#48bb78; --bg:#f0fff4; --tx:#276749;">
+              <span class="nombre">Óxidos básicos</span>
+              <span class="formula">Metal + O</span>
+            </li>
+            <li class="hijo" style="--c:#ed8936; --bg:#fffaf0; --tx:#c05621;">
+              <span class="nombre">Óxidos ácidos</span>
+              <span class="formula">No metal + O</span>
+            </li>
+            <li class="hijo" style="--c:#38b2ac; --bg:#e6fffa; --tx:#234e52;">
+              <span class="nombre">Peróxidos</span>
+              <span class="formula">Metal + grupo O₂²⁻</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-hidrogeno">Con hidrógeno</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#9f7aea; --bg:#faf5ff; --tx:#553c9a;">
+              <span class="nombre">Hidruros metálicos</span>
+              <span class="formula">Metal + H</span>
+            </li>
+            <li class="hijo" style="--c:#fc8181; --bg:#fef2f2; --tx:#9b2c2c;">
+              <span class="nombre">Hidruros no metálicos</span>
+              <span class="formula">No metal + H</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-otros">Sin oxígeno ni hidrógeno</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#d69e2e; --bg:#fffbea; --tx:#744210;">
+              <span class="nombre">Sales binarias</span>
+              <span class="formula">Metal + No metal</span>
+            </li>
+            <li class="hijo" style="--c:#805ad5; --bg:#f5f0ff; --tx:#44337a;">
+              <span class="nombre">Compuestos binarios no metálicos</span>
+              <span class="formula">No metal + No metal</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pie">Esquema 1. Clasificación jerárquica de los compuestos binarios estudiados.</div>
+</div>
+
+            <!-- ==================================================
+                 SECCIÓN TEÓRICA: NOMENCLATURA
+                 ================================================== -->
+            <div class="section resultado">
+                <h2>📝 0.1. Nomenclaturas de composición IUPAC</h2>
+                <p>Para todos los compuestos de esta guía se aplican tres sistemas de nomenclatura de composición:</p>
+
+                <h3>a) Con prefijos multiplicadores</h3>
+                <p>Se indica el número de átomos de cada elemento mediante prefijos griegos: <em>mono-</em>, <em>di-</em>, <em>tri-</em>, <em>tetra-</em>, <em>penta-</em>, <em>hexa-</em>, <em>hepta-</em>, etc. El prefijo <em>mono-</em> se omite cuando no hay ambigüedad. No se aceptan contracciones como "pentóxido"; debe escribirse "pentaóxido".</p>
+                <div class="formula-box">
+                    (Prefijo)óxido de (prefijo)nombre del elemento
+                </div>
+
+                <h3>b) Con estado de oxidación (números romanos)</h3>
+                <p>Se indica el número de oxidación del elemento menos electronegativo (metal o no metal) entre paréntesis y en números romanos. <strong>Si el elemento tiene un único número de oxidación, este no se indica.</strong></p>
+                <div class="formula-box">
+                    Óxido de nombre del elemento (N.º oxidación en números romanos)
+                </div>
+
+                <h3>c) Con número de carga (números arábigos con signo)</h3>
+                <p>Se indica <strong>siempre</strong> la carga del catión entre paréntesis, en números arábigos seguidos del signo, <strong>independientemente de que el elemento tenga uno o varios estados de oxidación</strong>. <strong>Esta nomenclatura solo es válida para compuestos iónicos</strong>, por lo que <strong>no se aplica a los óxidos no metálicos</strong> (covalentes), a los hidruros no metálicos ni a los compuestos binarios no metálicos.</p>
+                <div class="formula-box">
+                    Óxido de nombre del elemento (Carga en números arábigos +)
+                </div>
+
+                <div class="note">
+                    <strong>Resumen por familias:</strong>
+                    <ul style="margin-top: 6px;">
+                        <li><strong>Óxidos metálicos:</strong> las tres nomenclaturas.</li>
+                        <li><strong>Óxidos no metálicos:</strong> prefijos multiplicadores y estado de oxidación (no número de carga).</li>
+                        <li><strong>Peróxidos:</strong> prefijos multiplicadores ("dióxido de..."), estado de oxidación ("peróxido de...") y número de carga ("dióxido(2-) de...").</li>
+                        <li><strong>Hidruros metálicos:</strong> las tres nomenclaturas (sustituyendo "óxido" por "hidruro").</li>
+                        <li><strong>Hidruros no metálicos:</strong> prefijos multiplicadores y estado de oxidación (no número de carga).</li>
+                        <li><strong>Sales binarias:</strong> las tres nomenclaturas ("no metaluro de metal").</li>
+                        <li><strong>Compuestos binarios no metálicos:</strong> prefijos multiplicadores y estado de oxidación (no número de carga).</li>
+                    </ul>
+                </div>
+
+                <div class="note" style="background: #e6fffa; border-color: #38b2ac; color: #234e52;">
+                    <strong>⚠️ Diferencia clave entre las nomenclaturas b) y c):</strong>
+                    <ul style="margin-top: 6px;">
+                        <li><strong>Estado de oxidación (números romanos):</strong> el número romano <strong>solo se indica si el elemento tiene más de un número de oxidación</strong>. Si tiene uno solo, se omite. Ej.: <em>óxido de calcio</em> (no <em>óxido de calcio(II)</em>), pero <em>óxido de hierro(II)</em> y <em>óxido de hierro(III)</em>.</li>
+                        <li><strong>Número de carga (arábigos con signo):</strong> la carga <strong>se indica siempre</strong>, aunque el elemento tenga un único estado de oxidación. Ej.: <em>óxido de calcio(2+)</em>, <em>cloruro de sodio(1+)</em>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ==================================================
+                 CATEGORÍA 1: ÓXIDOS Y PERÓXIDOS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-flask"></i>
+                    <span>ÓXIDOS Y PERÓXIDOS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">3 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: Óxidos metálicos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cube"></i>
+                            <span>Óxidos metálicos (básicos) — 20 ejemplos</span>
+                            <span class="badge">20</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Se presentan 20 óxidos metálicos con sus tres nomenclaturas de composición. El oxígeno actúa con n.º oxidación −2.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>Número de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Li₂O</td><td>Li (+1)</td><td>Monóxido de dilitio</td><td>Óxido de litio</td><td>Óxido de litio(1+)</td></tr>
+                                    <tr><td>Na₂O</td><td>Na (+1)</td><td>Monóxido de disodio</td><td>Óxido de sodio</td><td>Óxido de sodio(1+)</td></tr>
+                                    <tr><td>K₂O</td><td>K (+1)</td><td>Monóxido de dipotasio</td><td>Óxido de potasio</td><td>Óxido de potasio(1+)</td></tr>
+                                    <tr><td>Rb₂O</td><td>Rb (+1)</td><td>Monóxido de dirrubidio</td><td>Óxido de rubidio</td><td>Óxido de rubidio(1+)</td></tr>
+                                    <tr><td>Cs₂O</td><td>Cs (+1)</td><td>Monóxido de dicesio</td><td>Óxido de cesio</td><td>Óxido de cesio(1+)</td></tr>
+                                    <tr><td>Ag₂O</td><td>Ag (+1)</td><td>Monóxido de diplata</td><td>Óxido de plata</td><td>Óxido de plata(1+)</td></tr>
+                                    <tr><td>BeO</td><td>Be (+2)</td><td>Monóxido de berilio</td><td>Óxido de berilio</td><td>Óxido de berilio(2+)</td></tr>
+                                    <tr><td>MgO</td><td>Mg (+2)</td><td>Monóxido de magnesio</td><td>Óxido de magnesio</td><td>Óxido de magnesio(2+)</td></tr>
+                                    <tr><td>CaO</td><td>Ca (+2)</td><td>Monóxido de calcio</td><td>Óxido de calcio</td><td>Óxido de calcio(2+)</td></tr>
+                                    <tr><td>SrO</td><td>Sr (+2)</td><td>Monóxido de estroncio</td><td>Óxido de estroncio</td><td>Óxido de estroncio(2+)</td></tr>
+                                    <tr><td>BaO</td><td>Ba (+2)</td><td>Monóxido de bario</td><td>Óxido de bario</td><td>Óxido de bario(2+)</td></tr>
+                                    <tr><td>ZnO</td><td>Zn (+2)</td><td>Monóxido de zinc</td><td>Óxido de zinc</td><td>Óxido de zinc(2+)</td></tr>
+                                    <tr><td>CdO</td><td>Cd (+2)</td><td>Monóxido de cadmio</td><td>Óxido de cadmio</td><td>Óxido de cadmio(2+)</td></tr>
+                                    <tr><td>FeO</td><td>Fe (+2)</td><td>Monóxido de hierro</td><td>Óxido de hierro(II)</td><td>Óxido de hierro(2+)</td></tr>
+                                    <tr><td>CoO</td><td>Co (+2)</td><td>Monóxido de cobalto</td><td>Óxido de cobalto(II)</td><td>Óxido de cobalto(2+)</td></tr>
+                                    <tr><td>NiO</td><td>Ni (+2)</td><td>Monóxido de níquel</td><td>Óxido de níquel(II)</td><td>Óxido de níquel(2+)</td></tr>
+                                    <tr><td>Cu₂O</td><td>Cu (+1)</td><td>Monóxido de dicobre</td><td>Óxido de cobre(I)</td><td>Óxido de cobre(1+)</td></tr>
+                                    <tr><td>CuO</td><td>Cu (+2)</td><td>Monóxido de cobre</td><td>Óxido de cobre(II)</td><td>Óxido de cobre(2+)</td></tr>
+                                    <tr><td>Al₂O₃</td><td>Al (+3)</td><td>Trióxido de dialuminio</td><td>Óxido de aluminio</td><td>Óxido de aluminio(3+)</td></tr>
+                                    <tr><td>Fe₂O₃</td><td>Fe (+3)</td><td>Trióxido de dihierro</td><td>Óxido de hierro(III)</td><td>Óxido de hierro(3+)</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="note">
+                                <strong>Observación importante:</strong> en la nomenclatura de <strong>estado de oxidación</strong>, cuando el metal tiene un único número de oxidación, este <strong>no se indica</strong> (ej. <em>óxido de calcio</em>, no <em>óxido de calcio(II)</em>). En cambio, en la nomenclatura de <strong>número de carga</strong>, la carga del catión <strong>se indica siempre</strong>, aunque el metal tenga un único estado de oxidación (ej. <em>óxido de calcio(2+)</em>). Son dos convenciones distintas que conviene no confundir.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Óxidos no metálicos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-fire"></i>
+                            <span>Óxidos no metálicos (ácidos) — 20 ejemplos</span>
+                            <span class="badge">20</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Los óxidos no metálicos son covalentes, por lo que <strong>no se aplica la nomenclatura de número de carga</strong>. Se presentan las dos nomenclaturas válidas.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>No metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>N.º de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>CO</td><td>C (+2)</td><td>Monóxido de carbono</td><td>Óxido de carbono(II)</td><td>—</td></tr>
+                                    <tr><td>CO₂</td><td>C (+4)</td><td>Dióxido de carbono</td><td>Óxido de carbono(IV)</td><td>—</td></tr>
+                                    <tr><td>SiO₂</td><td>Si (+4)</td><td>Dióxido de silicio</td><td>Óxido de silicio(IV)</td><td>—</td></tr>
+                                    <tr><td>N₂O</td><td>N (+1)</td><td>Monóxido de dinitrógeno</td><td>Óxido de nitrógeno(I)</td><td>—</td></tr>
+                                    <tr><td>NO</td><td>N (+2)</td><td>Monóxido de nitrógeno</td><td>Óxido de nitrógeno(II)</td><td>—</td></tr>
+                                    <tr><td>N₂O₃</td><td>N (+3)</td><td>Trióxido de dinitrógeno</td><td>Óxido de nitrógeno(III)</td><td>—</td></tr>
+                                    <tr><td>NO₂</td><td>N (+4)</td><td>Dióxido de nitrógeno</td><td>Óxido de nitrógeno(IV)</td><td>—</td></tr>
+                                    <tr><td>N₂O₅</td><td>N (+5)</td><td>Pentaóxido de dinitrógeno</td><td>Óxido de nitrógeno(V)</td><td>—</td></tr>
+                                    <tr><td>P₂O₃</td><td>P (+3)</td><td>Trióxido de difósforo</td><td>Óxido de fósforo(III)</td><td>—</td></tr>
+                                    <tr><td>P₂O₅</td><td>P (+5)</td><td>Pentaóxido de difósforo</td><td>Óxido de fósforo(V)</td><td>—</td></tr>
+                                    <tr><td>SO</td><td>S (+2)</td><td>Monóxido de azufre</td><td>Óxido de azufre(II)</td><td>—</td></tr>
+                                    <tr><td>SO₂</td><td>S (+4)</td><td>Dióxido de azufre</td><td>Óxido de azufre(IV)</td><td>—</td></tr>
+                                    <tr><td>SO₃</td><td>S (+6)</td><td>Trióxido de azufre</td><td>Óxido de azufre(VI)</td><td>—</td></tr>
+                                    <tr><td>SeO₂</td><td>Se (+4)</td><td>Dióxido de selenio</td><td>Óxido de selenio(IV)</td><td>—</td></tr>
+                                    <tr><td>SeO₃</td><td>Se (+6)</td><td>Trióxido de selenio</td><td>Óxido de selenio(VI)</td><td>—</td></tr>
+                                    <tr><td>Cl₂O</td><td>Cl (+1)</td><td>Monóxido de dicloro</td><td>Óxido de cloro(I)</td><td>—</td></tr>
+                                    <tr><td>Cl₂O₃</td><td>Cl (+3)</td><td>Trióxido de dicloro</td><td>Óxido de cloro(III)</td><td>—</td></tr>
+                                    <tr><td>Cl₂O₅</td><td>Cl (+5)</td><td>Pentaóxido de dicloro</td><td>Óxido de cloro(V)</td><td>—</td></tr>
+                                    <tr><td>Cl₂O₇</td><td>Cl (+7)</td><td>Heptaóxido de dicloro</td><td>Óxido de cloro(VII)</td><td>—</td></tr>
+                                    <tr><td>Br₂O</td><td>Br (+1)</td><td>Monóxido de dibromo</td><td>Óxido de bromo(I)</td><td>—</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="note">
+                                <strong>Recordatorio:</strong> los óxidos de los halógenos (Cl, Br, I) con oxígeno se consideran actualmente <em>haluros de oxígeno</em>. Se incluyen aquí con fines didácticos.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Peróxidos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-atom"></i>
+                            <span>Peróxidos — ejemplos</span>
+                            <span class="badge">10</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Los peróxidos contienen el ion \(O_2^{2-}\). El subíndice 2 del grupo peróxido no se simplifica nunca.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>Número de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>H₂O₂</td><td>Dióxido de dihidrógeno</td><td>Peróxido de hidrógeno</td><td>— (covalente)</td></tr>
+                                    <tr><td>Li₂O₂</td><td>Dióxido de dilitio</td><td>Peróxido de litio</td><td>Dióxido(2-) de litio(1+)</td></tr>
+                                    <tr><td>Na₂O₂</td><td>Dióxido de disodio</td><td>Peróxido de sodio</td><td>Dióxido(2-) de sodio(1+)</td></tr>
+                                    <tr><td>K₂O₂</td><td>Dióxido de dipotasio</td><td>Peróxido de potasio</td><td>Dióxido(2-) de potasio(1+)</td></tr>
+                                    <tr><td>MgO₂</td><td>Dióxido de magnesio</td><td>Peróxido de magnesio</td><td>Dióxido(2-) de magnesio(2+)</td></tr>
+                                    <tr><td>CaO₂</td><td>Dióxido de calcio</td><td>Peróxido de calcio</td><td>Dióxido(2-) de calcio(2+)</td></tr>
+                                    <tr><td>BaO₂</td><td>Dióxido de bario</td><td>Peróxido de bario</td><td>Dióxido(2-) de bario(2+)</td></tr>
+                                    <tr><td>ZnO₂</td><td>Dióxido de zinc</td><td>Peróxido de zinc</td><td>Dióxido(2-) de zinc(2+)</td></tr>
+                                    <tr><td>Cu₂O₂</td><td>Dióxido de dicobre</td><td>Peróxido de cobre(I)</td><td>Dióxido(2-) de cobre(1+)</td></tr>
+                                    <tr><td>CuO₂</td><td>Dióxido de cobre</td><td>Peróxido de cobre(II)</td><td>Dióxido(2-) de cobre(2+)</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="note">
+                                <strong>Clave:</strong> el ion peróxido es \(O_2^{2-}\). Al escribir la fórmula, el subíndice 2 del grupo \(O_2\) se mantiene dentro de un paréntesis y <strong>nunca se simplifica</strong>.
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 2: HIDRUROS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-fill-drip"></i>
+                    <span>HIDRUROS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">3 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: Hidruros metálicos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cube"></i>
+                            <span>Hidruros metálicos — 21 ejemplos</span>
+                            <span class="badge">21</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>El hidrógeno actúa con <strong>n.º oxidación −1</strong>. Se presentan 21 ejemplos con las tres nomenclaturas.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>Número de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>LiH</td><td>Li (+1)</td><td>Monohidruro de litio</td><td>Hidruro de litio</td><td>Hidruro de litio(1+)</td></tr>
+                                    <tr><td>NaH</td><td>Na (+1)</td><td>Monohidruro de sodio</td><td>Hidruro de sodio</td><td>Hidruro de sodio(1+)</td></tr>
+                                    <tr><td>KH</td><td>K (+1)</td><td>Monohidruro de potasio</td><td>Hidruro de potasio</td><td>Hidruro de potasio(1+)</td></tr>
+                                    <tr><td>RbH</td><td>Rb (+1)</td><td>Monohidruro de rubidio</td><td>Hidruro de rubidio</td><td>Hidruro de rubidio(1+)</td></tr>
+                                    <tr><td>CsH</td><td>Cs (+1)</td><td>Monohidruro de cesio</td><td>Hidruro de cesio</td><td>Hidruro de cesio(1+)</td></tr>
+                                    <tr><td>AgH</td><td>Ag (+1)</td><td>Monohidruro de plata</td><td>Hidruro de plata</td><td>Hidruro de plata(1+)</td></tr>
+                                    <tr><td>BeH₂</td><td>Be (+2)</td><td>Dihidruro de berilio</td><td>Hidruro de berilio</td><td>Hidruro de berilio(2+)</td></tr>
+                                    <tr><td>MgH₂</td><td>Mg (+2)</td><td>Dihidruro de magnesio</td><td>Hidruro de magnesio</td><td>Hidruro de magnesio(2+)</td></tr>
+                                    <tr><td>CaH₂</td><td>Ca (+2)</td><td>Dihidruro de calcio</td><td>Hidruro de calcio</td><td>Hidruro de calcio(2+)</td></tr>
+                                    <tr><td>SrH₂</td><td>Sr (+2)</td><td>Dihidruro de estroncio</td><td>Hidruro de estroncio</td><td>Hidruro de estroncio(2+)</td></tr>
+                                    <tr><td>BaH₂</td><td>Ba (+2)</td><td>Dihidruro de bario</td><td>Hidruro de bario</td><td>Hidruro de bario(2+)</td></tr>
+                                    <tr><td>ZnH₂</td><td>Zn (+2)</td><td>Dihidruro de zinc</td><td>Hidruro de zinc</td><td>Hidruro de zinc(2+)</td></tr>
+                                    <tr><td>CdH₂</td><td>Cd (+2)</td><td>Dihidruro de cadmio</td><td>Hidruro de cadmio</td><td>Hidruro de cadmio(2+)</td></tr>
+                                    <tr><td>FeH₂</td><td>Fe (+2)</td><td>Dihidruro de hierro</td><td>Hidruro de hierro(II)</td><td>Hidruro de hierro(2+)</td></tr>
+                                    <tr><td>CoH₂</td><td>Co (+2)</td><td>Dihidruro de cobalto</td><td>Hidruro de cobalto(II)</td><td>Hidruro de cobalto(2+)</td></tr>
+                                    <tr><td>NiH₂</td><td>Ni (+2)</td><td>Dihidruro de níquel</td><td>Hidruro de níquel(II)</td><td>Hidruro de níquel(2+)</td></tr>
+                                    <tr><td>CuH</td><td>Cu (+1)</td><td>Monohidruro de cobre</td><td>Hidruro de cobre(I)</td><td>Hidruro de cobre(1+)</td></tr>
+                                    <tr><td>CuH₂</td><td>Cu (+2)</td><td>Dihidruro de cobre</td><td>Hidruro de cobre(II)</td><td>Hidruro de cobre(2+)</td></tr>
+                                    <tr><td>AlH₃</td><td>Al (+3)</td><td>Trihidruro de aluminio</td><td>Hidruro de aluminio</td><td>Hidruro de aluminio(3+)</td></tr>
+                                    <tr><td>GaH₃</td><td>Ga (+3)</td><td>Trihidruro de galio</td><td>Hidruro de galio</td><td>Hidruro de galio(3+)</td></tr>
+                                    <tr><td>FeH₃</td><td>Fe (+3)</td><td>Trihidruro de hierro</td><td>Hidruro de hierro(III)</td><td>Hidruro de hierro(3+)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Hidruros no metálicos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-fire"></i>
+                            <span>Hidruros no metálicos — 18 ejemplos</span>
+                            <span class="badge">18</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <h3>a) Grupos 16 y 17 (HₙX): hidrácidos</h3>
+                            <p>El hidrógeno actúa con <strong>n.º oxidación +1</strong> porque los no metales de estos grupos son más electronegativos que él. Se escriben con el hidrógeno a la izquierda.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>No metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>N.º de carga</th>
+                                        <th>Sustitución</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>HF</td><td>F (−1)</td><td>Fluoruro de hidrógeno</td><td>Fluoruro de hidrógeno</td><td>—</td><td>Fluorano</td></tr>
+                                    <tr><td>HCl</td><td>Cl (−1)</td><td>Cloruro de hidrógeno</td><td>Cloruro de hidrógeno</td><td>—</td><td>Clorano</td></tr>
+                                    <tr><td>HBr</td><td>Br (−1)</td><td>Bromuro de hidrógeno</td><td>Bromuro de hidrógeno</td><td>—</td><td>Bromano</td></tr>
+                                    <tr><td>HI</td><td>I (−1)</td><td>Yoduro de hidrógeno</td><td>Yoduro de hidrógeno</td><td>—</td><td>Yodano</td></tr>
+                                    <tr><td>H₂S</td><td>S (−2)</td><td>Sulfuro de dihidrógeno</td><td>Sulfuro de hidrógeno</td><td>—</td><td>Sulfano</td></tr>
+                                    <tr><td>H₂Se</td><td>Se (−2)</td><td>Seleniuro de dihidrógeno</td><td>Seleniuro de hidrógeno</td><td>—</td><td>Selano</td></tr>
+                                    <tr><td>H₂Te</td><td>Te (−2)</td><td>Telururo de dihidrógeno</td><td>Telururo de hidrógeno</td><td>—</td><td>Telano</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h3>b) Grupos 13, 14 y 15 (XHₙ): hidruros covalentes volátiles</h3>
+                            <p>El hidrógeno actúa con <strong>−1</strong> cuando el no metal es menos electronegativo que él (B, Si, Ge, Sn) y con <strong>+1</strong> cuando el no metal es más electronegativo que él (C, N, P, As, Sb, Bi). Se escriben con el hidrógeno a la derecha (XHₙ) por convención tradicional.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>No metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>N.º de carga</th>
+                                        <th>Sustitución</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>BH₃</td><td>B (+3)</td><td>Trihidruro de boro</td><td>Hidruro de boro(III)</td><td>—</td><td>Borano</td></tr>
+                                    <tr><td>CH₄</td><td>C (−4)</td><td>Carburo de tetrahidrógeno</td><td>Carburo de carbono(IV)</td><td>—</td><td>Metano</td></tr>
+                                    <tr><td>SiH₄</td><td>Si (+4)</td><td>Tetrahidruro de silicio</td><td>Hidruro de silicio(IV)</td><td>—</td><td>Silano</td></tr>
+                                    <tr><td>GeH₄</td><td>Ge (+4)</td><td>Tetrahidruro de germanio</td><td>Hidruro de germanio(IV)</td><td>—</td><td>Germano</td></tr>
+                                    <tr><td>SnH₄</td><td>Sn (+4)</td><td>Tetrahidruro de estaño</td><td>Hidruro de estaño(IV)</td><td>—</td><td>Estannano</td></tr>
+                                    <tr><td>PbH₄</td><td>Pb (+4)</td><td>Tetrahidruro de plomo</td><td>Hidruro de plomo(IV)</td><td>—</td><td>Plumbano</td></tr>
+                                    <tr><td>NH₃</td><td>N (−3)</td><td>Nitruro de trihidrógeno</td><td>Nitruro de hidrógeno</td><td>—</td><td>Azano</td></tr>
+                                    <tr><td>PH₃</td><td>P (−3)</td><td>Fosfuro de trihidrógeno</td><td>Fosfuro de hidrógeno</td><td>—</td><td>Fosfano</td></tr>
+                                    <tr><td>AsH₃</td><td>As (−3)</td><td>Arseniuro de trihidrógeno</td><td>Arseniuro de hidrógeno</td><td>—</td><td>Arsano</td></tr>
+                                    <tr><td>SbH₃</td><td>Sb (−3)</td><td>Antimoniuro de trihidrógeno</td><td>Antimoniuro de hidrógeno</td><td>—</td><td>Estibano</td></tr>
+                                    <tr><td>BiH₃</td><td>Bi (−3)</td><td>Bismuturo de trihidrógeno</td><td>Bismuturo de hidrógeno</td><td>—</td><td>Bismutano</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="note">
+                                <strong>Importante:</strong> el Al y el Ga son metales, por lo que sus hidruros (AlH₃ y GaH₃) son <em>hidruros metálicos</em> y se estudian en la subcategoría anterior.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Nomenclatura de sustitución -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-font"></i>
+                            <span>Nomenclatura de sustitución</span>
+                            <span class="badge">23</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>La nomenclatura de sustitución se basa en los <strong>hidruros progenitores</strong>. Se toma el nombre del hidruro progenitor y, si se sustituye algún hidrógeno, se indica el sustituyente.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Hidruro progenitor</th>
+                                        <th>Nombre de sustitución</th>
+                                        <th>También se admite</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>H₂O</td><td>Oxidano</td><td>Oxidano</td><td>Agua</td></tr>
+                                    <tr><td>NH₃</td><td>Azano</td><td>Azano</td><td>Amoniaco</td></tr>
+                                    <tr><td>PH₃</td><td>Fosfano</td><td>Fosfano</td><td>Fosfina</td></tr>
+                                    <tr><td>AsH₃</td><td>Arsano</td><td>Arsano</td><td>Arsina</td></tr>
+                                    <tr><td>SbH₃</td><td>Estibano</td><td>Estibano</td><td>Estibina</td></tr>
+                                    <tr><td>BiH₃</td><td>Bismutano</td><td>Bismutano</td><td>—</td></tr>
+                                    <tr><td>CH₄</td><td>Metano</td><td>Metano</td><td>—</td></tr>
+                                    <tr><td>SiH₄</td><td>Silano</td><td>Silano</td><td>—</td></tr>
+                                    <tr><td>GeH₄</td><td>Germano</td><td>Germano</td><td>—</td></tr>
+                                    <tr><td>SnH₄</td><td>Estannano</td><td>Estannano</td><td>—</td></tr>
+                                    <tr><td>PbH₄</td><td>Plumbano</td><td>Plumbano</td><td>—</td></tr>
+                                    <tr><td>BH₃</td><td>Borano</td><td>Borano</td><td>—</td></tr>
+                                    <tr><td>AlH₃</td><td>Alumano</td><td>Alumano</td><td>—</td></tr>
+                                    <tr><td>GaH₃</td><td>Galano</td><td>Galano</td><td>—</td></tr>
+                                    <tr><td>InH₃</td><td>Indigano</td><td>Indigano</td><td>—</td></tr>
+                                    <tr><td>TlH₃</td><td>Talano</td><td>Talano</td><td>—</td></tr>
+                                    <tr><td>HF</td><td>Fluorano</td><td>Fluorano</td><td>—</td></tr>
+                                    <tr><td>HCl</td><td>Clorano</td><td>Clorano</td><td>—</td></tr>
+                                    <tr><td>HBr</td><td>Bromano</td><td>Bromano</td><td>—</td></tr>
+                                    <tr><td>HI</td><td>Yodano</td><td>Yodano</td><td>—</td></tr>
+                                    <tr><td>H₂S</td><td>Sulfano</td><td>Sulfano</td><td>—</td></tr>
+                                    <tr><td>H₂Se</td><td>Selano</td><td>Selano</td><td>—</td></tr>
+                                    <tr><td>H₂Te</td><td>Telano</td><td>Telano</td><td>—</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="note">
+                                <strong>¿Cómo se forma un nombre de sustitución?</strong> Se toma el nombre del hidruro progenitor y, si se sustituye algún hidrógeno por otro átomo o grupo, se indica la posición y el sustituyente. Por ejemplo, en el CH₃Cl (clorometano), se ha sustituido un hidrógeno del metano por un cloro.
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 3: SALES BINARIAS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-salt-shaker"></i>
+                    <span>SALES BINARIAS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">1 subcategoría</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cube"></i>
+                            <span>Sales binarias — 20 ejemplos</span>
+                            <span class="badge">20</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Las <strong>sales binarias</strong> están formadas por un <strong>metal</strong> y un <strong>no metal</strong> (distinto del oxígeno y del hidrógeno). El no metal actúa con su número de oxidación negativo y se nombra terminado en <em>-uro</em>. Se aplican las tres nomenclaturas.</p>
+
+                            <div class="formula-box">
+                                (Prefijo)no metaluro de (prefijo)metal
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Metal (n.º oxid.) / No metal</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>Número de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>NaCl</td><td>Na (+1) / Cl (−1)</td><td>Cloruro de sodio</td><td>Cloruro de sodio</td><td>Cloruro de sodio(1+)</td></tr>
+                                    <tr><td>KCl</td><td>K (+1) / Cl (−1)</td><td>Cloruro de potasio</td><td>Cloruro de potasio</td><td>Cloruro de potasio(1+)</td></tr>
+                                    <tr><td>LiCl</td><td>Li (+1) / Cl (−1)</td><td>Cloruro de litio</td><td>Cloruro de litio</td><td>Cloruro de litio(1+)</td></tr>
+                                    <tr><td>CaCl₂</td><td>Ca (+2) / Cl (−1)</td><td>Dicloruro de calcio</td><td>Cloruro de calcio</td><td>Cloruro de calcio(2+)</td></tr>
+                                    <tr><td>MgCl₂</td><td>Mg (+2) / Cl (−1)</td><td>Dicloruro de magnesio</td><td>Cloruro de magnesio</td><td>Cloruro de magnesio(2+)</td></tr>
+                                    <tr><td>BaCl₂</td><td>Ba (+2) / Cl (−1)</td><td>Dicloruro de bario</td><td>Cloruro de bario</td><td>Cloruro de bario(2+)</td></tr>
+                                    <tr><td>FeCl₂</td><td>Fe (+2) / Cl (−1)</td><td>Dicloruro de hierro</td><td>Cloruro de hierro(II)</td><td>Cloruro de hierro(2+)</td></tr>
+                                    <tr><td>FeCl₃</td><td>Fe (+3) / Cl (−1)</td><td>Tricloruro de hierro</td><td>Cloruro de hierro(III)</td><td>Cloruro de hierro(3+)</td></tr>
+                                    <tr><td>CuCl</td><td>Cu (+1) / Cl (−1)</td><td>Cloruro de cobre</td><td>Cloruro de cobre(I)</td><td>Cloruro de cobre(1+)</td></tr>
+                                    <tr><td>CuCl₂</td><td>Cu (+2) / Cl (−1)</td><td>Dicloruro de cobre</td><td>Cloruro de cobre(II)</td><td>Cloruro de cobre(2+)</td></tr>
+                                    <tr><td>ZnCl₂</td><td>Zn (+2) / Cl (−1)</td><td>Dicloruro de zinc</td><td>Cloruro de zinc</td><td>Cloruro de zinc(2+)</td></tr>
+                                    <tr><td>AlCl₃</td><td>Al (+3) / Cl (−1)</td><td>Tricloruro de aluminio</td><td>Cloruro de aluminio</td><td>Cloruro de aluminio(3+)</td></tr>
+                                    <tr><td>AgCl</td><td>Ag (+1) / Cl (−1)</td><td>Cloruro de plata</td><td>Cloruro de plata</td><td>Cloruro de plata(1+)</td></tr>
+                                    <tr><td>NaBr</td><td>Na (+1) / Br (−1)</td><td>Bromuro de sodio</td><td>Bromuro de sodio</td><td>Bromuro de sodio(1+)</td></tr>
+                                    <tr><td>KI</td><td>K (+1) / I (−1)</td><td>Yoduro de potasio</td><td>Yoduro de potasio</td><td>Yoduro de potasio(1+)</td></tr>
+                                    <tr><td>Na₂S</td><td>Na (+1) / S (−2)</td><td>Sulfuro de disodio</td><td>Sulfuro de sodio</td><td>Sulfuro de sodio(1+)</td></tr>
+                                    <tr><td>FeS</td><td>Fe (+2) / S (−2)</td><td>Sulfuro de hierro</td><td>Sulfuro de hierro(II)</td><td>Sulfuro de hierro(2+)</td></tr>
+                                    <tr><td>CuS</td><td>Cu (+2) / S (−2)</td><td>Sulfuro de cobre</td><td>Sulfuro de cobre(II)</td><td>Sulfuro de cobre(2+)</td></tr>
+                                    <tr><td>Ca₃N₂</td><td>Ca (+2) / N (−3)</td><td>Dinitruro de tricalcio</td><td>Nitruro de calcio</td><td>Nitruro de calcio(2+)</td></tr>
+                                    <tr><td>AlN</td><td>Al (+3) / N (−3)</td><td>Nitruro de aluminio</td><td>Nitruro de aluminio</td><td>Nitruro de aluminio(3+)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Claves para las sales binarias:</strong>
+                                <ul style="margin-top: 6px;">
+                                    <li>El <strong>no metal</strong> se nombra terminado en <em>-uro</em>: cloruro, bromuro, yoduro, sulfuro, seleniuro, telururo, nitruro, fosfuro, arseniuro, carburo, siliciuro.</li>
+                                    <li>En la nomenclatura de <strong>prefijos multiplicadores</strong>, el prefijo <em>mono-</em> se omite cuando no hay ambigüedad.</li>
+                                    <li>En la nomenclatura de <strong>estado de oxidación</strong>, si el metal tiene un único número de oxidación, <strong>no se indica</strong> el número romano (ej. <em>cloruro de calcio</em>).</li>
+                                    <li>En la nomenclatura de <strong>número de carga</strong>, la carga del catión <strong>se indica siempre</strong>, aunque el metal tenga un único estado de oxidación (ej. <em>cloruro de calcio(2+)</em>).</li>
+                                    <li>Las sales binarias son <strong>compuestos iónicos</strong>, por lo que sí se les aplica la nomenclatura de número de carga.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 4: COMPUESTOS BINARIOS NO METÁLICOS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-link"></i>
+                    <span>COMPUESTOS BINARIOS NO METÁLICOS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">1 subcategoría</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-fire"></i>
+                            <span>Compuestos binarios no metálicos — 20 ejemplos</span>
+                            <span class="badge">20</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Están formados por <strong>dos no metales</strong> (distintos del oxígeno y del hidrógeno). Son compuestos <strong>covalentes</strong>, por lo que <strong>no se les aplica la nomenclatura de número de carga</strong>.</p>
+
+                            <div class="note" style="margin-bottom: 12px;">
+                                <strong>Regla de orden:</strong> en la <em>fórmula</em> se escribe primero el elemento <strong>menos electronegativo</strong> y después el <strong>más electronegativo</strong>. En el <em>nombre</em>, se nombra primero el elemento <strong>más electronegativo</strong> terminado en <em>-uro</em> y después el <strong>menos electronegativo</strong>. Se usan prefijos multiplicadores.
+                            </div>
+
+                            <div class="formula-box">
+                                (Prefijo)elemento más electronegativo-uro de (prefijo)elemento menos electronegativo
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Elementos (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>N.º de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>CCl₄</td><td>C (+4) / Cl (−1)</td><td>Tetracloruro de carbono</td><td>Cloruro de carbono(IV)</td><td>—</td></tr>
+                                    <tr><td>CS₂</td><td>C (+4) / S (−2)</td><td>Disulfuro de carbono</td><td>Sulfuro de carbono(IV)</td><td>—</td></tr>
+                                    <tr><td>CF₄</td><td>C (+4) / F (−1)</td><td>Tetrafluoruro de carbono</td><td>Fluoruro de carbono(IV)</td><td>—</td></tr>
+                                    <tr><td>CBr₄</td><td>C (+4) / Br (−1)</td><td>Tetrabromuro de carbono</td><td>Bromuro de carbono(IV)</td><td>—</td></tr>
+                                    <tr><td>PCl₃</td><td>P (+3) / Cl (−1)</td><td>Tricloruro de fósforo</td><td>Cloruro de fósforo(III)</td><td>—</td></tr>
+                                    <tr><td>PCl₅</td><td>P (+5) / Cl (−1)</td><td>Pentacloruro de fósforo</td><td>Cloruro de fósforo(V)</td><td>—</td></tr>
+                                    <tr><td>PBr₃</td><td>P (+3) / Br (−1)</td><td>Tribromuro de fósforo</td><td>Bromuro de fósforo(III)</td><td>—</td></tr>
+                                    <tr><td>PI₃</td><td>P (+3) / I (−1)</td><td>Triyoduro de fósforo</td><td>Yoduro de fósforo(III)</td><td>—</td></tr>
+                                    <tr><td>SF₆</td><td>S (+6) / F (−1)</td><td>Hexafluoruro de azufre</td><td>Fluoruro de azufre(VI)</td><td>—</td></tr>
+                                    <tr><td>SF₄</td><td>S (+4) / F (−1)</td><td>Tetrafluoruro de azufre</td><td>Fluoruro de azufre(IV)</td><td>—</td></tr>
+                                    <tr><td>SCl₂</td><td>S (+2) / Cl (−1)</td><td>Dicloruro de azufre</td><td>Cloruro de azufre(II)</td><td>—</td></tr>
+                                    <tr><td>S₂Cl₂</td><td>S (+1) / Cl (−1)</td><td>Dicloruro de disulfuro</td><td>Cloruro de azufre(I)</td><td>—</td></tr>
+                                    <tr><td>NF₃</td><td>N (+3) / F (−1)</td><td>Trifluoruro de nitrógeno</td><td>Fluoruro de nitrógeno(III)</td><td>—</td></tr>
+                                    <tr><td>NCl₃</td><td>N (+3) / Cl (−1)</td><td>Tricloruro de nitrógeno</td><td>Cloruro de nitrógeno(III)</td><td>—</td></tr>
+                                    <tr><td>SiCl₄</td><td>Si (+4) / Cl (−1)</td><td>Tetracloruro de silicio</td><td>Cloruro de silicio(IV)</td><td>—</td></tr>
+                                    <tr><td>SiF₄</td><td>Si (+4) / F (−1)</td><td>Tetrafluoruro de silicio</td><td>Fluoruro de silicio(IV)</td><td>—</td></tr>
+                                    <tr><td>BF₃</td><td>B (+3) / F (−1)</td><td>Trifluoruro de boro</td><td>Fluoruro de boro(III)</td><td>—</td></tr>
+                                    <tr><td>BCl₃</td><td>B (+3) / Cl (−1)</td><td>Tricloruro de boro</td><td>Cloruro de boro(III)</td><td>—</td></tr>
+                                    <tr><td>SeCl₂</td><td>Se (+2) / Cl (−1)</td><td>Dicloruro de selenio</td><td>Cloruro de selenio(II)</td><td>—</td></tr>
+                                    <tr><td>AsCl₃</td><td>As (+3) / Cl (−1)</td><td>Tricloruro de arsénico</td><td>Cloruro de arsénico(III)</td><td>—</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Claves para los compuestos binarios no metálicos:</strong>
+                                <ul style="margin-top: 6px;">
+                                    <li>El <strong>orden de electronegatividad</strong> es fundamental: en la fórmula se escribe primero el menos electronegativo; en el nombre se nombra primero el más electronegativo terminado en <em>-uro</em>.</li>
+                                    <li>En la tabla periódica, la electronegatividad aumenta hacia la derecha y hacia arriba.</li>
+                                    <li>Se usan <strong>prefijos multiplicadores</strong> para indicar el número de átomos de cada elemento.</li>
+                                    <li>La nomenclatura de <strong>estado de oxidación</strong> también es aplicable, indicando el número de oxidación del elemento menos electronegativo en números romanos.</li>
+                                    <li><strong>No se aplica la nomenclatura de número de carga</strong> porque son compuestos covalentes y no forman iones.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 SECCIÓN FINAL: OBSERVACIONES Y RECOMENDACIONES
+                 ================================================== -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave y recomendaciones didácticas:</strong>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Número de oxidación vs. número de carga:</strong> el número de oxidación se escribe en números romanos (ej. Fe(III)) y puede usarse para compuestos iónicos y covalentes. El número de carga se escribe en números arábigos con signo (ej. Fe(3+)) y <strong>solo es válido para compuestos iónicos</strong> (óxidos metálicos, peróxidos metálicos, hidruros metálicos y sales binarias).</li>
+                    <li><strong>Elementos con un solo número de oxidación:</strong> en la nomenclatura de <strong>estado de oxidación</strong> (números romanos), no se indica el número romano cuando el elemento tiene un único estado de oxidación (ej. <em>óxido de calcio</em>). En cambio, en la nomenclatura de <strong>número de carga</strong> (arábigos con signo), la carga <strong>se indica siempre</strong>, aunque el elemento tenga un único estado de oxidación (ej. <em>óxido de calcio(2+)</em>). Son dos convenciones distintas que conviene no confundir.</li>
+                    <li><strong>Prefijos multiplicadores:</strong> no se admite la contracción de prefijos (debe decirse "pentaóxido", no "pentóxido"). El prefijo "mono-" solo se usa cuando es necesario para evitar ambigüedad o para enfatizar la estequiometría.</li>
+                    <li><strong>Óxidos no metálicos:</strong> no se les aplica la nomenclatura de número de carga porque son covalentes y no forman iones.</li>
+                    <li><strong>Peróxidos:</strong> el ion \(O_2^{2-}\) es característico. En la nomenclatura con prefijos multiplicadores se nombran como "dióxido de..."; con estado de oxidación se acepta "peróxido de..."; y con número de carga se nombran como "dióxido(2-) de...".</li>
+                    <li><strong>Hidruros metálicos:</strong> el hidrógeno actúa con n.º oxidación −1. Se nombran con las tres nomenclaturas de composición.</li>
+                    <li><strong>Hidruros no metálicos de los grupos 16 y 17:</strong> son covalentes y no forman cationes, por lo que no se les aplica la nomenclatura de número de carga. Se escriben con el hidrógeno a la izquierda (HₙX) y se nombran como "no metaluro de hidrógeno". El hidrógeno actúa con n.º oxidación +1.</li>
+                    <li><strong>Hidruros no metálicos de los grupos 13 a 15:</strong> son covalentes. El hidrógeno actúa con n.º oxidación −1 cuando el no metal es menos electronegativo que él (B, Si, Ge, Sn) y con +1 cuando el no metal es más electronegativo (C, N, P, As, Sb, Bi). Se escriben con el hidrógeno a la derecha (XHₙ). Tienen nombres de sustitución ampliamente aceptados (metano, amoniaco, etc.). El Al y el Ga son metales, por lo que AlH₃ y GaH₃ son hidruros metálicos.</li>
+                    <li><strong>Sales binarias:</strong> el no metal se nombra terminado en <em>-uro</em>. Son compuestos iónicos, por lo que sí se les aplica la nomenclatura de número de carga. El orden de escritura en la fórmula es: primero el metal (catión) y después el no metal (anión).</li>
+                    <li><strong>Compuestos binarios no metálicos:</strong> son covalentes. En la fórmula se escribe primero el elemento menos electronegativo; en el nombre se nombra primero el más electronegativo terminado en <em>-uro</em>. No se les aplica la nomenclatura de número de carga. Se usan prefijos multiplicadores.</li>
+                    <li><strong>Haluros de oxígeno:</strong> las combinaciones de oxígeno con halógenos ya no se consideran óxidos, sino haluros de oxígeno. Es importante conocer esta actualización terminológica.</li>
+                    <li><strong>Errores frecuentes:</strong> olvidar simplificar la fórmula cuando es posible (excepto en peróxidos); confundir el uso de números romanos y arábigos; no aplicar los prefijos multiplicadores correctamente; olvidar que los hidruros no metálicos de los grupos 16 y 17 no llevan número de carga; no respetar el orden de electronegatividad en los compuestos binarios no metálicos; escribir "dícloro" en lugar de "dicloro"; creer que la carga se omite en la nomenclatura de número de carga cuando el elemento tiene un solo estado de oxidación (la carga se indica siempre).</li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+            <br> Aplicando las reglas IUPAC paso a paso.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+       

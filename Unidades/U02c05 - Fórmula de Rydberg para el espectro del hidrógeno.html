@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,13 +6,15 @@
     <title>#T02.06. Fórmula de Rydberg para el espectro del hidrógeno</title>
     <!-- FontAwesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- Fuente monoespaciada con cobertura Unicode amplia (flechas, superíndices…) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
            ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
             max-width: 900px;
             width: 100%;
@@ -22,9 +22,8 @@
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
-            margin: 0 auto;      /* <--- ESTA ES LA CLAVE */
+            margin: 0 auto;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -34,40 +33,20 @@
             justify-content: space-between;
             gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-        }
-        /* Zona derecha de la cabecera */
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
-        /* ---------- SECCIONES PRINCIPALES ---------- */
+        .header-left { display: flex; flex-direction: column; justify-content: center; }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; }
         .section {
             padding: 25px 30px;
             margin: 15px;
             border-radius: 12px;
             border-left: 5px solid;
         }
-        /* Variantes de color para cada tipo de sección */
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
         .section h2 {
             font-size: 1.3em;
             margin-bottom: 15px;
@@ -79,7 +58,6 @@
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
-        /* ---------- CAJA DE FÓRMULA ---------- */
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -89,7 +67,6 @@
             text-align: center;
             font-size: 1.1em;
         }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
         .step {
             background: white;
             border-left: 4px solid #a0aec0;
@@ -110,7 +87,6 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        /* ---------- NOTA DESTACADA ---------- */
         .note {
             background: #fffbeb;
             border: 1px solid #f6e05e;
@@ -120,12 +96,7 @@
             font-size: 0.95em;
             color: #744210;
         }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        /* Ajuste para el subtítulo de la cabecera */
+        p { line-height: 1.7; margin-bottom: 10px; }
         .header-sub {
             display: flex;
             align-items: center;
@@ -133,41 +104,29 @@
             margin-top: 6px;
             font-size: 1em;
         }
-        .header-sub img {
-            max-height: 24px;
-            width: auto;
-            border-radius: 4px;
-        }
+        .header-sub img { max-height: 24px; width: auto; border-radius: 4px; }
         .header-sub .codigo {
             font-weight: 600;
             background: rgba(255,255,255,0.2);
             padding: 2px 8px;
             border-radius: 12px;
         }
-        .header-sub .texto {
-            font-weight: 400;
-            opacity: 0.95;
-        }
+        .header-sub .texto { font-weight: 400; opacity: 0.95; }
 
         /* ============================================
            ESTILOS PARA EL BLOQUE DESPLEGABLE
            ============================================ */
         details {
-            margin: 25px 30px 20px 30px;  /* mismo padding que las secciones */
+            margin: 25px 30px 20px 30px;
             border: 2px solid #cbd5e0;
             border-radius: 20px;
             background: #f8fafc;
             padding: 0.2rem 0.6rem 0.6rem 0.6rem;
             transition: border-color 0.3s, background 0.3s;
         }
-
-        details[open] {
-            border-color: #667eea;
-            background: #f4f7ff;
-        }
-
+        details[open] { border-color: #667eea; background: #f4f7ff; }
         details summary {
-            list-style: none;           /* oculta el triángulo por defecto en Firefox/Chrome */
+            list-style: none;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -180,29 +139,22 @@
             transition: all 0.2s;
             border-radius: 16px;
         }
-
-        details summary::-webkit-details-marker {
-            display: none;              /* oculta el triángulo en WebKit */
-        }
-
+        details summary::-webkit-details-marker { display: none; }
         details summary i.fa-chevron-circle-down {
             font-size: 2rem;
             color: #667eea;
             transition: transform 0.35s ease;
         }
-
         details[open] summary i.fa-chevron-circle-down {
             transform: rotate(180deg);
             color: #764ba2;
         }
-
         details summary .titulo-desplegable {
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
             gap: 0.3rem 0.8rem;
         }
-
         details summary .titulo-desplegable .pulsame {
             font-size: 1rem;
             font-weight: 400;
@@ -212,12 +164,7 @@
             color: #2d3748;
             letter-spacing: 0.3px;
         }
-
-        .contenido-desplegable {
-            padding: 0.2rem 0.8rem 1.2rem 0.8rem;
-        }
-
-        /* Tarjetas de ejercicios dentro del desplegable */
+        .contenido-desplegable { padding: 0.2rem 0.8rem 1.2rem 0.8rem; }
         .ejercicio-card {
             background: white;
             border-radius: 18px;
@@ -226,14 +173,12 @@
             margin-bottom: 1.8rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
-
         .ejercicio-card .ej-header {
             display: flex;
             align-items: baseline;
             gap: 0.8rem;
             margin-bottom: 0.6rem;
         }
-
         .ejercicio-card .ej-header .num {
             background: #667eea;
             color: white;
@@ -243,29 +188,22 @@
             border-radius: 40px;
             letter-spacing: 0.3px;
         }
-
         .ejercicio-card .ej-header .tit {
             font-weight: 600;
             font-size: 1.15rem;
             color: #2d3748;
         }
-
         .ejercicio-card .enunciado {
             margin: 0.6rem 0 1rem 0;
             padding-left: 0.6rem;
             border-left: 3px solid #b3cbe0;
         }
-
         .ejercicio-card .enunciado ul {
             list-style: disc;
             padding-left: 1.6rem;
             margin: 0.4rem 0;
         }
-
-        .ejercicio-card .enunciado ul li {
-            margin-bottom: 0.2rem;
-        }
-
+        .ejercicio-card .enunciado ul li { margin-bottom: 0.2rem; }
         .resolucion {
             background: #f2f7fd;
             border-radius: 16px;
@@ -273,11 +211,7 @@
             border: 1px solid #d4e2f0;
             margin-top: 0.8rem;
         }
-
-        .resolucion p {
-            margin-bottom: 0.4rem;
-        }
-
+        .resolucion p { margin-bottom: 0.4rem; }
         .clave-didactica {
             margin-top: 1.2rem;
             padding: 0.8rem 1.6rem;
@@ -314,11 +248,6 @@
             </div>
             <p>donde \(n_2 > n_1\) y \(R_{\infty}\) es la constante de Rydberg.</p>
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -333,12 +262,6 @@
 
 <!-- -----FIN-------- -->
 
-
-
-
-
-
-
         </div>
 
         <!-- SECCIÓN OBJETIVO -->
@@ -350,7 +273,7 @@
         <!-- SECCIÓN PROCEDIMIENTO -->
         <div class="section procedimiento">
             <h2>🔧 Procedimiento</h2>
-            
+
             <div class="step">
                 <span class="step-num">1</span>
                 <strong>Postulado de Bohr sobre la energía:</strong> el electrón solo puede ocupar órbitas estacionarias con energías discretas dadas por:
@@ -560,45 +483,6 @@
             </div> <!-- fin contenido-desplegable -->
         </details>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- ============ BLOQUE: Rydberg — problemas adicionales con calculadora científica ============ -->
 <details class="ryd2-outer">
 <summary>🖩 Uso de la calculadora científica — Fórmula de Rydberg (5 problemas adicionales resueltos)</summary>
@@ -623,7 +507,25 @@
 .ryd2-wrapper .formula{border-left:4px solid #0078D4;background:#eff6ff;padding:.5rem .8rem;margin:.6rem 0;border-radius:0 8px 8px 0;overflow-x:auto;}
 .ryd2-wrapper .entrada-calc{background:#f6f9fc;border:1px solid #d6e4f0;border-radius:8px;padding:.6rem .8rem;margin:.8rem 0;}
 .ryd2-wrapper .entrada-latex{background:#fff;border-left:4px solid #0078D4;padding:.4rem .7rem;border-radius:4px;overflow-x:auto;}
-.ryd2-wrapper .pantalla{font-family:"Courier New",monospace;background:#20301f;color:#b9f6a0;border:2px solid #4a5a49;border-radius:6px;padding:.4rem .7rem;letter-spacing:.5px;overflow-x:auto;white-space:nowrap;}
+
+/* ==========================================================
+   PANTALLA DE CALCULADORA
+   - Se añade Noto Sans Mono / JetBrains Mono (cobertura Unicode
+     amplia: flechas, superíndices, etc.) antes del fallback.
+   - Se fuerza que <sup> se renderice correctamente.
+   ========================================================== */
+.ryd2-wrapper .pantalla{
+  font-family:"Noto Sans Mono","JetBrains Mono","Courier New",ui-monospace,monospace;
+  background:#20301f;color:#b9f6a0;border:2px solid #4a5a49;border-radius:6px;
+  padding:.4rem .7rem;letter-spacing:.5px;overflow-x:auto;white-space:nowrap;
+}
+.ryd2-wrapper .pantalla sup{
+  font-size:.72em;
+  vertical-align:super;
+  line-height:0;
+  font-feature-settings:"sups" 1;
+}
+
 .ryd2-wrapper .entrada-rotulo,.ryd2-wrapper .pantalla-rotulo,.ryd2-wrapper .teclas-rotulo{font-weight:600;color:#005a9e;margin:.5rem 0 .2rem;}
 .ryd2-wrapper .ok{background:#ecfdf5;border-left:4px solid #10b981;padding:.45rem .7rem;border-radius:0 6px 6px 0;margin:.5rem 0;}
 .ryd2-wrapper .warn{background:#fffbeb;border-left:4px solid #f59e0b;padding:.45rem .7rem;border-radius:0 6px 6px 0;margin:.5rem 0;}
@@ -682,37 +584,37 @@ Series: \(n_1=1\) Lyman (UV) · \(n_1=2\) Balmer (visible) · \(n_1=3\) Paschen 
 <p><strong>a) Lyman-α (2→1).</strong></p>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula F_Ryd → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Fórmula F_Ryd &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{\lambda}=R_\infty\!\left(\tfrac{1}{1^{2}}-\tfrac{1}{2^{2}}\right)\;\rightarrow\; 1.097\times10^{7}\times(1-1\div 4) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷×(1−1÷4)</div>
+<div class="pantalla">1.097×10<sup>7</sup>×(1−1÷4)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 8,2275×10⁶ m⁻¹.</p>
+<p>= 8,2275×10<sup>6</sup> m<sup>−1</sup>.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula \(\lambda=(1/\lambda)^{-1}\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula \(\lambda=(1/\lambda)^{-1}\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda=\text{Ans}^{-1} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans⁻¹</div>
+<div class="pantalla">Ans<sup>−1</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>x⁻¹</kbd>][<kbd>=</kbd>]</p>
-<p>= 1,21554×10⁻⁷ m.</p>
+<p>= 1,21554×10<sup>−7</sup> m.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Conversión \(\lambda(\text{nm})=\lambda(\text{m})\times10^{9}\) → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Conversión \(\lambda(\text{nm})=\lambda(\text{m})\times10^{9}\) &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\text{Ans}\times10^{9} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans×10⁹</div>
+<div class="pantalla">Ans×10<sup>9</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
 <p>= 121,55 nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Bohr \(\Delta E=13{,}6\,(1-1/4)\) en eV → Expresión a introducir (paso 4):</p>
+<p class="entrada-rotulo">Bohr \(\Delta E=13{,}6\,(1-1/4)\) en eV &rarr; Expresión a introducir (paso 4):</p>
 <div class="entrada-latex">\[ \Delta E=13.6\!\left(1-\tfrac{1}{4}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">13.6×(1−1÷4)</div>
@@ -724,27 +626,27 @@ Series: \(n_1=1\) Lyman (UV) · \(n_1=2\) Balmer (visible) · \(n_1=3\) Paschen 
 <p><strong>b) Lyman-β (3→1).</strong></p>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula F_Ryd → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Fórmula F_Ryd &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{\lambda}=R_\infty\!\left(1-\tfrac{1}{9}\right)\;\rightarrow\; 1.097\times10^{7}\times(1-1\div 9) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷×(1−1÷9)</div>
+<div class="pantalla">1.097×10<sup>7</sup>×(1−1÷9)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 9,7511×10⁶ m⁻¹.</p>
+<p>= 9,7511×10<sup>6</sup> m<sup>−1</sup>.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula \(\lambda_{\text{nm}}=(1/\lambda)^{-1}\times10^{9}\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula \(\lambda_{\text{nm}}=(1/\lambda)^{-1}\times10^{9}\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\text{Ans}^{-1}\times10^{9} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans⁻¹×10⁹</div>
+<div class="pantalla">Ans<sup>−1</sup>×10<sup>9</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>x⁻¹</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
 <p>= 102,55 nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Bohr \(\Delta E=13{,}6\,(1-1/9)\) en eV → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Bohr \(\Delta E=13{,}6\,(1-1/9)\) en eV &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ \Delta E=13.6\!\left(1-\tfrac{1}{9}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">13.6×(1−1÷9)</div>
@@ -769,30 +671,30 @@ Ambas en el <strong>ultravioleta</strong> (Lyman).
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Asignar \(R_\infty\to A\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Asignar \(R_\infty\to A\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷→A</div>
+<div class="pantalla">1.097×10<sup>7</sup>&rarr;A</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>]</p>
 <p>(fx-82/fx-85: [<kbd>STO</kbd>][<kbd>A</kbd>].)</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Lyman-α con A → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Lyman-α con A &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\left[A(1-1/4)\right]^{-1}\times 10^{9}\;\rightarrow\;(A\times(1-1\div4))^{-1}\times10^{9} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">(A×(1−1÷4))⁻¹×10⁹</div>
+<div class="pantalla">(A×(1−1÷4))<sup>−1</sup>×10<sup>9</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>(</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>x⁻¹</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
 <p>= 121,55 nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Lyman-β con A → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Lyman-β con A &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\left[A(1-1/9)\right]^{-1}\times 10^{9}\;\rightarrow\;(A\times(1-1\div9))^{-1}\times10^{9} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">(A×(1−1÷9))⁻¹×10⁹</div>
+<div class="pantalla">(A×(1−1÷9))<sup>−1</sup>×10<sup>9</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>(</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>x⁻¹</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
 <p>= 102,55 nm.</p>
@@ -804,20 +706,20 @@ Ambas en el <strong>ultravioleta</strong> (Lyman).
 <p>Los paréntesis valen exactamente \(\tfrac{3}{4}\) y \(\tfrac{8}{9}\), por lo que las fórmulas se simplifican a \(\lambda=4/(3R_\infty)\) y \(\lambda=9/(8R_\infty)\). Esto evita calcular primero \(1/\lambda\) y luego invertir.</p>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Lyman-α: \(\lambda_{\text{nm}}=\dfrac{4\times10^{9}}{3R_\infty}\) → Expresión a introducir:</p>
+<p class="entrada-rotulo">Lyman-α: \(\lambda_{\text{nm}}=\dfrac{4\times10^{9}}{3R_\infty}\) &rarr; Expresión a introducir:</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\frac{4\times10^{9}}{3R_\infty}\;\rightarrow\; 4\times10^{9}\div(3\times1.097\times10^{7}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4×10⁹÷(3×1.097×10⁷)</div>
+<div class="pantalla">4×10<sup>9</sup>÷(3×1.097×10<sup>7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>3</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 121,55 nm directamente en nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Lyman-β: \(\lambda_{\text{nm}}=\dfrac{9\times10^{9}}{8R_\infty}\) → Expresión a introducir:</p>
+<p class="entrada-rotulo">Lyman-β: \(\lambda_{\text{nm}}=\dfrac{9\times10^{9}}{8R_\infty}\) &rarr; Expresión a introducir:</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\frac{9\times10^{9}}{8R_\infty}\;\rightarrow\; 9\times10^{9}\div(8\times1.097\times10^{7}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">9×10⁹÷(8×1.097×10⁷)</div>
+<div class="pantalla">9×10<sup>9</sup>÷(8×1.097×10<sup>7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>9</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>8</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 102,55 nm.</p>
@@ -872,37 +774,37 @@ Ambas en el <strong>ultravioleta</strong> (Lyman).
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">F_Ryd → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">F_Ryd &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{\lambda}=1.097\times10^{7}\!\left(\tfrac{1}{16}-\tfrac{1}{49}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷×(1÷16−1÷49)</div>
+<div class="pantalla">1.097×10<sup>7</sup>×(1÷16−1÷49)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>1</kbd>][<kbd>6</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 4,6175×10⁵ m⁻¹.</p>
+<p>= 4,6175×10<sup>5</sup> m<sup>−1</sup>.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\lambda=(1/\lambda)^{-1}\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(\lambda=(1/\lambda)^{-1}\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda=\text{Ans}^{-1} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans⁻¹</div>
+<div class="pantalla">Ans<sup>−1</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>x⁻¹</kbd>][<kbd>=</kbd>]</p>
-<p>= 2,1657×10⁻⁶ m.</p>
+<p>= 2,1657×10<sup>−6</sup> m.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Paso a nm → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Paso a nm &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\text{Ans}\times10^{9} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans×10⁹</div>
+<div class="pantalla">Ans×10<sup>9</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
 <p>= 2165,7 nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Energía en eV → Expresión a introducir (paso 4):</p>
+<p class="entrada-rotulo">Energía en eV &rarr; Expresión a introducir (paso 4):</p>
 <div class="entrada-latex">\[ \Delta E=13.6\!\left(\tfrac{1}{16}-\tfrac{1}{49}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">13.6×(1÷16−1÷49)</div>
@@ -912,13 +814,13 @@ Ambas en el <strong>ultravioleta</strong> (Lyman).
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Energía en julios → Expresión a introducir (paso 5):</p>
+<p class="entrada-rotulo">Energía en julios &rarr; Expresión a introducir (paso 5):</p>
 <div class="entrada-latex">\[ E_J=\text{Ans}\times 1.602\times10^{-19} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">Ans×1.602×10⁻¹⁹</div>
+<div class="pantalla">Ans×1.602×10<sup>−19</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>Ans</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>1</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
-<p>= 9,1706×10⁻²⁰ J.</p>
+<p>= 9,1706×10<sup>−20</sup> J.</p>
 </div>
 
 <div class="ok">
@@ -935,26 +837,26 @@ Resultado: \(\lambda\approx 2{,}166\times10^{-6}\ \text{m}=2165{,}7\ \text{nm}\)
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(R_\infty\to A\) y \(13{,}6\to B\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(R_\infty\to A\) y \(13{,}6\to B\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=1.097\times10^{7};\qquad B=13.6 \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷→A  ;  13.6→B</div>
+<div class="pantalla">1.097×10<sup>7</sup>&rarr;A  ;  13.6&rarr;B</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\lambda_{\text{nm}}=10^{9}/(A(1/16-1/49))\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(\lambda_{\text{nm}}=10^{9}/(A(1/16-1/49))\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\frac{10^{9}}{A\!\left(\tfrac{1}{16}-\tfrac{1}{49}\right)}\;\rightarrow\; 10^{9}\div(A\times(1\div16-1\div49)) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">10⁹÷(A×(1÷16−1÷49))</div>
+<div class="pantalla">10<sup>9</sup>÷(A×(1÷16−1÷49))</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>1</kbd>][<kbd>6</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 2165,7 nm.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\Delta E=B(1/16-1/49)\) en eV → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">\(\Delta E=B(1/16-1/49)\) en eV &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ \Delta E=B\!\left(\tfrac{1}{16}-\tfrac{1}{49}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">B×(1÷16−1÷49)</div>
@@ -969,10 +871,10 @@ Resultado: \(\lambda\approx 2{,}166\times10^{-6}\ \text{m}=2165{,}7\ \text{nm}\)
 <p>El paréntesis vale exactamente \(\tfrac{33}{784}\). Con ello:</p>
 \[ \frac{1}{\lambda}=R_\infty\cdot\frac{33}{784};\qquad \lambda_{\text{nm}}=\frac{784\times10^{9}}{33\,R_\infty} \]
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\lambda_{\text{nm}}=784\times10^{9}/(33R_\infty)\) → Expresión a introducir:</p>
+<p class="entrada-rotulo">\(\lambda_{\text{nm}}=784\times10^{9}/(33R_\infty)\) &rarr; Expresión a introducir:</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\frac{784\times10^{9}}{33\,R_\infty}\;\rightarrow\; 784\times10^{9}\div(33\times1.097\times10^{7}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">784×10⁹÷(33×1.097×10⁷)</div>
+<div class="pantalla">784×10<sup>9</sup>÷(33×1.097×10<sup>7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>7</kbd>][<kbd>8</kbd>][<kbd>4</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>3</kbd>][<kbd>3</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 2165,7 nm.</p>
@@ -1028,20 +930,20 @@ Resultado: \(\lambda\approx 2{,}166\times10^{-6}\ \text{m}=2165{,}7\ \text{nm}\)
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Energía de ionización en J → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Energía de ionización en J &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ E_{\text{ion}}=13.6\times1.602\times10^{-19} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">13.6×1.602×10⁻¹⁹</div>
+<div class="pantalla">13.6×1.602×10<sup>−19</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>3</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>1</kbd>][<kbd>9</kbd>][<kbd>=</kbd>]</p>
-<p>= 2,1787×10⁻¹⁸ J.</p>
+<p>= 2,1787×10<sup>−18</sup> J.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Longitud de onda de ionización: \(\lambda=1/R_\infty\) en nm → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Longitud de onda de ionización: \(\lambda=1/R_\infty\) en nm &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=\frac{10^{9}}{R_\infty}\;\rightarrow\; 10^{9}\div 1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">10⁹÷(1.097×10⁷)</div>
+<div class="pantalla">10<sup>9</sup>÷(1.097×10<sup>7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 91,16 nm.</p>
@@ -1061,19 +963,19 @@ Resultados: <strong>a)</strong> \(E_{\text{ion}}=13{,}6\ \text{eV}\); <strong>b)
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(R_\infty\to A\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(R_\infty\to A\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.097×10⁷→A</div>
+<div class="pantalla">1.097×10<sup>7</sup>&rarr;A</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\lambda_{\text{ion}}\) en nm → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(\lambda_{\text{ion}}\) en nm &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \lambda_{\text{nm}}=10^{9}\div A \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">10⁹÷A</div>
+<div class="pantalla">10<sup>9</sup>÷A</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>=</kbd>]</p>
 <p>= 91,16 nm.</p>
@@ -1087,13 +989,13 @@ Resultados: <strong>a)</strong> \(E_{\text{ion}}=13{,}6\ \text{eV}\); <strong>b)
 <p>Otra ruta: usar la energía del fotón ionizante \(E=hc/\lambda_{\text{ion}}\) y comparar con el resultado de Bohr.</p>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(E=hc\cdot R_\infty\) en J → Expresión a introducir:</p>
+<p class="entrada-rotulo">\(E=hc\cdot R_\infty\) en J &rarr; Expresión a introducir:</p>
 <div class="entrada-latex">\[ E=hc\cdot R_\infty\;\rightarrow\; 1.988\times10^{-25}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.988×10⁻²⁵×1.097×10⁷</div>
+<div class="pantalla">1.988×10<sup>−25</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>9</kbd>][<kbd>8</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
-<p>= 2,1808×10⁻¹⁸ J (¡coincide con \(13{,}6\cdot 1{,}602\times10^{-19}\)!).</p>
+<p>= 2,1808×10<sup>−18</sup> J (¡coincide con \(13{,}6\cdot 1{,}602\times10^{-19}\)!).</p>
 </div>
 </details>
 
@@ -1139,17 +1041,17 @@ Resultados: <strong>a)</strong> \(E_{\text{ion}}=13{,}6\ \text{eV}\); <strong>b)
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Cálculo de \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Cálculo de \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty\;\rightarrow\; 4.861\times10^{-7}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4.861×10⁻⁷×1.097×10⁷</div>
+<div class="pantalla">4.861×10<sup>−7</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>6</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 5,3325.</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(\tfrac{1}{n_2^{2}}=\tfrac{1}{4}-\tfrac{1}{\lambda R_\infty}\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(\tfrac{1}{n_2^{2}}=\tfrac{1}{4}-\tfrac{1}{\lambda R_\infty}\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ \tfrac{1}{n_2^{2}}=\tfrac{1}{4}-\tfrac{1}{\lambda R_\infty}\;\rightarrow\; 1\div4-1\div\text{Ans} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">1÷4−1÷Ans</div>
@@ -1159,10 +1061,10 @@ Resultados: <strong>a)</strong> \(E_{\text{ion}}=13{,}6\ \text{eV}\); <strong>b)
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(n_2=\sqrt{(1/n_2^{2})^{-1}}\) → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">\(n_2=\sqrt{(1/n_2^{2})^{-1}}\) &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\left(\tfrac{1}{n_2^{2}}\right)^{-1}}\;\rightarrow\; \sqrt{\text{Ans}^{-1}} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">√(Ans⁻¹)</div>
+<div class="pantalla">√(Ans<sup>−1</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>√</kbd>][<kbd>Ans</kbd>][<kbd>x⁻¹</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
 <p>= 4,0007 ≈ 4.</p>
@@ -1178,10 +1080,10 @@ Resultado: \(n_2\approx 4{,}00\). Se trata de la transición \(4\to 2\) (línea 
 <p>Útil como comprobación con \(X=n_2\):</p>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Ecuación a introducir en SOLVE → Expresión (paso 1):</p>
+<p class="entrada-rotulo">Ecuación a introducir en SOLVE &rarr; Expresión (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{486.1\times10^{-9}}=1.097\times10^{7}\!\left(\tfrac{1}{4}-\tfrac{1}{X^{2}}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(486.1×10⁻⁹)=1.097×10⁷×(1÷4−1÷X²)</div>
+<div class="pantalla">1÷(486.1×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1÷4−1÷X<sup>2</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>4</kbd>][<kbd>8</kbd>][<kbd>6</kbd>][<kbd>.</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>]</p>
 </div>
@@ -1193,16 +1095,16 @@ Resultado: \(n_2\approx 4{,}00\). Se trata de la transición \(4\to 2\) (línea 
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=4.861\times10^{-7};\qquad B=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4.861×10⁻⁷→A   ;   1.097×10⁷→B</div>
+<div class="pantalla">4.861×10<sup>−7</sup>&rarr;A   ;   1.097×10<sup>7</sup>&rarr;B</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>6</kbd>][<kbd>1</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Cálculo directo de \(n_2\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Cálculo directo de \(n_2\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{4}-\tfrac{1}{AB}}}\;\rightarrow\;\sqrt{(1\div(1\div4-1\div(A\times B)))} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷4−1÷(A×B)))</div>
@@ -1266,13 +1168,13 @@ Resultado: \(n_2\approx 4{,}00\). Se trata de la transición \(4\to 2\) (línea 
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada \(R_\infty=4/(3\lambda)\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Fórmula despejada \(R_\infty=4/(3\lambda)\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ R_\infty=\frac{4}{3\lambda}\;\rightarrow\; 4\div(3\times1.215\times10^{-7}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4÷(3×1.215×10⁻⁷)</div>
+<div class="pantalla">4÷(3×1.215×10<sup>−7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>3</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>2</kbd>][<kbd>1</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 1,0974×10⁷ m⁻¹.</p>
+<p>= 1,0974×10<sup>7</sup> m<sup>−1</sup>.</p>
 </div>
 
 <div class="ok">
@@ -1289,22 +1191,22 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(\lambda\to A\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(\lambda\to A\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=1.215\times10^{-7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.215×10⁻⁷→A</div>
+<div class="pantalla">1.215×10<sup>−7</sup>&rarr;A</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>2</kbd>][<kbd>1</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(R_\infty=4/(3A)\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(R_\infty=4/(3A)\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ R_\infty=4\div(3A) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">4÷(3×A)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>3</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 1,0974×10⁷ m⁻¹.</p>
+<p>= 1,0974×10<sup>7</sup> m<sup>−1</sup>.</p>
 </div>
 <p>Al cambiar A se puede calcular \(R_\infty\) a partir de cualquier otra línea espectral medida.</p>
 </details>
@@ -1314,13 +1216,13 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
 <p>Si se dispone de varias medidas (\(\lambda_{21}=121{,}5\ \text{nm}\), \(\lambda_{31}=102{,}6\ \text{nm}\), \(\lambda_{41}=97{,}3\ \text{nm}\)...), se calcula \(R_\infty\) con cada una y se promedia. Para Lyman-β (\(3\to1\), paréntesis \(8/9\)):</p>
 \[ R_\infty=\frac{9}{8\lambda_{31}}=\frac{9}{8\times1{,}026\times10^{-7}} \]
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(R_\infty\) a partir de Lyman-β → Expresión a introducir:</p>
+<p class="entrada-rotulo">\(R_\infty\) a partir de Lyman-β &rarr; Expresión a introducir:</p>
 <div class="entrada-latex">\[ R_\infty=\frac{9}{8\lambda_{31}}\;\rightarrow\; 9\div(8\times1.026\times10^{-7}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">9÷(8×1.026×10⁻⁷)</div>
+<div class="pantalla">9÷(8×1.026×10<sup>−7</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>9</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>8</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>6</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 1,0964×10⁷ m⁻¹.</p>
+<p>= 1,0964×10<sup>7</sup> m<sup>−1</sup>.</p>
 </div>
 <p>El promedio de dos o más medidas da un valor aún más cercano al aceptado, ilustrando cómo procede la física experimental.</p>
 </details>
@@ -1370,65 +1272,11 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
 </details>
 <!-- ============ FIN BLOQUE: Rydberg — problemas adicionales con calculadora científica ============ -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- ============ BLOQUE: Rydberg — despeje de n1 y n2 con calculadora ============ -->
 <details class="rydesp-outer">
 <summary>🖩 Uso de la calculadora científica — Fórmula de Rydberg: despeje de n<sub>1</sub> y n<sub>2</sub> (5 problemas resueltos)</summary>
 
 <div class="rydesp-wrapper">
-
-    
-
 
 <style>
 /* ================== ESTILOS SCOPEADOS AL BLOQUE ================== */
@@ -1436,7 +1284,7 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
   cursor:pointer;background:#f0f6fc;border:1px solid #d6e4f0;
   border-radius:8px;padding:.55rem .8rem;margin:.35rem 0;
   font-weight:600;color:#1a3c5e;list-style:none;
-  display:block;                    /* ← FIX: evita flex heredado */
+  display:block;
 }
 .rydesp-outer > summary::marker{content:"";}
 .rydesp-outer > summary::before{content:"▶ ";display:inline-block;transition:transform .2s;color:#0078D4;}
@@ -1450,7 +1298,7 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
   cursor:pointer;background:#f0f6fc;border:1px solid #d6e4f0;
   border-radius:8px;padding:.55rem .8rem;margin:.35rem 0;
   font-weight:600;color:#1a3c5e;list-style:none;
-  display:block;                    /* ← FIX */
+  display:block;
 }
 .rydesp-wrapper summary::marker{content:"";}
 .rydesp-wrapper summary::before{content:"▶ ";display:inline-block;transition:transform .2s;color:#0078D4;}
@@ -1459,10 +1307,9 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
 
 .rydesp-wrapper details details > summary{
   font-weight:500;background:#f7fafc;font-size:.95em;
-  display:block;                    /* ← FIX */
+  display:block;
 }
 
-/* El <sub> dentro de summary NO debe comportarse como bloque */
 .rydesp-wrapper summary sub,
 .rydesp-outer > summary sub{
   display:inline;
@@ -1475,7 +1322,22 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
 .rydesp-wrapper .formula{border-left:4px solid #0078D4;background:#eff6ff;padding:.5rem .8rem;margin:.6rem 0;border-radius:0 8px 8px 0;overflow-x:auto;}
 .rydesp-wrapper .entrada-calc{background:#f6f9fc;border:1px solid #d6e4f0;border-radius:8px;padding:.6rem .8rem;margin:.8rem 0;}
 .rydesp-wrapper .entrada-latex{background:#fff;border-left:4px solid #0078D4;padding:.4rem .7rem;border-radius:4px;overflow-x:auto;}
-.rydesp-wrapper .pantalla{font-family:"Courier New",monospace;background:#20301f;color:#b9f6a0;border:2px solid #4a5a49;border-radius:6px;padding:.4rem .7rem;letter-spacing:.5px;overflow-x:auto;white-space:nowrap;}
+
+/* ==========================================================
+   PANTALLA DE CALCULADORA (mismo fix que en el bloque anterior)
+   ========================================================== */
+.rydesp-wrapper .pantalla{
+  font-family:"Noto Sans Mono","JetBrains Mono","Courier New",ui-monospace,monospace;
+  background:#20301f;color:#b9f6a0;border:2px solid #4a5a49;border-radius:6px;
+  padding:.4rem .7rem;letter-spacing:.5px;overflow-x:auto;white-space:nowrap;
+}
+.rydesp-wrapper .pantalla sup{
+  font-size:.72em;
+  vertical-align:super;
+  line-height:0;
+  font-feature-settings:"sups" 1;
+}
+
 .rydesp-wrapper .entrada-rotulo,.rydesp-wrapper .pantalla-rotulo,.rydesp-wrapper .teclas-rotulo{font-weight:600;color:#005a9e;margin:.5rem 0 .2rem;}
 .rydesp-wrapper .ok{background:#ecfdf5;border-left:4px solid #10b981;padding:.45rem .7rem;border-radius:0 6px 6px 0;margin:.5rem 0;}
 .rydesp-wrapper .warn{background:#fffbeb;border-left:4px solid #f59e0b;padding:.45rem .7rem;border-radius:0 6px 6px 0;margin:.5rem 0;}
@@ -1490,8 +1352,6 @@ Resultado: \(R_\infty^{\text{exp}}\approx 1{,}097\times10^{7}\ \text{m}^{-1}\), 
   .rydesp-wrapper kbd{padding:0 4px;font-size:.8em;}
 }
 </style>
-
-
 
 <h1>Fórmula de Rydberg — 5 problemas centrados en el despeje de n<sub>1</sub> y n<sub>2</sub></h1>
 
@@ -1530,17 +1390,17 @@ Series: \(n_1=1\) Lyman (UV) · \(n_1=2\) Balmer (visible) · \(n_1=3\) Paschen 
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Producto adimensional \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Producto adimensional \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty \;\rightarrow\; 4.102\times10^{-7}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4.102×10⁻⁷×1.097×10⁷</div>
+<div class="pantalla">4.102×10<sup>−7</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>.</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 4,4999 (adimensional).</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada de \(n_2\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula despejada de \(n_2\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{4}-\tfrac{1}{\lambda R_\infty}}} \;\rightarrow\; \sqrt{1\div(1\div4-1\div\text{Ans})} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷4−1÷Ans))</div>
@@ -1558,10 +1418,10 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 2}
 <summary>🖩 Método 2: SOLVE (comprobación con X = n<sub>2</sub>)</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Ecuación de Rydberg con \(X\) en lugar de \(n_2\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Ecuación de Rydberg con \(X\) en lugar de \(n_2\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{410.2\times10^{-9}}=1.097\times10^{7}\!\left(\tfrac{1}{4}-\tfrac{1}{X^{2}}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(410.2×10⁻⁹)=1.097×10⁷×(1÷4−1÷X²)</div>
+<div class="pantalla">1÷(410.2×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1÷4−1÷X<sup>2</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>4</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>.</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>4</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>]</p>
 </div>
@@ -1573,16 +1433,16 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 2}
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar datos en A y B → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar datos en A y B &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=4.102\times10^{-7};\qquad B=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">4.102×10⁻⁷→A   ;   1.097×10⁷→B</div>
+<div class="pantalla">4.102×10<sup>−7</sup>&rarr;A   ;   1.097×10<sup>7</sup>&rarr;B</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>4</kbd>][<kbd>.</kbd>][<kbd>1</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(n_2\) con A, B → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(n_2\) con A, B &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{4}-\tfrac{1}{AB}}} \;\rightarrow\; \sqrt{1\div(1\div4-1\div(A\times B))} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷4−1÷(A×B)))</div>
@@ -1642,17 +1502,17 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 2}
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Producto \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Producto \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty \;\rightarrow\; 2.625\times10^{-6}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">2.625×10⁻⁶×1.097×10⁷</div>
+<div class="pantalla">2.625×10<sup>−6</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>2</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 28,796 (adimensional).</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada de \(n_2\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula despejada de \(n_2\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{16}-\tfrac{1}{\lambda R_\infty}}} \;\rightarrow\; \sqrt{1\div(1\div16-1\div\text{Ans})} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷16−1÷Ans))</div>
@@ -1670,10 +1530,10 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 4}
 <summary>🖩 Método 2: SOLVE</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Ecuación de Rydberg con \(X=n_2\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Ecuación de Rydberg con \(X=n_2\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{2625\times10^{-9}}=1.097\times10^{7}\!\left(\tfrac{1}{16}-\tfrac{1}{X^{2}}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(2625×10⁻⁹)=1.097×10⁷×(1÷16−1÷X²)</div>
+<div class="pantalla">1÷(2625×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1÷16−1÷X<sup>2</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>2</kbd>][<kbd>6</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>1</kbd>][<kbd>6</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>]</p>
 </div>
@@ -1684,16 +1544,16 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 4}
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=2.625\times10^{-6};\qquad B=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">2.625×10⁻⁶→A   ;   1.097×10⁷→B</div>
+<div class="pantalla">2.625×10<sup>−6</sup>&rarr;A   ;   1.097×10<sup>7</sup>&rarr;B</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>2</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(n_2\) con A, B → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(n_2\) con A, B &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{16}-\tfrac{1}{AB}}} \;\rightarrow\; \sqrt{1\div(1\div16-1\div(A\times B))} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷16−1÷(A×B)))</div>
@@ -1749,17 +1609,17 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 4}
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Producto \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Producto \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty \;\rightarrow\; 9.495\times10^{-8}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">9.495×10⁻⁸×1.097×10⁷</div>
+<div class="pantalla">9.495×10<sup>−8</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>9</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>9</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>8</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 1,0416 (adimensional).</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada de \(n_2\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula despejada de \(n_2\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{1-\dfrac{1}{\lambda R_\infty}}} \;\rightarrow\; \sqrt{1\div(1-1\div\text{Ans})} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1−1÷Ans))</div>
@@ -1777,10 +1637,10 @@ Resultado: \(n_2\approx 5{,}00\Rightarrow n_2=5\). Transición \(\mathbf{5\to 1}
 <summary>🖩 Método 2: SOLVE</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">F_Ryd con \(X=n_2\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">F_Ryd con \(X=n_2\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{94.95\times10^{-9}}=1.097\times10^{7}\!\left(1-\tfrac{1}{X^{2}}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(94.95×10⁻⁹)=1.097×10⁷×(1−1÷X²)</div>
+<div class="pantalla">1÷(94.95×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1−1÷X<sup>2</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>9</kbd>][<kbd>4</kbd>][<kbd>.</kbd>][<kbd>9</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>]</p>
 </div>
@@ -1791,16 +1651,16 @@ Resultado: \(n_2\approx 5{,}00\Rightarrow n_2=5\). Transición \(\mathbf{5\to 1}
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=9.495\times10^{-8};\qquad B=1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">9.495×10⁻⁸→A   ;   1.097×10⁷→B</div>
+<div class="pantalla">9.495×10<sup>−8</sup>&rarr;A   ;   1.097×10<sup>7</sup>&rarr;B</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>9</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>9</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>8</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(n_2\) con A, B → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(n_2\) con A, B &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{1-\tfrac{1}{AB}}} \;\rightarrow\; \sqrt{1\div(1-1\div(A\times B))} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1−1÷(A×B)))</div>
@@ -1857,17 +1717,17 @@ Resultado: \(n_2\approx 5{,}00\Rightarrow n_2=5\). Transición \(\mathbf{5\to 1}
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Producto \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Producto \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty \;\rightarrow\; 7.458\times10^{-6}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">7.458×10⁻⁶×1.097×10⁷</div>
+<div class="pantalla">7.458×10<sup>−6</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>7</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>5</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 81,814 (adimensional).</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada de \(n_2\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula despejada de \(n_2\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{25}-\tfrac{1}{\lambda R_\infty}}} \;\rightarrow\; \sqrt{1\div(1\div25-1\div\text{Ans})} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷25−1÷Ans))</div>
@@ -1877,13 +1737,13 @@ Resultado: \(n_2\approx 5{,}00\Rightarrow n_2=5\). Transición \(\mathbf{5\to 1}
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Energía del fotón \(E=hc/\lambda\) → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Energía del fotón \(E=hc/\lambda\) &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ E=\dfrac{hc}{\lambda} \;\rightarrow\; 1.988\times10^{-25}\div(7.458\times10^{-6}) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.988×10⁻²⁵÷(7.458×10⁻⁶)</div>
+<div class="pantalla">1.988×10<sup>−25</sup>÷(7.458×10<sup>−6</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>9</kbd>][<kbd>8</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>7</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>5</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
-<p>= 2,666×10⁻²⁰ J = 0,1664 eV.</p>
+<p>= 2,666×10<sup>−20</sup> J = 0,1664 eV.</p>
 </div>
 
 <div class="ok">
@@ -1895,10 +1755,10 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 5}
 <summary>🖩 Método 2: SOLVE</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">F_Ryd con \(X=n_2\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">F_Ryd con \(X=n_2\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{7458\times10^{-9}}=1.097\times10^{7}\!\left(\tfrac{1}{25}-\tfrac{1}{X^{2}}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(7458×10⁻⁹)=1.097×10⁷×(1÷25−1÷X²)</div>
+<div class="pantalla">1÷(7458×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1÷25−1÷X<sup>2</sup>)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>7</kbd>][<kbd>4</kbd>][<kbd>5</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>)</kbd>]</p>
 </div>
@@ -1909,16 +1769,16 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 5}
 <summary>💾 Método 3: memorias STO</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\), \(hc\to C\), \(1\ \text{eV}\to D\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\), \(hc\to C\), \(1\ \text{eV}\to D\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ A=7.458\times10^{-6};\ B=1.097\times10^{7};\ C=1.988\times10^{-25};\ D=1.602\times10^{-19} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">7.458×10⁻⁶→A ; 1.097×10⁷→B ; 1.988×10⁻²⁵→C ; 1.602×10⁻¹⁹→D</div>
+<div class="pantalla">7.458×10<sup>−6</sup>&rarr;A ; 1.097×10<sup>7</sup>&rarr;B ; 1.988×10<sup>−25</sup>&rarr;C ; 1.602×10<sup>−19</sup>&rarr;D</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>7</kbd>][<kbd>.</kbd>][<kbd>4</kbd>][<kbd>5</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>9</kbd>][<kbd>8</kbd>][<kbd>8</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>2</kbd>][<kbd>5</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>C</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>6</kbd>][<kbd>0</kbd>][<kbd>2</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>1</kbd>][<kbd>9</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>D</kbd>]</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">\(n_2\) con A, B → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">\(n_2\) con A, B &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_2=\sqrt{\dfrac{1}{\tfrac{1}{25}-\tfrac{1}{AB}}} \;\rightarrow\; \sqrt{1\div(1\div25-1\div(A\times B))} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷25−1÷(A×B)))</div>
@@ -1928,7 +1788,7 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 5}
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Energía en eV \(E=C/(A\cdot D)\) → Expresión a introducir (paso 3):</p>
+<p class="entrada-rotulo">Energía en eV \(E=C/(A\cdot D)\) &rarr; Expresión a introducir (paso 3):</p>
 <div class="entrada-latex">\[ E(\text{eV})=\dfrac{C}{A\cdot D} \;\rightarrow\; C\div(A\times D) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">C÷(A×D)</div>
@@ -1992,17 +1852,17 @@ Resultado: \(n_2\approx 6{,}00\Rightarrow n_2=6\). Transición \(\mathbf{6\to 5}
 <summary>🖩 Método 1: cálculo directo</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Producto \(\lambda R_\infty\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">Producto \(\lambda R_\infty\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \lambda R_\infty \;\rightarrow\; 1.875\times10^{-6}\times1.097\times10^{7} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1.875×10⁻⁶×1.097×10⁷</div>
+<div class="pantalla">1.875×10<sup>−6</sup>×1.097×10<sup>7</sup></div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>×</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>=</kbd>]</p>
 <p>= 20,569 (adimensional).</p>
 </div>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">Fórmula despejada de \(n_1\) → Expresión a introducir (paso 2):</p>
+<p class="entrada-rotulo">Fórmula despejada de \(n_1\) &rarr; Expresión a introducir (paso 2):</p>
 <div class="entrada-latex">\[ n_1=\sqrt{\dfrac{1}{\tfrac{1}{16}+\tfrac{1}{\lambda R_\infty}}} \;\rightarrow\; \sqrt{1\div(1\div16+1\div\text{Ans})} \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
 <div class="pantalla">√(1÷(1÷16+1÷Ans))</div>
@@ -2020,63 +1880,91 @@ Resultado: \(n_1\approx 3{,}00\Rightarrow n_1=3\). Transición \(\mathbf{4\to 3}
 <summary>🖩 Método 2: SOLVE (con X = n<sub>1</sub>)</summary>
 
 <div class="entrada-calc">
-<p class="entrada-rotulo">F_Ryd con \(X=n_1\) y \(n_2=4\) → Expresión a introducir (paso 1):</p>
+<p class="entrada-rotulo">F_Ryd con \(X=n_1\) y \(n_2=4\) &rarr; Expresión a introducir (paso 1):</p>
 <div class="entrada-latex">\[ \tfrac{1}{1875\times10^{-9}}=1.097\times10^{7}\!\left(\tfrac{1}{X^{2}}-\tfrac{1}{16}\right) \]</div>
 <p class="pantalla-rotulo">Pantalla de la calculadora:</p>
-<div class="pantalla">1÷(1875×10⁻⁹)=1.097×10⁷×(1÷X²−1÷16)</div>
+<div class="pantalla">1÷(1875×10<sup>−9</sup>)=1.097×10<sup>7</sup>×(1÷X<sup>2</sup>−1÷16)</div>
 <p class="teclas-rotulo">Secuencia de teclas:</p>
 <p class="teclas">[<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>8</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>9</kbd>][<kbd>)</kbd>][<kbd>=</kbd>][<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>×</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>X</kbd>][<kbd>x²</kbd>][<kbd>−</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>1</kbd>][<kbd>6</kbd>][<kbd>)</kbd>]</p>
 </div>
-<p><strong>Semilla:</strong
+<p><strong>Semilla:</strong> \(X=3\). <kbd>SHIFT</kbd><kbd>CALC</kbd>/<kbd>SOLVE</kbd> → \(X\approx 3{,}0000\).</p>
+</details>
 
+<details>
+<summary>💾 Método 3: memorias STO</summary>
 
+<div class="entrada-calc">
+<p class="entrada-rotulo">Guardar \(\lambda\to A\), \(R_\infty\to B\), \(n_2\to C\) &rarr; Expresión a introducir (paso 1):</p>
+<div class="entrada-latex">\[ A=1.875\times10^{-6};\qquad B=1.097\times10^{7};\qquad C=4 \]</div>
+<p class="pantalla-rotulo">Pantalla de la calculadora:</p>
+<div class="pantalla">1.875×10<sup>−6</sup>&rarr;A ; 1.097×10<sup>7</sup>&rarr;B ; 4&rarr;C</div>
+<p class="teclas-rotulo">Secuencia de teclas:</p>
+<p class="teclas">[<kbd>1</kbd>][<kbd>.</kbd>][<kbd>8</kbd>][<kbd>7</kbd>][<kbd>5</kbd>][<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>A</kbd>] &nbsp; [<kbd>1</kbd>][<kbd>.</kbd>][<kbd>0</kbd>][<kbd>9</kbd>][<kbd>7</kbd>][<kbd>EXP</kbd>][<kbd>7</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>B</kbd>] &nbsp; [<kbd>4</kbd>][<kbd>SHIFT</kbd>][<kbd>RCL</kbd>][<kbd>C</kbd>]</p>
+</div>
 
+<div class="entrada-calc">
+<p class="entrada-rotulo">\(n_1\) con A, B, C &rarr; Expresión a introducir (paso 2):</p>
+<div class="entrada-latex">\[ n_1=\sqrt{\dfrac{1}{\tfrac{1}{C^{2}}+\tfrac{1}{AB}}} \;\rightarrow\; \sqrt{1\div(1\div C^{2}+1\div(A\times B))} \]</div>
+<p class="pantalla-rotulo">Pantalla de la calculadora:</p>
+<div class="pantalla">√(1÷(1÷C<sup>2</sup>+1÷(A×B)))</div>
+<p class="teclas-rotulo">Secuencia de teclas:</p>
+<p class="teclas">[<kbd>√</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>ALPHA</kbd>][<kbd>C</kbd>][<kbd>x²</kbd>][<kbd>+</kbd>][<kbd>1</kbd>][<kbd>÷</kbd>][<kbd>(</kbd>][<kbd>ALPHA</kbd>][<kbd>A</kbd>][<kbd>×</kbd>][<kbd>ALPHA</kbd>][<kbd>B</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>)</kbd>][<kbd>=</kbd>]</p>
+<p>= 3,0000. Cambiando solo A (otra \(\lambda\) que termine en \(n=4\)) se repite el cálculo para cualquier otra línea de la serie de Brackett.</p>
+</div>
+</details>
 
+<details>
+<summary>🔀 Método 4: alternativa — vía energía de Bohr</summary>
+<p>La energía del fotón es \(E=hc/\lambda\). Con la fórmula práctica \(E(\text{eV})=1240/\lambda(\text{nm})\):</p>
+\[ E=\frac{1240}{1875}\approx 0{,}6613\ \text{eV} \]
+\[ \Delta E=13{,}6\!\left(\frac{1}{n_1^{2}}-\frac{1}{16}\right)=0{,}6613 \;\Rightarrow\; \frac{1}{n_1^{2}}=\frac{0{,}6613}{13{,}6}+\frac{1}{16}=0{,}04863+0{,}0625=0{,}1111 \]
+\[ n_1^{2}=\frac{1}{0{,}1111}=9 \;\Rightarrow\; n_1=3 \]
+<p>Este método evita potencias de 10 intermedias y es muy cómodo cuando ya se trabaja en eV.</p>
+</details>
 
+<details>
+<summary>✅ Comprobación</summary>
+\[ \frac{1}{\lambda}=1{,}097\times10^{7}\!\left(\frac{1}{9}-\frac{1}{16}\right)=1{,}097\times10^{7}\cdot\frac{7}{144}=5{,}333\times10^{5}\ \text{m}^{-1} \]
+\[ \lambda=\frac{1}{5{,}333\times10^{5}}=1{,}875\times10^{-6}\ \text{m}=1875\ \text{nm}\ \checkmark \]
+<p>Coincide con el dato. \(n_1=3\) entero positivo y menor que \(n_2=4\). Transición \(4\to 3\) de Paschen, IR cercano. \(\checkmark\)</p>
+</details>
 
+<details>
+<summary>⚠️ Errores frecuentes en este problema</summary>
+<ul>
+<li><strong>Confundir el signo</strong> al despejar \(n_1\): aquí el término \(1/(\lambda R_\infty)\) se <em>suma</em> (\(+\)), no se resta. Es el error nº 1.</li>
+<li>Intercambiar los papeles de \(n_1\) y \(n_2\): el nivel <em>final</em> (menor) es \(n_1\), el de partida es \(n_2\).</li>
+<li>Poner \(n_2=1\) por inercia (Lyman): el enunciado fija \(n_2=4\).</li>
+<li>No convertir nm a m antes de calcular \(\lambda R_\infty\).</li>
+<li>Poner [<kbd>−</kbd>] en lugar de [<kbd>(−)</kbd>] en [<kbd>EXP</kbd>][<kbd>(−)</kbd>][<kbd>6</kbd>].</li>
+<li>Paréntesis mal anidados en \(\sqrt{1/(1/C^2+1/(A\times B))}\): verificar en pantalla antes de pulsar [<kbd>=</kbd>].</li>
+</ul>
+</details>
 
+</details>
+<!-- ============ FIN PROBLEMA 5 ============ -->
 
+<!-- ===================== RESUMEN ===================== -->
+<details>
+<summary>📊 Resumen de resultados — despeje de n<sub>1</sub> y n<sub>2</sub></summary>
+<table>
+<thead>
+<tr><th>Problema</th><th>Dato</th><th>Incógnita</th><th>Resultado</th><th>Serie</th><th>Zona</th></tr>
+</thead>
+<tbody>
+<tr><td>1 — Hδ Balmer</td><td>λ = 410,2 nm</td><td>n₂</td><td>6 (transición 6→2)</td><td>Balmer</td><td>Visible (violeta)</td></tr>
+<tr><td>2 — Brackett-β</td><td>λ = 2625 nm</td><td>n₂</td><td>6 (transición 6→4)</td><td>Brackett</td><td>IR cercano</td></tr>
+<tr><td>3 — Lyman-δ</td><td>λ = 94,95 nm</td><td>n₂</td><td>5 (transición 5→1)</td><td>Lyman</td><td>UV extremo</td></tr>
+<tr><td>4 — Pfund-α</td><td>λ = 7458 nm</td><td>n₂</td><td>6 (transición 6→5)</td><td>Pfund</td><td>IR lejano</td></tr>
+<tr><td>5 — Paschen-α</td><td>λ = 1875 nm</td><td>n₁</td><td>3 (transición 4→3)</td><td>Paschen</td><td>IR cercano</td></tr>
+</tbody>
+</table>
+</details>
 
+</div><!-- fin rydesp-wrapper -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</details>
+<!-- ============ FIN BLOQUE: Rydberg — despeje de n1 y n2 con calculadora ============ -->
 
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
@@ -2099,7 +1987,7 @@ Resultado: \(n_1\approx 3{,}00\Rightarrow n_1=3\). Transición \(\mathbf{4\to 3}
             margin-bottom: 12px;
             padding: 0 10px;
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+            <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
             <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
         </p>
 
@@ -2123,16 +2011,7 @@ Resultado: \(n_1\approx 3{,}00\Rightarrow n_1=3\). Transición \(\mathbf{4\to 3}
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+<!-- =================== FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin container -->
 </body>
