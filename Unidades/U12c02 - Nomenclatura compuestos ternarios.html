@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#U100c08 - Formulación inorgánica: Compuestos ternarios (Hidróxidos, Oxoácidos, Oxisales y Sales ácidas)</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 1em;
+            flex-wrap: wrap;
+        }
+        .header-sub img {
+            max-height: 28px;
+            width: auto;
+            border-radius: 4px;
+        }
+        .codigo {
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+        .texto {
+            font-weight: 500;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; line-height: 1.7; }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* ============================================
+           FIGURAS / IMÁGENES DE APOYO
+           ============================================ */
+        .figura {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 18px 15px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+        .figura .pie {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           ESTILO PARA NOMENCLATURA QUÍMICA
+           ============================================ */
+        .nomenclatura {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .nomenclatura .num {
+            color: #dc2626;
+            font-weight: 700;
+        }
+        .nomenclatura .pref {
+            font-style: italic;
+        }
+        .nomenclatura .rad {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .nomenclatura .alc {
+            font-weight: 700;
+        }
+        .nomenclatura .suf {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        tr:hover td {
+            background: #edf2f7;
+        }
+        td.media {
+            font-weight: 700;
+            color: #2d3748;
+            background: #edf2f7 !important;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE PRINCIPAL
+           ============================================ */
+        details {
+            margin: 20px 30px 30px 30px;
+            background: #fefefe;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+        }
+        details summary {
+            padding: 16px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.2s;
+        }
+        details summary:hover {
+            background: #f1f5f9;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        details[open] > summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 0 24px 24px 24px;
+        }
+
+        /* ============================================
+           CATEGORÍAS ANIDADAS (desplegables de primer nivel)
+           ============================================ */
+        details.categoria-card {
+            margin: 18px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        details.categoria-card > summary.categoria-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 22px;
+            font-size: 1.15em;
+            font-weight: 700;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            transition: filter 0.2s;
+        }
+        details.categoria-card > summary.categoria-header::-webkit-details-marker {
+            display: none;
+        }
+        details.categoria-card > summary.categoria-header:hover {
+            filter: brightness(1.08);
+        }
+        details.categoria-card > summary.categoria-header .fa-chevron-down {
+            margin-left: auto;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        details.categoria-card[open] > summary.categoria-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.categoria-card > .categoria-body {
+            padding: 6px 18px 18px 18px;
+        }
+
+        /* ============================================
+           SUB-CATEGORÍAS (desplegables de segundo nivel)
+           ============================================ */
+        details.subcategoria-card {
+            margin: 14px 0;
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            background: #f8fafc;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+        details.subcategoria-card > summary.subcategoria-header {
+            background: #edf2f7;
+            padding: 12px 18px;
+            font-size: 1.02em;
+            font-weight: 700;
+            color: #2d3748;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        details.subcategoria-card > summary.subcategoria-header::-webkit-details-marker {
+            display: none;
+        }
+        details.subcategoria-card > summary.subcategoria-header:hover {
+            background: #e2e8f0;
+        }
+        details.subcategoria-card > summary.subcategoria-header .badge {
+            background: #4a5568;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-size: 0.75em;
+            white-space: nowrap;
+        }
+        details.subcategoria-card > summary.subcategoria-header .fa-chevron-down {
+            margin-left: auto;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        details.subcategoria-card[open] > summary.subcategoria-header .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        details.subcategoria-card > .subcategoria-body {
+            padding: 16px 20px;
+            background: #ffffff;
+        }
+
+        /* ============================================
+           PIE DIDÁCTICO
+           ============================================ */
+        .pie-didactico {
+            background: #fef9e7;
+            border-left: 6px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #78350f;
+        }
+        .pie-didactico strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
+            details { margin: 10px; }
+            .details-content { padding: 0 12px 12px 12px; }
+            table { font-size: 0.8em; }
+            th, td { padding: 5px 3px; }
+            details.categoria-card > summary.categoria-header { font-size: 1em; padding: 12px 14px; }
+            details.subcategoria-card > summary.subcategoria-header { font-size: 0.9em; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ============================================================
+         CABECERA
+         ============================================================ -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#U100c08</span>
+                <span class="texto">Formulación inorgánica: Compuestos ternarios</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ============================================================
+         PRESENTACIÓN
+         ============================================================ -->
+    <div class="section enunciado">
+        <h2>📘 Presentación</h2>
+        <p>Esta guía reúne los <strong>compuestos ternarios</strong>: los <strong>hidróxidos</strong> (bases), los <strong>oxoácidos</strong> (ácidos oxigenados), las <strong>oxisales</strong> (sales ternarias neutras) y las <strong>sales ácidas</strong>, junto con otras sales de interés (básicas y dobles), con sus nomenclaturas de composición, de adición y tradicional.</p>
+        <p>El contenido está organizado en <strong>desplegables anidados</strong> para facilitar el estudio progresivo. Todo está plegado por defecto: haz clic en cada categoría para desplegar la información.</p>
+    </div>
+
+    <!-- ============================================================
+         OBJETIVO
+         ============================================================ -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Clasificar correctamente los compuestos ternarios: hidróxidos, oxoácidos, oxisales neutras, sales ácidas, básicas y dobles.</li>
+            <li>Escribir fórmulas a partir de nombres y nombres a partir de fórmulas.</li>
+            <li>Aplicar la nomenclatura tradicional (con prefijos <em>hipo-</em>, <em>per-</em> y sufijos <em>-oso</em>, <em>-ico</em>) a óxidos, oxoácidos y oxisales.</li>
+            <li>Aplicar la nomenclatura de composición con prefijos multiplicadores y con el estado de oxidación en números romanos.</li>
+            <li>Reconocer y aplicar la nomenclatura de adición (hidrogeno…/…ato) y la de número de carga (arábigos con signo) cuando corresponda.</li>
+            <li>Distinguir las sales ácidas (hidrogenosales) de las sales básicas (hidroxisales) y de las sales dobles.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================
+         BLOQUE DESPLEGABLE PRINCIPAL
+         ============================================================ -->
+    <details id="ejerciciosDesplegable">
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span>🧪 TEORÍA Y EJEMPLOS de compuestos ternarios</span>
+            <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
+                <i class="fas fa-hand-pointer"></i> Pulsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- ==================================================
+                 SECCIÓN TEÓRICA INICIAL: CONCEPTOS GENERALES Y ESQUEMA
+                 ================================================== -->
+            <div class="section procedimiento">
+                <h2>📖 0. Conceptos generales y esquema</h2>
+                <p>Los <strong>compuestos ternarios</strong> están formados por <strong>tres elementos químicos</strong>. En esta unidad se estudian cuatro grandes bloques, más sus variantes:</p>
+
+                <div class="comparison">
+                    <div class="comparison-box">
+                        <div class="title">Hidróxidos (bases)</div>
+                        <p style="font-size: 0.9em; margin: 0;">Metal + grupo hidróxido OH⁻</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El grupo OH actúa con carga <strong>−1</strong>.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Fórmula general: <strong>M(OH)ₙ</strong>. Compuestos iónicos.</p>
+                    </div>
+                    <div class="comparison-box">
+                        <div class="title">Oxoácidos</div>
+                        <p style="font-size: 0.9em; margin: 0;">Hidrógeno + No metal (o metal) + Oxígeno</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">El H actúa con <strong>+1</strong> y el O con <strong>−2</strong>.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Compuestos covalentes. Fórmula general: <strong>HₐXᵦO_c</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="comparison" style="margin-top: 10px;">
+                    <div class="comparison-box">
+                        <div class="title">Oxisales (sales ternarias)</div>
+                        <p style="font-size: 0.9em; margin: 0;">Metal + oxoanión (no metal + O)</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Provienen de sustituir <strong>todos</strong> los H del oxoácido por un metal.</p>
+                        <p style="font-size: 0.85em; color: #4a5568;">Compuestos iónicos. Fórmula: <strong>Mₘ(anion)ₙ</strong>.</p>
+                    </div>
+                    <div class="comparison-box">
+                        <div class="title">Sales ácidas, básicas y dobles</div>
+                        <p style="font-size: 0.9em; margin: 0;">Variantes de las oxisales</p>
+                        <p style="font-size: 0.85em; color: #4a5568;"><strong>Ácidas:</strong> conservan H del ácido (hidrogenosales).</p>
+                        <p style="font-size: 0.85em; color: #4a5568;"><strong>Básicas:</strong> conservan OH⁻ (hidroxisales).</p>
+                        <p style="font-size: 0.85em; color: #4a5568;"><strong>Dobles:</strong> contienen dos cationes distintos.</p>
+                    </div>
+                </div>
+
+<!-- ==================================================
+     ESQUEMA VISUAL DE CLASIFICACIÓN
+     ================================================== -->
+<div class="figura">
+  <style>
+    .figura { margin: 1.75rem 0; }
+    .figura *, .figura *::before, .figura *::after { box-sizing: border-box; }
+
+    .figura .arbol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      font-family: inherit;
+      overflow-x: auto;
+      padding: 4px 2px 8px;
+    }
+
+    .figura .nodo-raiz {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(43, 108, 176, .28);
+    }
+
+    .figura .tronco {
+      width: 2px;
+      height: 22px;
+      background: #cbd5e0;
+    }
+
+    .figura .ramas {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .figura .rama {
+      position: relative;
+      display: flex;
+      padding: 26px 12px 0;
+    }
+
+    .figura .rama::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: #cbd5e0;
+    }
+    .figura .rama:first-child::before { left: 50%; }
+    .figura .rama:last-child::before  { right: 50%; }
+
+    .figura .rama::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 2px; height: 26px;
+      background: #cbd5e0;
+      transform: translateX(-1px);
+    }
+
+    .figura .tarjeta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 210px;
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, .05);
+    }
+
+    .figura .tarjeta-titulo {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .figura .t-oh    { background: #ebf8ff; color: #2b6cb0; }
+    .figura .t-acido { background: #f0fff4; color: #276749; }
+    .figura .t-sal   { background: #faf5ff; color: #553c9a; }
+
+    .figura .hijos {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .figura .hijo {
+      background: var(--bg);
+      border-left: 4px solid var(--c);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--tx);
+      text-align: left;
+    }
+
+    .figura .hijo .nombre {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .figura .hijo .formula {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      opacity: .8;
+    }
+
+    .figura .pie {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #718096;
+    }
+
+    @media (max-width: 800px) {
+      .figura .tronco { display: none; }
+
+      .figura .ramas {
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 20px;
+      }
+
+      .figura .rama {
+        display: block;
+        padding: 0 0 0 20px;
+        margin-bottom: 14px;
+      }
+      .figura .rama:last-child { margin-bottom: 0; }
+
+      .figura .rama::before {
+        left: -20px;
+        right: auto;
+        top: 24px;
+        width: 20px;
+        height: 2px;
+      }
+
+      .figura .rama::after {
+        left: -20px;
+        top: 24px;
+        bottom: -14px;
+        width: 2px;
+        height: auto;
+        transform: none;
+      }
+      .figura .rama:last-child::after { display: none; }
+
+      .figura .tarjeta { min-width: 0; }
+    }
+  </style>
+
+  <div class="arbol">
+
+    <div class="nodo-raiz">Compuestos ternarios</div>
+    <div class="tronco"></div>
+
+    <div class="ramas">
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-oh">Con grupo OH⁻</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#3182ce; --bg:#ebf8ff; --tx:#2a4365;">
+              <span class="nombre">Hidróxidos metálicos</span>
+              <span class="formula">Metal + OH⁻ → M(OH)ₙ</span>
+            </li>
+            <li class="hijo" style="--c:#805ad5; --bg:#faf5ff; --tx:#44337a;">
+              <span class="nombre">Hidróxido de amonio</span>
+              <span class="formula">NH₄OH</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-acido">Con H, no metal y O</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#38a169; --bg:#f0fff4; --tx:#22543d;">
+              <span class="nombre">Oxoácidos de no metales</span>
+              <span class="formula">HₐXᵦO_c (X = N, S, Cl…)</span>
+            </li>
+            <li class="hijo" style="--c:#dd6b20; --bg:#fffaf0; --tx:#7b341e;">
+              <span class="nombre">Oxoácidos de metales</span>
+              <span class="formula">HₐXᵦO_c (X = Mn, Cr, V…)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rama">
+        <div class="tarjeta">
+          <div class="tarjeta-titulo t-sal">Metal + oxoanión</div>
+          <ul class="hijos">
+            <li class="hijo" style="--c:#805ad5; --bg:#f5f0ff; --tx:#44337a;">
+              <span class="nombre">Oxisales neutras</span>
+              <span class="formula">Na₂SO₄, CaCO₃, KNO₃</span>
+            </li>
+            <li class="hijo" style="--c:#d69e2e; --bg:#fffbea; --tx:#744210;">
+              <span class="nombre">Sales ácidas (hidrogenosales)</span>
+              <span class="formula">NaHSO₄, KH₂PO₄</span>
+            </li>
+            <li class="hijo" style="--c:#e53e3e; --bg:#fef2f2; --tx:#9b2c2c;">
+              <span class="nombre">Sales básicas (hidroxisales)</span>
+              <span class="formula">Mg(OH)Cl, Cu₂(OH)₂CO₃</span>
+            </li>
+            <li class="hijo" style="--c:#38b2ac; --bg:#e6fffa; --tx:#234e52;">
+              <span class="nombre">Sales dobles</span>
+              <span class="formula">KAl(SO₄)₂, CaMg(CO₃)₂</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pie">Esquema 1. Clasificación jerárquica de los compuestos ternarios estudiados.</div>
+</div>
+
+
+
+
+<!-- ==================================================
+     ESQUEMA 2: CARÁCTER IÓNICO / COVALENTE
+     ================================================== -->
+<div class="figura" style="border-style: solid; border-color: #cbd5e0;">
+    <h3 style="margin: 0 0 14px 0; color: #2d3748; font-size: 1.05em;">
+        Esquema 2. Carácter iónico o covalente de los compuestos ternarios
+    </h3>
+
+    <div style="overflow-x: auto;">
+        <table style="min-width: 620px;">
+            <thead>
+                <tr>
+                    <th>Familia</th>
+                    <th>Combinación</th>
+                    <th>Tipo de enlace</th>
+                    <th>¿Nomenclatura de n.º de carga?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#2a4365;">Hidróxidos</td>
+                    <td>Metal + OH⁻</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#fef2f2; color:#9b2c2c; font-weight:700; font-size:0.85em;">Iónico</span></td>
+                    <td style="color:#276749; font-weight:700;">Sí</td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#22543d;">Oxoácidos</td>
+                    <td>H + No metal + O</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#ebf8ff; color:#2b6cb0; font-weight:700; font-size:0.85em;">Covalente</span></td>
+                    <td style="color:#9b2c2c; font-weight:700;">No</td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#44337a;">Oxisales neutras</td>
+                    <td>Metal + oxoanión</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#fef2f2; color:#9b2c2c; font-weight:700; font-size:0.85em;">Iónico</span></td>
+                    <td style="color:#276749; font-weight:700;">Sí</td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#744210;">Sales ácidas</td>
+                    <td>Metal + oxoanión con H</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#fef2f2; color:#9b2c2c; font-weight:700; font-size:0.85em;">Iónico</span></td>
+                    <td style="color:#276749; font-weight:700;">Sí</td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#9b2c2c;">Sales básicas</td>
+                    <td>Metal + OH⁻ + anión</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#fef2f2; color:#9b2c2c; font-weight:700; font-size:0.85em;">Iónico</span></td>
+                    <td style="color:#276749; font-weight:700;">Sí</td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; font-weight:600; color:#234e52;">Sales dobles</td>
+                    <td>2 cationes + oxoanión</td>
+                    <td><span style="display:inline-block; padding:3px 10px; border-radius:20px; background:#fef2f2; color:#9b2c2c; font-weight:700; font-size:0.85em;">Iónico</span></td>
+                    <td style="color:#276749; font-weight:700;">Sí</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="note" style="text-align:left; margin-top: 14px;">
+        <strong>Regla práctica:</strong> si en la combinación interviene un <strong>metal</strong> (a la izquierda), el compuesto es <strong>iónico</strong> y admite las tres nomenclaturas de composición (incluida la de número de carga). Los <strong>oxoácidos</strong> son covalentes y <strong>no</strong> admiten la nomenclatura de número de carga.
+        <br>
+        <em>Excepción didáctica:</em> algunos hidróxidos de metales anfóteros (Al, Zn, Sn, Pb) tienen cierto carácter covalente, pero a efectos de esta guía se tratan como iónicos.
+    </div>
+
+    <div class="pie">Esquema 2. Carácter iónico o covalente de las familias de compuestos ternarios.</div>
+</div>
+
+
+
+
+
+
+
+
+            <!-- ==================================================
+                 SECCIÓN TEÓRICA: NOMENCLATURA
+                 ================================================== -->
+            <div class="section resultado">
+                <h2>📝 0.1. Nomenclaturas aplicables a los compuestos ternarios</h2>
+                <p>Para los compuestos de esta guía se aplican hasta <strong>cinco sistemas de nomenclatura</strong>. No todos son válidos para todas las familias:</p>
+
+                <h3>a) Nomenclatura tradicional</h3>
+                <p>Utiliza prefijos y sufijos según el número de oxidación del elemento central: <em>hipo-…-oso</em>, <em>-oso</em>, <em>-ico</em>, <em>per-…-ico</em>. Es la más usada históricamente para oxoácidos y oxisales.</p>
+                <div class="formula-box">
+                    Ácido (hipo-/per-)raíz-oso / -ico &nbsp;→&nbsp; (hipo-/per-)raíz-ito / -ato
+                </div>
+
+                <h3>b) Nomenclatura de composición con prefijos multiplicadores</h3>
+                <p>Se indica el número de cada especie mediante prefijos griegos: <em>mono-</em>, <em>di-</em>, <em>tri-</em>, <em>tetra-</em>, <em>penta-</em>, <em>hexa-</em>, <em>hepta-</em>… Cuando el prefijo se aplica a un grupo poliatómico se usan las formas <em>bis-</em>, <em>tris-</em>, <em>tetraquis-</em>.</p>
+                <div class="formula-box">
+                    (Prefijo)hidróxido de (prefijo)metal &nbsp;·&nbsp; (Prefijo)oxido…ato de (prefijo)metal
+                </div>
+
+                <h3>c) Nomenclatura de composición con estado de oxidación (números romanos)</h3>
+                <p>Se indica el número de oxidación del elemento central (metal o no metal) entre paréntesis y en números romanos. <strong>Si el elemento tiene un único número de oxidación, este no se indica.</strong></p>
+                <div class="formula-box">
+                    Hidróxido de metal (N.º oxid.) &nbsp;·&nbsp; …ato(N.º oxid.) de metal
+                </div>
+
+                <h3>d) Nomenclatura de número de carga (arábigos con signo)</h3>
+                <p>Se indica <strong>siempre</strong> la carga del catión entre paréntesis, en números arábigos seguidos del signo. <strong>Esta nomenclatura solo es válida para compuestos iónicos</strong>, por lo que <strong>no se aplica a los oxoácidos</strong> (covalentes).</p>
+                <div class="formula-box">
+                    Hidróxido de metal (Carga) &nbsp;·&nbsp; …ato(Carga del anión) de metal(Carga del catión)
+                </div>
+
+                <h3>e) Nomenclatura de adición</h3>
+                <p>Propia de la IUPAC-2005. Se nombra el hidrógeno como «hidrogeno» y los ligandos oxido como prefijos del elemento central terminado en <em>-ato</em>.</p>
+                <div class="formula-box">
+                    hidrogeno(trioxidonitrato) &nbsp;·&nbsp; dihidrogeno(tetraoxidosulfato)
+                </div>
+
+                <div class="note">
+                    <strong>Resumen por familias:</strong>
+                    <ul style="margin-top: 6px;">
+                        <li><strong>Hidróxidos:</strong> tradicional, prefijos multiplicadores, estado de oxidación y número de carga.</li>
+                        <li><strong>Oxoácidos:</strong> tradicional, prefijos multiplicadores, estado de oxidación y adición (no número de carga).</li>
+                        <li><strong>Oxisales neutras:</strong> tradicional, prefijos multiplicadores, estado de oxidación y número de carga.</li>
+                        <li><strong>Sales ácidas:</strong> tradicional («… ácido de …»), prefijos multiplicadores con <em>hidrogeno-</em> y número de carga.</li>
+                        <li><strong>Sales básicas:</strong> tradicional («… básico de …»), prefijos multiplicadores con <em>hidróxido de…</em> y número de carga.</li>
+                        <li><strong>Sales dobles:</strong> se nombran los dos cationes separados por «y».</li>
+                    </ul>
+                </div>
+
+                <div class="note" style="background: #e6fffa; border-color: #38b2ac; color: #234e52;">
+                    <strong>⚠️ Diferencia clave entre estado de oxidación y número de carga:</strong>
+                    <ul style="margin-top: 6px;">
+                        <li><strong>Estado de oxidación (números romanos):</strong> solo se indica si el elemento tiene <strong>más de un</strong> número de oxidación. Ej.: <em>hidróxido de calcio</em> (no <em>hidróxido de calcio(II)</em>), pero <em>hidróxido de hierro(II)</em> y <em>hidróxido de hierro(III)</em>.</li>
+                        <li><strong>Número de carga (arábigos con signo):</strong> la carga <strong>se indica siempre</strong>, aunque el elemento tenga un único estado de oxidación. Ej.: <em>hidróxido de calcio(2+)</em>, <em>nitrato de sodio(1+)</em>.</li>
+                    </ul>
+                </div>
+
+<!-- ==================================================
+     BLOQUE: CUÁNDO OMITIR "MONO-", EL N.º DE OXIDACIÓN Y CUÁNDO USAR bis-/tris-
+     ================================================== -->
+<div style="
+    margin-top: 22px;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 2px solid #a78bfa;
+    border-left: 6px solid #7c3aed;
+    border-radius: 12px;
+    padding: 20px 22px;
+">
+    <h3 style="
+        margin: 0 0 14px 0;
+        color: #5b21b6;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    ">
+        <span style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #7c3aed;
+            color: #fff;
+            font-size: 0.95em;
+            flex-shrink: 0;
+        ">!</span>
+        ¿Cuándo NO hay que escribir "mono-" ni el número de oxidación? ¿Y cuándo usar bis-, tris-?
+    </h3>
+
+    <p style="
+        margin: 0 0 14px 0;
+        color: #4c1d95;
+        font-size: 0.95em;
+        line-height: 1.6;
+    ">
+        Son omisiones distintas que se rigen por <strong>reglas independientes</strong>. Conviene no confundirlas:
+    </p>
+
+    <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 14px;
+        margin-bottom: 14px;
+    ">
+        <!-- Cuándo omitir "mono-" -->
+        <div style="
+            background: #ffffff;
+            border: 1.5px solid #c4b5fd;
+            border-radius: 10px;
+            padding: 14px 16px;
+        ">
+            <div style="
+                font-weight: 700;
+                color: #6d28d9;
+                margin-bottom: 8px;
+                font-size: 0.95em;
+            ">
+                🅰️ El prefijo <em>mono-</em>
+            </div>
+            <p style="margin: 0 0 8px 0; font-size: 0.88em; color: #4c1d95; line-height: 1.55;">
+                Se omite <strong>siempre que no haya ambigüedad</strong>: cuando el otro componente ya lleva prefijo o cuando solo hay una especie de ese tipo.
+            </p>
+            <p style="margin: 0 0 6px 0; font-size: 0.85em; color: #5b21b6;"><strong>✔ Se omite:</strong></p>
+            <ul style="margin: 0 0 8px 18px; padding: 0; font-size: 0.85em; color: #4c1d95; line-height: 1.55;">
+                <li>NaOH → <em>hidróxido de sodio</em> (no «monohidróxido de monosodio»).</li>
+                <li>CaCO₃ → <em>carbonato de calcio</em>.</li>
+                <li>Al(OH)₃ → <em>trihidróxido de aluminio</em> (aquí el prefijo afecta al OH y sí se mantiene).</li>
+            </ul>
+        </div>
+
+        <!-- Cuándo omitir el número de oxidación -->
+        <div style="
+            background: #ffffff;
+            border: 1.5px solid #c4b5fd;
+            border-radius: 10px;
+            padding: 14px 16px;
+        ">
+            <div style="
+                font-weight: 700;
+                color: #6d28d9;
+                margin-bottom: 8px;
+                font-size: 0.95em;
+            ">
+                🅱️ El número de oxidación (números romanos)
+            </div>
+            <p style="margin: 0 0 8px 0; font-size: 0.88em; color: #4c1d95; line-height: 1.55;">
+                Se omite <strong>cuando el elemento central tiene un único número de oxidación</strong>.
+            </p>
+            <p style="margin: 0 0 6px 0; font-size: 0.85em; color: #5b21b6;"><strong>✔ Se omite:</strong></p>
+            <ul style="margin: 0 0 8px 18px; padding: 0; font-size: 0.85em; color: #4c1d95; line-height: 1.55;">
+                <li>Ca(OH)₂ → <em>hidróxido de calcio</em> (el Ca solo actúa con +2).</li>
+                <li>Al(OH)₃ → <em>hidróxido de aluminio</em>.</li>
+                <li>Na₂CO₃ → <em>carbonato de sodio</em>.</li>
+            </ul>
+            <p style="margin: 0 0 6px 0; font-size: 0.85em; color: #5b21b6;"><strong>✘ No se omite si hay varios estados:</strong> hidróxido de hierro(II) / (III); sulfato de cobre(I) / (II).</p>
+        </div>
+
+        <!-- bis-, tris- -->
+        <div style="
+            background: #ffffff;
+            border: 1.5px solid #c4b5fd;
+            border-radius: 10px;
+            padding: 14px 16px;
+        ">
+            <div style="
+                font-weight: 700;
+                color: #6d28d9;
+                margin-bottom: 8px;
+                font-size: 0.95em;
+            ">
+                🅲️ Los prefijos <em>bis-</em>, <em>tris-</em>, <em>tetraquis-</em>
+            </div>
+            <p style="margin: 0 0 8px 0; font-size: 0.88em; color: #4c1d95; line-height: 1.55;">
+                Se usan cuando el prefijo multiplicador se aplica a un <strong>grupo poliatómico</strong> que va entre paréntesis, para evitar ambigüedad.
+            </p>
+            <ul style="margin: 0 0 8px 18px; padding: 0; font-size: 0.85em; color: #4c1d95; line-height: 1.55;">
+                <li>Fe₂(SO₄)₃ → <em>tris[tetraoxidosulfato(VI)] de dihierro</em>.</li>
+                <li>Ca(HCO₃)₂ → <em>bis[hidrogeno(trioxidocarbonato)] de calcio</em>.</li>
+                <li>Ca₃(PO₄)₂ → <em>bis[tetraoxidofosfato(V)] de tricalcio</em>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Resumen final -->
+    <div style="
+        background: #ede9fe;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 0.88em;
+        color: #4c1d95;
+        line-height: 1.6;
+    ">
+        <strong>🔑 Regla mnemotécnica:</strong>
+        <ul style="margin: 6px 0 0 18px; padding: 0;">
+            <li><strong>"Mono-"</strong> → depende de la <em>claridad</em> (se omite si no hay ambigüedad).</li>
+            <li><strong>N.º de oxidación</strong> → depende del <em>elemento</em> (se omite si solo tiene un estado de oxidación).</li>
+            <li><strong>N.º de carga</strong> → <em>nunca</em> se omite en compuestos iónicos.</li>
+            <li><strong>bis-/tris-</strong> → cuando el grupo va entre paréntesis y podría haber confusión.</li>
+        </ul>
+    </div>
+</div>
+
+            </div>
+
+            <!-- ==================================================
+                 CATEGORÍA 1: HIDRÓXIDOS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-flask"></i>
+                    <span>HIDRÓXIDOS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">2 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: Hidróxidos metálicos -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cube"></i>
+                            <span>Hidróxidos metálicos — 22 ejemplos</span>
+                            <span class="badge">22</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Los <strong>hidróxidos</strong> están formados por un <strong>metal</strong> y el <strong>grupo hidróxido OH⁻</strong> (que actúa siempre con carga −1). Son compuestos <strong>iónicos</strong>, así que admiten las tres nomenclaturas de composición.</p>
+
+                            <div class="formula-box">
+                                M(OH)ₙ &nbsp;—&nbsp; el grupo OH va <strong>siempre entre paréntesis</strong> cuando n &gt; 1
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Metal (n.º oxid.)</th>
+                                        <th>Prefijos multiplicadores</th>
+                                        <th>Estado de oxidación</th>
+                                        <th>Número de carga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>LiOH</td><td>Li (+1)</td><td>Monohidróxido de litio</td><td>Hidróxido de litio</td><td>Hidróxido de litio(1+)</td></tr>
+                                    <tr><td>NaOH</td><td>Na (+1)</td><td>Monohidróxido de sodio</td><td>Hidróxido de sodio</td><td>Hidróxido de sodio(1+)</td></tr>
+                                    <tr><td>KOH</td><td>K (+1)</td><td>Monohidróxido de potasio</td><td>Hidróxido de potasio</td><td>Hidróxido de potasio(1+)</td></tr>
+                                    <tr><td>CsOH</td><td>Cs (+1)</td><td>Monohidróxido de cesio</td><td>Hidróxido de cesio</td><td>Hidróxido de cesio(1+)</td></tr>
+                                    <tr><td>AgOH</td><td>Ag (+1)</td><td>Monohidróxido de plata</td><td>Hidróxido de plata</td><td>Hidróxido de plata(1+)</td></tr>
+                                    <tr><td>Be(OH)₂</td><td>Be (+2)</td><td>Dihidróxido de berilio</td><td>Hidróxido de berilio</td><td>Hidróxido de berilio(2+)</td></tr>
+                                    <tr><td>Mg(OH)₂</td><td>Mg (+2)</td><td>Dihidróxido de magnesio</td><td>Hidróxido de magnesio</td><td>Hidróxido de magnesio(2+)</td></tr>
+                                    <tr><td>Ca(OH)₂</td><td>Ca (+2)</td><td>Dihidróxido de calcio</td><td>Hidróxido de calcio</td><td>Hidróxido de calcio(2+)</td></tr>
+                                    <tr><td>Sr(OH)₂</td><td>Sr (+2)</td><td>Dihidróxido de estroncio</td><td>Hidróxido de estroncio</td><td>Hidróxido de estroncio(2+)</td></tr>
+                                    <tr><td>Ba(OH)₂</td><td>Ba (+2)</td><td>Dihidróxido de bario</td><td>Hidróxido de bario</td><td>Hidróxido de bario(2+)</td></tr>
+                                    <tr><td>Zn(OH)₂</td><td>Zn (+2)</td><td>Dihidróxido de zinc</td><td>Hidróxido de zinc</td><td>Hidróxido de zinc(2+)</td></tr>
+                                    <tr><td>Fe(OH)₂</td><td>Fe (+2)</td><td>Dihidróxido de hierro</td><td>Hidróxido de hierro(II)</td><td>Hidróxido de hierro(2+)</td></tr>
+                                    <tr><td>Fe(OH)₃</td><td>Fe (+3)</td><td>Trihidróxido de hierro</td><td>Hidróxido de hierro(III)</td><td>Hidróxido de hierro(3+)</td></tr>
+                                    <tr><td>Co(OH)₂</td><td>Co (+2)</td><td>Dihidróxido de cobalto</td><td>Hidróxido de cobalto(II)</td><td>Hidróxido de cobalto(2+)</td></tr>
+                                    <tr><td>Ni(OH)₂</td><td>Ni (+2)</td><td>Dihidróxido de níquel</td><td>Hidróxido de níquel(II)</td><td>Hidróxido de níquel(2+)</td></tr>
+                                    <tr><td>CuOH</td><td>Cu (+1)</td><td>Monohidróxido de cobre</td><td>Hidróxido de cobre(I)</td><td>Hidróxido de cobre(1+)</td></tr>
+                                    <tr><td>Cu(OH)₂</td><td>Cu (+2)</td><td>Dihidróxido de cobre</td><td>Hidróxido de cobre(II)</td><td>Hidróxido de cobre(2+)</td></tr>
+                                    <tr><td>Al(OH)₃</td><td>Al (+3)</td><td>Trihidróxido de aluminio</td><td>Hidróxido de aluminio</td><td>Hidróxido de aluminio(3+)</td></tr>
+                                    <tr><td>Cr(OH)₃</td><td>Cr (+3)</td><td>Trihidróxido de cromo</td><td>Hidróxido de cromo(III)</td><td>Hidróxido de cromo(3+)</td></tr>
+                                    <tr><td>Sn(OH)₂</td><td>Sn (+2)</td><td>Dihidróxido de estaño</td><td>Hidróxido de estaño(II)</td><td>Hidróxido de estaño(2+)</td></tr>
+                                    <tr><td>Sn(OH)₄</td><td>Sn (+4)</td><td>Tetrahidróxido de estaño</td><td>Hidróxido de estaño(IV)</td><td>Hidróxido de estaño(4+)</td></tr>
+                                    <tr><td>Pb(OH)₂</td><td>Pb (+2)</td><td>Dihidróxido de plomo</td><td>Hidróxido de plomo(II)</td><td>Hidróxido de plomo(2+)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Observación importante:</strong> en la nomenclatura de <strong>estado de oxidación</strong>, cuando el metal tiene un único número de oxidación, este <strong>no se indica</strong> (ej. <em>hidróxido de calcio</em>). En cambio, en la nomenclatura de <strong>número de carga</strong>, la carga del catión <strong>se indica siempre</strong> (ej. <em>hidróxido de calcio(2+)</em>). Son dos convenciones distintas que conviene no confundir.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Cómo formular un hidróxido -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-tools"></i>
+                            <span>Cómo se formula un hidróxido + casos especiales</span>
+                            <span class="badge">Método</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Formular un hidróxido es muy sencillo si se sigue siempre el mismo procedimiento:</p>
+
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <strong>Identifica el catión</strong> y su carga a partir del nombre. Ej.: «hidróxido de hierro(III)» → Fe³⁺.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <strong>Escribe el anión OH⁻</strong> con su carga −1.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <strong>Intercambia las cargas en valor absoluto</strong> (método cruzado): Fe³⁺ y OH⁻ → Fe(OH)₃.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">4</span>
+                                <strong>Simplifica si es posible</strong>: Ca²⁺ y OH⁻ → Ca(OH)₂ (no se simplifica, ya que 2 y 1 no tienen divisor común distinto de 1).
+                            </div>
+
+                            <div class="formula-box">
+                                Mᵃ⁺ + b OH⁻ → M<sub>b</sub>(OH)<sub>a</sub> &nbsp;→&nbsp; se simplifica si a y b tienen divisor común
+                            </div>
+
+                            <h3>Casos especiales que conviene conocer</h3>
+                            <ul>
+                                <li><strong>Hidróxido de amonio, NH₄OH:</strong> es la disolución acuosa del amoniaco. En realidad no es un hidróxido iónico, pero se formula y nombra como tal por convenio. El catión es NH₄⁺.</li>
+                                <li><strong>Hidróxidos anfóteros:</strong> Al(OH)₃, Zn(OH)₂, Sn(OH)₂, Pb(OH)₂ pueden comportarse como base o como ácido según el medio.</li>
+                                <li><strong>Hidróxidos de metales con un solo estado de oxidación:</strong> los del grupo 1 (Li, Na, K, Rb, Cs) y grupo 2 (Be, Mg, Ca, Sr, Ba) forman hidróxidos con fórmula fija.</li>
+                                <li><strong>Disolución acuosa:</strong> los hidróxidos de metales alcalinos y alcalinotérreos son las bases fuertes más habituales (NaOH, KOH, Ca(OH)₂).</li>
+                            </ul>
+
+                            <div class="note">
+                                <strong>Error frecuente:</strong> escribir <em>CaOH₂</em> en lugar de <em>Ca(OH)₂</em>. El grupo OH siempre debe ir <strong>entre paréntesis</strong> cuando hay más de uno.
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 2: OXOÁCIDOS
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-fill-drip"></i>
+                    <span>OXOÁCIDOS</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">4 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: Oxoácidos de no metales -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-fire"></i>
+                            <span>Oxoácidos de no metales — 28 ejemplos</span>
+                            <span class="badge">28</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Los <strong>oxoácidos</strong> son compuestos <strong>covalentes</strong> formados por hidrógeno, un no metal (o un metal de transición en estado de oxidación alto) y oxígeno. <strong>No se les aplica la nomenclatura de número de carga</strong>.</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Elemento central (n.º oxid.)</th>
+                                        <th>Nomenclatura tradicional</th>
+                                        <th>Nomenclatura de adición</th>
+                                        <th>Composición con n.º de oxidación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>H₂CO₃</td><td>C (+4)</td><td>Ácido carbónico</td><td>dihidrogeno(trioxidocarbonato)</td><td>trioxidocarbonato(IV) de dihidrógeno</td></tr>
+                                    <tr><td>H₂SiO₃</td><td>Si (+4)</td><td>Ácido metasilícico</td><td>dihidrogeno(trioxidosilicato)</td><td>trioxidosilicato(IV) de dihidrógeno</td></tr>
+                                    <tr><td>H₄SiO₄</td><td>Si (+4)</td><td>Ácido ortosilícico</td><td>tetrahidrogeno(tetraoxidosilicato)</td><td>tetraoxidosilicato(IV) de tetrahidrógeno</td></tr>
+                                    <tr><td>HBO₂</td><td>B (+3)</td><td>Ácido metabórico</td><td>hidrogeno(dioxidoborato)</td><td>dioxidoborato(III) de hidrógeno</td></tr>
+                                    <tr><td>H₃BO₃</td><td>B (+3)</td><td>Ácido bórico (ortobórico)</td><td>trihidrogeno(trioxidoborato)</td><td>trioxidoborato(III) de trihidrógeno</td></tr>
+                                    <tr><td>HNO₂</td><td>N (+3)</td><td>Ácido nitroso</td><td>hidrogeno(dioxidonitrato)</td><td>dioxidonitrato(III) de hidrógeno</td></tr>
+                                    <tr><td>HNO₃</td><td>N (+5)</td><td>Ácido nítrico</td><td>hidrogeno(trioxidonitrato)</td><td>trioxidonitrato(V) de hidrógeno</td></tr>
+                                    <tr><td>H₃PO₂</td><td>P (+1)</td><td>Ácido hipofosforoso</td><td>trihidrogeno(dioxidofosfato)</td><td>dioxidofosfato(I) de trihidrógeno</td></tr>
+                                    <tr><td>H₃PO₃</td><td>P (+3)</td><td>Ácido fosforoso (fosfónico)</td><td>trihidrogeno(trioxidofosfato)</td><td>trioxidofosfato(III) de trihidrógeno</td></tr>
+                                    <tr><td>H₃PO₄</td><td>P (+5)</td><td>Ácido fosfórico</td><td>trihidrogeno(tetraoxidofosfato)</td><td>tetraoxidofosfato(V) de trihidrógeno</td></tr>
+                                    <tr><td>H₄P₂O₇</td><td>P (+5)</td><td>Ácido difosfórico (pirofosfórico)</td><td>tetrahidrogeno(heptaoxidodifosfato)</td><td>heptaoxidodifosfato(V) de tetrahidrógeno</td></tr>
+                                    <tr><td>H₃AsO₃</td><td>As (+3)</td><td>Ácido arsenioso</td><td>trihidrogeno(trioxidoarseniato)</td><td>trioxidoarseniato(III) de trihidrógeno</td></tr>
+                                    <tr><td>H₃AsO₄</td><td>As (+5)</td><td>Ácido arsénico</td><td>trihidrogeno(tetraoxidoarseniato)</td><td>tetraoxidoarseniato(V) de trihidrógeno</td></tr>
+                                    <tr><td>H₂SO₃</td><td>S (+4)</td><td>Ácido sulfuroso</td><td>dihidrogeno(trioxidosulfato)</td><td>trioxidosulfato(IV) de dihidrógeno</td></tr>
+                                    <tr><td>H₂SO₄</td><td>S (+6)</td><td>Ácido sulfúrico</td><td>dihidrogeno(tetraoxidosulfato)</td><td>tetraoxidosulfato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₂S₂O₇</td><td>S (+6)</td><td>Ácido disulfúrico (pirosulfúrico)</td><td>dihidrogeno(heptaoxidodisulfato)</td><td>heptaoxidodisulfato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₂SeO₃</td><td>Se (+4)</td><td>Ácido selenioso</td><td>dihidrogeno(trioxidoseleniato)</td><td>trioxidoseleniato(IV) de dihidrógeno</td></tr>
+                                    <tr><td>H₂SeO₄</td><td>Se (+6)</td><td>Ácido selénico</td><td>dihidrogeno(tetraoxidoseleniato)</td><td>tetraoxidoseleniato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₂TeO₄</td><td>Te (+6)</td><td>Ácido telúrico</td><td>dihidrogeno(tetraoxidotelurato)</td><td>tetraoxidotelurato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>HClO</td><td>Cl (+1)</td><td>Ácido hipocloroso</td><td>hidrogeno(oxidoclorato)</td><td>oxidoclorato(I) de hidrógeno</td></tr>
+                                    <tr><td>HClO₂</td><td>Cl (+3)</td><td>Ácido cloroso</td><td>hidrogeno(dioxidoclorato)</td><td>dioxidoclorato(III) de hidrógeno</td></tr>
+                                    <tr><td>HClO₃</td><td>Cl (+5)</td><td>Ácido clórico</td><td>hidrogeno(trioxidoclorato)</td><td>trioxidoclorato(V) de hidrógeno</td></tr>
+                                    <tr><td>HClO₄</td><td>Cl (+7)</td><td>Ácido perclórico</td><td>hidrogeno(tetraoxidoclorato)</td><td>tetraoxidoclorato(VII) de hidrógeno</td></tr>
+                                    <tr><td>HBrO</td><td>Br (+1)</td><td>Ácido hipobromoso</td><td>hidrogeno(oxidobromato)</td><td>oxidobromato(I) de hidrógeno</td></tr>
+                                    <tr><td>HBrO₃</td><td>Br (+5)</td><td>Ácido brómico</td><td>hidrogeno(trioxidobromato)</td><td>trioxidobromato(V) de hidrógeno</td></tr>
+                                    <tr><td>HBrO₄</td><td>Br (+7)</td><td>Ácido perbrómico</td><td>hidrogeno(tetraoxidobromato)</td><td>tetraoxidobromato(VII) de hidrógeno</td></tr>
+                                    <tr><td>HIO₃</td><td>I (+5)</td><td>Ácido yódico</td><td>hidrogeno(trioxidoyodato)</td><td>trioxidoyodato(V) de hidrógeno</td></tr>
+                                    <tr><td>HIO₄</td><td>I (+7)</td><td>Ácido peryódico</td><td>hidrogeno(tetraoxidoyodato)</td><td>tetraoxidoyodato(VII) de hidrógeno</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Nota terminológica:</strong> la IUPAC-2005 recomienda escribir los ligandos oxido como <em>-oxid</em> (<em>trioxidonitrato</em>), pero en muchos libros de texto se usa la forma con <em>-oxo</em> (<em>trioxonitrato</em>). Ambas son aceptadas en el aula; lo importante es ser coherente.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Oxoácidos de metales -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-crown"></i>
+                            <span>Oxoácidos de metales (Mn, Cr, V, Mo, W)</span>
+                            <span class="badge">9</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Algunos metales de transición, en sus estados de oxidación más altos, forman <strong>oxoácidos</strong> con comportamiento ácido. Son muy importantes porque originan aniones de gran interés (permanganato, cromato, dicromato…).</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Metal (n.º oxid.)</th>
+                                        <th>Nomenclatura tradicional</th>
+                                        <th>Nomenclatura de adición</th>
+                                        <th>Composición con n.º de oxidación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>H₂MnO₄</td><td>Mn (+6)</td><td>Ácido mangánico</td><td>dihidrogeno(tetraoxidomanganato)</td><td>tetraoxidomanganato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>HMnO₄</td><td>Mn (+7)</td><td>Ácido permangánico</td><td>hidrogeno(tetraoxidomanganato)</td><td>tetraoxidomanganato(VII) de hidrógeno</td></tr>
+                                    <tr><td>H₂CrO₄</td><td>Cr (+6)</td><td>Ácido crómico</td><td>dihidrogeno(tetraoxidocromato)</td><td>tetraoxidocromato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₂Cr₂O₇</td><td>Cr (+6)</td><td>Ácido dicrómico</td><td>dihidrogeno(heptaoxidodicromato)</td><td>heptaoxidodicromato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>HVO₃</td><td>V (+5)</td><td>Ácido metavanádico</td><td>hidrogeno(trioxidovanadato)</td><td>trioxidovanadato(V) de hidrógeno</td></tr>
+                                    <tr><td>H₃VO₄</td><td>V (+5)</td><td>Ácido ortovanádico</td><td>trihidrogeno(tetraoxidovanadato)</td><td>tetraoxidovanadato(V) de trihidrógeno</td></tr>
+                                    <tr><td>H₂MoO₄</td><td>Mo (+6)</td><td>Ácido molíbdico</td><td>dihidrogeno(tetraoxidomolibdato)</td><td>tetraoxidomolibdato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₂WO₄</td><td>W (+6)</td><td>Ácido tungsténico</td><td>dihidrogeno(tetraoxidotungstato)</td><td>tetraoxidotungstato(VI) de dihidrógeno</td></tr>
+                                    <tr><td>H₄P₂O₇</td><td>P (+5)</td><td>Ácido difosfórico</td><td>tetrahidrogeno(heptaoxidodifosfato)</td><td>heptaoxidodifosfato(V) de tetrahidrógeno</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Ojo:</strong> el H₄P₂O₇ no contiene metal, pero se incluye aquí por su similitud estructural con los oxoácidos «condensados». Los oxoácidos de metales son la clave para entender los aniones MnO₄⁻, CrO₄²⁻ y Cr₂O₇²⁻ que aparecen en las oxisales.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Cómo formular un oxoácido -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-tools"></i>
+                            <span>Cómo se formula un oxoácido: método del óxido + agua</span>
+                            <span class="badge">Método</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Existen dos métodos complementarios para formular oxoácidos:</p>
+
+                            <h3>Método A — A partir del óxido ácido + agua</h3>
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <strong>Escribe el óxido del elemento central</strong> con su número de oxidación. Ej.: para el S(+6) → SO₃.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <strong>Añade tantas moléculas de agua como sea necesario</strong> para que los H queden en número par (los H provienen del agua).
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <strong>Ajusta y simplifica</strong> si es posible.
+                            </div>
+
+                            <div class="formula-box">
+                                SO₃ + H₂O → H₂SO₄ &nbsp;&nbsp;|&nbsp;&nbsp; N₂O₅ + H₂O → 2 HNO₃ &nbsp;&nbsp;|&nbsp;&nbsp; P₂O₅ + 3 H₂O → 2 H₃PO₄
+                            </div>
+                            <div class="formula-box">
+                                2 CrO₃ + H₂O → H₂Cr₂O₇ &nbsp;&nbsp;|&nbsp;&nbsp; Cl₂O₇ + H₂O → 2 HClO₄
+                            </div>
+
+                            <h3>Método B — Calculando el número de oxidación</h3>
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <strong>Escribe la fórmula general</strong> a partir del nombre. Ej.: «ácido sulfuroso» → deriva del S(+4).
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <strong>Plantea la ecuación de cargas:</strong> el H vale +1 y el O vale −2. Despeja el número de oxidación del elemento central.
+                            </div>
+                            <div class="formula-box">
+                                H₂SO₃: 2(+1) + x + 3(−2) = 0 → x = +4
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <strong>Comprueba que coincide con el nombre</strong> tradicional (<em>-oso</em> para el menor, <em>-ico</em> para el mayor).
+                            </div>
+
+                            <div class="note">
+                                <strong>Regla de oro:</strong> en los oxoácidos, el <strong>número de H</strong> suele coincidir con la <strong>carga del anión</strong> que genera (el número de H ionizables). Ej.: H₂SO₄ → SO₄²⁻; H₃PO₄ → PO₄³⁻. Esto es clave para formular oxisales.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Prefijos y sufijos tradicionales -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-font"></i>
+                            <span>Prefijos y sufijos tradicionales: hipo-oso, -oso, -ico, per-ico</span>
+                            <span class="badge">Tabla</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>La nomenclatura tradicional se basa en el <strong>número de oxidación</strong> del elemento central. Para cada familia se asignan los sufijos de menor a mayor estado de oxidación:</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Familia</th>
+                                        <th>Números de oxidación</th>
+                                        <th>Sufijos (de menor a mayor)</th>
+                                        <th>Ejemplo (cloro)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cl, Br, I</td>
+                                        <td>+1, +3, +5, +7</td>
+                                        <td>hipo-…-oso, -oso, -ico, per-…-ico</td>
+                                        <td>HClO, HClO₂, HClO₃, HClO₄</td>
+                                    </tr>
+                                    <tr>
+                                        <td>S, Se, Te</td>
+                                        <td>+4, +6</td>
+                                        <td>-oso, -ico</td>
+                                        <td>H₂SO₃, H₂SO₄</td>
+                                    </tr>
+                                    <tr>
+                                        <td>N, P, As, Sb</td>
+                                        <td>+3, +5</td>
+                                        <td>-oso, -ico</td>
+                                        <td>HNO₂, HNO₃</td>
+                                    </tr>
+                                    <tr>
+                                        <td>C, Si</td>
+                                        <td>+4</td>
+                                        <td>-ico</td>
+                                        <td>H₂CO₃, H₂SiO₃</td>
+                                    </tr>
+                                    <tr>
+                                        <td>B</td>
+                                        <td>+3</td>
+                                        <td>-ico</td>
+                                        <td>H₃BO₃</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mn, Cr</td>
+                                        <td>+6, +7 (Mn); +6 (Cr)</td>
+                                        <td>-ico, per-…-ico</td>
+                                        <td>H₂CrO₄, HMnO₄</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Del ácido a la sal:</strong> el sufijo del ácido se transforma en el sufijo del anión. La regla es muy simple:
+                                <ul style="margin-top: 6px;">
+                                    <li><em>-oso</em> → <em>-ito</em> &nbsp;(H₂SO₃ → sulfito)</li>
+                                    <li><em>-ico</em> → <em>-ato</em> &nbsp;(H₂SO₄ → sulfato)</li>
+                                    <li>El <em>hipo-</em> y el <em>per-</em> se conservan &nbsp;(HClO → hipoclorito; HClO₄ → perclorato)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 3: OXISALES
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-salt-shaker"></i>
+                    <span>OXISALES</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">3 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: tabla de oxoaniones -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-table"></i>
+                            <span>Tabla de oxoaniones más comunes</span>
+                            <span class="badge">20</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Antes de formular oxisales conviene tener memorizada la relación <strong>oxoácido → oxoanión</strong>. El anión se obtiene eliminando los H del ácido y conservando la carga negativa resultante.</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Oxoácido</th>
+                                        <th>Oxoaniones</th>
+                                        <th>Carga</th>
+                                        <th>Nombre tradicional del anión</th>
+                                        <th>N.º oxid. del elemento central</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>HClO</td><td>ClO⁻</td><td>−1</td><td>Hipoclorito</td><td>Cl (+1)</td></tr>
+                                    <tr><td>HClO₂</td><td>ClO₂⁻</td><td>−1</td><td>Clorito</td><td>Cl (+3)</td></tr>
+                                    <tr><td>HClO₃</td><td>ClO₃⁻</td><td>−1</td><td>Clorato</td><td>Cl (+5)</td></tr>
+                                    <tr><td>HClO₄</td><td>ClO₄⁻</td><td>−1</td><td>Perclorato</td><td>Cl (+7)</td></tr>
+                                    <tr><td>HBrO</td><td>BrO⁻</td><td>−1</td><td>Hipobromito</td><td>Br (+1)</td></tr>
+                                    <tr><td>HIO₃</td><td>IO₃⁻</td><td>−1</td><td>Yodato</td><td>I (+5)</td></tr>
+                                    <tr><td>HNO₂</td><td>NO₂⁻</td><td>−1</td><td>Nitrito</td><td>N (+3)</td></tr>
+                                    <tr><td>HNO₃</td><td>NO₃⁻</td><td>−1</td><td>Nitrato</td><td>N (+5)</td></tr>
+                                    <tr><td>H₂SO₃</td><td>SO₃²⁻</td><td>−2</td><td>Sulfito</td><td>S (+4)</td></tr>
+                                    <tr><td>H₂SO₄</td><td>SO₄²⁻</td><td>−2</td><td>Sulfato</td><td>S (+6)</td></tr>
+                                    <tr><td>H₂SeO₄</td><td>SeO₄²⁻</td><td>−2</td><td>Seleniato</td><td>Se (+6)</td></tr>
+                                    <tr><td>H₂CO₃</td><td>CO₃²⁻</td><td>−2</td><td>Carbonato</td><td>C (+4)</td></tr>
+                                    <tr><td>H₂SiO₃</td><td>SiO₃²⁻</td><td>−2</td><td>Metasilicato</td><td>Si (+4)</td></tr>
+                                    <tr><td>H₄SiO₄</td><td>SiO₄⁴⁻</td><td>−4</td><td>Ortosilicato</td><td>Si (+4)</td></tr>
+                                    <tr><td>H₂CrO₄</td><td>CrO₄²⁻</td><td>−2</td><td>Cromato</td><td>Cr (+6)</td></tr>
+                                    <tr><td>H₂Cr₂O₇</td><td>Cr₂O₇²⁻</td><td>−2</td><td>Dicromato</td><td>Cr (+6)</td></tr>
+                                    <tr><td>HMnO₄</td><td>MnO₄⁻</td><td>−1</td><td>Permanganato</td><td>Mn (+7)</td></tr>
+                                    <tr><td>H₂MnO₄</td><td>MnO₄²⁻</td><td>−2</td><td>Manganato</td><td>Mn (+6)</td></tr>
+                                    <tr><td>H₃PO₄</td><td>PO₄³⁻</td><td>−3</td><td>Fosfato</td><td>P (+5)</td></tr>
+                                    <tr><td>H₃AsO₄</td><td>AsO₄³⁻</td><td>−3</td><td>Arseniato</td><td>As (+5)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Regla clave:</strong> la <strong>carga del anión</strong> coincide con el <strong>número de hidrógenos</strong> del oxoácido de partida. Ej.: H₂SO₄ (2 H) → SO₄²⁻; H₃PO₄ (3 H) → PO₄³⁻; HClO₄ (1 H) → ClO₄⁻. Esta regla es imprescindible para formular oxisales.
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Oxisales neutras -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cube"></i>
+                            <span>Oxisales neutras — 26 ejemplos</span>
+                            <span class="badge">26</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Las <strong>oxisales neutras</strong> resultan de sustituir <strong>todos</strong> los hidrógenos del oxoácido por un catión metálico. Son compuestos <strong>iónicos</strong> y admiten las tres nomenclaturas de composición.</p>
+
+                            <div class="formula-box">
+                                Mᵃ⁺ + (anión)ᵇ⁻ → M<sub>b</sub>(anión)<sub>a</sub> &nbsp;→&nbsp; se simplifica si es posible
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Anión (carga) / Catión (n.º oxid.)</th>
+                                        <th>Nomenclatura tradicional</th>
+                                        <th>Composición con prefijos / n.º oxid.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>NaClO</td><td>ClO⁻ / Na (+1)</td><td>Hipoclorito de sodio</td><td>oxidoclorato(I) de sodio</td></tr>
+                                    <tr><td>KClO₃</td><td>ClO₃⁻ / K (+1)</td><td>Clorato de potasio</td><td>trioxidoclorato(V) de potasio</td></tr>
+                                    <tr><td>KClO₄</td><td>ClO₄⁻ / K (+1)</td><td>Perclorato de potasio</td><td>tetraoxidoclorato(VII) de potasio</td></tr>
+                                    <tr><td>NaBrO₃</td><td>BrO₃⁻ / Na (+1)</td><td>Bromato de sodio</td><td>trioxidobromato(V) de sodio</td></tr>
+                                    <tr><td>NaIO₃</td><td>IO₃⁻ / Na (+1)</td><td>Yodato de sodio</td><td>trioxidoyodato(V) de sodio</td></tr>
+                                    <tr><td>NaNO₂</td><td>NO₂⁻ / Na (+1)</td><td>Nitrito de sodio</td><td>dioxidonitrato(III) de sodio</td></tr>
+                                    <tr><td>KNO₃</td><td>NO₃⁻ / K (+1)</td><td>Nitrato de potasio</td><td>trioxidonitrato(V) de potasio</td></tr>
+                                    <tr><td>AgNO₃</td><td>NO₃⁻ / Ag (+1)</td><td>Nitrato de plata</td><td>trioxidonitrato(V) de plata</td></tr>
+                                    <tr><td>Ca(NO₃)₂</td><td>NO₃⁻ / Ca (+2)</td><td>Nitrato de calcio</td><td>bis[trioxidonitrato(V)] de calcio</td></tr>
+                                    <tr><td>Pb(NO₃)₂</td><td>NO₃⁻ / Pb (+2)</td><td>Nitrato de plomo(II)</td><td>bis[trioxidonitrato(V)] de plomo(II)</td></tr>
+                                    <tr><td>Na₂CO₃</td><td>CO₃²⁻ / Na (+1)</td><td>Carbonato de sodio</td><td>trioxidocarbonato(IV) de disodio</td></tr>
+                                    <tr><td>Li₂CO₃</td><td>CO₃²⁻ / Li (+1)</td><td>Carbonato de litio</td><td>trioxidocarbonato(IV) de dilitio</td></tr>
+                                    <tr><td>CaCO₃</td><td>CO₃²⁻ / Ca (+2)</td><td>Carbonato de calcio</td><td>trioxidocarbonato(IV) de calcio</td></tr>
+                                    <tr><td>Na₂SO₃</td><td>SO₃²⁻ / Na (+1)</td><td>Sulfito de sodio</td><td>trioxidosulfato(IV) de disodio</td></tr>
+                                    <tr><td>Na₂SO₄</td><td>SO₄²⁻ / Na (+1)</td><td>Sulfato de sodio</td><td>tetraoxidosulfato(VI) de disodio</td></tr>
+                                    <tr><td>CuSO₄</td><td>SO₄²⁻ / Cu (+2)</td><td>Sulfato de cobre(II)</td><td>tetraoxidosulfato(VI) de cobre(II)</td></tr>
+                                    <tr><td>FeSO₄</td><td>SO₄²⁻ / Fe (+2)</td><td>Sulfato de hierro(II)</td><td>tetraoxidosulfato(VI) de hierro(II)</td></tr>
+                                    <tr><td>Fe₂(SO₄)₃</td><td>SO₄²⁻ / Fe (+3)</td><td>Sulfato de hierro(III)</td><td>tris[tetraoxidosulfato(VI)] de dihierro</td></tr>
+                                    <tr><td>Al₂(SO₄)₃</td><td>SO₄²⁻ / Al (+3)</td><td>Sulfato de aluminio</td><td>tris[tetraoxidosulfato(VI)] de dialuminio</td></tr>
+                                    <tr><td>BaSO₄</td><td>SO₄²⁻ / Ba (+2)</td><td>Sulfato de bario</td><td>tetraoxidosulfato(VI) de bario</td></tr>
+                                    <tr><td>Na₃PO₄</td><td>PO₄³⁻ / Na (+1)</td><td>Fosfato de sodio</td><td>tetraoxidofosfato(V) de trisodio</td></tr>
+                                    <tr><td>Ca₃(PO₄)₂</td><td>PO₄³⁻ / Ca (+2)</td><td>Fosfato de calcio</td><td>bis[tetraoxidofosfato(V)] de tricalcio</td></tr>
+                                    <tr><td>K₂CrO₄</td><td>CrO₄²⁻ / K (+1)</td><td>Cromato de potasio</td><td>tetraoxidocromato(VI) de dipotasio</td></tr>
+                                    <tr><td>K₂Cr₂O₇</td><td>Cr₂O₇²⁻ / K (+1)</td><td>Dicromato de potasio</td><td>heptaoxidodicromato(VI) de dipotasio</td></tr>
+                                    <tr><td>KMnO₄</td><td>MnO₄⁻ / K (+1)</td><td>Permanganato de potasio</td><td>tetraoxidomanganato(VII) de potasio</td></tr>
+                                    <tr><td>Na₂SiO₃</td><td>SiO₃²⁻ / Na (+1)</td><td>Metasilicato de sodio</td><td>trioxidosilicato(IV) de disodio</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Claves para las oxisales:</strong>
+                                <ul style="margin-top: 6px;">
+                                    <li>La <strong>carga del anión</strong> = número de H del oxoácido de partida.</li>
+                                    <li>El <strong>método cruzado</strong> es el más rápido: intercambia las cargas en valor absoluto y simplifica.</li>
+                                    <li>En la nomenclatura <strong>tradicional</strong>, si el metal tiene varios estados de oxidación, se indica entre paréntesis (nomenclatura de Stock): <em>sulfato de hierro(II)</em>.</li>
+                                    <li>En la nomenclatura de <strong>número de carga</strong>, la carga del catión se indica siempre: <em>sulfato de cobre(2+)</em>.</li>
+                                    <li>Los prefijos <em>bis-</em>, <em>tris-</em> se usan cuando el anión va entre paréntesis.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Cómo formular una oxisal -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-tools"></i>
+                            <span>Cómo se formula una oxisal paso a paso</span>
+                            <span class="badge">Método</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <strong>Identifica el catión</strong> (del metal) y su carga. Ej.: «sulfato de hierro(III)» → Fe³⁺.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <strong>Identifica el anión</strong> y su carga a partir del nombre. «sulfato» → SO₄²⁻.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <strong>Aplica el método cruzado:</strong> Fe³⁺ y SO₄²⁻ → Fe₂(SO₄)₃.
+                            </div>
+                            <div class="step">
+                                <span class="step-num">4</span>
+                                <strong>Comprueba y simplifica</strong> si es posible (el anión poliatómico siempre entre paréntesis).
+                            </div>
+
+                            <div class="formula-box">
+                                Fe³⁺ + SO₄²⁻ → Fe₂(SO₄)₃ &nbsp;&nbsp;·&nbsp;&nbsp; Ca²⁺ + PO₄³⁻ → Ca₃(PO₄)₂
+                            </div>
+
+                            <h3>Comprobación de cargas</h3>
+                            <p>Una vez escrita la fórmula, verifica que la carga total es <strong>cero</strong>:</p>
+                            <div class="formula-box">
+                                Fe₂(SO₄)₃: 2(+3) + 3(−2) = 0 ✔ &nbsp;&nbsp;·&nbsp;&nbsp; Ca₃(PO₄)₂: 3(+2) + 2(−3) = 0 ✔
+                            </div>
+
+                            <div class="note">
+                                <strong>Error frecuente:</strong> escribir <em>FeSO₄₂</em> o <em>CaPO₄</em> sin aplicar correctamente el método cruzado. Siempre se intercambian las cargas en valor absoluto y se colocan como subíndices del <em>otro</em> ion.
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 CATEGORÍA 4: SALES ÁCIDAS Y OTRAS SALES
+                 ================================================== -->
+            <details class="categoria-card">
+                <summary class="categoria-header">
+                    <i class="fas fa-link"></i>
+                    <span>SALES ÁCIDAS Y OTRAS SALES</span>
+                    <span class="badge" style="background: rgba(255,255,255,0.25);">3 subcategorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </summary>
+                <div class="categoria-body">
+
+                    <!-- Subcategoría: Sales ácidas -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-vial"></i>
+                            <span>Sales ácidas (hidrogenosales) — 12 ejemplos</span>
+                            <span class="badge">12</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Las <strong>sales ácidas</strong> (o <strong>hidrogenosales</strong>) se obtienen cuando <strong>no se sustituyen todos los hidrógenos</strong> del oxoácido. Los hidrógenos que quedan se indican con el prefijo <em>hidrogeno-</em> (o con el prefijo multiplicador <em>dihidrogeno-</em>).</p>
+
+                            <div class="note" style="margin-bottom: 12px;">
+                                <strong>Nomenclatura tradicional:</strong> también se llaman «… ácido de …» (p. ej. <em>sulfato ácido de sodio</em>, <em>carbonato ácido de calcio</em>) o con el prefijo <em>bi-</em> (<em>bicarbonato de sodio</em>). La IUPAC prefiere la forma con <em>hidrogeno-</em>.
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Oxoácido de partida</th>
+                                        <th>Nomenclatura tradicional</th>
+                                        <th>Nomenclatura de composición (IUPAC)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>NaHSO₄</td><td>H₂SO₄</td><td>Hidrogenosulfato de sodio (sulfato ácido de sodio)</td><td>hidrogeno(tetraoxidosulfato) de sodio</td></tr>
+                                    <tr><td>KHSO₄</td><td>H₂SO₄</td><td>Hidrogenosulfato de potasio</td><td>hidrogeno(tetraoxidosulfato) de potasio</td></tr>
+                                    <tr><td>Ca(HSO₄)₂</td><td>H₂SO₄</td><td>Hidrogenosulfato de calcio</td><td>bis[hidrogeno(tetraoxidosulfato)] de calcio</td></tr>
+                                    <tr><td>NaHSO₃</td><td>H₂SO₃</td><td>Hidrogenosulfito de sodio</td><td>hidrogeno(trioxidosulfato) de sodio</td></tr>
+                                    <tr><td>NaHCO₃</td><td>H₂CO₃</td><td>Hidrogenocarbonato de sodio (bicarbonato de sodio)</td><td>hidrogeno(trioxidocarbonato) de sodio</td></tr>
+                                    <tr><td>KHCO₃</td><td>H₂CO₃</td><td>Hidrogenocarbonato de potasio</td><td>hidrogeno(trioxidocarbonato) de potasio</td></tr>
+                                    <tr><td>Ca(HCO₃)₂</td><td>H₂CO₃</td><td>Hidrogenocarbonato de calcio (bicarbonato de calcio)</td><td>bis[hidrogeno(trioxidocarbonato)] de calcio</td></tr>
+                                    <tr><td>NaH₂PO₄</td><td>H₃PO₄</td><td>Dihidrogenofosfato de sodio</td><td>dihidrogeno(tetraoxidofosfato) de sodio</td></tr>
+                                    <tr><td>KH₂PO₄</td><td>H₃PO₄</td><td>Dihidrogenofosfato de potasio</td><td>dihidrogeno(tetraoxidofosfato) de potasio</td></tr>
+                                    <tr><td>Na₂HPO₄</td><td>H₃PO₄</td><td>Hidrogenofosfato de disodio</td><td>hidrogeno(tetraoxidofosfato) de disodio</td></tr>
+                                    <tr><td>K₂HPO₄</td><td>H₃PO₄</td><td>Hidrogenofosfato de dipotasio</td><td>hidrogeno(tetraoxidofosfato) de dipotasio</td></tr>
+                                    <tr><td>LiH₂PO₄</td><td>H₃PO₄</td><td>Dihidrogenofosfato de litio</td><td>dihidrogeno(tetraoxidofosfato) de litio</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>¿Cómo se nombran?</strong>
+                                <ul style="margin-top: 6px;">
+                                    <li>Se conserva el nombre del anión del oxoácido original (sulfato, carbonato, fosfato…).</li>
+                                    <li>Se añade el prefijo <em>hidrogeno-</em> (o <em>dihidrogeno-</em>) por cada H que queda sin sustituir.</li>
+                                    <li>En la fórmula, el catión metálico se escribe siempre primero y el anión ácido entre paréntesis si es necesario.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Sales básicas -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-bolt"></i>
+                            <span>Sales básicas (hidroxisales) — 9 ejemplos</span>
+                            <span class="badge">9</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Las <strong>sales básicas</strong> (o <strong>hidroxisales</strong>) contienen, además del anión, <strong>grupos hidróxido OH⁻</strong> sin neutralizar. Se formulan combinando el catión metálico con el anión y con los OH⁻ necesarios para que la carga total sea cero.</p>
+
+                            <div class="note" style="margin-bottom: 12px;">
+                                <strong>Nomenclatura tradicional:</strong> «… básico de …» (p. ej. <em>cloruro básico de magnesio</em>). La IUPAC prefiere nombrar el OH⁻ como <em>hidróxido de…</em> dentro del nombre.
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Composición</th>
+                                        <th>Nomenclatura tradicional</th>
+                                        <th>Nomenclatura de composición (IUPAC)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Mg(OH)Cl</td><td>Mg²⁺ + OH⁻ + Cl⁻</td><td>Cloruro básico de magnesio</td><td>cloruro de hidróxido de magnesio</td></tr>
+                                    <tr><td>Ca(OH)Cl</td><td>Ca²⁺ + OH⁻ + Cl⁻</td><td>Cloruro básico de calcio</td><td>cloruro de hidróxido de calcio</td></tr>
+                                    <tr><td>Zn(OH)Cl</td><td>Zn²⁺ + OH⁻ + Cl⁻</td><td>Cloruro básico de zinc</td><td>cloruro de hidróxido de zinc</td></tr>
+                                    <tr><td>Al(OH)Cl₂</td><td>Al³⁺ + OH⁻ + 2 Cl⁻</td><td>Cloruro básico de aluminio</td><td>dicloruro de hidróxido de aluminio</td></tr>
+                                    <tr><td>Al(OH)₂Cl</td><td>Al³⁺ + 2 OH⁻ + Cl⁻</td><td>Cloruro dibásico de aluminio</td><td>cloruro de dihidróxido de aluminio</td></tr>
+                                    <tr><td>Fe(OH)Cl₂</td><td>Fe³⁺ + OH⁻ + 2 Cl⁻</td><td>Cloruro básico de hierro(III)</td><td>dicloruro de hidróxido de hierro(III)</td></tr>
+                                    <tr><td>Pb(OH)NO₃</td><td>Pb²⁺ + OH⁻ + NO₃⁻</td><td>Nitrato básico de plomo(II)</td><td>nitrato de hidróxido de plomo(II)</td></tr>
+                                    <tr><td>Bi(OH)₂NO₃</td><td>Bi³⁺ + 2 OH⁻ + NO₃⁻</td><td>Nitrato dibásico de bismuto(III)</td><td>nitrato de dihidróxido de bismuto(III)</td></tr>
+                                    <tr><td>Cu₂(OH)₂CO₃</td><td>2 Cu²⁺ + 2 OH⁻ + CO₃²⁻</td><td>Carbonato básico de cobre(II) (malaquita)</td><td>carbonato de dihidróxido de dicobre(II)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Cómo se formula una sal básica:</strong>
+                                <ol style="margin-top: 6px;">
+                                    <li>Escribe el catión metálico con su carga.</li>
+                                    <li>Escribe el anión con su carga.</li>
+                                    <li>Completa con tantos OH⁻ como sean necesarios para neutralizar la carga total.</li>
+                                    <li>Ajusta los subíndices y comprueba que la carga total es cero.</li>
+                                </ol>
+                                <em>Ejemplo:</em> Mg²⁺ + Cl⁻ + OH⁻ → Mg(OH)Cl. Cargas: +2 − 1 − 1 = 0 ✔
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Subcategoría: Sales dobles -->
+                    <details class="subcategoria-card">
+                        <summary class="subcategoria-header">
+                            <i class="fas fa-cubes"></i>
+                            <span>Sales dobles y mixtas — 8 ejemplos</span>
+                            <span class="badge">8</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="subcategoria-body">
+                            <p>Las <strong>sales dobles</strong> contienen <strong>dos cationes distintos</strong> y un mismo anión. Se nombran citando los dos cationes separados por la conjunción «y», generalmente en orden alfabético.</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fórmula</th>
+                                        <th>Cationes</th>
+                                        <th>Anión</th>
+                                        <th>Nombre tradicional</th>
+                                        <th>Nombre de composición</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>KAl(SO₄)₂</td><td>K⁺ y Al³⁺</td><td>SO₄²⁻</td><td>Sulfato de aluminio y potasio (alumbre potásico)</td><td>tetraoxidosulfato de aluminio y potasio</td></tr>
+                                    <tr><td>NaAl(SO₄)₂</td><td>Na⁺ y Al³⁺</td><td>SO₄²⁻</td><td>Sulfato de aluminio y sodio</td><td>tetraoxidosulfato de aluminio y sodio</td></tr>
+                                    <tr><td>KCr(SO₄)₂</td><td>K⁺ y Cr³⁺</td><td>SO₄²⁻</td><td>Sulfato de cromo(III) y potasio (alumbre de cromo)</td><td>tetraoxidosulfato de cromo(III) y potasio</td></tr>
+                                    <tr><td>CaMg(CO₃)₂</td><td>Ca²⁺ y Mg²⁺</td><td>CO₃²⁻</td><td>Carbonato de calcio y magnesio (dolomita)</td><td>trioxidocarbonato de calcio y magnesio</td></tr>
+                                    <tr><td>NaKSO₄</td><td>Na⁺ y K⁺</td><td>SO₄²⁻</td><td>Sulfato de potasio y sodio</td><td>tetraoxidosulfato de potasio y sodio</td></tr>
+                                    <tr><td>KLiSO₄</td><td>K⁺ y Li⁺</td><td>SO₄²⁻</td><td>Sulfato de litio y potasio</td><td>tetraoxidosulfato de litio y potasio</td></tr>
+                                    <tr><td>(NH₄)₂Fe(SO₄)₂</td><td>NH₄⁺ y Fe²⁺</td><td>SO₄²⁻</td><td>Sulfato de amonio y hierro(II) (sal de Mohr)</td><td>bis[tetraoxidosulfato] de amonio y hierro(II)</td></tr>
+                                    <tr><td>Fe(NH₄)(SO₄)₂</td><td>Fe³⁺ y NH₄⁺</td><td>SO₄²⁻</td><td>Sulfato de amonio y hierro(III)</td><td>bis[tetraoxidosulfato] de amonio y hierro(III)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <div class="note">
+                                <strong>Alumbres:</strong> son un caso particular de sales dobles de fórmula general <strong>M<sup>I</sup>M<sup>III</sup>(SO₄)₂·12 H₂O</strong>, donde M<sup>I</sup> es un catión monovalente (Na⁺, K⁺, NH₄⁺…) y M<sup>III</sup> es un catión trivalente (Al³⁺, Cr³⁺, Fe³⁺…). Su nombre tradicional es «alumbre de … y …».
+                            </div>
+
+                            <div class="note" style="background: #e6fffa; border-color: #38b2ac; color: #234e52;">
+                                <strong>Sales mixtas:</strong> contienen <strong>dos aniones distintos</strong> y un solo catión. Ejemplo: <em>cloruro-carbonato de sodio</em> (Na₃ClCO₃). Son menos frecuentes en Bachillerato, pero conviene saber que existen y se nombran citando ambos aniones.
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </details>
+
+            <!-- ==================================================
+                 SECCIÓN FINAL: OBSERVACIONES Y RECOMENDACIONES
+                 ================================================== -->
+            <div class="pie-didactico">
+                <strong>🧠 Observaciones clave y recomendaciones didácticas:</strong>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Hidróxidos:</strong> el grupo OH⁻ va siempre entre paréntesis cuando hay más de uno: M(OH)ₙ. La carga del anión es −1 y la del metal determina el subíndice.</li>
+                    <li><strong>Oxoácidos:</strong> son covalentes, por lo que <strong>no se les aplica la nomenclatura de número de carga</strong>. El número de H del ácido coincide con la carga del anión que origina.</li>
+                    <li><strong>Relación ácido → anión:</strong> el sufijo cambia de <em>-oso</em> a <em>-ito</em> y de <em>-ico</em> a <em>-ato</em>. El prefijo <em>hipo-</em> o <em>per-</em> se conserva siempre.</li>
+                    <li><strong>Oxisales neutras:</strong> se forman sustituyendo todos los H del oxoácido. Se aplica el método cruzado de cargas y se simplifica si es posible.</li>
+                    <li><strong>Sales ácidas:</strong> conservan algún H del oxoácido y se nombran con el prefijo <em>hidrogeno-</em> o <em>dihidrogeno-</em>. Tradicionalmente: «… ácido de …» o «bi-…».</li>
+                    <li><strong>Sales básicas:</strong> conservan grupos OH⁻ y se nombran como «… de hidróxido de …». Tradicionalmente: «… básico de …».</li>
+                    <li><strong>Sales dobles:</strong> contienen dos cationes distintos y se nombran citando ambos separados por «y».</li>
+                    <li><strong>Número de oxidación vs. número de carga:</strong> el número de oxidación se escribe en números romanos y solo se indica si el elemento tiene más de un estado de oxidación. El número de carga se escribe en arábigos con signo y <strong>se indica siempre</strong> en compuestos iónicos.</li>
+                    <li><strong>Prefijos multiplicadores:</strong> no se admiten contracciones («pentaóxido», no «pentóxido»). El prefijo <em>mono-</em> se omite si no hay ambigüedad. Los prefijos <em>bis-</em>, <em>tris-</em> se usan cuando el grupo va entre paréntesis.</li>
+                    <li><strong>Errores frecuentes:</strong> olvidar los paréntesis en los grupos poliatómicos; confundir <em>-oso</em> con <em>-ito</em> y <em>-ico</em> con <em>-ato</em>; no simplificar cuando es posible; confundir el número de H del ácido con la carga del anión; olvidar que los oxoácidos no llevan número de carga; escribir «dícloro» en lugar de «dicloro»; no respetar el orden alfabético de los cationes en las sales dobles.</li>
+                </ul>
+            </div>
+
+        </div><!-- fin details-content -->
+    </details>
+
+</div><!-- fin container -->
+
+<script>
+    // Re-renderizar MathJax cuando se abra cualquier desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        const allDetails = document.querySelectorAll('details');
+        allDetails.forEach(function(det) {
+            det.addEventListener('toggle', function() {
+                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
+        });
+    });
+</script>
+
+    <!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+                     <br>  FAMILIARIZARSE con las reglas IUPAC es la clave para dominar la nomenclatura de los compuestos ternarios.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+</div> <!-- /container -->
+</body>
+</html>

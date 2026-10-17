@@ -502,6 +502,14 @@
                 padding: 2px 10px;
             }
         }
+
+        /* ---------- SUBÍNDICES EN EL BADGE DE CÓDIGO ---------- */
+        .concepto-item .codigo-corto sub {
+            font-size: 0.7em;
+            vertical-align: sub;
+            color: #4a5568;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -663,8 +671,6 @@
 
 
 
-
-
         <!-- ============================================
              CIERRE ESTÉTICO (sin texto)
              ============================================ -->
@@ -698,13 +704,17 @@
     //      de los conceptos que se desean mostrar.
     //      Si está vacío [], se muestran todos.
     //    - NOMBRES_UNIDADES: nombres descriptivos de cada unidad.
+    //
+    //    FORMATO DE CÓDIGOS SOPORTADOS (ampliado):
+    //       U03c01   → código "clásico"
+    //       U03c3b   → subíndice alfabético (nuevo)
+    //       U03c03b  → subíndice con dos dígitos (nuevo)
+    //       U03c12a  → subíndice sobre código de dos cifras (nuevo)
+    //    Es decir: "c" + 1 o 2 dígitos + letra opcional (a-z).
     // ============================================================
 
     // 👇 UNIDADES QUE QUIERES MOSTRAR (vacío = todas)
     const UNIDADES_VISIBLES = [
-        // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  // descomenta las que quieras
-        
-        //Puedo dejar todas las unidades visibles y de esta forma sólo con modificar los conceptos es suficiente.
         1,
         2,
         3,
@@ -722,13 +732,15 @@
 
     // 👇 CONCEPTOS QUE QUIERES MOSTRAR (vacío = todos)
     const CONCEPTOS_VISIBLES = [
-        // Ejemplos:
-        // "U01c05 - Regla de propagación de cifras significativas",
-        // "U03c12"
-        // Deja el array vacío para mostrar todos
 
-        // "U01c01 - Deducción de la fórmula del error relativo",
-        //... (A modo de ejemplo)
+        // ── Ejemplos con subíndice (descomenta cuando tengas los archivos) ──
+        // "U03c3b - Ley de las proporciones múltiples (ampliación)",
+        // "U03c03b - Ejemplo resuelto de conservación de la masa",
+        // "U11c01b - Alcanos Nomenclatura (ejercicios extra)",
+        // Y también se pueden usar claves cortas:
+        // "U03c3b",
+        // "U11c01b"
+
         "U01c01 - Deducción de la fórmula del error relativo",
         "U01c02 - Consistencia dimensional en factores de conversión",
         "U01c03 - Deducción de la ley de Hooke",
@@ -750,6 +762,7 @@
         //"U03c01 - Ley de las proporciones definidas",
         //"U03c02 - Ley de las proporciones múltiples",
         //"U03c03 - Ley de conservación de la masa",
+        //"U03c02b - Comprendiendo mejor las dos leyes",
         //"U03c04 - Hipótesis de Avogadro y ley de los volúmenes de combinación",
         //"U03c05 - Deducción de la ecuación de Clapeyron",
         //"U03c06 - Relación densidad-masa molecular",
@@ -850,12 +863,13 @@
         "U11c06 - Nomenclatura Alquinos",
         "U11c07 - Nomenclatura Alcoholes",
         "U12c01 - Nomenclatura compuestos binarios",
+        "U12c02 - Nomenclatura compuestos ternarios",
         "U99c01 - Formulario de U01 - La física y química como ciencias experimentales",
         "U99c02 - Formulario de U02 - Estructura atómica"
         //"U99c03 - Formulario de U03 - Leyes y conceptos básicos en química",
         //"U99c04 - Formulario de U04 - Estequiometría y química industrial",
         //"U99c05 - Formulario de U05 - Química del carbono",
-        //"U99c06 - Formulario de U06 - Cinemática"
+        //"U99c06 - Formulario de U06 - Cinemática"        
     ];
 
     // 👇 NOMBRES DE CADA UNIDAD (para mostrar junto al código)
@@ -877,7 +891,14 @@
 
     // ============================================================
     // 2. LISTA MAESTRA DE CONCEPTOS (extraída del archivo original)
-    // TIENE QUE SER EL NOMBRE DEL HTML DEL CONCEPTO, NO EL CÓDIGO CORTO. SI SE USA EL CÓDIGO CORTO, NO FUNCIONA.
+    // TIENE QUE SER EL NOMBRE DEL HTML DEL CONCEPTO, NO EL CÓDIGO CORTO.
+    // SI SE USA EL CÓDIGO CORTO, NO FUNCIONA.
+    //
+    // 📌 NOTA SOBRE SUBÍNDICES:
+    //   El nombre del archivo debe coincidir EXACTAMENTE con la cadena
+    //   de esta lista (incluido el guion, espacios, tildes, etc.).
+    //   Ejemplo válido: "U03c3b - Ley de las proporciones múltiples"
+    //                   → archivo: Unidades/U03c3b - Ley de las proporciones múltiples.html
     // ============================================================
     const todosLosConceptos = [
         "U01c01 - Deducción de la fórmula del error relativo",
@@ -900,6 +921,7 @@
         "U02c10 - Determinación de la covalencia y la regla del octeto",
         "U03c01 - Ley de las proporciones definidas",
         "U03c02 - Ley de las proporciones múltiples",
+        "U03c02b - Comprendiendo mejor las dos leyes",
         "U03c03 - Ley de conservación de la masa",
         "U03c04 - Hipótesis de Avogadro y ley de los volúmenes de combinación",
         "U03c05 - Deducción de la ecuación de Clapeyron",
@@ -1001,12 +1023,17 @@
         "U11c06 - Nomenclatura Alquinos",
         "U11c07 - Nomenclatura Alcoholes",
         "U12c01 - Nomenclatura compuestos binarios",
+        "U12c02 - Nomenclatura compuestos ternarios",
         "U99c01 - Formulario de U01 - La física y química como ciencias experimentales",
         "U99c02 - Formulario de U02 - Estructura atómica",
         "U99c03 - Formulario de U03 - Leyes y conceptos básicos en química",
         "U99c04 - Formulario de U04 - Estequiometría y química industrial",
         "U99c05 - Formulario de U05 - Química del carbono",
         "U99c06 - Formulario de U06 - Cinemática"
+        // ── AÑADE AQUÍ TUS CONCEPTOS CON SUBÍNDICE, por ejemplo: ──
+        // "U03c3b - Ley de las proporciones múltiples (ampliación)",
+        // "U03c03b - Ejemplo resuelto de conservación de la masa",
+        // "U11c01b - Alcanos Nomenclatura (ejercicios extra)"
     ];
 
     // ============================================================
@@ -1018,20 +1045,45 @@
     const conceptosSet = new Set(CONCEPTOS_VISIBLES);
 
     /**
-     * Extrae la unidad (ej. "U01") y el código corto (ej. "c01")
-     * de un nombre completo como "U01c01 - Deducción..."
+     * Extrae la unidad (ej. "U01") y el código corto
+     * (ej. "c01", "c3b", "c03b", "c12a"...) de un nombre completo.
+     *
+     * CAMBIO CLAVE RESPECTO A LA VERSIÓN ANTERIOR:
+     *   Antes: /^(U\d{2})(c\d{2}) - (.+)$/
+     *          → exigía exactamente 2 dígitos tras la "c".
+     *   Ahora: /^(U\d{2})(c\d{1,2}[a-z]?) - (.+)$/i
+     *          → permite 1 o 2 dígitos y una letra opcional al final.
+     *          Acepta: c01, c1, c10, c3b, c03b, c12a, c1a…
+     *
+     * @param {string} nombre - p.ej. "U03c3b - Ley de las proporciones múltiples"
+     * @returns {object|null}
      */
     function parsearConcepto(nombre) {
-        const match = nombre.match(/^(U\d{2})(c\d{2}) - (.+)$/);
-        if (!match) return null;
+        const match = nombre.match(/^(U\d{2})(c\d{1,2}[a-z]?) - (.+)$/i);
+        if (!match) {
+            // Aviso por consola: ayuda a detectar formatos no válidos
+            console.warn(`⚠️  Concepto con formato no reconocido (se omite): "${nombre}"`);
+            return null;
+        }
         return {
-            unidad: match[1],          // "U01"
-            codigo: match[2],          // "c01"
-            descripcion: match[3],     // "Deducción..."
-            nombreCompleto: nombre,    // "U01c01 - Deducción..."
-            numeroUnidad: parseInt(match[1].substring(1), 10), // 1, 2, ...
-            clave: match[1] + match[2] // "U01c01"
+            unidad: match[1].toUpperCase(),                    // "U03"
+            codigo: match[2].toLowerCase(),                    // "c3b"
+            descripcion: match[3],                             // "Ley de las proporciones múltiples"
+            nombreCompleto: nombre,                            // "U03c3b - Ley de las proporciones múltiples"
+            numeroUnidad: parseInt(match[1].substring(1), 10), // 3
+            clave: match[1].toUpperCase() + match[2].toLowerCase()  // "U03c3b"
         };
+    }
+
+    /**
+     * Devuelve el HTML del badge del código, aplicando <sub> a la
+     * letra final si existe (subíndice).
+     *   "c01"  → "c01"
+     *   "c3b"  → "c3<sub>b</sub>"
+     *   "c03b" → "c03<sub>b</sub>"
+     */
+    function formatearCodigoBadge(codigo) {
+        return codigo.replace(/^(c\d+)([a-z])$/i, '$1<sub>$2</sub>');
     }
 
     /**
@@ -1045,10 +1097,8 @@
         // Determinar qué unidades se van a mostrar
         let unidadesAMostrar;
         if (unidadesSet.size > 0) {
-            // Solo las indicadas en UNIDADES_VISIBLES
             unidadesAMostrar = new Set(unidadesSet);
         } else {
-            // Todas (1-10)
             unidadesAMostrar = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
         }
 
@@ -1068,7 +1118,7 @@
             if (usarFiltroConceptos) {
                 // El concepto es visible si su nombre completo o su clave está en conceptosSet
                 if (!conceptosSet.has(nombreCompleto) && !conceptosSet.has(clave)) {
-                    return; // no está en la lista de visibles, lo omitimos
+                    return;
                 }
             }
 
@@ -1097,8 +1147,18 @@
         const resultado = [];
         unidadesOrdenadas.forEach(unidad => {
             const grupo = agrupadas[unidad];
-            // Ordenar conceptos por código (c01, c02, ...)
-            grupo.conceptos.sort((a, b) => a.codigo.localeCompare(b.codigo));
+            // ── CAMBIO: orden NATURAL de conceptos ──
+            //   c01 < c02 < c03 < c3b < c04 < c10
+            //   (antes localeCompare ponía "c10" antes que "c3b")
+            grupo.conceptos.sort((a, b) => {
+                const pa = a.codigo.match(/^c(\d+)([a-z]?)$/i);
+                const pb = b.codigo.match(/^c(\d+)([a-z]?)$/i);
+                if (!pa || !pb) return a.codigo.localeCompare(b.codigo);
+                const na = parseInt(pa[1], 10);
+                const nb = parseInt(pb[1], 10);
+                if (na !== nb) return na - nb;
+                return (pa[2] || '').localeCompare(pb[2] || '');
+            });
             resultado.push({
                 unidad: unidad,
                 numero: grupo.numero,
@@ -1142,11 +1202,12 @@
             `;
             grupo.conceptos.forEach(concepto => {
                 const ruta = `Unidades/${encodeURIComponent(concepto.nombreCompleto)}.html`;
+                const badge = formatearCodigoBadge(concepto.codigo);
                 html += `
                     <div class="concepto-item">
                         <i class="fas fa-file-alt"></i>
                         <a href="${ruta}" target="_blank">${concepto.descripcion}</a>
-                        <span class="codigo-corto">${concepto.codigo}</span>
+                        <span class="codigo-corto">${badge}</span>
                     </div>
                 `;
             });
@@ -1163,7 +1224,7 @@
     // 4. EJECUCIÓN
     // ============================================================
     document.addEventListener('DOMContentLoaded', () => {
-        renderizarUnidades();   // Pinta la lista de unidades
+        renderizarUnidades();
     });
 </script>
 
