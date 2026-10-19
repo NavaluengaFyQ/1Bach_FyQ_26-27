@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#T09.03b - Leyes de Proust y Dalton: los subíndices que lo dicen todo</title>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Font Awesome 6 (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+        .header-sub img { max-height: 30px; width: auto; }
+        .header-sub .codigo {
+            font-weight: bold;
+            font-size: 1em;
+            background: rgba(255,255,255,0.15);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .header-sub .texto { font-size: 1em; }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ---------- SECCIONES PRINCIPALES ---------- */
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .enunciado { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo  { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento { background: #f0fff4; border-color: #48bb78; }
+        .resultado { background: #ebf8ff; border-color: #4299e1; }
+
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .enunciado h2 { color: #4a5568; }
+        .objetivo h2  { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2 { color: #2b6cb0; }
+
+        /* ---------- CAJA DE FÓRMULA ---------- */
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+
+        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ---------- NOTA DESTACADA ---------- */
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+
+        /* ---------- TEXTO BASE ---------- */
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { line-height: 1.7; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #edf2f7; }
+
+        /* ============================================
+           DIAGRAMA DE EVOLUCIÓN DE SUBÍNDICES
+           ============================================ */
+        .evolucion-visual {
+            background: #fff;
+            border: 2px solid #cbd5e0;
+            border-radius: 14px;
+            padding: 20px 15px;
+            margin: 18px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .evolucion-fila {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .evolucion-item {
+            text-align: center;
+            min-width: 100px;
+        }
+        .evolucion-etiqueta {
+            font-size: 0.72rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .evolucion-formula {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            white-space: nowrap;
+        }
+        .evolucion-formula.pequena {
+            font-size: 0.95rem;
+        }
+        .evolucion-flecha {
+            font-size: 1.4rem;
+            color: #a0aec0;
+            font-weight: 300;
+            line-height: 1;
+        }
+        .evolucion-compuesto {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+        }
+        .evolucion-leyenda {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #718096;
+            margin-top: 14px;
+            font-style: italic;
+        }
+        .evolucion-separador {
+            border: none;
+            border-top: 1px dashed #cbd5e0;
+            margin: 15px 0;
+        }
+
+        /* ============================================
+           AMPLIACIÓN: PANEL DE LA LEY DE DALTON
+           ============================================ */
+        .evolucion-fase-titulo {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #4a5568;
+            margin: 8px 0 12px;
+            letter-spacing: 0.3px;
+        }
+        .dalton-bloque {
+            background: #fff;
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin: 8px 0;
+        }
+        .dalton-titulo {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .dalton-badge {
+            background: #667eea;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .dalton-fila {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            flex-wrap: wrap;
+            border-bottom: 1px dashed #edf2f7;
+            font-size: 0.9rem;
+        }
+        .dalton-fila:last-child {
+            border-bottom: none;
+        }
+        .dalton-idioma {
+            min-width: 100px;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .dalton-idioma small {
+            color: #a0aec0;
+            font-weight: 400;
+        }
+        .dalton-ecuacion {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .dalton-resultado {
+            min-width: 120px;
+            text-align: right;
+            color: #276749;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .evolucion-nota-final {
+            margin-top: 15px;
+            background: #e0f2fe;
+            border-left: 5px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #0c4a6e;
+        }
+
+        @media (max-width: 640px) {
+            .container { margin: 10px; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            details.ejercicios-desplegable summary {
+                font-size: 1.1rem;
+                flex-wrap: wrap;
+            }
+            .tarjeta-ej { padding: 1rem; }
+        }
+        @media (max-width: 560px) {
+            .evolucion-fila { gap: 5px; }
+            .evolucion-item { min-width: 80px; }
+            .evolucion-formula { font-size: 1rem; }
+            .evolucion-formula.pequena { font-size: 0.78rem; }
+            .evolucion-flecha { font-size: 1.1rem; }
+            .dalton-fila { flex-direction: column; align-items: flex-start; }
+            .dalton-ecuacion, .dalton-resultado { text-align: left; min-width: 0; }
+            .dalton-idioma { min-width: 0; }
+        }
+
+        /* ============================================
+           ESTILOS PARA EL BLOQUE DESPLEGABLE
+           ============================================ */
+        details.ejercicios-desplegable {
+            margin: 30px 25px 20px 25px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #cbd5e0;
+        }
+        details.ejercicios-desplegable summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e293b;
+            padding: 0.8rem 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            user-select: none;
+            transition: color 0.2s;
+        }
+        details.ejercicios-desplegable summary::-webkit-details-marker { display: none; }
+        details.ejercicios-desplegable summary .fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            color: #667eea;
+            font-size: 1.8rem;
+        }
+        details.ejercicios-desplegable[open] summary .fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        details.ejercicios-desplegable summary .icono-pulsame {
+            background: #667eea;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-left: 0.3rem;
+        }
+        .contenido-ejercicios {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .tarjeta-ej {
+            background: white;
+            border-radius: 18px;
+            padding: 1.2rem 1.8rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e9edf4;
+        }
+        .tarjeta-ej .ej-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .tarjeta-ej .ej-num {
+            background: #667eea;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+        }
+        .tarjeta-ej .ej-titulo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #1e293b;
+        }
+        .tarjeta-ej .enunciado { margin-bottom: 0.8rem; }
+        .resolucion {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border-left: 4px solid #667eea;
+            margin-top: 0.8rem;
+            font-size: 0.98rem;
+        }
+        .resolucion p { margin: 0.5rem 0; }
+        .resolucion .step-label { font-weight: 600; color: #1e293b; }
+        .pie-clave {
+            margin-top: 1.8rem;
+            background: #e0f2fe;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            font-size: 0.98rem;
+            border-left: 6px solid #0ea5e9;
+            color: #0c4a6e;
+        }
+        .pie-clave i { margin-right: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ==================== CABECERA ==================== -->
+        <div class="header">
+            <div class="header-left">
+                <h1>IES Valle del Alberche</h1>
+                <div class="header-sub">
+                    <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                    <span class="codigo">#T09.03b.- </span>
+                    <span class="texto">Proust y Dalton: los subíndices que lo dicen todo</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+            </div>
+        </div>
+
+        <!-- ==================== ENUNCIADO ==================== -->
+        <div class="section enunciado">
+            <h2>📘 Enunciado</h2>
+            <p>Antes de formular la ecuación de Clapeyron, la química tuvo que responder una pregunta fundamental:
+               <strong>¿en qué proporciones se combinan los elementos para formar un compuesto?</strong>
+               Dos leyes empíricas respondieron a esta cuestión:</p>
+            <ul>
+                <li><strong>Ley de las proporciones definidas (Proust, 1799):</strong> un compuesto puro siempre contiene los mismos elementos en la misma proporción en masa, independientemente de cómo se haya preparado.</li>
+                <li><strong>Ley de las proporciones múltiples (Dalton, 1803):</strong> cuando dos elementos pueden formar más de un compuesto, las masas de uno que se combinan con una masa fija del otro guardan entre sí una relación de números enteros sencillos.</li>
+            </ul>
+            <p>En esta ficha las vamos a ver "en acción" usando la pareja más didáctica que existe:
+               el <strong>monóxido de carbono (CO)</strong> y el <strong>dióxido de carbono (CO₂)</strong>.
+               Y vamos a hacerlo con un truco visual muy potente: <strong>los subíndices de la fórmula pueden
+               escribirse de tres maneras distintas, y todas ellas cuentan exactamente lo mismo</strong>.</p>
+        </div>
+
+        <!-- ==================== OBJETIVO ==================== -->
+        <div class="section objetivo">
+            <h2>🎯 Objetivo: el subíndice como "etiqueta intercambiable"</h2>
+            <p>La idea original de esta ficha es que <strong>los subíndices de una fórmula son solo una forma de
+               escribir la masa</strong>. Podemos ponerlos en versión atómica (los átomos que hay), en versión
+               ponderal (los gramos por mol de cada elemento) o en versión porcentual (el porcentaje en masa).
+               <em>Es la misma información contada de tres maneras.</em></p>
+
+            <!-- DIAGRAMA CENTRAL: EVOLUCIÓN DE LOS SUBÍNDICES + LEY DE DALTON -->
+            <div class="evolucion-visual">
+                <!-- FASE 1: EVOLUCIÓN -->
+                <div class="evolucion-fase-titulo">📊 Los tres idiomas del mismo compuesto</div>
+
+                <div style="text-align:center;">
+                    <span class="evolucion-compuesto">CO · monóxido de carbono</span>
+                </div>
+                <div class="evolucion-fila">
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Atómico</div>
+                        <div class="evolucion-formula">\(\mathrm{C_1O_1}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Ponderal (g/mol)</div>
+                        <div class="evolucion-formula">\(\mathrm{C_{12}O_{16}}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Porcentual (%)</div>
+                        <div class="evolucion-formula pequena">\(\mathrm{C_{42{,}86}O_{57{,}14}}\)</div>
+                    </div>
+                </div>
+
+                <hr class="evolucion-separador">
+
+                <div style="text-align:center;">
+                    <span class="evolucion-compuesto">CO₂ · dióxido de carbono</span>
+                </div>
+                <div class="evolucion-fila">
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Atómico</div>
+                        <div class="evolucion-formula">\(\mathrm{C_1O_2}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Ponderal (g/mol)</div>
+                        <div class="evolucion-formula">\(\mathrm{C_{12}O_{32}}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Porcentual (%)</div>
+                        <div class="evolucion-formula pequena">\(\mathrm{C_{27{,}27}O_{72{,}73}}\)</div>
+                    </div>
+                </div>
+
+                <div class="evolucion-leyenda">
+                    🔑 El símbolo C y O no cambia: solo cambia <em>qué estamos contando</em> en el subíndice.
+                    Las tres filas son la misma molécula.
+                </div>
+
+                <!-- FASE 2: LEY DE DALTON -->
+                <hr class="evolucion-separador" style="border-top: 2px solid #667eea; margin: 20px 0;">
+
+                <div class="evolucion-fase-titulo">⚖️ Ley de Dalton: fijando un subíndice</div>
+                <p style="text-align:center; font-size: 0.9rem; color: #4a5568; margin: 8px 0 15px;">
+                    Si <strong>igualamos el subíndice de un elemento</strong> en los dos compuestos,
+                    el subíndice del otro queda en una <strong>proporción entera sencilla</strong>.
+                    Da igual el idioma: <em>átomos (mol)</em>, <em>gramos (masa)</em> o <em>porcentajes</em>.
+                </p>
+
+                <!-- CASO A: FIJANDO C -->
+                <div class="dalton-bloque">
+                    <div class="dalton-titulo">
+                        <span class="dalton-badge">🔒 C fijo</span>
+                        Igualamos el subíndice del carbono
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Atómico <small>(mol)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_1O_1}\) vs \(\mathrm{C_1O_2}\)</span>
+                        <span class="dalton-resultado">O: \(1 : 2 = \mathbf{1{:}2}\)</span>
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Ponderal <small>(g)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_{12}O_{16}}\) vs \(\mathrm{C_{12}O_{32}}\)</span>
+                        <span class="dalton-resultado">O: \(16 : 32 = \mathbf{1{:}2}\)</span>
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Porcentual <small>(%)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_{42{,}86}O_{57{,}14}}\) vs \(\mathrm{C_{42{,}86}O_{114{,}3}}\)</span>
+                        <span class="dalton-resultado">O: \(57{,}14 : 114{,}3 = \mathbf{1{:}2}\)</span>
+                    </div>
+                </div>
+
+                <!-- CASO B: FIJANDO O -->
+                <div class="dalton-bloque" style="margin-top: 12px;">
+                    <div class="dalton-titulo">
+                        <span class="dalton-badge">🔒 O fijo</span>
+                        Igualamos el subíndice del oxígeno
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Atómico <small>(mol)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_1O_1}\) vs \(\mathrm{C_{0{,}5}O_1}\)</span>
+                        <span class="dalton-resultado">C: \(1 : 0{,}5 = \mathbf{2{:}1}\)</span>
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Ponderal <small>(g)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_{12}O_{16}}\) vs \(\mathrm{C_{6}O_{16}}\)</span>
+                        <span class="dalton-resultado">C: \(12 : 6 = \mathbf{2{:}1}\)</span>
+                    </div>
+
+                    <div class="dalton-fila">
+                        <span class="dalton-idioma">Porcentual <small>(%)</small></span>
+                        <span class="dalton-ecuacion">\(\mathrm{C_{42{,}86}O_{57{,}14}}\) vs \(\mathrm{C_{21{,}43}O_{57{,}14}}\)</span>
+                        <span class="dalton-resultado">C: \(42{,}86 : 21{,}43 = \mathbf{2{:}1}\)</span>
+                    </div>
+                </div>
+
+                <div class="evolucion-nota-final">
+                    💡 <strong>Observa el patrón:</strong> al fijar C, la relación del otro elemento es <strong>1:2</strong>;
+                    al fijar O, es <strong>2:1</strong>. ¡Siempre números enteros sencillos!
+                    <br><small><strong>Nota sobre el caso "O fijo":</strong> para igualar la cantidad de O a la del CO,
+                    hemos "ajustado" el CO₂ (de ahí \(\mathrm{C_{0{,}5}O_1}\), \(\mathrm{C_6O_{16}}\) y \(\mathrm{C_{21{,}43}O_{57{,}14}}\)).
+                    Es el equivalente a "tomar media molécula" de CO₂: el O queda igual y el C se reduce a la mitad.</small>
+                </div>
+            </div>
+
+            <p>Saber leer y escribir estos tres "idiomas" es exactamente lo que necesitas para aplicar
+               Proust y Dalton <em>sin memorizar nada</em>: solo traduciendo.</p>
+        </div>
+
+        <!-- ==================== PROCEDIMIENTO ==================== -->
+        <div class="section procedimiento">
+            <h2>🔬 Procedimiento</h2>
+
+            <div class="step">
+                <span class="step-num">1</span>
+                <strong>Idioma atómico: los subíndices son "átomos".</strong>
+                La fórmula nos dice cuántos átomos de cada elemento forman la unidad mínima del compuesto:
+                <div class="formula-box">
+                    \[ \text{CO} = \mathrm{C_1O_1} \qquad \text{CO}_2 = \mathrm{C_1O_2} \]
+                </div>
+                <p style="margin-top:10px;">Los subíndices son números enteros pequeños: aquí ya "huele" a Dalton.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-num">2</span>
+                <strong>Idioma ponderal: los subíndices son "gramos".</strong>
+                Si cambiamos cada átomo por su masa atómica (C ≈ 12 u; O ≈ 16 u) y <strong>ponemos esa masa como
+                nuevo subíndice</strong>, obtenemos los gramos de cada elemento por mol de compuesto:
+                <div class="formula-box">
+                    \[ \mathrm{C_1O_1} \;\longrightarrow\; \mathrm{C_{12}O_{16}} \qquad
+                       \mathrm{C_1O_2} \;\longrightarrow\; \mathrm{C_{12}O_{32}} \]
+                </div>
+                <p style="margin-top:10px;">El subíndice multiplica la masa atómica: en CO₂ el oxígeno pasa de 16 g a 32 g (2 × 16).
+                   ¡El subíndice ya no es "un átomo", es "una masa"!</p>
+            </div>
+
+            <div class="step">
+                <span class="step-num">3</span>
+                <strong>Idioma porcentual: los subíndices son "porcentajes".</strong>
+                Dividimos los gramos de cada elemento entre la masa total y multiplicamos por 100.
+                Y <strong>escribimos ese porcentaje como nuevo subíndice</strong>:
+                <div class="formula-box">
+                    \[ \mathrm{C_{12}O_{16}} \;\longrightarrow\; \mathrm{C_{42{,}86}O_{57{,}14}} \]
+                    \[ \mathrm{C_{12}O_{32}} \;\longrightarrow\; \mathrm{C_{27{,}27}O_{72{,}73}} \]
+                </div>
+                <p style="margin-top:10px;">Los porcentajes son la "tarjeta de identidad" del compuesto:
+                   <em>no dependen de la masa que tomes</em> (1 g, 1 mol o 1 tonelada dan el mismo porcentaje).</p>
+                <div class="note" style="margin-top:10px;">
+                    <strong>📝 Nota sobre la notación:</strong> en los subíndices porcentuales usamos la coma decimal
+                    (42,86 %) al estilo español. No es notación IUPAC estándar, pero es un recurso didáctico
+                    para que veas que <em>el subíndice puede ser cualquier expresión de la masa</em>.
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">4</span>
+                <strong>Ley de Proust en acción.</strong>
+                Da igual cómo prepares el CO: siempre tendrá los mismos subíndices en los tres idiomas.
+                Y el CO₂ también. <em>Las tres columnas de la siguiente tabla son la misma información contada de tres formas.</em>
+                <table style="margin-top:10px;">
+                    <thead>
+                        <tr>
+                            <th>Compuesto</th>
+                            <th>Atómico</th>
+                            <th>Ponderal (por mol)</th>
+                            <th>Porcentual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CO</strong></td>
+                            <td>\(\mathrm{C_1O_1}\)</td>
+                            <td>\(\mathrm{C_{12}O_{16}}\) <small>(12 g C + 16 g O)</small></td>
+                            <td>\(\mathrm{C_{42{,}86}O_{57{,}14}}\) <small>(42,86 % C + 57,14 % O)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CO₂</strong></td>
+                            <td>\(\mathrm{C_1O_2}\)</td>
+                            <td>\(\mathrm{C_{12}O_{32}}\) <small>(12 g C + 32 g O)</small></td>
+                            <td>\(\mathrm{C_{27{,}27}O_{72{,}73}}\) <small>(27,27 % C + 72,73 % O)</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="step">
+                <span class="step-num">5</span>
+                <strong>Ley de Dalton en acción.</strong>
+                Fijamos la masa de un elemento y comparamos cuánto del otro se combina con él en cada compuesto.
+                Fíjate en que, en el idioma ponderal, <strong>los subíndices ya nos dan la respuesta directamente</strong>:
+                <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:10px;">
+                    <div style="flex:1; min-width:240px; background:#fff; padding:12px; border-radius:8px; border:1px solid #cbd5e0;">
+                        <strong>Fijando 12 g de C (subíndice del C = 12):</strong><br>
+                        CO → subíndice O = <strong>16</strong><br>
+                        CO₂ → subíndice O = <strong>32</strong><br>
+                        Relación: <strong>16 : 32 = 1 : 2</strong> ✔
+                    </div>
+                    <div style="flex:1; min-width:240px; background:#fff; padding:12px; border-radius:8px; border:1px solid #cbd5e0;">
+                        <strong>Fijando 16 g de O (subíndice del O = 16):</strong><br>
+                        CO → subíndice C = <strong>12</strong><br>
+                        CO₂ → subíndice C = <strong>6</strong><br>
+                        Relación: <strong>12 : 6 = 2 : 1</strong> ✔
+                    </div>
+                </div>
+                <p style="margin-top:10px;">En ambos casos aparecen números enteros pequeños. <em>Eso</em> es la ley de las proporciones múltiples.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-num">6</span>
+                <strong>El camino inverso: del porcentaje a la fórmula.</strong>
+                Si te dan solo los porcentajes, ¿cómo recuperas la fórmula? Muy fácil: <strong>divide cada porcentaje
+                entre la masa atómica del elemento y simplifica la relación</strong>.
+                <div class="formula-box">
+                    \[ \mathrm{C_{42{,}86}O_{57{,}14}} \;\longrightarrow\;
+                       \tfrac{42{,}86}{12} : \tfrac{57{,}14}{16} = 3{,}57 : 3{,}57 = 1 : 1 \;\longrightarrow\; \mathrm{C_1O_1} \]
+                    \[ \mathrm{C_{27{,}27}O_{72{,}73}} \;\longrightarrow\;
+                       \tfrac{27{,}27}{12} : \tfrac{72{,}73}{16} = 2{,}27 : 4{,}55 = 1 : 2 \;\longrightarrow\; \mathrm{C_1O_2} \]
+                </div>
+                <div class="note">
+                    <strong>💡 Regla mnemotécnica:</strong> "Porcentaje ÷ masa atómica = subíndice".
+                    Después solo hay que reducir la fracción a números enteros pequeños.
+                    Este método funciona para cualquier compuesto y es la base de la <em>fórmula empírica</em>.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== RESULTADO ==================== -->
+        <div class="section resultado">
+            <h2>✅ Resultado</h2>
+            <p>Las dos leyes se resumen en una idea muy simple:</p>
+            <ul style="margin-left:20px;">
+                <li><strong>Proust (proporciones definidas):</strong> dentro de un mismo compuesto, la proporción en masa es siempre la misma.
+                    Dicho en nuestros tres idiomas: <em>los subíndices están fijos → los gramos por mol están fijos → los porcentajes están fijos</em>.
+                    Un compuesto es una "receta cerrada".</li>
+                <li><strong>Dalton (proporciones múltiples):</strong> cuando dos elementos forman varios compuestos, los cocientes
+                    entre las masas de uno (fijando la masa del otro) son números enteros pequeños.
+                    Dicho en nuestros tres idiomas: <em>CO y CO₂ son "recetas distintas" del mismo par de ingredientes,
+                    y sus proporciones están relacionadas por un número entero sencillo (1:2)</em>.</li>
+            </ul>
+
+            <!-- RESUMEN VISUAL FINAL -->
+            <div class="evolucion-visual" style="margin-top:18px;">
+                <div style="text-align:center;">
+                    <span class="evolucion-compuesto">CO · monóxido de carbono</span>
+                </div>
+                <div class="evolucion-fila">
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Atómico</div>
+                        <div class="evolucion-formula">\(\mathrm{C_1O_1}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Ponderal (g/mol)</div>
+                        <div class="evolucion-formula">\(\mathrm{C_{12}O_{16}}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Porcentual (%)</div>
+                        <div class="evolucion-formula pequena">\(\mathrm{C_{42{,}86}O_{57{,}14}}\)</div>
+                    </div>
+                </div>
+
+                <hr class="evolucion-separador">
+
+                <div style="text-align:center;">
+                    <span class="evolucion-compuesto">CO₂ · dióxido de carbono</span>
+                </div>
+                <div class="evolucion-fila">
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Atómico</div>
+                        <div class="evolucion-formula">\(\mathrm{C_1O_2}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Ponderal (g/mol)</div>
+                        <div class="evolucion-formula">\(\mathrm{C_{12}O_{32}}\)</div>
+                    </div>
+                    <div class="evolucion-flecha">→</div>
+                    <div class="evolucion-item">
+                        <div class="evolucion-etiqueta">Porcentual (%)</div>
+                        <div class="evolucion-formula pequena">\(\mathrm{C_{27{,}27}O_{72{,}73}}\)</div>
+                    </div>
+                </div>
+
+                <div class="evolucion-leyenda">
+                    🔑 Los subíndices cambian de "átomos" a "gramos" a "porcentajes", pero la molécula sigue siendo la misma.
+                </div>
+            </div>
+
+            <div class="formula-box" style="margin-top:15px;">
+                \[ \frac{m_{\mathrm{O}}(\mathrm{CO}_2)}{m_{\mathrm{O}}(\mathrm{CO})} = \frac{32}{16} = 2 \ \ \text{(número entero pequeño)} \]
+            </div>
+
+            <div class="note">
+                <strong>💡 Observaciones para el alumnado:</strong>
+                <ul style="margin-top:8px;">
+                    <li>Los porcentajes son <em>independientes de la escala</em>: no importa si trabajas con gramos, moles o toneladas,
+                        los porcentajes no cambian. Por eso son la mejor "tarjeta de identidad" de un compuesto.</li>
+                    <li>Las masas atómicas se redondean a números enteros (C = 12, O = 16, H = 1, N = 14…) para que las relaciones de Dalton salgan perfectas.
+                        Con masas exactas los números no son exactamente enteros, pero se acercan mucho.</li>
+                    <li>Estas dos leyes son la base de la <strong>teoría atómica de Dalton</strong> (1808) y de la ecuación de Clapeyron
+                        que verás en la ficha principal: si un mol contiene siempre un número fijo de partículas (Avogadro),
+                        es lógico que las masas estén en proporciones definidas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== DESPLEGABLE EJERCICIOS ==================== -->
+        <details class="ejercicios-desplegable">
+            <summary>
+                <i class="fas fa-chevron-circle-down"></i>
+                <span>🧪 PON A PRUEBA las leyes de Proust y Dalton</span>
+                <span class="icono-pulsame"><i class="fas fa-hand-pointer"></i> Púlsame</span>
+            </summary>
+
+            <div class="contenido-ejercicios">
+
+                <!-- EJERCICIO 1 -->
+                <div class="tarjeta-ej">
+                    <div class="ej-header">
+                        <span class="ej-num">Ejercicio 1</span>
+                        <span class="ej-titulo">Del porcentaje a la fórmula (camino inverso)</span>
+                    </div>
+                    <div class="enunciado">
+                        <p>Un compuesto binario de carbono y oxígeno contiene un \(42{,}86\%\) de C y un \(57{,}14\%\) de O.
+                           ¿De qué compuesto se trata? (Masas atómicas: C = 12, O = 16).</p>
+                    </div>
+                    <div class="resolucion">
+                        <p><span class="step-label">Paso 1:</span> Dividir cada porcentaje entre la masa atómica correspondiente:</p>
+                        <p>\(\tfrac{42{,}86}{12} \approx 3{,}57\) (C) ; \(\tfrac{57{,}14}{16} \approx 3{,}57\) (O).</p>
+                        <p><span class="step-label">Paso 2:</span> Dividir ambos entre el menor:</p>
+                        <p>\(\tfrac{3{,}57}{3{,}57} = 1\) (C) ; \(\tfrac{3{,}57}{3{,}57} = 1\) (O).</p>
+                        <p><span class="step-label">Resultado:</span> Fórmula \(\mathrm{C_1O_1} = \text{CO}\) (monóxido de carbono).</p>
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 2 -->
+                <div class="tarjeta-ej">
+                    <div class="ej-header">
+                        <span class="ej-num">Ejercicio 2</span>
+                        <span class="ej-titulo">Del porcentaje a la fórmula (otra vuelta) y Dalton</span>
+                    </div>
+                    <div class="enunciado">
+                        <p>Otro compuesto de C y O contiene \(27{,}27\%\) de C y \(72{,}73\%\) de O.
+                           ¿Qué compuesto es? Comprueba que se cumple la ley de Dalton respecto al CO del ejercicio anterior.</p>
+                    </div>
+                    <div class="resolucion">
+                        <p><span class="step-label">Paso 1:</span> \(\tfrac{27{,}27}{12} \approx 2{,}27\) (C) ; \(\tfrac{72{,}73}{16} \approx 4{,}55\) (O).</p>
+                        <p><span class="step-label">Paso 2:</span> Dividir entre el menor: \(\tfrac{2{,}27}{2{,}27} = 1\) ; \(\tfrac{4{,}55}{2{,}27} = 2\).</p>
+                        <p><span class="step-label">Resultado:</span> \(\mathrm{C_1O_2} = \text{CO}_2\) (dióxido de carbono).</p>
+                        <p><span class="step-label">Dalton:</span> Fijando 12 g de C, el CO tiene 16 g de O y el CO₂ tiene 32 g de O.
+                           Relación: \(16 : 32 = 1 : 2\). ✔ Número entero sencillo.</p>
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 3 -->
+                <div class="tarjeta-ej">
+                    <div class="ej-header">
+                        <span class="ej-num">Ejercicio 3</span>
+                        <span class="ej-titulo">Tres óxidos de nitrógeno</span>
+                    </div>
+                    <div class="enunciado">
+                        <p>Los compuestos \(\mathrm{N_2O}\), \(\mathrm{NO}\) y \(\mathrm{NO_2}\) están formados por nitrógeno y oxígeno.
+                           Calcula los gramos de oxígeno que se combinan con 14 g de nitrógeno en cada uno y comprueba la ley de Dalton.
+                           (Masas atómicas: N = 14, O = 16).</p>
+                    </div>
+                    <div class="resolucion">
+                        <p><span class="step-label">N₂O:</span> Masa molar 44 g/mol. En 44 g hay 28 g de N y 16 g de O.
+                           Regla de tres: en 14 g de N → \(\tfrac{16 \cdot 14}{28} = 8\,\text{g O}\).</p>
+                        <p><span class="step-label">NO:</span> Masa molar 30 g/mol. En 30 g hay 14 g de N y 16 g de O.
+                           En 14 g de N → \(16\,\text{g O}\).</p>
+                        <p><span class="step-label">NO₂:</span> Masa molar 46 g/mol. En 46 g hay 14 g de N y 32 g de O.
+                           En 14 g de N → \(32\,\text{g O}\).</p>
+                        <p><span class="step-label">Relación:</span> \(8 : 16 : 32 = \mathbf{1 : 2 : 4}\). ✔
+                           Números enteros pequeños → se cumple la ley de Dalton.</p>
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 4 -->
+                <div class="tarjeta-ej">
+                    <div class="ej-header">
+                        <span class="ej-num">Ejercicio 4</span>
+                        <span class="ej-titulo">Proust: la "huella dactilar" del agua oxigenada</span>
+                    </div>
+                    <div class="enunciado">
+                        <p>El agua (\(\mathrm{H}_2\mathrm{O}\)) y el agua oxigenada (\(\mathrm{H}_2\mathrm{O}_2\)) tienen porcentajes distintos de H y O.
+                           Calcula los porcentajes y comprueba que son compuestos diferentes (Proust) pero relacionados por números enteros (Dalton).
+                           (H = 1, O = 16).</p>
+                    </div>
+                    <div class="resolucion">
+                        <p><span class="step-label">H₂O (M = 18):</span> \(\%\mathrm{H} = \tfrac{2}{18}\cdot 100 = 11{,}11\%\) ;
+                           \(\%\mathrm{O} = \tfrac{16}{18}\cdot 100 = 88{,}89\%\).</p>
+                        <p><span class="step-label">H₂O₂ (M = 34):</span> \(\%\mathrm{H} = \tfrac{2}{34}\cdot 100 = 5{,}88\%\) ;
+                           \(\%\mathrm{O} = \tfrac{32}{34}\cdot 100 = 94{,}12\%\).</p>
+                        <p><span class="step-label">Proust:</span> los porcentajes son distintos → son compuestos diferentes
+                           (cada uno tiene su "receta fija"). ✔</p>
+                        <p><span class="step-label">Dalton:</span> fijando 2 g de H, el H₂O tiene 16 g de O y el H₂O₂ tiene 32 g de O.
+                           Relación \(16 : 32 = \mathbf{1 : 2}\). ✔</p>
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 5 -->
+                <div class="tarjeta-ej">
+                    <div class="ej-header">
+                        <span class="ej-num">Ejercicio 5</span>
+                        <span class="ej-titulo">Los tres idiomas de un mismo compuesto</span>
+                    </div>
+                    <div class="enunciado">
+                        <p>Expresa el amoniaco (\(\mathrm{NH}_3\)) en los tres idiomas que hemos visto:
+                           atómico, ponderal (por mol) y porcentual. (N = 14, H = 1).</p>
+                    </div>
+                    <div class="resolucion">
+                        <p><span class="step-label">Atómico:</span> \(\mathrm{N_1H_3}\).</p>
+                        <p><span class="step-label">Ponderal:</span> \(\mathrm{N_{14}H_3}\) <small>(14 g N + 3 g H = 17 g/mol)</small>.</p>
+                        <p><span class="step-label">Porcentual:</span>
+                           \(\mathrm{N_{82{,}35}H_{17{,}65}}\) <small>(82,35 % N + 17,65 % H)</small>.</p>
+                        <p><span class="step-label">Comprobación inversa:</span>
+                           \(\tfrac{82{,}35}{14} \approx 5{,}88\) ; \(\tfrac{17{,}65}{1} \approx 17{,}65\) ;
+                           cociente \(5{,}88 : 17{,}65 \Rightarrow 1 : 3 \Rightarrow \mathrm{NH}_3\). ✔</p>
+                    </div>
+                </div>
+
+            </div><!-- fin contenido-ejercicios -->
+
+            <div class="pie-clave">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Observaciones claves:</strong> la ley de Proust fija "la receta" de un compuesto;
+                la ley de Dalton relaciona "recetas distintas" del mismo par de ingredientes mediante números enteros pequeños.
+                Los porcentajes son el idioma que mejor las conecta:
+                <em>divide el porcentaje entre la masa atómica y obtendrás directamente la relación de átomos</em>.
+                Este truco, aparentemente simple, es la puerta de entrada a toda la química cuantitativa.
+            </div>
+        </details>
+
+        <!-- ==================== PIE "ES HORA DE" ==================== -->
+        <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+            <div style="
+                max-width: 100%;
+                padding: 15px;
+                margin: 10px auto;
+                text-align: center;
+                background: #f8fafc;
+                border-radius: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            ">
+                <p style="
+                    font-size: clamp(0.95rem, 3vw, 1.2rem);
+                    color: #2d3748;
+                    margin-top: 0;
+                    margin-bottom: 12px;
+                    padding: 0 10px;
+                ">
+                    <br> Los subíndices de una fórmula son solo "etiquetas" que pueden contar átomos, gramos o porcentajes.<br>
+                    <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+                </p>
+                <div style="text-align:center;">
+                    <a href="../index.html" target="_blank" style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    ">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- fin container -->
+</body>
+</html>

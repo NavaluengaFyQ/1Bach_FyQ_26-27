@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -368,6 +392,10 @@
                 <h2>Composición nuclear</h2>
                 <span class="badge-centro">Atómica</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número másico \(A\) de un núcleo a partir de su número atómico \(Z\) y su número de neutrones \(N\). Sirve para identificar isótopos y para escribir correctamente la notación nuclear \(^{A}_{Z}\text{X}\) de cualquier nucleido.
+            </div>
             <div class="formula-box">
                 \[ A = Z + N \]
             </div>
@@ -404,6 +432,10 @@
                 <span class="num">2</span>
                 <h2>Masa atómica ponderada</h2>
                 <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La masa atómica media de un elemento a partir de las masas de sus isótopos y de sus abundancias relativas. Es el valor decimal que aparece en la tabla periódica y el que se usa en los cálculos estequiométricos.
             </div>
             <div class="formula-box">
                 \[ A = \frac{A_1 \cdot \%_1 + A_2 \cdot \%_2 + \dots + A_n \cdot \%_n}{100} \]
@@ -442,6 +474,10 @@
                 <h2>Capacidad electrónica de un nivel</h2>
                 <span class="badge-centro">Atómica</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número máximo de electrones que puede alojar un nivel cuántico de número principal \(n\). Se usa al construir configuraciones electrónicas para saber cuántos electrones caben en cada capa.
+            </div>
             <div class="formula-box">
                 \[ N_{\text{máx}} = 2n^2 \]
             </div>
@@ -477,6 +513,10 @@
                 <span class="num">4</span>
                 <h2>Posición en la tabla periódica</h2>
                 <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El periodo y el grupo de un elemento a partir de su configuración electrónica. Permite situar cualquier elemento en la tabla periódica sin necesidad de memorizarla, distinguiendo además a qué bloque (\(s\), \(p\), \(d\)) pertenece.
             </div>
             <div class="formula-box">
                 \[ \text{Periodo} = n_{\text{máx}} \quad ; \quad \text{Grupo} = f(e^-_{\text{valencia}}) \]
@@ -516,6 +556,10 @@
                 <h2>Electrovalencia</h2>
                 <span class="badge-centro">Atómica</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La carga del ion más estable que tiende a formar un elemento representativo. Sirve para predecir los iones que aparecen en compuestos iónicos sencillos como NaCl, MgO o CaCl₂.
+            </div>
             <div class="formula-box">
                 \[ q = +e^-_{\text{val}} \ \text{(metales)} \quad ; \quad q = -(8 - e^-_{\text{val}}) \ \text{(no metales)} \]
             </div>
@@ -551,6 +595,10 @@
                 <span class="num">6</span>
                 <h2>Covalencia</h2>
                 <span class="badge-centro">Atómica</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número de enlaces covalentes que puede formar un átomo no metálico. Sirve para predecir la fórmula de moléculas sencillas como H₂O, NH₃ o CH₄ sin más que contar los electrones de valencia.
             </div>
             <div class="formula-box">
                 \[ \text{Covalencia} = 8 - e^-_{\text{val}} \quad (\text{H: } 1) \]
@@ -588,6 +636,10 @@
                 <h2>Relación ondulatoria de la radiación</h2>
                 <span class="badge-centro">Ondas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación entre la longitud de onda y la frecuencia de una radiación electromagnética que se propaga en el vacío. Es la fórmula básica para convertir entre \(\lambda\) y \(\nu\) en todo el bloque de ondas y de energía.
+            </div>
             <div class="formula-box">
                 \[ c = \lambda \, \nu \]
             </div>
@@ -624,6 +676,10 @@
                 <span class="num">8</span>
                 <h2>Fórmula de Rydberg</h2>
                 <span class="badge-centro">Ondas</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La longitud de onda (a través de \(1/\lambda\)) de la radiación emitida o absorbida en una transición entre dos niveles del átomo de hidrógeno. Es la fórmula clave para interpretar los espectros atómicos y sus series espectrales.
             </div>
             <div class="formula-box">
                 \[ \frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]
@@ -663,6 +719,10 @@
                 <h2>Energía de un fotón. Quantum de energía</h2>
                 <span class="badge-centro">Energía</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La energía de un quantum de radiación (un fotón) a partir de su frecuencia o de su longitud de onda. Es el puente entre la descripción ondulatoria de la luz y la energía que transporta cada cuanto.
+            </div>
             <div class="formula-box">
                 \[ E = h \, \nu = \frac{h \, c}{\lambda} \]
             </div>
@@ -696,6 +756,11 @@
         <span class="num">10</span>
         <h2>Niveles de energía del hidrógeno</h2>
         <span class="badge-centro">Energía</span>
+    </div>
+
+    <div class="intro">
+        <span class="etiqueta">¿Qué se calcula?</span>
+        La energía de cada nivel cuántico del átomo de hidrógeno y el radio de las órbitas de Bohr, a partir del número cuántico principal \(n\). Permite calcular la energía de ionización o la energía de cualquier transición entre niveles.
     </div>
 
     <div class="formula-box">
@@ -832,6 +897,10 @@
                 <h2>Despeje de \(\lambda\) en Rydberg</h2>
                 <span class="badge-centro">Despeje</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La longitud de onda de la radiación asociada a una transición entre dos niveles del hidrógeno, conociendo \(n_1\) y \(n_2\). Es la versión «operativa» de la fórmula de Rydberg para resolver ejercicios numéricos directamente.
+            </div>
             <div class="formula-box">
                 \[ \lambda = \frac{1}{R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)} \]
             </div>
@@ -868,6 +937,10 @@
                 <span class="num">12</span>
                 <h2>Despeje de \(n_2\) en Rydberg</h2>
                 <span class="badge-centro">Despeje</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El nivel inicial (mayor) de una transición del hidrógeno conocida la longitud de onda emitida y el nivel final. Sirve para identificar a qué salto corresponde una línea observada en un espectro.
             </div>
             <div class="formula-box">
                 \[ n_2 = \sqrt{\frac{1}{\frac{1}{n_1^2} - \frac{1}{\lambda R_\infty}}} \]
@@ -907,6 +980,10 @@
                 <h2>Despeje de \(n_1\) en Rydberg</h2>
                 <span class="badge-centro">Despeje</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El nivel final (menor) de una transición del hidrógeno conocida la longitud de onda y el nivel inicial. Se usa cuando se observa una línea espectral y se quiere averiguar a qué serie pertenece.
+            </div>
             <div class="formula-box">
                 \[ n_1 = \sqrt{\frac{1}{\frac{1}{n_2^2} + \frac{1}{\lambda R_\infty}}} \]
             </div>
@@ -945,6 +1022,10 @@
                 <h2>Despejes en \(c = \lambda\nu\)</h2>
                 <span class="badge-centro">Despeje</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La frecuencia a partir de la longitud de onda, o viceversa, en una radiación electromagnética. Son las expresiones despejadas de la relación ondulatoria que se usan continuamente en los ejercicios.
+            </div>
             <div class="formula-box">
                 \[ \nu = \frac{c}{\lambda} \quad ; \quad \lambda = \frac{c}{\nu} \]
             </div>
@@ -981,6 +1062,10 @@
                 <span class="num">15</span>
                 <h2>Constantes y equivalencias</h2>
                 <span class="badge-centro">Datos</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Aquí no hay fórmula, sino los valores numéricos de referencia (\(c\), \(h\), \(hc\), \(R_\infty\), eV) que se sustituyen en todas las expresiones anteriores. Reunirlos en un mismo sitio evita memorizarlos y facilita comprobar unidades.
             </div>
             <div class="formula-box">
                 \[ \text{Valores numéricos de referencia} \]
@@ -1061,6 +1146,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>
