@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -370,6 +394,10 @@
                 <h2>Ley de Coulomb</h2>
                 <span class="badge-centro">Electrostática</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El módulo y la dirección de la fuerza electrostática que se ejercen mutuamente dos cargas puntuales en reposo separadas una distancia \(r\). Es la fórmula básica del tema: de ella se derivan el campo, el potencial y casi todas las demás expresiones.
+            </div>
             <div class="formula-box">
                 \[\vec{F} = K \frac{q_1 \cdot q_2}{r^2} \hat{u}_r \qquad F = K \frac{|q_1| \cdot |q_2|}{r^2}\]
             </div>
@@ -409,6 +437,10 @@
                 <h2>Campo eléctrico de una carga puntual</h2>
                 <span class="badge-centro">Electrostática</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El vector campo eléctrico que una carga puntual \(Q\) crea en un punto situado a una distancia \(r\). Sirve para describir el espacio que rodea a la carga sin necesidad de colocar en él una carga de prueba.
+            </div>
             <div class="formula-box">
                 \[\vec{E} = K \frac{Q}{r^2} \hat{u}_r \qquad E = K \frac{|Q|}{r^2}\]
             </div>
@@ -447,6 +479,10 @@
                 <h2>Principio de superposición</h2>
                 <span class="badge-centro">Electrostática</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El campo eléctrico resultante en un punto cuando varias cargas puntuales actúan a la vez, sumando vectorialmente el campo que crea cada una. Es la herramienta para resolver cualquier configuración con más de una carga.
+            </div>
             <div class="formula-box">
                 \[\vec{E}_R = \sum_{i=1}^{n} \vec{E}_i = \sum_{i=1}^{n} K \frac{q_i}{r_i^2} \hat{u}_{r_i}\]
             </div>
@@ -484,6 +520,10 @@
                 <span class="num">4</span>
                 <h2>Definición de campo eléctrico</h2>
                 <span class="badge-centro">Electrostática</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La definición operativa del campo eléctrico en un punto: la fuerza que actuaría sobre una carga de prueba positiva colocada ahí, dividida por esa carga. Sirve para medir el campo experimentalmente y para obtener después la fuerza sobre cualquier otra carga.
             </div>
             <div class="formula-box">
                 \[\vec{E} = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0} \qquad \vec{F} = q_0 \cdot \vec{E}\]
@@ -526,6 +566,10 @@
                 <h2>Relación campo–potencial (campo uniforme)</h2>
                 <span class="badge-centro">Potencial</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La diferencia de potencial entre dos puntos de un campo eléctrico uniforme a partir del campo y de la distancia recorrida en su dirección (o el campo a partir de la d.d.p.). Es la fórmula típica del condensador de placas paralelas.
+            </div>
             <div class="formula-box">
                 \[E = \frac{V_A - V_B}{d} \qquad V_A - V_B = E \cdot d\]
             </div>
@@ -562,6 +606,10 @@
                 <span class="num">6</span>
                 <h2>Potencial eléctrico de una carga puntual</h2>
                 <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El potencial eléctrico que una carga puntual \(Q\) crea en un punto situado a una distancia \(r\), tomando \(V=0\) en el infinito. Permite calcular energías potenciales y trabajos sin manejar vectores.
             </div>
             <div class="formula-box">
                 \[V = K \frac{Q}{r}\]
@@ -601,6 +649,10 @@
                 <h2>Definición de potencial eléctrico</h2>
                 <span class="badge-centro">Potencial</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El potencial de un punto como trabajo por unidad de carga, y la diferencia de potencial entre dos puntos a partir del trabajo que realiza el campo al ir de uno a otro. Es la definición de partida de toda la magnitud potencial.
+            </div>
             <div class="formula-box">
                 \[V_A = \frac{W_{\infty \to A}^{\text{ext}}}{q} \qquad V_A - V_B = \frac{W_{A \to B}^{\text{campo}}}{q}\]
             </div>
@@ -639,6 +691,10 @@
                 <span class="num">8</span>
                 <h2>Criterio de signos en electrostática</h2>
                 <span class="badge-centro">Potencial</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La variación de energía potencial de una carga \(q\) al desplazarse entre dos puntos, y los trabajos del campo y del agente externo en ese trayecto. Sirve para asignar correctamente los signos en todos los problemas energéticos.
             </div>
             <div class="formula-box">
                 \[\Delta U = U_B - U_A = q\,(V_B - V_A)\]
@@ -685,6 +741,10 @@
                 <h2>Resistencias en serie</h2>
                 <span class="badge-centro">Circuitos</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La resistencia equivalente de un conjunto de resistencias conectadas en serie, es decir, recorridas todas por la misma intensidad. Se usa para simplificar el circuito antes de aplicar la ley de Ohm.
+            </div>
             <div class="formula-box">
                 \[R_{\text{eq}} = R_1 + R_2 + \cdots + R_n = \sum_{i=1}^{n} R_i\]
             </div>
@@ -722,6 +782,10 @@
                 <h2>Resistencias en paralelo</h2>
                 <span class="badge-centro">Circuitos</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La resistencia equivalente de varias ramas conectadas en paralelo, todas sometidas a la misma tensión. Permite reducir el conjunto a una sola resistencia para calcular la corriente total que entrega el generador.
+            </div>
             <div class="formula-box">
                 \[\frac{1}{R_{\text{eq}}} = \sum_{i=1}^{n} \frac{1}{R_i} \qquad R_{\text{eq}} = \frac{R_1 \cdot R_2}{R_1 + R_2}\]
             </div>
@@ -758,6 +822,10 @@
                 <span class="num">11</span>
                 <h2>Ley de Ohm generalizada</h2>
                 <span class="badge-centro">Circuitos</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La tensión en bornes de un generador real que suministra una corriente \(I\), teniendo en cuenta su resistencia interna \(r\). Es lo que mide un voltímetro entre los terminales de una pila o batería en funcionamiento.
             </div>
             <div class="formula-box">
                 \[V = \varepsilon - I \cdot r \qquad V = \varepsilon \cdot \frac{R}{R + r}\]
@@ -802,6 +870,10 @@
                 <h2>Ley de Joule</h2>
                 <span class="badge-centro">Energía</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La potencia que disipa una resistencia al paso de la corriente (y, multiplicando por el tiempo, la energía convertida en calor). Es la base del cálculo de calefacción, consumos y pérdidas en los conductores.
+            </div>
             <div class="formula-box">
                 \[P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}\]
             </div>
@@ -841,6 +913,10 @@
                 <h2>Eficiencia energética y rendimiento de Carnot</h2>
                 <span class="badge-centro">Energía</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El rendimiento de una transformación energética (energía útil entre energía total) y el límite teórico máximo que puede alcanzar una máquina térmica entre dos focos. Sirve para valorar cuánto de la energía consumida se aprovecha realmente.
+            </div>
             <div class="formula-box">
                 \[\eta = \frac{E_{\text{útil}}}{E_{\text{total}}} = 1 - \frac{E_{\text{pérdidas}}}{E_{\text{total}}} \qquad \eta_{\text{Carnot}} = 1 - \frac{T_{\text{f}}}{T_{\text{c}}}\]
             </div>
@@ -879,6 +955,10 @@
                 <span class="num">14</span>
                 <h2>Definición de potencia</h2>
                 <span class="badge-centro">Energía</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La potencia como rapidez con la que se realiza un trabajo o se transfiere energía, tanto en forma instantánea como media. Es el punto de partida del que se obtiene \(P=VI\) en los circuitos.
             </div>
             <div class="formula-box">
                 \[P = \frac{dW}{dt} \qquad P_{\text{media}} = \frac{W_{A \to B}}{t_B - t_A} = \frac{\Delta W}{\Delta t}\]
@@ -922,6 +1002,10 @@
                 <span class="num">15</span>
                 <h2>Constantes, equivalencias y datos</h2>
                 <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                No es una fórmula de cálculo, sino la recopilación de los valores numéricos de las constantes y equivalencias que aparecen en todas las expresiones del tema. Se consulta para sustituir sin arrastrar errores de valor.
             </div>
             <div class="formula-box">
                 \[K = \frac{1}{4\pi\varepsilon_0} \approx 8{,}99\times10^{9}\ \text{N·m}^2\text{·C}^{-2}\]
@@ -1008,6 +1092,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -368,6 +392,10 @@
                 <h2>Error absoluto</h2>
                 <span class="badge-centro">Errores</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La diferencia, en valor absoluto, entre el valor medido (o aproximado) y el valor real o de referencia de una magnitud. Sirve para cuantificar de cuánto nos hemos equivocado al medir, en las mismas unidades de la magnitud.
+            </div>
             <div class="formula-box">
                 \[
                 \varepsilon_{a} = \left| v_{\text{aprox}} - v_{\text{real}} \right|
@@ -406,6 +434,10 @@
                 <span class="num">2</span>
                 <h2>Error relativo</h2>
                 <span class="badge-centro">Errores</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El cociente entre el error absoluto y el valor real, expresado en porcentaje. Permite comparar la calidad de medidas de magnitudes distintas y valorar si un error es grande o pequeño en términos relativos.
             </div>
             <div class="formula-box">
                 \[
@@ -448,6 +480,10 @@
                 <h2>Propagación en suma y resta</h2>
                 <span class="badge-centro">Errores</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El error absoluto del resultado de sumar o restar dos magnitudes medidas, a partir de los errores absolutos de cada término. Se aplica al combinar medidas (longitudes, tiempos, masas…) para saber cuánto puede desviarse el resultado final.
+            </div>
             <div class="formula-box">
                 \[
                 \Delta (A \pm B) = \Delta A + \Delta B
@@ -486,6 +522,10 @@
                 <span class="num">4</span>
                 <h2>Propagación en producto y cociente</h2>
                 <span class="badge-centro">Errores</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El error relativo del resultado de multiplicar o dividir dos magnitudes medidas, a partir de los errores relativos de los factores. Es la base para estimar la incertidumbre de magnitudes derivadas como áreas, volúmenes o densidades.
             </div>
             <div class="formula-box">
                 \[
@@ -528,6 +568,10 @@
                 <h2>Cifras significativas: producto y cociente</h2>
                 <span class="badge-centro">Medidas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cuántas cifras significativas hay que conservar en el resultado de un producto o cociente. Se aplica al expresar medidas y resultados experimentales, para no dar más precisión de la que realmente se tiene.
+            </div>
             <div class="formula-box">
                 \[
                 n_{\text{CS}}(\text{resultado}) = \min\{ n_{\text{CS}}(A),\, n_{\text{CS}}(B) \}
@@ -566,6 +610,10 @@
                 <h2>Cifras significativas: suma y resta</h2>
                 <span class="badge-centro">Medidas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cuántos decimales hay que conservar en el resultado de una suma o resta. Se usa al combinar medidas para que el resultado refleje la precisión del término menos preciso.
+            </div>
             <div class="formula-box">
                 \[
                 n_{\text{dec}}(\text{resultado}) = \min\{ n_{\text{dec}}(A),\, n_{\text{dec}}(B) \}
@@ -603,6 +651,10 @@
                 <span class="num">7</span>
                 <h2>Precisión, exactitud y sensibilidad</h2>
                 <span class="badge-centro">Medidas</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La sensibilidad de un instrumento como cociente entre la variación de su indicación y la variación de la magnitud medida. Junto con la precisión y la exactitud, permite describir la calidad de un instrumento y de las medidas que con él se obtienen.
             </div>
             <div class="formula-box">
                 \[
@@ -643,6 +695,10 @@
                 <h2>Magnitudes escalares y vectoriales</h2>
                 <span class="badge-centro">Medidas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cómo se describe matemáticamente una magnitud física: número y unidad si es escalar, o módulo, unidad, dirección y sentido si es vectorial. Es la base para distinguir y operar correctamente con magnitudes como la masa o la velocidad.
+            </div>
             <div class="formula-box">
                 \[
                 S = \{ \text{número},\ \text{unidad} \} \qquad \vec{V} = \{ |\vec{V}|,\ \text{unidad},\ \text{dirección},\ \text{sentido} \}
@@ -681,6 +737,10 @@
                 <span class="num">9</span>
                 <h2>Factor de conversión y consistencia dimensional</h2>
                 <span class="badge-centro">Unidades</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El procedimiento para expresar una cantidad en otras unidades equivalentes multiplicando por factores que valen la unidad. Se emplea al cambiar de unidades y como comprobación de la consistencia dimensional de un cálculo.
             </div>
             <div class="formula-box">
                 \[
@@ -721,6 +781,10 @@
                 <h2>Ley de Hooke</h2>
                 <span class="badge-centro">Leyes</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El módulo de la fuerza aplicada a un muelle (o de la que este ejerce) en función de su alargamiento, dentro del régimen elástico. Se usa para describir resortes y para obtener la constante elástica a partir de datos experimentales fuerza–alargamiento.
+            </div>
             <div class="formula-box">
                 \[
                 F = k \cdot x
@@ -760,6 +824,10 @@
                 <h2>Ley de Boyle-Mariotte</h2>
                 <span class="badge-centro">Leyes</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación entre la presión y el volumen de una cantidad fija de gas ideal a temperatura constante. Permite predecir cómo cambia una de estas magnitudes al modificar la otra en un proceso isotermo.
+            </div>
             <div class="formula-box">
                 \[
                 p \cdot V = \text{cte} \qquad (\text{a } T \text{ constante})
@@ -798,6 +866,10 @@
                 <span class="num">12</span>
                 <h2>Constantes y datos numéricos</h2>
                 <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                No es una fórmula en sí, sino el conjunto de constantes y equivalencias de referencia que se sustituyen habitualmente en las fórmulas anteriores. Reúne valores aceptados por la IUPAC y el SI para expresar resultados en unidades coherentes.
             </div>
             <div class="formula-box">
                 \[
@@ -879,6 +951,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

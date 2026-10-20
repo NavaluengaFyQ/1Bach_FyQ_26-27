@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -366,6 +390,10 @@
                 <h2>Primera Ley de Newton</h2>
                 <span class="badge-centro">Newton</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La condición que debe cumplir un cuerpo para mantener su velocidad constante (incluido el reposo): que la fuerza neta sobre él sea nula. Sirve para identificar sistemas de referencia inerciales y para reconocer cuándo un movimiento uniforme no necesita fuerza alguna.
+            </div>
             <div class="formula-box">
                 \[ \sum \vec{F} = \vec{0} \quad \Rightarrow \quad \vec{v} = \text{constante} \]
             </div>
@@ -399,6 +427,10 @@
                 <span class="num">2</span>
                 <h2>Segunda Ley de Newton</h2>
                 <span class="badge-centro">Newton</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La aceleración que adquiere un cuerpo de masa conocida cuando sobre él actúa una fuerza neta dada, o bien la fuerza necesaria para producir una aceleración concreta. Es la ecuación central de la dinámica: con ella se resuelven todos los problemas en los que se conocen las fuerzas o se busca el movimiento.
             </div>
             <div class="formula-box">
                 \[ \vec{F}_{\text{neta}} = m \vec{a} \]
@@ -436,6 +468,10 @@
                 <h2>Tercera Ley de Newton</h2>
                 <span class="badge-centro">Newton</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El par de fuerzas que se ejercen mutuamente dos cuerpos que interactúan: iguales en módulo y dirección, pero de sentidos opuestos. Se aplica siempre que dos cuerpos chocan, se empujan o se atraen, y es el punto de partida de la conservación del momento lineal.
+            </div>
             <div class="formula-box">
                 \[ \vec{F}_{A \to B} = -\vec{F}_{B \to A} \]
             </div>
@@ -469,6 +505,10 @@
                 <span class="num">4</span>
                 <h2>Equilibrio Estático de un Punto Material</h2>
                 <span class="badge-centro">Newton</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Las condiciones que deben cumplirse para que un punto material sometido a varias fuerzas concurrentes permanezca en reposo. Se emplea para calcular tensiones, reacciones y fuerzas desconocidas en cuerpos suspendidos, grúas y estructuras.
             </div>
             <div class="formula-box">
                 \[ \sum \vec{F} = \vec{0} \quad \Leftrightarrow \quad \sum F_x = 0 \; ; \; \sum F_y = 0 \; ; \; \sum F_z = 0 \]
@@ -504,6 +544,10 @@
                 <span class="num">5</span>
                 <h2>Fuerza de Rozamiento en Plano Horizontal</h2>
                 <span class="badge-centro">Rozamiento</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fuerza de rozamiento que se opone al deslizamiento de un cuerpo apoyado sobre una superficie horizontal. Permite estimar cuánto cuesta iniciar o mantener el movimiento de un objeto y qué aceleración de frenado cabe esperar.
             </div>
             <div class="formula-box">
                 \[ F_r = \mu N = \mu m g \]
@@ -542,6 +586,10 @@
                 <span class="num">6</span>
                 <h2>Fuerza de Rozamiento en Plano Inclinado</h2>
                 <span class="badge-centro">Rozamiento</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La aceleración con la que un cuerpo sube o baja por un plano inclinado con rozamiento, y el ángulo límite a partir del cual empieza a deslizar por sí solo. Se aplica a rampas, toboganes y planos de inclinación variable.
             </div>
             <div class="formula-box">
                 \[ a = g (\sin \alpha - \mu_c \cos \alpha) \quad ; \quad \tan \alpha_0 = \mu_e \]
@@ -582,6 +630,10 @@
                 <h2>Ley de Hooke y Constante Elástica</h2>
                 <span class="badge-centro">Fuerzas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fuerza que ejerce un muelle deformado —o la necesaria para deformarlo— en función de su alargamiento o compresión. Es la base de dinamómetros, suspensiones y de cualquier sistema elástico que trabaje dentro de su límite elástico.
+            </div>
             <div class="formula-box">
                 \[ F = k \Delta x \]
             </div>
@@ -618,6 +670,10 @@
                 <h2>Momento de una Fuerza y Equilibrio de Rotación</h2>
                 <span class="badge-centro">Fuerzas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El efecto de giro que una fuerza produce respecto a un punto, y la condición que debe cumplirse para que un sólido no rote. Se usa en palancas, balanzas, grúas y en el cálculo de reacciones y apoyos.
+            </div>
             <div class="formula-box">
                 \[ M = F d \quad ; \quad \sum M = 0 \]
             </div>
@@ -653,6 +709,10 @@
                 <span class="num">9</span>
                 <h2>Fuerza Centrípeta en Movimiento Circular Uniforme</h2>
                 <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fuerza neta que debe actuar sobre un cuerpo para que describa una trayectoria circular con velocidad constante. Permite calcular la tensión de un hilo, el rozamiento necesario en una curva o la fuerza gravitatoria que mantiene un satélite en órbita.
             </div>
             <div class="formula-box">
                 \[ F_c = \frac{m v^2}{R} = m \omega^2 R \]
@@ -692,6 +752,10 @@
                 <h2>Peralte de una Curva sin Rozamiento</h2>
                 <span class="badge-centro">Fuerzas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El ángulo de inclinación que debe tener una curva para que un vehículo la tome sin necesitar rozamiento, o la velocidad de diseño asociada a un peralte dado. Se aplica al trazado de carreteras y vías de ferrocarril.
+            </div>
             <div class="formula-box">
                 \[ \tan \alpha = \frac{v^2}{g R} \]
             </div>
@@ -728,6 +792,10 @@
                 <span class="num">11</span>
                 <h2>Conservación del Momento Lineal</h2>
                 <span class="badge-centro">Conservación</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El momento lineal total de un sistema aislado, que permanece constante antes y después de una interacción. Es la herramienta básica para resolver choques, explosiones y retrocesos.
             </div>
             <div class="formula-box">
                 \[ \vec{p}_{\text{total}} = \sum m_i \vec{v}_i = \text{cte} \quad \text{si } \vec{F}_{\text{ext}} = \vec{0} \]
@@ -766,6 +834,10 @@
                 <h2>Teorema del Impulso y la Cantidad de Movimiento</h2>
                 <span class="badge-centro">Conservación</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El impulso que una fuerza ejerce durante un intervalo de tiempo y su relación con la variación de la cantidad de movimiento del cuerpo. Sirve para calcular fuerzas medias en golpes y colisiones y para entender airbags y paracaídas.
+            </div>
             <div class="formula-box">
                 \[ \vec{I} = \vec{F} \Delta t = \Delta \vec{p} \]
             </div>
@@ -802,6 +874,10 @@
                 <span class="num">13</span>
                 <h2>Ley de Gravitación Universal de Newton</h2>
                 <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El módulo de la fuerza de atracción gravitatoria entre dos cuerpos de masas conocidas separados una distancia dada. Es la fórmula básica de la que se derivan casi todas las demás del tema.
             </div>
             <div class="formula-box">
                 \[ F = G \frac{M m}{r^2} \]
@@ -840,6 +916,10 @@
                 <h2>Relación entre Gravedad Terrestre y Masa de la Tierra</h2>
                 <span class="badge-centro">Fuerzas</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El valor de la aceleración de la gravedad en la superficie de un astro a partir de su masa y su radio. Permite «pesar» la Tierra conociendo \(g\) y \(R_T\), o estimar la gravedad superficial de otros planetas.
+            </div>
             <div class="formula-box">
                 \[ g = G \frac{M_T}{R_T^2} \]
             </div>
@@ -876,6 +956,10 @@
                 <span class="num">15</span>
                 <h2>Velocidad Orbital y Período de un Satélite</h2>
                 <span class="badge-centro">Fuerzas</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La velocidad y el tiempo que tarda un satélite en completar una vuelta en una órbita circular de radio dado. Se aplica al diseño de órbitas, a los satélites geoestacionarios y a la tercera ley de Kepler.
             </div>
             <div class="formula-box">
                 \[ v = \sqrt{\frac{G M_T}{r}} \quad ; \quad T = 2\pi \sqrt{\frac{r^3}{G M_T}} \]
@@ -914,6 +998,10 @@
                 <span class="num">16</span>
                 <h2>Constantes, Equivalencias y Datos Numéricos</h2>
                 <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Los valores numéricos de referencia que se sustituyen en el resto de fórmulas del tema. Funciona como tabla de consulta rápida para resolver los ejercicios sin tener que memorizar los datos.
             </div>
             <div class="formula-box">
                 \[ G = 6{,}67\times10^{-11}\ \text{N·m}^2/\text{kg}^2 \]
@@ -989,6 +1077,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

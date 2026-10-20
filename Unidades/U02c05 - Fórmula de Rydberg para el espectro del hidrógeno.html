@@ -1966,6 +1966,447 @@ Resultado: \(n_1\approx 3{,}00\Rightarrow n_1=3\). Transición \(\mathbf{4\to 3}
 </details>
 <!-- ============ FIN BLOQUE: Rydberg — despeje de n1 y n2 con calculadora ============ -->
 
+
+
+
+
+
+
+
+<!-- ============================================================ -->
+<!-- BLOQUE DESPLEGABLE: Fórmula 8 · Rydberg + despejes            -->
+<!-- (Fórmula 8 + Fórmulas 11, 12 y 13: despejes de λ, n₂ y n₁)    -->
+<!-- Pegar tal cual donde se quiera insertar. Estilos incluidos    -->
+<!-- y auto-contenidos (scoped con .formula-card).                 -->
+<!-- ============================================================ -->
+<style>
+    /* ---------- Base de la tarjeta de fórmula ---------- */
+    .formula-card .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #ed8936;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 4px 0 16px 0;
+    }
+    /* ---------- Variantes por categoría (scoped) ---------- */
+    /* c-2: Ondas (naranja) */
+    .formula-card .card.c-2 { border-left-color: #ed8936; }
+    .formula-card .card.c-2 .num { background: #ed8936; }
+    .formula-card .card.c-2 .mag-table thead th { background: #ed8936; }
+    /* c-4: Despeje (verde) */
+    .formula-card .card.c-4 { border-left-color: #48bb78; }
+    .formula-card .card.c-4 .num { background: #48bb78; }
+    .formula-card .card.c-4 .mag-table thead th { background: #48bb78; }
+
+    /* ---------- Cabecera interna de la tarjeta ---------- */
+    .formula-card .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+    .formula-card .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #ed8936;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+    .formula-card .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+        margin: 0;
+    }
+    .formula-card .card .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+    /* ---------- Intro violeta ---------- */
+    .formula-card .card .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .formula-card .card .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .formula-card .card .intro .etiqueta::before { content: "🎯 "; font-size: 0.85em; }
+    /* ---------- Caja de fórmula ---------- */
+    .formula-card .card .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+        margin: 0;
+    }
+    /* ---------- Nota amarilla ---------- */
+    .formula-card .card .note {
+        background: #fffbeb;
+        border: none;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+        margin-top: 0;
+    }
+    .formula-card .card .note .pregunta {
+        display: block;
+        font-weight: 700;
+        color: #975a16;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+    }
+    .formula-card .card .note .pregunta::before { content: "❓ "; }
+    .formula-card .card .note .respuesta {
+        display: block;
+        color: #744210;
+        padding-left: 18px;
+    }
+    .formula-card .card .note .respuesta::before { content: "💡 "; }
+    /* ---------- Tabla de símbolos ---------- */
+    .formula-card .card .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .formula-card .card .mag-table thead th {
+        background: #ed8936;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+    .formula-card .card .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+    .formula-card .card .mag-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .formula-card .card .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+    /* ---------- Ejemplo azul ---------- */
+    .formula-card .card .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+        margin: 0;
+    }
+    .formula-card .card .ejemplo strong { color: #2b6cb0; }
+    /* ---------- Observaciones verdes ---------- */
+    .formula-card .card .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .formula-card .card .obs strong { color: #276749; }
+    .formula-card .card .obs ul { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs li { margin-bottom: 4px; }
+    .formula-card .card .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+</style>
+
+<div class="formula-card">
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span class="titulo-desplegable">
+                <span>📘 Fórmula 8 · Fórmula de Rydberg (incluye despejes de λ, n₂ y n₁)</span>
+                <span class="pulsame"><i class="fas fa-hand-pointer" style="margin-right: 6px;"></i>Púlsame</span>
+            </span>
+        </summary>
+        <div class="contenido-desplegable">
+
+            <!-- ============================================================ -->
+            <!-- FÓRMULA 8 · RYDBERG (Ondas)                                   -->
+            <!-- ============================================================ -->
+            <article class="card c-2">
+                <div class="cabecera">
+                    <span class="num">8</span>
+                    <h2>Fórmula de Rydberg</h2>
+                    <span class="badge-centro">Ondas</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    La longitud de onda (a través de \(1/\lambda\)) de la radiación emitida o absorbida en una transición entre dos niveles del átomo de hidrógeno. Es la fórmula clave para interpretar los espectros atómicos y sus series espectrales.
+                </div>
+                <div class="formula-box">
+                    \[ \frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Es resolver el problema de la radiación emitida igualando la energía del fotón (\(hc/\lambda\)) con la diferencia de energía entre dos niveles de Bohr, \(\Delta E = 13{,}6\,(1/n_1^2 - 1/n_2^2)\ \text{eV}\), y despejando \(1/\lambda\).</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(\lambda\)</td>
+                            <td data-label="Significado">Longitud de onda de la radiación</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(R_\infty\)</td>
+                            <td data-label="Significado">Constante de Rydberg</td>
+                            <td data-label="Unidades">m⁻¹</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n_1\)</td>
+                            <td data-label="Significado">Nivel final (menor)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n_2\)</td>
+                            <td data-label="Significado">Nivel inicial (mayor)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> línea H\(\alpha\) de Balmer (\(n_2 = 3 \to n_1 = 2\)), \(\lambda = 656\ \text{nm}\) (rojo).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>Es válida estrictamente para el <strong>átomo de hidrógeno</strong> (y para hidrogenoides como He⁺, Li²⁺).</li>
+                        <li>Recuerda que \(n_2 > n_1\) y que el resultado de \(1/\lambda\) sale en \(\text{m}^{-1}\).</li>
+                        <li>Series espectrales: Lyman (\(n_1=1\), UV), Balmer (\(n_1=2\), visible), Paschen (\(n_1=3\), IR), Brackett (\(n_1=4\), IR).</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ============================================================ -->
+            <!-- FÓRMULA 11 · DESPEJE DE λ (Despeje)                           -->
+            <!-- ============================================================ -->
+            <article class="card c-4">
+                <div class="cabecera">
+                    <span class="num">11</span>
+                    <h2>Despeje de \(\lambda\) en Rydberg</h2>
+                    <span class="badge-centro">Despeje</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    La longitud de onda de la radiación asociada a una transición entre dos niveles del hidrógeno, conociendo \(n_1\) y \(n_2\). Es la versión «operativa» de la fórmula de Rydberg para resolver ejercicios numéricos directamente.
+                </div>
+                <div class="formula-box">
+                    \[ \lambda = \frac{1}{R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)} \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Si es solo despejar \(\lambda\) en la fórmula de Rydberg (fórmula 8): \(\frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)\).</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(\lambda\)</td>
+                            <td data-label="Significado">Longitud de onda</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(R_\infty\)</td>
+                            <td data-label="Significado">Constante de Rydberg</td>
+                            <td data-label="Unidades">m⁻¹</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n_1, n_2\)</td>
+                            <td data-label="Significado">Niveles final e inicial (\(n_2 > n_1\))</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> para \(n_1 = 2\) y \(n_2 = 4\), \(\lambda = 1/[R_\infty(1/4-1/16)] \approx 4{,}86\times10^{-7}\ \text{m} = 486\ \text{nm}\).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>El paréntesis debe ser <strong>positivo</strong>; si sale negativo, has intercambiado \(n_1\) y \(n_2\).</li>
+                        <li>El resultado en metros suele ser muy pequeño: multiplica por \(10^9\) para pasar a nm.</li>
+                        <li>Recuerda que \(n_2 > n_1\) siempre (nivel inicial mayor que nivel final).</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ============================================================ -->
+            <!-- FÓRMULA 12 · DESPEJE DE n₂ (Despeje)                          -->
+            <!-- ============================================================ -->
+            <article class="card c-4">
+                <div class="cabecera">
+                    <span class="num">12</span>
+                    <h2>Despeje de \(n_2\) en Rydberg</h2>
+                    <span class="badge-centro">Despeje</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    El nivel inicial (mayor) de una transición del hidrógeno conocida la longitud de onda emitida y el nivel final. Sirve para identificar a qué salto corresponde una línea observada en un espectro.
+                </div>
+                <div class="formula-box">
+                    \[ n_2 = \sqrt{\frac{1}{\frac{1}{n_1^2} - \frac{1}{\lambda R_\infty}}} \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Si es solo despejar \(n_2\) en la fórmula de Rydberg (fórmula 8): \(\frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)\), aislando \(1/n_2^2\) y invirtiendo.</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(n_2\)</td>
+                            <td data-label="Significado">Nivel inicial (mayor)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n_1\)</td>
+                            <td data-label="Significado">Nivel final (menor)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(\lambda\)</td>
+                            <td data-label="Significado">Longitud de onda medida</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(R_\infty\)</td>
+                            <td data-label="Significado">Constante de Rydberg</td>
+                            <td data-label="Unidades">m⁻¹</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> con \(\lambda = 486{,}1\ \text{nm}\) (Balmer, \(n_1 = 2\)), se obtiene \(n_2 \approx 4\) (transición \(4 \to 2\)).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>Antes de sustituir, <strong>convierte \(\lambda\) a metros</strong>.</li>
+                        <li>El resultado debe ser un número <strong>entero positivo</strong> y mayor que \(n_1\).</li>
+                        <li>Si sale un valor no entero, revisa unidades o datos del enunciado.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ============================================================ -->
+            <!-- FÓRMULA 13 · DESPEJE DE n₁ (Despeje)                          -->
+            <!-- ============================================================ -->
+            <article class="card c-4">
+                <div class="cabecera">
+                    <span class="num">13</span>
+                    <h2>Despeje de \(n_1\) en Rydberg</h2>
+                    <span class="badge-centro">Despeje</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    El nivel final (menor) de una transición del hidrógeno conocida la longitud de onda y el nivel inicial. Se usa cuando se observa una línea espectral y se quiere averiguar a qué serie pertenece.
+                </div>
+                <div class="formula-box">
+                    \[ n_1 = \sqrt{\frac{1}{\frac{1}{n_2^2} + \frac{1}{\lambda R_\infty}}} \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Si es solo despejar \(n_1\) en la fórmula de Rydberg (fórmula 8): \(\frac{1}{\lambda} = R_\infty \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)\), aislando \(1/n_1^2\) (por eso aparece el signo \(+\) delante de \(1/(\lambda R_\infty)\)) e invirtiendo.</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(n_1\)</td>
+                            <td data-label="Significado">Nivel final (menor)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n_2\)</td>
+                            <td data-label="Significado">Nivel inicial (mayor, conocido)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(\lambda\)</td>
+                            <td data-label="Significado">Longitud de onda medida</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(R_\infty\)</td>
+                            <td data-label="Significado">Constante de Rydberg</td>
+                            <td data-label="Unidades">m⁻¹</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> con \(\lambda = 1875\ \text{nm}\) y \(n_2 = 4\), se obtiene \(n_1 \approx 3\) (transición \(4 \to 3\), serie de Paschen).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li><strong>¡No confundir con la fórmula 12!</strong> Aquí el signo dentro del paréntesis es \(+\).</li>
+                        <li>El resultado debe verificar \(n_1 < n_2\).</li>
+                        <li>Si el resultado no es un entero, revisa las unidades de \(\lambda\) (debe estar en metros).</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </details>
+</div>
+
+
+
+
+
+
+
+
+
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->

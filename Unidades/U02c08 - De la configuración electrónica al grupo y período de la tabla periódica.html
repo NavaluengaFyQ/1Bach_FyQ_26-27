@@ -563,8 +563,239 @@
 
 
 
+<!-- ============================================================ -->
+<!-- BLOQUE DESPLEGABLE: Fórmula 4 · Posición en la tabla periódica -->
+<!-- Pegar tal cual donde se quiera insertar. Estilos incluidos    -->
+<!-- y auto-contenidos (scoped con .formula-card). Categoría: Atómica -->
+<!-- ============================================================ -->
+<style>
+    /* Estilos de la tarjeta de fórmula (adaptados de U99c02, categoría Atómica) */
+    .formula-card .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #667eea;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 4px 0 16px 0;
+    }
+    .formula-card .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+    .formula-card .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #667eea;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+    .formula-card .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+        margin: 0;
+    }
+    .formula-card .card .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+    .formula-card .card .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .formula-card .card .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .formula-card .card .intro .etiqueta::before { content: "🎯 "; font-size: 0.85em; }
+    .formula-card .card .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+        margin: 0;
+    }
+    .formula-card .card .note {
+        background: #fffbeb;
+        border: none;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+        margin-top: 0;
+    }
+    .formula-card .card .note .pregunta {
+        display: block;
+        font-weight: 700;
+        color: #975a16;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+    }
+    .formula-card .card .note .pregunta::before { content: "❓ "; }
+    .formula-card .card .note .respuesta {
+        display: block;
+        color: #744210;
+        padding-left: 18px;
+    }
+    .formula-card .card .note .respuesta::before { content: "💡 "; }
+    .formula-card .card .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .formula-card .card .mag-table thead th {
+        background: #667eea;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+    .formula-card .card .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+    .formula-card .card .mag-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .formula-card .card .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+    .formula-card .card .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+        margin: 0;
+    }
+    .formula-card .card .ejemplo strong { color: #2b6cb0; }
+    .formula-card .card .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .formula-card .card .obs strong { color: #276749; }
+    .formula-card .card .obs ul { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs li { margin-bottom: 4px; }
+    .formula-card .card .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+</style>
 
-
+<div class="formula-card">
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span class="titulo-desplegable">
+                <span>📘 Fórmula 4 · Posición en la tabla periódica</span>
+                <span class="pulsame"><i class="fas fa-hand-pointer" style="margin-right: 6px;"></i>Púlsame</span>
+            </span>
+        </summary>
+        <div class="contenido-desplegable">
+            <article class="card c-1">
+                <div class="cabecera">
+                    <span class="num">4</span>
+                    <h2>Posición en la tabla periódica</h2>
+                    <span class="badge-centro">Atómica</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    El periodo y el grupo de un elemento a partir de su configuración electrónica. Permite situar cualquier elemento en la tabla periódica sin necesidad de memorizarla, distinguiendo además a qué bloque (\(s\), \(p\), \(d\)) pertenece.
+                </div>
+                <div class="formula-box">
+                    \[ \text{Periodo} = n_{\text{máx}} \quad ; \quad \text{Grupo} = f(e^-_{\text{valencia}}) \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Es la relación intuitiva entre la capa de valencia (nivel más externo ocupado) y la posición del elemento en la tabla periódica según el bloque \(s\), \(p\) o \(d\): el periodo coincide con el nivel más externo y el grupo se deduce del número de electrones de valencia.</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">Periodo</td>
+                            <td data-label="Significado">Nivel más externo ocupado</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">Grupo (\(s\))</td>
+                            <td data-label="Significado">\(=e^-_{\text{val}}\) (grupos 1 y 2)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">Grupo (\(p\))</td>
+                            <td data-label="Significado">\(=e^-_{\text{val}} + 10\) (grupos 13–18)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">Grupo (\(d\))</td>
+                            <td data-label="Significado">\(=e^-_{(n-1)d} + 2\) (grupos 3–12)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> cloro (\(3s^2 3p^5\)): periodo 3 y grupo \(7 + 10 = 17\) (halógenos).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>Los <strong>gases nobles</strong> (grupo 18) tienen la capa de valencia completa.</li>
+                        <li>Ojo: en los <strong>metales de transición</strong> hay excepciones (p. ej. Cr, Cu) por la mayor estabilidad de configuraciones con subniveles semillenos o llenos.</li>
+                        <li>Bloque \(s\): grupos 1–2; bloque \(p\): grupos 13–18; bloque \(d\): grupos 3–12; bloque \(f\): lantánidos y actínidos.</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </details>
+</div>
 
 
 <!-- ============================================

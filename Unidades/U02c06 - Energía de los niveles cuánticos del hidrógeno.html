@@ -549,6 +549,335 @@
 
 
 
+<!-- ============================================================ -->
+<!-- BLOQUE DESPLEGABLE: Fórmula 10 · Niveles de energía del H     -->
+<!-- Pegar tal cual donde se quiera insertar. Estilos incluidos    -->
+<!-- y auto-contenidos (scoped con .formula-card). Categoría: Energía -->
+<!-- ============================================================ -->
+<style>
+    /* Estilos de la tarjeta de fórmula (adaptados de U99c02, categoría Energía) */
+    .formula-card .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #4299e1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 4px 0 16px 0;
+    }
+    .formula-card .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+    .formula-card .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #4299e1;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+    .formula-card .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+        margin: 0;
+    }
+    .formula-card .card .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+    .formula-card .card .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .formula-card .card .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .formula-card .card .intro .etiqueta::before { content: "🎯 "; font-size: 0.85em; }
+    .formula-card .card .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+        margin: 0;
+    }
+    .formula-card .card .formula-box + .formula-box { margin-top: -4px; }
+    .formula-card .card .note {
+        background: #fffbeb;
+        border: none;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+        margin-top: 0;
+    }
+    .formula-card .card .note .pregunta {
+        display: block;
+        font-weight: 700;
+        color: #975a16;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+    }
+    .formula-card .card .note .pregunta::before { content: "❓ "; }
+    .formula-card .card .note .respuesta {
+        display: block;
+        color: #744210;
+        padding-left: 18px;
+    }
+    .formula-card .card .note .respuesta::before { content: "💡 "; }
+    .formula-card .card .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .formula-card .card .mag-table thead th {
+        background: #4299e1;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+    .formula-card .card .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+    .formula-card .card .mag-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .formula-card .card .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+    .formula-card .card .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+        margin: 0;
+    }
+    .formula-card .card .ejemplo strong { color: #2b6cb0; }
+    .formula-card .card .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .formula-card .card .obs strong { color: #276749; }
+    .formula-card .card .obs ul { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs li { margin-bottom: 4px; }
+    .formula-card .card .obs ol { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs ol li { margin-bottom: 6px; }
+    .formula-card .card .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+    /* Caja de fórmula interna dentro de las observaciones (demostración) */
+    .formula-card .card .obs .formula-box {
+        background: #ffffff;
+        border: 1px solid #cbd5e0;
+        margin: 6px 0;
+        padding: 10px 8px;
+        font-size: 1rem;
+    }
+</style>
+
+<div class="formula-card">
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span class="titulo-desplegable">
+                <span>📘 Fórmula 10 · Niveles de energía del hidrógeno</span>
+                <span class="pulsame"><i class="fas fa-hand-pointer" style="margin-right: 6px;"></i>Púlsame</span>
+            </span>
+        </summary>
+        <div class="contenido-desplegable">
+            <article class="card c-3">
+                <div class="cabecera">
+                    <span class="num">10</span>
+                    <h2>Niveles de energía del hidrógeno</h2>
+                    <span class="badge-centro">Energía</span>
+                </div>
+
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    La energía de cada nivel cuántico del átomo de hidrógeno y el radio de las órbitas de Bohr, a partir del número cuántico principal \(n\). Permite calcular la energía de ionización o la energía de cualquier transición entre niveles.
+                </div>
+
+                <div class="formula-box">
+                    \[
+                        \boxed{\,L = m v r = n\hbar\,},\qquad n=1,2,3,\dots
+                    \]
+                </div>
+                <div class="formula-box">
+                    \[
+                        \boxed{\,E_n = -\frac{13{,}6\ \text{eV}}{n^2}\,}
+                    \]
+                </div>
+
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">
+                        Podría demostrarlo con la primera cuantización de la energía de un átomo, pero también es histórica, me la memorizo mejor. ¿Cuál es la cuantización? La magnitud cuantizada es el momento angular orbital:
+                        \(L=n\hbar\). Esa condición obliga a que el radio y la energía
+                        tomen valores discretos \(r_n\) y \(E_n\).
+                    </span>
+                </p>
+
+                <div class="obs">
+                    <span class="titulo-obs">De dónde sale \(E_n\)</span>
+                    Pero aunque te la memorices, aquí te dejo la demostración, la verás en 2º Bachillerato y para nada es difícil.
+                    <ol>
+                        <li>
+                            Igualando la fuerza de Coulomb a la fuerza centrípeta:
+                            \[
+                                \frac{k e^2}{r^2}=\frac{m v^2}{r}
+                                \quad\Rightarrow\quad
+                                m v^2=\frac{k e^2}{r}.
+                            \]
+                        </li>
+                        <li>
+                            Energía total del electrón:
+                            \[
+                                E=E_c+E_p=\frac12 m v^2-\frac{k e^2}{r}
+                                =-\frac{k e^2}{2r}.
+                            \]
+                        </li>
+                        <li>
+                            Postulado de cuantización de Bohr:
+                            \[
+                                L=m v r=n\hbar.
+                            \]
+                            Combinándolo con la expresión anterior se obtiene
+                            \[
+                                r_n=\frac{n^2\hbar^2}{m k e^2}=n^2 a_0.
+                            \]
+                        </li>
+                        <li>
+                            Sustituyendo \(r_n\) en la energía total:
+                            \[
+                                E_n=-\frac{k e^2}{2r_n}
+                                =-\frac{m k^2 e^4}{2\hbar^2}\frac{1}{n^2}
+                                =-\frac{13{,}6\ \text{eV}}{n^2}.
+                            \]
+                        </li>
+                    </ol>
+                </div>
+
+                <table class="mag-table">
+                    <thead>
+                        <tr>
+                            <th>Símbolo</th>
+                            <th>Significado</th>
+                            <th>Unidades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(E_n\)</td>
+                            <td data-label="Significado">Energía del nivel \(n\)</td>
+                            <td data-label="Unidades">eV</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n\)</td>
+                            <td data-label="Significado">Número cuántico principal (entero positivo)</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(L\)</td>
+                            <td data-label="Significado">Momento angular orbital del electrón</td>
+                            <td data-label="Unidades">J·s</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(\hbar\)</td>
+                            <td data-label="Significado">Constante reducida de Planck, \(h/2\pi\)</td>
+                            <td data-label="Unidades">J·s</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(a_0\)</td>
+                            <td data-label="Significado">Radio de Bohr</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="ejemplo">
+                    <strong>Ejemplo:</strong> para \(n=2\),
+                    \(E_2=-13{,}6/4=-3{,}40\ \text{eV}\).
+                    La energía de ionización desde \(n=2\) es \(3{,}40\ \text{eV}\).
+                </p>
+
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>
+                            La cuantización de Bohr es \(L=n\hbar\); no se cuantiza
+                            directamente \(E_n\), sino que \(E_n\) sale como consecuencia
+                            de esa condición.
+                        </li>
+                        <li>
+                            Las energías son <strong>negativas</strong> porque el electrón
+                            está ligado. \(E_\infty=0\) corresponde al átomo ionizado.
+                        </li>
+                        <li>
+                            La <strong>energía de ionización</strong> desde \(n\) es
+                            \(|E_n|\) (siempre positiva).
+                        </li>
+                        <li>
+                            Para el estado fundamental (\(n=1\)),
+                            \(|E_1|=13{,}6\ \text{eV}\) es la energía de ionización del
+                            hidrógeno.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </details>
+</div>        
 
 
 

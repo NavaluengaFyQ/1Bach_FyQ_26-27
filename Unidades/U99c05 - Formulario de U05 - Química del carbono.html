@@ -141,6 +141,30 @@
         line-height: 1.4;
     }
 
+    /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+    .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .intro .etiqueta::before {
+        content: "🎯 ";
+        font-size: 0.85em;
+    }
+
     .formula-box {
         background: #edf2f7;
         border: 2px solid #cbd5e0;
@@ -330,6 +354,10 @@
                 <h2>Fórmula general de los alcanos acíclicos</h2>
                 <span class="badge-centro">Alcanos</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número de átomos de hidrógeno que corresponden a un alcano acíclico y saturado con \(n\) carbonos. Sirve para escribir de un vistazo la fórmula molecular de cualquier alcano de cadena abierta.
+            </div>
             <div class="formula-box">\[ C_nH_{2n+2} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Qué va!!! si es sólo el conteo de enlaces en una cadena saturada abierta: existen \(n-1\) enlaces C—C, por lo que los enlaces C—H disponibles son \(4n-2(n-1)=2n+2\).</span></p>
             <table class="mag-table">
@@ -362,6 +390,10 @@
                 <h2>Fórmula general de alquenos y cicloalcanos</h2>
                 <span class="badge-centro">Alcanos</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fórmula molecular de un hidrocarburo con un único grado de insaturación: un doble enlace C=C (alqueno) o un anillo (cicloalcano). Permite reconocer ambas familias partiendo solo del número de carbonos.
+            </div>
             <div class="formula-box">\[ C_nH_{2n} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es la relación intuitiva entre las fórmulas del alcano saturado \(C_nH_{2n+2}\) y la de alquenos/cicloalcanos \(C_nH_{2n}\): cada grado de insaturación (un doble enlace C=C o un anillo) resta 2 H.</span></p>
             <table class="mag-table">
@@ -391,6 +423,10 @@
                 <span class="num">3</span>
                 <h2>Fórmula general de alquinos y alcadienos</h2>
                 <span class="badge-centro">Alcanos</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fórmula molecular de un hidrocarburo con dos grados de insaturación: un triple enlace C≡C (alquino) o dos dobles enlaces (alcadieno). Es la referencia para identificar estas familias sin necesidad de dibujar la estructura.
             </div>
             <div class="formula-box">\[ C_nH_{2n-2} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo aplicar que cada grado de insaturación resta 2 H al alcano de referencia \(C_nH_{2n+2}\): dos grados de insaturación (un triple enlace C≡C o dos dobles enlaces) restan 4 H y dan \(C_nH_{2n-2}\).</span></p>
@@ -422,6 +458,10 @@
                 <h2>Serie homóloga: incremento de \( -CH_2- \)</h2>
                 <span class="badge-centro">Alcanos</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cómo se pasa de un miembro al siguiente de una serie homóloga añadiendo un grupo metileno. Sirve para ordenar compuestos con el mismo grupo funcional y predecir cómo varían sus propiedades al crecer la cadena.
+            </div>
             <div class="formula-box">\[ C_nH_{2n+2} + CH_2 \longrightarrow C_{n+1}H_{2n+4} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Qué va!!! si es sólo la definición de serie homóloga: compuestos con el mismo grupo funcional que se diferencian sistemáticamente en un grupo metileno (\( -CH_2- \)).</span></p>
             <table class="mag-table">
@@ -452,6 +492,10 @@
                 <span class="num">5</span>
                 <h2>Grado de insaturación (IHD)</h2>
                 <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número total de anillos y enlaces π que contiene una fórmula molecular \(C_xH_y\). Es la herramienta para pasar de una fórmula molecular a posibles estructuras antes de proponer isómeros.
             </div>
             <div class="formula-box">\[ IHD = \dfrac{2x+2-y}{2} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo comparar \( C_xH_y \) con el alcano saturado de referencia \( C_xH_{2x+2} \): cada insaturación (anillo o enlace π) resta exactamente 2 H; de ahí \( IHD=(2x+2-y)/2 \).</span></p>
@@ -490,6 +534,10 @@
                 <h2>Combustión completa de un hidrocarburo</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El ajuste de la reacción de un hidrocarburo con oxígeno para dar \(CO_2\) y \(H_2O\). Se usa en cálculos estequiométricos de combustión: oxígeno necesario, \(CO_2\) emitido o energía desprendida.
+            </div>
             <div class="formula-box">\[ C_xH_y + \left(x+\dfrac{y}{4}\right)O_2 \longrightarrow x\,CO_2 + \dfrac{y}{2}\,H_2O \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo el balanceo estequiométrico por conservación de átomos: todo el C pasa a \( CO_2 \) y todo el H a \( H_2O \); el \( O_2 \) se ajusta contando los O de los productos.</span></p>
             <table class="mag-table">
@@ -520,6 +568,10 @@
                 <span class="num">7</span>
                 <h2>Conservación de la masa en combustión</h2>
                 <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Las masas de carbono e hidrógeno contenidas en una muestra a partir de la masa de \(CO_2\) y \(H_2O\) obtenidos al quemarla. Es el paso clave del análisis elemental para deducir la fórmula empírica de un compuesto orgánico.
             </div>
             <div class="formula-box">\[ m_C = m_{CO_2}\cdot\dfrac{12}{44} \qquad ; \qquad m_H = m_{H_2O}\cdot\dfrac{2}{18} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es consecuencia del principio de conservación de la masa (Lavoisier): todo el C del hidrocarburo aparece en el \( CO_2 \) y todo el H en el \( H_2O \); por eso \( m_C=m_{CO_2}\cdot 12/44 \) y \( m_H=m_{H_2O}\cdot 2/18 \).</span></p>
@@ -553,6 +605,10 @@
                 <h2>Masa molar de un alcano</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La masa molar de un alcano a partir únicamente de su número de carbonos. Sirve para identificar un alcano problema a partir de su masa molar experimental o para pasar entre gramos y moles.
+            </div>
             <div class="formula-box">\[ M = 14n + 2 \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo sumar las masas atómicas de \( C_nH_{2n+2} \): \( 12n + 1\cdot(2n+2) = 14n+2 \).</span></p>
             <table class="mag-table">
@@ -582,6 +638,10 @@
                 <span class="num">9</span>
                 <h2>Masa molar a partir de la densidad de un gas</h2>
                 <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La masa molar de un gas a partir de su densidad, su presión y su temperatura. Permite identificar un compuesto gaseoso (o confirmar su fórmula molecular) midiendo propiedades fáciles de obtener en el laboratorio.
             </div>
             <div class="formula-box">\[ M = \dfrac{dRT}{p} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Si es solo despejar de la ecuación de Clapeyron \( pV=nRT \): sustituyendo \( n=m/M \) e introduciendo \( d=m/V \), se obtiene \( M=dRT/p \).</span></p>
@@ -616,6 +676,10 @@
                 <h2>Fórmula molecular y fórmula empírica</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El factor entero por el que hay que multiplicar la fórmula empírica para obtener la fórmula molecular real. Se aplica al final de un análisis elemental, cuando ya se conoce la masa molar del compuesto.
+            </div>
             <div class="formula-box">\[ \text{F. molecular} = n \times \text{F. empírica} \quad ; \quad n = \dfrac{M_{\text{molecular}}}{M_{\text{empírica}}} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo la definición de fórmula empírica como proporción más sencilla entre los átomos que forman el compuesto; de ahí \( \text{F. molecular}=n\times\text{F. empírica} \) con \( n=M_{\text{molecular}}/M_{\text{empírica}} \).</span></p>
             <table class="mag-table">
@@ -648,6 +712,10 @@
                 <h2>Hibridación \( sp^3 \) y geometría tetraédrica</h2>
                 <span class="badge-centro">Hibridación</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La geometría y el ángulo de enlace que resultan cuando un carbono forma cuatro enlaces simples. Explica la forma tetraédrica y en zigzag de los alcanos y la aparición de centros quirales.
+            </div>
             <div class="formula-box">\[ sp^3 \;\longrightarrow\; \text{tetraédrica} \;\longrightarrow\; 109{,}5^\circ \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es el resultado de combinar linealmente 1 orbital \( s \) y 3 orbitales \( p \) para dar cuatro híbridos \( sp^3 \); la repulsión electrónica mínima (TRPECV) impone la geometría tetraédrica con ángulo \( \arccos(-1/3)\approx109{,}5^\circ \).</span></p>
             <table class="mag-table">
@@ -677,6 +745,10 @@
                 <span class="num">12</span>
                 <h2>Hibridación \( sp^2 \) y geometría trigonal plana</h2>
                 <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La geometría y el ángulo de enlace de un carbono con un doble enlace. Justifica la planaridad de alquenos, carbonilos y anillos aromáticos, y la existencia de isomería cis-trans.
             </div>
             <div class="formula-box">\[ sp^2 \;\longrightarrow\; \text{trigonal plana} \;\longrightarrow\; 120^\circ \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es el resultado de combinar 1 orbital \( s \) y 2 orbitales \( p \) para dar tres híbridos \( sp^2 \) coplanarios; el orbital \( p \) puro restante, perpendicular al plano, forma el enlace \( \pi \).</span></p>
@@ -708,6 +780,10 @@
                 <h2>Hibridación \( sp \) y geometría lineal</h2>
                 <span class="badge-centro">Hibridación</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La geometría y el ángulo de enlace de un carbono con un triple enlace. Explica la linealidad de alquinos y nitrilos, y el carácter ácido del hidrógeno de un alquino terminal.
+            </div>
             <div class="formula-box">\[ sp \;\longrightarrow\; \text{lineal} \;\longrightarrow\; 180^\circ \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es el resultado de combinar 1 orbital \( s \) y 1 orbital \( p \) para dar dos híbridos \( sp \) lineales; quedan 2 orbitales \( p \) puros que forman dos enlaces \( \pi \) ortogonales.</span></p>
             <table class="mag-table">
@@ -737,6 +813,10 @@
                 <span class="num">14</span>
                 <h2>Regla de Hückel: aromaticidad</h2>
                 <span class="badge-centro">Hibridación</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El número de electrones π que debe tener un sistema cíclico, plano y conjugado para ser aromático. Sirve para decidir si un compuesto con dobles enlaces alternados gana la estabilidad extra de la resonancia.
             </div>
             <div class="formula-box">\[ \text{Electrones } \pi = 4n + 2 \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es consecuencia de la teoría de orbitales moleculares aplicada a sistemas cíclicos, planos y conjugados: la deslocalización \( \pi \) genera estabilidad aromática cuando el número de electrones \( \pi \) es \(4n+2\).</span></p>
@@ -769,6 +849,10 @@
                 <h2>Clasificación de la isomería estructural</h2>
                 <span class="badge-centro">Isomería</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Los tres tipos de isomería estructural (cadena, posición y función) que pueden darse entre compuestos con la misma fórmula molecular. Es la primera clasificación que conviene aplicar al comparar dos estructuras.
+            </div>
             <div class="formula-box">\[ \text{Isomería estructural} = \{\text{cadena, posición, función}\} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es sólo la definición de isómeros estructurales: misma fórmula molecular, pero distinta conectividad entre los átomos (distinta fórmula semidesarrollada); según dónde esté la diferencia se clasifican en cadena, posición o función.</span></p>
             <table class="mag-table">
@@ -800,6 +884,10 @@
                 <h2>Condiciones de la isomería geométrica cis-trans</h2>
                 <span class="badge-centro">Isomería</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Las dos condiciones que debe cumplir un doble enlace (o un anillo) para que existan isómeros cis y trans. Permite decidir rápidamente si un compuesto concreto puede presentar isomería geométrica.
+            </div>
             <div class="formula-box">\[ \text{Rigidez} \;+\; \text{2 sustituyentes distintos por C} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es consecuencia de la imposibilidad de rotación en torno al doble enlace C=C (el enlace \( \pi \) se rompería) o en anillos pequeños; para que haya isomería cis-trans, además cada carbono del doble enlace debe tener dos sustituyentes distintos.</span></p>
             <table class="mag-table">
@@ -830,6 +918,10 @@
                 <h2>Carbono asimétrico y quiralidad</h2>
                 <span class="badge-centro">Isomería</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cuándo un carbono es quiral y cuántos estereoisómeros puede generar un compuesto. Es la base para reconocer moléculas con actividad óptica y para contar isómeros ópticos.
+            </div>
             <div class="formula-box">\[ C^* \equiv \text{C unido a 4 sustituyentes diferentes} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">Es consecuencia de la geometría tetraédrica \( sp^3 \): si un carbono está unido a cuatro sustituyentes distintos, la imagen especular no es superponible y aparece isomería óptica.</span></p>
             <table class="mag-table">
@@ -859,6 +951,10 @@
                 <span class="num">18</span>
                 <h2>Constantes, equivalencias y datos numéricos</h2>
                 <span class="badge-centro">Datos</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Los valores numéricos de constantes, masas atómicas y equivalencias que se emplean en el resto de fórmulas del tema. Es la hoja de referencia para no confundir unidades al sustituir en los cálculos.
             </div>
             <div class="formula-box">\[ R = 0{,}082\ \tfrac{\text{atm·L}}{\text{mol·K}} = 8{,}314\ \tfrac{\text{J}}{\text{mol·K}} \]</div>
             <p class="note"><span class="pregunta">¿Me aprendo esto de memoria?</span><span class="respuesta">En general, son datos y constantes de referencia: valores aceptados por la IUPAC y empleados en cálculos estequiométricos y de gases ideales, como \( R=0{,}082\ \text{atm·L/(mol·K)}=8{,}314\ \text{J/(mol·K)} \), masas atómicas y \( V_m \) en CN.</span></p>
@@ -930,6 +1026,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

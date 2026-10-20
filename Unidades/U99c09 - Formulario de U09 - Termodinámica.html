@@ -169,6 +169,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -367,6 +391,12 @@
                 <h2>Primer Principio de la Termodinámica</h2>
                 <span class="badge-centro">Primer Principio</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La variación de energía interna que experimenta un sistema cuando intercambia calor y trabajo con el entorno. Es el balance energético fundamental que se aplica a cualquier proceso termodinámico.
+            </div>
+
             <div class="formula-box">
                 \[\Delta U = Q + W\]
             </div>
@@ -419,6 +449,12 @@
                 <h2>Criterio de signos del Primer Principio</h2>
                 <span class="badge-centro">Convenio</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El signo que hay que asignar a \(Q\) y \(W\) al aplicar \(\Delta U = Q + W\). Es imprescindible para no equivocarse al sustituir en cualquier balance energético.
+            </div>
+
             <div class="formula-box">
                 \[\Delta U = Q + W\]
                 \[
@@ -485,6 +521,12 @@
                 <h2>Trabajo mecánico elemental</h2>
                 <span class="badge-centro">Primer Principio</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El trabajo infinitesimal que realiza o recibe un gas cuando cambia su volumen en un proceso cuasiestático reversible. Es la base para integrar el trabajo total en cualquier transformación.
+            </div>
+
             <div class="formula-box">
                 \[\mathrm{d}W = -p\,\mathrm{d}V\]
             </div>
@@ -536,6 +578,12 @@
                 <h2>Energía interna de un gas ideal</h2>
                 <span class="badge-centro">Primer Principio</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La variación de energía interna de un gas ideal al cambiar su temperatura. Es válida para cualquier proceso (isócoro, isóbaro, isotermo…), no solo a volumen constante.
+            </div>
+
             <div class="formula-box">
                 \[\Delta U = n\,C_V\,\Delta T = m\,c_V\,\Delta T\]
             </div>
@@ -591,6 +639,12 @@
                 <h2>Ecuación de Clapeyron (gas ideal)</h2>
                 <span class="badge-centro">Gases ideales</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El estado de un gas ideal conocido el número de moles y la temperatura junto con una de las variables \(p\) o \(V\). Es la ecuación de estado que relaciona presión, volumen y temperatura.
+            </div>
+
             <div class="formula-box">
                 \[pV = nRT\]
             </div>
@@ -652,6 +706,12 @@
                 <h2>Ley de Boyle-Mariotte (isoterma)</h2>
                 <span class="badge-centro">Gases ideales</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La nueva presión o el nuevo volumen de una masa fija de gas que se transforma a temperatura constante. Es la relación inversa entre \(p\) y \(V\) en una isoterma.
+            </div>
+
             <div class="formula-box">
                 \[p_1 V_1 = p_2 V_2 \quad (T = \text{cte})\]
             </div>
@@ -698,6 +758,12 @@
                 <h2>Ley de Charles (isobárica)</h2>
                 <span class="badge-centro">Gases ideales</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El nuevo volumen o la nueva temperatura de una masa fija de gas que se calienta o enfría a presión constante. Relaciona linealmente \(V\) y \(T\) en kelvin.
+            </div>
+
             <div class="formula-box">
                 \[\frac{V_1}{T_1} = \frac{V_2}{T_2} \quad (p = \text{cte})\]
             </div>
@@ -744,6 +810,12 @@
                 <h2>Ley de Gay-Lussac (isocórica)</h2>
                 <span class="badge-centro">Gases ideales</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La nueva presión o la nueva temperatura de un gas confinado a volumen constante cuando cambia su temperatura. Relaciona linealmente \(p\) y \(T\) en kelvin.
+            </div>
+
             <div class="formula-box">
                 \[\frac{p_1}{T_1} = \frac{p_2}{T_2} \quad (V = \text{cte})\]
             </div>
@@ -790,6 +862,12 @@
                 <h2>Ley combinada de los gases</h2>
                 <span class="badge-centro">Gases ideales</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El estado final de una masa fija de gas cuando cambian a la vez presión, volumen y temperatura entre dos situaciones. Evita pasar por estados intermedios.
+            </div>
+
             <div class="formula-box">
                 \[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2} \quad (n = \text{cte})\]
             </div>
@@ -840,6 +918,12 @@
                 <h2>Trabajo a presión constante (isobárico)</h2>
                 <span class="badge-centro">Trabajo</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El trabajo intercambiado por un gas que se expande o comprime manteniendo la presión constante. Solo depende de \(p\) y de la variación total de volumen.
+            </div>
+
             <div class="formula-box">
                 \[W = -p\,\Delta V = -p\,(V_f - V_i)\]
             </div>
@@ -891,6 +975,12 @@
                 <h2>Trabajo en proceso isotérmico reversible</h2>
                 <span class="badge-centro">Trabajo</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El trabajo que intercambia un gas ideal al expandirse o comprimirse a temperatura constante en un proceso reversible. Al variar \(p\) con \(V\), hay que integrar y aparece un logaritmo.
+            </div>
+
             <div class="formula-box">
                 \[W = -nRT\,\ln\!\left(\frac{V_f}{V_i}\right) = -nRT\,\ln\!\left(\frac{p_i}{p_f}\right)\]
             </div>
@@ -957,6 +1047,12 @@
                 <h2>Trabajo en proceso isocórico</h2>
                 <span class="badge-centro">Trabajo</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Justifica que en un proceso a volumen constante el trabajo es nulo, de modo que todo el calor intercambiado se invierte directamente en variar la energía interna.
+            </div>
+
             <div class="formula-box">
                 \[W = 0 \quad\Rightarrow\quad \Delta U = Q_V\]
             </div>
@@ -1008,6 +1104,12 @@
                 <h2>Trabajo en proceso adiabático reversible</h2>
                 <span class="badge-centro">Trabajo</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El trabajo que realiza (o recibe) un gas al expandirse o comprimirse sin intercambiar calor con el entorno. Al ser \(Q = 0\), coincide con la variación de energía interna.
+            </div>
+
             <div class="formula-box">
                 \[W = \Delta U = n\,C_V\,(T_f - T_i)\]
             </div>
@@ -1068,6 +1170,12 @@
                 <h2>Calor específico y calor molar</h2>
                 <span class="badge-centro">Calores</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El calor necesario para calentar o enfriar una masa (o una cantidad de moles) de sustancia una cierta variación de temperatura. También permite obtener \(c\) o \(C\) a partir de medidas calorimétricas.
+            </div>
+
             <div class="formula-box">
                 \[Q = m\,c\,\Delta T = n\,C\,\Delta T\]
             </div>
@@ -1129,6 +1237,12 @@
                 <h2>Relación de Mayer</h2>
                 <span class="badge-centro">Calores</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La diferencia entre los calores específicos a presión y a volumen constante de un gas ideal. Permite obtener uno a partir del otro sin más que conocer la masa molar.
+            </div>
+
             <div class="formula-box">
                 \[c_p = c_V + \frac{R}{M} \qquad ; \qquad C_p = C_V + R\]
             </div>
@@ -1185,6 +1299,12 @@
                 <h2>Coeficiente adiabático \(\gamma\)</h2>
                 <span class="badge-centro">Calores</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El cociente entre los calores específicos a presión y volumen constante. Es un parámetro característico de cada gas que informa del tipo de molécula (mono, di o poliatómica).
+            </div>
+
             <div class="formula-box">
                 \[\gamma = \frac{c_p}{c_V} = \frac{C_p}{C_V} > 1\]
             </div>
@@ -1236,6 +1356,12 @@
                 <h2>Ecuaciones de Poisson (adiabáticas)</h2>
                 <span class="badge-centro">Calores</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación entre \(p\), \(V\) y \(T\) en una transformación adiabática reversible de un gas ideal. Permite predecir el estado final sin conocer el calor intercambiado (que es nulo).
+            </div>
+
             <div class="formula-box">
                 \[pV^\gamma = \text{cte} \quad ; \quad TV^{\gamma-1} = \text{cte} \quad ; \quad \frac{T^\gamma}{p^{\gamma-1}} = \text{cte}\]
             </div>
@@ -1297,6 +1423,12 @@
                 <h2>Rendimiento de una máquina térmica</h2>
                 <span class="badge-centro">Máquinas</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El rendimiento (en tanto por uno o por ciento) de una máquina térmica cíclica a partir del calor absorbido del foco caliente y del cedido al foco frío, o del trabajo neto producido.
+            </div>
+
             <div class="formula-box">
                 \[\eta = \frac{|W|}{Q_c} = 1 - \frac{Q_f}{Q_c}\]
             </div>
@@ -1353,6 +1485,12 @@
                 <h2>Rendimiento máximo de Carnot</h2>
                 <span class="badge-centro">Máquinas</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El rendimiento máximo teórico que podría alcanzar una máquina térmica que trabajara entre dos focos a temperaturas dadas. Es un límite superior que ninguna máquina real puede superar.
+            </div>
+
             <div class="formula-box">
                 \[\eta_{\text{Carnot}} = 1 - \frac{T_f}{T_c} = \frac{T_c - T_f}{T_c}\]
             </div>
@@ -1404,6 +1542,12 @@
                 <h2>Coeficiente de rendimiento frigorífico</h2>
                 <span class="badge-centro">Frigoríficas</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La eficiencia de un frigorífico o bomba de calor: cuánto calor se extrae del foco frío por unidad de trabajo consumido. También se puede obtener a partir de las temperaturas de ambos focos.
+            </div>
+
             <div class="formula-box">
                 \[\varepsilon_{\text{frigorífico}} = \frac{Q_f}{|W|} = \frac{T_f}{T_c - T_f}\]
             </div>
@@ -1460,6 +1604,12 @@
                 <h2>Coeficiente de rendimiento de bomba de calor</h2>
                 <span class="badge-centro">Frigoríficas</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La eficiencia de una bomba de calor: cuánto calor útil se cede al foco caliente por unidad de trabajo consumido. Es siempre una unidad mayor que el COP frigorífico del mismo ciclo.
+            </div>
+
             <div class="formula-box">
                 \[\varepsilon_{\text{bomba}} = \frac{Q_c}{|W|} = \frac{T_c}{T_c - T_f} = \varepsilon_{\text{frigorífico}} + 1\]
             </div>
@@ -1516,6 +1666,12 @@
                 <h2>Equivalente mecánico del calor</h2>
                 <span class="badge-centro">Equivalencias</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La equivalencia entre calorías y julios, necesaria para pasar de las unidades tradicionales de calor al SI. Es el factor histórico que demuestra que calor y trabajo son formas de energía.
+            </div>
+
             <div class="formula-box">
                 \[1\,\text{cal} = 4{,}1868\,\text{J} \approx 4{,}19\,\text{J}\]
                 \[1\,\text{kcal} = 4186{,}8\,\text{J} \approx 4{,}187\,\text{kJ}\]
@@ -1573,6 +1729,12 @@
                 <h2>Equivalencias de presión y volumen</h2>
                 <span class="badge-centro">Equivalencias</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Los factores de conversión entre atmósferas, pascales, litros y julios. Son imprescindibles antes de sustituir en las fórmulas del SI y para interpretar el trabajo en \(\text{atm·L}\).
+            </div>
+
             <div class="formula-box">
                 \[1\,\text{atm} = 101\,325\,\text{Pa}\]
                 \[1\,\text{L} = 10^{-3}\,\text{m}^3\]
@@ -1671,6 +1833,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

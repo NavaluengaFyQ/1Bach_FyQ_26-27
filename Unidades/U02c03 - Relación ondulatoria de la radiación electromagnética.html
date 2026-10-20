@@ -517,6 +517,236 @@
 
 
 
+<!-- ============================================================ -->
+<!-- BLOQUE DESPLEGABLE: Fórmula 7 · Relación ondulatoria          -->
+<!-- Pegar tal cual donde se quiera insertar. Estilos incluidos    -->
+<!-- y auto-contenidos (scoped con .formula-card).                 -->
+<!-- ============================================================ -->
+<style>
+    /* Estilos de la tarjeta de fórmula (adaptados de U99c02, categoría Ondas) */
+    .formula-card .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #ed8936;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 4px 0 16px 0;
+    }
+    .formula-card .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+    .formula-card .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #ed8936;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+    .formula-card .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+        margin: 0;
+    }
+    .formula-card .card .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+    .formula-card .card .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .formula-card .card .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .formula-card .card .intro .etiqueta::before { content: "🎯 "; font-size: 0.85em; }
+    .formula-card .card .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+        margin: 0;
+    }
+    .formula-card .card .note {
+        background: #fffbeb;
+        border: none;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+        margin-top: 0;
+    }
+    .formula-card .card .note .pregunta {
+        display: block;
+        font-weight: 700;
+        color: #975a16;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+    }
+    .formula-card .card .note .pregunta::before { content: "❓ "; }
+    .formula-card .card .note .respuesta {
+        display: block;
+        color: #744210;
+        padding-left: 18px;
+    }
+    .formula-card .card .note .respuesta::before { content: "💡 "; }
+    .formula-card .card .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .formula-card .card .mag-table thead th {
+        background: #ed8936;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+    .formula-card .card .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+    .formula-card .card .mag-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .formula-card .card .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+    .formula-card .card .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+        margin: 0;
+    }
+    .formula-card .card .ejemplo strong { color: #2b6cb0; }
+    .formula-card .card .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .formula-card .card .obs strong { color: #276749; }
+    .formula-card .card .obs ul { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs li { margin-bottom: 4px; }
+    .formula-card .card .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+</style>
+
+<div class="formula-card">
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span class="titulo-desplegable">
+                <span>📘 Fórmula 7 · Relación ondulatoria de la radiación</span>
+                <span class="pulsame"><i class="fas fa-hand-pointer" style="margin-right: 6px;"></i>Púlsame</span>
+            </span>
+        </summary>
+        <div class="contenido-desplegable">
+            <article class="card c-2">
+                <div class="cabecera">
+                    <span class="num">7</span>
+                    <h2>Relación ondulatoria de la radiación</h2>
+                    <span class="badge-centro">Ondas</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    La relación entre la longitud de onda y la frecuencia de una radiación electromagnética que se propaga en el vacío. Es la fórmula básica para convertir entre \(\lambda\) y \(\nu\) en todo el bloque de ondas y de energía.
+                </div>
+                <div class="formula-box">
+                    \[ c = \lambda \, \nu \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">Qué va!!! si es sólo la definición de velocidad de propagación de una onda (\(c = \lambda/T\)) combinada con la frecuencia como inversa del periodo (\(\nu = 1/T\)). Es la relación intuitiva de las magnitudes \(\lambda\) y \(\nu\), que son inversamente proporcionales al ser \(c\) constante.</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(c\)</td>
+                            <td data-label="Significado">Velocidad de la luz en el vacío</td>
+                            <td data-label="Unidades">m·s⁻¹</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(\lambda\)</td>
+                            <td data-label="Significado">Longitud de onda</td>
+                            <td data-label="Unidades">m</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(\nu\)</td>
+                            <td data-label="Significado">Frecuencia</td>
+                            <td data-label="Unidades">Hz (s⁻¹)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> para \(\lambda = 3{,}0\ \text{m}\), \(\nu = c/\lambda = 1{,}0\times10^{8}\ \text{Hz}\) (banda de FM).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>\(\lambda\) y \(\nu\) son <strong>inversamente proporcionales</strong>.</li>
+                        <li>Al atravesar un medio distinto del vacío, la velocidad y la longitud de onda cambian, pero la <strong>frecuencia permanece constante</strong>.</li>
+                        <li>Unidades típicas: \(\lambda\) en nm o Å (\(1\ \text{Å} = 10^{-10}\ \text{m}\)); \(\nu\) en Hz (s⁻¹).</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </details>
+</div>
+
+
 
 
 

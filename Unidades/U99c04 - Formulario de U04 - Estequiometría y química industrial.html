@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -368,6 +392,10 @@
                 <h2>Ajuste y conservación de la masa</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La condición de ecuación química ajustada: que el número de átomos de cada elemento se conserve entre reactivos y productos. Es el punto de partida obligatorio de cualquier cálculo estequiométrico.
+            </div>
             <div class="formula-box">
                 \[\sum_{i} \nu_i \cdot \mathbf{A}_i = \mathbf{0}\]
             </div>
@@ -417,6 +445,10 @@
                 <h2>Factor de conversión estequiométrico</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La cantidad de sustancia de un producto (o de otro reactivo) a partir de la cantidad conocida de una especie, usando los coeficientes de la ecuación ajustada como puente. Es la operación básica de cualquier cálculo estequiométrico en moles.
+            </div>
             <div class="formula-box">
                 \[n_B = n_A \times \frac{\nu_B}{\nu_A}\]
             </div>
@@ -464,6 +496,10 @@
                 <span class="num">3</span>
                 <h2>Reactivo limitante</h2>
                 <span class="badge-centro">Estequiometría</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Qué reactivo se agota primero cuando se mezclan cantidades arbitrarias de varias especies y, por tanto, cuál fija el avance máximo posible de la reacción. Se aplica cuando las cantidades iniciales no están en proporción estequiométrica.
             </div>
             <div class="formula-box">
                 \[\text{Limitante} = \arg\min_i\left(\frac{n_i^0}{\nu_i}\right)\]
@@ -514,6 +550,10 @@
                 <h2>Rendimiento de una reacción</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El porcentaje de producto realmente obtenido respecto al máximo teórico calculado a partir del reactivo limitante. Sirve para cuantificar las pérdidas experimentales de una reacción real.
+            </div>
             <div class="formula-box">
                 \[\eta\,(\%) = \frac{n_{\text{real}}}{n_{\text{teórico}}} \times 100 = \frac{m_{\text{real}}}{m_{\text{teórico}}} \times 100\]
             </div>
@@ -562,6 +602,10 @@
                 <span class="num">5</span>
                 <h2>Ecuación de los gases ideales (Clapeyron)</h2>
                 <span class="badge-centro">Gases</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación entre presión, volumen, temperatura y cantidad de sustancia de un gas que se comporta idealmente. Se usa cuando se conocen tres de las cuatro variables y se quiere despejar la cuarta.
             </div>
             <div class="formula-box">
                 \[pV = nRT\]
@@ -627,6 +671,10 @@
                 <h2>Estequiometría en volumen de gases</h2>
                 <span class="badge-centro">Gases</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El volumen de un gas que reacciona o se produce a partir del volumen conocido de otro gas, medidos a la misma presión y temperatura. Se aplica cuando todos los participantes relevantes son gases en idénticas condiciones.
+            </div>
             <div class="formula-box">
                 \[\frac{V_A}{\nu_A} = \frac{V_B}{\nu_B} \quad\Rightarrow\quad V_i = V_j \times \frac{\nu_i}{\nu_j}\]
             </div>
@@ -676,6 +724,10 @@
                 <h2>Ley de Hess</h2>
                 <span class="badge-centro">Termoquímica</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La variación de entalpía de una reacción global a partir de las entalpías de etapas parciales conocidas, o la condición de cierre de un ciclo termoquímico. Permite obtener ΔH de procesos que no se pueden medir directamente.
+            </div>
             <div class="formula-box">
                 \[\Delta H_{A\to B} = \sum_i \Delta H_i \qquad ; \qquad \sum_{\text{ciclo}} \Delta H_i = 0\]
             </div>
@@ -719,6 +771,10 @@
                 <span class="num">8</span>
                 <h2>Cálculo de la entalpía de reacción</h2>
                 <span class="badge-centro">Termoquímica</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La entalpía estándar de una reacción a partir de las entalpías de formación (método exacto) o de las energías de enlace (método aproximado). Sirve para saber si la reacción libera o absorbe calor.
             </div>
             <div class="formula-box">
                 \[\Delta H_r^\circ = \sum_i \nu_i\,\Delta H_f^\circ(\text{prod}) - \sum_j \nu_j\,\Delta H_f^\circ(\text{react})\]
@@ -770,6 +826,10 @@
                 <span class="num">9</span>
                 <h2>Riqueza, densidad y concentración molar</h2>
                 <span class="badge-centro">Disoluciones</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La molaridad de una disolución concentrada (típicamente comercial) a partir de su riqueza en masa, su densidad y la masa molar del soluto. Es el paso previo habitual antes de usar esa disolución en un cálculo estequiométrico.
             </div>
             <div class="formula-box">
                 \[c\,(\text{mol/L}) = \frac{\%\,m/m}{100} \times \frac{\rho\,(\text{g/mL}) \times 1000}{M\,(\text{g/mol})}\]
@@ -831,6 +891,10 @@
                 <h2>Neutralización ácido-base y normalidad</h2>
                 <span class="badge-centro">Disoluciones</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El volumen o la concentración de una disolución ácida o básica en una valoración, igualando los equivalentes de H⁺ y OH⁻. Se aplica en problemas de neutralización completa ácido-base.
+            </div>
             <div class="formula-box">
                 \[N = M \cdot a \qquad ; \qquad V_a \cdot N_a = V_b \cdot N_b\]
             </div>
@@ -889,6 +953,10 @@
                 <span class="num">11</span>
                 <h2>Constantes y equivalencias</h2>
                 <span class="badge-centro">Constantes</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Los valores numéricos y equivalencias de uso habitual en estequiometría y gases (R, N_A, V_m, presiones, temperaturas). Sirve como referencia rápida para elegir la constante correcta según las unidades del problema.
             </div>
             <div class="formula-box">
                 \[R = 8{,}314\ \tfrac{\text{J}}{\text{mol·K}} = 0{,}082\ \tfrac{\text{atm·L}}{\text{mol·K}} = 8{,}314\ \tfrac{\text{kPa·L}}{\text{mol·K}}\]
@@ -1001,6 +1069,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

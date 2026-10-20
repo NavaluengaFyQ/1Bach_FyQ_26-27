@@ -169,6 +169,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -358,6 +382,12 @@
                 <h2>Ley de las Proporciones Definidas (Proust)</h2>
                 <span class="badge-centro">Leyes</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación de masas en que se combinan dos elementos para formar un compuesto puro. Sirve para identificar la fórmula de un compuesto y comprobar si una muestra es pura o es una mezcla.
+            </div>
+
             <div class="formula-box">
                 \[ \frac{m_{\text{A}}}{m_{\text{B}}} = \frac{x \cdot M_{\text{A}}}{y \cdot M_{\text{B}}} = \text{cte} \]
             </div>
@@ -384,6 +414,12 @@
                 <h2>Ley de las Proporciones Múltiples (Dalton)</h2>
                 <span class="badge-centro">Leyes</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La relación entre las masas de un mismo elemento B que se combinan con una masa fija de A para dar dos compuestos distintos. Permite demostrar que los compuestos se forman por unidades discretas (átomos) y no en proporciones continuas.
+            </div>
+
             <div class="formula-box">
                 \[ \frac{m_{\text{B, comp. 1}}}{m_{\text{B, comp. 2}}} = \frac{b \cdot c}{a \cdot d} = \text{números enteros sencillos} \]
             </div>
@@ -409,6 +445,12 @@
                 <h2>Ley de Conservación de la Masa (Lavoisier)</h2>
                 <span class="badge-centro">Leyes</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La igualdad entre la masa total de los reactivos y la de los productos en una reacción química. Es la base para ajustar ecuaciones químicas y para resolver cálculos estequiométricos en los que una masa es desconocida.
+            </div>
+
             <div class="formula-box">
                 \[ \sum m_{\text{reactivos}} = \sum m_{\text{productos}} \]
             </div>
@@ -435,6 +477,12 @@
                 <h2>Hipótesis de Avogadro y Volúmenes de Combinación</h2>
                 <span class="badge-centro">Gases</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El volumen molar de un gas (o el volumen de una cantidad de gas) a partir de la relación volumen–moles en dos muestras a la misma presión y temperatura. Es clave para interpretar reacciones entre gases en volumen y para justificar la existencia de moléculas diatónicas.
+            </div>
+
             <div class="formula-box">
                 \[ \frac{V_1}{n_1} = \frac{V_2}{n_2} = V_m \quad \text{(mismas } p, T\text{)} \]
             </div>
@@ -460,6 +508,12 @@
                 <h2>Ecuación de Estado de los Gases Ideales (Clapeyron)</h2>
                 <span class="badge-centro">Gases</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cualquiera de las magnitudes \(p\), \(V\), \(n\) o \(T\) de un gas ideal conocidas las demás. Es la ecuación de estado central de los gases y la herramienta para resolver la mayoría de los problemas de mezclas gaseosas y cambios de condiciones.
+            </div>
+
             <div class="formula-box">
                 \[ pV = nRT \]
             </div>
@@ -487,6 +541,12 @@
                 <h2>Relación Densidad-Masa Molecular</h2>
                 <span class="badge-centro">Gases</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La masa molar de un gas a partir de su densidad (o la densidad a partir de su masa molar) en unas condiciones dadas de \(p\) y \(T\). Es la base del método de Dumas para identificar sustancias gaseosas midiendo su densidad.
+            </div>
+
             <div class="formula-box">
                 \[ pM = dRT \quad \Longleftrightarrow \quad M = \frac{dRT}{p} \quad ; \quad d = \frac{pM}{RT} \]
             </div>
@@ -514,6 +574,12 @@
                 <h2>Fracción Molar y Presiones Parciales (Ley de Dalton)</h2>
                 <span class="badge-centro">Gases</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fracción molar de cada componente de una mezcla gaseosa y su presión parcial a partir de la presión total. Sirve para describir mezclas de gases que no reaccionan entre sí, como el aire o gases recogidos sobre agua.
+            </div>
+
             <div class="formula-box">
                 \[ x_i = \frac{n_i}{n_{\text{total}}} \quad ; \quad p_i = x_i \cdot p_{\text{total}} \]
             </div>
@@ -543,6 +609,12 @@
                 <h2>Ley de Raoult (Disminución de la Presión de Vapor)</h2>
                 <span class="badge-centro">Disoluciones</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La presión de vapor de una disolución (o su descenso respecto al disolvente puro) cuando el soluto es no volátil. Es el punto de partida de todas las propiedades coligativas: crioscopía, ebulloscopía y presión osmótica.
+            </div>
+
             <div class="formula-box">
                 \[ p = x_{\text{disolvente}} \cdot p^0 \quad ; \quad \Delta p = x_{\text{soluto}} \cdot p^0 \]
             </div>
@@ -570,6 +642,12 @@
                 <h2>Molalidad (independiente de la temperatura)</h2>
                 <span class="badge-centro">Disoluciones</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La concentración de una disolución expresada como moles de soluto por kilogramo de disolvente. Se usa porque, al no depender del volumen, su valor no cambia con la temperatura y resulta imprescindible en las propiedades coligativas.
+            </div>
+
             <div class="formula-box">
                 \[ m = \frac{n_{\text{soluto}}}{m_{\text{disolvente (kg)}}} \]
             </div>
@@ -595,6 +673,12 @@
                 <h2>Descenso Crioscópico</h2>
                 <span class="badge-centro">Disoluciones</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Cuánto baja la temperatura de congelación de un disolvente al añadir un soluto, a partir de la molalidad. Permite también determinar masas molares de solutos desconocidos midiendo el punto de congelación de la disolución.
+            </div>
+
             <div class="formula-box">
                 \[ \Delta T_f = K_f \cdot m \]
             </div>
@@ -620,6 +704,12 @@
                 <h2>Presión Osmótica (Ley de Van 't Hoff)</h2>
                 <span class="badge-centro">Disoluciones</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La presión osmótica que ejerce una disolución frente al disolvente puro a través de una membrana semipermeable. Es la propiedad coligativa más sensible y se usa para medir masas molares de macromoléculas y en procesos como la ósmosis inversa.
+            </div>
+
             <div class="formula-box">
                 \[ \pi V = nRT \quad \Longleftrightarrow \quad \pi = cRT \quad ; \quad \pi = i \cdot c \cdot R \cdot T \]
             </div>
@@ -651,6 +741,12 @@
                 <h2>Puente Conceptual Masa-Moles-Entidades</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La cantidad de sustancia (moles) a partir de una masa, y el número de entidades (átomos, moléculas, iones) a partir de los moles. Es el puente que conecta lo que pesamos en la balanza con lo que contamos a escala atómica en cualquier cálculo químico.
+            </div>
+
             <div class="formula-box">
                 \[ n = \frac{m}{M} \quad ; \quad N = n \cdot N_{\text{A}} \quad ; \quad N = \frac{m \cdot N_{\text{A}}}{M} \]
             </div>
@@ -678,6 +774,12 @@
                 <h2>Composición Centesimal</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El porcentaje en masa de cada elemento en un compuesto a partir de su fórmula y las masas atómicas. Sirve para verificar la pureza de una muestra y como paso previo para determinar fórmulas empíricas.
+            </div>
+
             <div class="formula-box">
                 \[ \%(\text{A}) = \frac{a \cdot A_r(\text{A})}{M(\text{compuesto})} \times 100 \]
             </div>
@@ -704,6 +806,12 @@
                 <h2>Fórmula Empírica y Molecular</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La fórmula empírica de un compuesto a partir de su composición centesimal y, con la masa molar experimental, el factor \(n\) que da la fórmula molecular. Es el procedimiento habitual para identificar un compuesto desconocido a partir de datos de laboratorio.
+            </div>
+
             <div class="formula-box">
                 \[ x:y:z = \frac{\%(\text{A})}{A_r(\text{A})} : \frac{\%(\text{B})}{A_r(\text{B})} : \frac{\%(\text{C})}{A_r(\text{C})} \]
                 \[ n = \frac{M_{\text{molecular}}}{M_{\text{empírica}}} \]
@@ -733,6 +841,12 @@
                 <h2>Relación entre Molaridad y Normalidad</h2>
                 <span class="badge-centro">Estequiometría</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La normalidad de una disolución a partir de su molaridad y del factor de valencia, y el volumen necesario en una valoración. Es útil en volumetrías ácido-base, redox y de precipitación, donde interesa contar equivalentes en lugar de moles.
+            </div>
+
             <div class="formula-box">
                 \[ N = a \cdot M \quad ; \quad N_1 V_1 = N_2 V_2 \]
             </div>
@@ -761,6 +875,12 @@
                 <h2>Constantes, Equivalencias y Datos Numéricos</h2>
                 <span class="badge-centro">Constantes</span>
             </div>
+
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                No se calcula nada nuevo: se recopilan los valores de referencia (\(N_{\text{A}}\), \(R\), \(V_m\), \(K_f\)) que aparecen en las demás fórmulas del tema. Sirven para sustituir con seguridad y evitar errores de unidades en los cálculos estequiométricos y de disoluciones.
+            </div>
+
             <div class="formula-box">
                 \[ N_{\text{A}} = 6{,}022\times10^{23}\ \text{entidades/mol} \]
                 \[ R = 0{,}082\ \text{atm·L/(mol·K)} = 8{,}314\ \text{J/(mol·K)} \]
@@ -821,6 +941,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78;"></span></td>
                         <td data-label="Clase">observacion</td>
                         <td data-label="Categoría">Observaciones de interés (tono verde)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>

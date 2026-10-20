@@ -552,7 +552,229 @@
         </details>
 
 
+<!-- ============================================================ -->
+<!-- BLOQUE DESPLEGABLE: Fórmula 3 · Capacidad electrónica de un nivel -->
+<!-- Pegar tal cual donde se quiera insertar. Estilos incluidos    -->
+<!-- y auto-contenidos (scoped con .formula-card). Categoría: Atómica -->
+<!-- ============================================================ -->
+<style>
+    /* Estilos de la tarjeta de fórmula (adaptados de U99c02, categoría Atómica) */
+    .formula-card .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px 22px 22px 22px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        border-left: 5px solid #667eea;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 4px 0 16px 0;
+    }
+    .formula-card .card .cabecera {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid #edf2f7;
+        padding-bottom: 8px;
+    }
+    .formula-card .card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        background: #667eea;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+    .formula-card .card h2 {
+        font-size: 1.12rem;
+        color: #2d3748;
+        font-weight: 700;
+        margin: 0;
+    }
+    .formula-card .card .badge-centro {
+        padding: 3px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: #edf2f7;
+        border: 1px solid #cbd5e0;
+        color: #4a5568;
+        border-radius: 20px;
+        white-space: nowrap;
+        line-height: 1.4;
+    }
+    .formula-card .card .intro {
+        background: #faf5ff;
+        border-left: 4px solid #b794f4;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #44337a;
+        line-height: 1.5;
+    }
+    .formula-card .card .intro .etiqueta {
+        display: block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6b46c1;
+        margin-bottom: 3px;
+    }
+    .formula-card .card .intro .etiqueta::before { content: "🎯 "; font-size: 0.85em; }
+    .formula-card .card .formula-box {
+        background: #edf2f7;
+        border: 2px solid #cbd5e0;
+        border-radius: 10px;
+        padding: 14px 12px;
+        text-align: center;
+        font-size: 1.08rem;
+        overflow-x: auto;
+        margin: 0;
+    }
+    .formula-card .card .note {
+        background: #fffbeb;
+        border: none;
+        border-left: 4px solid #f6e05e;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #744210;
+        margin-top: 0;
+    }
+    .formula-card .card .note .pregunta {
+        display: block;
+        font-weight: 700;
+        color: #975a16;
+        margin-bottom: 4px;
+        font-size: 0.95rem;
+    }
+    .formula-card .card .note .pregunta::before { content: "❓ "; }
+    .formula-card .card .note .respuesta {
+        display: block;
+        color: #744210;
+        padding-left: 18px;
+    }
+    .formula-card .card .note .respuesta::before { content: "💡 "; }
+    .formula-card .card .mag-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin-top: 4px;
+    }
+    .formula-card .card .mag-table thead th {
+        background: #667eea;
+        color: #fff;
+        padding: 8px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 0.3px;
+    }
+    .formula-card .card .mag-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+    .formula-card .card .mag-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .formula-card .card .mag-table tbody td:first-child {
+        font-weight: 600;
+        color: #2b6cb0;
+        white-space: nowrap;
+    }
+    .formula-card .card .ejemplo {
+        background: #ebf8ff;
+        border-left: 4px solid #4299e1;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #2a4365;
+        margin: 0;
+    }
+    .formula-card .card .ejemplo strong { color: #2b6cb0; }
+    .formula-card .card .obs {
+        background: #f0fff4;
+        border-left: 4px solid #48bb78;
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: #22543d;
+    }
+    .formula-card .card .obs strong { color: #276749; }
+    .formula-card .card .obs ul { margin: 6px 0 0 18px; padding: 0; }
+    .formula-card .card .obs li { margin-bottom: 4px; }
+    .formula-card .card .obs .titulo-obs {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #276749;
+        letter-spacing: 0.3px;
+    }
+</style>
 
+<div class="formula-card">
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span class="titulo-desplegable">
+                <span>📘 Fórmula 3 · Capacidad electrónica de un nivel</span>
+                <span class="pulsame"><i class="fas fa-hand-pointer" style="margin-right: 6px;"></i>Púlsame</span>
+            </span>
+        </summary>
+        <div class="contenido-desplegable">
+            <article class="card c-1">
+                <div class="cabecera">
+                    <span class="num">3</span>
+                    <h2>Capacidad electrónica de un nivel</h2>
+                    <span class="badge-centro">Atómica</span>
+                </div>
+                <div class="intro">
+                    <span class="etiqueta">¿Qué se calcula?</span>
+                    El número máximo de electrones que puede alojar un nivel cuántico de número principal \(n\). Se usa al construir configuraciones electrónicas para saber cuántos electrones caben en cada capa.
+                </div>
+                <div class="formula-box">
+                    \[ N_{\text{máx}} = 2n^2 \]
+                </div>
+                <p class="note">
+                    <span class="pregunta">¿Me aprendo esto de memoria?</span>
+                    <span class="respuesta">No hace falta: es el resultado de sumar los \(2l+1\) orbitales de cada subnivel (\(l = 0,\dots,n-1\)) y multiplicar por los dos estados de spin permitidos por el principio de Pauli. De ahí sale directamente \(N_{\text{máx}} = 2n^2\).</span>
+                </p>
+                <table class="mag-table">
+                    <thead>
+                        <tr><th>Símbolo</th><th>Significado</th><th>Unidades</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Símbolo">\(N_{\text{máx}}\)</td>
+                            <td data-label="Significado">Nº máximo de electrones del nivel</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Símbolo">\(n\)</td>
+                            <td data-label="Significado">Número cuántico principal</td>
+                            <td data-label="Unidades">adimensional</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="ejemplo"><strong>Ejemplo:</strong> para \(n = 3\), \(N_{\text{máx}} = 2 \cdot 3^2 = 18\) electrones (2 en \(3s\), 6 en \(3p\), 10 en \(3d\)).</p>
+                <div class="obs">
+                    <span class="titulo-obs">Observaciones de interés</span>
+                    <ul>
+                        <li>\(N_{\text{máx}}\) es el cupo <strong>teórico</strong> del nivel, no siempre alcanzado.</li>
+                        <li>Los subniveles se llenan según la <strong>regla de Madelung</strong> (\(1s,\,2s,\,2p,\,3s,\,3p,\,4s,\,3d,\dots\)).</li>
+                        <li>Nivel \(n=1\): 2 electrones; \(n=2\): 8; \(n=3\): 18; \(n=4\): 32. La capacidad crece como \(2n^2\).</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </details>
+</div>
 
 
 

@@ -171,6 +171,30 @@
             line-height: 1.4;
         }
 
+        /* === CABECERA INTRODUCTORIA DE CADA FÓRMULA === */
+        .intro {
+            background: #faf5ff;
+            border-left: 4px solid #b794f4;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #44337a;
+            line-height: 1.5;
+        }
+        .intro .etiqueta {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #6b46c1;
+            margin-bottom: 3px;
+        }
+        .intro .etiqueta::before {
+            content: "🎯 ";
+            font-size: 0.85em;
+        }
+
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -368,6 +392,10 @@
                 <h2>Primera ecuación del MRUA</h2>
                 <span class="badge-centro">MRUA</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La velocidad de un móvil con aceleración constante en un instante cualquiera. Se aplica cuando conoces la velocidad inicial, la aceleración y el tiempo transcurrido, y quieres saber cómo de rápido va (o en qué momento se detiene).
+            </div>
             <div class="formula-box">
                 \[ v = v_0 + a\,t \]
             </div>
@@ -426,6 +454,10 @@
                 <span class="num">2</span>
                 <h2>Segunda ecuación del MRUA</h2>
                 <span class="badge-centro">MRUA</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La posición (o el desplazamiento) de un móvil con aceleración constante al cabo de un tiempo \(t\). Se usa cuando se conocen la posición y la velocidad iniciales, la aceleración y el tiempo, y se quiere saber dónde está el móvil.
             </div>
             <div class="formula-box">
                 \[ x = x_0 + v_0 t + \tfrac{1}{2}a t^{2} \]
@@ -491,6 +523,10 @@
                 <h2>Tercera ecuación del MRUA</h2>
                 <span class="badge-centro">MRUA</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La velocidad final de un móvil con aceleración constante cuando no se conoce el tiempo, relacionándola directamente con el desplazamiento. Es la ecuación de elección en frenadas, caídas libres y problemas donde el enunciado no menciona \(t\).
+            </div>
             <div class="formula-box">
                 \[ v^{2} = v_0^{2} + 2\,a\,(x - x_0) \]
             </div>
@@ -550,6 +586,10 @@
                 <h2>Velocidad en tiro vertical</h2>
                 <span class="badge-centro">Vertical</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La velocidad de un cuerpo lanzado verticalmente (o dejado caer) en cualquier instante. Se aplica en tiro vertical y caída libre tomando el eje \(Oy\) hacia arriba y \(a=-g\), e indica si el móvil sube, está en el punto más alto o baja.
+            </div>
             <div class="formula-box">
                 \[ v = v_0 - g\,t \]
             </div>
@@ -608,6 +648,10 @@
                 <span class="num">5</span>
                 <h2>Posición en tiro vertical</h2>
                 <span class="badge-centro">Vertical</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La altura a la que se encuentra el cuerpo en tiro vertical o caída libre en un instante dado. Permite saber dónde está el móvil, cuándo llega al suelo o cuándo pasa por una determinada altura.
             </div>
             <div class="formula-box">
                 \[ y = y_0 + v_0 t - \tfrac{1}{2}g t^{2} \]
@@ -672,6 +716,10 @@
                 <span class="num">6</span>
                 <h2>Ecuaciones paramétricas del tiro oblicuo <small style="font-size: 0.75em; font-weight: normal;">(Contiene toda la información del tiro parabólico)</small></h2>
                 <span class="badge-centro">Parabólico</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Las coordenadas \(x\) e \(y\) del proyectil en cada instante. Son la base de todo el tiro oblicuo: a partir de la rapidez inicial, el ángulo de lanzamiento y la altura inicial describen por completo el movimiento del proyectil.
             </div>
             <div class="formula-box">
                 \[ x = v_0\cos\theta\cdot t \]
@@ -748,6 +796,10 @@
                 <h2>Ecuación de la trayectoria parabólica</h2>
                 <span class="badge-centro">Parabólico</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La ecuación de la curva que describe el proyectil en el plano, es decir, la altura \(y\) para cada distancia horizontal \(x\). Permite conocer la forma de la trayectoria y calcular altura o alcance sin manejar el tiempo.
+            </div>
             <div class="formula-box">
                 \[ y = x\tan\theta - \frac{g\,x^{2}}{2\,v_0^{2}\cos^{2}\theta} \]
             </div>
@@ -812,6 +864,10 @@
                 <h2>Tiempo hasta la altura máxima</h2>
                 <span class="badge-centro">Parabólico</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                El tiempo que tarda el proyectil en alcanzar su punto más alto. Se aplica cuando se pide en qué instante la componente vertical de la velocidad se anula, y sirve de paso para obtener la altura máxima y el tiempo de vuelo.
+            </div>
             <div class="formula-box">
                 \[ t_H = \frac{v_0\,\sin\theta}{g} \]
             </div>
@@ -870,6 +926,10 @@
                 <span class="num">9</span>
                 <h2>Altura máxima del proyectil</h2>
                 <span class="badge-centro">Parabólico</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La altura máxima que alcanza el proyectil sobre el nivel de lanzamiento. Se usa para conocer el punto más alto de la trayectoria sin tener que calcular el tiempo ni resolver ecuaciones de segundo grado.
             </div>
             <div class="formula-box">
                 \[ H = \frac{v_0^{2}\,\sin^{2}\theta}{2\,g} \]
@@ -930,6 +990,10 @@
                 <h2>Alcance horizontal del proyectil</h2>
                 <span class="badge-centro">Parabólico</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La distancia horizontal total que recorre el proyectil hasta volver al nivel de lanzamiento. Sirve para problemas de alcance y para estudiar qué ángulo de lanzamiento conviene para llegar lo más lejos posible.
+            </div>
             <div class="formula-box">
                 \[ R = \frac{v_0^{2}\,\sin(2\theta)}{g} \]
             </div>
@@ -989,6 +1053,10 @@
                 <h2>Relación velocidad lineal-angular</h2>
                 <span class="badge-centro">Circular</span>
             </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La velocidad lineal (tangencial) de un punto que gira, a partir de su velocidad angular y del radio. Se aplica a ruedas, poleas, satélites, aspas y cualquier cuerpo en rotación donde interese relacionar magnitudes angulares con lineales.
+            </div>
             <div class="formula-box">
                 \[ v = \omega\,r \]
             </div>
@@ -1042,6 +1110,10 @@
                 <span class="num">12</span>
                 <h2>Aceleración centrípeta (MCU)</h2>
                 <span class="badge-centro">Circular</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                La aceleración que experimenta un cuerpo que describe una circunferencia, siempre dirigida hacia el centro. Explica por qué hay aceleración en el MCU aunque la rapidez no cambie, y aparece en curvas, satélites, atracciones de feria…
             </div>
             <div class="formula-box">
                 \[ a_c = \frac{v^{2}}{r} = \omega^{2}\,r \]
@@ -1101,6 +1173,10 @@
                 <span class="num">13</span>
                 <h2>Constantes, equivalencias y datos numéricos</h2>
                 <span class="badge-centro">Datos</span>
+            </div>
+            <div class="intro">
+                <span class="etiqueta">¿Qué se calcula?</span>
+                Aquí no hay una fórmula que "calcule" nada nuevo: se recopilan los valores numéricos y factores de conversión que se usan en todos los problemas del tema. Sirve de referencia rápida para \(g\), la equivalencia m/s ↔ km/h, rad ↔ grados y rpm ↔ rad/s.
             </div>
             <div class="formula-box">
                 \[ g = 9{,}8\ \text{m/s}^{2} \quad ; \quad 1\ \text{m/s} = 3{,}6\ \text{km/h} \]
@@ -1204,6 +1280,11 @@
                         <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #48bb78; border: 1px dashed #276749;"></span></td>
                         <td data-label="Clase">—</td>
                         <td data-label="Categoría">Observaciones de interés (recuadro verde dentro de cada tarjeta)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Color"><span style="display:inline-block; width:14px; height:14px; border-radius:3px; background-color: #b794f4;"></span></td>
+                        <td data-label="Clase">—</td>
+                        <td data-label="Categoría">Cabecera introductoria «¿Qué se calcula?» (recuadro violeta al inicio de cada tarjeta)</td>
                     </tr>
                 </tbody>
             </table>
