@@ -1,16 +1,39 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demostración 1: Ley de las Proporciones Definidas</title>
-    <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- ===== CONFIGURACIÓN OBLIGATORIA DE MATHJAX (ANTES del script src) ===== -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          ley:      ["\\textcolor{##2f855a}{#1}", 1],
+          cond:     ["\\textcolor{##b7791f}{#1}", 1],
+          res:      ["\\textcolor{##6b46c1}{#1}", 1],
+          dato:     ["\\textcolor{##2f855a}{#1}", 1],
+          incog: ["\\textcolor{##c53030}{\\boldsymbol{#1}}", 1],
+          objetivo: ["\\textcolor{##c53030}{\\boxed{#1}}", 1],
+          calc:     ["\\textcolor{##2b6cb0}{#1}", 1]
+        }
+      },
+      options: {
+        ignoreHtmlClass: 'no-mathjax',
+        processHtmlClass: 'mathjax'
+      },
+      startup: { typeset: true }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
     <!-- FontAwesome (versión 6) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -271,6 +294,158 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* ============================================
+           ESTILOS OBLIGATORIOS DEL BLOQUE "DESMITIFICANDO"
+           ============================================ */
+        details.desmitificando {
+            margin: 15px;
+            background: #faf5ff;
+            border-radius: 12px;
+            border-left: 5px solid #9f7aea;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(107,70,193,0.08);
+        }
+        details.desmitificando > summary {
+            padding: 18px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.15em;
+            color: #6b46c1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            background: #f3e8ff;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        details.desmitificando > summary:hover { background: #e9d8fd; }
+        details.desmitificando > summary::-webkit-details-marker { display: none; }
+        details.desmitificando > summary::marker { content: ""; }
+        details.desmitificando > summary { list-style: none; }
+        details.desmitificando > summary .fa-chevron-circle-down {
+            transition: transform 0.35s ease; color: #805ad5; flex-shrink: 0;
+        }
+        details.desmitificando[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.desmitificando > summary .pulse { font-size: 0.85em; color: #9f7aea; font-weight: normal; }
+        .details-content { padding: 20px 25px; }
+
+        details.estrategia-resolucion {
+            margin: 12px 0 16px;
+            border: 1px solid #bee3f8;
+            border-left: 4px solid #3182ce;
+            border-radius: 8px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+        details.estrategia-resolucion > summary {
+            padding: 10px 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2b6cb0;
+            background: #ebf8ff;
+            font-weight: bold;
+            list-style: none;
+            user-select: none;
+            font-size: 0.98em;
+        }
+        details.estrategia-resolucion > summary:hover { background: #e6f6ff; }
+        details.estrategia-resolucion > summary::-webkit-details-marker { display: none; }
+        details.estrategia-resolucion > summary::marker { content: ""; }
+        details.estrategia-resolucion > summary { list-style: none; }
+        details.estrategia-resolucion > summary .fa-chevron-circle-down {
+            flex-shrink: 0; transition: transform 0.35s ease; font-size: 1.1em;
+        }
+        details.estrategia-resolucion[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.estrategia-resolucion > summary .hint {
+            margin-left: auto; font-size: 0.82em; font-weight: normal; color: #2b6cb0;
+        }
+        .estrategia-contenido { padding: 12px 16px; background: #ffffff; }
+        .estrategia-contenido p { margin: 6px 0; line-height: 1.6; }
+
+        details.ejercicio-card {
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            margin: 0 0 22px 0;
+            overflow: hidden;
+            background: white;
+        }
+        details.ejercicio-card > summary.ejercicio-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05em;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            transition: filter 0.2s ease;
+        }
+        details.ejercicio-card > summary.ejercicio-header:hover { filter: brightness(1.08); }
+        details.ejercicio-card > summary.ejercicio-header::-webkit-details-marker { display: none; }
+        details.ejercicio-card > summary.ejercicio-header::marker { content: ""; }
+        details.ejercicio-card > summary.ejercicio-header { list-style: none; }
+        .ejercicio-num {
+            background: white; color: #667eea; width: 30px; height: 30px;
+            border-radius: 50%; text-align: center; line-height: 30px;
+            font-weight: bold; flex-shrink: 0; font-size: 0.95em;
+        }
+        .ejercicio-header .fa-chevron-down {
+            margin-left: auto; transition: transform 0.35s ease;
+            color: rgba(255,255,255,0.9); flex-shrink: 0;
+        }
+        details.ejercicio-card[open] > summary.ejercicio-header .fa-chevron-down { transform: rotate(180deg); }
+        .ejercicio-header .hint {
+            font-size: 0.78em; font-weight: normal;
+            color: rgba(255,255,255,0.85); margin-left: 6px;
+        }
+        .ejercicio-body { padding: 16px 18px; background: #f7fafc; }
+        .ejercicio-body > p:first-child { margin-top: 0; }
+        .ejercicio-body ul { margin: 8px 0; padding-left: 22px; }
+        .ejercicio-resolucion {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 14px 18px;
+            margin: 18px 18px 18px;
+            border-radius: 0 8px 8px 0;
+        }
+        .ejercicio-resolucion h4 {
+            color: #276749;
+            margin: 12px 0 6px 0;
+            font-size: 0.98em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ejercicio-resolucion h4:first-child { margin-top: 0; }
+        .ejercicio-resolucion h4:not(:first-child) {
+            border-top: 1px solid #c6f6d5;
+            padding-top: 12px;
+            margin-top: 16px;
+        }
+        .ejercicio-resolucion p { margin: 4px 0; line-height: 1.6; }
+
+        .clave-didactica {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-top: 24px;
+            color: #744210;
+            line-height: 1.65;
+        }
+        .clave-didactica strong { color: #975a16; }
+        .clave-didactica .fa-lightbulb { color: #d69e2e; margin-right: 6px; }
+
+        .eq-ley  { border-left: 3px solid #48bb78; padding-left: 10px; background: #f0fff4; border-radius: 0 6px 6px 0; }
+        .eq-cond { border-left: 3px solid #f6e05e; padding-left: 10px; background: #fffbeb; border-radius: 0 6px 6px 0; }
+        .eq-res  { border-left: 3px solid #9f7aea; padding-left: 10px; background: #faf5ff; border-radius: 0 6px 6px 0; }
     </style>
 </head>
 <body>
@@ -297,12 +472,7 @@
         <p>Partiendo de la definición de compuesto químico como sustancia formada por la unión de dos o más elementos en una proporción fija y característica, demostrar que <strong>cuando dos elementos se combinan para formar un compuesto determinado, lo hacen siempre en una relación de masa constante</strong>, independientemente del procedimiento de obtención o de las cantidades iniciales empleadas.</p>
         <div class="formula-box">
             Si un compuesto está formado por los elementos A y B, entonces:
-            \[ \frac{m_{\text{A}}}{m_{\text{B}}} = k \quad \text{(constante para ese compuesto)} \]
-
-
-
-
-
+            \[ \frac{m_{\mathrm{A}}}{m_{\mathrm{B}}} = k \quad \text{(constante para ese compuesto)} \]
 
 <!-- Insertando imagen -->
 <style>
@@ -316,12 +486,6 @@
 <img src="../imagenes/U03c01 - Ley de las proporciones definidas_2.png" alt="Imagen" width="800">
 <img src="../imagenes/U03c01 - Ley de las proporciones definidas_3.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
-
-
-
-
 
         </div>
     </div>
@@ -341,52 +505,52 @@
         <h2>⚙️ Procedimiento</h2>
         <div class="step">
             <span class="step-num">1</span>
-            <strong>Consideremos un compuesto genérico</strong> formado por los elementos A y B, cuya fórmula sea \( \text{A}_x\text{B}_y \), donde \( x \) e \( y \) son números enteros que indican los átomos de cada elemento en la molécula (o unidad fórmula).
+            <strong>Consideremos un compuesto genérico</strong> formado por los elementos A y B, cuya fórmula sea \( \mathrm{A}_x\mathrm{B}_y \), donde \( x \) e \( y \) son números enteros que indican los átomos de cada elemento en la molécula (o unidad fórmula).
         </div>
         <div class="step">
             <span class="step-num">2</span>
-            <strong>Expresamos la masa de cada elemento</strong> en una molécula del compuesto. Si \( A_r(\text{A}) \) y \( A_r(\text{B}) \) son las masas atómicas relativas:
+            <strong>Expresamos la masa de cada elemento</strong> en una molécula del compuesto. Si \( A_r(\mathrm{A}) \) y \( A_r(\mathrm{B}) \) son las masas atómicas relativas:
             <div class="formula-box">
-                \[ m_{\text{A, molécula}} = x \cdot A_r(\text{A}) \]
-                \[ m_{\text{B, molécula}} = y \cdot A_r(\text{B}) \]
+                \[ m_{\mathrm{A,\,mol\acute{e}cula}} = x \cdot A_r(\mathrm{A}) \]
+                \[ m_{\mathrm{B,\,mol\acute{e}cula}} = y \cdot A_r(\mathrm{B}) \]
             </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
             <strong>Calculamos la relación de masas</strong> en una molécula:
             <div class="formula-box">
-                \[ \frac{m_{\text{A, molécula}}}{m_{\text{B, molécula}}} = \frac{x \cdot A_r(\text{A})}{y \cdot A_r(\text{B})} \]
+                \[ \frac{m_{\mathrm{A,\,mol\acute{e}cula}}}{m_{\mathrm{B,\,mol\acute{e}cula}}} = \frac{x \cdot A_r(\mathrm{A})}{y \cdot A_r(\mathrm{B})} \]
             </div>
             <p>Esta relación depende únicamente de <strong>números enteros</strong> (\( x, y \)) y de <strong>masas atómicas constantes</strong> (\( A_r \)), por lo que es una constante característica del compuesto.</p>
         </div>
         <div class="step">
             <span class="step-num">4</span>
-            <strong>Generalizamos a cualquier cantidad de sustancia</strong>. Para \( n \) moles del compuesto, el número de moléculas es \( n \cdot N_{\text{A}} \), donde \( N_{\text{A}} \) es el número de Avogadro. Las masas totales serán:
+            <strong>Generalizamos a cualquier cantidad de sustancia</strong>. Para \( n \) moles del compuesto, el número de moléculas es \( n \cdot N_{\mathrm{A}} \), donde \( N_{\mathrm{A}} \) es el número de Avogadro. Las masas totales serán:
             <div class="formula-box">
-                \[ m_{\text{A, total}} = n \cdot N_{\text{A}} \cdot x \cdot m_{\text{átomo A}} = n \cdot x \cdot M_{\text{A}} \]
-                \[ m_{\text{B, total}} = n \cdot N_{\text{A}} \cdot y \cdot m_{\text{átomo B}} = n \cdot y \cdot M_{\text{B}} \]
+                \[ m_{\mathrm{A,\,total}} = n \cdot N_{\mathrm{A}} \cdot x \cdot m_{\mathrm{\acute{a}tomo\,A}} = n \cdot x \cdot M_{\mathrm{A}} \]
+                \[ m_{\mathrm{B,\,total}} = n \cdot N_{\mathrm{A}} \cdot y \cdot m_{\mathrm{\acute{a}tomo\,B}} = n \cdot y \cdot M_{\mathrm{B}} \]
             </div>
-            donde \( M_{\text{A}} \) y \( M_{\text{B}} \) son las masas molares de los elementos.
+            donde \( M_{\mathrm{A}} \) y \( M_{\mathrm{B}} \) son las masas molares de los elementos.
         </div>
         <div class="step">
             <span class="step-num">5</span>
             <strong>Verificamos que la relación se mantiene constante</strong>:
             <div class="formula-box">
-                \[ \frac{m_{\text{A, total}}}{m_{\text{B, total}}} = \frac{n \cdot x \cdot M_{\text{A}}}{n \cdot y \cdot M_{\text{B}}} = \frac{x \cdot M_{\text{A}}}{y \cdot M_{\text{B}}} = \text{cte.} \]
+                \[ \frac{m_{\mathrm{A,\,total}}}{m_{\mathrm{B,\,total}}} = \frac{n \cdot x \cdot M_{\mathrm{A}}}{n \cdot y \cdot M_{\mathrm{B}}} = \frac{x \cdot M_{\mathrm{A}}}{y \cdot M_{\mathrm{B}}} = \text{cte.} \]
             </div>
             <p>El factor \( n \) se cancela, demostrando que <strong>la relación de masas es independiente de la cantidad de compuesto</strong> considerada.</p>
         </div>
         <div class="step">
             <span class="step-num">6</span>
-            <strong>Verificación experimental</strong>. Si sintetizamos el compuesto por vías distintas (por ejemplo, combinando A + B directamente, o descomponiendo otro compuesto que contenga A y B), la relación \( \frac{m_{\text{A}}}{m_{\text{B}}} \) en el producto obtenido será idéntica, confirmando la ley.
+            <strong>Verificación experimental</strong>. Si sintetizamos el compuesto por vías distintas (por ejemplo, combinando A + B directamente, o descomponiendo otro compuesto que contenga A y B), la relación \( \frac{m_{\mathrm{A}}}{m_{\mathrm{B}}} \) en el producto obtenido será idéntica, confirmando la ley.
         </div>
     </div>
 
     <div class="section resultado">
         <h2>✅ Resultado</h2>
-        <p>Se ha demostrado que para cualquier compuesto \( \text{A}_x\text{B}_y \):</p>
+        <p>Se ha demostrado que para cualquier compuesto \( \mathrm{A}_x\mathrm{B}_y \):</p>
         <div class="formula-box">
-            \[ \frac{m_{\text{A}}}{m_{\text{B}}} = \frac{x \cdot M_{\text{A}}}{y \cdot M_{\text{B}}} = \text{constante} \]
+            \[ \frac{m_{\mathrm{A}}}{m_{\mathrm{B}}} = \frac{x \cdot M_{\mathrm{A}}}{y \cdot M_{\mathrm{B}}} = \text{constante} \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La proporción en masa de los elementos en un compuesto es fija e invariable.</p>
         <div class="note">
@@ -395,187 +559,411 @@
     </div>
 
     <!-- ============================================
-         BLOQUE DESPLEGABLE INTERACTIVO (AÑADIDO)
+         BLOQUE DESPLEGABLE "DESMITIFICANDO"
          ============================================ -->
-    <details>
+    <details class="desmitificando">
         <summary>
-            <i class="fas fa-chevron-circle-down"></i>
+            <i class="fa-solid fa-chevron-circle-down"></i>
             <span style="flex: 1;">🧪 DESMITIFICANDO Ley de las Proporciones Definidas (Proust)</span>
-            <span style="font-size: 0.9em; color: #4a5568; background: #e2e8f0; padding: 2px 12px; border-radius: 20px;">
-                <i class="fas fa-hand-pointer"></i> Púlsame
-            </span>
+            <span class="pulse">🖱️ Púlsame</span>
         </summary>
         <div class="details-content">
 
-            <!-- EJERCICIO 1 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 1</span>
-                    <span>Determinación de la relación de masas en el óxido de magnesio</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> En una primera experiencia se hacen reaccionar 2,40 g de magnesio con 1,58 g de oxígeno, obteniéndose óxido de magnesio (MgO) y sobrando 0,08 g de oxígeno. En una segunda experiencia, se hacen reaccionar 4,80 g de magnesio con 3,20 g de oxígeno. Se pide:</p>
-                        <ul>
-                            <li>a) Calcular la relación en masa \( \frac{m_{\text{Mg}}}{m_{\text{O}}} \) en el MgO a partir de la primera experiencia.</li>
-                            <li>b) Determinar si la segunda experiencia cumple la ley de Proust y, en caso afirmativo, calcular la masa de óxido formado y la masa sobrante (si la hay).</li>
-                        </ul>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li><strong>Apartado a)</strong> En la primera experiencia, el oxígeno que reacciona es \( 1,58 - 0,08 = 1,50 \) g. El magnesio reacciona completamente: 2,40 g. La relación es:
-                                \[
-                                \frac{m_{\text{Mg}}}{m_{\text{O}}} = \frac{2,40}{1,50} = 1,60
-                                \]
-                                <span style="color: #2b6cb0;">(Relación característica del MgO).</span>
-                            </li>
-                            <li><strong>Apartado b)</strong> Para la segunda mezcla, calculamos la relación inicial:
-                                \[
-                                \frac{4,80}{3,20} = 1,50
-                                \]
-                                Como es menor que 1,60, el oxígeno está en exceso y el magnesio es el reactivo limitante. Con 4,80 g de Mg, el oxígeno necesario es:
-                                \[
-                                m_{\text{O}} = \frac{4,80}{1,60} = 3,00 \text{ g}
-                                \]
-                                Por tanto, sobran \( 3,20 - 3,00 = 0,20 \) g de O₂. La masa de óxido formado es:
-                                \[
-                                m_{\text{MgO}} = 4,80 + 3,00 = 7,80 \text{ g}
-                                \]
-                                <span style="color: #276749;">Se cumple la ley de Proust, ya que la relación en el producto es 1,60.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <p class="leyenda-colores" style="margin:0 0 18px 0; font-size:0.92em; color:#4a5568;">
+                🎨 <strong>Código de colores:</strong>
+                <span style="color:#2f855a;">■ Leyes fundamentales</span> ·
+                <span style="color:#b7791f;">■ Condiciones y ligaduras</span> ·
+                <span style="color:#6b46c1;">■ Resultado deducido</span> ·
+                <span style="color:#c53030; font-weight:bold;">■ Incógnitas (rojo negrita)</span>
+            </p>
 
-            <!-- EJERCICIO 2 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 2</span>
-                    <span>Cálculo de masas en la formación de sulfuro de hierro(II)</span>
+            <!-- ===================== EJERCICIO 1 ===================== -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">1</span>
+                    <span>Deducción de la relación de masas del óxido de aluminio</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado:</strong> El óxido de aluminio es un compuesto de fórmula \(\mathrm{Al_2O_3}\). Se conocen las masas molares \(M_{\mathrm{Al}} = 27{,}0\ \mathrm{g/mol}\) y \(M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}\). Se pide:</p>
+                    <ul>
+                        <li>a) Deducir, a partir de la fórmula y del concepto de mol, la relación de masas \(m_{\mathrm{Al}}/m_{\mathrm{O}}\) característica del compuesto.</li>
+                        <li>b) Calcular la masa de oxígeno que reacciona completamente con \(10{,}8\ \mathrm{g}\) de aluminio.</li>
+                        <li>c) Calcular la masa de óxido de aluminio formada.</li>
+                    </ul>
                 </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> El sulfuro de hierro(II) (FeS) se forma combinando hierro y azufre en la relación de masa \( \frac{m_{\text{Fe}}}{m_{\text{S}}} = 1,75 \).</p>
-                        <ul>
-                            <li>a) ¿Qué masa de azufre se necesita para reaccionar completamente con 15,0 g de hierro?</li>
-                            <li>b) Si se mezclan 25,0 g de Fe y 20,0 g de S, ¿qué masa de FeS se obtiene y qué elemento sobra y en qué cantidad?</li>
-                        </ul>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li><strong>Apartado a)</strong> A partir de la relación:
-                                \[
-                                m_{\text{S}} = \frac{m_{\text{Fe}}}{1,75} = \frac{15,0}{1,75} = 8,57 \text{ g de S}
-                                \]
-                            </li>
-                            <li><strong>Apartado b)</strong> Relación inicial: \( \frac{25,0}{20,0} = 1,25 \). Como 1,25 < 1,75, el hierro es el limitante. Azufre necesario:
-                                \[
-                                m_{\text{S}} = \frac{25,0}{1,75} = 14,29 \text{ g}
-                                \]
-                                Sobran \( 20,0 - 14,29 = 5,71 \) g de S. Masa de FeS:
-                                \[
-                                m_{\text{FeS}} = 25,0 + 14,29 = 39,29 \text{ g}
-                                \]
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Estudiamos una muestra de <strong>óxido de aluminio puro</strong>, de fórmula \(\mathrm{Al_2O_3}\): cada unidad fórmula contiene 2 átomos de Al y 3 átomos de O. Disponemos de las masas molares de ambos elementos y de la masa de aluminio que reacciona.</p>
+                    <p><strong>Objetivo:</strong> deducir la relación de masas \(m_{\mathrm{Al}}/m_{\mathrm{O}}\) y, con ella, calcular la masa de oxígeno que se combina con \(10{,}8\ \mathrm{g}\) de Al y la masa de \(\mathrm{Al_2O_3}\) formada.</p>
+                    <p><strong>Condiciones:</strong> el compuesto es puro (proporción fija), la reacción es completa y la masa se conserva. No hay reactivo en exceso: se pide el oxígeno <em>justo</em> necesario.</p>
 
-            <!-- EJERCICIO 3 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 3</span>
-                    <span>Comprobación de la ley en dos muestras de un mismo óxido</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> Se analizan dos muestras de un óxido de cobre. En la primera, 5,00 g de óxido contienen 4,00 g de cobre y 1,00 g de oxígeno. En la segunda, 12,50 g de óxido contienen 10,00 g de cobre y 2,50 g de oxígeno.</p>
-                        <ul>
-                            <li>Demostrar que ambas muestras corresponden al mismo compuesto y calcular su relación \( \frac{m_{\text{Cu}}}{m_{\text{O}}} \).</li>
-                        </ul>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Muestra 1: \( \frac{4,00}{1,00} = 4,00 \)</li>
-                            <li>Muestra 2: \( \frac{10,00}{2,50} = 4,00 \)</li>
-                            <li>Ambas relaciones son idénticas (4,00), por lo que se trata del mismo compuesto (ley de Proust). La relación característica es \( \frac{m_{\text{Cu}}}{m_{\text{O}}} = 4,00 \).</li>
-                            <li><span style="color: #2b6cb0;">Nota: Esto corresponde al óxido de cobre(II) (CuO), cuya relación teórica es \( \frac{63,55}{16,00} \approx 3,97 \) (aproximadamente 4,00).</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Representamos una unidad fórmula de \(\mathrm{Al_2O_3}\) y contamos las masas que aporta cada elemento:</p>
+                    <ul>
+                        <li>2 átomos de Al aportan una masa \(2\,M_{\mathrm{Al}}\) por unidad fórmula.</li>
+                        <li>3 átomos de O aportan una masa \(3\,M_{\mathrm{O}}\) por unidad fórmula.</li>
+                        <li>Si hay \(n_{\mathrm{f}}\) unidades fórmula (moles de fórmula), ambas masas se multiplican por el <strong>mismo</strong> factor \(n_{\mathrm{f}}\).</li>
+                    </ul>
+                    <p>No hay ejes de coordenadas: el «sistema de referencia» aquí es la <strong>unidad fórmula</strong> y el <strong>mol</strong> como unidad de cantidad de sustancia.</p>
 
-            <!-- EJERCICIO 4 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 4</span>
-                    <span>Contexto real: análisis de un mineral</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> Se extrae un mineral que se sospecha que es cinabrio (HgS). Un análisis de una muestra de 10,0 g revela 8,62 g de mercurio y 1,38 g de azufre. La relación teórica en el HgS es \( \frac{m_{\text{Hg}}}{m_{\text{S}}} = 6,25 \).</p>
-                        <ul>
-                            <li>a) Calcular la relación experimental y decidir si la muestra es HgS puro o contiene impurezas.</li>
-                            <li>b) Si es puro, ¿qué masa de mercurio se obtendría a partir de 50,0 g de mineral?</li>
-                        </ul>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li><strong>Apartado a)</strong> Relación experimental: \( \frac{8,62}{1,38} = 6,246 \approx 6,25 \). Coincide con la teórica, por lo que la muestra es HgS puro (cumple Proust).</li>
-                            <li><strong>Apartado b)</strong> En 10,0 g de mineral hay 8,62 g de Hg. En 50,0 g:
-                                \[
-                                m_{\text{Hg}} = 50,0 \times \frac{8,62}{10,0} = 43,1 \text{ g}
-                                \]
-                                (o bien aplicando la relación: \( 50,0 \times \frac{6,25}{1+6,25} = 43,1 \) g).
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>El modelo es la <strong>definición de composición de un compuesto</strong>: la masa de cada elemento es el número de unidades fórmula multiplicado por la atomicidad y por la masa molar del elemento. Lo escribimos como sistema, con las condiciones del problema como ecuaciones numeradas:</p>
+                    $$\begin{cases}
+                    \ley{m_{\mathrm{Al}} = n_{\mathrm{f}}\cdot 2\cdot M_{\mathrm{Al}}} & \text{\ley{[1]} (masa de Al en } n_{\mathrm{f}} \text{ unidades fórmula)} \\[4pt]
+                    \ley{m_{\mathrm{O}} = n_{\mathrm{f}}\cdot 3\cdot M_{\mathrm{O}}} & \text{\ley{[2]} (masa de O correspondiente)} \\[4pt]
+                    \cond{M_{\mathrm{Al}} = 27{,}0\ \mathrm{g/mol},\; M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}} & \text{\cond{[3]} (masas molares)} \\[4pt]
+                    \cond{m_{\mathrm{Al}} = 10{,}8\ \mathrm{g}} & \text{\cond{[4]} (dato de la reacción)} \\[4pt]
+                    \cond{m_{\mathrm{Al}} + m_{\mathrm{O}} = m_{\mathrm{Al_2O_3}}} & \text{\cond{[5]} (conservación de la masa)}
+                    \end{cases}$$
 
-            <!-- EJERCICIO 5 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 5</span>
-                    <span>Comparación de métodos de síntesis</span>
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> Deducir la relación \(m_{\mathrm{Al}}/m_{\mathrm{O}}\) del compuesto y calcular \(\objetivo{m_{\mathrm{O}}}\) y \(\objetivo{m_{\mathrm{Al_2O_3}}}\) cuando reaccionan \(10{,}8\ \mathrm{g}\) de aluminio.</p>
+                            <p><strong>Ruta justificada:</strong> Partimos de las expresiones de la masa de cada elemento en función del número de unidades fórmula [1]–[2]; al compararlas, el factor \(n_{\mathrm{f}}\) se cancela y queda una relación que solo depende de la atomicidad y de las masas molares. Con la conservación de la masa [5] obtendremos la masa de óxido.</p>
+                            $$\begin{cases}
+                            \dato{m_{\mathrm{Al}}} = \calc{n_{\mathrm{f}}}\cdot\dato{2}\cdot\dato{M_{\mathrm{Al}}} & \text{[1] (masa de Al)} \\[4pt]
+                            \objetivo{m_{\mathrm{O}}} = \calc{n_{\mathrm{f}}}\cdot\dato{3}\cdot\dato{M_{\mathrm{O}}} & \text{[2] (masa de O)} \\[4pt]
+                            \dato{M_{\mathrm{Al}}} = \dato{27{,}0}\ \mathrm{g/mol},\; \dato{M_{\mathrm{O}}} = \dato{16{,}0}\ \mathrm{g/mol} & \text{[3] (masas molares)} \\[4pt]
+                            \dato{m_{\mathrm{Al}}} = \dato{10{,}8}\ \mathrm{g} & \text{[4] (dato)} \\[4pt]
+                            \dato{m_{\mathrm{Al}}} + \objetivo{m_{\mathrm{O}}} = \objetivo{m_{\mathrm{Al_2O_3}}} & \text{[5] (conservación de la masa)}
+                            \end{cases}$$
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Dividimos [1] entre [2] <strong>para eliminar el número de unidades fórmula</strong> \(\incog{n_{\mathrm{f}}}\), que cambia de una muestra a otra y no debe influir en la relación característica:</p>
+                    $$\res{\frac{m_{\mathrm{Al}}}{m_{\mathrm{O}}} = \frac{\incog{n_{\mathrm{f}}}\cdot 2\cdot M_{\mathrm{Al}}}{\incog{n_{\mathrm{f}}}\cdot 3\cdot M_{\mathrm{O}}} = \frac{2\,M_{\mathrm{Al}}}{3\,M_{\mathrm{O}}}}$$
+                    <p>Sustituimos [3] en la expresión anterior <strong>para particularizar la relación al</strong> \(\mathrm{Al_2O_3}\):</p>
+                    $$\res{\frac{m_{\mathrm{Al}}}{m_{\mathrm{O}}} = \frac{2\cdot 27{,}0}{3\cdot 16{,}0} = \frac{54{,}0}{48{,}0} = 1{,}125}$$
+                    <p>Con la relación deducida y el dato [4] despejamos la masa de oxígeno, que es una de las magnitudes pedidas:</p>
+                    $$\res{\objetivo{m_{\mathrm{O}}} = \frac{m_{\mathrm{Al}}}{1{,}125} = \frac{10{,}8}{1{,}125} = 9{,}6\ \mathrm{g}}$$
+                    <p>Aplicamos [5] <strong>para obtener la masa total de óxido a partir de las masas que se combinan</strong>:</p>
+                    $$\res{\objetivo{m_{\mathrm{Al_2O_3}}} = m_{\mathrm{Al}} + m_{\mathrm{O}} = 10{,}8 + 9{,}6 = 20{,}4\ \mathrm{g}}$$
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>La relación \(1{,}125\) es adimensional y significa que el aluminio aporta el \(54{,}0/102{,}0 = 52{,}9\,\%\) de la masa del óxido. Las masas obtenidas (\(9{,}6\ \mathrm{g}\) de O y \(20{,}4\ \mathrm{g}\) de \(\mathrm{Al_2O_3}\)) tienen unidades coherentes y respetan la conservación de la masa.</p>
+                    <p>Comprobación por moles: \(n_{\mathrm{Al}} = 10{,}8/27{,}0 = 0{,}400\ \mathrm{mol}\), luego se forman \(0{,}200\ \mathrm{mol}\) de \(\mathrm{Al_2O_3}\), es decir, \(0{,}200\times 102{,}0 = 20{,}4\ \mathrm{g}\).</p>
+                    <p>La expresión deducida \(\frac{m_{\mathrm{Al}}}{m_{\mathrm{O}}} = \frac{2\,M_{\mathrm{Al}}}{3\,M_{\mathrm{O}}}\) coincide con la «fórmula de libro» \(\frac{x\,M_{\mathrm{A}}}{y\,M_{\mathrm{B}}}\): la hemos <strong>deducido</strong> desde [1] y [2], no aplicado directamente.</p>
                 </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> El cloruro de sodio (NaCl) se puede obtener por reacción directa de sodio con cloro, o por neutralización de NaOH con HCl. En el primer método, 4,60 g de Na reaccionan con 7,10 g de Cl₂ para dar 11,70 g de NaCl. En el segundo, se obtienen 5,85 g de NaCl a partir de NaOH y HCl.</p>
-                        <ul>
-                            <li>Calcular la relación \( \frac{m_{\text{Na}}}{m_{\text{Cl}}} \) en el NaCl y comprobar que es constante en ambos métodos.</li>
-                        </ul>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>En la reacción directa, el NaCl formado tiene 4,60 g de Na y (11,70 - 4,60) = 7,10 g de Cl. Relación: \( \frac{4,60}{7,10} = 0,648 \).</li>
-                            <li>En el segundo método, la misma proporción debe cumplirse. Si se obtienen 5,85 g de NaCl, la masa de Na sería \( 5,85 \times \frac{0,648}{1+0,648} \approx 2,30 \) g y la de Cl \( \approx 3,55 \) g. La relación se mantiene.</li>
-                            <li><span style="color: #276749;">La ley de Proust se cumple independientemente del procedimiento, siempre que el producto sea el mismo compuesto puro.</span></li>
-                        </ul>
-                    </div>
+            </details>
+
+            <!-- ===================== EJERCICIO 2 ===================== -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">2</span>
+                    <span>¿Son las dos muestras el mismo compuesto? El caso del CO₂</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado:</strong> Se analizan dos muestras gaseosas que se sospecha son dióxido de carbono, \(\mathrm{CO_2}\) (\(M_{\mathrm{C}} = 12{,}0\ \mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}\)):</p>
+                    <ul>
+                        <li><strong>Muestra A:</strong> \(4{,}40\ \mathrm{g}\) contienen \(1{,}20\ \mathrm{g}\) de C y \(3{,}20\ \mathrm{g}\) de O.</li>
+                        <li><strong>Muestra B:</strong> \(11{,}0\ \mathrm{g}\) contienen \(3{,}00\ \mathrm{g}\) de C y \(8{,}00\ \mathrm{g}\) de O.</li>
+                        <li>a) Deduce, desde la fórmula y el concepto de mol, la relación \(m_{\mathrm{C}}/m_{\mathrm{O}}\) característica del \(\mathrm{CO_2}\).</li>
+                        <li>b) Calcula la relación experimental en cada muestra y decide si ambas son el mismo compuesto.</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Tenemos dos muestras de un gas y queremos comprobar si su composición en masa coincide con la que impone la fórmula \(\mathrm{CO_2}\). Sabemos que cada unidad fórmula contiene 1 átomo de C y 2 átomos de O.</p>
+                    <p><strong>Objetivo:</strong> deducir la relación \(m_{\mathrm{C}}/m_{\mathrm{O}}\) característica del \(\mathrm{CO_2}\) y comprobar si las muestras A y B la cumplen.</p>
+                    <p><strong>Condiciones:</strong> las muestras son sustancias puras (si son el mismo compuesto) y las masas de cada elemento se han medido por separado.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Representamos la unidad fórmula \(\mathrm{CO_2}\): un átomo de carbono (masa molar \(M_{\mathrm{C}}\)) y dos átomos de oxígeno (masa \(2\,M_{\mathrm{O}}\)). Para \(n_{\mathrm{f}}\) unidades fórmula, las masas de cada elemento son proporcionales a esas cantidades.</p>
+                    <p>La «balanza» mental es: por cada \(12{,}0\ \mathrm{g}\) de C debe haber \(32{,}0\ \mathrm{g}\) de O si el gas es \(\mathrm{CO_2}\) puro.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>El modelo vuelve a ser la <strong>composición definida</strong>: la masa de cada elemento en una muestra es el número de unidades fórmula por la atomicidad por la masa molar. Añadimos como condiciones los datos analíticos de cada muestra:</p>
+                    $$\begin{cases}
+                    \ley{m_{\mathrm{C}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{C}}} & \text{\ley{[1]} (masa de C)} \\[4pt]
+                    \ley{m_{\mathrm{O}} = n_{\mathrm{f}}\cdot 2\cdot M_{\mathrm{O}}} & \text{\ley{[2]} (masa de O)} \\[4pt]
+                    \cond{M_{\mathrm{C}} = 12{,}0\ \mathrm{g/mol},\; M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}} & \text{\cond{[3]} (masas molares)} \\[4pt]
+                    \cond{\text{Muestra A: } m_{\mathrm{C}} = 1{,}20\ \mathrm{g},\; m_{\mathrm{O}} = 3{,}20\ \mathrm{g}} & \text{\cond{[4]} (análisis de A)} \\[4pt]
+                    \cond{\text{Muestra B: } m_{\mathrm{C}} = 3{,}00\ \mathrm{g},\; m_{\mathrm{O}} = 8{,}00\ \mathrm{g}} & \text{\cond{[5]} (análisis de B)} \\[4pt]
+                    \cond{m_{\mathrm{C}} + m_{\mathrm{O}} = m_{\mathrm{CO_2}}} & \text{\cond{[6]} (conservación de la masa)}
+                    \end{cases}$$
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> Deducir la relación \(\objetivo{m_{\mathrm{C}}/m_{\mathrm{O}}}\) que impone la fórmula del \(\mathrm{CO_2}\) y comprobar si las muestras A y B la cumplen.</p>
+                            <p><strong>Ruta justificada:</strong> Partimos de [1] y [2], que expresan la masa de cada elemento en función del número de unidades fórmula; al compararlas, \(n_{\mathrm{f}}\) se cancela y queda la relación característica. Después compararemos esa relación con las que resultan de los análisis [4] y [5].</p>
+                            $$\begin{cases}
+                            \dato{m_{\mathrm{C}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{C}}} & \text{[1]} \\[4pt]
+                            \dato{m_{\mathrm{O}}} = \calc{n_{\mathrm{f}}}\cdot\dato{2}\cdot\dato{M_{\mathrm{O}}} & \text{[2]} \\[4pt]
+                            \dato{M_{\mathrm{C}}} = \dato{12{,}0}\ \mathrm{g/mol},\; \dato{M_{\mathrm{O}}} = \dato{16{,}0}\ \mathrm{g/mol} & \text{[3]} \\[4pt]
+                            \dato{m_{\mathrm{C}}}^{A} = \dato{1{,}20}\ \mathrm{g},\; \dato{m_{\mathrm{O}}}^{A} = \dato{3{,}20}\ \mathrm{g} & \text{[4] (muestra A)} \\[4pt]
+                            \dato{m_{\mathrm{C}}}^{B} = \dato{3{,}00}\ \mathrm{g},\; \dato{m_{\mathrm{O}}}^{B} = \dato{8{,}00}\ \mathrm{g} & \text{[5] (muestra B)} \\[4pt]
+                            \dato{m_{\mathrm{C}}} + \dato{m_{\mathrm{O}}} = \calc{m_{\mathrm{CO_2}}} & \text{[6] (conservación de la masa)}
+                            \end{cases}$$
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Dividimos [1] entre [2] <strong>para eliminar el número de unidades fórmula</strong> \(\incog{n_{\mathrm{f}}}\) y obtener una relación que no dependa de la cantidad de muestra:</p>
+                    $$\res{\frac{m_{\mathrm{C}}}{m_{\mathrm{O}}} = \frac{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{C}}}{\incog{n_{\mathrm{f}}}\cdot 2\cdot M_{\mathrm{O}}} = \frac{M_{\mathrm{C}}}{2\,M_{\mathrm{O}}}}$$
+                    <p>Sustituimos [3] en la expresión anterior <strong>para particularizar la relación al</strong> \(\mathrm{CO_2}\):</p>
+                    $$\res{\frac{m_{\mathrm{C}}}{m_{\mathrm{O}}} = \frac{12{,}0}{2\cdot 16{,}0} = \frac{12{,}0}{32{,}0} = 0{,}375}$$
+                    <p>Sustituimos los análisis [4] y [5] <strong>para calcular la relación experimental de cada muestra</strong>:</p>
+                    $$\res{\left(\frac{m_{\mathrm{C}}}{m_{\mathrm{O}}}\right)_{A} = \frac{1{,}20}{3{,}20} = 0{,}375 \qquad \left(\frac{m_{\mathrm{C}}}{m_{\mathrm{O}}}\right)_{B} = \frac{3{,}00}{8{,}00} = 0{,}375}$$
+                    <p>Comprobamos la coherencia con [6] en la muestra A <strong>para verificar que los datos son internamente consistentes</strong>: \(1{,}20 + 3{,}20 = 4{,}40\ \mathrm{g}\), que coincide con la masa de la muestra; y \(n_{\mathrm{f}} = 1{,}20/12{,}0 = 0{,}100\ \mathrm{mol}\), luego \(m = 0{,}100\times 44{,}0 = 4{,}40\ \mathrm{g}\).</p>
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>Ambas muestras presentan exactamente la misma relación (\(0{,}375\)), que además coincide con la que impone la fórmula \(\mathrm{CO_2}\). Por tanto, <strong>son el mismo compuesto</strong>: se cumple la ley de Proust.</p>
+                    <p>Comprobación de la fracción másica: \(12{,}0/44{,}0 = 0{,}273\); en la muestra A, \(1{,}20/4{,}40 = 0{,}273\) ✓. La relación deducida \(\frac{M_{\mathrm{C}}}{2M_{\mathrm{O}}}\) es la «fórmula de libro» \(\frac{xM_{\mathrm{A}}}{yM_{\mathrm{B}}}\), obtenida aquí desde [1] y [2].</p>
+                </div>
+            </details>
+
+            <!-- ===================== EJERCICIO 3 ===================== -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">3</span>
+                    <span>Reactivo limitante en la síntesis de agua: 4,0 g de H₂ con 40,0 g de O₂</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado:</strong> En un recipiente se mezclan \(4{,}0\ \mathrm{g}\) de hidrógeno (\(\mathrm{H_2}\)) con \(40{,}0\ \mathrm{g}\) de oxígeno (\(\mathrm{O_2}\)) y se provoca la reacción para formar agua (\(\mathrm{H_2O}\)). Datos: \(M_{\mathrm{H}} = 1{,}0\ \mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}\).</p>
+                    <ul>
+                        <li>a) Deduce la relación de masas \(m_{\mathrm{H}}/m_{\mathrm{O}}\) en el agua a partir de su fórmula.</li>
+                        <li>b) Determina cuál es el reactivo limitante.</li>
+                        <li>c) Calcula la masa de agua formada y la masa del reactivo en exceso.</li>
+                    </ul>
+                </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Mezclamos dos reactivos que forman un compuesto puro, el agua. La fórmula \(\mathrm{H_2O}\) impone una proporción fija entre las masas de hidrógeno y de oxígeno que se combinan; si la mezcla no respeta esa proporción, uno de los reactivos sobrará.</p>
+                    <p><strong>Objetivo:</strong> deducir la relación \(m_{\mathrm{H}}/m_{\mathrm{O}}\) del agua, identificar el reactivo limitante y calcular la masa de agua formada y la de reactivo en exceso.</p>
+                    <p><strong>Condiciones:</strong> reacción completa, compuesto puro y conservación de la masa. La «ligadura» del problema es la proporción fija que impone la fórmula.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Representamos la unidad fórmula \(\mathrm{H_2O}\): 2 átomos de H y 1 átomo de O. Por cada \(2{,}0\ \mathrm{g}\) de H deben combinarse \(16{,}0\ \mathrm{g}\) de O. En la mezcla disponemos de \(4{,}0\ \mathrm{g}\) de H y \(40{,}0\ \mathrm{g}\) de O, es decir, \(10\ \mathrm{g}\) de O por cada gramo de H, frente a los \(8\ \mathrm{g}\) que exige el compuesto.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>Partimos de la <strong>composición definida del agua</strong> y añadimos como condiciones las cantidades iniciales de la mezcla y la conservación de la masa en el producto:</p>
+                    $$\begin{cases}
+                    \ley{m_{\mathrm{H}} = n_{\mathrm{f}}\cdot 2\cdot M_{\mathrm{H}}} & \text{\ley{[1]} (masa de H en el agua)} \\[4pt]
+                    \ley{m_{\mathrm{O}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{O}}} & \text{\ley{[2]} (masa de O en el agua)} \\[4pt]
+                    \cond{M_{\mathrm{H}} = 1{,}0\ \mathrm{g/mol},\; M_{\mathrm{O}} = 16{,}0\ \mathrm{g/mol}} & \text{\cond{[3]} (masas molares)} \\[4pt]
+                    \cond{m_{\mathrm{H}}^{\mathrm{mezcla}} = 4{,}0\ \mathrm{g},\; m_{\mathrm{O}}^{\mathrm{mezcla}} = 40{,}0\ \mathrm{g}} & \text{\cond{[4]} (cantidades iniciales)} \\[4pt]
+                    \cond{m_{\mathrm{H}}^{\mathrm{reac}} + m_{\mathrm{O}}^{\mathrm{reac}} = m_{\mathrm{H_2O}}} & \text{\cond{[5]} (conservación de la masa)}
+                    \end{cases}$$
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> Determinar el reactivo limitante y calcular \(\objetivo{m_{\mathrm{H_2O}}}\) y la masa de reactivo en exceso \(\objetivo{m_{\mathrm{O}}^{\mathrm{exc}}}\).</p>
+                            <p><strong>Ruta justificada:</strong> De [1] y [2] deduciremos la proporción fija que impone la fórmula; comparándola con las cantidades iniciales [4] sabremos qué reactivo sobra. La masa de agua se obtendrá con la conservación de la masa [5].</p>
+                            $$\begin{cases}
+                            \dato{m_{\mathrm{H}}} = \calc{n_{\mathrm{f}}}\cdot\dato{2}\cdot\dato{M_{\mathrm{H}}} & \text{[1]} \\[4pt]
+                            \dato{m_{\mathrm{O}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{O}}} & \text{[2]} \\[4pt]
+                            \dato{M_{\mathrm{H}}} = \dato{1{,}0}\ \mathrm{g/mol},\; \dato{M_{\mathrm{O}}} = \dato{16{,}0}\ \mathrm{g/mol} & \text{[3]} \\[4pt]
+                            \dato{m_{\mathrm{H}}^{\mathrm{mezcla}}} = \dato{4{,}0}\ \mathrm{g},\; \dato{m_{\mathrm{O}}^{\mathrm{mezcla}}} = \dato{40{,}0}\ \mathrm{g} & \text{[4]} \\[4pt]
+                            \calc{m_{\mathrm{H}}^{\mathrm{reac}}} + \calc{m_{\mathrm{O}}^{\mathrm{reac}}} = \objetivo{m_{\mathrm{H_2O}}} & \text{[5]} \\[4pt]
+                            \dato{m_{\mathrm{O}}^{\mathrm{exc}}} = \dato{m_{\mathrm{O}}^{\mathrm{mezcla}}} - \calc{m_{\mathrm{O}}^{\mathrm{reac}}} & \text{[6] (exceso)}
+                            \end{cases}$$
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Dividimos [1] entre [2] <strong>para eliminar el número de unidades fórmula</strong> \(\incog{n_{\mathrm{f}}}\) y obtener la proporción fija del compuesto:</p>
+                    $$\res{\frac{m_{\mathrm{H}}}{m_{\mathrm{O}}} = \frac{\incog{n_{\mathrm{f}}}\cdot 2\cdot M_{\mathrm{H}}}{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{O}}} = \frac{2\,M_{\mathrm{H}}}{M_{\mathrm{O}}}}$$
+                    <p>Sustituimos [3] en la expresión anterior <strong>para particularizar la proporción al agua</strong>:</p>
+                    $$\res{\frac{m_{\mathrm{H}}}{m_{\mathrm{O}}} = \frac{2\cdot 1{,}0}{16{,}0} = 0{,}125 \;\Longrightarrow\; m_{\mathrm{O}} = 8\,m_{\mathrm{H}}}$$
+                    <p>Comparamos con las cantidades iniciales [4] <strong>para identificar el reactivo limitante</strong>: la mezcla contiene \(40{,}0/4{,}0 = 10\ \mathrm{g}\) de O por gramo de H, más de los \(8\ \mathrm{g}\) que exige el compuesto; por tanto, <strong>sobra oxígeno</strong> y el hidrógeno es el reactivo limitante.</p>
+                    <p>Aplicamos la proporción deducida al hidrógeno disponible <strong>para calcular el oxígeno que realmente reacciona</strong>:</p>
+                    $$\res{\calc{m_{\mathrm{O}}^{\mathrm{reac}}} = 8\cdot m_{\mathrm{H}}^{\mathrm{mezcla}} = 8\cdot 4{,}0 = 32{,}0\ \mathrm{g}}$$
+                    <p>Restamos de la cantidad inicial <strong>para obtener el exceso de oxígeno</strong>:</p>
+                    $$\res{\objetivo{m_{\mathrm{O}}^{\mathrm{exc}}} = 40{,}0 - 32{,}0 = 8{,}0\ \mathrm{g}}$$
+                    <p>Finalmente, aplicamos [5] <strong>para obtener la masa de agua formada</strong>:</p>
+                    $$\res{\objetivo{m_{\mathrm{H_2O}}} = 4{,}0 + 32{,}0 = 36{,}0\ \mathrm{g}}$$
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>Las unidades son coherentes (gramos) y la masa se conserva: \(4{,}0 + 32{,}0 = 36{,}0\ \mathrm{g}\) de agua, más \(8{,}0\ \mathrm{g}\) de oxígeno sin reaccionar, suman los \(44{,}0\ \mathrm{g}\) iniciales ✓.</p>
+                    <p>Comprobación por moles: \(n_{\mathrm{H_2}} = 2{,}0\ \mathrm{mol}\) y \(n_{\mathrm{O_2}} = 1{,}25\ \mathrm{mol}\). La reacción \(2\mathrm{H_2} + \mathrm{O_2} \rightarrow 2\mathrm{H_2O}\) consume \(1{,}0\ \mathrm{mol}\) de \(\mathrm{O_2}\) con \(2{,}0\ \mathrm{mol}\) de \(\mathrm{H_2}\); sobran \(0{,}25\ \mathrm{mol}\) de \(\mathrm{O_2}\) (\(8{,}0\ \mathrm{g}\)) y se forman \(2{,}0\ \mathrm{mol}\) de agua (\(36{,}0\ \mathrm{g}\)) ✓.</p>
+                    <p>La relación deducida \(2M_{\mathrm{H}}/M_{\mathrm{O}}\) coincide con la «fórmula de libro»; el resultado se ha obtenido <strong>deduciéndola</strong> desde [1] y [2], no sustituyendo en ella.</p>
+                </div>
+            </details>
+
+            <!-- ===================== EJERCICIO 4 ===================== -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">4</span>
+                    <span>Contexto real: ¿es blenda pura? Análisis de un mineral de ZnS</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado:</strong> Una muestra de \(25{,}0\ \mathrm{g}\) de un mineral se analiza y se encuentra que contiene \(16{,}0\ \mathrm{g}\) de zinc, \(7{,}86\ \mathrm{g}\) de azufre y \(1{,}14\ \mathrm{g}\) de ganga (material inerte). Se sospecha que el mineral es blenda, \(\mathrm{ZnS}\). Datos: \(M_{\mathrm{Zn}} = 65{,}4\ \mathrm{g/mol}\); \(M_{\mathrm{S}} = 32{,}1\ \mathrm{g/mol}\).</p>
+                    <ul>
+                        <li>a) Deduce la relación \(m_{\mathrm{Zn}}/m_{\mathrm{S}}\) teórica del \(\mathrm{ZnS}\).</li>
+                        <li>b) Compara con la relación experimental de la fracción Zn–S y decide si esa fracción es ZnS puro.</li>
+                        <li>c) Calcula el porcentaje de pureza en ZnS del mineral.</li>
+                    </ul>
+                </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Analizamos un mineral formado por una fracción de ZnS y una fracción de ganga inerte. Si la fracción Zn–S es ZnS puro, su relación de masas debe coincidir con la que impone la fórmula \(\mathrm{ZnS}\).</p>
+                    <p><strong>Objetivo:</strong> deducir la relación teórica \(m_{\mathrm{Zn}}/m_{\mathrm{S}}\), compararla con la experimental y calcular el porcentaje de pureza en ZnS.</p>
+                    <p><strong>Condiciones:</strong> el ZnS es un compuesto puro; la ganga no contiene Zn ni S y no participa en la relación de masas.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Representamos la unidad fórmula \(\mathrm{ZnS}\): 1 átomo de Zn y 1 átomo de S, con masas molares \(M_{\mathrm{Zn}}\) y \(M_{\mathrm{S}}\). La muestra se divide en dos partes: la fracción Zn–S (que analizamos con la ley de Proust) y la ganga.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>El modelo es la <strong>composición definida</strong> aplicada a la fracción Zn–S, junto con la definición de pureza como fracción de masa de ZnS en la muestra:</p>
+                    $$\begin{cases}
+                    \ley{m_{\mathrm{Zn}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{Zn}}} & \text{\ley{[1]} (masa de Zn)} \\[4pt]
+                    \ley{m_{\mathrm{S}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{S}}} & \text{\ley{[2]} (masa de S)} \\[4pt]
+                    \cond{M_{\mathrm{Zn}} = 65{,}4\ \mathrm{g/mol},\; M_{\mathrm{S}} = 32{,}1\ \mathrm{g/mol}} & \text{\cond{[3]} (masas molares)} \\[4pt]
+                    \cond{m_{\mathrm{Zn}}^{\mathrm{muestra}} = 16{,}0\ \mathrm{g},\; m_{\mathrm{S}}^{\mathrm{muestra}} = 7{,}86\ \mathrm{g},\; m_{\mathrm{ganga}} = 1{,}14\ \mathrm{g}} & \text{\cond{[4]} (análisis del mineral)} \\[4pt]
+                    \cond{m_{\mathrm{ZnS}} = m_{\mathrm{Zn}} + m_{\mathrm{S}}} & \text{\cond{[5]} (masa de ZnS en la muestra)} \\[4pt]
+                    \cond{\%\ \mathrm{pureza} = \frac{m_{\mathrm{ZnS}}}{m_{\mathrm{muestra}}}\times 100} & \text{\cond{[6]} (definición de pureza)}
+                    \end{cases}$$
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> Calcular el porcentaje de pureza en ZnS, \(\objetivo{\%\ \mathrm{pureza}}\), tras deducir la relación \(m_{\mathrm{Zn}}/m_{\mathrm{S}}\) del compuesto.</p>
+                            <p><strong>Ruta justificada:</strong> De [1] y [2] deduciremos la relación teórica Zn:S y la compararemos con el análisis [4] para confirmar que la fracción Zn–S es estequiométrica; con [5] y [6] obtendremos la pureza.</p>
+                            $$\begin{cases}
+                            \dato{m_{\mathrm{Zn}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{Zn}}} & \text{[1]} \\[4pt]
+                            \dato{m_{\mathrm{S}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{S}}} & \text{[2]} \\[4pt]
+                            \dato{M_{\mathrm{Zn}}} = \dato{65{,}4}\ \mathrm{g/mol},\; \dato{M_{\mathrm{S}}} = \dato{32{,}1}\ \mathrm{g/mol} & \text{[3]} \\[4pt]
+                            \dato{m_{\mathrm{Zn}}^{\mathrm{muestra}}} = \dato{16{,}0}\ \mathrm{g},\; \dato{m_{\mathrm{S}}^{\mathrm{muestra}}} = \dato{7{,}86}\ \mathrm{g},\; \dato{m_{\mathrm{ganga}}} = \dato{1{,}14}\ \mathrm{g} & \text{[4]} \\[4pt]
+                            \calc{m_{\mathrm{ZnS}}} = \dato{m_{\mathrm{Zn}}} + \dato{m_{\mathrm{S}}} & \text{[5]} \\[4pt]
+                            \objetivo{\%\ \mathrm{pureza}} = \frac{\calc{m_{\mathrm{ZnS}}}}{m_{\mathrm{muestra}}}\times 100 & \text{[6]}
+                            \end{cases}$$
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Dividimos [1] entre [2] <strong>para eliminar el número de unidades fórmula</strong> \(\incog{n_{\mathrm{f}}}\) y obtener la relación característica del ZnS:</p>
+                    $$\res{\frac{m_{\mathrm{Zn}}}{m_{\mathrm{S}}} = \frac{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{Zn}}}{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{S}}} = \frac{M_{\mathrm{Zn}}}{M_{\mathrm{S}}}}$$
+                    <p>Sustituimos [3] en la expresión anterior <strong>para particularizar la relación al ZnS</strong>:</p>
+                    $$\res{\frac{m_{\mathrm{Zn}}}{m_{\mathrm{S}}} = \frac{65{,}4}{32{,}1} = 2{,}037}$$
+                    <p>Sustituimos el análisis [4] <strong>para calcular la relación experimental de la fracción Zn–S</strong>:</p>
+                    $$\res{\left(\frac{m_{\mathrm{Zn}}}{m_{\mathrm{S}}}\right)_{\mathrm{exp}} = \frac{16{,}0}{7{,}86} = 2{,}036}$$
+                    <p>La diferencia relativa es \(\frac{|2{,}037-2{,}036|}{2{,}037}\times 100 \approx 0{,}05\,\%\), inferior al error experimental habitual, por lo que la fracción Zn–S <strong>es ZnS estequiométrico</strong>.</p>
+                    <p>Aplicamos [5] <strong>para calcular la masa de ZnS contenida en la muestra</strong>:</p>
+                    $$\res{\calc{m_{\mathrm{ZnS}}} = 16{,}0 + 7{,}86 = 23{,}86\ \mathrm{g}}$$
+                    <p>Aplicamos [6] <strong>para obtener el porcentaje de pureza</strong>:</p>
+                    $$\res{\objetivo{\%\ \mathrm{pureza}} = \frac{23{,}86}{25{,}0}\times 100 = 95{,}4\,\%}$$
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>La muestra contiene un \(95{,}4\,\%\) de ZnS y un \(4{,}6\,\%\) de ganga (\(1{,}14\ \mathrm{g}\)), coherente con la masa total (\(23{,}86 + 1{,}14 = 25{,}0\ \mathrm{g}\)) ✓.</p>
+                    <p>Comprobación inversa: partiendo de \(16{,}0\ \mathrm{g}\) de Zn, el azufre necesario según la relación deducida es \(16{,}0/2{,}037 = 7{,}86\ \mathrm{g}\) ✓, exactamente lo medido.</p>
+                    <p>La relación \(M_{\mathrm{Zn}}/M_{\mathrm{S}}\) es la «fórmula de libro» \(\frac{xM_{\mathrm{A}}}{yM_{\mathrm{B}}}\) con \(x=y=1\): deducida aquí desde [1] y [2].</p>
+                </div>
+            </details>
+
+            <!-- ===================== EJERCICIO 5 ===================== -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">5</span>
+                    <span>Dos métodos para obtener AgCl: ¿misma composición?</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado:</strong> El cloruro de plata (\(\mathrm{AgCl}\)) puede obtenerse por combinación directa de plata y cloro, o por precipitación al mezclar disoluciones de \(\mathrm{AgNO_3}\) y \(\mathrm{NaCl}\). Datos: \(M_{\mathrm{Ag}} = 107{,}9\ \mathrm{g/mol}\); \(M_{\mathrm{Cl}} = 35{,}45\ \mathrm{g/mol}\).</p>
+                    <ul>
+                        <li><strong>Método 1:</strong> reaccionan completamente \(2{,}16\ \mathrm{g}\) de Ag con exceso de \(\mathrm{Cl_2}\) y se obtienen \(2{,}87\ \mathrm{g}\) de AgCl.</li>
+                        <li><strong>Método 2:</strong> por precipitación se obtienen \(5{,}74\ \mathrm{g}\) de AgCl.</li>
+                        <li>a) Deduce la relación \(m_{\mathrm{Ag}}/m_{\mathrm{Cl}}\) del AgCl desde su fórmula.</li>
+                        <li>b) Comprueba que el método 1 cumple la ley de Proust.</li>
+                        <li>c) Calcula la masa de plata contenida en los \(5{,}74\ \mathrm{g}\) de AgCl del método 2.</li>
+                    </ul>
+                </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Obtenemos el mismo compuesto, AgCl, por dos procedimientos distintos. Si la ley de Proust es cierta, la composición en masa del producto debe ser idéntica en ambos casos.</p>
+                    <p><strong>Objetivo:</strong> deducir la relación \(m_{\mathrm{Ag}}/m_{\mathrm{Cl}}\), verificar la constancia de la composición en el método 1 y calcular la masa de plata en el AgCl del método 2.</p>
+                    <p><strong>Condiciones:</strong> el AgCl es un compuesto puro; en el método 1 la plata reacciona por completo (el cloro está en exceso).</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Representamos la unidad fórmula \(\mathrm{AgCl}\): 1 átomo de Ag y 1 átomo de Cl. En el método 1 conocemos la masa de Ag que reacciona y la masa total de AgCl obtenida, de modo que la masa de cloro combinada es la diferencia. En el método 2 conocemos solo la masa total de AgCl.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>El modelo es de nuevo la <strong>composición definida</strong>, con la conservación de la masa en la formación del compuesto y los datos de cada método como condiciones:</p>
+                    $$\begin{cases}
+                    \ley{m_{\mathrm{Ag}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{Ag}}} & \text{\ley{[1]} (masa de Ag)} \\[4pt]
+                    \ley{m_{\mathrm{Cl}} = n_{\mathrm{f}}\cdot 1\cdot M_{\mathrm{Cl}}} & \text{\ley{[2]} (masa de Cl)} \\[4pt]
+                    \cond{M_{\mathrm{Ag}} = 107{,}9\ \mathrm{g/mol},\; M_{\mathrm{Cl}} = 35{,}45\ \mathrm{g/mol}} & \text{\cond{[3]} (masas molares)} \\[4pt]
+                    \cond{m_{\mathrm{AgCl}}^{\text{método 1}} = 2{,}87\ \mathrm{g},\; m_{\mathrm{Ag}}^{\text{método 1}} = 2{,}16\ \mathrm{g}} & \text{\cond{[4]} (datos del método 1)} \\[4pt]
+                    \cond{m_{\mathrm{AgCl}}^{\text{método 2}} = 5{,}74\ \mathrm{g}} & \text{\cond{[5]} (dato del método 2)} \\[4pt]
+                    \cond{m_{\mathrm{AgCl}} = m_{\mathrm{Ag}} + m_{\mathrm{Cl}}} & \text{\cond{[6]} (conservación de la masa)}
+                    \end{cases}$$
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> Deducir la relación \(m_{\mathrm{Ag}}/m_{\mathrm{Cl}}\) del AgCl, comprobar que el método 1 la cumple y calcular \(\objetivo{m_{\mathrm{Ag}}^{\text{método 2}}}\).</p>
+                            <p><strong>Ruta justificada:</strong> De [1] y [2] deduciremos la relación característica; con [6] y los datos [4] comprobaremos la composición del producto del método 1; la misma relación aplicada a [5] nos dará la plata contenida en el AgCl del método 2.</p>
+                            $$\begin{cases}
+                            \objetivo{m_{\mathrm{Ag}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{Ag}}} & \text{[1]} \\[4pt]
+                            \calc{m_{\mathrm{Cl}}} = \calc{n_{\mathrm{f}}}\cdot\dato{1}\cdot\dato{M_{\mathrm{Cl}}} & \text{[2]} \\[4pt]
+                            \dato{M_{\mathrm{Ag}}} = \dato{107{,}9}\ \mathrm{g/mol},\; \dato{M_{\mathrm{Cl}}} = \dato{35{,}45}\ \mathrm{g/mol} & \text{[3]} \\[4pt]
+                            \dato{m_{\mathrm{AgCl}}^{\text{método 1}}} = \dato{2{,}87}\ \mathrm{g},\; \dato{m_{\mathrm{Ag}}^{\text{método 1}}} = \dato{2{,}16}\ \mathrm{g} & \text{[4]} \\[4pt]
+                            \dato{m_{\mathrm{AgCl}}^{\text{método 2}}} = \dato{5{,}74}\ \mathrm{g} & \text{[5]} \\[4pt]
+                            \calc{m_{\mathrm{AgCl}}} = \calc{m_{\mathrm{Ag}}} + \calc{m_{\mathrm{Cl}}} & \text{[6] (conservación de la masa)}
+                            \end{cases}$$
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Dividimos [1] entre [2] <strong>para eliminar el número de unidades fórmula</strong> \(\incog{n_{\mathrm{f}}}\) y obtener la relación característica del AgCl:</p>
+                    $$\res{\frac{m_{\mathrm{Ag}}}{m_{\mathrm{Cl}}} = \frac{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{Ag}}}{\incog{n_{\mathrm{f}}}\cdot 1\cdot M_{\mathrm{Cl}}} = \frac{M_{\mathrm{Ag}}}{M_{\mathrm{Cl}}}}$$
+                    <p>Sustituimos [3] en la expresión anterior <strong>para particularizar la relación al AgCl</strong>:</p>
+                    $$\res{\frac{m_{\mathrm{Ag}}}{m_{\mathrm{Cl}}} = \frac{107{,}9}{35{,}45} = 3{,}044}$$
+                    <p>Aplicamos [6] a los datos del método 1 <strong>para calcular el cloro combinado</strong>:</p>
+                    $$\res{m_{\mathrm{Cl}}^{\text{método 1}} = 2{,}87 - 2{,}16 = 0{,}71\ \mathrm{g}}$$
+                    <p>Comparamos la relación experimental del método 1 con la deducida <strong>para verificar la ley de Proust</strong>:</p>
+                    $$\res{\left(\frac{m_{\mathrm{Ag}}}{m_{\mathrm{Cl}}}\right)_{1} = \frac{2{,}16}{0{,}71} = 3{,}04 \;\approx\; 3{,}044}$$
+                    <p>Para el método 2, expresamos la fracción másica de plata a partir de la relación deducida: como \(m_{\mathrm{Cl}} = m_{\mathrm{Ag}}/3{,}044\), se tiene \(m_{\mathrm{AgCl}} = m_{\mathrm{Ag}}\left(1 + \frac{1}{3{,}044}\right)\) y, por tanto,</p>
+                    $$\res{\objetivo{m_{\mathrm{Ag}}^{\text{método 2}}} = 5{,}74\cdot\frac{3{,}044}{1+3{,}044} = 5{,}74\cdot 0{,}7527 = 4{,}32\ \mathrm{g}}$$
+                    <p>El cloro correspondiente sería \(5{,}74 - 4{,}32 = 1{,}42\ \mathrm{g}\), y su relación \(4{,}32/1{,}42 = 3{,}04\), la misma que en el método 1.</p>
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>Los dos métodos conducen a la misma composición en masa: la relación \(m_{\mathrm{Ag}}/m_{\mathrm{Cl}} \approx 3{,}04\) es independiente del procedimiento de obtención, tal como exige la ley de Proust.</p>
+                    <p>Comprobación por moles: en el método 1, \(n_{\mathrm{Ag}} = 2{,}16/107{,}9 = 0{,}0200\ \mathrm{mol}\), luego se forman \(0{,}0200\ \mathrm{mol}\) de AgCl (\(0{,}0200\times 143{,}35 = 2{,}87\ \mathrm{g}\) ✓). En el método 2, \(n_{\mathrm{AgCl}} = 5{,}74/143{,}35 = 0{,}0400\ \mathrm{mol}\), luego \(m_{\mathrm{Ag}} = 0{,}0400\times 107{,}9 = 4{,}32\ \mathrm{g}\) ✓.</p>
+                    <p>La relación \(M_{\mathrm{Ag}}/M_{\mathrm{Cl}}\) coincide con la «fórmula de libro» \(xM_{\mathrm{A}}/(yM_{\mathrm{B}})\), deducida aquí desde [1] y [2].</p>
+                </div>
+            </details>
 
             <!-- PIE DIDÁCTICO -->
-            <div class="didactic-footer">
-                <strong>🧠 Observaciones claves:</strong> La Ley de las Proporciones Definidas nos enseña que <strong>la identidad de un compuesto químico está ligada a su composición constante</strong>. Esta idea es la base de la estequiometría y permite predecir cantidades en reacciones químicas. El error común es pensar que cualquier mezcla de elementos da un compuesto; en realidad, solo si la relación de masas es la correcta se formará el compuesto puro, y el exceso de uno de los elementos simplemente quedará sin reaccionar.
+            <div class="clave-didactica">
+                <i class="fa-solid fa-lightbulb"></i>
+                <strong>Clave didáctica:</strong> La ley de Proust no se «aplica» sustituyendo en \(\frac{m_{\mathrm{A}}}{m_{\mathrm{B}}} = \frac{xM_{\mathrm{A}}}{yM_{\mathrm{B}}}\): se <strong>deduce</strong> desde la definición de composición de un compuesto (masa = número de unidades fórmula × atomicidad × masa molar) y desde la conservación de la masa. La trampa mental que se desmonta es creer que cualquier mezcla de elementos forma el compuesto: solo la mezcla que respeta la proporción fija reacciona por completo; el resto queda como exceso. En los cinco ejercicios se ha procurado: partir siempre de las ecuaciones primarias [1]–[2] y no de la fórmula cerrada; tratar los datos y condiciones (pureza, reacción completa, reactivo limitante, análisis de muestras) como ecuaciones explícitas del sistema, numeradas y en color ámbar; citar cada sustitución por su etiqueta [n] y contextualizar su finalidad; colorear las ecuaciones por categoría (leyes en verde, condiciones en ámbar, resultados en morado); marcar las incógnitas con \incog{…} en rojo negrita mientras se calculan (por ejemplo, el número de unidades fórmula \(\incog{n_{\mathrm{f}}}\), que se cancela al dividir); y planificar cada resolución desde el OBJETIVO hacia los datos mediante la «🧭 Estrategia de resolución», que distingue datos (verde), objetivo (rojo recuadrado), magnitudes intermedias que se calcularán (azul, \calc) e incógnitas que no se calculan explícitamente (rojo negrita, \incog).
             </div>
 
         </div>
     </details>
-
-
-
-
-
-
 
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
@@ -624,15 +1012,13 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
 </div> <!-- fin container -->
+
+<!-- Red de seguridad MathJax -->
+<script>
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise().catch(err => console.error('MathJax:', err));
+  }
+</script>
 </body>
 </html>
