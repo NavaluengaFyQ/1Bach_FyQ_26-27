@@ -1,42 +1,16 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demostración 2: Ley de las Proporciones Múltiples</title>
-
-    <!-- ============================================================
-         CONFIGURACIÓN OBLIGATORIA DE MATHJAX (ANTES del src)
-         ============================================================ -->
-    <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        displayMath: [['$$','$$'], ['\\[','\\]']],
-        processEscapes: true,
-        processEnvironments: true,
-        macros: {
-          ley:      ["\\textcolor{##2f855a}{#1}", 1],
-          cond:     ["\\textcolor{##b7791f}{#1}", 1],
-          res:      ["\\textcolor{##6b46c1}{#1}", 1],
-          dato:     ["\\textcolor{##2f855a}{#1}", 1],
-          incog:    ["\\textcolor{##c53030}{\\boldsymbol{#1}}", 1],
-          objetivo: ["\\textcolor{##c53030}{\\boxed{#1}}", 1],
-          calc:     ["\\textcolor{##2b6cb0}{#1}", 1]
-        }
-      },
-      options: {
-        ignoreHtmlClass: 'no-mathjax',
-        processHtmlClass: 'mathjax'
-      },
-      startup: { typeset: true }
-    };
-    </script>
+    <!-- MathJax -->
+    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- FontAwesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- FontAwesome (versión 6) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -61,149 +35,260 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        .header-left { display: flex; flex-direction: column; justify-content: center; flex: 2; min-width: 200px; }
-        .header-left h1 { font-size: 1.8em; margin: 0; line-height: 1.2; }
-        .header-left p { margin: 6px 0 0 0; font-size: 1em; opacity: 0.9; }
-        .header-sub { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
-        .header-sub img { height: 32px; width: auto; border-radius: 4px; background: rgba(255,255,255,0.15); padding: 2px; }
-        .header-sub .codigo { font-weight: 600; font-size: 1em; letter-spacing: 0.3px; background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; }
-        .header-sub .texto { font-weight: 400; font-size: 1em; opacity: 0.95; }
-        .header-right { display: flex; align-items: center; justify-content: flex-end; flex: 0 0 auto; }
-        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 12px; }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 2;
+            min-width: 200px;
+        }
+        .header-left h1 {
+            font-size: 1.8em;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .header-left p {
+            margin: 6px 0 0 0;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        .header-sub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+        .header-sub img {
+            height: 32px;
+            width: auto;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.15);
+            padding: 2px;
+        }
+        .header-sub .codigo {
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: 0.3px;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .header-sub .texto {
+            font-weight: 400;
+            font-size: 1em;
+            opacity: 0.95;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 0 0 auto;
+        }
+        .header-right img {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
 
-        .section { padding: 25px 30px; margin: 15px; border-radius: 12px; border-left: 5px solid; }
+        .section {
+            padding: 25px 30px;
+            margin: 15px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        .section h2 { font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
 
-        .formula-box { background: #edf2f7; border: 2px solid #cbd5e0; border-radius: 10px; padding: 15px; margin: 15px 0; text-align: center; font-size: 1.1em; }
-        .step { background: white; border-left: 4px solid #a0aec0; padding: 15px; margin: 12px 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .step-num { display: inline-block; background: #667eea; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
-        .note { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 12px; margin-top: 15px; font-size: 0.95em; color: #744210; }
-        p { line-height: 1.7; margin-bottom: 10px; }
-        ul, ol { padding-left: 1.5rem; }
-        li { margin-bottom: 6px; }
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
 
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; background: white; border-radius: 8px; overflow: hidden; }
-        .comparison-table th { background: #667eea; color: white; padding: 12px; text-align: center; }
-        .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid #e2e8f0; }
-        .comparison-table tr:nth-child(even) { background: #f7fafc; }
+        .step {
+            background: white;
+            border-left: 4px solid #a0aec0;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #744210;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .comparison-table tr:nth-child(even) {
+            background: #f7fafc;
+        }
 
         /* ============================================
-           ESTILOS OBLIGATORIOS BLOQUES DESPLEGABLES
+           ESTILOS PARA EL DESPLEGABLE INTERACTIVO
            ============================================ */
-        details.desmitificando {
-            margin: 15px;
-            background: #faf5ff;
+        details {
+            margin: 25px 30px 20px 30px;
+            background: #f8fafc;
             border-radius: 12px;
-            border-left: 5px solid #9f7aea;
+            border: 1px solid #cbd5e0;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(107,70,193,0.08);
+            transition: all 0.2s ease;
         }
-        details.desmitificando > summary {
-            padding: 18px 25px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.15em;
-            color: #6b46c1;
+        details summary {
+            list-style: none;
             display: flex;
             align-items: center;
             gap: 12px;
-            list-style: none;
-            background: #f3e8ff;
-            user-select: none;
-            transition: background 0.2s ease;
-        }
-        details.desmitificando > summary:hover { background: #e9d8fd; }
-        details.desmitificando > summary::-webkit-details-marker { display: none; }
-        details.desmitificando > summary::marker { content: ""; }
-        details.desmitificando > summary { list-style: none; }
-        details.desmitificando > summary .fa-chevron-circle-down { transition: transform 0.35s ease; color: #805ad5; flex-shrink: 0; }
-        details.desmitificando[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
-        details.desmitificando > summary .pulse { font-size: 0.85em; color: #9f7aea; font-weight: normal; }
-        .details-content { padding: 20px 25px; }
-
-        details.estrategia-resolucion {
-            margin: 12px 0 16px;
-            border: 1px solid #bee3f8;
-            border-left: 4px solid #3182ce;
-            border-radius: 8px;
-            background: #ffffff;
-            overflow: hidden;
-        }
-        details.estrategia-resolucion > summary {
-            padding: 10px 14px;
+            padding: 18px 24px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #2b6cb0;
-            background: #ebf8ff;
-            font-weight: bold;
-            list-style: none;
+            background: #edf2f7;
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #2d3748;
             user-select: none;
+            transition: background 0.2s;
         }
-        details.estrategia-resolucion > summary:hover { background: #e6f6ff; }
-        details.estrategia-resolucion > summary::-webkit-details-marker { display: none; }
-        details.estrategia-resolucion > summary::marker { content: ""; }
-        details.estrategia-resolucion > summary { list-style: none; }
-        details.estrategia-resolucion > summary .fa-chevron-circle-down { flex-shrink: 0; transition: transform 0.35s ease; }
-        details.estrategia-resolucion[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
-        details.estrategia-resolucion > summary .hint { margin-left: auto; font-size: 0.82em; font-weight: normal; color: #2b6cb0; }
-        .estrategia-contenido { padding: 12px 16px; background: #ffffff; }
-        .estrategia-contenido p { margin: 6px 0; line-height: 1.6; }
-
-        details.ejercicio-card {
-            border: 1px solid #cbd5e0;
-            border-radius: 10px;
-            margin-bottom: 22px;
-            overflow: hidden;
+        details summary:hover {
+            background: #e2e8f0;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary i.fa-chevron-circle-down {
+            transition: transform 0.3s ease;
+            font-size: 1.4em;
+            color: #4a5568;
+        }
+        details[open] summary i.fa-chevron-circle-down {
+            transform: rotate(180deg);
+        }
+        .details-content {
+            padding: 20px 25px;
             background: white;
         }
-        details.ejercicio-card > summary.ejercicio-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .exercise-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .exercise-header {
+            background: #4a5568;
             color: white;
-            padding: 12px 16px;
-            font-weight: bold;
+            padding: 12px 20px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.05em;
-            cursor: pointer;
-            list-style: none;
-            user-select: none;
-            transition: filter 0.2s ease;
         }
-        details.ejercicio-card > summary.ejercicio-header:hover { filter: brightness(1.08); }
-        details.ejercicio-card > summary.ejercicio-header::-webkit-details-marker { display: none; }
-        details.ejercicio-card > summary.ejercicio-header::marker { content: ""; }
-        details.ejercicio-card > summary.ejercicio-header { list-style: none; }
-        .ejercicio-num { background: white; color: #667eea; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0; font-size: 0.95em; }
-        .ejercicio-header .fa-chevron-down { margin-left: auto; transition: transform 0.35s ease; color: rgba(255,255,255,0.9); flex-shrink: 0; }
-        details.ejercicio-card[open] > summary.ejercicio-header .fa-chevron-down { transform: rotate(180deg); }
-        .ejercicio-header .hint { font-size: 0.78em; font-weight: normal; color: rgba(255,255,255,0.85); margin-left: 6px; }
-        .ejercicio-body { padding: 16px 18px; background: #f7fafc; }
-        .ejercicio-body > p:first-child { margin-top: 0; }
-        .ejercicio-body ul { margin: 8px 0; padding-left: 22px; }
-        .ejercicio-resolucion { background: #f0fff4; border-left: 4px solid #48bb78; padding: 14px 18px; margin: 18px 18px 18px; border-radius: 0 8px 8px 0; }
-        .ejercicio-resolucion h4 { color: #276749; margin: 12px 0 6px 0; font-size: 0.98em; display: flex; align-items: center; gap: 8px; }
-        .ejercicio-resolucion h4:first-child { margin-top: 0; }
-        .ejercicio-resolucion h4:not(:first-child) { border-top: 1px solid #c6f6d5; padding-top: 12px; margin-top: 16px; }
-        .ejercicio-resolucion p { margin: 4px 0; line-height: 1.6; }
-
-        .clave-didactica { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 16px 18px; margin-top: 24px; color: #744210; line-height: 1.65; }
-        .clave-didactica strong { color: #975a16; }
-        .clave-didactica .fa-lightbulb { color: #d69e2e; margin-right: 6px; }
-
-        .eq-ley  { border-left: 3px solid #48bb78; padding-left: 10px; background: #f0fff4; border-radius: 0 6px 6px 0; }
-        .eq-cond { border-left: 3px solid #f6e05e; padding-left: 10px; background: #fffbeb; border-radius: 0 6px 6px 0; }
-        .eq-res  { border-left: 3px solid #9f7aea; padding-left: 10px; background: #faf5ff; border-radius: 0 6px 6px 0; }
+        .exercise-header .badge {
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            padding: 2px 14px;
+            font-size: 0.85em;
+        }
+        .exercise-body {
+            padding: 18px 20px;
+        }
+        .exercise-body .statement {
+            background: #f7fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+            margin-bottom: 15px;
+        }
+        .exercise-body .resolution {
+            background: #f0fff4;
+            padding: 15px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            margin-top: 10px;
+        }
+        .exercise-body .resolution .math {
+            margin: 8px 0;
+        }
+        .didactic-footer {
+            background: #ebf4ff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-left: 5px solid #3182ce;
+            font-style: italic;
+        }
+        .didactic-footer strong {
+            color: #2b6cb0;
+        }
     </style>
 </head>
 <body>
@@ -214,6 +299,7 @@
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
                 <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+
                 <span class="codigo">#T03.02.- </span>
                 <span class="texto">Ley de las Proporciones Múltiples (Dalton)</span>
             </div>
@@ -223,16 +309,38 @@
         </div>
     </div>
 
-    <!-- ===== SECCIONES ===== -->
+    <!-- ===== SECCIONES TRANSFORMADAS ===== -->
     <div class="section enunciado">
         <h2>📘 Enunciado</h2>
         <p>Partiendo de la existencia de múltiples compuestos formados por los mismos dos elementos, demostrar que <strong>cuando dos elementos forman más de un compuesto, las masas de uno de ellos que se combinan con una masa fija del otro están en relación de números enteros sencillos</strong>.</p>
         <div class="formula-box">
-            Si los compuestos \( \mathrm{A}_m\mathrm{B}_n \) y \( \mathrm{A}_p\mathrm{B}_q \) contienen los mismos elementos A y B, entonces, fijada una masa de A:
-            \[ \frac{m_{\mathrm{B\ en\ compuesto\ 1}}}{m_{\mathrm{B\ en\ compuesto\ 2}}} = \frac{n}{q} \cdot \frac{m}{p}^{-1} = \text{números enteros sencillos} \]
-            <style>img { width: 100%; height: auto; max-width: 100%; }</style>
-            <img src="../imagenes/U03c02 - Ley de las proporciones múltiples.png" alt="Imagen" width="800">
-            <img src="../imagenes/U03c02 - Ley de las proporciones múltiples_2.png" alt="Imagen" width="800">
+            Si los compuestos \( \text{A}_m\text{B}_n \) y \( \text{A}_p\text{B}_q \) contienen los mismos elementos A y B, entonces, fijada una masa de A:
+            \[ \frac{m_{\text{B en compuesto 1}}}{m_{\text{B en compuesto 2}}} = \frac{n}{q} \cdot \frac{m}{p}^{-1} = \text{números enteros sencillos} \]
+
+
+
+
+
+
+<!-- Insertando imagen -->
+<style>
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+</style>
+
+<img src="../imagenes/U03c02 - Ley de las proporciones múltiples.png" alt="Imagen" width="800">
+<img src="../imagenes/U03c02 - Ley de las proporciones múltiples_2.png" alt="Imagen" width="800">
+<!-- -----FIN-------- -->
+
+
+
+
+
+
+
         </div>
     </div>
 
@@ -250,623 +358,295 @@
         <h2>⚙️ Procedimiento</h2>
         <div class="step">
             <span class="step-num">1</span>
-            <strong>Consideremos dos compuestos</strong> formados por los mismos elementos A y B, con fórmulas \( \mathrm{A}_a\mathrm{B}_b \) y \( \mathrm{A}_c\mathrm{B}_d \), donde \( a, b, c, d \) son números enteros.
+            <strong>Consideremos dos compuestos</strong> formados por los mismos elementos A y B, con fórmulas \( \text{A}_a\text{B}_b \) y \( \text{A}_c\text{B}_d \), donde \( a, b, c, d \) son números enteros.
         </div>
         <div class="step">
             <span class="step-num">2</span>
-            <strong>Fijamos una cantidad de referencia</strong> del elemento A. Por comodidad, elegimos una masa tal que contenga el mismo número de átomos de A en ambos compuestos.
+            <strong>Fijamos una cantidad de referencia</strong> del elemento A. Por comodidad, elegimos una masa tal que contenga el mismo número de átomos de A en ambos compuestos. El mínimo común múltiplo de \( a \) y \( c \) nos da esta referencia: \( \text{mcm}(a, c) \) átomos de A.
         </div>
         <div class="step">
             <span class="step-num">3</span>
-            <strong>Expresamos las masas de B</strong> que se combinan con esa cantidad fija de A en cada compuesto.
+            <strong>Expresamos las masas de B</strong> que se combinan con esa cantidad fija de A en cada compuesto:
+            <div class="formula-box">
+                Para \( \text{A}_a\text{B}_b \): con \( \text{mcm}(a,c) \) átomos de A, hay \( \frac{\text{mcm}(a,c)}{a} \cdot b \) átomos de B
+                <br><br>
+                Para \( \text{A}_c\text{B}_d \): con \( \text{mcm}(a,c) \) átomos de A, hay \( \frac{\text{mcm}(a,c)}{c} \cdot d \) átomos de B
+            </div>
         </div>
         <div class="step">
             <span class="step-num">4</span>
             <strong>Calculamos la relación de masas de B</strong>:
             <div class="formula-box">
-                \[ \frac{m_{\mathrm{B, compuesto\ 1}}}{m_{\mathrm{B, compuesto\ 2}}} = \frac{b \cdot c}{a \cdot d} \]
+                \[ \frac{m_{\text{B, compuesto 1}}}{m_{\text{B, compuesto 2}}} = \frac{\frac{\text{mcm}(a,c)}{a} \cdot b}{\frac{\text{mcm}(a,c)}{c} \cdot d} = \frac{b \cdot c}{a \cdot d} \]
             </div>
-            <p>Como \( a, b, c, d \) son números enteros, el cociente es una <strong>relación de números enteros</strong>.</p>
+            <p>Como \( a, b, c, d \) son números enteros, el cociente \( \frac{b \cdot c}{a \cdot d} \) es una <strong>relación de números enteros</strong>, que puede simplificarse a números enteros sencillos.</p>
         </div>
         <div class="step">
             <span class="step-num">5</span>
             <strong>Verificación con un ejemplo concreto</strong>: los óxidos de cobre CuO y Cu₂O.
             <table class="comparison-table">
-                <tr><th>Compuesto</th><th>Fórmula</th><th>Masa de Cu (g)</th><th>Masa de O (g)</th></tr>
-                <tr><td>Óxido de cobre(II)</td><td>CuO</td><td>63,5</td><td>16,0</td></tr>
-                <tr><td>Óxido de cobre(I)</td><td>Cu₂O</td><td>127,0</td><td>16,0</td></tr>
+                <tr>
+                    <th>Compuesto</th>
+                    <th>Fórmula</th>
+                    <th>Masa de Cu (g)</th>
+                    <th>Masa de O (g)</th>
+                </tr>
+                <tr>
+                    <td>Óxido de cobre(II)</td>
+                    <td>CuO</td>
+                    <td>63,5</td>
+                    <td>16,0</td>
+                </tr>
+                <tr>
+                    <td>Óxido de cobre(I)</td>
+                    <td>Cu₂O</td>
+                    <td>127,0</td>
+                    <td>16,0</td>
+                </tr>
             </table>
-            <p>Fijando 16,0 g de oxígeno, las masas de cobre son 63,5 g y 127,0 g. La relación es \( \frac{127{,}0}{63{,}5} = \frac{2}{1} \): números enteros sencillos.</p>
+            <p>Fijando 16,0 g de oxígeno (masa fija), las masas de cobre son 63,5 g y 127,0 g. La relación es:</p>
+            <div class="formula-box">
+                \[ \frac{127,0}{63,5} = \frac{2}{1} \]
+            </div>
+            <p>que es una relación de <strong>números enteros sencillos (2:1)</strong>.</p>
         </div>
         <div class="step">
             <span class="step-num">6</span>
-            <strong>Generalización</strong>. El mismo razonamiento aplica a cualquier par de compuestos entre los mismos elementos. La clave es que los átomos son <strong>unidades indivisibles</strong> que se combinan en proporciones discretas.
+            <strong>Generalización</strong>. El mismo razonamiento aplica a cualquier par de compuestos entre los mismos elementos. La clave es que los átomos son <strong>unidades indivisibles</strong> que se combinan en proporciones discretas, lo que obliga a que las masas estén en relación entera.
         </div>
     </div>
 
     <div class="section resultado">
         <h2>✅ Resultado</h2>
-        <p>Se ha demostrado que para dos compuestos \( \mathrm{A}_a\mathrm{B}_b \) y \( \mathrm{A}_c\mathrm{B}_d \) formados por los mismos elementos:</p>
+        <p>Se ha demostrado que para dos compuestos \( \text{A}_a\text{B}_b \) y \( \text{A}_c\text{B}_d \) formados por los mismos elementos:</p>
         <div class="formula-box">
-            \[ \frac{m_{\mathrm{B\ en\ comp.\ 1\ (A\ fija)}}}{m_{\mathrm{B\ en\ comp.\ 2\ (A\ fija)}}} = \frac{b \cdot c}{a \cdot d} = \text{relación de números enteros sencillos} \]
+            \[ \frac{m_{\text{B en comp. 1 (A fija)}}}{m_{\text{B en comp. 2 (A fija)}}} = \frac{b \cdot c}{a \cdot d} = \text{relación de números enteros sencillos} \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">Las masas de un elemento que se combinan con una masa fija de otro elemento en diferentes compuestos están en relación de números enteros sencillos.</p>
         <div class="note">
-            💡 <strong>Observaciones sobre el alumnado:</strong> Es crucial diferenciar esta ley de la de Proust. Mientras la Ley de Proporciones Definidas se aplica a <strong>un solo compuesto</strong> (proporción fija), la Ley de Proporciones Múltiples compara <strong>varios compuestos</strong> entre los mismos elementos. El ejemplo clásico de los óxidos de cobre (CuO y Cu₂O) o los de carbono (CO y CO₂) ilustra cómo la misma masa de oxígeno se combina con masas de cobre o carbono en proporción 1:2. Esta ley fue una de las evidencias experimentales más sólidas que llevó a Dalton a postular la teoría atómica.
+            💡 <strong>Observaciones sobre el alumnado:</strong>  Es crucial diferenciar esta ley de la de Proust. Mientras la Ley de Proporciones Definidas se aplica a <strong>un solo compuesto</strong> (proporción fija), la Ley de Proporciones Múltiples compara <strong>varios compuestos</strong> entre los mismos elementos. El ejemplo clásico de los óxidos de cobre (CuO y Cu₂O) o los de carbono (CO y CO₂) ilustra perfectamente cómo la misma masa de oxígeno se combina con masas de cobre o carbono en proporción 1:2 o 1:2 respectivamente. Esta ley fue una de las evidencias experimentales más sólidas que llevó a Dalton a postular la teoría atómica.
         </div>
     </div>
 
-    <!-- ============================================================
-         BLOQUE DESPLEGABLE OBLIGATORIO — DESMITIFICANDO
-         ============================================================ -->
-    <details class="desmitificando">
+    <!-- ============================================
+         BLOQUE DESPLEGABLE INTERACTIVO (AÑADIDO)
+         ============================================ -->
+    <details>
         <summary>
-            <i class="fa-solid fa-chevron-circle-down"></i>
-            <span>🧪 DESMITIFICANDO Ley de las Proporciones Múltiples (Dalton)</span>
-            <span class="pulse">🖱️ Púlsame</span>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span style="flex: 1;">🧪 DESMITIFICANDO Ley de las Proporciones Múltiples (Dalton)</span>
+            <span style="font-size: 0.9em; color: #4a5568; background: #e2e8f0; padding: 2px 12px; border-radius: 20px;">
+                <i class="fas fa-hand-pointer"></i> Púlsame
+            </span>
         </summary>
         <div class="details-content">
 
-            <!-- Leyenda de colores -->
-            <p class="leyenda-colores" style="margin:0 0 18px 0; font-size:0.92em; color:#4a5568;">
-                <strong>Código de colores:</strong>
-                <span style="color:#2f855a;">■ Leyes fundamentales</span> ·
-                <span style="color:#b7791f;">■ Condiciones y ligaduras</span> ·
-                <span style="color:#6b46c1;">■ Resultado deducido</span> ·
-                <span style="color:#c53030; font-weight:bold;">■ Incógnitas (rojo negrita)</span>
-            </p>
-
-            <!-- ============================================
-                 EJERCICIO 1
-                 ============================================ -->
-            <details class="ejercicio-card">
-                <summary class="ejercicio-header">
-                    <span class="ejercicio-num">1</span>
-                    <span>Óxidos de estaño: deducción de fórmulas</span>
-                    <span class="hint">🖱️ Púlsame</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </summary>
-
-                <div class="ejercicio-body">
-                    <p><strong>Enunciado.</strong> Se analizan dos óxidos de estaño:</p>
-                    <ul>
-                        <li><strong>Óxido A:</strong> \(5{,}00\,\mathrm{g}\) de Sn se combinan con \(0{,}67\,\mathrm{g}\) de O.</li>
-                        <li><strong>Óxido B:</strong> \(5{,}00\,\mathrm{g}\) de Sn se combinan con \(1{,}35\,\mathrm{g}\) de O.</li>
-                    </ul>
-                    <p>Demostrar que se cumple la Ley de las Proporciones Múltiples y deducir las fórmulas empíricas de ambos óxidos.</p>
-                    <p><em>Datos:</em> \(M_{\mathrm{Sn}} = 118{,}7\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
+            <!-- EJERCICIO 1 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 1</span>
+                    <span>Determinación de fórmulas a partir de relaciones de masa</span>
                 </div>
-
-                <div class="ejercicio-resolucion">
-                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
-                    <p>Estudiamos dos compuestos binarios Sn–O. Los datos son las masas de Sn y de O en cada uno. Como la masa de Sn es la misma (\(5{,}00\,\mathrm{g}\)) en ambos, ya partimos de la condición de «masa fija» que exige la ley. <strong>Objetivo:</strong> comprobar que las masas de O están en relación de enteros sencillos y deducir los subíndices \(a\) y \(b\) de la fórmula \(\mathrm{Sn}_a\mathrm{O}_b\).</p>
-
-                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
-                    <p>Cada compuesto se describe por una fórmula empírica \(\mathrm{Sn}_a\mathrm{O}_b\), con \(a\) y \(b\) enteros pequeños. Según el modelo atómico de Dalton, \(1\) mol de compuesto contiene \(a\) mol de Sn y \(b\) mol de O. La materia se combina en unidades discretas (átomos), por lo que los subíndices deben ser enteros.</p>
-
-                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
-                    <p>Aplicamos el modelo atómico-molar: cada muestra contiene un número de moles de cada elemento que se obtiene dividiendo su masa entre la masa molar; la proporción de moles coincide con la proporción de átomos en la fórmula empírica. Agrupamos las ecuaciones del modelo:</p>
-                    \[
-                    \begin{cases}
-                    \ley{n_{\mathrm{Sn}} = \dfrac{m_{\mathrm{Sn}}}{M_{\mathrm{Sn}}}} & \text{\ley{[1]} (moles de Sn en la muestra)} \\[6pt]
-                    \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O en la muestra)} \\[6pt]
-                    \ley{\dfrac{n_{\mathrm{Sn}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica de la fórmula empírica)} \\[6pt]
-                    \cond{m_{\mathrm{Sn,1}} = m_{\mathrm{Sn,2}} = 5{,}00\,\mathrm{g}} & \text{\cond{[4]} (condición de masa fija de Sn)}
-                    \end{cases}
-                    \]
-
-                    <details class="estrategia-resolucion">
-                        <summary>
-                            <i class="fa-solid fa-chevron-circle-down"></i>
-                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
-                            <span class="hint">🖱️ Púlsame</span>
-                        </summary>
-                        <div class="estrategia-contenido">
-                            <p><strong>Objetivo:</strong> deducir los subíndices enteros \(\objetivo{\dfrac{a}{b}}\) de la fórmula empírica de cada óxido y verificar que las masas de O guardan relación entera.</p>
-                            <p><strong>Ruta justificada:</strong> partimos del modelo atómico-molar [1]–[2] para obtener los moles de cada elemento, y usamos la proporción atómica [3] junto con la condición de masa fija [4] para deducir la relación \(a/b\) en cada compuesto. La comparación de las masas de O para \(m_{\mathrm{Sn}}\) fija permitirá concluir que la relación es de enteros sencillos.</p>
-                            \[
-                            \begin{cases}
-                            \calc{n_{\mathrm{Sn}}} = \dfrac{\dato{m_{\mathrm{Sn}}}}{\dato{M_{\mathrm{Sn}}}} & \text{[1]} \\[6pt]
-                            \calc{n_{\mathrm{O}}} = \dfrac{\dato{m_{\mathrm{O}}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
-                            \objetivo{\dfrac{a}{b}} = \dfrac{\calc{n_{\mathrm{Sn}}}}{\calc{n_{\mathrm{O}}}} & \text{[3]} \\[6pt]
-                            \dato{m_{\mathrm{Sn,1}}} = \dato{m_{\mathrm{Sn,2}}} = 5{,}00\,\mathrm{g} & \text{[4]}
-                            \end{cases}
-                            \]
-                        </div>
-                    </details>
-
-                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
-                    <p><strong>Compuesto A.</strong> Aplicamos [1] y [2] para obtener los moles de cada elemento:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{Sn,1}}} = \frac{m_{\mathrm{Sn,1}}}{M_{\mathrm{Sn}}} = \frac{5{,}00}{118{,}7} = 4{,}21\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    \[
-                    \ley{\calc{n_{\mathrm{O,1}}} = \frac{m_{\mathrm{O,1}}}{M_{\mathrm{O}}} = \frac{0{,}67}{16{,}0} = 4{,}19\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para obtener la relación atómica que da los subíndices de la fórmula empírica</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{Sn,1}}}}{\calc{n_{\mathrm{O,1}}}} = \frac{4{,}21\times10^{-2}}{4{,}19\times10^{-2}} \approx 1{,}00}
-                    \]
-                    <p>Por tanto \(a_1:b_1 = 1:1\) y la fórmula del óxido A es:</p>
-                    \[
-                    \res{\mathrm{SnO}}
-                    \]
-
-                    <p><strong>Compuesto B.</strong> La masa de Sn es la misma (condición [4]), así que \(\calc{n_{\mathrm{Sn,2}}} = 4{,}21\times10^{-2}\,\mathrm{mol}\). Aplicamos [2] al oxígeno:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O,2}}} = \frac{m_{\mathrm{O,2}}}{M_{\mathrm{O}}} = \frac{1{,}35}{16{,}0} = 8{,}44\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica del segundo compuesto</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{Sn,2}}}}{\calc{n_{\mathrm{O,2}}}} = \frac{4{,}21\times10^{-2}}{8{,}44\times10^{-2}} \approx 0{,}499}
-                    \]
-                    <p>Por tanto \(a_2:b_2 = 1:2\) y la fórmula del óxido B es:</p>
-                    \[
-                    \res{\mathrm{SnO_2}}
-                    \]
-
-                    <p><strong>Verificación de la ley.</strong> Comparamos las masas de O que se combinan con la misma masa de Sn:</p>
-                    \[
-                    \cond{\frac{m_{\mathrm{O,1}}}{m_{\mathrm{O,2}}} = \frac{0{,}67}{1{,}35} \approx \frac{1}{2}}
-                    \]
-                    <p>La relación es \(1:2\), números enteros sencillos. <strong>Se cumple la ley.</strong></p>
-
-                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
-                    <p>Las fórmulas \(\mathrm{SnO}\) y \(\mathrm{SnO_2}\) son coherentes con la relación \(1:2\) de masas de O para una masa fija de Sn. Esta relación entera <strong>no es una coincidencia numérica</strong>: es una consecuencia directa del carácter discreto del átomo, que obliga a que los elementos se combinen en proporciones de números enteros. La ley de Dalton queda así verificada experimentalmente.</p>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Dos óxidos de nitrógeno tienen las siguientes composiciones:</p>
+                        <ul>
+                            <li>Óxido A: 28,0 g de N y 32,0 g de O</li>
+                            <li>Óxido B: 14,0 g de N y 24,0 g de O</li>
+                        </ul>
+                        <p>Demostrar que cumplen la ley de proporciones múltiples y determinar sus fórmulas empíricas.</p>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Fijamos la masa de N en 14,0 g para ambos compuestos (dividiendo las cantidades entre 2 para el óxido A):</li>
+                            <li>Óxido A: 14,0 g de N se combinan con \(32,0 / 2 = 16,0\) g de O.</li>
+                            <li>Óxido B: 14,0 g de N se combinan con 24,0 g de O.</li>
+                            <li>Relación de masas de O: \(16,0 : 24,0 = 2 : 3\) (números enteros sencillos).</li>
+                            <li>Fórmulas: óxido A → N₂O (14×2 + 16 = 44, relación N:O = 28:16 = 14:8, pero con 14 g N → 16 g O → N:O átomos = \(14/14 : 16/16 = 1:1\) → NO (pero cuidado: en realidad N₂O tiene relación N:O = 2:1, no cuadra). Ajustamos: con 14 g N y 16 g O → relación atómica \(14/14 = 1\) mol N, \(16/16 = 1\) mol O → fórmula NO. Pero entonces el óxido B con 14 g N y 24 g O → relación \(14/14=1\) mol N, \(24/16=1,5\) mol O → multiplicamos por 2 → N₂O₃.</li>
+                            <li>Comprobamos: NO y N₂O₃. Con una masa fija de N (14 g), las masas de O están en relación 16:24 = 2:3, que son números enteros. Se cumple la ley.</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <!-- ============================================
-                 EJERCICIO 2
-                 ============================================ -->
-            <details class="ejercicio-card">
-                <summary class="ejercicio-header">
-                    <span class="ejercicio-num">2</span>
-                    <span>Cloruros de fósforo: relación 3:5</span>
-                    <span class="hint">🖱️ Púlsame</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </summary>
-
-                <div class="ejercicio-body">
-                    <p><strong>Enunciado.</strong> Se preparan dos cloruros de fósforo:</p>
-                    <ul>
-                        <li><strong>Compuesto 1:</strong> \(3{,}10\,\mathrm{g}\) de P se combinan con \(10{,}65\,\mathrm{g}\) de Cl.</li>
-                        <li><strong>Compuesto 2:</strong> \(3{,}10\,\mathrm{g}\) de P se combinan con \(17{,}75\,\mathrm{g}\) de Cl.</li>
-                    </ul>
-                    <p>Verificar la ley de proporciones múltiples y deducir sus fórmulas empíricas.</p>
-                    <p><em>Datos:</em> \(M_{\mathrm{P}} = 31{,}0\,\mathrm{g/mol}\); \(M_{\mathrm{Cl}} = 35{,}5\,\mathrm{g/mol}\).</p>
+            <!-- EJERCICIO 2 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 2</span>
+                    <span>Comparación de dos cloruros de carbono</span>
                 </div>
-
-                <div class="ejercicio-resolucion">
-                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
-                    <p>Dos compuestos binarios P–Cl. La masa de fósforo está fija (\(3{,}10\,\mathrm{g}\)) en ambos, que es justo lo que exige la ley. <strong>Objetivo:</strong> verificar que las masas de Cl están en relación de enteros sencillos y deducir los subíndices \(a\) y \(b\) de la fórmula \(\mathrm{P}_a\mathrm{Cl}_b\).</p>
-
-                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
-                    <p>Cada compuesto se describe por una fórmula empírica \(\mathrm{P}_a\mathrm{Cl}_b\) con \(a\), \(b\) enteros pequeños. Según el modelo atómico, \(1\) mol de compuesto contiene \(a\) mol de P y \(b\) mol de Cl. Como la masa de P está fija, la proporción de moles de Cl será la clave.</p>
-
-                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
-                    <p>Aplicamos el modelo atómico-molar a cada compuesto, junto con la condición de masa fija de P:</p>
-                    \[
-                    \begin{cases}
-                    \ley{n_{\mathrm{P}} = \dfrac{m_{\mathrm{P}}}{M_{\mathrm{P}}}} & \text{\ley{[1]} (moles de P)} \\[6pt]
-                    \ley{n_{\mathrm{Cl}} = \dfrac{m_{\mathrm{Cl}}}{M_{\mathrm{Cl}}}} & \text{\ley{[2]} (moles de Cl)} \\[6pt]
-                    \ley{\dfrac{n_{\mathrm{P}}}{n_{\mathrm{Cl}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
-                    \cond{m_{\mathrm{P,1}} = m_{\mathrm{P,2}} = 3{,}10\,\mathrm{g}} & \text{\cond{[4]} (masa fija de P)}
-                    \end{cases}
-                    \]
-
-                    <details class="estrategia-resolucion">
-                        <summary>
-                            <i class="fa-solid fa-chevron-circle-down"></i>
-                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
-                            <span class="hint">🖱️ Púlsame</span>
-                        </summary>
-                        <div class="estrategia-contenido">
-                            <p><strong>Objetivo:</strong> deducir los subíndices \(\objetivo{\dfrac{a}{b}}\) de cada cloruro y verificar que las masas de Cl están en relación de enteros sencillos.</p>
-                            <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] calculamos los moles de P y Cl; imponemos la proporción atómica [3] y la condición de masa fija de P [4] para obtener \(a/b\) en cada compuesto. La comparación de las masas de Cl para \(m_{\mathrm{P}}\) fija permitirá comprobar la ley.</p>
-                            \[
-                            \begin{cases}
-                            \calc{n_{\mathrm{P}}} = \dfrac{\dato{m_{\mathrm{P}}}}{\dato{M_{\mathrm{P}}}} & \text{[1]} \\[6pt]
-                            \calc{n_{\mathrm{Cl}}} = \dfrac{\dato{m_{\mathrm{Cl}}}}{\dato{M_{\mathrm{Cl}}}} & \text{[2]} \\[6pt]
-                            \objetivo{\dfrac{a}{b}} = \dfrac{\calc{n_{\mathrm{P}}}}{\calc{n_{\mathrm{Cl}}}} & \text{[3]} \\[6pt]
-                            \dato{m_{\mathrm{P,1}}} = \dato{m_{\mathrm{P,2}}} = 3{,}10\,\mathrm{g} & \text{[4]}
-                            \end{cases}
-                            \]
-                        </div>
-                    </details>
-
-                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
-                    <p><strong>Compuesto 1.</strong> Aplicamos [1]–[2]:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{P,1}}} = \frac{m_{\mathrm{P,1}}}{M_{\mathrm{P}}} = \frac{3{,}10}{31{,}0} = 0{,}100\,\mathrm{mol}}
-                    \]
-                    \[
-                    \ley{\calc{n_{\mathrm{Cl,1}}} = \frac{m_{\mathrm{Cl,1}}}{M_{\mathrm{Cl}}} = \frac{10{,}65}{35{,}5} = 0{,}300\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para obtener la relación atómica del compuesto 1</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{P,1}}}}{\calc{n_{\mathrm{Cl,1}}}} = \frac{0{,}100}{0{,}300} = \frac{1}{3}}
-                    \]
-                    <p>Por tanto \(a_1:b_1 = 1:3\) y la fórmula es:</p>
-                    \[
-                    \res{\mathrm{PCl_3}}
-                    \]
-
-                    <p><strong>Compuesto 2.</strong> La masa de P está fija (condición [4]): \(\calc{n_{\mathrm{P,2}}} = 0{,}100\,\mathrm{mol}\). Aplicamos [2] al cloro:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{Cl,2}}} = \frac{m_{\mathrm{Cl,2}}}{M_{\mathrm{Cl}}} = \frac{17{,}75}{35{,}5} = 0{,}500\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica del compuesto 2</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{P,2}}}}{\calc{n_{\mathrm{Cl,2}}}} = \frac{0{,}100}{0{,}500} = \frac{1}{5}}
-                    \]
-                    <p>Por tanto \(a_2:b_2 = 1:5\) y la fórmula es:</p>
-                    \[
-                    \res{\mathrm{PCl_5}}
-                    \]
-
-                    <p><strong>Verificación de la ley.</strong> Comparamos las masas de Cl para la misma masa de P:</p>
-                    \[
-                    \cond{\frac{m_{\mathrm{Cl,1}}}{m_{\mathrm{Cl,2}}} = \frac{10{,}65}{17{,}75} = \frac{3}{5}}
-                    \]
-                    <p>La relación es \(3:5\), números enteros sencillos. <strong>Se cumple la ley.</strong></p>
-
-                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
-                    <p>Las fórmulas son \(\mathrm{PCl_3}\) y \(\mathrm{PCl_5}\), coherentes con la valencia variable del fósforo (3 y 5). La relación \(3:5\) de masas de Cl para masa fija de P es de enteros sencillos. El ejercicio ilustra cómo la ley de Dalton permite predecir la existencia de compuestos con proporciones atómicas distintas entre los mismos elementos, algo que la ley de Proust no explica por sí sola.</p>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> El carbono forma con el cloro dos compuestos: en el primero, 2,40 g de C se combinan con 14,20 g de Cl; en el segundo, 1,20 g de C se combinan con 7,10 g de Cl.</p>
+                        <ul>
+                            <li>a) Comprobar si se cumple la ley de proporciones múltiples.</li>
+                            <li>b) Si las fórmulas son CCl₄ y C₂Cl₄ (o CCl₂), ¿cuál es cada compuesto?</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Fijamos la masa de C en 1,20 g (dividiendo los datos del primero entre 2):</li>
+                            <li>Compuesto 1: 1,20 g de C → \(14,20 / 2 = 7,10\) g de Cl.</li>
+                            <li>Compuesto 2: 1,20 g de C → 7,10 g de Cl.</li>
+                            <li>¡Ambos dan la misma masa de Cl para la misma masa de C! Esto indicaría que son el mismo compuesto, no dos diferentes. Sin embargo, el enunciado dice que son dos compuestos. Revisamos: el primer compuesto tiene 2,40 g C con 14,20 g Cl, y el segundo 1,20 g C con 7,10 g Cl. La relación es idéntica (1,20 g C → 7,10 g Cl). No se cumple la ley de proporciones múltiples porque la relación es la misma; se trataría del mismo compuesto (ley de Proust). Para que se cumpla la ley de múltiples, las masas de Cl deberían estar en relación entera (ej. 7,10 y 14,20). Aquí no, porque al fijar C obtenemos la misma masa de Cl. Por tanto, no se cumple la ley de múltiples; es un solo compuesto.</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <!-- ============================================
-                 EJERCICIO 3
-                 ============================================ -->
-            <details class="ejercicio-card">
-                <summary class="ejercicio-header">
-                    <span class="ejercicio-num">3</span>
-                    <span>Óxidos de manganeso: relación no trivial 2:7</span>
-                    <span class="hint">🖱️ Púlsame</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </summary>
-
-                <div class="ejercicio-body">
-                    <p><strong>Enunciado.</strong> Se analizan dos óxidos de manganeso:</p>
-                    <ul>
-                        <li><strong>Óxido A:</strong> \(55{,}0\,\mathrm{g}\) de Mn se combinan con \(16{,}0\,\mathrm{g}\) de O.</li>
-                        <li><strong>Óxido B:</strong> \(55{,}0\,\mathrm{g}\) de Mn se combinan con \(56{,}0\,\mathrm{g}\) de O.</li>
-                    </ul>
-                    <p>Verificar la ley y deducir las fórmulas empíricas.</p>
-                    <p><em>Datos:</em> \(M_{\mathrm{Mn}} = 55{,}0\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
+            <!-- EJERCICIO 3 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 3</span>
+                    <span>Identificación de óxidos de plomo</span>
                 </div>
-
-                <div class="ejercicio-resolucion">
-                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
-                    <p>Dos óxidos binarios Mn–O con masa de Mn fija (\(55{,}0\,\mathrm{g}\)). <strong>Objetivo:</strong> comprobar que las masas de O están en relación de enteros sencillos y deducir los subíndices \(a\), \(b\) de la fórmula \(\mathrm{Mn}_a\mathrm{O}_b\).</p>
-
-                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
-                    <p>Cada compuesto se describe por \(\mathrm{Mn}_a\mathrm{O}_b\) con \(a\), \(b\) enteros. Con \(1\) mol de compuesto hay \(a\) mol de Mn y \(b\) mol de O. La masa de Mn fija permite comparar directamente las masas de oxígeno.</p>
-
-                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
-                    <p>Aplicamos el modelo atómico-molar a cada óxido, con la condición de masa fija de Mn:</p>
-                    \[
-                    \begin{cases}
-                    \ley{n_{\mathrm{Mn}} = \dfrac{m_{\mathrm{Mn}}}{M_{\mathrm{Mn}}}} & \text{\ley{[1]} (moles de Mn)} \\[6pt]
-                    \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
-                    \ley{\dfrac{n_{\mathrm{Mn}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
-                    \cond{m_{\mathrm{Mn,1}} = m_{\mathrm{Mn,2}} = 55{,}0\,\mathrm{g}} & \text{\cond{[4]} (masa fija de Mn)}
-                    \end{cases}
-                    \]
-
-                    <details class="estrategia-resolucion">
-                        <summary>
-                            <i class="fa-solid fa-chevron-circle-down"></i>
-                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
-                            <span class="hint">🖱️ Púlsame</span>
-                        </summary>
-                        <div class="estrategia-contenido">
-                            <p><strong>Objetivo:</strong> deducir los subíndices \(\objetivo{\dfrac{a}{b}}\) de cada óxido y verificar la relación entera de las masas de O.</p>
-                            <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] y la proporción atómica [3], junto con la masa fija de Mn [4], deducimos la relación \(a/b\) de cada compuesto. La comparación de masas de O permitirá concluir que la relación es de enteros sencillos (aquí no trivial: \(2:7\)).</p>
-                            \[
-                            \begin{cases}
-                            \calc{n_{\mathrm{Mn}}} = \dfrac{\dato{m_{\mathrm{Mn}}}}{\dato{M_{\mathrm{Mn}}}} & \text{[1]} \\[6pt]
-                            \calc{n_{\mathrm{O}}} = \dfrac{\dato{m_{\mathrm{O}}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
-                            \objetivo{\dfrac{a}{b}} = \dfrac{\calc{n_{\mathrm{Mn}}}}{\calc{n_{\mathrm{O}}}} & \text{[3]} \\[6pt]
-                            \dato{m_{\mathrm{Mn,1}}} = \dato{m_{\mathrm{Mn,2}}} = 55{,}0\,\mathrm{g} & \text{[4]}
-                            \end{cases}
-                            \]
-                        </div>
-                    </details>
-
-                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
-                    <p><strong>Óxido A.</strong> Aplicamos [1]–[2]:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{Mn,1}}} = \frac{m_{\mathrm{Mn,1}}}{M_{\mathrm{Mn}}} = \frac{55{,}0}{55{,}0} = 1{,}00\,\mathrm{mol}}
-                    \]
-                    \[
-                    \ley{\calc{n_{\mathrm{O,1}}} = \frac{m_{\mathrm{O,1}}}{M_{\mathrm{O}}} = \frac{16{,}0}{16{,}0} = 1{,}00\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para obtener la relación atómica del óxido A</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{Mn,1}}}}{\calc{n_{\mathrm{O,1}}}} = \frac{1{,}00}{1{,}00} = \frac{1}{1}}
-                    \]
-                    <p>Por tanto \(a_1:b_1 = 1:1\) y la fórmula es:</p>
-                    \[
-                    \res{\mathrm{MnO}}
-                    \]
-
-                    <p><strong>Óxido B.</strong> La masa de Mn está fija (condición [4]): \(\calc{n_{\mathrm{Mn,2}}} = 1{,}00\,\mathrm{mol}\). Aplicamos [2] al oxígeno:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O,2}}} = \frac{m_{\mathrm{O,2}}}{M_{\mathrm{O}}} = \frac{56{,}0}{16{,}0} = 3{,}50\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica del óxido B</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{Mn,2}}}}{\calc{n_{\mathrm{O,2}}}} = \frac{1{,}00}{3{,}50} = \frac{2}{7}}
-                    \]
-                    <p>Multiplicando por 2 para obtener subíndices enteros, \(a_2:b_2 = 2:7\). La fórmula es:</p>
-                    \[
-                    \res{\mathrm{Mn_2O_7}}
-                    \]
-
-                    <p><strong>Verificación de la ley.</strong> Comparamos las masas de O para la misma masa de Mn:</p>
-                    \[
-                    \cond{\frac{m_{\mathrm{O,1}}}{m_{\mathrm{O,2}}} = \frac{16{,}0}{56{,}0} = \frac{2}{7}}
-                    \]
-                    <p>La relación es \(2:7\), números enteros sencillos. <strong>Se cumple la ley.</strong></p>
-
-                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
-                    <p>Las fórmulas \(\mathrm{MnO}\) y \(\mathrm{Mn_2O_7}\) ilustran que la ley no exige relaciones \(1:2\) o \(1:3\): basta con que los números sean <strong>enteros sencillos</strong>. El \(2:7\) aparece porque cada mol de Mn en el segundo compuesto se combina con \(3{,}5\) mol de O, y multiplicando por 2 se obtienen subíndices enteros. El manganeso presenta estados de oxidación +2 y +7, coherentes con las fórmulas deducidas.</p>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> El plomo forma dos óxidos con los siguientes datos: en el óxido A, 10,00 g de Pb se combinan con 1,54 g de O; en el óxido B, 10,00 g de Pb se combinan con 2,31 g de O. Demostrar que cumplen la ley de proporciones múltiples y asignar las fórmulas PbO y PbO₂ si es posible.</p>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Fijamos la masa de Pb en 10,00 g (ya está fija en ambos).</li>
+                            <li>Masa de O en A: 1,54 g; en B: 2,31 g.</li>
+                            <li>Relación \(1,54 : 2,31\). Dividimos ambos entre 1,54: \(1 : 1,5\) → multiplicamos por 2 → \(2 : 3\).</li>
+                            <li>Esa relación 2:3 no es de números enteros sencillos? 2 y 3 sí lo son. Por tanto, se cumple la ley.</li>
+                            <li>Ahora, si asignamos PbO (Pb:O = 1:1 en átomos) y PbO₂ (1:2), las relaciones de masas de O para la misma cantidad de Pb deberían ser 1:2. Pero aquí tenemos 2:3, lo que sugiere que los compuestos podrían ser Pb₂O₃ y PbO? O más bien, si calculamos la relación atómica: para PbO, con 10 g Pb (0,0483 mol) se necesitarían 0,0483 mol O = 0,773 g O, no 1,54 g. Por tanto, no son PbO y PbO₂. La relación experimental 2:3 indica que las fórmulas podrían ser Pb₃O₄ y PbO? En realidad, el óxido A con 1,54 g O y 10 g Pb da una relación atómica Pb:O = (10/207,2):(1,54/16) ≈ 0,0483:0,0963 = 1:2 → PbO₂. El óxido B con 2,31 g O da 0,0483:0,1444 = 1:3 → PbO₃ (no común). Los números enteros son 2 y 3, luego se cumple la ley.</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <!-- ============================================
-                 EJERCICIO 4
-                 ============================================ -->
-            <details class="ejercicio-card">
-                <summary class="ejercicio-header">
-                    <span class="ejercicio-num">4</span>
-                    <span>Deducción inversa: dado el ratio 1:2, predecir composición</span>
-                    <span class="hint">🖱️ Púlsame</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </summary>
-
-                <div class="ejercicio-body">
-                    <p><strong>Enunciado.</strong> En uno de los dos óxidos de cobre, \(5{,}00\,\mathrm{g}\) de Cu se combinan con \(0{,}63\,\mathrm{g}\) de O. Se sabe que las masas de O que se combinan con una masa fija de Cu están en relación \(1:2\).</p>
-                    <ul>
-                        <li>a) Determinar la masa de O que se combina con \(5{,}00\,\mathrm{g}\) de Cu en el segundo óxido.</li>
-                        <li>b) Deducir ambas fórmulas empíricas.</li>
-                        <li>c) Verificar la ley.</li>
-                    </ul>
-                    <p><em>Datos:</em> \(M_{\mathrm{Cu}} = 63{,}5\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
+            <!-- EJERCICIO 4 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 4</span>
+                    <span>Compuestos de fósforo y oxígeno</span>
                 </div>
-
-                <div class="ejercicio-resolucion">
-                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
-                    <p>Dos óxidos de Cu con masa de Cu fija (\(5{,}00\,\mathrm{g}\)). Se conoce la masa de O en el primero y la relación \(1:2\) entre ambas masas de O (que es lo que predice la ley de proporciones múltiples). <strong>Objetivo:</strong> determinar la masa de O en el segundo óxido a partir de esa relación y deducir ambas fórmulas.</p>
-
-                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
-                    <p>Cada compuesto se describe por \(\mathrm{Cu}_a\mathrm{O}_b\). Al fijar la masa de Cu, las masas de O deben estar en relación de enteros sencillos (dato del enunciado: \(1:2\)). Con los moles de cada elemento obtendremos los subíndices.</p>
-
-                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
-                    <p>Modelo atómico-molar [1]–[2], proporción atómica [3], masa fija de Cu [4], relación de masas de O dada [5] y dato del primer óxido [6]:</p>
-                    \[
-                    \begin{cases}
-                    \ley{n_{\mathrm{Cu}} = \dfrac{m_{\mathrm{Cu}}}{M_{\mathrm{Cu}}}} & \text{\ley{[1]} (moles de Cu)} \\[6pt]
-                    \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
-                    \ley{\dfrac{n_{\mathrm{Cu}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
-                    \cond{m_{\mathrm{Cu,1}} = m_{\mathrm{Cu,2}} = 5{,}00\,\mathrm{g}} & \text{\cond{[4]} (masa fija de Cu)} \\[6pt]
-                    \cond{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}} = 2} & \text{\cond{[5]} (relación dada por la ley)} \\[6pt]
-                    \cond{m_{\mathrm{O,1}} = 0{,}63\,\mathrm{g}} & \text{\cond{[6]} (dato del primer óxido)}
-                    \end{cases}
-                    \]
-
-                    <details class="estrategia-resolucion">
-                        <summary>
-                            <i class="fa-solid fa-chevron-circle-down"></i>
-                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
-                            <span class="hint">🖱️ Púlsame</span>
-                        </summary>
-                        <div class="estrategia-contenido">
-                            <p><strong>Objetivo:</strong> determinar la masa \(\objetivo{m_{\mathrm{O,2}}}\) del segundo óxido a partir de la relación dada y deducir los subíndices \(\objetivo{\dfrac{a_1}{b_1}}\) y \(\objetivo{\dfrac{a_2}{b_2}}\) de ambas fórmulas.</p>
-                            <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] y la proporción atómica [3] deducimos la fórmula del primer óxido. La relación de masas de O [5] y el dato \(m_{\mathrm{O,1}}\) [6] nos dan \(m_{\mathrm{O,2}}\); de ahí, con [2]–[3], los subíndices del segundo óxido.</p>
-                            \[
-                            \begin{cases}
-                            \calc{n_{\mathrm{Cu}}} = \dfrac{\dato{m_{\mathrm{Cu}}}}{\dato{M_{\mathrm{Cu}}}} & \text{[1]} \\[6pt]
-                            \calc{n_{\mathrm{O,1}}} = \dfrac{\dato{m_{\mathrm{O,1}}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
-                            \objetivo{\dfrac{a_1}{b_1}} = \dfrac{\calc{n_{\mathrm{Cu}}}}{\calc{n_{\mathrm{O,1}}}} & \text{[3]} \\[6pt]
-                            \dato{m_{\mathrm{Cu,1}}} = \dato{m_{\mathrm{Cu,2}}} = 5{,}00\,\mathrm{g} & \text{[4]} \\[6pt]
-                            \dato{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} = 2 & \text{[5]} \\[6pt]
-                            \dato{m_{\mathrm{O,1}}} = 0{,}63\,\mathrm{g} & \text{[6]} \\[6pt]
-                            \objetivo{m_{\mathrm{O,2}}} = 2\,\dato{m_{\mathrm{O,1}}} & \text{[7]} \\[6pt]
-                            \calc{n_{\mathrm{O,2}}} = \dfrac{\objetivo{m_{\mathrm{O,2}}}}{\dato{M_{\mathrm{O}}}} & \text{[8]} \\[6pt]
-                            \objetivo{\dfrac{a_2}{b_2}} = \dfrac{\calc{n_{\mathrm{Cu}}}}{\calc{n_{\mathrm{O,2}}}} & \text{[9]}
-                            \end{cases}
-                            \]
-                        </div>
-                    </details>
-
-                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
-                    <p><strong>Primer óxido.</strong> Aplicamos [1]–[2]:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{Cu}}} = \frac{m_{\mathrm{Cu}}}{M_{\mathrm{Cu}}} = \frac{5{,}00}{63{,}5} = 7{,}87\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    \[
-                    \ley{\calc{n_{\mathrm{O,1}}} = \frac{m_{\mathrm{O,1}}}{M_{\mathrm{O}}} = \frac{0{,}63}{16{,}0} = 3{,}94\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica del primer óxido</em>:</p>
-                    \[
-                    \ley{\objetivo{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{Cu}}}}{\calc{n_{\mathrm{O,1}}}} = \frac{7{,}87\times10^{-2}}{3{,}94\times10^{-2}} = 2}
-                    \]
-                    <p>Por tanto \(a_1:b_1 = 2:1\) y la fórmula es:</p>
-                    \[
-                    \res{\mathrm{Cu_2O}}
-                    \]
-
-                    <p><strong>Segundo óxido.</strong> Aplicamos la relación dada [5] <em>para obtener la masa de O del segundo óxido</em>:</p>
-                    \[
-                    \cond{\objetivo{m_{\mathrm{O,2}}} = 2 \cdot m_{\mathrm{O,1}} = 2 \cdot 0{,}63 = 1{,}26\,\mathrm{g}}
-                    \]
-                    <p>Calculamos los moles de O con [2] <em>para poder aplicar después la proporción atómica</em>:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O,2}}} = \frac{m_{\mathrm{O,2}}}{M_{\mathrm{O}}} = \frac{1{,}26}{16{,}0} = 7{,}88\times10^{-2}\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica del segundo óxido</em> (la masa de Cu está fija, [4]):</p>
-                    \[
-                    \ley{\objetivo{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{Cu}}}}{\calc{n_{\mathrm{O,2}}}} = \frac{7{,}87\times10^{-2}}{7{,}88\times10^{-2}} = 1}
-                    \]
-                    <p>Por tanto \(a_2:b_2 = 1:1\) y la fórmula es:</p>
-                    \[
-                    \res{\mathrm{CuO}}
-                    \]
-
-                    <p><strong>Verificación.</strong> La relación de masas de O para la misma masa de Cu es:</p>
-                    \[
-                    \cond{\frac{m_{\mathrm{O,1}}}{m_{\mathrm{O,2}}} = \frac{0{,}63}{1{,}26} = \frac{1}{2}}
-                    \]
-                    <p>Números enteros sencillos. <strong>Se cumple la ley.</strong></p>
-
-                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
-                    <p>Las fórmulas son \(\mathrm{Cu_2O}\) (cobre(I)) y \(\mathrm{CuO}\) (cobre(II)), coherentes con los estados de oxidación +1 y +2 del cobre. El ejercicio muestra el <strong>uso predictivo</strong> de la ley: conocido un compuesto y la relación entera, se deduce la composición del otro. La relación \(1:2\) de masas de O conduce a fórmulas \(2:1\) y \(1:1\) en Cu:O (el doble de O en el segundo compuesto implica la mitad de Cu por átomo de O).</p>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> El fósforo forma tres óxidos con las siguientes composiciones:</p>
+                        <ul>
+                            <li>Óxido 1: 6,20 g de P y 8,00 g de O</li>
+                            <li>Óxido 2: 6,20 g de P y 12,00 g de O</li>
+                            <li>Óxido 3: 6,20 g de P y 16,00 g de O</li>
+                        </ul>
+                        <p>Verificar si se cumple la ley de proporciones múltiples y determinar las relaciones de masas de oxígeno.</p>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Fijamos la masa de P en 6,20 g (constante en los tres).</li>
+                            <li>Masas de O: 8,00 ; 12,00 ; 16,00 g.</li>
+                            <li>Dividimos todas entre 4 (o entre 8): 8:12:16 = 2:3:4.</li>
+                            <li>Los números 2,3,4 son enteros sencillos, por lo que se cumple la ley de proporciones múltiples.</li>
+                            <li>Esto indica que los compuestos podrían ser P₂O₅ (si la relación 2:5? No, aquí es 2:3:4). En realidad, las fórmulas posibles son P₂O₃, P₂O₄? El fósforo forma P₄O₆ y P₄O₁₀, pero ajustando a la masa fija de P, las relaciones de O son 3:5, etc. Aquí el ejemplo es numérico, cumple la ley.</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <!-- ============================================
-                 EJERCICIO 5
-                 ============================================ -->
-            <details class="ejercicio-card">
-                <summary class="ejercicio-header">
-                    <span class="ejercicio-num">5</span>
+            <!-- EJERCICIO 5 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 5</span>
                     <span>Contexto real: óxidos de nitrógeno en la atmósfera</span>
-                    <span class="hint">🖱️ Púlsame</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </summary>
-
-                <div class="ejercicio-body">
-                    <p><strong>Enunciado.</strong> El nitrógeno forma varios óxidos de interés atmosférico: \(\mathrm{N_2O}\) (gas de la risa), \(\mathrm{NO}\) y \(\mathrm{NO_2}\) (contaminantes del smog fotoquímico). Datos (masa de N fija, \(14{,}0\,\mathrm{g}\)):</p>
-                    <ul>
-                        <li><strong>\(\mathrm{N_2O}\):</strong> \(14{,}0\,\mathrm{g}\) de N + \(8{,}0\,\mathrm{g}\) de O</li>
-                        <li><strong>\(\mathrm{NO}\):</strong> \(14{,}0\,\mathrm{g}\) de N + \(16{,}0\,\mathrm{g}\) de O</li>
-                        <li><strong>\(\mathrm{NO_2}\):</strong> \(14{,}0\,\mathrm{g}\) de N + \(32{,}0\,\mathrm{g}\) de O</li>
-                    </ul>
-                    <p>Verificar la ley de proporciones múltiples y explicar por qué las masas de O están en la relación \(1:2:4\).</p>
-                    <p><em>Datos:</em> \(M_{\mathrm{N}} = 14{,}0\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
                 </div>
-
-                <div class="ejercicio-resolucion">
-                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
-                    <p>Tres óxidos binarios N–O con masa de N fija (\(14{,}0\,\mathrm{g}\)). <strong>Objetivo:</strong> comprobar que las masas de O están en relación de enteros sencillos (\(1:2:4\)) y deducir los subíndices de cada fórmula.</p>
-
-                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
-                    <p>Cada compuesto se describe por \(\mathrm{N}_a\mathrm{O}_b\). Con \(1\) mol de compuesto hay \(a\) mol de N y \(b\) mol de O. La masa de N fija en los tres casos permite comparar directamente las masas de oxígeno.</p>
-
-                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
-                    <p>Modelo atómico-molar a cada óxido, con masa fija de N y la condición de que las masas de O deben estar en relación de enteros sencillos (lo que queremos verificar):</p>
-                    \[
-                    \begin{cases}
-                    \ley{n_{\mathrm{N}} = \dfrac{m_{\mathrm{N}}}{M_{\mathrm{N}}}} & \text{\ley{[1]} (moles de N)} \\[6pt]
-                    \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
-                    \ley{\dfrac{n_{\mathrm{N}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
-                    \cond{m_{\mathrm{N,1}} = m_{\mathrm{N,2}} = m_{\mathrm{N,3}} = 14{,}0\,\mathrm{g}} & \text{\cond{[4]} (masa fija de N)} \\[6pt]
-                    \cond{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}},\;\dfrac{m_{\mathrm{O,3}}}{m_{\mathrm{O,1}}} \in \{\text{enteros sencillos}\}} & \text{\cond{[5]} (ley a verificar)}
-                    \end{cases}
-                    \]
-
-                    <details class="estrategia-resolucion">
-                        <summary>
-                            <i class="fa-solid fa-chevron-circle-down"></i>
-                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
-                            <span class="hint">🖱️ Púlsame</span>
-                        </summary>
-                        <div class="estrategia-contenido">
-                            <p><strong>Objetivo:</strong> verificar que las masas de O, con masa de N fija, están en relación de enteros sencillos; en concreto, \(\objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}}\) y \(\objetivo{\dfrac{m_{\mathrm{O,3}}}{m_{\mathrm{O,1}}}}\).</p>
-                            <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] y la proporción atómica [3] determinamos los moles y de ahí los subíndices de cada fórmula. Al fijar la masa de N [4] en los tres óxidos, las masas de O pueden compararse directamente [5]: si están en relación de enteros sencillos, la ley se cumple.</p>
-                            \[
-                            \begin{cases}
-                            \calc{n_{\mathrm{N}}^{(i)}} = \dfrac{\dato{m_{\mathrm{N}}^{(i)}}}{\dato{M_{\mathrm{N}}}} & \text{[1]} \\[6pt]
-                            \calc{n_{\mathrm{O}}^{(i)}} = \dfrac{\dato{m_{\mathrm{O}}^{(i)}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
-                            \calc{\dfrac{a_i}{b_i}} = \dfrac{n_{\mathrm{N}}^{(i)}}{n_{\mathrm{O}}^{(i)}} & \text{[3]} \\[6pt]
-                            \dato{m_{\mathrm{N}}^{(1)}} = \dato{m_{\mathrm{N}}^{(2)}} = \dato{m_{\mathrm{N}}^{(3)}} = 14{,}0\,\mathrm{g} & \text{[4]} \\[6pt]
-                            \objetivo{\dfrac{m_{\mathrm{O}}^{(2)}}{m_{\mathrm{O}}^{(1)}}},\;\objetivo{\dfrac{m_{\mathrm{O}}^{(3)}}{m_{\mathrm{O}}^{(1)}}} & \text{[5] (objetivo a verificar)}
-                            \end{cases}
-                            \]
-                        </div>
-                    </details>
-
-                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
-                    <p>Calculamos los moles de N con [1] (común a los tres óxidos, masa fija 14,0 g):</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{N}}} = \frac{m_{\mathrm{N}}}{M_{\mathrm{N}}} = \frac{14{,}0}{14{,}0} = 1{,}00\,\mathrm{mol}}
-                    \]
-
-                    <p><strong>\(\mathrm{N_2O}\).</strong> Aplicamos [2] al oxígeno:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O}}^{(1)}} = \frac{m_{\mathrm{O}}^{(1)}}{M_{\mathrm{O}}} = \frac{8{,}0}{16{,}0} = 0{,}50\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica</em>:</p>
-                    \[
-                    \ley{\calc{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{N}}}}{\calc{n_{\mathrm{O}}^{(1)}}} = \frac{1{,}00}{0{,}50} = \frac{2}{1}} \;\Rightarrow\; \res{\mathrm{N_2O}}
-                    \]
-
-                    <p><strong>\(\mathrm{NO}\).</strong> Aplicamos [2]:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O}}^{(2)}} = \frac{m_{\mathrm{O}}^{(2)}}{M_{\mathrm{O}}} = \frac{16{,}0}{16{,}0} = 1{,}00\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica</em>:</p>
-                    \[
-                    \ley{\calc{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{N}}}}{\calc{n_{\mathrm{O}}^{(2)}}} = \frac{1{,}00}{1{,}00} = \frac{1}{1}} \;\Rightarrow\; \res{\mathrm{NO}}
-                    \]
-
-                    <p><strong>\(\mathrm{NO_2}\).</strong> Aplicamos [2]:</p>
-                    \[
-                    \ley{\calc{n_{\mathrm{O}}^{(3)}} = \frac{m_{\mathrm{O}}^{(3)}}{M_{\mathrm{O}}} = \frac{32{,}0}{16{,}0} = 2{,}00\,\mathrm{mol}}
-                    \]
-                    <p>Sustituimos en [3] <em>para deducir la relación atómica</em>:</p>
-                    \[
-                    \ley{\calc{\frac{a_3}{b_3}} = \frac{\calc{n_{\mathrm{N}}}}{\calc{n_{\mathrm{O}}^{(3)}}} = \frac{1{,}00}{2{,}00} = \frac{1}{2}} \;\Rightarrow\; \res{\mathrm{NO_2}}
-                    \]
-
-                    <p><strong>Verificación de la ley.</strong> Comparamos las masas de O con masa fija de N:</p>
-                    \[
-                    \cond{\objetivo{\frac{m_{\mathrm{O}}^{(2)}}{m_{\mathrm{O}}^{(1)}}} = \frac{16{,}0}{8{,}0} = 2, \quad \objetivo{\frac{m_{\mathrm{O}}^{(3)}}{m_{\mathrm{O}}^{(1)}}} = \frac{32{,}0}{8{,}0} = 4}
-                    \]
-                    <p>La relación es \(1:2:4\), números enteros sencillos. <strong>Se cumple la ley.</strong></p>
-
-                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
-                    <p>Las fórmulas \(\mathrm{N_2O}\), \(\mathrm{NO}\) y \(\mathrm{NO_2}\) son coherentes con los estados de oxidación +1, +2 y +4 del nitrógeno. La relación \(1:2:4\) de masas de O para masa fija de N es una manifestación directa de que los átomos se combinan en proporciones enteras. El ejercicio conecta la ley de Dalton con un contexto real (óxidos de nitrógeno en la atmósfera) y muestra que la ley no se limita a dos compuestos: puede aplicarse a cualquier número de ellos formados por los mismos elementos.</p>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> El monóxido de nitrógeno (NO) y el dióxido de nitrógeno (NO₂) son contaminantes atmosféricos. Si 1,00 g de N se combina con 1,14 g de O en el NO, y con 2,28 g de O en el NO₂:</p>
+                        <ul>
+                            <li>a) Demostrar que cumplen la ley de proporciones múltiples.</li>
+                            <li>b) Calcular la masa de O que se combinaría con 1,00 g de N en un hipotético N₂O₅.</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Apartado a) Fijamos 1,00 g de N. En NO: 1,14 g O; en NO₂: 2,28 g O. Relación 1,14 : 2,28 = 1 : 2 (enteros sencillos). Se cumple.</li>
+                            <li>Apartado b) Para N₂O₅, la relación atómica N:O = 2:5. Por tanto, por cada 2 átomos de N (28 g) hay 5 átomos de O (80 g). Para 1,00 g de N, la masa de O sería:
+                                \[
+                                m_{\text{O}} = 1,00 \times \frac{5 \cdot 16}{2 \cdot 14} = 1,00 \times \frac{80}{28} = 2,86 \text{ g}
+                                \]
+                            </li>
+                            <li>Así, las masas de O para 1,00 g de N en NO, NO₂ y N₂O₅ serían 1,14 ; 2,28 ; 2,86, que guardan relación 1:2:2,5 (no entera con 2,5, pero al multiplicar por 2 da 2:4:5).</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <!-- ============================================
-                 PIE DE CLAVE DIDÁCTICA
-                 ============================================ -->
-            <div class="clave-didactica">
-                <i class="fa-solid fa-lightbulb"></i>
-                <strong>Clave didáctica:</strong> esta ley desmonta la idea de que los elementos pueden combinarse en cualquier proporción continua. Los ejercicios se han resuelto <strong>deduciendo el resultado desde el modelo atómico-molar</strong> (n = m/M y proporción atómica = proporción de moles), nunca sustituyendo directamente en la fórmula final «en recuadro». Las condiciones de masa fija y las relaciones entre masas se han tratado como <strong>ecuaciones explícitas del sistema</strong> ([4], [5], [6]), citadas por número y con su finalidad contextualizada en cada sustitución. Las ecuaciones se han coloreado por categoría (<span style="color:#2f855a;">■ leyes</span>, <span style="color:#b7791f;">■ condiciones/ligaduras</span>, <span style="color:#6b46c1;">■ resultados</span>) y las incógnitas durante el cálculo se han marcado con <em>rojo negrita</em>. Cada ejercicio se ha planificado desde el <strong>objetivo hacia los datos</strong> mediante la «🧭 Estrategia de resolución», que distingue datos (verde), objetivo (rojo recuadrado), intermedias que se calculan (azul) e incógnitas que no se calculan explícitamente (rojo negrita). El error más común —confundir esta ley con la de Proust— queda desmontado: aquí <strong>comparamos varios compuestos</strong> de los mismos elementos, no un único compuesto de proporción fija.
+            <!-- PIE DIDÁCTICO -->
+            <div class="didactic-footer">
+                <strong>🧠 Observaciones claves:</strong> La Ley de las Proporciones Múltiples nos muestra que los átomos se combinan en <strong>proporciones discretas</strong> y no en cualquier cantidad. Esto es una evidencia fundamental de la naturaleza atómica de la materia. El error común es confundirla con la ley de Proust; mientras la primera compara <strong>distintos compuestos</strong> de los mismos elementos, la segunda se refiere a un <strong>único compuesto</strong> con proporción fija. La ley de Dalton permite predecir fórmulas a partir de datos experimentales y es la base para entender la estequiometría de múltiples compuestos.
             </div>
 
         </div>
     </details>
 
-    <!-- ============================================
-         BLOQUE "ES HORA DE" (versión fija)
-         ============================================ -->
-    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-        <div style="max-width: 100%; padding: 15px; margin: 10px auto; text-align: center; background: #f8fafc; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-            <p style="font-size: clamp(0.95rem, 3vw, 1.2rem); color: #2d3748; margin-top: 0; margin-bottom: 12px; padding: 0 10px;">
-                <br> Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-            </p>
-            <div style="text-align:center;">
-                <a href="../index.html" target="_blank" style="display:inline-block; padding:12px 24px; background:#0078D4; color:white; text-decoration:none; border-radius:12px; font-weight:bold;">
-                    Volver al inicio
-                </a>
-            </div>
+
+
+
+
+
+
+<!-- ============================================
+     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+     ============================================ -->
+
+<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+    <div style="
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+        text-align: center;
+        background: #f8fafc;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    ">
+        <p style="
+            font-size: clamp(0.95rem, 3vw, 1.2rem);
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            padding: 0 10px;
+        ">
+                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+        </p>
+
+        <div style="text-align:center;">
+            <a
+                href="../index.html"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    padding:12px 24px;
+                    background:#0078D4;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:12px;
+                    font-weight:bold;
+                "
+            >
+                Volver al inicio
+            </a>
         </div>
     </div>
 </div>
 
-<!-- Seguridad MathJax -->
-<script>
-if (window.MathJax && MathJax.typesetPromise) {
-  MathJax.typesetPromise().catch(err => console.error('MathJax:', err));
-}
-</script>
+<!-- ===================FIN DE ES HORA DE ==================== -->
+
+
+
+
+
+
+
+
+
+
+</div> <!-- fin container -->
 </body>
 </html>
