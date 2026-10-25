@@ -1,279 +1,169 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demostración 8: Composición Centesimal</title>
-    <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+
+    <!-- ============================================================
+         CONFIGURACIÓN OBLIGATORIA DE MATHJAX (ANTES del src)
+         ============================================================ -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          ley:      ["\\textcolor{##2f855a}{#1}", 1],
+          cond:     ["\\textcolor{##b7791f}{#1}", 1],
+          res:      ["\\textcolor{##6b46c1}{#1}", 1],
+          dato:     ["\\textcolor{##2f855a}{#1}", 1],
+          incog:    ["\\textcolor{##c53030}{\\boldsymbol{#1}}", 1],
+          objetivo: ["\\textcolor{##c53030}{\\boxed{#1}}", 1],
+          calc:     ["\\textcolor{##2b6cb0}{#1}", 1]
+        }
+      },
+      options: {
+        ignoreHtmlClass: 'no-mathjax',
+        processHtmlClass: 'mathjax'
+      },
+      startup: { typeset: true }
+    };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- FontAwesome (versión 6) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
            ============================================ */
         .container {
-            max-width: 900px;
-            width: 100%;
-            background: white;
-            border-radius: 16px;
+            max-width: 900px; width: 100%;
+            background: white; border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            margin: 20px auto;
+            overflow: hidden; margin: 20px auto;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
+            color: white; padding: 20px 30px;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 20px; flex-wrap: wrap;
         }
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 2;
-            min-width: 200px;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-            line-height: 1.2;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-            opacity: 0.9;
-        }
-        .header-sub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-        .header-sub img {
-            height: 32px;
-            width: auto;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.15);
-            padding: 2px;
-        }
-        .header-sub .codigo {
-            font-weight: 600;
-            font-size: 1em;
-            letter-spacing: 0.3px;
-            background: rgba(255,255,255,0.2);
-            padding: 2px 10px;
-            border-radius: 20px;
-        }
-        .header-sub .texto {
-            font-weight: 400;
-            font-size: 1em;
-            opacity: 0.95;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex: 0 0 auto;
-        }
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-            background: rgba(255,255,255,0.1);
-            padding: 4px 8px;
-            border-radius: 12px;
-        }
+        .header-left { display: flex; flex-direction: column; justify-content: center; flex: 2; min-width: 200px; }
+        .header-left h1 { font-size: 1.8em; margin: 0; line-height: 1.2; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; opacity: 0.9; }
+        .header-sub { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+        .header-sub img { height: 32px; width: auto; border-radius: 4px; background: rgba(255,255,255,0.15); padding: 2px; }
+        .header-sub .codigo { font-weight: 600; font-size: 1em; letter-spacing: 0.3px; background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px; }
+        .header-sub .texto { font-weight: 400; font-size: 1em; opacity: 0.95; }
+        .header-right { display: flex; align-items: center; justify-content: flex-end; flex: 0 0 auto; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 12px; }
 
-        .section {
-            padding: 25px 30px;
-            margin: 15px;
-            border-radius: 12px;
-            border-left: 5px solid;
-        }
+        .section { padding: 25px 30px; margin: 15px; border-radius: 12px; border-left: 5px solid; }
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        .section h2 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .section h2 { font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
 
-        .formula-box {
-            background: #edf2f7;
-            border: 2px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
-        }
-
-        .step {
-            background: white;
-            border-left: 4px solid #a0aec0;
-            padding: 15px;
-            margin: 12px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .step-num {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .note {
-            background: #fffbeb;
-            border: 1px solid #f6e05e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #744210;
-        }
-
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        ul, ol {
-            padding-left: 1.5rem;
-        }
-        li {
-            margin-bottom: 6px;
-        }
-
-        .composition-box {
-            background: #faf5ff;
-            border: 2px solid #9f7aea;
-            border-radius: 10px;
-            padding: 16px;
-            margin: 16px 0;
-        }
+        .formula-box { background: #edf2f7; border: 2px solid #cbd5e0; border-radius: 10px; padding: 15px; margin: 15px 0; text-align: center; font-size: 1.1em; }
+        .step { background: white; border-left: 4px solid #a0aec0; padding: 15px; margin: 12px 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .step-num { display: inline-block; background: #667eea; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
+        .note { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 12px; margin-top: 15px; font-size: 0.95em; color: #744210; }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin-bottom: 6px; }
+        .composition-box { background: #faf5ff; border: 2px solid #9f7aea; border-radius: 10px; padding: 16px; margin: 16px 0; }
 
         /* ============================================
-           ESTILOS PARA EL DESPLEGABLE INTERACTIVO
+           ESTILOS OBLIGATORIOS BLOQUES DESPLEGABLES
            ============================================ */
-        details {
-            margin: 25px 30px 20px 30px;
-            background: #f8fafc;
-            border-radius: 12px;
-            border: 1px solid #cbd5e0;
-            overflow: hidden;
-            transition: all 0.2s ease;
+        details.desmitificando {
+            margin: 15px; background: #faf5ff;
+            border-radius: 12px; border-left: 5px solid #9f7aea;
+            overflow: hidden; box-shadow: 0 4px 12px rgba(107,70,193,0.08);
         }
-        details summary {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 24px;
-            cursor: pointer;
-            background: #edf2f7;
-            font-weight: 600;
-            font-size: 1.15em;
-            color: #2d3748;
-            user-select: none;
-            transition: background 0.2s;
+        details.desmitificando > summary {
+            padding: 18px 25px; cursor: pointer; font-weight: bold;
+            font-size: 1.15em; color: #6b46c1;
+            display: flex; align-items: center; gap: 12px;
+            list-style: none; background: #f3e8ff;
+            user-select: none; transition: background 0.2s ease;
         }
-        details summary:hover {
-            background: #e2e8f0;
+        details.desmitificando > summary:hover { background: #e9d8fd; }
+        details.desmitificando > summary::-webkit-details-marker { display: none; }
+        details.desmitificando > summary::marker { content: ""; }
+        details.desmitificando > summary { list-style: none; }
+        details.desmitificando > summary .fa-chevron-circle-down { transition: transform 0.35s ease; color: #805ad5; flex-shrink: 0; }
+        details.desmitificando[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.desmitificando > summary .pulse { font-size: 0.85em; color: #9f7aea; font-weight: normal; margin-left: auto; }
+        .details-content { padding: 20px 25px; }
+
+        details.estrategia-resolucion {
+            margin: 12px 0 16px; border: 1px solid #bee3f8;
+            border-left: 4px solid #3182ce; border-radius: 8px;
+            background: #ffffff; overflow: hidden;
         }
-        details summary::-webkit-details-marker {
-            display: none;
+        details.estrategia-resolucion > summary {
+            padding: 10px 14px; cursor: pointer; display: flex;
+            align-items: center; gap: 8px; color: #2b6cb0;
+            background: #ebf8ff; font-weight: bold;
+            list-style: none; user-select: none;
         }
-        details summary i.fa-chevron-circle-down {
-            transition: transform 0.3s ease;
-            font-size: 1.4em;
-            color: #4a5568;
+        details.estrategia-resolucion > summary:hover { background: #e6f6ff; }
+        details.estrategia-resolucion > summary::-webkit-details-marker { display: none; }
+        details.estrategia-resolucion > summary::marker { content: ""; }
+        details.estrategia-resolucion > summary { list-style: none; }
+        details.estrategia-resolucion > summary .fa-chevron-circle-down { flex-shrink: 0; transition: transform 0.35s ease; }
+        details.estrategia-resolucion[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.estrategia-resolucion > summary .hint { margin-left: auto; font-size: 0.82em; font-weight: normal; color: #2b6cb0; }
+        .estrategia-contenido { padding: 12px 16px; background: #ffffff; }
+        .estrategia-contenido p { margin: 6px 0; line-height: 1.6; }
+
+        details.ejercicio-card {
+            border: 1px solid #cbd5e0; border-radius: 10px;
+            margin-bottom: 22px; overflow: hidden; background: white;
         }
-        details[open] summary i.fa-chevron-circle-down {
-            transform: rotate(180deg);
+        details.ejercicio-card > summary.ejercicio-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 12px 16px; font-weight: bold;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.05em; cursor: pointer; list-style: none;
+            user-select: none; transition: filter 0.2s ease;
         }
-        .details-content {
-            padding: 20px 25px;
-            background: white;
-        }
-        .exercise-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-        }
-        .exercise-header {
-            background: #4a5568;
-            color: white;
-            padding: 12px 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .exercise-header .badge {
-            background: rgba(255,255,255,0.2);
-            border-radius: 30px;
-            padding: 2px 14px;
-            font-size: 0.85em;
-        }
-        .exercise-body {
-            padding: 18px 20px;
-        }
-        .exercise-body .statement {
-            background: #f7fafc;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border-left: 4px solid #4299e1;
-            margin-bottom: 15px;
-        }
-        .exercise-body .resolution {
-            background: #f0fff4;
-            padding: 15px 18px;
-            border-radius: 8px;
-            border-left: 4px solid #48bb78;
-            margin-top: 10px;
-        }
-        .exercise-body .resolution .math {
-            margin: 8px 0;
-        }
-        .didactic-footer {
-            background: #ebf4ff;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin-top: 20px;
-            border-left: 5px solid #3182ce;
-            font-style: italic;
-        }
-        .didactic-footer strong {
-            color: #2b6cb0;
-        }
+        details.ejercicio-card > summary.ejercicio-header:hover { filter: brightness(1.08); }
+        details.ejercicio-card > summary.ejercicio-header::-webkit-details-marker { display: none; }
+        details.ejercicio-card > summary.ejercicio-header::marker { content: ""; }
+        details.ejercicio-card > summary.ejercicio-header { list-style: none; }
+        .ejercicio-num { background: white; color: #667eea; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0; font-size: 0.95em; }
+        .ejercicio-header .fa-chevron-down { margin-left: auto; transition: transform 0.35s ease; color: rgba(255,255,255,0.9); flex-shrink: 0; }
+        details.ejercicio-card[open] > summary.ejercicio-header .fa-chevron-down { transform: rotate(180deg); }
+        .ejercicio-header .hint { font-size: 0.78em; font-weight: normal; color: rgba(255,255,255,0.85); margin-left: 6px; }
+        .ejercicio-body { padding: 16px 18px; background: #f7fafc; }
+        .ejercicio-body > p:first-child { margin-top: 0; }
+        .ejercicio-body ul { margin: 8px 0; padding-left: 22px; }
+        .ejercicio-resolucion { background: #f0fff4; border-left: 4px solid #48bb78; padding: 14px 18px; margin: 18px 18px 18px; border-radius: 0 8px 8px 0; }
+        .ejercicio-resolucion h4 { color: #276749; margin: 12px 0 6px 0; font-size: 0.98em; display: flex; align-items: center; gap: 8px; }
+        .ejercicio-resolucion h4:first-child { margin-top: 0; }
+        .ejercicio-resolucion h4:not(:first-child) { border-top: 1px solid #c6f6d5; padding-top: 12px; margin-top: 16px; }
+        .ejercicio-resolucion p { margin: 4px 0; line-height: 1.6; }
+
+        .clave-didactica { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 16px 18px; margin-top: 24px; color: #744210; line-height: 1.65; }
+        .clave-didactica strong { color: #975a16; }
+        .clave-didactica .fa-lightbulb { color: #d69e2e; margin-right: 6px; }
+
+        .eq-ley  { border-left: 3px solid #48bb78; padding-left: 10px; background: #f0fff4; border-radius: 0 6px 6px 0; }
+        .eq-cond { border-left: 3px solid #f6e05e; padding-left: 10px; background: #fffbeb; border-radius: 0 6px 6px 0; }
+        .eq-res  { border-left: 3px solid #9f7aea; padding-left: 10px; background: #faf5ff; border-radius: 0 6px 6px 0; }
     </style>
 </head>
 <body>
@@ -283,7 +173,8 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">                <span class="codigo">#T03.08.- </span>
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <span class="codigo">#T03.08.- </span>
                 <span class="texto">Composición Centesimal de un Compuesto</span>
             </div>
         </div>
@@ -292,38 +183,16 @@
         </div>
     </div>
 
-    <!-- ===== SECCIONES TRANSFORMADAS ===== -->
+    <!-- ===== SECCIONES ===== -->
     <div class="section enunciado">
         <h2>📘 Enunciado</h2>
         <p>Partiendo de la <strong>fórmula química</strong> de un compuesto y de las <strong>masas atómicas relativas</strong> de los elementos que lo constituyen, demostrar que el <strong>porcentaje en masa</strong> de cada elemento en el compuesto se obtiene como el cociente entre la masa total de ese elemento en un mol de compuesto y la masa molar del compuesto, multiplicado por 100.</p>
         <div class="formula-box">
-            Para un compuesto \( \text{A}_a\text{B}_b\text{C}_c \):
-            \[ \%(\text{A}) = \frac{a \cdot A_r(\text{A})}{M_r(\text{compuesto})} \times 100 \]
-
-
-
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-<img src="../imagenes/U03c08 - Composición centesimal.png" alt="Imagen" width="800">
-<img src="../imagenes/U03c08 - Composición centesimal_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
-
-
-
-
-
-
-
+            Para un compuesto \( \mathrm{A}_a\mathrm{B}_b\mathrm{C}_c \):
+            \[ \%(\mathrm{A}) = \frac{a \cdot A_r(\mathrm{A})}{M_r(\mathrm{compuesto})} \times 100 \]
+            <style>img { width: 100%; height: auto; max-width: 100%; }</style>
+            <img src="../imagenes/U03c08 - Composición centesimal.png" alt="Imagen" width="800">
+            <img src="../imagenes/U03c08 - Composición centesimal_2.png" alt="Imagen" width="800">
         </div>
     </div>
 
@@ -342,13 +211,13 @@
         <h2>⚙️ Procedimiento</h2>
         <div class="step">
             <span class="step-num">1</span>
-            <strong>Consideremos un compuesto genérico</strong> de fórmula \( \text{A}_a\text{B}_b\text{C}_c \), donde \( a, b, c \) son los subíndices estequiométricos (números enteros).
+            <strong>Consideremos un compuesto genérico</strong> de fórmula \( \mathrm{A}_a\mathrm{B}_b\mathrm{C}_c \), donde \( a, b, c \) son los subíndices estequiométricos (números enteros).
         </div>
         <div class="step">
             <span class="step-num">2</span>
             <strong>Calculamos la masa molar del compuesto</strong>. Por definición, es la suma de las contribuciones de cada elemento:
             <div class="formula-box">
-                \[ M(\text{compuesto}) = a \cdot A_r(\text{A}) + b \cdot A_r(\text{B}) + c \cdot A_r(\text{C}) \]
+                \[ M(\text{compuesto}) = a \cdot A_r(\mathrm{A}) + b \cdot A_r(\mathrm{B}) + c \cdot A_r(\mathrm{C}) \]
             </div>
             <p>donde \( A_r \) representa la masa atómica relativa de cada elemento.</p>
         </div>
@@ -356,22 +225,22 @@
             <span class="step-num">3</span>
             <strong>Determinamos la masa de cada elemento</strong> en un mol de compuesto. En un mol hay \( a \) moles de átomos de A, \( b \) moles de átomos de B, etc.:
             <div class="formula-box">
-                \[ m_{\text{A en 1 mol}} = a \cdot M(\text{A}) = a \cdot A_r(\text{A}) \text{ g} \]
-                \[ m_{\text{B en 1 mol}} = b \cdot M(\text{B}) = b \cdot A_r(\text{B}) \text{ g} \]
+                \[ m_{\mathrm{A\ en\ 1\ mol}} = a \cdot M(\mathrm{A}) = a \cdot A_r(\mathrm{A})\ \mathrm{g} \]
+                \[ m_{\mathrm{B\ en\ 1\ mol}} = b \cdot M(\mathrm{B}) = b \cdot A_r(\mathrm{B})\ \mathrm{g} \]
             </div>
         </div>
         <div class="step">
             <span class="step-num">4</span>
             <strong>Calculamos la fracción másica</strong> de cada elemento. Es el cociente entre la masa del elemento y la masa total del compuesto:
             <div class="formula-box">
-                \[ x_{\text{A}} = \frac{m_{\text{A}}}{m_{\text{total}}} = \frac{a \cdot A_r(\text{A})}{a \cdot A_r(\text{A}) + b \cdot A_r(\text{B}) + c \cdot A_r(\text{C})} \]
+                \[ x_{\mathrm{A}} = \frac{m_{\mathrm{A}}}{m_{\mathrm{total}}} = \frac{a \cdot A_r(\mathrm{A})}{a \cdot A_r(\mathrm{A}) + b \cdot A_r(\mathrm{B}) + c \cdot A_r(\mathrm{C})} \]
             </div>
         </div>
         <div class="step">
             <span class="step-num">5</span>
             <strong>Obtenemos el porcentaje en masa</strong> multiplicando la fracción másica por 100:
             <div class="formula-box">
-                \[ \%(\text{A}) = \frac{a \cdot A_r(\text{A})}{M(\text{compuesto})} \times 100 \]
+                \[ \%(\mathrm{A}) = \frac{a \cdot A_r(\mathrm{A})}{M(\text{compuesto})} \times 100 \]
             </div>
             <p>Análogamente para los demás elementos.</p>
         </div>
@@ -379,231 +248,515 @@
             <span class="step-num">6</span>
             <strong>Verificamos que los porcentajes suman 100%</strong>:
             <div class="formula-box">
-                \[ \%(\text{A}) + \%(\text{B}) + \%(\text{C}) = \frac{a \cdot A_r(\text{A}) + b \cdot A_r(\text{B}) + c \cdot A_r(\text{C})}{M(\text{compuesto})} \times 100 = 100\% \]
+                \[ \%(\mathrm{A}) + \%(\mathrm{B}) + \%(\mathrm{C}) = \frac{a \cdot A_r(\mathrm{A}) + b \cdot A_r(\mathrm{B}) + c \cdot A_r(\mathrm{C})}{M(\text{compuesto})} \times 100 = 100\% \]
             </div>
             <p>Lo cual es una <strong>comprobación de coherencia</strong> del cálculo.</p>
         </div>
         <div class="step">
             <span class="step-num">7</span>
-            <strong>Generalización para compuestos con hidratación</strong>. Para sales hidratadas (ej. \( \text{CuSO}_4 \cdot 5\text{H}_2\text{O} \)), la masa del agua de cristalización se incluye en la masa molar total, pero también puede calcularse el porcentaje de agua por separado:
+            <strong>Generalización para compuestos con hidratación</strong>. Para sales hidratadas (ej. \( \mathrm{CuSO_4 \cdot 5H_2O} \)), la masa del agua de cristalización se incluye en la masa molar total, pero también puede calcularse el porcentaje de agua por separado:
             <div class="formula-box">
-                \[ \%(\text{H}_2\text{O}) = \frac{5 \cdot M(\text{H}_2\text{O})}{M(\text{CuSO}_4 \cdot 5\text{H}_2\text{O})} \times 100 \]
+                \[ \%(\mathrm{H_2O}) = \frac{5 \cdot M(\mathrm{H_2O})}{M(\mathrm{CuSO_4 \cdot 5H_2O})} \times 100 \]
             </div>
         </div>
     </div>
 
     <div class="section resultado">
         <h2>✅ Resultado</h2>
-        <p>Se ha demostrado que para cualquier compuesto \( \text{A}_a\text{B}_b\text{C}_c \):</p>
+        <p>Se ha demostrado que para cualquier compuesto \( \mathrm{A}_a\mathrm{B}_b\mathrm{C}_c \):</p>
         <div class="formula-box">
             \[ \%(\text{elemento } i) = \frac{n_i \cdot A_r(i)}{\sum_{j} n_j \cdot A_r(j)} \times 100 = \frac{n_i \cdot A_r(i)}{M(\text{compuesto})} \times 100 \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">El porcentaje en masa de cada elemento depende únicamente de su fórmula química y de las masas atómicas de sus componentes.</p>
         <div class="composition-box">
-            <strong>Ejemplo estructurado:</strong> Propano (\( \text{C}_3\text{H}_8 \))<br>
-            \( M = 3 \times 12 + 8 \times 1 = 44 \text{ g/mol} \)<br>
-            \( \%(\text{C}) = \frac{36}{44} \times 100 = 81,8\% \)<br>
-            \( \%(\text{H}) = \frac{8}{44} \times 100 = 18,2\% \)
+            <strong>Ejemplo estructurado:</strong> Propano (\( \mathrm{C_3H_8} \))<br>
+            \( M = 3 \times 12 + 8 \times 1 = 44\ \mathrm{g/mol} \)<br>
+            \( \%(\mathrm{C}) = \frac{36}{44} \times 100 = 81{,}8\% \)<br>
+            \( \%(\mathrm{H}) = \frac{8}{44} \times 100 = 18{,}2\% \)
         </div>
         <div class="note">
-            💡 <strong>Observaciones sobre el alumnado:</strong>  Es fundamental enfatizar que la composición centesimal es una <strong>propiedad intensiva</strong> del compuesto: no depende del tamaño de la muestra. Esta demostración conecta directamente con la Ley de Proust (proporciones definidas). Un error frecuente es confundir la composición centesimal con la fórmula empírica; conviene destacar que la primera da <strong>proporciones en masa</strong> y la segunda <strong>proporciones en número de átomos</strong>. La conversión requiere dividir por las masas atómicas. Para sales hidratadas, recomiendo calcular siempre la masa molar completa incluyendo el agua de cristalización para evitar errores de omisión.
+            💡 <strong>Observaciones sobre el alumnado:</strong> Es fundamental enfatizar que la composición centesimal es una <strong>propiedad intensiva</strong> del compuesto: no depende del tamaño de la muestra. Esta demostración conecta directamente con la Ley de Proust (proporciones definidas). Un error frecuente es confundir la composición centesimal con la fórmula empírica; conviene destacar que la primera da <strong>proporciones en masa</strong> y la segunda <strong>proporciones en número de átomos</strong>. La conversión requiere dividir por las masas atómicas. Para sales hidratadas, recomiendo calcular siempre la masa molar completa incluyendo el agua de cristalización para evitar errores de omisión.
         </div>
     </div>
 
-    <!-- ============================================
-         BLOQUE DESPLEGABLE INTERACTIVO (AÑADIDO)
-         ============================================ -->
-    <details>
+    <!-- ============================================================
+         BLOQUE DESPLEGABLE OBLIGATORIO — DESMITIFICANDO
+         ============================================================ -->
+    <details class="desmitificando">
         <summary>
-            <i class="fas fa-chevron-circle-down"></i>
-            <span style="flex: 1;">🧪 DESMITIFICANDO Composición Centesimal</span>
-            <span style="font-size: 0.9em; color: #4a5568; background: #e2e8f0; padding: 2px 12px; border-radius: 20px;">
-                <i class="fas fa-hand-pointer"></i> Púlsame
-            </span>
+            <i class="fa-solid fa-chevron-circle-down"></i>
+            <span>🧪 DESMITIFICANDO Composición Centesimal</span>
+            <span class="pulse">🖱️ Púlsame</span>
         </summary>
         <div class="details-content">
 
-            <!-- EJERCICIO 1 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 1</span>
-                    <span>Cálculo de la composición centesimal de un compuesto sencillo</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> Calcular el porcentaje en masa de cada elemento en el sulfato de amonio, \( (\text{NH}_4)_2\text{SO}_4 \). (Masas atómicas: N=14, H=1, S=32, O=16).</p>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Masa molar: \( M = 2(14+4) + 32 + 4\cdot16 = 2\cdot18 + 32 + 64 = 36 + 96 = 132 \, \text{g/mol} \).</li>
-                            <li>\( \%\text{N} = \frac{2\cdot14}{132} \times 100 = \frac{28}{132}\times100 \approx 21,2\% \).</li>
-                            <li>\( \%\text{H} = \frac{8\cdot1}{132} \times 100 = \frac{8}{132}\times100 \approx 6,1\% \).</li>
-                            <li>\( \%\text{S} = \frac{32}{132} \times 100 \approx 24,2\% \).</li>
-                            <li>\( \%\text{O} = \frac{64}{132} \times 100 \approx 48,5\% \).</li>
-                            <li>Comprobación: 21,2+6,1+24,2+48,5 = 100,0%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <!-- Leyenda de colores -->
+            <p class="leyenda-colores" style="margin:0 0 18px 0; font-size:0.92em; color:#4a5568;">
+                <strong>Código de colores:</strong>
+                <span style="color:#2f855a;">■ Leyes fundamentales</span> ·
+                <span style="color:#b7791f;">■ Condiciones y ligaduras</span> ·
+                <span style="color:#6b46c1;">■ Resultado deducido</span> ·
+                <span style="color:#c53030; font-weight:bold;">■ Incógnitas (rojo negrita)</span>
+            </p>
 
-            <!-- EJERCICIO 2 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 2</span>
-                    <span>Cálculo de la masa de un elemento en una cantidad dada de compuesto</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> ¿Qué masa de calcio hay en 250 g de carbonato de calcio (\( \text{CaCO}_3 \)) puro? (Masas atómicas: Ca=40, C=12, O=16).</p>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Masa molar: \( M = 40 + 12 + 3\cdot16 = 40+12+48 = 100 \, \text{g/mol} \).</li>
-                            <li>\( \%\text{Ca} = \frac{40}{100}\times100 = 40\% \).</li>
-                            <li>Masa de Ca en 250 g: \( 250 \times 0,40 = 100 \, \text{g} \).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <!-- ============================================
+                 EJERCICIO 1 — H3PO4 composition
+                 ============================================ -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">1</span>
+                    <span>Composición centesimal del ácido fosfórico</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
 
-            <!-- EJERCICIO 3 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 3</span>
-                    <span>Comparación de riqueza en un elemento entre dos compuestos</span>
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado.</strong> El ácido fosfórico es un componente habitual de los refrescos de cola y de los fertilizantes. Determinar la composición centesimal de su fórmula <strong>H₃PO₄</strong>.</p>
+                    <p><em>Datos:</em> \(A_r(\mathrm{H}) = 1{,}0\); \(A_r(\mathrm{P}) = 31{,}0\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
                 </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> ¿Cuál de los dos compuestos tiene mayor porcentaje de oxígeno: el óxido de aluminio (\( \text{Al}_2\text{O}_3 \)) o el óxido de hierro(III) (\( \text{Fe}_2\text{O}_3 \))? (Masas: Al=27, Fe=56, O=16).</p>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Para \( \text{Al}_2\text{O}_3 \): \( M = 2\cdot27 + 3\cdot16 = 54+48 = 102 \). \( \%\text{O} = \frac{48}{102}\times100 \approx 47,1\% \).</li>
-                            <li>Para \( \text{Fe}_2\text{O}_3 \): \( M = 2\cdot56 + 3\cdot16 = 112+48 = 160 \). \( \%\text{O} = \frac{48}{160}\times100 = 30,0\% \).</li>
-                            <li>El \( \text{Al}_2\text{O}_3 \) tiene mayor porcentaje de oxígeno (47,1% vs 30,0%).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <!-- EJERCICIO 4 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 4</span>
-                    <span>Composición centesimal de una sal hidratada</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> Calcular el porcentaje en masa de agua de cristalización en el sulfato de cobre(II) pentahidratado (\( \text{CuSO}_4 \cdot 5\text{H}_2\text{O} \)). (Masas: Cu=63,5, S=32, O=16, H=1).</p>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Masa del compuesto anhidro: \( 63,5 + 32 + 4\cdot16 = 63,5+32+64 = 159,5 \).</li>
-                            <li>Masa de 5H₂O: \( 5\cdot(2\cdot1+16) = 5\cdot18 = 90 \).</li>
-                            <li>Masa molar total: \( 159,5 + 90 = 249,5 \, \text{g/mol} \).</li>
-                            <li>\( \%\text{H}_2\text{O} = \frac{90}{249,5}\times100 \approx 36,1\% \).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Conocemos la fórmula molecular del compuesto, H₃PO₄, y las masas atómicas de sus elementos. <strong>Objetivo:</strong> calcular el porcentaje en masa de cada elemento (H, P, O) en el compuesto.</p>
 
-            <!-- EJERCICIO 5 -->
-            <div class="exercise-card">
-                <div class="exercise-header">
-                    <span class="badge">Ejercicio 5</span>
-                    <span>Determinación de la pureza a partir de la composición centesimal</span>
-                </div>
-                <div class="exercise-body">
-                    <div class="statement">
-                        <p><strong>Enunciado:</strong> Una muestra de 20,0 g de un mineral de cinc contiene 13,4 g de Zn. Se sabe que el mineral es blenda (\( \text{ZnS} \)) con impurezas inertes. Calcular la pureza del mineral (% de ZnS). (Masas: Zn=65,4, S=32,1).</p>
-                    </div>
-                    <div class="resolution">
-                        <p><strong>Resolución paso a paso:</strong></p>
-                        <ul>
-                            <li>Masa molar de ZnS: \( 65,4 + 32,1 = 97,5 \, \text{g/mol} \).</li>
-                            <li>\( \%\text{Zn en ZnS} = \frac{65,4}{97,5}\times100 \approx 67,1\% \).</li>
-                            <li>En 13,4 g de Zn, la masa de ZnS puro necesaria es: \( 13,4 / 0,671 \approx 20,0 \, \text{g} \)? ¡Cuidado! En realidad, si la muestra tiene 13,4 g de Zn, y el ZnS tiene 67,1% de Zn, entonces la masa de ZnS en la muestra es \( 13,4 \times \frac{97,5}{65,4} \approx 20,0 \, \text{g} \).</li>
-                            <li>Como la muestra pesa 20,0 g y toda corresponde a ZnS, la pureza es del 100%. (Si hubiera menos, se calcularía).</li>
-                            <li>En general, \( \text{Pureza} = \frac{m_{\text{ZnS real}}}{m_{\text{muestra}}} \times 100 \).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Un mol de H₃PO₄ contiene 3 mol de átomos de H, 1 mol de átomos de P y 4 mol de átomos de O. La masa de cada elemento en un mol de compuesto es el producto de su número de átomos por su masa atómica. La masa total del compuesto (masa molar) es la suma de esas contribuciones.</p>
 
-            <!-- PIE DIDÁCTICO -->
-            <div class="didactic-footer">
-                <strong>🧠 Observaciones claves:</strong> La composición centesimal es una <strong>herramienta de identificación</strong> y control de pureza. El error más común es <strong>olvidar multiplicar por el número de átomos</strong> de cada elemento en la fórmula al calcular la masa molar parcial. También se suele confundir el porcentaje en masa con el porcentaje en moles (fracción molar). Recuerda que la composición centesimal <strong>no depende de la cantidad de muestra</strong>; es una propiedad intensiva del compuesto.
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>Partimos de la definición de masa molar como suma de masas atómicas y de la fracción másica como cociente entre la masa del elemento y la masa total. Agrupamos las ecuaciones del modelo:</p>
+                    \[
+                    \begin{cases}
+                    \ley{M = \sum_{i} n_i \cdot A_r(i)} & \text{\ley{[1]} (masa molar del compuesto)} \\[6pt]
+                    \ley{x_i = \dfrac{n_i \cdot A_r(i)}{M}} & \text{\ley{[2]} (fracción másica del elemento } i \text{)} \\[6pt]
+                    \ley{\%(i) = x_i \times 100} & \text{\ley{[3]} (paso a porcentaje)} \\[6pt]
+                    \cond{\sum_{i} \%(i) = 100\%} & \text{\cond{[4]} (condición de coherencia)}
+                    \end{cases}
+                    \]
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> obtener los porcentajes \(\objetivo{\%(\mathrm{H})}\), \(\objetivo{\%(\mathrm{P})}\) y \(\objetivo{\%(\mathrm{O})}\).</p>
+                            <p><strong>Ruta justificada:</strong> con la definición de masa molar [1] y la fracción másica [2] deduciremos cada porcentaje; la condición [4] de suma 100% servirá de verificación final.</p>
+                            \[
+                            \begin{cases}
+                            \calc{M} = 3\,\dato{A_r(\mathrm{H})} + 1\,\dato{A_r(\mathrm{P})} + 4\,\dato{A_r(\mathrm{O})} & \text{[1]} \\[6pt]
+                            \calc{x_{\mathrm{H}}} = \dfrac{3\,\dato{A_r(\mathrm{H})}}{\calc{M}},\quad \calc{x_{\mathrm{P}}} = \dfrac{1\,\dato{A_r(\mathrm{P})}}{\calc{M}},\quad \calc{x_{\mathrm{O}}} = \dfrac{4\,\dato{A_r(\mathrm{O})}}{\calc{M}} & \text{[2]} \\[6pt]
+                            \objetivo{\%(\mathrm{H})} = 100\,\calc{x_{\mathrm{H}}},\quad \objetivo{\%(\mathrm{P})} = 100\,\calc{x_{\mathrm{P}}},\quad \objetivo{\%(\mathrm{O})} = 100\,\calc{x_{\mathrm{O}}} & \text{[3]} \\[6pt]
+                            \objetivo{\sum_{i} \%(i)} = 100\% & \text{[4]}
+                            \end{cases}
+                            \]
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Aplicamos [1] para obtener la masa molar:</p>
+                    \[
+                    \ley{\calc{M} = 3\cdot 1{,}0 + 1\cdot 31{,}0 + 4\cdot 16{,}0 = 3 + 31 + 64 = 98{,}0\ \mathrm{g/mol}}
+                    \]
+                    <p>Sustituimos en [2] y [3] <em>para obtener el porcentaje de cada elemento en el compuesto</em>:</p>
+                    \[
+                    \ley{\objetivo{\%(\mathrm{H})} = \frac{3\cdot 1{,}0}{\calc{M}} \times 100 = \frac{3}{98} \times 100 = 3{,}06\%}
+                    \]
+                    \[
+                    \ley{\objetivo{\%(\mathrm{P})} = \frac{1\cdot 31{,}0}{\calc{M}} \times 100 = \frac{31}{98} \times 100 = 31{,}63\%}
+                    \]
+                    \[
+                    \ley{\objetivo{\%(\mathrm{O})} = \frac{4\cdot 16{,}0}{\calc{M}} \times 100 = \frac{64}{98} \times 100 = 65{,}31\%}
+                    \]
+                    <p>Comprobamos la condición de coherencia [4]:</p>
+                    \[
+                    \cond{3{,}06 + 31{,}63 + 65{,}31 = 100{,}00\%}
+                    \]
+                    <p>Efectivamente, la suma es 100%. El resultado final es:</p>
+                    \[
+                    \res{\mathrm{H_3PO_4}:\ \%(\mathrm{H}) = 3{,}1\%,\ \%(\mathrm{P}) = 31{,}6\%,\ \%(\mathrm{O}) = 65{,}3\%}
+                    \]
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>La composición del ácido fosfórico está dominada por el oxígeno (65,3%), como era de esperar por sus 4 átomos de O. El fósforo contribuye con un 31,6% (1 solo átomo, pero muy pesado) y el hidrógeno con tan solo un 3,1% (3 átomos muy ligeros). Los porcentajes suman 100%, lo que confirma la coherencia del cálculo. La composición centesimal no depende del tamaño de la muestra: es una propiedad intensiva.</p>
+                </div>
+            </details>
+
+            <!-- ============================================
+                 EJERCICIO 2 — N in urea
+                 ============================================ -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">2</span>
+                    <span>¿Cuánto nitrógeno aporta la urea al suelo?</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado.</strong> Un agricultor aplica <strong>25,0 kg de urea</strong> al suelo de su cultivo. La urea tiene fórmula <strong>CO(NH₂)₂</strong>. Determinar la masa de nitrógeno (en kg) que recibe el suelo, suponiendo que la urea es pura.</p>
+                    <p><em>Datos:</em> \(A_r(\mathrm{C}) = 12{,}0\); \(A_r(\mathrm{H}) = 1{,}0\); \(A_r(\mathrm{N}) = 14{,}0\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
+                </div>
+
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Tenemos una masa de compuesto (25,0 kg de urea) y queremos saber cuánto nitrógeno contiene. <strong>Objetivo:</strong> calcular \(m_{\mathrm{N}}\) (masa de nitrógeno) en los 25,0 kg de urea.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>La urea CO(NH₂)₂ contiene 2 átomos de N por molécula. En 1 mol de urea hay 2 mol de átomos de N. La fracción másica de N multiplicada por la masa total de urea dará la masa de N en la muestra.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>Partimos de la definición de masa molar, la fracción másica y la relación entre masa de muestra, masa de compuesto y masa de elemento:</p>
+                    \[
+                    \begin{cases}
+                    \ley{M = \sum_{i} n_i \cdot A_r(i)} & \text{\ley{[1]} (masa molar)} \\[6pt]
+                    \ley{x_{\mathrm{N}} = \dfrac{n_{\mathrm{N}}\cdot A_r(\mathrm{N})}{M}} & \text{\ley{[2]} (fracción másica de N)} \\[6pt]
+                    \ley{m_{\mathrm{N}} = m_{\text{muestra}} \cdot x_{\mathrm{N}}} & \text{\ley{[3]} (masa de elemento en una muestra)} \\[6pt]
+                    \cond{m_{\text{muestra}} = 25{,}0\ \mathrm{kg}} & \text{\cond{[4]} (dato del enunciado)}
+                    \end{cases}
+                    \]
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> obtener \(\objetivo{m_{\mathrm{N}}}\) a partir de la masa de urea.</p>
+                            <p><strong>Ruta justificada:</strong> calculamos \(M\) con [1], obtenemos la fracción másica \(x_{\mathrm{N}}\) con [2] y aplicamos [3] junto con el dato [4] para obtener \(m_{\mathrm{N}}\).</p>
+                            \[
+                            \begin{cases}
+                            \calc{M} = 1\,\dato{A_r(\mathrm{C})} + 4\,\dato{A_r(\mathrm{H})} + 2\,\dato{A_r(\mathrm{N})} + 1\,\dato{A_r(\mathrm{O})} & \text{[1]} \\[6pt]
+                            \calc{x_{\mathrm{N}}} = \dfrac{2\,\dato{A_r(\mathrm{N})}}{\calc{M}} & \text{[2]} \\[6pt]
+                            \objetivo{m_{\mathrm{N}}} = \dato{m_{\text{muestra}}} \cdot \calc{x_{\mathrm{N}}} & \text{[3]} \\[6pt]
+                            \dato{m_{\text{muestra}}} = 25{,}0\ \mathrm{kg} & \text{[4]}
+                            \end{cases}
+                            \]
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Aplicamos [1] <em>para obtener la masa molar de la urea</em>:</p>
+                    \[
+                    \ley{\calc{M} = 12{,}0 + 4\cdot 1{,}0 + 2\cdot 14{,}0 + 16{,}0 = 12 + 4 + 28 + 16 = 60{,}0\ \mathrm{g/mol}}
+                    \]
+                    <p>Sustituimos en [2] <em>para calcular la fracción másica de nitrógeno</em>:</p>
+                    \[
+                    \ley{\calc{x_{\mathrm{N}}} = \frac{2\cdot 14{,}0}{\calc{M}} = \frac{28}{60} = 0{,}4667}
+                    \]
+                    <p>Multiplicamos por 100 [3] <em>para expresarla como porcentaje (informativo)</em>:</p>
+                    \[
+                    \ley{\%(\mathrm{N}) = 100\cdot\calc{x_{\mathrm{N}}} = 46{,}67\%}
+                    \]
+                    <p>Aplicamos ahora [3] con la masa de urea [4] <em>para obtener la masa real de N que recibe el suelo</em>:</p>
+                    \[
+                    \cond{\objetivo{m_{\mathrm{N}}} = m_{\text{muestra}} \cdot x_{\mathrm{N}} = 25{,}0\ \mathrm{kg} \cdot 0{,}4667 = 11{,}67\ \mathrm{kg}}
+                    \]
+                    <p>Es decir:</p>
+                    \[
+                    \res{m_{\mathrm{N}} \approx 11{,}7\ \mathrm{kg\ de\ nitrógeno\ por\ cada\ 25{,}0\ kg\ de\ urea}}
+                    \]
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>De los 25,0 kg de urea aplicados, 11,7 kg son nitrógeno puro. Esto explica por qué la urea es un fertilizante nitrogenado tan concentrado (46,7% de N): casi la mitad de su masa es nitrógeno. La cantidad de N se obtiene <strong>deduciendo</strong> la fracción másica desde la definición de masa molar y la estequiometría de la fórmula, y aplicándola después a la masa de muestra. El resultado es coherente con el uso agrícola habitual de este compuesto.</p>
+                </div>
+            </details>
+
+            <!-- ============================================
+                 EJERCICIO 3 — KCl vs K2SO4
+                 ============================================ -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">3</span>
+                    <span>¿Qué fertilizante aporta más potasio: KCl o K₂SO₄?</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado.</strong> Para corregir una deficiencia de potasio en un suelo se puede usar cloruro de potasio (<strong>KCl</strong>, la silvina) o sulfato de potasio (<strong>K₂SO₄</strong>). Determinar cuál de los dos tiene mayor porcentaje en masa de potasio.</p>
+                    <p><em>Datos:</em> \(A_r(\mathrm{K}) = 39{,}1\); \(A_r(\mathrm{Cl}) = 35{,}5\); \(A_r(\mathrm{S}) = 32{,}0\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
+                </div>
+
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Queremos <strong>comparar</strong> el contenido en potasio de dos compuestos. <strong>Objetivo:</strong> calcular \(\%(\mathrm{K})\) en KCl y en K₂SO₄ y determinar cuál es mayor.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Cada compuesto contiene un número distinto de átomos de K por fórmula: 1 en KCl, 2 en K₂SO₄. Pero las masas molares también son muy distintas. No podemos decidir «a ojo»: hay que calcular la fracción másica en cada caso y compararlas.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>Aplicamos la misma definición de fracción másica a cada compuesto, con sus masas molares respectivas. La comparación final es una desigualdad entre fracciones:</p>
+                    \[
+                    \begin{cases}
+                    \ley{M_j = \sum_{i} n_{i,j}\cdot A_r(i)} & \text{\ley{[1]} (masa molar del compuesto } j\text{)} \\[6pt]
+                    \ley{x_{\mathrm{K},j} = \dfrac{n_{\mathrm{K},j}\cdot A_r(\mathrm{K})}{M_j}} & \text{\ley{[2]} (fracción másica de K)} \\[6pt]
+                    \ley{\%(\mathrm{K})_j = 100\cdot x_{\mathrm{K},j}} & \text{\ley{[3]} (porcentaje de K)} \\[6pt]
+                    \cond{\text{Comparamos } \%(\mathrm{K})_{\mathrm{KCl}} \text{ vs. } \%(\mathrm{K})_{\mathrm{K_2SO_4}}} & \text{\cond{[4]} (objetivo final)}
+                    \end{cases}
+                    \]
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> calcular \(\objetivo{\%(\mathrm{K})_{\mathrm{KCl}}}\) y \(\objetivo{\%(\mathrm{K})_{\mathrm{K_2SO_4}}}\) y comparar.</p>
+                            <p><strong>Ruta justificada:</strong> con [1]–[3] obtenemos el porcentaje de K en cada compuesto; la comparación [4] determina cuál es mayor.</p>
+                            \[
+                            \begin{cases}
+                            \calc{M_{\mathrm{KCl}}} = 1\,\dato{A_r(\mathrm{K})} + 1\,\dato{A_r(\mathrm{Cl})} & \text{[1a]} \\[6pt]
+                            \calc{M_{\mathrm{K_2SO_4}}} = 2\,\dato{A_r(\mathrm{K})} + 1\,\dato{A_r(\mathrm{S})} + 4\,\dato{A_r(\mathrm{O})} & \text{[1b]} \\[6pt]
+                            \objetivo{\%(\mathrm{K})_{\mathrm{KCl}}} = \dfrac{1\,\dato{A_r(\mathrm{K})}}{\calc{M_{\mathrm{KCl}}}} \cdot 100 & \text{[2a]} \\[6pt]
+                            \objetivo{\%(\mathrm{K})_{\mathrm{K_2SO_4}}} = \dfrac{2\,\dato{A_r(\mathrm{K})}}{\calc{M_{\mathrm{K_2SO_4}}}} \cdot 100 & \text{[2b]} \\[6pt]
+                            \calc{\%(\mathrm{K})_{\mathrm{KCl}}} \gtrless \calc{\%(\mathrm{K})_{\mathrm{K_2SO_4}}} & \text{[3]}
+                            \end{cases}
+                            \]
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p><strong>Compuesto KCl.</strong> Aplicamos [1a] y [2a] <em>para obtener su porcentaje de potasio</em>:</p>
+                    \[
+                    \ley{\calc{M_{\mathrm{KCl}}} = 39{,}1 + 35{,}5 = 74{,}6\ \mathrm{g/mol}}
+                    \]
+                    \[
+                    \ley{\objetivo{\%(\mathrm{K})_{\mathrm{KCl}}} = \frac{1\cdot 39{,}1}{74{,}6} \times 100 = 52{,}41\%}
+                    \]
+
+                    <p><strong>Compuesto K₂SO₄.</strong> Aplicamos [1b] y [2b] <em>para obtener su porcentaje de potasio</em>:</p>
+                    \[
+                    \ley{\calc{M_{\mathrm{K_2SO_4}}} = 2\cdot 39{,}1 + 32{,}0 + 4\cdot 16{,}0 = 78{,}2 + 32 + 64 = 174{,}2\ \mathrm{g/mol}}
+                    \]
+                    \[
+                    \ley{\objetivo{\%(\mathrm{K})_{\mathrm{K_2SO_4}}} = \frac{2\cdot 39{,}1}{174{,}2} \times 100 = \frac{78{,}2}{174{,}2} \times 100 = 44{,}89\%}
+                    \]
+
+                    <p>Comparamos los dos porcentajes [3]:</p>
+                    \[
+                    \cond{\%(\mathrm{K})_{\mathrm{KCl}} = 52{,}41\% > \%(\mathrm{K})_{\mathrm{K_2SO_4}} = 44{,}89\%}
+                    \]
+                    <p>Por tanto:</p>
+                    \[
+                    \res{\text{El KCl tiene mayor porcentaje de potasio } (52{,}4\%\ \text{vs.}\ 44{,}9\%)}
+                    \]
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>El KCl contiene un 52,4% de potasio, mientras que el K₂SO₄ contiene un 44,9%. Aunque el K₂SO₄ tiene 2 átomos de K por fórmula, la masa del grupo sulfato es tan grande que «diluye» el porcentaje de potasio. El KCl es por tanto más eficiente como fertilizante potásico por unidad de masa. Este resultado <strong>no es evidente a priori</strong>: solo se concluye calculando las fracciones másicas desde la definición de masa molar y la estequiometría, como se ha hecho.</p>
+                </div>
+            </details>
+
+            <!-- ============================================
+                 EJERCICIO 4 — MgSO4·7H2O
+                 ============================================ -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">4</span>
+                    <span>Sal de Epsom: agua de cristalización en MgSO₄·7H₂O</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado.</strong> La sal de Epsom, <strong>MgSO₄·7H₂O</strong>, se usa en baños relajantes y como laxante. Determinar el porcentaje en masa de agua de cristalización que contiene.</p>
+                    <p><em>Datos:</em> \(A_r(\mathrm{Mg}) = 24{,}3\); \(A_r(\mathrm{S}) = 32{,}0\); \(A_r(\mathrm{O}) = 16{,}0\); \(A_r(\mathrm{H}) = 1{,}0\).</p>
+                </div>
+
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Tenemos una sal hidratada y queremos saber qué porcentaje de su masa total corresponde al agua de cristalización. <strong>Objetivo:</strong> calcular \(\%(\mathrm{H_2O})\).</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>La sal hidratada contiene una parte de MgSO₄ (anhidra) y 7 moléculas de H₂O por cada unidad de MgSO₄. Ambas partes contribuyen a la masa molar total. El porcentaje de agua es el cociente entre la masa del agua de cristalización y la masa molar total del compuesto.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>Partimos de la definición de masa molar aplicada a un compuesto con partes (sal anhidra + agua de cristalización):</p>
+                    \[
+                    \begin{cases}
+                    \ley{M_{\mathrm{anhidra}} = 1\cdot A_r(\mathrm{Mg}) + 1\cdot A_r(\mathrm{S}) + 4\cdot A_r(\mathrm{O})} & \text{\ley{[1]} (masa molar de MgSO_4)} \\[6pt]
+                    \ley{M_{\mathrm{H_2O}} = 2\cdot A_r(\mathrm{H}) + 1\cdot A_r(\mathrm{O})} & \text{\ley{[2]} (masa molar del H_2O)} \\[6pt]
+                    \ley{M_{\mathrm{hidratada}} = M_{\mathrm{anhidra}} + 7\cdot M_{\mathrm{H_2O}}} & \text{\ley{[3]} (masa molar de la sal hidratada)} \\[6pt]
+                    \ley{\%(\mathrm{H_2O}) = \dfrac{7\cdot M_{\mathrm{H_2O}}}{M_{\mathrm{hidratada}}} \times 100} & \text{\ley{[4]} (porcentaje de agua)} \\[6pt]
+                    \cond{\text{La hidratación es } 7\,\mathrm{H_2O}} & \text{\cond{[5]} (dato estequiométrico)}
+                    \end{cases}
+                    \]
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> calcular \(\objetivo{\%(\mathrm{H_2O})}\) en la sal de Epsom.</p>
+                            <p><strong>Ruta justificada:</strong> calculamos la masa molar de la sal anhidra [1] y la del agua [2]; con la estequiometría [5] obtenemos la masa molar de la sal hidratada [3]; y con [4] el porcentaje de agua.</p>
+                            \[
+                            \begin{cases}
+                            \calc{M_{\mathrm{anhidra}}} = \dato{A_r(\mathrm{Mg})} + \dato{A_r(\mathrm{S})} + 4\,\dato{A_r(\mathrm{O})} & \text{[1]} \\[6pt]
+                            \calc{M_{\mathrm{H_2O}}} = 2\,\dato{A_r(\mathrm{H})} + \dato{A_r(\mathrm{O})} & \text{[2]} \\[6pt]
+                            \calc{M_{\mathrm{hidratada}}} = \calc{M_{\mathrm{anhidra}}} + 7\cdot\calc{M_{\mathrm{H_2O}}} & \text{[3]} \\[6pt]
+                            \objetivo{\%(\mathrm{H_2O})} = \dfrac{7\cdot\calc{M_{\mathrm{H_2O}}}}{\calc{M_{\mathrm{hidratada}}}} \cdot 100 & \text{[4]} \\[6pt]
+                            \dato{n_{\mathrm{hidratacion}}} = 7 & \text{[5]}
+                            \end{cases}
+                            \]
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Aplicamos [1] y [2] <em>para obtener las masas molares de las partes</em>:</p>
+                    \[
+                    \ley{\calc{M_{\mathrm{anhidra}}} = 24{,}3 + 32{,}0 + 4\cdot 16{,}0 = 24{,}3 + 32 + 64 = 120{,}3\ \mathrm{g/mol}}
+                    \]
+                    \[
+                    \ley{\calc{M_{\mathrm{H_2O}}} = 2\cdot 1{,}0 + 16{,}0 = 18{,}0\ \mathrm{g/mol}}
+                    \]
+                    <p>Aplicamos [3] y [5] <em>para obtener la masa molar total de la sal hidratada</em>:</p>
+                    \[
+                    \ley{\calc{M_{\mathrm{hidratada}}} = \calc{M_{\mathrm{anhidra}}} + 7\cdot\calc{M_{\mathrm{H_2O}}} = 120{,}3 + 7\cdot 18{,}0 = 120{,}3 + 126{,}0 = 246{,}3\ \mathrm{g/mol}}
+                    \]
+                    <p>Aplicamos [4] <em>para obtener el porcentaje de agua de cristalización</em>:</p>
+                    \[
+                    \ley{\objetivo{\%(\mathrm{H_2O})} = \frac{7\cdot 18{,}0}{246{,}3} \times 100 = \frac{126{,}0}{246{,}3} \times 100 = 51{,}16\%}
+                    \]
+                    <p>Comprobamos que la suma con el porcentaje del resto sea coherente:</p>
+                    \[
+                    \cond{\%(\mathrm{MgSO_4}) + \%(\mathrm{H_2O}) = \frac{120{,}3}{246{,}3}\cdot 100 + \frac{126{,}0}{246{,}3}\cdot 100 = 48{,}84\% + 51{,}16\% = 100\%}
+                    \]
+                    <p>El resultado es:</p>
+                    \[
+                    \res{\mathrm{MgSO_4\cdot 7H_2O}:\ \%(\mathrm{H_2O}) \approx 51{,}2\%}
+                    \]
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>Más de la mitad de la masa de la sal de Epsom (51,2%) es agua de cristalización. Esto explica por qué, al calentarla, la sal pierde gran parte de su masa: el agua no está como humedad superficial, sino formando parte de la red cristalina en proporción fija (7 moléculas por unidad de MgSO₄). El resultado se ha deducido aplicando la definición de masa molar a cada parte del compuesto y combinándolas con la estequiometría de la hidratación; no se ha aplicado directamente una fórmula memorizada.</p>
+                </div>
+            </details>
+
+            <!-- ============================================
+                 EJERCICIO 5 — Hematite purity
+                 ============================================ -->
+            <details class="ejercicio-card">
+                <summary class="ejercicio-header">
+                    <span class="ejercicio-num">5</span>
+                    <span>Pureza de un mineral de hierro (hematita)</span>
+                    <span class="hint">🖱️ Púlsame</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+
+                <div class="ejercicio-body">
+                    <p><strong>Enunciado.</strong> Una muestra de <strong>25,0 g de mineral de hierro</strong> contiene, tras análisis, <strong>14,0 g de hierro</strong>. Suponiendo que el hierro está presente como hematita pura (<strong>Fe₂O₃</strong>) y que el resto son impurezas inertes sin hierro, determinar la <strong>pureza</strong> del mineral (porcentaje de Fe₂O₃ en la muestra).</p>
+                    <p><em>Datos:</em> \(A_r(\mathrm{Fe}) = 55{,}85\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
+                </div>
+
+                <div class="ejercicio-resolucion">
+                    <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                    <p>Se conoce la masa de una muestra de mineral (25,0 g) y la masa de hierro que contiene (14,0 g). El hierro está en forma de Fe₂O₃. <strong>Objetivo:</strong> determinar el porcentaje de Fe₂O₃ puro en la muestra, es decir, la pureza del mineral.</p>
+
+                    <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                    <p>Primero determinamos qué fracción de la masa de Fe₂O₃ es hierro (fracción másica). Con esa fracción y la masa de Fe en la muestra, calculamos la masa de Fe₂O₃ puro presente. Finalmente, dividiendo entre la masa total de la muestra, obtenemos la pureza.</p>
+
+                    <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                    <p>El proceso consta de dos etapas: composición de la hematita (leyes [1]–[3]) y determinación de la pureza de la muestra (leyes [4]–[6]):</p>
+                    \[
+                    \begin{cases}
+                    \ley{M_{\mathrm{Fe_2O_3}} = 2\cdot A_r(\mathrm{Fe}) + 3\cdot A_r(\mathrm{O})} & \text{\ley{[1]} (masa molar de Fe_2O_3)} \\[6pt]
+                    \ley{x_{\mathrm{Fe}} = \dfrac{2\cdot A_r(\mathrm{Fe})}{M_{\mathrm{Fe_2O_3}}}} & \text{\ley{[2]} (fracción másica de Fe en Fe_2O_3)} \\[6pt]
+                    \ley{\%(\mathrm{Fe}) = 100\cdot x_{\mathrm{Fe}}} & \text{\ley{[3]} (porcentaje de Fe en Fe_2O_3)} \\[6pt]
+                    \ley{m_{\mathrm{Fe_2O_3}} = \dfrac{m_{\mathrm{Fe}}}{x_{\mathrm{Fe}}}} & \text{\ley{[4]} (masa de Fe_2O_3 puro en la muestra)} \\[6pt]
+                    \ley{\text{Pureza} = \dfrac{m_{\mathrm{Fe_2O_3}}}{m_{\text{muestra}}} \times 100} & \text{\ley{[5]} (definición de pureza)} \\[6pt]
+                    \cond{m_{\text{muestra}} = 25{,}0\ \mathrm{g},\ m_{\mathrm{Fe}} = 14{,}0\ \mathrm{g}} & \text{\cond{[6]} (datos del enunciado)}
+                    \end{cases}
+                    \]
+
+                    <details class="estrategia-resolucion">
+                        <summary>
+                            <i class="fa-solid fa-chevron-circle-down"></i>
+                            <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                            <span class="hint">🖱️ Púlsame</span>
+                        </summary>
+                        <div class="estrategia-contenido">
+                            <p><strong>Objetivo:</strong> calcular la \(\objetivo{\text{Pureza}}\) de la muestra en Fe₂O₃.</p>
+                            <p><strong>Ruta justificada:</strong> con [1]–[3] obtenemos la fracción másica de Fe en Fe₂O₃ puro; con [4] y el dato de masa de Fe [6] calculamos la masa de Fe₂O₃ presente; con [5] determinamos la pureza.</p>
+                            \[
+                            \begin{cases}
+                            \calc{M_{\mathrm{Fe_2O_3}}} = 2\,\dato{A_r(\mathrm{Fe})} + 3\,\dato{A_r(\mathrm{O})} & \text{[1]} \\[6pt]
+                            \calc{x_{\mathrm{Fe}}} = \dfrac{2\,\dato{A_r(\mathrm{Fe})}}{\calc{M_{\mathrm{Fe_2O_3}}}} & \text{[2]} \\[6pt]
+                            \calc{\%(\mathrm{Fe})} = 100\,\calc{x_{\mathrm{Fe}}} & \text{[3]} \\[6pt]
+                            \calc{m_{\mathrm{Fe_2O_3}}} = \dfrac{\dato{m_{\mathrm{Fe}}}}{\calc{x_{\mathrm{Fe}}}} & \text{[4]} \\[6pt]
+                            \objetivo{\text{Pureza}} = \dfrac{\calc{m_{\mathrm{Fe_2O_3}}}}{\dato{m_{\text{muestra}}}} \cdot 100 & \text{[5]} \\[6pt]
+                            \dato{m_{\text{muestra}}} = 25{,}0\ \mathrm{g},\ \dato{m_{\mathrm{Fe}}} = 14{,}0\ \mathrm{g} & \text{[6]}
+                            \end{cases}
+                            \]
+                        </div>
+                    </details>
+
+                    <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                    <p>Aplicamos [1] <em>para obtener la masa molar de la hematita</em>:</p>
+                    \[
+                    \ley{\calc{M_{\mathrm{Fe_2O_3}}} = 2\cdot 55{,}85 + 3\cdot 16{,}0 = 111{,}7 + 48{,}0 = 159{,}7\ \mathrm{g/mol}}
+                    \]
+                    <p>Aplicamos [2] y [3] <em>para calcular la fracción másica y el porcentaje de Fe en Fe₂O₃ puro</em>:</p>
+                    \[
+                    \ley{\calc{x_{\mathrm{Fe}}} = \frac{111{,}7}{159{,}7} = 0{,}6994}
+                    \]
+                    \[
+                    \ley{\calc{\%(\mathrm{Fe})} = 100 \cdot 0{,}6994 = 69{,}94\%}
+                    \]
+                    <p>Aplicamos [4] con el dato \(m_{\mathrm{Fe}} = 14{,}0\ \mathrm{g}\) [6] <em>para calcular la masa de Fe₂O₃ puro que contiene esa cantidad de hierro</em>:</p>
+                    \[
+                    \cond{\calc{m_{\mathrm{Fe_2O_3}}} = \frac{14{,}0}{0{,}6994} = 20{,}02\ \mathrm{g}}
+                    \]
+                    <p>Aplicamos [5] <em>para obtener la pureza del mineral</em>:</p>
+                    \[
+                    \ley{\objetivo{\text{Pureza}} = \frac{20{,}02}{25{,}0} \times 100 = 80{,}1\%}
+                    \]
+                    <p>Es decir:</p>
+                    \[
+                    \res{\text{Pureza del mineral} \approx 80\%\ \text{en Fe}_2\text{O}_3}
+                    \]
+
+                    <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                    <p>El mineral contiene un 80,1% de Fe₂O₃ puro. El otro 20% son impurezas inertes (sílice, arcillas, etc.). El cálculo se ha realizado <strong>deduciendo</strong> primero la fracción másica del hierro en la hematita y aplicándola después para encontrar la masa de Fe₂O₃ en la muestra. Si directamente se hubiera «adivinado» el 80% no habría razonamiento químico; la cadena [1] → [2] → [4] → [5] garantiza que la pureza se deduce desde la composición de la hematita, no desde una fórmula de libro. Este tipo de cálculo es fundamental en minería y metalurgia.</p>
+                </div>
+            </details>
+
+            <!-- ============================================
+                 PIE DE CLAVE DIDÁCTICA
+                 ============================================ -->
+            <div class="clave-didactica">
+                <i class="fa-solid fa-lightbulb"></i>
+                <strong>Clave didáctica:</strong> la composición centesimal es una <strong>propiedad intensiva</strong> del compuesto: solo depende de su fórmula y de las masas atómicas, no de la cantidad de muestra. Todos los ejercicios se han resuelto <strong>deduciendo el resultado desde las ecuaciones primarias del modelo atómico-molar</strong> (masa molar como suma de contribuciones \(M = \sum n_i A_r(i)\) y fracción másica \(x_i = n_i A_r(i)/M\)), nunca sustituyendo directamente en la «fórmula de libro» del recuadro. Las condiciones de hidratación y de pureza se han tratado como <strong>ecuaciones explícitas del sistema</strong>, citadas por número y con su finalidad contextualizada en cada sustitución. Las ecuaciones se han coloreado por categoría (<span style="color:#2f855a;">■ leyes</span>, <span style="color:#b7791f;">■ condiciones/ligaduras</span>, <span style="color:#6b46c1;">■ resultados</span>). Cada ejercicio se ha planificado desde el <strong>objetivo hacia los datos</strong> mediante la «🧭 Estrategia de resolución», que distingue datos (verde), objetivo (rojo recuadrado), intermedias que se calculan (azul) e incógnitas que no se calculan explícitamente (rojo negrita). El error más frecuente —olvidar multiplicar por el número de átomos del elemento en la fórmula al calcular la masa parcial, o confundir % en masa con % en moles— queda desmontado al exigir la deducción paso a paso desde la definición.
             </div>
 
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
-        ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
-
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (original)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="max-width: 100%; padding: 15px; margin: 10px auto; text-align: center; background: #f8fafc; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <p style="font-size: clamp(0.95rem, 3vw, 1.2rem); color: #2d3748; margin-top: 0; margin-bottom: 12px; padding: 0 10px;">
+                <br> Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
+            <div style="text-align:center;">
+                <a href="../index.html" target="_blank" style="display:inline-block; padding:12px 24px; background:#0078D4; color:white; text-decoration:none; border-radius:12px; font-weight:bold;">
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
-
-</div> <!-- fin container -->
+<!-- Seguridad MathJax -->
+<script>
+if (window.MathJax && MathJax.typesetPromise) {
+  MathJax.typesetPromise().catch(err => console.error('MathJax:', err));
+}
+</script>
 </body>
 </html>

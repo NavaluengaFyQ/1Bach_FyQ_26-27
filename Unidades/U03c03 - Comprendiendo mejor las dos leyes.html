@@ -4,308 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#Q01.01 - Leyes de las proporciones definidas y múltiples</title>
-    <!-- MathJax -->
+
+    <!-- ============================================================
+         CONFIGURACIÓN OBLIGATORIA DE MATHJAX (ANTES del src)
+         ============================================================ -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        macros: {
+          ley:      ["\\textcolor{##2f855a}{#1}", 1],
+          cond:     ["\\textcolor{##b7791f}{#1}", 1],
+          res:      ["\\textcolor{##6b46c1}{#1}", 1],
+          dato:     ["\\textcolor{##2f855a}{#1}", 1],
+          incog:    ["\\textcolor{##c53030}{\\boldsymbol{#1}}", 1],
+          objetivo: ["\\textcolor{##c53030}{\\boxed{#1}}", 1],
+          calc:     ["\\textcolor{##2b6cb0}{#1}", 1]
+        }
+      },
+      options: {
+        ignoreHtmlClass: 'no-mathjax',
+        processHtmlClass: 'mathjax'
+      },
+      startup: { typeset: true }
+    };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Font Awesome 6 (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* ============================================
-           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ESTILOS BASE (se conservan del HTML original)
            ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
-            max-width: 900px;
-            width: 100%;
-            background: white;
-            border-radius: 16px;
+            max-width: 900px; width: 100%;
+            background: white; border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            margin: 20px auto;
+            overflow: hidden; margin: 20px auto;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+            color: white; padding: 20px 30px;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-        }
-        .header-sub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .header-sub img {
-            max-height: 30px;
-            width: auto;
-        }
-        .header-sub .codigo {
-            font-weight: bold;
-            font-size: 1em;
-            background: rgba(255,255,255,0.15);
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-        .header-sub .texto {
-            font-size: 1em;
-        }
-        /* Zona derecha de la cabecera */
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
+        .header-left { display: flex; flex-direction: column; justify-content: center; }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-sub { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+        .header-sub img { max-height: 30px; width: auto; }
+        .header-sub .codigo { font-weight: bold; font-size: 1em; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 12px; }
+        .header-sub .texto { font-size: 1em; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; }
 
-        /* ---------- SECCIONES PRINCIPALES ---------- */
-        .section {
-            padding: 25px 30px;
-            margin: 15px;
-            border-radius: 12px;
-            border-left: 5px solid;
-        }
-        /* Variantes de color para cada tipo de sección */
+        .section { padding: 25px 30px; margin: 15px; border-radius: 12px; border-left: 5px solid; }
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
-        .section h2 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .section h2 { font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
 
-        /* ---------- CAJA DE FÓRMULA ---------- */
-        .formula-box {
-            background: #edf2f7;
-            border: 2px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
-        }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
-        .step {
-            background: white;
-            border-left: 4px solid #a0aec0;
-            padding: 15px;
-            margin: 12px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .step-num {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        /* ---------- NOTA DESTACADA ---------- */
-        .note {
-            background: #fffbeb;
-            border: 1px solid #f6e05e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #744210;
-        }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        /* Ajustes para listas y tablas */
-        ul, ol {
-            padding-left: 25px;
-            margin: 10px 0;
-        }
-        li {
-            line-height: 1.7;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e0;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #edf2f7;
-        }
+        .formula-box { background: #edf2f7; border: 2px solid #cbd5e0; border-radius: 10px; padding: 15px; margin: 15px 0; text-align: center; font-size: 1.1em; }
+        .step { background: white; border-left: 4px solid #a0aec0; padding: 15px; margin: 12px 0; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .step-num { display: inline-block; background: #667eea; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 10px; }
+        .note { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 12px; margin-top: 15px; font-size: 0.95em; color: #744210; }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #cbd5e0; padding: 8px; text-align: left; }
+        th { background: #edf2f7; }
 
         /* ============================================
-           ESTILOS PARA EL BLOQUE DESPLEGABLE
+           ESTILOS OBLIGATORIOS BLOQUES DESPLEGABLES
            ============================================ */
-        details.ejercicios-desplegable {
-            margin: 30px 25px 20px 25px;
-            background: #f1f5f9;
-            border-radius: 20px;
-            padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #cbd5e0;
+        details.desmitificando {
+            margin: 15px; background: #faf5ff;
+            border-radius: 12px; border-left: 5px solid #9f7aea;
+            overflow: hidden; box-shadow: 0 4px 12px rgba(107,70,193,0.08);
         }
-        details.ejercicios-desplegable summary {
-            list-style: none;
-            cursor: pointer;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1e293b;
-            padding: 0.8rem 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            user-select: none;
-            transition: color 0.2s;
+        details.desmitificando > summary {
+            padding: 18px 25px; cursor: pointer; font-weight: bold;
+            font-size: 1.15em; color: #6b46c1;
+            display: flex; align-items: center; gap: 12px;
+            list-style: none; background: #f3e8ff;
+            user-select: none; transition: background 0.2s ease;
         }
-        details.ejercicios-desplegable summary::-webkit-details-marker {
-            display: none;
+        details.desmitificando > summary:hover { background: #e9d8fd; }
+        details.desmitificando > summary::-webkit-details-marker { display: none; }
+        details.desmitificando > summary::marker { content: ""; }
+        details.desmitificando > summary { list-style: none; }
+        details.desmitificando > summary .fa-chevron-circle-down { transition: transform 0.35s ease; color: #805ad5; flex-shrink: 0; }
+        details.desmitificando[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.desmitificando > summary .pulse { font-size: 0.85em; color: #9f7aea; font-weight: normal; margin-left: auto; }
+        .details-content { padding: 20px 25px; }
+
+        details.estrategia-resolucion {
+            margin: 12px 0 16px; border: 1px solid #bee3f8;
+            border-left: 4px solid #3182ce; border-radius: 8px;
+            background: #ffffff; overflow: hidden;
         }
-        details.ejercicios-desplegable summary .fa-chevron-circle-down {
-            transition: transform 0.3s ease;
-            color: #667eea;
-            font-size: 1.8rem;
+        details.estrategia-resolucion > summary {
+            padding: 10px 14px; cursor: pointer; display: flex;
+            align-items: center; gap: 8px; color: #2b6cb0;
+            background: #ebf8ff; font-weight: bold;
+            list-style: none; user-select: none;
         }
-        details.ejercicios-desplegable[open] summary .fa-chevron-circle-down {
-            transform: rotate(180deg);
+        details.estrategia-resolucion > summary:hover { background: #e6f6ff; }
+        details.estrategia-resolucion > summary::-webkit-details-marker { display: none; }
+        details.estrategia-resolucion > summary::marker { content: ""; }
+        details.estrategia-resolucion > summary { list-style: none; }
+        details.estrategia-resolucion > summary .fa-chevron-circle-down { flex-shrink: 0; transition: transform 0.35s ease; }
+        details.estrategia-resolucion[open] > summary .fa-chevron-circle-down { transform: rotate(180deg); }
+        details.estrategia-resolucion > summary .hint { margin-left: auto; font-size: 0.82em; font-weight: normal; color: #2b6cb0; }
+        .estrategia-contenido { padding: 12px 16px; background: #ffffff; }
+        .estrategia-contenido p { margin: 6px 0; line-height: 1.6; }
+
+        details.ejercicio-card {
+            border: 1px solid #cbd5e0; border-radius: 10px;
+            margin-bottom: 22px; overflow: hidden; background: white;
         }
-        details.ejercicios-desplegable summary .icono-pulsame {
-            background: #667eea;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-            margin-left: 0.3rem;
+        details.ejercicio-card > summary.ejercicio-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 12px 16px; font-weight: bold;
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.05em; cursor: pointer; list-style: none;
+            user-select: none; transition: filter 0.2s ease;
         }
-        .contenido-ejercicios {
-            margin-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
-        .tarjeta-ej {
-            background: white;
-            border-radius: 18px;
-            padding: 1.2rem 1.8rem 1.8rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border: 1px solid #e9edf4;
-        }
-        .tarjeta-ej .ej-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
-            border-bottom: 2px solid #dbeafe;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .tarjeta-ej .ej-num {
-            background: #667eea;
-            color: white;
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-        }
-        .tarjeta-ej .ej-titulo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #1e293b;
-        }
-        .tarjeta-ej .enunciado {
-            margin-bottom: 0.8rem;
-            background: transparent;
-            border-left: none;
-            padding: 0;
-        }
-        .tarjeta-ej .enunciado ul {
-            margin-left: 1.5rem;
-        }
-        .resolucion {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.2rem 1.5rem;
-            border-left: 4px solid #667eea;
-            margin-top: 0.8rem;
-            font-size: 0.98rem;
-        }
-        .resolucion p {
-            margin: 0.5rem 0;
-        }
-        .resolucion .step-label {
-            font-weight: 600;
-            color: #1e293b;
-        }
-        .pie-clave {
-            margin-top: 1.8rem;
-            background: #e0f2fe;
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            font-size: 0.98rem;
-            border-left: 6px solid #0ea5e9;
-            color: #0c4a6e;
-        }
-        .pie-clave i {
-            margin-right: 0.5rem;
-        }
+        details.ejercicio-card > summary.ejercicio-header:hover { filter: brightness(1.08); }
+        details.ejercicio-card > summary.ejercicio-header::-webkit-details-marker { display: none; }
+        details.ejercicio-card > summary.ejercicio-header::marker { content: ""; }
+        details.ejercicio-card > summary.ejercicio-header { list-style: none; }
+        .ejercicio-num { background: white; color: #667eea; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; flex-shrink: 0; font-size: 0.95em; }
+        .ejercicio-header .fa-chevron-down { margin-left: auto; transition: transform 0.35s ease; color: rgba(255,255,255,0.9); flex-shrink: 0; }
+        details.ejercicio-card[open] > summary.ejercicio-header .fa-chevron-down { transform: rotate(180deg); }
+        .ejercicio-header .hint { font-size: 0.78em; font-weight: normal; color: rgba(255,255,255,0.85); margin-left: 6px; }
+        .ejercicio-body { padding: 16px 18px; background: #f7fafc; }
+        .ejercicio-body > p:first-child { margin-top: 0; }
+        .ejercicio-body ul { margin: 8px 0; padding-left: 22px; }
+        .ejercicio-resolucion { background: #f0fff4; border-left: 4px solid #48bb78; padding: 14px 18px; margin: 18px 18px 18px; border-radius: 0 8px 8px 0; }
+        .ejercicio-resolucion h4 { color: #276749; margin: 12px 0 6px 0; font-size: 0.98em; display: flex; align-items: center; gap: 8px; }
+        .ejercicio-resolucion h4:first-child { margin-top: 0; }
+        .ejercicio-resolucion h4:not(:first-child) { border-top: 1px solid #c6f6d5; padding-top: 12px; margin-top: 16px; }
+        .ejercicio-resolucion p { margin: 4px 0; line-height: 1.6; }
+
+        .clave-didactica { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 8px; padding: 16px 18px; margin-top: 24px; color: #744210; line-height: 1.65; }
+        .clave-didactica strong { color: #975a16; }
+        .clave-didactica .fa-lightbulb { color: #d69e2e; margin-right: 6px; }
+
+        .eq-ley  { border-left: 3px solid #48bb78; padding-left: 10px; background: #f0fff4; border-radius: 0 6px 6px 0; }
+        .eq-cond { border-left: 3px solid #f6e05e; padding-left: 10px; background: #fffbeb; border-radius: 0 6px 6px 0; }
+        .eq-res  { border-left: 3px solid #9f7aea; padding-left: 10px; background: #faf5ff; border-radius: 0 6px 6px 0; }
+
         @media (max-width: 640px) {
-            .container {
-                margin: 10px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-right {
-                align-self: flex-end;
-            }
-            details.ejercicios-desplegable summary {
-                font-size: 1.1rem;
-                flex-wrap: wrap;
-            }
-            .tarjeta-ej {
-                padding: 1rem;
-            }
+            .container { margin: 10px; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- CABECERA OBLIGATORIA -->
+        <!-- ============================ -->
+        <!-- CABECERA                     -->
+        <!-- ============================ -->
         <div class="header">
             <div class="header-left">
                 <h1>IES Valle del Alberche</h1>
@@ -337,18 +208,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>A</strong></td>
-                        <td>4,27</td>
-                        <td>5,69</td>
-                        <td>Gas claro e incoloro</td>
-                    </tr>
-                    <tr>
-                        <td><strong>B</strong></td>
-                        <td>5,19</td>
-                        <td>13,84</td>
-                        <td>Gas claro e incoloro</td>
-                    </tr>
+                    <tr><td><strong>A</strong></td><td>4,27</td><td>5,69</td><td>Gas claro e incoloro</td></tr>
+                    <tr><td><strong>B</strong></td><td>5,19</td><td>13,84</td><td>Gas claro e incoloro</td></tr>
                 </tbody>
             </table>
 
@@ -358,15 +219,10 @@
                 \[ \frac{m_{\mathrm{O}}}{m_{\mathrm{C}}}\Bigg|_{A} \; ; \qquad \frac{m_{\mathrm{O}}}{m_{\mathrm{C}}}\Bigg|_{B} \]
             </div>
 
-
-<figure>
-  <img src="../imagenes/U03c02b - Ley multiples y definidas.png" alt="Imagen" width="800">
-  <figcaption>Comprendiendolo todo mejor en un ejemplo destilado</figcaption>
-</figure>
-
-
-
-
+            <figure>
+              <img src="../imagenes/U03c02b - Ley multiples y definidas.png" alt="Imagen" width="800">
+              <figcaption>Comprendiéndolo todo mejor en un ejemplo destilado</figcaption>
+            </figure>
         </div>
 
         <!-- ============================ -->
@@ -437,26 +293,11 @@
                 <strong>Búsqueda de un par de compuestos posible:</strong> probamos con los óxidos de carbono.
                 <table>
                     <thead>
-                        <tr>
-                            <th>Compuesto</th>
-                            <th>Masa de C (g)</th>
-                            <th>Masa de O (g)</th>
-                            <th>g O / g C</th>
-                        </tr>
+                        <tr><th>Compuesto</th><th>Masa de C (g)</th><th>Masa de O (g)</th><th>g O / g C</th></tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>CO</td>
-                            <td>12</td>
-                            <td>16</td>
-                            <td>1,333</td>
-                        </tr>
-                        <tr>
-                            <td>CO<sub>2</sub></td>
-                            <td>12</td>
-                            <td>32</td>
-                            <td>2,667</td>
-                        </tr>
+                        <tr><td>CO</td><td>12</td><td>16</td><td>1,333</td></tr>
+                        <tr><td>CO<sub>2</sub></td><td>12</td><td>32</td><td>2,667</td></tr>
                     </tbody>
                 </table>
                 <p>Los valores coinciden con los obtenidos experimentalmente, por lo que <strong>A podría ser CO</strong> y <strong>B podría ser CO<sub>2</sub></strong>.</p>
@@ -479,186 +320,544 @@
             </div>
         </div>
 
-        <!-- ========================================================== -->
-        <!-- BLOQUE DESPLEGABLE: EJERCICIOS TIPO RESUELTOS              -->
-        <!-- ========================================================== -->
-        <details class="ejercicios-desplegable">
+        <!-- ============================================================
+             BLOQUE DESPLEGABLE OBLIGATORIO — DESMITIFICANDO
+             ============================================================ -->
+        <details class="desmitificando">
             <summary>
-                <i class="fas fa-chevron-circle-down"></i>
+                <i class="fa-solid fa-chevron-circle-down"></i>
                 <span>🧪 DESMITIFICANDO las leyes de las proporciones</span>
-                <span class="icono-pulsame"><i class="fas fa-hand-pointer"></i> Púlsame</span>
+                <span class="pulse">🖱️ Púlsame</span>
             </summary>
+            <div class="details-content">
 
-            <div class="contenido-ejercicios">
+                <!-- Leyenda de colores -->
+                <p class="leyenda-colores" style="margin:0 0 18px 0; font-size:0.92em; color:#4a5568;">
+                    <strong>Código de colores:</strong>
+                    <span style="color:#2f855a;">■ Leyes fundamentales</span> ·
+                    <span style="color:#b7791f;">■ Condiciones y ligaduras</span> ·
+                    <span style="color:#6b46c1;">■ Resultado deducido</span> ·
+                    <span style="color:#c53030; font-weight:bold;">■ Incógnitas (rojo negrita)</span>
+                </p>
 
-                <!-- EJERCICIO 1 -->
-                <div class="tarjeta-ej">
-                    <div class="ej-header">
-                        <span class="ej-num">Ejercicio 1</span>
-                        <span class="ej-titulo">Ley de las proporciones definidas en el agua</span>
-                    </div>
-                    <div class="enunciado">
-                        <p>Se analizan dos muestras de agua pura procedentes de lugares distintos:</p>
+                <!-- ============================================
+                     EJERCICIO 1 — Proust: dos muestras de NaCl
+                     ============================================ -->
+                <details class="ejercicio-card">
+                    <summary class="ejercicio-header">
+                        <span class="ejercicio-num">1</span>
+                        <span>Dos muestras de sal de mesa: ¿mismo compuesto?</span>
+                        <span class="hint">🖱️ Púlsame</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+
+                    <div class="ejercicio-body">
+                        <p><strong>Enunciado.</strong> Se analizan dos muestras de cloruro de sodio de orígenes distintos:</p>
                         <ul>
-                            <li>Muestra 1: 1,00 g de H y 7,94 g de O.</li>
-                            <li>Muestra 2: 2,50 g de H y 19,85 g de O.</li>
+                            <li><strong>Muestra A</strong> (sal de salina marina): \(3{,}52\,\mathrm{g}\) de Na y \(5{,}43\,\mathrm{g}\) de Cl.</li>
+                            <li><strong>Muestra B</strong> (sal de mina terrestre): \(8{,}05\,\mathrm{g}\) de Na y \(12{,}42\,\mathrm{g}\) de Cl.</li>
                         </ul>
-                        <p>¿Se cumple la ley de las proporciones definidas?</p>
+                        <p>Comprobar si ambas muestras corresponden al mismo compuesto. <em>Datos:</em> \(M_{\mathrm{Na}} = 23{,}0\,\mathrm{g/mol}\); \(M_{\mathrm{Cl}} = 35{,}5\,\mathrm{g/mol}\).</p>
                     </div>
-                    <div class="resolucion">
-                        <p><span class="step-label">Paso 1:</span> Calculamos la relación \(m_{\mathrm{O}}/m_{\mathrm{H}}\) en cada muestra.</p>
-                        <p><span class="step-label">Paso 2:</span> Muestra 1: \(7{,}94 / 1{,}00 = 7{,}94\).</p>
-                        <p><span class="step-label">Paso 3:</span> Muestra 2: \(19{,}85 / 2{,}50 = 7{,}94\).</p>
-                        <p><span class="step-label">Resultado:</span> La relación es idéntica en ambas muestras, por lo que <strong>sí se cumple la ley de las proporciones definidas</strong>: el agua tiene siempre la misma composición (1 parte de hidrógeno por 7,94 partes de oxígeno en masa).</p>
-                    </div>
-                </div>
 
-                <!-- EJERCICIO 2 -->
-                <div class="tarjeta-ej">
-                    <div class="ej-header">
-                        <span class="ej-num">Ejercicio 2</span>
-                        <span class="ej-titulo">Dos óxidos de azufre: proporciones múltiples</span>
+                    <div class="ejercicio-resolucion">
+                        <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                        <p>Estudiamos dos muestras de una sal binaria Na–Cl. El enunciado pide verificar si su <strong>composición es la misma</strong>, es decir, si se cumple la ley de Proust. <strong>Objetivo:</strong> comprobar que la proporción atómica \(r = n_{\mathrm{Na}}/n_{\mathrm{Cl}}\) es idéntica en ambas muestras (lo que implicaría que ambas son el mismo compuesto).</p>
+
+                        <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                        <p>Cada muestra se describe por su cantidad de moles de cada elemento. La ley de Proust exige que la <em>relación atómica</em> (que es la relación de moles) sea la misma en todas las muestras de un mismo compuesto. Si es así, su fórmula empírica será única.</p>
+
+                        <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                        <p>Partimos del modelo atómico-molar (definición de mol) y de la proporción atómica. La ley de Proust se impone como condición a verificar:</p>
+                        \[
+                        \begin{cases}
+                        \ley{n_{\mathrm{Na}} = \dfrac{m_{\mathrm{Na}}}{M_{\mathrm{Na}}}} & \text{\ley{[1]} (moles de Na en una muestra)} \\[6pt]
+                        \ley{n_{\mathrm{Cl}} = \dfrac{m_{\mathrm{Cl}}}{M_{\mathrm{Cl}}}} & \text{\ley{[2]} (moles de Cl en una muestra)} \\[6pt]
+                        \ley{r = \dfrac{n_{\mathrm{Na}}}{n_{\mathrm{Cl}}}} & \text{\ley{[3]} (proporción atómica en una muestra)} \\[6pt]
+                        \cond{r_A = r_B} & \text{\cond{[4]} (ley de Proust: misma composición)}
+                        \end{cases}
+                        \]
+
+                        <details class="estrategia-resolucion">
+                            <summary>
+                                <i class="fa-solid fa-chevron-circle-down"></i>
+                                <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                                <span class="hint">🖱️ Púlsame</span>
+                            </summary>
+                            <div class="estrategia-contenido">
+                                <p><strong>Objetivo:</strong> verificar si \(\objetivo{r_A = r_B}\), es decir, si ambas muestras tienen la misma proporción atómica (y por tanto son el mismo compuesto).</p>
+                                <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] calculamos los moles de Na y Cl en cada muestra; con [3] obtenemos la proporción atómica y con la condición de Proust [4] comprobamos si son iguales. Si lo son, ambas muestras son el mismo compuesto.</p>
+                                \[
+                                \begin{cases}
+                                \calc{n_{\mathrm{Na},A}} = \dfrac{\dato{m_{\mathrm{Na},A}}}{\dato{M_{\mathrm{Na}}}}, \quad \calc{n_{\mathrm{Na},B}} = \dfrac{\dato{m_{\mathrm{Na},B}}}{\dato{M_{\mathrm{Na}}}} & \text{[1]} \\[6pt]
+                                \calc{n_{\mathrm{Cl},A}} = \dfrac{\dato{m_{\mathrm{Cl},A}}}{\dato{M_{\mathrm{Cl}}}}, \quad \calc{n_{\mathrm{Cl},B}} = \dfrac{\dato{m_{\mathrm{Cl},B}}}{\dato{M_{\mathrm{Cl}}}} & \text{[2]} \\[6pt]
+                                \calc{r_A} = \dfrac{\calc{n_{\mathrm{Na},A}}}{\calc{n_{\mathrm{Cl},A}}}, \quad \calc{r_B} = \dfrac{\calc{n_{\mathrm{Na},B}}}{\calc{n_{\mathrm{Cl},B}}} & \text{[3]} \\[6pt]
+                                \objetivo{r_A = r_B} & \text{[4]}
+                                \end{cases}
+                                \]
+                            </div>
+                        </details>
+
+                        <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                        <p><strong>Muestra A.</strong> Aplicamos [1] y [2] para obtener los moles de cada elemento:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Na},A}} = \frac{m_{\mathrm{Na},A}}{M_{\mathrm{Na}}} = \frac{3{,}52}{23{,}0} = 0{,}153\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{n_{\mathrm{Cl},A}} = \frac{m_{\mathrm{Cl},A}}{M_{\mathrm{Cl}}} = \frac{5{,}43}{35{,}5} = 0{,}153\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para obtener la proporción atómica de la muestra A</em>:</p>
+                        \[
+                        \ley{\calc{r_A} = \frac{\calc{n_{\mathrm{Na},A}}}{\calc{n_{\mathrm{Cl},A}}} = \frac{0{,}153}{0{,}153} = 1}
+                        \]
+                        <p>La proporción atómica Na:Cl en A es \(1:1\), lo que sugiere una fórmula empírica \(\mathrm{NaCl}\).</p>
+
+                        <p><strong>Muestra B.</strong> Aplicamos [1] y [2]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Na},B}} = \frac{m_{\mathrm{Na},B}}{M_{\mathrm{Na}}} = \frac{8{,}05}{23{,}0} = 0{,}350\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{n_{\mathrm{Cl},B}} = \frac{m_{\mathrm{Cl},B}}{M_{\mathrm{Cl}}} = \frac{12{,}42}{35{,}5} = 0{,}350\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para obtener la proporción atómica de la muestra B</em>:</p>
+                        \[
+                        \ley{\calc{r_B} = \frac{\calc{n_{\mathrm{Na},B}}}{\calc{n_{\mathrm{Cl},B}}} = \frac{0{,}350}{0{,}350} = 1}
+                        \]
+                        <p>La proporción atómica Na:Cl en B también es \(1:1\).</p>
+
+                        <p><strong>Verificación de Proust.</strong> Imponemos la condición [4] comparando ambas proporciones:</p>
+                        \[
+                        \cond{\objetivo{r_A = r_B} \;\Rightarrow\; \text{ambas muestras tienen la misma composición}}
+                        \]
+                        <p>Y por tanto la fórmula empírica deducida es la misma en las dos muestras:</p>
+                        \[
+                        \res{\mathrm{NaCl}}
+                        \]
+
+                        <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                        <p>Las dos muestras, pese a proceder de fuentes distintas (salina marina y mina terrestre), tienen exactamente la misma proporción atómica Na:Cl = 1:1. <strong>Se cumple la ley de las proporciones definidas (Proust)</strong>: todo compuesto puro tiene una composición fija. Ambas muestras son NaCl. La clave es que los datos han sido deducidos desde la definición de mol [1]–[2] y la proporción atómica [3], no sustituyendo directamente en una «fórmula de libro».</p>
                     </div>
-                    <div class="enunciado">
-                        <p>En el compuesto X, 8,0 g de azufre se combinan con 8,0 g de oxígeno. En el compuesto Y, 8,0 g de azufre se combinan con 12,0 g de oxígeno.</p>
+                </details>
+
+                <!-- ============================================
+                     EJERCICIO 2 — Dalton: FeO y Fe2O3
+                     ============================================ -->
+                <details class="ejercicio-card">
+                    <summary class="ejercicio-header">
+                        <span class="ejercicio-num">2</span>
+                        <span>Los dos óxidos de hierro: del análisis a la fórmula</span>
+                        <span class="hint">🖱️ Púlsame</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+
+                    <div class="ejercicio-body">
+                        <p><strong>Enunciado.</strong> El hierro forma dos óxidos de aspecto muy distinto:</p>
                         <ul>
-                            <li>a) ¿Se cumple la ley de las proporciones múltiples?</li>
-                            <li>b) ¿Qué compuestos pueden ser X e Y?</li>
+                            <li><strong>Óxido A</strong> (negro, mineral magnetita-like): \(5{,}585\,\mathrm{g}\) de Fe y \(1{,}600\,\mathrm{g}\) de O.</li>
+                            <li><strong>Óxido B</strong> (rojo, la herrumbre común): \(5{,}585\,\mathrm{g}\) de Fe y \(2{,}400\,\mathrm{g}\) de O.</li>
                         </ul>
+                        <p>Deducir las fórmulas empíricas y verificar la ley de proporciones múltiples.</p>
+                        <p><em>Datos:</em> \(M_{\mathrm{Fe}} = 55{,}85\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
                     </div>
-                    <div class="resolucion">
-                        <p><span class="step-label">a)</span> Con 8,0 g de S fijos, las masas de O son 8,0 g (X) y 12,0 g (Y). La relación es \(8{,}0 : 12{,}0 = 2 : 3\), números enteros sencillos: <strong>sí se cumple</strong>.</p>
-                        <p><span class="step-label">b)</span> Las relaciones \(m_{\mathrm{O}}/m_{\mathrm{S}}\) son 1 y 1,5. Para SO<sub>2</sub>: \(32/32 = 1\). Para SO<sub>3</sub>: \(48/32 = 1{,}5\). Por tanto, <strong>X = SO<sub>2</sub></strong> e <strong>Y = SO<sub>3</sub></strong>.</p>
-                    </div>
-                </div>
 
-                <!-- EJERCICIO 3 -->
-                <div class="tarjeta-ej">
-                    <div class="ej-header">
-                        <span class="ej-num">Ejercicio 3</span>
-                        <span class="ej-titulo">¿Mismo compuesto o compuestos distintos?</span>
+                    <div class="ejercicio-resolucion">
+                        <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                        <p>Dos óxidos binarios Fe–O con <strong>masa de hierro fija</strong> (\(5{,}585\,\mathrm{g}\) en ambos): esa es precisamente la condición que exige la ley de Dalton. <strong>Objetivo:</strong> deducir los subíndices \(a\), \(b\) de cada fórmula \(\mathrm{Fe}_a\mathrm{O}_b\) y comprobar que las masas de O están en relación de enteros sencillos.</p>
+
+                        <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                        <p>Cada óxido se describe por una fórmula empírica \(\mathrm{Fe}_a\mathrm{O}_b\) con \(a\), \(b\) enteros. Según el modelo atómico-molar, \(1\) mol de compuesto contiene \(a\) mol de Fe y \(b\) mol de O. Como la masa de Fe está fija, la relación de moles de O será la clave de la comparación.</p>
+
+                        <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                        <p>Modelo atómico-molar, proporción atómica, condición de masa fija y condición de Dalton:</p>
+                        \[
+                        \begin{cases}
+                        \ley{n_{\mathrm{Fe}} = \dfrac{m_{\mathrm{Fe}}}{M_{\mathrm{Fe}}}} & \text{\ley{[1]} (moles de Fe)} \\[6pt]
+                        \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
+                        \ley{\dfrac{n_{\mathrm{Fe}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica de la fórmula)} \\[6pt]
+                        \cond{m_{\mathrm{Fe,1}} = m_{\mathrm{Fe,2}} = 5{,}585\,\mathrm{g}} & \text{\cond{[4]} (masa fija de Fe)} \\[6pt]
+                        \cond{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}} = \text{entero sencillo}} & \text{\cond{[5]} (ley de Dalton)}
+                        \end{cases}
+                        \]
+
+                        <details class="estrategia-resolucion">
+                            <summary>
+                                <i class="fa-solid fa-chevron-circle-down"></i>
+                                <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                                <span class="hint">🖱️ Púlsame</span>
+                            </summary>
+                            <div class="estrategia-contenido">
+                                <p><strong>Objetivo:</strong> deducir los subíndices \(\objetivo{\dfrac{a_1}{b_1}}\) y \(\objetivo{\dfrac{a_2}{b_2}}\) de cada óxido y verificar que \(\objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}}\) es un entero sencillo.</p>
+                                <p><strong>Ruta justificada:</strong> con el modelo atómico-molar [1]–[2] calculamos los moles de Fe y O en cada óxido; con [3] obtenemos los subíndices. La masa fija de Fe [4] permite comparar directamente las masas de O [5] para verificar Dalton.</p>
+                                \[
+                                \begin{cases}
+                                \calc{n_{\mathrm{Fe},i}} = \dfrac{\dato{m_{\mathrm{Fe},i}}}{\dato{M_{\mathrm{Fe}}}} & \text{[1]} \\[6pt]
+                                \calc{n_{\mathrm{O},i}} = \dfrac{\dato{m_{\mathrm{O},i}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
+                                \objetivo{\dfrac{a_i}{b_i}} = \dfrac{\calc{n_{\mathrm{Fe},i}}}{\calc{n_{\mathrm{O},i}}} & \text{[3]} \\[6pt]
+                                \dato{m_{\mathrm{Fe,1}}} = \dato{m_{\mathrm{Fe,2}}} = 5{,}585\,\mathrm{g} & \text{[4]} \\[6pt]
+                                \objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} & \text{[5]}
+                                \end{cases}
+                                \]
+                            </div>
+                        </details>
+
+                        <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                        <p><strong>Óxido A.</strong> Aplicamos [1]–[2] con los datos de A:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Fe},1}} = \frac{m_{\mathrm{Fe},1}}{M_{\mathrm{Fe}}} = \frac{5{,}585}{55{,}85} = 0{,}100\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{n_{\mathrm{O},1}} = \frac{m_{\mathrm{O},1}}{M_{\mathrm{O}}} = \frac{1{,}600}{16{,}0} = 0{,}100\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para obtener la relación atómica del óxido A</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_1}{b_1}} = \frac{\calc{n_{\mathrm{Fe},1}}}{\calc{n_{\mathrm{O},1}}} = \frac{0{,}100}{0{,}100} = 1} \;\Rightarrow\; \res{\mathrm{FeO}}
+                        \]
+
+                        <p><strong>Óxido B.</strong> La masa de Fe está fija [4], de modo que \(\calc{n_{\mathrm{Fe},2}} = 0{,}100\,\mathrm{mol}\) (mismo cálculo que [1]). Aplicamos [2] al oxígeno:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{O},2}} = \frac{m_{\mathrm{O},2}}{M_{\mathrm{O}}} = \frac{2{,}400}{16{,}0} = 0{,}150\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para obtener la relación atómica del óxido B</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_2}{b_2}} = \frac{\calc{n_{\mathrm{Fe},2}}}{\calc{n_{\mathrm{O},2}}} = \frac{0{,}100}{0{,}150} = \frac{2}{3}} \;\Rightarrow\; \res{\mathrm{Fe_2O_3}}
+                        \]
+
+                        <p><strong>Verificación de Dalton.</strong> Comparamos las masas de O para la misma masa de Fe [5]:</p>
+                        \[
+                        \cond{\objetivo{\frac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} = \frac{2{,}400}{1{,}600} = \frac{3}{2}}
+                        \]
+                        <p>La relación es \(3:2\), números enteros sencillos. <strong>Se cumple la ley de Dalton.</strong></p>
+
+                        <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                        <p>Las fórmulas \(\mathrm{FeO}\) (hierro(II)) y \(\mathrm{Fe_2O_3}\) (hierro(III)) son coherentes con los estados de oxidación +2 y +3 del hierro. La relación \(3:2\) de masas de O para la misma masa de Fe confirma la ley de Dalton. De nuevo, el resultado se ha <strong>deducido</strong> desde el modelo atómico-molar [1]–[2] y la proporción atómica [3], usando las condiciones [4]–[5] como ecuaciones del sistema. La fórmula no se ha «aplicado»: se ha deducido.</p>
                     </div>
-                    <div class="enunciado">
-                        <p>Se analizan tres muestras de un mismo gas:</p>
+                </details>
+
+                <!-- ============================================
+                     EJERCICIO 3 — Proust vs Dalton: CuO/Cu2O
+                     ============================================ -->
+                <details class="ejercicio-card">
+                    <summary class="ejercicio-header">
+                        <span class="ejercicio-num">3</span>
+                        <span>Tres muestras de óxido de cobre: ¿qué ley se cumple?</span>
+                        <span class="hint">🖱️ Púlsame</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+
+                    <div class="ejercicio-body">
+                        <p><strong>Enunciado.</strong> Se analizan tres muestras de óxido de cobre:</p>
                         <ul>
-                            <li>A: 4,0 g de C y 10,66 g de O.</li>
-                            <li>B: 6,0 g de C y 16,00 g de O.</li>
-                            <li>C: 2,0 g de C y 5,33 g de O.</li>
+                            <li><strong>Muestra 1:</strong> \(6{,}35\,\mathrm{g}\) de Cu y \(1{,}60\,\mathrm{g}\) de O.</li>
+                            <li><strong>Muestra 2:</strong> \(3{,}175\,\mathrm{g}\) de Cu y \(0{,}80\,\mathrm{g}\) de O.</li>
+                            <li><strong>Muestra 3:</strong> \(6{,}35\,\mathrm{g}\) de Cu y \(0{,}80\,\mathrm{g}\) de O.</li>
                         </ul>
-                        <p>¿Se trata del mismo compuesto? ¿Qué ley se está comprobando?</p>
+                        <p>Determinar qué muestras corresponden al mismo compuesto (ley de Proust) y qué ley de Dalton se cumple al comparar las muestras distintas.</p>
+                        <p><em>Datos:</em> \(M_{\mathrm{Cu}} = 63{,}5\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
                     </div>
-                    <div class="resolucion">
-                        <p><span class="step-label">Paso 1:</span> Calculamos \(m_{\mathrm{O}}/m_{\mathrm{C}}\) en cada muestra.</p>
-                        <p><span class="step-label">Paso 2:</span> A: \(10{,}66/4{,}0 = 2{,}665\); B: \(16{,}00/6{,}0 = 2{,}667\); C: \(5{,}33/2{,}0 = 2{,}665\).</p>
-                        <p><span class="step-label">Resultado:</span> Las tres relaciones coinciden, por lo que las tres muestras corresponden al <strong>mismo compuesto</strong>. Se está comprobando la <strong>ley de las proporciones definidas</strong> (la composición de un compuesto puro es constante). El compuesto podría ser CO<sub>2</sub> (2,667 g de O por g de C).</p>
-                    </div>
-                </div>
 
-                <!-- EJERCICIO 4 -->
-                <div class="tarjeta-ej">
-                    <div class="ej-header">
-                        <span class="ej-num">Ejercicio 4</span>
-                        <span class="ej-titulo">La serie de los óxidos de nitrógeno</span>
-                    </div>
-                    <div class="enunciado">
-                        <p>Completa la tabla y comprueba si se cumple la ley de las proporciones múltiples:</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Compuesto</th>
-                                    <th>Masa de N (g)</th>
-                                    <th>Masa de O (g)</th>
-                                    <th>g O / g N</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>N<sub>2</sub>O</td><td>28</td><td>16</td><td>?</td></tr>
-                                <tr><td>NO</td><td>14</td><td>16</td><td>?</td></tr>
-                                <tr><td>NO<sub>2</sub></td><td>14</td><td>32</td><td>?</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="resolucion">
-                        <p><span class="step-label">Paso 1:</span> Calculamos \(m_{\mathrm{O}}/m_{\mathrm{N}}\): N<sub>2</sub>O \(\rightarrow 16/28 = 0{,}571\); NO \(\rightarrow 16/14 = 1{,}143\); NO<sub>2</sub> \(\rightarrow 32/14 = 2{,}286\).</p>
-                        <p><span class="step-label">Paso 2:</span> Referimos las tres a la menor: \(0{,}571 : 1{,}143 : 2{,}286 = 1 : 2 : 4\).</p>
-                        <p><span class="step-label">Resultado:</span> Relación de números enteros sencillos \(1:2:4\), por lo que <strong>se cumple la ley de las proporciones múltiples</strong>. Para una misma masa de nitrógeno, el oxígeno se combina en proporciones que son múltiplos enteros de la menor.</p>
-                    </div>
-                </div>
+                    <div class="ejercicio-resolucion">
+                        <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                        <p>Tenemos tres muestras que pueden ser del mismo compuesto o de compuestos distintos. <strong>Objetivo:</strong> calcular la proporción atómica \(r = n_{\mathrm{Cu}}/n_{\mathrm{O}}\) en cada muestra; si dos muestras tienen la misma \(r\), son el mismo compuesto (Proust); si tienen distinta \(r\) y sus relaciones son de enteros sencillos, son compuestos distintos que cumplen Dalton.</p>
 
-                <!-- EJERCICIO 5 -->
-                <div class="tarjeta-ej">
-                    <div class="ej-header">
-                        <span class="ej-num">Ejercicio 5</span>
-                        <span class="ej-titulo">Contexto real: CO, el gas tóxico de las combustiones</span>
+                        <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                        <p>Cada muestra se describe por su proporción atómica Cu:O. Si \(r_1 = r_2\), las muestras 1 y 2 son el mismo compuesto. Si \(r_3 \neq r_1\) pero \(r_3/r_1\) es un entero sencillo, las muestras 1 y 3 son compuestos distintos que cumplen Dalton.</p>
+
+                        <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                        <p>Modelo atómico-molar, proporción atómica y las dos condiciones de las leyes:</p>
+                        \[
+                        \begin{cases}
+                        \ley{n_{\mathrm{Cu}} = \dfrac{m_{\mathrm{Cu}}}{M_{\mathrm{Cu}}}} & \text{\ley{[1]} (moles de Cu)} \\[6pt]
+                        \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
+                        \ley{r = \dfrac{n_{\mathrm{Cu}}}{n_{\mathrm{O}}}} & \text{\ley{[3]} (proporción atómica en una muestra)} \\[6pt]
+                        \cond{r_1 = r_2} & \text{\cond{[4]} (Proust: misma composición)} \\[6pt]
+                        \cond{\dfrac{r_1}{r_3} = \text{entero sencillo}} & \text{\cond{[5]} (Dalton: compuestos distintos)}
+                        \end{cases}
+                        \]
+
+                        <details class="estrategia-resolucion">
+                            <summary>
+                                <i class="fa-solid fa-chevron-circle-down"></i>
+                                <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                                <span class="hint">🖱️ Púlsame</span>
+                            </summary>
+                            <div class="estrategia-contenido">
+                                <p><strong>Objetivo:</strong> determinar si se cumple \(\objetivo{r_1 = r_2}\) (Proust) y evaluar \(\objetivo{\dfrac{r_1}{r_3}}\) (Dalton).</p>
+                                <p><strong>Ruta justificada:</strong> calculamos los moles de Cu y O en cada muestra con [1]–[2], luego \(r\) con [3], y comparamos con las condiciones [4] y [5].</p>
+                                \[
+                                \begin{cases}
+                                \calc{n_{\mathrm{Cu},i}} = \dfrac{\dato{m_{\mathrm{Cu},i}}}{\dato{M_{\mathrm{Cu}}}} & \text{[1]} \\[6pt]
+                                \calc{n_{\mathrm{O},i}} = \dfrac{\dato{m_{\mathrm{O},i}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
+                                \calc{r_i} = \dfrac{\calc{n_{\mathrm{Cu},i}}}{\calc{n_{\mathrm{O},i}}} & \text{[3]} \\[6pt]
+                                \objetivo{r_1 = r_2} & \text{[4]} \\[6pt]
+                                \objetivo{\dfrac{r_1}{r_3}} & \text{[5]}
+                                \end{cases}
+                                \]
+                            </div>
+                        </details>
+
+                        <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                        <p><strong>Muestra 1.</strong> Aplicamos [1]–[3]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Cu},1}} = \frac{6{,}35}{63{,}5} = 0{,}100\,\mathrm{mol}}, \quad \calc{n_{\mathrm{O},1}} = \frac{1{,}60}{16{,}0} = 0{,}100\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{r_1} = \frac{0{,}100}{0{,}100} = 1}
+                        \]
+
+                        <p><strong>Muestra 2.</strong> Aplicamos [1]–[3]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Cu},2}} = \frac{3{,}175}{63{,}5} = 0{,}050\,\mathrm{mol}}, \quad \calc{n_{\mathrm{O},2}} = \frac{0{,}80}{16{,}0} = 0{,}050\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{r_2} = \frac{0{,}050}{0{,}050} = 1}
+                        \]
+
+                        <p><strong>Muestra 3.</strong> Aplicamos [1]–[3]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Cu},3}} = \frac{6{,}35}{63{,}5} = 0{,}100\,\mathrm{mol}}, \quad \calc{n_{\mathrm{O},3}} = \frac{0{,}80}{16{,}0} = 0{,}050\,\mathrm{mol}}
+                        \]
+                        \[
+                        \ley{\calc{r_3} = \frac{0{,}100}{0{,}050} = 2}
+                        \]
+
+                        <p><strong>Verificación Proust.</strong> Imponemos [4] comparando las muestras 1 y 2:</p>
+                        \[
+                        \cond{\objetivo{r_1 = r_2} = 1 \;\Rightarrow\; \text{muestras 1 y 2 son el mismo compuesto}}
+                        \]
+                        <p>Su fórmula común es \(\mathrm{CuO}\).</p>
+
+                        <p><strong>Verificación Dalton.</strong> Imponemos [5] comparando las muestras 1 y 3:</p>
+                        \[
+                        \cond{\objetivo{\frac{r_1}{r_3}} = \frac{1}{2} \;\Rightarrow\; \text{muestras 1 y 3 son compuestos distintos con relación entera}}
+                        \]
+                        <p>La muestra 3 tiene \(r = 2\), es decir, el doble de Cu por átomo de O: su fórmula es \(\mathrm{Cu_2O}\).</p>
+
+                        <p>Las fórmulas deducidas son:</p>
+                        \[
+                        \res{\mathrm{CuO}\ (\text{muestras 1 y 2}) \quad ; \quad \mathrm{Cu_2O}\ (\text{muestra 3})}
+                        \]
+
+                        <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                        <p>Las muestras 1 y 2 son el mismo compuesto (ambas \(\mathrm{CuO}\)), luego se cumple la <strong>ley de Proust</strong>. Al comparar las muestras 1 y 3 se obtienen dos compuestos distintos de los mismos elementos con \(r_1/r_3 = 1:2\), lo que confirma la <strong>ley de Dalton</strong>. El mismo conjunto de datos permite verificar <em>ambas</em> leyes si se compara correctamente: Proust dentro de un mismo compuesto, Dalton entre compuestos distintos.</p>
                     </div>
-                    <div class="enunciado">
-                        <p>Cuando el carbono se quema con oxígeno suficiente se forma CO<sub>2</sub>, pero con oxígeno escaso se forma CO (gas tóxico e inodoro que provoca intoxicaciones en calderas y braseros).</p>
+                </details>
+
+                <!-- ============================================
+                     EJERCICIO 4 — Dalton: PbO y PbO2
+                     ============================================ -->
+                <details class="ejercicio-card">
+                    <summary class="ejercicio-header">
+                        <span class="ejercicio-num">4</span>
+                        <span>Óxidos de plomo en las baterías: PbO y PbO₂</span>
+                        <span class="hint">🖱️ Púlsame</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+
+                    <div class="ejercicio-body">
+                        <p><strong>Enunciado.</strong> En las baterías de plomo-ácido aparecen dos óxidos de plomo:</p>
                         <ul>
-                            <li>a) Calcula los gramos de oxígeno que se combinan con 12 g de carbono en cada caso.</li>
-                            <li>b) ¿Qué relación guardan entre sí?</li>
-                            <li>c) ¿Qué ley se pone de manifiesto?</li>
+                            <li><strong>Óxido A</strong> (litargirio, amarillo): \(10{,}36\,\mathrm{g}\) de Pb y \(0{,}80\,\mathrm{g}\) de O.</li>
+                            <li><strong>Óxido B</strong> (dióxido de plomo, marrón): \(10{,}36\,\mathrm{g}\) de Pb y \(1{,}60\,\mathrm{g}\) de O.</li>
                         </ul>
+                        <p>Deducir sus fórmulas empíricas y verificar la ley de Dalton.</p>
+                        <p><em>Datos:</em> \(M_{\mathrm{Pb}} = 207{,}2\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
                     </div>
-                    <div class="resolucion">
-                        <p><span class="step-label">a)</span> En el CO: \(12\ \mathrm{g\ C} \times \dfrac{16}{12} = 16\ \mathrm{g\ O}\). En el CO<sub>2</sub>: \(12\ \mathrm{g\ C} \times \dfrac{32}{12} = 32\ \mathrm{g\ O}\).</p>
-                        <p><span class="step-label">b)</span> La relación es \(16 : 32 = 1 : 2\).</p>
-                        <p><span class="step-label">c)</span> Es un caso particular de la <strong>ley de las proporciones múltiples</strong>: CO y CO<sub>2</sub> son dos compuestos distintos de los mismos elementos y, con la misma masa de carbono, las masas de oxígeno están en proporción de números enteros sencillos (1:2).</p>
-                        <p><span class="step-label">Resultado:</span> 16 g y 32 g de O respectivamente; relación 1:2; ley de las proporciones múltiples.</p>
+
+                    <div class="ejercicio-resolucion">
+                        <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                        <p>Dos óxidos de plomo con <strong>masa de Pb fija</strong> (\(10{,}36\,\mathrm{g}\) en ambos). <strong>Objetivo:</strong> deducir los subíndices \(a\), \(b\) de la fórmula \(\mathrm{Pb}_a\mathrm{O}_b\) de cada óxido y comprobar que las masas de O están en relación entera.</p>
+
+                        <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                        <p>Cada óxido se describe por \(\mathrm{Pb}_a\mathrm{O}_b\) con \(a\), \(b\) enteros. La masa de Pb fija permite comparar directamente las masas de oxígeno.</p>
+
+                        <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                        <p>Modelo atómico-molar, proporción atómica, masa fija de Pb y condición de Dalton:</p>
+                        \[
+                        \begin{cases}
+                        \ley{n_{\mathrm{Pb}} = \dfrac{m_{\mathrm{Pb}}}{M_{\mathrm{Pb}}}} & \text{\ley{[1]} (moles de Pb)} \\[6pt]
+                        \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
+                        \ley{\dfrac{n_{\mathrm{Pb}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
+                        \cond{m_{\mathrm{Pb,1}} = m_{\mathrm{Pb,2}} = 10{,}36\,\mathrm{g}} & \text{\cond{[4]} (masa fija de Pb)} \\[6pt]
+                        \cond{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}} = \text{entero sencillo}} & \text{\cond{[5]} (ley de Dalton)}
+                        \end{cases}
+                        \]
+
+                        <details class="estrategia-resolucion">
+                            <summary>
+                                <i class="fa-solid fa-chevron-circle-down"></i>
+                                <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                                <span class="hint">🖱️ Púlsame</span>
+                            </summary>
+                            <div class="estrategia-contenido">
+                                <p><strong>Objetivo:</strong> deducir \(\objetivo{\dfrac{a_1}{b_1}}\) y \(\objetivo{\dfrac{a_2}{b_2}}\) y verificar que \(\objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}}\) es entero.</p>
+                                <p><strong>Ruta justificada:</strong> con [1]–[2] calculamos los moles de Pb y O en cada óxido; con [3] deducimos los subíndices; la condición [4] (masa fija de Pb) permite aplicar [5] para verificar Dalton.</p>
+                                \[
+                                \begin{cases}
+                                \calc{n_{\mathrm{Pb},i}} = \dfrac{\dato{m_{\mathrm{Pb},i}}}{\dato{M_{\mathrm{Pb}}}} & \text{[1]} \\[6pt]
+                                \calc{n_{\mathrm{O},i}} = \dfrac{\dato{m_{\mathrm{O},i}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
+                                \objetivo{\dfrac{a_i}{b_i}} = \dfrac{\calc{n_{\mathrm{Pb},i}}}{\calc{n_{\mathrm{O},i}}} & \text{[3]} \\[6pt]
+                                \dato{m_{\mathrm{Pb,1}}} = \dato{m_{\mathrm{Pb,2}}} = 10{,}36\,\mathrm{g} & \text{[4]} \\[6pt]
+                                \objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} & \text{[5]}
+                                \end{cases}
+                                \]
+                            </div>
+                        </details>
+
+                        <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                        <p><strong>Óxido A.</strong> Aplicamos [1]–[2]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{Pb},1}} = \frac{10{,}36}{207{,}2} = 0{,}050\,\mathrm{mol}}, \quad \calc{n_{\mathrm{O},1}} = \frac{0{,}80}{16{,}0} = 0{,}050\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para deducir la relación atómica del óxido A</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_1}{b_1}} = \frac{0{,}050}{0{,}050} = 1} \;\Rightarrow\; \res{\mathrm{PbO}}
+                        \]
+
+                        <p><strong>Óxido B.</strong> La masa de Pb está fija [4], \(\calc{n_{\mathrm{Pb},2}} = 0{,}050\,\mathrm{mol}\). Aplicamos [2]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{O},2}} = \frac{1{,}60}{16{,}0} = 0{,}100\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para deducir la relación atómica del óxido B</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_2}{b_2}} = \frac{0{,}050}{0{,}100} = \frac{1}{2}} \;\Rightarrow\; \res{\mathrm{PbO_2}}
+                        \]
+
+                        <p><strong>Verificación Dalton.</strong> Comparamos las masas de O [5]:</p>
+                        \[
+                        \cond{\objetivo{\frac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} = \frac{1{,}60}{0{,}80} = 2}
+                        \]
+                        <p>La relación es \(2:1\), entero sencillo. <strong>Se cumple la ley de Dalton.</strong></p>
+
+                        <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                        <p>Las fórmulas \(\mathrm{PbO}\) (plomo(II)) y \(\mathrm{PbO_2}\) (plomo(IV)) son las esperadas en los electrodos de una batería de plomo-ácido. La relación \(2:1\) de masas de O para la misma masa de Pb es enteros sencillos. Este ejercicio refuerza que la ley de Dalton se verifica <strong>comparando dos compuestos distintos</strong> de los mismos elementos, con la masa del otro elemento fija.</p>
                     </div>
+                </details>
+
+                <!-- ============================================
+                     EJERCICIO 5 — Contexto real: SO2 y SO3
+                     ============================================ -->
+                <details class="ejercicio-card">
+                    <summary class="ejercicio-header">
+                        <span class="ejercicio-num">5</span>
+                        <span>Contexto real: SO₂ y SO₃ en la lluvia ácida</span>
+                        <span class="hint">🖱️ Púlsame</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </summary>
+
+                    <div class="ejercicio-body">
+                        <p><strong>Enunciado.</strong> En las emisiones industriales que provocan la lluvia ácida aparecen dos óxidos de azufre:</p>
+                        <ul>
+                            <li><strong>Óxido A</strong> (gas más ligero): \(3{,}20\,\mathrm{g}\) de S y \(3{,}20\,\mathrm{g}\) de O.</li>
+                            <li><strong>Óxido B</strong> (gas más oxidado): \(3{,}20\,\mathrm{g}\) de S y \(4{,}80\,\mathrm{g}\) de O.</li>
+                        </ul>
+                        <p>Deducir sus fórmulas y verificar la ley de Dalton. ¿Cuál de ellos conduce a la lluvia ácida más intensa?</p>
+                        <p><em>Datos:</em> \(M_{\mathrm{S}} = 32{,}0\,\mathrm{g/mol}\); \(M_{\mathrm{O}} = 16{,}0\,\mathrm{g/mol}\).</p>
+                    </div>
+
+                    <div class="ejercicio-resolucion">
+                        <h4><i class="fa-solid fa-eye"></i> 1. Interpretar la situación</h4>
+                        <p>Dos óxidos binarios S–O con <strong>masa de S fija</strong> (\(3{,}20\,\mathrm{g}\) en ambos). <strong>Objetivo:</strong> deducir los subíndices \(a\), \(b\) de cada fórmula \(\mathrm{S}_a\mathrm{O}_b\) y comprobar la relación entera de masas de O. El más oxidado (mayor contenido en O) conduce a \(\mathrm{SO_3}\), que al hidratarse da \(\mathrm{H_2SO_4}\) (ácido sulfúrico), responsable de la lluvia ácida.</p>
+
+                        <h4><i class="fa-solid fa-draw-polygon"></i> 2. Representar el fenómeno</h4>
+                        <p>Cada óxido se describe por \(\mathrm{S}_a\mathrm{O}_b\). Con masa de S fija, la relación de moles de O determina el grado de oxidación del azufre (+4 en \(\mathrm{SO_2}\), +6 en \(\mathrm{SO_3}\)).</p>
+
+                        <h4><i class="fa-solid fa-scale-balanced"></i> 3. Elegir el modelo físico</h4>
+                        <p>Modelo atómico-molar, proporción atómica, masa fija de S y condición de Dalton:</p>
+                        \[
+                        \begin{cases}
+                        \ley{n_{\mathrm{S}} = \dfrac{m_{\mathrm{S}}}{M_{\mathrm{S}}}} & \text{\ley{[1]} (moles de S)} \\[6pt]
+                        \ley{n_{\mathrm{O}} = \dfrac{m_{\mathrm{O}}}{M_{\mathrm{O}}}} & \text{\ley{[2]} (moles de O)} \\[6pt]
+                        \ley{\dfrac{n_{\mathrm{S}}}{n_{\mathrm{O}}} = \dfrac{a}{b}} & \text{\ley{[3]} (proporción atómica)} \\[6pt]
+                        \cond{m_{\mathrm{S,1}} = m_{\mathrm{S,2}} = 3{,}20\,\mathrm{g}} & \text{\cond{[4]} (masa fija de S)} \\[6pt]
+                        \cond{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}} = \text{entero sencillo}} & \text{\cond{[5]} (ley de Dalton)}
+                        \end{cases}
+                        \]
+
+                        <details class="estrategia-resolucion">
+                            <summary>
+                                <i class="fa-solid fa-chevron-circle-down"></i>
+                                <span>🧭 Estrategia de resolución: del objetivo a los datos</span>
+                                <span class="hint">🖱️ Púlsame</span>
+                            </summary>
+                            <div class="estrategia-contenido">
+                                <p><strong>Objetivo:</strong> deducir \(\objetivo{\dfrac{a_1}{b_1}}\), \(\objetivo{\dfrac{a_2}{b_2}}\) y verificar que \(\objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}}\) es entero.</p>
+                                <p><strong>Ruta justificada:</strong> con [1]–[2] calculamos los moles de S y O en cada óxido; con [3] deducimos los subíndices; la masa fija de S [4] permite comparar las masas de O [5] y verificar Dalton.</p>
+                                \[
+                                \begin{cases}
+                                \calc{n_{\mathrm{S},i}} = \dfrac{\dato{m_{\mathrm{S},i}}}{\dato{M_{\mathrm{S}}}} & \text{[1]} \\[6pt]
+                                \calc{n_{\mathrm{O},i}} = \dfrac{\dato{m_{\mathrm{O},i}}}{\dato{M_{\mathrm{O}}}} & \text{[2]} \\[6pt]
+                                \objetivo{\dfrac{a_i}{b_i}} = \dfrac{\calc{n_{\mathrm{S},i}}}{\calc{n_{\mathrm{O},i}}} & \text{[3]} \\[6pt]
+                                \dato{m_{\mathrm{S,1}}} = \dato{m_{\mathrm{S,2}}} = 3{,}20\,\mathrm{g} & \text{[4]} \\[6pt]
+                                \objetivo{\dfrac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} & \text{[5]}
+                                \end{cases}
+                                \]
+                            </div>
+                        </details>
+
+                        <h4><i class="fa-solid fa-calculator"></i> 4. Resolver matemáticamente</h4>
+                        <p><strong>Óxido A.</strong> Aplicamos [1]–[2]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{S},1}} = \frac{3{,}20}{32{,}0} = 0{,}100\,\mathrm{mol}}, \quad \calc{n_{\mathrm{O},1}} = \frac{3{,}20}{16{,}0} = 0{,}200\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para deducir la relación atómica del óxido A</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_1}{b_1}} = \frac{0{,}100}{0{,}200} = \frac{1}{2}} \;\Rightarrow\; \res{\mathrm{SO_2}}
+                        \]
+
+                        <p><strong>Óxido B.</strong> La masa de S está fija [4], \(\calc{n_{\mathrm{S},2}} = 0{,}100\,\mathrm{mol}\). Aplicamos [2]:</p>
+                        \[
+                        \ley{\calc{n_{\mathrm{O},2}} = \frac{4{,}80}{16{,}0} = 0{,}300\,\mathrm{mol}}
+                        \]
+                        <p>Sustituimos en [3] <em>para deducir la relación atómica del óxido B</em>:</p>
+                        \[
+                        \ley{\objetivo{\frac{a_2}{b_2}} = \frac{0{,}100}{0{,}300} = \frac{1}{3}} \;\Rightarrow\; \res{\mathrm{SO_3}}
+                        \]
+
+                        <p><strong>Verificación Dalton.</strong> Comparamos las masas de O [5]:</p>
+                        \[
+                        \cond{\objetivo{\frac{m_{\mathrm{O,2}}}{m_{\mathrm{O,1}}}} = \frac{4{,}80}{3{,}20} = \frac{3}{2}}
+                        \]
+                        <p>La relación es \(3:2\), entero sencillo. <strong>Se cumple la ley de Dalton.</strong></p>
+
+                        <h4><i class="fa-solid fa-circle-check"></i> 5. Interpretar el resultado</h4>
+                        <p>Las fórmulas son \(\mathrm{SO_2}\) (azufre +4) y \(\mathrm{SO_3}\) (azufre +6). Ambas reaccionan con agua para dar ácidos (H₂SO₃ y H₂SO₄); el \(\mathrm{SO_3}\) produce ácido sulfúrico, que es el principal responsable de la lluvia ácida. La relación \(3:2\) de masas de O para la misma masa de S es enteros sencillos: <strong>se cumple la ley de Dalton</strong>. Este ejercicio conecta la ley de las proporciones múltiples con un problema medioambiental real y muestra que los datos experimentales permiten deducir fórmulas y predecir propiedades químicas.</p>
+                    </div>
+                </details>
+
+                <!-- ============================================
+                     PIE DE CLAVE DIDÁCTICA
+                     ============================================ -->
+                <div class="clave-didactica">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <strong>Clave didáctica:</strong> la ley de las proporciones definidas (Proust) compara <em>muestras de un mismo compuesto</em> (la relación de masas debe salir siempre igual); la ley de las proporciones múltiples (Dalton) compara <em>dos compuestos distintos</em> de los mismos elementos (la relación entre sus relaciones de masas debe ser de números enteros sencillos). Todos los ejercicios se han resuelto <strong>deduciendo el resultado desde las ecuaciones primarias del modelo atómico-molar</strong> (\(n = m/M\) y proporción atómica = proporción de moles), nunca sustituyendo directamente en la fórmula final «en recuadro». Las condiciones de masa fija y las relaciones entre masas se han tratado como <strong>ecuaciones explícitas del sistema</strong> ([4], [5]), citadas por número y con su finalidad contextualizada en cada sustitución. Las ecuaciones se han coloreado por categoría (<span style="color:#2f855a;">■ leyes</span>, <span style="color:#b7791f;">■ condiciones/ligaduras</span>, <span style="color:#6b46c1;">■ resultados</span>) y las incógnitas durante el cálculo se han marcado con <em>rojo negrita</em> (cuando correspondía). Cada ejercicio se ha planificado desde el <strong>objetivo hacia los datos</strong> mediante la «🧭 Estrategia de resolución», que distingue datos (verde), objetivo (rojo recuadrado), intermedias que se calculan (azul) e incógnitas que no se calculan explícitamente (rojo negrita). El error más común —confundir ambas leyes— queda desmontado: <strong>antes de decidir qué ley se cumple, identifica siempre qué estás comparando</strong>.
                 </div>
 
-            </div> <!-- fin contenido-ejercicios -->
-
-            <div class="pie-clave">
-                <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> La ley de las proporciones definidas compara <em>muestras de un mismo compuesto</em> (la relación de masas debe salir siempre igual); la ley de las proporciones múltiples compara <em>dos compuestos distintos</em> formados por los mismos elementos (la relación entre sus relaciones de masas debe ser de números enteros sencillos). Antes de decidir qué ley se cumple, identifica siempre qué estás comparando.
             </div>
         </details>
 
         <!-- ============================================
-             BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+             BLOQUE "ES HORA DE" (original)
              ============================================ -->
         <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-            <div style="
-                max-width: 100%;
-                padding: 15px;
-                margin: 10px auto;
-                text-align: center;
-                background: #f8fafc;
-                border-radius: 16px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            ">
-                <p style="
-                    font-size: clamp(0.95rem, 3vw, 1.2rem);
-                    color: #2d3748;
-                    margin-top: 0;
-                    margin-bottom: 12px;
-                    padding: 0 10px;
-                ">
+            <div style="max-width: 100%; padding: 15px; margin: 10px auto; text-align: center; background: #f8fafc; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <p style="font-size: clamp(0.95rem, 3vw, 1.2rem); color: #2d3748; margin-top: 0; margin-bottom: 12px; padding: 0 10px;">
                     <br> Con un par de divisiones y algo de práctica, esto es más fácil de lo que parece.<br>
                     <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
                 </p>
-
                 <div style="text-align:center;">
-                    <a
-                        href="../index.html"
-                        target="_blank"
-                        style="
-                            display:inline-block;
-                            padding:12px 24px;
-                            background:#0078D4;
-                            color:white;
-                            text-decoration:none;
-                            border-radius:12px;
-                            font-weight:bold;
-                        "
-                    >
+                    <a href="../index.html" target="_blank" style="display:inline-block; padding:12px 24px; background:#0078D4; color:white; text-decoration:none; border-radius:12px; font-weight:bold;">
                         Volver al inicio
                     </a>
                 </div>
             </div>
         </div>
-        <!-- ===================FIN DE ES HORA DE ==================== -->
+    </div>
 
-    </div> <!-- fin container -->
+    <!-- Seguridad MathJax -->
+    <script>
+    if (window.MathJax && MathJax.typesetPromise) {
+      MathJax.typesetPromise().catch(err => console.error('MathJax:', err));
+    }
+    </script>
 </body>
 </html>
