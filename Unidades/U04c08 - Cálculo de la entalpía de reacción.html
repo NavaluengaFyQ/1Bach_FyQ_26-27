@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -345,6 +343,34 @@
                 font-size: 0.9em;
             }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -402,7 +428,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -445,6 +470,11 @@
                     \downarrow{\scriptstyle \sum -\Delta H_f^\circ(\text{react})} & & \uparrow{\scriptstyle +\sum \Delta H_f^\circ(\text{prod})} \\
                     \text{Elementos} & \xrightarrow{0} & \text{Elementos}
                     \end{array}\]
+                </div>
+
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ127.webp" alt="Formación de CO2 a partir de sus elementos en dos pasos según la Ley de Hess">
+                    <div class="figure-caption"><strong>El ciclo de formación, paso a paso.</strong> La formación de CO₂(g) a partir de sus elementos puede descomponerse en dos etapas: primero la formación de CO y luego su oxidación a CO₂. La suma de las entalpías de ambas etapas coincide con la formación directa. Este esquema es exactamente el ciclo de estados de referencia que sustenta el método de entalpías de formación: pasar de reactivos a elementos y de elementos a productos.</div>
                 </div>
             </div>
             
@@ -495,6 +525,17 @@
                     \[\Delta H_r = \sum_{\text{enlaces rotos}} \Delta H_{\text{enlace}} - \sum_{\text{enlaces formados}} \Delta H_{\text{enlace}}\]
                 </div>
                 <p>Es decir: la entalpía de reacción es la <strong>diferencia entre la energía necesaria para romper los enlaces de los reactivos</strong> y la <strong>energía liberada al formar los enlaces de los productos</strong>.</p>
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/ImagenQ110.webp" alt="Soplete oxiacetilénico (exotérmico) y bolsa de frío instantáneo (endotérmico)">
+                        <div class="figure-caption"><strong>Exotérmico y endotérmico, cara a cara.</strong> El soplete oxiacetilénico libera energía al combustionar el acetileno (proceso exotérmico, ΔH &lt; 0). La bolsa de frío instantáneo absorbe energía al disolverse la sal (proceso endotérmico, ΔH &gt; 0). El signo de ΔH distingue ambos casos y es la clave para interpretar el balance de enlaces rotos y formados.</div>
+                    </div>
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/ImagenQ403.webp" alt="Diagrama de energía de una reacción exotérmica">
+                        <div class="figure-caption"><strong>El diagrama que resume el balance.</strong> En una reacción exotérmica, los productos se sitúan a menor energía que los reactivos. La diferencia de energía entre ambos niveles es ΔH &lt; 0. El método de enlaces explica ese descenso porque la energía liberada al formar los enlaces de los productos supera la necesaria para romper los enlaces de los reactivos.</div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -689,7 +730,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -736,7 +776,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -271,6 +269,54 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 15px 15px 10px 15px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            max-width: 520px;
+        }
+        .photo-figure img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 440px;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px;
+            max-width: 320px;
+            margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px;
+            object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-top: 10px;
+            line-height: 1.5;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -303,7 +349,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -316,7 +361,6 @@
 <img src="../imagenes/U03c01 - Ley de las proporciones definidas_2.png" alt="Imagen" width="800">
 <img src="../imagenes/U03c01 - Ley de las proporciones definidas_3.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
 
 
 
@@ -359,6 +403,19 @@
             </div>
             <p>Esta relación depende únicamente de <strong>números enteros</strong> (\( x, y \)) y de <strong>masas atómicas constantes</strong> (\( A_r \)), por lo que es una constante característica del compuesto.</p>
         </div>
+
+        <!-- Fotografías: dos elementos que se combinan en proporción fija -->
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <img src="../imagenes/webp/Imagen031.webp" alt="Cobre y oxígeno reaccionando para formar óxido de cobre(II), un sólido negro en polvo">
+                <div class="figure-caption"><strong>Dos elementos, un compuesto.</strong> El cobre (sólido brillante) y el oxígeno (gas incoloro) se combinan para formar óxido de cobre(II), un sólido negro. Los átomos se reordenan, pero la proporción en que se combinan es siempre la misma.</div>
+            </div>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/Imagen030.webp" alt="Modelo molecular del óxido de cobre(II) mostrando la proporción 1:1 entre átomos de cobre y oxígeno">
+                <div class="figure-caption"><strong>Proporción 1:1.</strong> En el óxido de cobre(II), cada átomo de cobre (esfera marrón) se combina con un átomo de oxígeno (esfera roja). Esa relación fija es la que define al compuesto.</div>
+            </div>
+        </div>
+
         <div class="step">
             <span class="step-num">4</span>
             <strong>Generalizamos a cualquier cantidad de sustancia</strong>. Para \( n \) moles del compuesto, el número de moléculas es \( n \cdot N_{\text{A}} \), donde \( N_{\text{A}} \) es el número de Avogadro. Las masas totales serán:
@@ -389,6 +446,13 @@
             \[ \frac{m_{\text{A}}}{m_{\text{B}}} = \frac{x \cdot M_{\text{A}}}{y \cdot M_{\text{B}}} = \text{constante} \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La proporción en masa de los elementos en un compuesto es fija e invariable.</p>
+
+        <!-- Fotografía: ejemplo cotidiano de composición fija -->
+        <div class="photo-figure">
+            <img src="../imagenes/webp/Imagen063.webp" alt="Modelo de la sal de mesa (NaCl) mostrando la proporción 1:1 entre iones sodio y cloruro">
+            <div class="figure-caption"><strong>Un ejemplo cotidiano.</strong> La sal de mesa (NaCl) contiene iones de sodio y cloruro en una relación 1:1. Su fórmula de masa es 58,44 u. No importa cómo se obtenga: la proporción siempre será la misma.</div>
+        </div>
+
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  Esta demostración conecta directamente con el concepto de <strong>fórmula química</strong> como expresión de proporciones atómicas fijas. Es recomendable contrastarla con la <strong>Ley de las Proporciones Múltiples</strong> para evitar confusiones: mientras Proust habla de un <em>único compuesto</em> con proporción fija, Dalton se refiere a <em>varios compuestos</em> entre los mismos elementos con proporciones variables en relación entera.
         </div>
@@ -552,6 +616,13 @@
                             <li>Calcular la relación \( \frac{m_{\text{Na}}}{m_{\text{Cl}}} \) en el NaCl y comprobar que es constante en ambos métodos.</li>
                         </ul>
                     </div>
+
+                    <!-- Fotografía: sodio + cloro -> sal de mesa -->
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/Imagen171.webp" alt="Sodio metálico, cloro gaseoso y cloruro de sodio formado por su combinación">
+                        <div class="figure-caption"><strong>De elementos a compuesto.</strong> El sodio (metal blando) y el cloro (gas amarillo-verde) se combinan para formar cloruro de sodio (cristales blancos). La proporción en que lo hacen es fija e independiente del método de obtención.</div>
+                    </div>
+
                     <div class="resolution">
                         <p><strong>Resolución paso a paso:</strong></p>
                         <ul>
@@ -570,7 +641,6 @@
 
         </div>
     </details>
-
 
 
 
@@ -623,9 +693,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
 
 
 

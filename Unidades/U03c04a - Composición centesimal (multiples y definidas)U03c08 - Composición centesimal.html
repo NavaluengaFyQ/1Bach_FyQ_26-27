@@ -416,6 +416,34 @@
             color: #0c4a6e;
         }
         .pie-clave i { margin-right: 0.5rem; }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -660,6 +688,11 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ030.webp" alt="Modelo de esferas del óxido de cobre(II): un átomo de cobre (esfera marrón) por cada átomo de oxígeno (esfera roja) en una proporción 1:1">
+                    <div class="figure-caption"><strong>Proporción 1:1, siempre la misma.</strong> El óxido de cobre(II) combina un átomo de cobre con uno de oxígeno: esa proporción fija, idéntica se prepare como se prepare el compuesto, es la "receta cerrada" que describió Proust.</div>
+                </div>
             </div>
 
             <div class="step">
@@ -682,6 +715,11 @@
                     </div>
                 </div>
                 <p style="margin-top:10px;">En ambos casos aparecen números enteros pequeños. <em>Eso</em> es la ley de las proporciones múltiples.</p>
+
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ032.webp" alt="Dos compuestos de cobre y cloro representados con esferas: en el segundo hay el doble de átomos de cloro por cada átomo de cobre">
+                    <div class="figure-caption"><strong>El doble de cloro, el mismo cobre.</strong> Dos compuestos de cobre y cloro que contienen distinto número de átomos de cloro por cada átomo de cobre: al fijar la masa de cobre, la relación de cloro entre ambos es un número entero sencillo (1:2), exactamente lo que predice la ley de Dalton.</div>
+                </div>
             </div>
 
             <div class="step">
@@ -699,6 +737,11 @@
                     <strong>💡 Regla mnemotécnica:</strong> "Porcentaje ÷ masa atómica = subíndice".
                     Después solo hay que reducir la fracción a números enteros pequeños.
                     Este método funciona para cualquier compuesto y es la base de la <em>fórmula empírica</em>.
+                </div>
+
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ047.webp" alt="Vinagre, fórmula estructural del ácido acético y su modelo de barras y esferas, con la fórmula empírica CH2O">
+                    <div class="figure-caption"><strong>De la fórmula molecular a la empírica.</strong> El ácido acético (C₂H₄O₂) y su fórmula empírica CH₂O muestran que los subíndices pueden reducirse a la relación mínima de átomos: es el mismo camino que recorremos al dividir los porcentajes entre las masas atómicas para recuperar la fórmula.</div>
                 </div>
             </div>
         </div>

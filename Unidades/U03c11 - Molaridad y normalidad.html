@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -274,6 +272,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -316,8 +342,6 @@
 <img src="../imagenes/U03c11 - Molaridad y normalidad.png" alt="Imagen" width="800">
 <img src="../imagenes/U03c11 - Molaridad y normalidad_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -366,6 +390,10 @@
                 <li><strong>Sales</strong> (reacciones de precipitación): \( a \) = número de cargas del ion metálico</li>
                 <li><strong>Oxidantes/reductores</strong>: \( a \) = número de electrones transferidos</li>
             </ul>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ433.webp" alt="Tabla con los ácidos y bases fuertes más comunes">
+                <div class="figure-caption"><strong>Ácidos y bases fuertes comunes.</strong> Conocer qué sustancias son ácidos o bases fuertes ayuda a identificar su factor de valencia \(a\): el HCl o el HNO₃ ceden un protón (\(a=1\)), mientras que el H₂SO₄ puede ceder dos (\(a=2\)), lo que multiplica su normalidad respecto a su molaridad.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">4</span>
@@ -403,6 +431,10 @@
                 \[ N_{\text{ácido}} \cdot V_{\text{ácido}} = N_{\text{base}} \cdot V_{\text{base}} \]
             </div>
             <p>Esta ecuación es <strong>más general</strong> que la de molaridad, ya que funciona independientemente del número de protones intercambiados.</p>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ100.webp" alt="Estudiante llenando una bureta para un análisis de titulación, y detalle de una bureta típica">
+                <div class="figure-caption"><strong>La bureta, herramienta de valoración.</strong> En una valoración ácido-base se mide con precisión el volumen de disolución valorante (de normalidad conocida) necesario para neutralizar el analito. La ecuación \(N_1V_1=N_2V_2\) permite calcular la normalidad desconocida a partir de los volúmenes medidos en la bureta.</div>
+            </div>
         </div>
     </div>
 
@@ -514,6 +546,10 @@
                             <li>Para H₂SO₄, \( a = 2 \), entonces \( M = \frac{N}{a} = \frac{0,288}{2} = 0,144 \, \text{mol/L} \).</li>
                         </ul>
                     </div>
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/ImagenQ445.webp" alt="Curvas de titulación de 25 mL de HCl 0,100 M y de ácido acético 0,100 M con NaOH 0,100 M">
+                        <div class="figure-caption"><strong>Curvas de valoración.</strong> Las curvas de titulación muestran cómo varía el pH al añadir valorante. En una valoración como la de este ejercicio, el punto de equivalencia se alcanza cuando los equivalentes de ácido y base se igualan (\(N_1V_1=N_2V_2\)), permitiendo calcular la concentración desconocida.</div>
+                    </div>
                 </div>
             </div>
 
@@ -539,12 +575,11 @@
 
             <!-- PIE DIDÁCTICO -->
             <div class="didactic-footer">
-                <strong>🧠 Observaciones claves:</strong> La relación \( N = a \cdot M \) es clave para entender que la <strong>normalidad mide la "fuerza reactiva"</strong> de una disolución, no solo su concentración molar. El error más común es <strong>ignorar el factor \( a \)} para ácidos polipróticos o bases polihidroxílicas</strong>, o usarlo incorrectamente en reacciones redox donde el número de electrones transferidos define el equivalente. Recuerda que \( a \) depende del contexto de la reacción, no solo de la fórmula de la sustancia.
+                <strong>🧠 Observaciones claves:</strong> La relación \( N = a \cdot M \) es clave para entender que la <strong>normalidad mide la "fuerza reactiva"</strong> de una disolución, no solo su concentración molar. El error más común es <strong>ignorar el factor \( a \)</strong> para ácidos polipróticos o bases polihidroxílicas, o usarlo incorrectamente en reacciones redox donde el número de electrones transferidos define el equivalente. Recuerda que \( a \) depende del contexto de la reacción, no solo de la fórmula de la sustancia.
             </div>
 
         </div>
     </details>
-
 
 
 
@@ -597,7 +632,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

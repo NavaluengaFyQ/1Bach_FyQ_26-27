@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -274,6 +272,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -327,7 +353,6 @@
 
 
 
-
         </div>
     </div>
 
@@ -340,6 +365,11 @@
             <li>Comprender que compuestos distintos pueden compartir la misma fórmula empírica (ej. \( \text{CH}_2\text{O} \): formaldehído y glucosa).</li>
             <li>Conectar el análisis químico clásico con la determinación estructural moderna.</li>
         </ul>
+
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ047.webp" alt="Vinagre, fórmula estructural del ácido acético C2H4O2 y su modelo molecular, con la fórmula empírica CH2O">
+            <div class="figure-caption"><strong>CH₂O, la misma proporción mínima, compuestos distintos.</strong> El ácido acético (C₂H₄O₂) del vinagre comparte con el formaldehído y la glucosa la fórmula empírica CH₂O: tres sustancias diferentes con una única proporción mínima de átomos. Es la diferencia esencial entre fórmula empírica y fórmula molecular.</div>
+        </div>
     </div>
 
     <div class="section procedimiento">
@@ -374,6 +404,11 @@
                 \[ \text{Fórmula empírica} = \text{A}_x\text{B}_y\text{C}_z \]
             </div>
             <p>Esta fórmula representa la <strong>proporción mínima</strong> de átomos en el compuesto.</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo se deriva la fórmula empírica de un compuesto a partir de las masas de todos los elementos de la muestra">
+                <div class="figure-caption"><strong>De las masas a la proporción mínima.</strong> El esquema resume el corazón del método: a partir de las masas de cada elemento en la muestra se calculan los moles, se dividen entre el menor y se reducen a enteros para obtener la fórmula empírica.</div>
+            </div>
         </div>
         <div class="method-box">
             <strong>PARTE B: OBTENCIÓN DE LA FÓRMULA MOLECULAR</strong>
@@ -503,6 +538,11 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ103.webp" alt="Esquema del análisis de combustión para determinar el contenido de carbono e hidrógeno de una muestra y obtener la fórmula empírica del polietileno">
+                    <div class="figure-caption"><strong>Análisis de combustión: la fórmula empírica en el laboratorio.</strong> Al quemar una muestra y medir el CO₂ y el H₂O producidos se calculan las masas de carbono e hidrógeno y, a partir de ellas, la fórmula empírica. El análisis de combustión del polietileno (Figura de ejemplo) es el mismo procedimiento experimental que aplicamos en este ejercicio.</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 4 -->
@@ -555,7 +595,6 @@
 
         </div>
     </details>
-
 
 
 

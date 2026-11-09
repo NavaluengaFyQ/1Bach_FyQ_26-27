@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -277,6 +275,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -329,7 +355,6 @@
 
 
 
-
         <p style="text-align: center;">Objetivo: obtener una ecuación del tipo \( f(p, V, T, n) = 0 \)</p>
     </div>
 
@@ -355,6 +380,11 @@
                 <strong>Ley de Gay-Lussac</strong> (a \( V \) constante): \( \frac{p}{T} = k_3 \)
             </div>
             <p>donde \( k_1, k_2, k_3 \) son constantes que dependen de la cantidad de gas.</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ281.webp" alt="Ilustración de los efectos de la temperatura, el volumen y la cantidad de gas sobre la presión y el volumen según las leyes de los gases">
+                <div class="figure-caption"><strong>Las tres leyes de los gases, en una sola imagen.</strong> La temperatura, el volumen y la cantidad de gas modifican la presión y el volumen tal como recogen las leyes de Gay-Lussac, Boyle y Charles. Esta figura resume los tres comportamientos que, combinados, dan lugar a la ecuación de Clapeyron.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -414,6 +444,11 @@
                 \[ R = \frac{p \cdot V_m}{T} = \frac{1 \text{ atm} \cdot 22,4 \text{ L/mol}}{273,15 \text{ K}} = 0,082 \frac{\text{atm} \cdot \text{L}}{\text{mol} \cdot \text{K}} \]
             </div>
             <p>En unidades del SI: \( R = 8,314 \frac{\text{J}}{\text{mol} \cdot \text{K}} \)</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ268.webp" alt="Un mol de gas ideal ocupa un volumen de aproximadamente 22,4 litros en condiciones estándar">
+                <div class="figure-caption"><strong>Un mol ocupa 22,4 L en condiciones normales.</strong> Este volumen molar es la clave para calcular la constante R: un mol de cualquier gas ideal ocupa aproximadamente 22,4 L a 0 °C y 1 atm, lo que permite obtener R = 0,082 atm·L/(mol·K).</div>
+            </div>
         </div>
     </div>
 
@@ -563,7 +598,6 @@
 
         </div>
     </details>
-
 
 
 

@@ -253,6 +253,34 @@
             font-style: italic;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -306,6 +334,16 @@
             <li>Determinar <strong>masas molares de solutos</strong> desconocidos mediante crioscopia.</li>
             <li>Conectar la propiedad coligativa con el <strong>diagrama de fases</strong> del disolvente.</li>
         </ul>
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ373.webp" alt="Sal gema (NaCl), cloruro de calcio (CaCl2) y su mezcla utilizados para derretir el hielo">
+                <div class="figure-caption"><strong>Sal para derretir el hielo.</strong> Para derretir el hielo de las carreteras se utiliza sal gema (NaCl), cloruro de calcio (CaCl₂) o una mezcla de ambos. Al disolverse, descienden el punto de congelación del agua, impidiendo que se forme hielo a 0 °C.</div>
+            </div>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ374.webp" alt="Descenso crioscópico aplicado a la eliminación de hielo en carreteras y en superficies de control de aviones">
+                <div class="figure-caption"><strong>Del suelo al avión.</strong> El mismo principio de descenso crioscópico se aplica en carreteras y en las superficies de control de aviones. Añadir solutos como sales o glicoles desplaza el punto de congelación hacia temperaturas más bajas, garantizando la seguridad en condiciones invernales.</div>
+            </div>
+        </div>
     </div>
 
     <!-- Procedimiento -->
@@ -333,6 +371,10 @@
                 \[ p_{\text{líquido}}(T_f) = p_{\text{sólido}}(T_f) \]
             </div>
             <p>Como \( p_{\text{líquido}}(T) < p_{\text{líquido}}^0(T) \), la curva de presión de vapor del líquido se ha desplazado hacia abajo. El nuevo punto de intersección con la curva del sólido ocurre a una <strong>temperatura menor</strong>.</p>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ375.webp" alt="Diagramas de fase para un disolvente puro (curvas sólidas) y para una disolución formada por la disolución de un soluto no volátil (curvas discontinuas)">
+                <div class="figure-caption"><strong>El diagrama de fases del descenso crioscópico.</strong> Al añadir un soluto no volátil, las curvas de presión de vapor del líquido y del sólido (discontinuas) se desplazan respecto a las del disolvente puro (sólidas). El punto de congelación se desplaza hacia la izquierda (temperatura menor), y el de ebullición hacia la derecha (temperatura mayor).</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">4</span>

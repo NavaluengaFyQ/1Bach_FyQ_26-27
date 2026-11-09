@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -273,6 +271,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -316,8 +342,6 @@
 <img src="../imagenes/U03c06 - Relación densidad-masa molecular_2.png" alt="Imagen" width="800"> <br><br>
 <img src="../imagenes/U03c06 - Relación densidad-masa molecular_3.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -402,6 +426,10 @@
                 <li>A <strong>temperatura constante</strong>, la densidad aumenta con la presión (compresión).</li>
                 <li>A <strong>iguales \( p \) y \( T \)</strong>, la densidad es directamente proporcional a la masa molar (los gases más pesados son más densos).</li>
             </ul>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ250.webp" alt="Globos aerostáticos de aire caliente elevándose">
+                <div class="figure-caption"><strong>Aire caliente, menos denso.</strong> El aire caliente del interior del globo tiene menor densidad que el aire frío exterior; esta imagen ilustra cómo, a presión constante, al aumentar la temperatura disminuye la densidad de un gas, tal como predice \(d=\frac{pM}{RT}\).</div>
+            </div>
         </div>
     </div>
 
@@ -414,6 +442,10 @@
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">Equivalentemente:</p>
         <div class="formula-box">
             \[ M = \frac{dRT}{p} \quad \text{y} \quad d = \frac{pM}{RT} \]
+        </div>
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ268.webp" alt="Representación de un mol de gas ideal ocupando unos 22,4 L en condiciones normales">
+            <div class="figure-caption"><strong>Un mol de gas en condiciones normales.</strong> Un mol de gas ideal ocupa aproximadamente 22,4 L a 0 °C y 1 atm; de ahí la regla práctica \(d=\frac{M}{22,4}\,\text{g/L}\), muy útil para estimar densidades de gases en condiciones normales.</div>
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  Esta demostración es una de las más aplicadas en problemas de 1º de Bachillerato. Es crucial que se domine las dos formas de la ecuación: despejar \( M \) para identificación de gases (tema central en determinación de fórmulas moleculares) y despejar \( d \) para cálculos de flotabilidad y mezclas gaseosas. Un error frecuente es olvidar convertir la temperatura a Kelvin o mezclar unidades de presión y volumen incompatibles con el valor de \( R \) elegido. Se recomienda practicar con ambos valores de \( R \): \( 0,082 \frac{\text{atm·L}}{\text{mol·K}} \) y \( 8,314 \frac{\text{J}}{\text{mol·K}} \). La relación también permite deducir que, en condiciones normales, la densidad de un gas es \( d = \frac{M}{22,4} \frac{\text{g}}{\text{L}} \), una fórmula mnemotécnica muy útil.
@@ -451,6 +483,10 @@
                             <li>\( M = \frac{3,17 \times 0,082 \times 298}{1,2} = \frac{3,17 \times 24,436}{1,2} = \frac{77,46}{1,2} \approx 64,6 \, \text{g/mol} \).</li>
                             <li>El valor más cercano es 64,6 → podría ser SO₂ (64 g/mol). No coincide exactamente con los dados, pero el más próximo es Cl₂ (71) o SO₂ (64). Se identifica como SO₂.</li>
                         </ul>
+                    </div>
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/ImagenQ269.webp" alt="Matraz con líquido volátil calentado para medir la masa molar mediante la densidad del vapor">
+                        <div class="figure-caption"><strong>Densidad de vapor y masa molar.</strong> Calentando un líquido volátil en un matraz se llena el recipiente con su vapor; al enfriarlo y pesarlo se puede determinar la densidad del gas y, con \(M=\frac{dRT}{p}\), estimar su masa molar.</div>
                     </div>
                 </div>
             </div>
@@ -551,7 +587,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -598,7 +633,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

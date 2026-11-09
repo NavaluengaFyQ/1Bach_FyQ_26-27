@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -257,6 +255,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -301,7 +327,6 @@
 
 <img src="../imagenes/U05c10 - Derivación de la relación entre densidad de un gas y su masa molar a partir de la ecuación de Clapeyron_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
 
 
 
@@ -405,6 +430,11 @@
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Es fundamental insistir en el uso correcto de unidades. Un error común es mezclar kPa con \( R = 0{,}082 \) (que requiere atm) o usar \( ^\circ\text{C} \) en lugar de K. Se recomienda que los estudiantes siempre conviertan las unidades antes de sustituir en la fórmula. También es útil destacar que esta relación solo es válida para gases ideales; a presiones muy altas o temperaturas muy bajas, las desviaciones de la idealidad pueden ser significativas.
         </div>
+
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ279.webp" alt="Dos globos inflados con helio (naranja) y argón (azul) mostrando la diferencia de efusión tras 12 horas">
+            <div class="figure-caption"><strong>La densidad y la masa molar, en acción.</strong> Dos globos inflados con helio (naranja) y argón (azul) muestran cómo el gas más ligero (menor masa molar) escapa más rápidamente a través de los poros del globo. La densidad de un gas es directamente proporcional a su masa molar a igual presión y temperatura, como se deduce de \(M = dRT/p\).</div>
+        </div>
     </div>
 
     <!-- RESULTADO -->
@@ -419,6 +449,12 @@
             <p style="font-size: 0.95em; margin: 10px 0 0 0;">Si \( p = 1 \, \text{atm} \) y \( T = 273{,}15 \, \text{K} \):</p>
             \[ M = d \cdot 22{,}4 \, \dfrac{\text{L}}{\text{mol}} \]
         </div>
+
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ268.webp" alt="Un mol de gas ideal ocupa 22,4 L en condiciones estándar">
+            <div class="figure-caption"><strong>Un mol, un volumen: la base de la densidad molar.</strong> A STP (0 °C y 1 atm), un mol de cualquier gas ideal ocupa 22,4 L. Esta regularidad experimental permite relacionar directamente la densidad de un gas con su masa molar: \(M = d \cdot 22,4\) (con d en g/L). Es la aplicación más sencilla de la ecuación de Clapeyron.</div>
+        </div>
+
         <p>La demostración realizada mediante la manipulación algebraica de la ecuación de Clapeyron confirma la relación entre la densidad de un gas y su masa molar, permitiendo determinar esta última a partir de datos experimentales accesibles.</p>
         <div style="background: #e6fffa; border-radius: 8px; padding: 10px; margin-top: 12px; border-left: 4px solid #319795;">
             <p style="margin: 0;"><strong>📌 Conclusión:</strong> La relación \( M = \dfrac{d \cdot R \cdot T}{p} \) es una herramienta fundamental en química analítica para la identificación de compuestos gaseosos, permitiendo determinar su masa molar y, por tanto, su fórmula molecular.</p>
@@ -512,7 +548,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -559,7 +594,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

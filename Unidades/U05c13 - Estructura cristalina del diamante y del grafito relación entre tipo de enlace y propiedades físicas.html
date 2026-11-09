@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -264,6 +262,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -315,7 +341,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -353,6 +378,11 @@
                 <strong>Ángulo de enlace:</strong> \( 120^\circ \)<br>
                 <strong>Distancia interlaminar:</strong> \( 3{,}4 \, \text{\AA} \)
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ513.webp" alt="Estructuras cristalinas del diamante con tetraedros tridimensionales y del grafito con capas de anillos hexagonales">
+                <div class="figure-caption"><strong>Dos formas del mismo elemento, dos arquitecturas opuestas.</strong> En el diamante (a), los enlaces covalentes forman tetraedros tridimensionales que se extienden en todas las direcciones. En el grafito (b), cada capa plana está compuesta por anillos de seis miembros, y las capas se mantienen unidas por fuerzas débiles. Esta diferencia estructural es la raíz de que uno sea el material más duro y el otro un lubricante.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -375,6 +405,11 @@
                 <li><strong>Opacidad y color negro:</strong> Los electrones \( \pi \) deslocalizados absorben luz en una amplia gama del espectro visible.</li>
                 <li><strong>Anisotropía:</strong> Las propiedades difieren según la dirección (dentro del plano vs. perpendicular a él).</li>
             </ul>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ329.webp" alt="Diamante extremadamente duro frente al grafito que se desprende del papel por las débiles atracciones entre capas">
+                <div class="figure-caption"><strong>La estructura se traduce en comportamiento.</strong> El diamante es extremadamente duro porque sus átomos de carbono están fuertemente unidos en todas las direcciones. El grafito, en cambio, se desprende del papel (como en la mina del lápiz) debido a las débiles atracciones entre sus capas de carbono. La imagen de la superficie de grafito muestra la distancia entre átomos de carbono adyacentes, reforzando la idea de que la organización estructural determina las propiedades macroscópicas.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -525,6 +560,11 @@
                 <div class="step"><strong>3. Relación:</strong> Todos son alótropos del carbono con enlaces \( sp^2 \) (excepto el diamante), pero la dimensionalidad (2D para grafeno, 0D para fullereno) y la curvatura cambian radicalmente las propiedades.</div>
                 <div class="step"><span class="highlight-sol">Resultado:</span> La versatilidad del carbono permite una gran variedad de alótropos con propiedades personalizadas.</div>
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ516.webp" alt="Grafeno y nanotubos de carbono como alótropos del carbono">
+                <div class="figure-caption"><strong>Más allá del diamante y el grafito.</strong> El grafeno (una capa individual de grafito) y los nanotubos de carbono (cilindros de grafeno enrollado) son alótropos del carbono que heredan la estructura hexagonal sp² pero adquieren propiedades extraordinarias por su dimensionalidad reducida. El grafeno es el material más resistente conocido y un excelente conductor; los nanotubos combinan ligereza y alta resistencia mecánica. La familia del carbono es mucho más amplia que los dos alótropos clásicos.</div>
+            </div>
         </div>
 
         <!-- Pie didáctico -->
@@ -534,7 +574,6 @@
         </div>
     </details>
     <!-- FIN DEL BLOQUE DESPLEGABLE -->
-
 
 
 
@@ -587,7 +626,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

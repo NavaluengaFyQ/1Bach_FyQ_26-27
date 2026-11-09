@@ -266,6 +266,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -338,6 +366,11 @@
                 \( C_xH_y + O_2 \longrightarrow \mathbf{x}\,CO_2 + H_2O \)
             </div>
             <p>(El coeficiente \( x \) se ha puesto en negrita para destacarlo).</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ082.webp" alt="Modelos moleculares y ecuación química de la combustión del metano">
+                <div class="figure-caption"><strong>La combustión, molécula a molécula.</strong> El modelo molecular muestra cómo una molécula de metano (CH₄) reacciona con dos de oxígeno para formar una de CO₂ y dos de H₂O. Todo el carbono del combustible termina en el CO₂ y todo el hidrógeno en el H₂O. Esta es la base del balanceo sistemático: contar los átomos de carbono para fijar el coeficiente del CO₂ y los de hidrógeno para fijar el del H₂O.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -368,6 +401,11 @@
             <strong>Ecuación final balanceada:</strong>
             <div class="formula-box">
                 \( C_xH_y + \left(x + \dfrac{y}{4}\right)O_2 \longrightarrow x\,CO_2 + \dfrac{y}{2}\,H_2O \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ095.webp" alt="Diagrama de flujo de los pasos computacionales en cálculos estequiométricos">
+                <div class="figure-caption"><strong>De la ecuación a los cálculos, paso a paso.</strong> El diagrama de flujo resume cómo pasar de masa, volumen o número de partículas a moles, aplicar después el factor estequiométrico entre sustancias y, finalmente, convertir a la magnitud deseada. Una vez balanceada la ecuación general de combustión, este esquema es la guía para resolver cualquier problema de estequiometría con hidrocarburos.</div>
             </div>
         </div>
 
@@ -509,6 +547,11 @@
                 <div class="step"><strong>3. Ecuación balanceada:</strong> \( C_8H_{18} + 12,5\,O_2 \to 8CO_2 + 9H_2O \). Por cada mol de octano se producen 8 mol de \( CO_2 \).</div>
                 <div class="step"><strong>4. Moles y masa de \( CO_2 \):</strong> \( n_{CO_2} = 51,93 \times 8 = 415,4 \, \text{mol} \). \( m = 415,4 \times 44 = 18278 \, \text{g} \approx 18,3 \, \text{kg} \).</div>
                 <div class="step"><span class="highlight-sol">Resultado:</span> Se emiten aproximadamente 18,3 kg de \( CO_2 \).</div>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ124.webp" alt="Combustión de gasolina en un motor, proceso muy exotérmico">
+                <div class="figure-caption"><strong>La química de la gasolina, en la carretera.</strong> La combustión de la gasolina es un proceso muy exotérmico que mueve los motores de nuestros vehículos, pero también es una fuente importante de emisiones de CO₂. El cálculo del ejercicio muestra que un pequeño volumen de combustible genera varios kilogramos de CO₂: la relación estequiométrica masiva entre el octano y el dióxido de carbono es la base de los balances de emisiones contaminantes.</div>
             </div>
         </div>
 

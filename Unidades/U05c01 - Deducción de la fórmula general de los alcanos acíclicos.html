@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -155,7 +153,7 @@
             font-weight: 600;
             color: #1e293b;
             cursor: pointer;
-            list-style: none;          /* Oculta el triángulo por defecto */
+            list-style: none;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -167,11 +165,9 @@
         details summary:hover {
             background: #f1f5f9;
         }
-        /* Oculta el triángulo en navegadores WebKit */
         details summary::-webkit-details-marker {
             display: none;
         }
-        /* Icono que rota al abrir/cerrar */
         details summary .fa-chevron-circle-down {
             transition: transform 0.3s ease;
             font-size: 1.2em;
@@ -180,11 +176,9 @@
         details[open] summary .fa-chevron-circle-down {
             transform: rotate(180deg);
         }
-        /* Contenido interno del desplegable */
         .details-content {
             padding: 0 24px 24px 24px;
         }
-        /* Tarjetas de ejercicios dentro del desplegable */
         .ejercicio-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -251,6 +245,34 @@
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -301,7 +323,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -335,6 +356,11 @@
             <div class="formula-box">
                 \( \text{Enlaces C—H} = 4n - 2(n-1) = 4n - 2n + 2 = 2n + 2 \)
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ043.webp" alt="Molécula de metano representada como fórmula molecular, fórmula estructural, modelo de barras y esferas y modelo de espacio lleno">
+                <div class="figure-caption"><strong>El metano, el alcano más simple.</strong> La molécula de CH₄ puede representarse como fórmula molecular, fórmula estructural, modelo de barras y esferas o modelo de espacio lleno. En todos los casos, el carbono central forma cuatro enlaces covalentes sencillos con cuatro hidrógenos, ejemplificando la tetravalencia del carbono que sirve de punto de partida para deducir la fórmula general \( C_nH_{2n+2} \).</div>
+            </div>
         </div>
 
         <div class="step">
@@ -346,6 +372,11 @@
                 <li>Propano (\( n=3 \)): \( 2(3) + 2 = 8 \) hidrógenos \( \rightarrow C_3H_8 \) ✓</li>
                 <li>Butano (\( n=4 \)): \( 2(4) + 2 = 10 \) hidrógenos \( \rightarrow C_4H_{10} \) ✓</li>
             </ul>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ598.webp" alt="Estructuras de Lewis, modelos de barras y esferas y modelos de espacio lleno para metano, etano y pentano">
+                <div class="figure-caption"><strong>La progresión de los alcanos, hecha visible.</strong> Metano, etano y pentano ilustran cómo cada nuevo átomo de carbono añade dos hidrógenos a la fórmula: CH₄, C₂H₆, C₅H₁₂. Las estructuras de Lewis y los modelos moleculares confirman visualmente que la fórmula \( C_nH_{2n+2} \) describe la familia completa de alcanos acíclicos saturados.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -353,6 +384,11 @@
             <strong>Generalización inductiva.</strong> Como el patrón se cumple para todos los casos, la fórmula general válida para cualquier alcano acíclico saturado es:
             <div class="formula-box">
                 \( \boxed{C_nH_{2n+2}} \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ600.webp" alt="Los dos isómeros del butano: n-butano y 2-metilpropano (isobutano)">
+                <div class="figure-caption"><strong>Ramificar no cambia la fórmula.</strong> Los dos isómeros del butano —n-butano (cadena lineal) y 2-metilpropano o isobutano (cadena ramificada)— tienen ambos la misma fórmula molecular, C₄H₁₀. Esto confirma que la relación \( C_nH_{2n+2} \) se cumple independientemente de la ramificación, porque en una molécula acíclica el número de enlaces C—C sigue siendo siempre \( n-1 \).</div>
             </div>
         </div>
 
@@ -523,7 +559,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -570,7 +605,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

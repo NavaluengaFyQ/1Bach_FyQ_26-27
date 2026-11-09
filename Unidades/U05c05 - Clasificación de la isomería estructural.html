@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -266,6 +264,34 @@
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -313,7 +339,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -346,6 +371,11 @@
                     <p>\( CH_3-CH(CH_3)-CH_3 \) &nbsp;&nbsp;<strong>2-metilpropano</strong> (cadena ramificada)</p>
                 </div>
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ600.webp" alt="Estructuras de Lewis del n-butano y del 2-metilpropano (isobutano)">
+                <div class="figure-caption"><strong>Isomería de cadena: misma fórmula, distinto esqueleto.</strong> El n-butano y el 2-metilpropano (isobutano) comparten la fórmula molecular C₄H₁₀, pero difieren en la disposición del esqueleto carbonado: lineal frente a ramificado. Es el ejemplo más sencillo de isomería de cadena y muestra cómo una misma fórmula molecular puede dar lugar a estructuras con propiedades físicas distintas.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -370,6 +400,11 @@
                     <p>\( CH_3-CO-CH_3 \) &nbsp;&nbsp;<strong>propanona</strong> (cetona)</p>
                     <p>\( CH_2=CH-O-CH_3 \) &nbsp;&nbsp;<strong>etenilmetiléter</strong> (éter)</p>
                 </div>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ049.webp" alt="Estructuras del ácido acético y del formiato de metilo como isómeros estructurales">
+                <div class="figure-caption"><strong>Isomería de función: misma fórmula, distinto grupo funcional.</strong> El ácido acético y el formiato de metilo comparten la fórmula molecular C₂H₄O₂, pero pertenecen a familias químicas diferentes: ácido carboxílico frente a éster. La diferencia en la conectividad de los átomos genera propiedades químicas radicalmente distintas, ilustrando la esencia de la isomería de función.</div>
             </div>
         </div>
 
@@ -510,6 +545,11 @@
                             ✔ No es estructural; es isomería geométrica (estereoisomería).
                         </div>
                     </div>
+
+                    <div class="photo-figure">
+                        <img src="../imagenes/webp/ImagenQ606.webp" alt="Isómeros estructurales y geométricos del buteno">
+                        <div class="figure-caption"><strong>Isomería estructural frente a geométrica.</strong> El buteno (C₄H₈) presenta isómeros estructurales (1-buteno y 2-buteno, con distinta posición del doble enlace) y geométricos (cis-2-buteno y trans-2-buteno, con la misma conectividad pero distinta disposición espacial). Solo los primeros son isomería estructural; los cis-trans son estereoisómeros, ya que la conectividad atómica es idéntica.</div>
+                    </div>
                 </div>
             </div>
 
@@ -621,7 +661,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

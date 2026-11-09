@@ -291,6 +291,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -419,6 +447,16 @@
                 <li>El <strong>ascenso ebulloscópico</strong> \( \Delta T_b = K_b \cdot m \) también usa molalidad por la misma razón.</li>
                 <li>La <strong>presión osmótica</strong> \( \pi = MRT \) usa molaridad porque se mide a temperatura constante.</li>
             </ul>
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ373.webp" alt="Sal gema, cloruro de calcio y su mezcla utilizados para derretir el hielo">
+                    <div class="figure-caption"><strong>Sal para derretir el hielo.</strong> El descenso crioscópico es una propiedad coligativa que depende de la molalidad del soluto: por eso se esparce sal (NaCl o CaCl₂) en las carreteras heladas, ya que la disolución congela a menor temperatura que el agua pura.</div>
+                </div>
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ374.webp" alt="Descenso crioscópico aplicado a la eliminación de hielo en carreteras y en superficies de control de aviones">
+                    <div class="figure-caption"><strong>Del suelo al avión.</strong> El mismo principio de descenso crioscópico se usa tanto en carreteras como en las superficies de control de aviones. La molalidad es la concentración adecuada para calcularlo porque no depende de la temperatura, que precisamente está variando en estos procesos.</div>
+                </div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">7</span>
@@ -468,6 +506,10 @@
                     <td>Poco frecuente</td>
                 </tr>
             </table>
+        </div>
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ375.webp" alt="Diagramas de fase para un disolvente puro y para una disolución con un soluto no volátil">
+            <div class="figure-caption"><strong>El efecto del soluto en el diagrama de fases.</strong> Al añadir un soluto no volátil, el punto de congelación desciende y el de ebullición asciende (curvas discontinuas). Estos desplazamientos dependen de la molalidad, no de la molaridad, porque las temperaturas de cambio de fase están variando y el volumen de la disolución ya no es constante.</div>
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  La confusión entre molaridad y molalidad es uno de los errores más persistentes. Recomiendo enfatizar la etimología: molaridad → "moles por litro" (volumen); molalidad → "moles por masa" (kg de disolvente). Un truco mnemotécnico: "Molaridad con V de Volumen; Molalidad con masa". Es crucial practicar la preparación de disoluciones molales: se pesa el disolvente directamente, se disuelve el soluto y no se necesita matraz aforado. Para disoluciones acuosas diluidas, la aproximación \( m \approx M \) es útil pero debe usarse con cautela. En problemas de propiedades coligativas, insistir en el uso estricto de molalidad para evitar errores sistemáticos.

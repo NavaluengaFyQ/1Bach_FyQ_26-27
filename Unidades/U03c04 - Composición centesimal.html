@@ -164,6 +164,34 @@
         .eq-ley  { border-left: 3px solid #48bb78; padding-left: 10px; background: #f0fff4; border-radius: 0 6px 6px 0; }
         .eq-cond { border-left: 3px solid #f6e05e; padding-left: 10px; background: #fffbeb; border-radius: 0 6px 6px 0; }
         .eq-res  { border-left: 3px solid #9f7aea; padding-left: 10px; background: #faf5ff; border-radius: 0 6px 6px 0; }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -220,6 +248,10 @@
                 \[ M(\text{compuesto}) = a \cdot A_r(\mathrm{A}) + b \cdot A_r(\mathrm{B}) + c \cdot A_r(\mathrm{C}) \]
             </div>
             <p>donde \( A_r \) representa la masa atómica relativa de cada elemento.</p>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ060.webp" alt="Modelo molecular del cloroformo, CHCl3, con sus átomos constituyentes">
+                <div class="figure-caption"><strong>La masa molar, suma de contribuciones.</strong> La masa media de una molécula de cloroformo, CHCl₃, es 119,37 u: exactamente la suma de las masas atómicas medias de sus átomos constituyentes. Es la misma idea que expresa la ecuación [1]: \( M = \sum n_i A_r(i) \), aplicada ahora a una molécula real.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
@@ -227,6 +259,10 @@
             <div class="formula-box">
                 \[ m_{\mathrm{A\ en\ 1\ mol}} = a \cdot M(\mathrm{A}) = a \cdot A_r(\mathrm{A})\ \mathrm{g} \]
                 \[ m_{\mathrm{B\ en\ 1\ mol}} = b \cdot M(\mathrm{B}) = b \cdot A_r(\mathrm{B})\ \mathrm{g} \]
+            </div>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ065.webp" alt="Muestras de un mol de átomos de distintos elementos con masas diferentes">
+                <div class="figure-caption"><strong>Un mol, siempre el mismo número de átomos.</strong> Cada muestra contiene 6,022 × 10²³ átomos (1,00 mol de átomos), pero sus masas difieren porque cada elemento tiene distinta masa atómica. Por eso, al contar los átomos de un elemento en un mol de compuesto, la masa que aporta es \( a \cdot A_r(\mathrm{A}) \), no simplemente \( A_r(\mathrm{A}) \).</div>
             </div>
         </div>
         <div class="step">
@@ -276,6 +312,10 @@
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Es fundamental enfatizar que la composición centesimal es una <strong>propiedad intensiva</strong> del compuesto: no depende del tamaño de la muestra. Esta demostración conecta directamente con la Ley de Proust (proporciones definidas). Un error frecuente es confundir la composición centesimal con la fórmula empírica; conviene destacar que la primera da <strong>proporciones en masa</strong> y la segunda <strong>proporciones en número de átomos</strong>. La conversión requiere dividir por las masas atómicas. Para sales hidratadas, recomiendo calcular siempre la masa molar completa incluyendo el agua de cristalización para evitar errores de omisión.
+        </div>
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo la fórmula empírica se deriva de las masas de los elementos de la muestra">
+            <div class="figure-caption"><strong>De la composición centesimal a la fórmula empírica.</strong> La fórmula empírica de un compuesto puede derivarse de las masas de todos los elementos de la muestra: la composición centesimal que acabamos de demostrar es, precisamente, el punto de partida de ese cálculo. Así se cierra el vínculo entre masa y número de átomos que menciona la nota anterior.</div>
         </div>
     </div>
 

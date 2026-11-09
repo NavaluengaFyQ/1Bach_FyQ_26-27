@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -303,6 +301,34 @@
         .pie-didactico i {
             margin-right: 8px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -357,7 +383,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -383,6 +408,11 @@
                 \[\nu_A\,A + \nu_B\,B \longrightarrow \text{productos}\]
             </div>
             <p>Sean \(n_A^0\) y \(n_B^0\) las <strong>cantidades iniciales reales</strong> (en moles) de cada reactivo disponibles en el recipiente de reacción. Estas cantidades son arbitrarias y, en general, <strong>no cumplen</strong> la relación estequiométrica exacta \(\frac{n_A^0}{n_B^0} = \frac{\nu_A}{\nu_B}\).</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ097.webp" alt="Analogía con sándwiches para explicar reactivo limitante y exceso">
+                <div class="figure-caption"><strong>La analogía del sándwich.</strong> Si para montar un sándwich se necesitan dos rebanadas de pan y una de queso, y disponemos de diez rebanadas y tres lonchas, el queso se acabará antes: será el reactivo limitante. El pan sobrante es el reactivo en exceso. Con las reacciones químicas sucede lo mismo: los coeficientes estequiométricos fijan la "receta" y la cantidad disponible de cada reactivo decide quién se agota primero.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -417,6 +447,11 @@
             <div class="formula-box-highlight">
                 \[\text{Si } \frac{n_A^0}{\nu_A} < \frac{n_B^0}{\nu_B} \Rightarrow A \text{ es el reactivo limitante}\]
                 \[\text{Si } \frac{n_B^0}{\nu_B} < \frac{n_A^0}{\nu_A} \Rightarrow B \text{ es el reactivo limitante}\]
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ098.webp" alt="Reacción entre hidrógeno y cloro en cantidades no estequiométricas con el cloro como reactivo limitante">
+                <div class="figure-caption"><strong>Quién se agota primero, decide cuánto producto hay.</strong> Cuando el H₂ y el Cl₂ se mezclan en proporciones no estequiométricas, uno de los dos limita la cantidad de HCl que puede formarse. En este ejemplo, el hidrógeno está en exceso y el cloro es el reactivo limitante: el cociente \(n_{\mathrm{Cl_2}}/\nu_{\mathrm{Cl_2}}\) es menor y fija el avance de la reacción.</div>
             </div>
         </div>
         
@@ -697,7 +732,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

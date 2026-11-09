@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -246,6 +244,34 @@
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -296,7 +322,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -319,6 +344,11 @@
             <strong>Establecer el hidrocarburo de referencia saturado.</strong> Para un número \( x \) de átomos de carbono, el alcano acíclico saturado correspondiente tiene fórmula:
             <div class="formula-box">
                 \( C_xH_{2x+2} \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ043.webp" alt="Molécula de metano representada como fórmula molecular, fórmula estructural, modelo de barras y esferas y modelo de espacio lleno">
+                <div class="figure-caption"><strong>El punto de partida: el alcano saturado.</strong> El metano (CH₄) es el alcano más simple y ejemplifica el estado de referencia totalmente saturado, con IHD = 0. Sus representaciones —fórmula molecular, fórmula estructural, modelo de barras y esferas y modelo de espacio lleno— muestran cuatro enlaces sencillos alrededor del carbono. Cualquier hidrocarburo con menos hidrógenos que su alcano de referencia tendrá uno o más grados de insaturación.</div>
             </div>
         </div>
 
@@ -352,6 +382,17 @@
                 <li><strong>Benceno</strong> (\( C_6H_6 \)): \( IHD = \dfrac{14 - 6}{2} = 4 \) (3 dobles enlaces + 1 anillo) ✓</li>
                 <li><strong>Hexa-1,3-dien-5-ino</strong> (\( C_6H_6 \)): \( IHD = 4 \) (2 dobles + 1 triple = 2 + 2 = 4) ✓</li>
             </ul>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ046.webp" alt="Benceno representado como fórmula estructural, modelo de barras y esferas y modelo de espacio lleno">
+                    <div class="figure-caption"><strong>Benceno: IHD = 4.</strong> El benceno (C₆H₆) tiene tres dobles enlaces y un anillo aromático, lo que suma cuatro grados de insaturación. Aplicando la fórmula, IHD = (2·6 + 2 − 6)/2 = 4, resultado que coincide exactamente con su estructura. Es un ejemplo clásico de cómo el IHD permite verificar la coherencia entre fórmula molecular y estructura.</div>
+                </div>
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ606.webp" alt="Isómeros estructurales y geométricos del buteno">
+                    <div class="figure-caption"><strong>Buteno: IHD = 1.</strong> Los isómeros del buteno (C₄H₈) —1-buteno, 2-buteno, cis-2-buteno y trans-2-buteno— comparten un único grado de insaturación: el doble enlace. Aplicando la fórmula, IHD = (2·4 + 2 − 8)/2 = 1. Los modelos moleculares muestran la rigidez del doble enlace, responsable de la isomería geométrica.</div>
+                </div>
+            </div>
         </div>
 
         <div class="note">
@@ -445,7 +486,7 @@
                         <div class="paso">1. Sabemos que \( IHD = \dfrac{2\cdot6 + 2 - y}{2} = 3 \).</div>
                         <div class="paso">2. Despejamos: \( 2\cdot6 + 2 - y = 6 \) → \( 12 + 2 - y = 6 \) → \( 14 - y = 6 \) → \( y = 8 \).</div>
                         <div class="paso">3. Fórmula molecular: \( C_6H_8 \).</div>
-                        <div class="paso">4. IHD = 3 puede ser, por ejemplo, <strong>benceno</strong> (\( C_6H_6 \)) no, ese tiene IHD=4. Para IHD=3, podría ser un <strong>ciclohexadieno</strong> (anillo + 2 dobles = 1+2=3), o un <strong>hexatrieno</strong> (3 dobles), etc.</div>
+                        <div class="paso">4. IHD = 3 puede ser, por ejemplo, un <strong>ciclohexadieno</strong> (anillo + 2 dobles = 1+2=3), o un <strong>hexatrieno</strong> (3 dobles), etc.</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
                             ✔ \( C_6H_8 \). Posible estructura: ciclohexa-1,3-dieno.
                         </div>
@@ -461,7 +502,7 @@
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Calcula el IHD para la <strong>piridina</strong> (\( C_5H_5N \)) y la <strong>cloroformo</strong> (\( CHCl_3 \)). ¿Qué estructuras son compatibles?
+                        <strong>Enunciado:</strong> Calcula el IHD para la <strong>piridina</strong> (\( C_5H_5N \)) y el <strong>cloroformo</strong> (\( CHCl_3 \)). ¿Qué estructuras son compatibles?
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
@@ -573,7 +614,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

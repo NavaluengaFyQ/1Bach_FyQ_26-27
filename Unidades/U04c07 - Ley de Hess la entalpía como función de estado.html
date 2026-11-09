@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -323,6 +321,34 @@
                 font-size: 1.1rem;
             }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -379,7 +405,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -408,6 +433,11 @@
             <p>Para un proceso cualquiera:</p>
             <div class="formula-box">
                 \[\Delta H = \Delta U + \Delta(pV)\]
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ123.webp" alt="Dos rutas diferentes hacia la cumbre del Kilimanjaro con el mismo cambio de altitud">
+                <div class="figure-caption"><strong>La altitud como función de estado.</strong> Dos caminos distintos para ascender al Kilimanjaro implican el mismo cambio de altitud, aunque la distancia recorrida sea muy diferente. De forma análoga, la variación de entalpía entre dos estados depende solo del estado inicial y final, no del camino seguido. Esta es la base conceptual de la Ley de Hess.</div>
             </div>
         </div>
         
@@ -484,6 +514,11 @@
             <p>Aplicando la Ley de Hess al ciclo:</p>
             <div class="formula-box-highlight">
                 \[\Delta H_r = \sum \Delta H_f(\text{productos}) - \sum \Delta H_f(\text{reactivos})\]
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ127.webp" alt="Formación de CO2 a partir de sus elementos en dos pasos según la Ley de Hess">
+                <div class="figure-caption"><strong>La Ley de Hess en acción.</strong> La formación de CO₂(g) a partir de sus elementos puede descomponerse en dos etapas: primero la formación de CO y luego su oxidación a CO₂. La suma de las entalpías de ambas etapas es igual a la entalpía de la formación directa. El diagrama de entalpías muestra que, aunque el camino sea distinto, el balance global de energía es el mismo, confirmando que ΔH es una función de estado.</div>
             </div>
         </div>
     </div>
@@ -659,7 +694,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -706,7 +740,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

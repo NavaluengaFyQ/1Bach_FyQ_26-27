@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -284,6 +282,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -335,7 +361,6 @@
 
 
 
-
         </div>
     </div>
 
@@ -348,6 +373,11 @@
             <li>Conecta con la <strong>teoría atómica</strong>: los átomos se redistribuyen, pero su número y masa se conservan.</li>
             <li>Es la base para comprender que las reacciones nucleares (fisión, fusión) <strong>no obedecen</strong> esta ley estrictamente, debido a la equivalencia masa-energía (\( E = mc^2 \)).</li>
         </ul>
+
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ007.webp" alt="Ejemplos de conservación de la masa: elaboración de cerveza y batería de plomo-ácido">
+            <div class="figure-caption"><strong>La masa se conserva en cualquier reacción química.</strong> En la elaboración de la cerveza, la masa de los ingredientes (azúcar) se convierte en alcohol y dióxido de carbono; en la batería de plomo-ácido, la masa del plomo, óxido de plomo y ácido sulfúrico consumida es exactamente igual a la masa del sulfato de plomo y agua que se forma.</div>
+        </div>
     </div>
 
     <div class="section procedimiento">
@@ -404,6 +434,11 @@
                 <strong>Sistema cerrado:</strong> Recipiente hermético + balanza de precisión<br>
                 \[ m_{\text{inicial}} = m_{\text{final}} \]
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ008.webp" alt="Descomposición del óxido de mercurio(II) por calentamiento en mercurio líquido y oxígeno gaseoso">
+                <div class="figure-caption"><strong>El experimento clásico de Lavoisier.</strong> El óxido de mercurio(II) se descompone por calentamiento en mercurio líquido y oxígeno gaseoso. Si el oxígeno se recoge, se comprueba que la masa total se conserva: la aparente pérdida se debe a que el gas escapa si el sistema está abierto.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">7</span>
@@ -412,6 +447,11 @@
                 \[ a \cdot M_{\text{A}} + b \cdot M_{\text{B}} = c \cdot M_{\text{C}} + d \cdot M_{\text{D}} \]
             </div>
             <p>Esta igualdad es la <strong>base cuantitativa</strong> de todos los cálculos estequiométricos.</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ082.webp" alt="Ecuación química ajustada de la combustión del metano y representación molecular de reactivos y productos">
+                <div class="figure-caption"><strong>La ecuación ajustada refleja la conservación de los átomos.</strong> En la combustión del metano, un mol de CH₄ reacciona con dos moles de O₂ para producir un mol de CO₂ y dos moles de H₂O; la masa total de reactivos iguala la de productos.</div>
+            </div>
         </div>
     </div>
 
@@ -568,7 +608,6 @@
 
         </div>
     </details>
-
 
 
 

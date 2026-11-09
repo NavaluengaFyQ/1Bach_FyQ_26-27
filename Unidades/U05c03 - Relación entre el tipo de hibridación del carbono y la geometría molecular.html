@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -271,6 +269,34 @@
             .geometry-table { font-size: 0.85em; }
             .geometry-table th, .geometry-table td { padding: 10px 8px; }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -326,7 +352,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -361,6 +386,11 @@
             <div class="formula-box">
                 \( \text{Ángulo } sp^3 = \arccos\left(-\frac{1}{3}\right) \approx 109{,}47^\circ \approx 109{,}5^\circ \)
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ223.webp" alt="Hibridación de un orbital s y tres orbitales p para producir cuatro orbitales sp3 orientados a 109,5°">
+                <div class="figure-caption"><strong>La geometría tetraédrica, construida orbital a orbital.</strong> La combinación de un orbital s y tres orbitales p genera cuatro orbitales híbridos sp³ equivalentes, orientados hacia los vértices de un tetraedro regular con ángulos de 109,5°. Esta disposición minimiza la repulsión entre los pares electrónicos y es la responsable de la forma en zigzag de las cadenas de alcanos.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -376,6 +406,11 @@
             <div class="formula-box">
                 \( \text{Ángulo } sp^2 = 120^\circ \)
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ231.webp" alt="Hibridación sp2 en el eteno con formación de enlaces sigma y pi">
+                <div class="figure-caption"><strong>La planaridad del doble enlace.</strong> En el eteno, cada carbono está hibridado sp²: tres orbitales híbridos forman el esqueleto σ (plano, 120°) y el orbital p no hibridado se solapa lateralmente con el del otro carbono para formar el enlace π. Esa nube electrónica por encima y por debajo del plano impide la rotación libre y da lugar a la isomería cis-trans.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -390,6 +425,11 @@
             </ul>
             <div class="formula-box">
                 \( \text{Ángulo } sp = 180^\circ \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ234.webp" alt="Enlaces sigma y pi en la molécula de acetileno con hibridación sp">
+                <div class="figure-caption"><strong>La linealidad del triple enlace.</strong> En el acetileno (C₂H₂), los dos carbonos están hibridados sp: sus orbitales híbridos se orientan a 180°, dando una molécula lineal. Los dos orbitales p no hibridados de cada carbono, perpendiculares entre sí, forman dos enlaces π ortogonales. El resultado es un triple enlace rígido y una geometría completamente lineal.</div>
             </div>
         </div>
 
@@ -651,7 +691,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

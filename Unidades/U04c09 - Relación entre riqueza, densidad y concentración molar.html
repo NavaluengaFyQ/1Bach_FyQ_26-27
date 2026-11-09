@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -295,6 +293,34 @@
         .pie-didactico i {
             margin-right: 8px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -350,7 +376,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -381,6 +406,11 @@
                 <li><strong>Concentración molar (\(c\)):</strong> moles de soluto por litro de disolución.
                     \[c = \frac{n_{\text{soluto}}}{V_{\text{disolución}}}\]</li>
             </ul>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ078.webp" alt="Blanqueador líquido con una concentración del 7,4% en masa de hipoclorito de sodio">
+                <div class="figure-caption"><strong>La riqueza en masa en un producto cotidiano.</strong> El blanqueador líquido es una disolución acuosa de hipoclorito de sodio (NaOCl) cuya etiqueta indica una concentración del 7,4 % en masa. Este dato, junto con la densidad de la disolución, permite calcular su molaridad mediante la fórmula \(c = \frac{r \cdot \rho}{M}\), demostrando la utilidad práctica de la conversión.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -396,6 +426,11 @@
             <p>Sustituyendo:</p>
             <div class="formula-box">
                 \[m_{\text{soluto}} = r \cdot \rho \cdot V_{\text{disolución}}\]
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ077.webp" alt="Dos disoluciones con la misma masa de soluto pero distinta dilución">
+                <div class="figure-caption"><strong>Misma masa de soluto, distinta concentración.</strong> Ambas disoluciones contienen la misma masa de nitrato de cobre, pero la de la derecha está más diluida porque hay más disolvente. La riqueza en masa disminuye y la densidad también cambia, lo que afecta directamente a la molaridad. La fórmula \(c = \frac{r \cdot \rho}{M}\) permite cuantificar estas diferencias y es la base para preparar disoluciones de concentración conocida.</div>
             </div>
         </div>
         
@@ -661,7 +696,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

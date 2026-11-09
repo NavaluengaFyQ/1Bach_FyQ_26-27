@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -250,6 +248,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -300,7 +326,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -321,6 +346,11 @@
         <div class="step">
             <span class="step-num">1</span>
             <strong>Enunciar el principio de conservación.</strong> En toda reacción química, la masa total de los reactivos es igual a la masa total de los productos. Los átomos se reorganizan, pero no se crean ni se destruyen. Por tanto, todo el carbono del hidrocarburo debe aparecer en los productos carbonados, y todo el hidrógeno en los productos hidrogenados.
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ007.webp" alt="Ejemplos cotidianos e industriales de conservación de la masa en la fermentación de la cerveza y la reacción del plomo con ácido sulfúrico">
+                <div class="figure-caption"><strong>La masa no se crea ni se destruye.</strong> Tanto en la fermentación de la cerveza (el azúcar se convierte en alcohol y CO₂) como en la reacción del plomo con ácido sulfúrico, la masa de las sustancias iniciales coincide con la masa de los productos formados. Este principio, enunciado por Lavoisier, es la base de todo el balance estequiométrico de la combustión: todo el carbono e hidrógeno del combustible deben aparecer íntegramente en el CO₂ y el H₂O.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -367,6 +397,11 @@
             <div class="reaction-box">
                 \( C_xH_y + \left(x + \dfrac{y}{4}\right)O_2 \longrightarrow x\,CO_2 + \dfrac{y}{2}\,H_2O \)
             </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ082.webp" alt="Reacción entre metano y oxígeno para dar dióxido de carbono y agua representada con modelos moleculares y ecuación química">
+                <div class="figure-caption"><strong>La combustión, molécula a molécula.</strong> El modelo molecular muestra cómo una molécula de metano (CH₄) reacciona con dos de oxígeno para formar una de CO₂ y dos de H₂O. La ecuación química condensa ese reordenamiento atómico: todo el carbono del combustible termina en el CO₂ y todo el hidrógeno en el H₂O. Es la conservación de la masa aplicada a la combustión de hidrocarburos.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -383,6 +418,11 @@
 
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Esta demostración es la base de los problemas de análisis elemental por combustión. Es crucial que los estudiantes comprendan que el carbono y el hidrógeno del hidrocarburo se conservan íntegramente en los productos. Un error común es olvidar que cada molécula de agua contiene <em>dos</em> átomos de hidrógeno, lo que lleva a errores en el cálculo de la fórmula empírica. Se recomienda resolver problemas numéricos paso a paso, verificando siempre la conservación de la masa total.
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ102.webp" alt="Diagrama esquemático de un dispositivo de análisis de combustión para determinar el contenido de carbono e hidrógeno de una muestra">
+                <div class="figure-caption"><strong>El análisis de combustión, en el laboratorio.</strong> Este dispositivo mide experimentalmente la masa de CO₂ y H₂O que se produce al quemar una muestra orgánica. Con esos datos y el principio de conservación de la masa, se determina la cantidad de carbono e hidrógeno del compuesto original y, a partir de ahí, su fórmula empírica. Es la aplicación experimental directa de esta demostración.</div>
+            </div>
         </div>
     </div>
 
@@ -503,7 +543,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -550,7 +589,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

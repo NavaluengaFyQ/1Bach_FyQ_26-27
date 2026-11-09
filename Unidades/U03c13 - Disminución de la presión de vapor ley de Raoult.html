@@ -257,6 +257,34 @@
             font-style: italic;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -309,6 +337,10 @@
             <li>Establecer la base teórica para las demás propiedades coligativas (ebullición, congelación, osmosis).</li>
             <li>Conectar con aplicaciones prácticas: <strong>destilación fraccionada</strong>, <strong>análisis de presiones de vapor</strong> en mezclas.</li>
         </ul>
+        <div class="photo-figure">
+            <img src="../imagenes/webp/ImagenQ371.webp" alt="Unidad de destilación típica de laboratorio, con fotografía y diagrama esquemático de sus componentes">
+            <div class="figure-caption"><strong>La destilación, aplicación directa de la Ley de Raoult.</strong> En una destilación, la diferencia de presiones de vapor entre los componentes de una mezcla permite separarlos: el vapor se enriquece en el componente más volátil. La Ley de Raoult explica por qué al añadir un soluto no volátil desciende la presión de vapor del disolvente y se eleva su punto de ebullición.</div>
+        </div>
     </div>
 
     <!-- Procedimiento -->
@@ -317,12 +349,20 @@
         <div class="step">
             <span class="step-num">1</span>
             <strong>Modelo de evaporación en el disolvente puro</strong>. En un líquido puro, la presión de vapor \( p^0 \) se establece cuando la tasa de evaporación iguala a la tasa de condensación. La evaporación depende de la <strong>fracción de moléculas del disolvente en la superficie</strong>, que en el caso puro es 1 (100%).
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ309.webp" alt="Equilibrio dinámico en un recipiente cerrado: moléculas que escapan del líquido y moléculas de gas que regresan al líquido">
+                <div class="figure-caption"><strong>Equilibrio líquido-vapor.</strong> En un recipiente cerrado se alcanza un equilibrio dinámico cuando la velocidad de evaporación iguala a la de condensación. En ese momento la presión del vapor es constante: es la presión de vapor del disolvente puro, \(p^0\).</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">2</span>
             <strong>Introducimos el soluto no volátil</strong>. Al añadir un soluto que no se evapora (no contribuye a la presión de vapor), las moléculas de soluto ocupan posiciones en la superficie del líquido, reduciendo la fracción de moléculas de disolvente disponibles para evaporarse:
             <div class="formula-box">
                 \[ \text{Fracción de disolvente en superficie} = x_{\text{disolvente}} = \frac{n_{\text{disolvente}}}{n_{\text{disolvente}} + n_{\text{soluto}}} < 1 \]
+            </div>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ370.webp" alt="La presencia de solutos no volátiles disminuye la presión de vapor de una disolución al impedir la evaporación de las moléculas del solvente">
+                <div class="figure-caption"><strong>El soluto "bloquea" la superficie.</strong> Las partículas de soluto no volátil ocupan posiciones en la superficie del líquido y dificultan la evaporación de las moléculas de disolvente. Por eso la presión de vapor de la disolución es menor que la del disolvente puro, tal como predice la Ley de Raoult.</div>
             </div>
         </div>
         <div class="step">

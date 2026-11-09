@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -278,6 +276,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -310,7 +336,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -323,8 +348,6 @@
 <img src="../imagenes/U05c15 - Definición de serie homóloga y deducción de su fórmula general.png" alt="Imagen" width="800">
 <img src="../imagenes/U05c15 - Definición de serie homóloga y deducción de su fórmula general_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -356,6 +379,11 @@
                 <li>Se diferencian entre sí consecutivamente en un grupo <strong>\( -CH_2- \)</strong> (metileno).</li>
                 <li>Presentan propiedades físicas que varían de forma <strong>regular y predecible</strong>.</li>
             </ul>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ599.webp" alt="Tres formas de representar una misma estructura orgánica: fórmula expandida, condensada y esquelética">
+                <div class="figure-caption"><strong>Tres formas de escribir la misma molécula.</strong> La fórmula expandida, la condensada y la esquelética permiten reconocer el grupo funcional y el esqueleto carbonado, algo esencial para comparar miembros consecutivos de una serie homóloga.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -369,6 +397,11 @@
             <div class="increment-box">
                 <div class="label">Incremento homólogo</div>
                 <p style="font-size: 1.1em; color: #276749; font-weight: 600;">\( C_nH_{2n+2} + CH_2 \rightarrow C_{n+1}H_{2n+4} \)</p>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ598.webp" alt="Modelos de metano, etano y pentano con estructuras de Lewis y modelos moleculares">
+                <div class="figure-caption"><strong>Primeros alcanos en modelos.</strong> Metano, etano y pentano muestran cómo crece la cadena carbonada; cada grupo \( -CH_2- \) añadido aumenta la masa molar en 14 g/mol y modifica regularmente las propiedades físicas.</div>
             </div>
         </div>
 
@@ -433,6 +466,11 @@
                     <td>Ácido etanoico</td>
                 </tr>
             </table>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ626.webp" alt="Resumen visual de grupos funcionales orgánicos: alquenos, alquinos, alcoholes, éteres, aldehídos, cetonas, ácidos carboxílicos, ésteres, aminas y amidas">
+                <div class="figure-caption"><strong>Familias funcionales y fórmulas generales.</strong> La tabla se apoya en la idea de grupo funcional: alquenos, alquinos, alcoholes, éteres, aldehídos, cetonas, ácidos carboxílicos, ésteres, aminas y amidas comparten patrones que definen series homólogas.</div>
+            </div>
         </div>
 
         <div class="step">

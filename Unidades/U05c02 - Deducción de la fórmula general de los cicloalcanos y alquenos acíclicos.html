@@ -264,6 +264,34 @@
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -337,6 +365,11 @@
         <div class="step">
             <span class="step-num">3</span>
             <strong>Caso B: Formación de un alqueno.</strong> Al convertir un enlace sencillo C—C en un doble enlace C=C, cada carbono implicado pierde un hidrógeno (pasa de tener 2 enlaces C—H a tener 1 enlace C—H en ese carbono). En total se pierden <strong>2 átomos de hidrógeno</strong>.
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ603.webp" alt="Modelos moleculares de eteno, propeno y 1-buteno">
+                <div class="figure-caption"><strong>La familia de los alquenos.</strong> Eteno (C₂H₄), propeno (C₃H₆) y 1-buteno (C₄H₈) ilustran cómo la presencia de un doble enlace reduce en dos el número de hidrógenos respecto al alcano correspondiente. Las estructuras ampliadas y los modelos de barras y esferas muestran la geometría planar del doble enlace, característica de estos compuestos insaturados.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -363,6 +396,11 @@
                     <p>Prop-1-eno: \( C_3H_6 \)</p>
                     <p>But-2-eno: \( C_4H_8 \)</p>
                 </div>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ606.webp" alt="Isómeros estructurales y geométricos del buteno">
+                <div class="figure-caption"><strong>Isomería en alquenos.</strong> El buteno (C₄H₈) presenta isómeros estructurales (1-buteno y 2-buteno) y geométricos (cis-2-buteno y trans-2-buteno). Todos comparten la misma fórmula molecular, lo que demuestra que la fórmula general CₙH₂ₙ no implica una única estructura, sino una familia de compuestos con propiedades distintas.</div>
             </div>
         </div>
 

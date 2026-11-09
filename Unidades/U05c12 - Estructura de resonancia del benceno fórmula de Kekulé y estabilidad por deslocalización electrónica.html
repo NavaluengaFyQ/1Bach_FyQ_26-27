@@ -273,6 +273,34 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -363,6 +391,11 @@
         <div class="step">
             <span class="step-num">3</span>
             <strong>Describir el híbrido de resonancia.</strong> La estructura real es un promedio ponderado de las formas resonantes. Cada enlace C—C tiene carácter de 1,5 enlace (intermedio entre simple y doble). Los 6 electrones \( \pi \) no están confinados entre dos carbonos, sino que forman un <strong>orbital molecular \( \pi \) deslocalizado</strong> que se extiende por todo el anillo por encima y por debajo del plano molecular.
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ235.webp" alt="Cada carbono del benceno hibridado sp2 con electrones pi deslocalizados en toda la molécula">
+                <div class="figure-caption"><strong>Electrones deslocalizados en todo el anillo.</strong> En el benceno, cada átomo de carbono está hibridado sp², independientemente de la forma de resonancia que se considere. Los electrones π no están localizados en un conjunto de orbitales p concreto, sino deslocalizados por toda la molécula. Esta nube electrónica extendida por encima y por debajo del plano del anillo es la esencia del híbrido de resonancia y explica la estabilidad excepcional del benceno.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -372,6 +405,11 @@
                 <p style="font-size: 1.4em; font-weight: 600; color: #744210;">Hexágono regular con círculo interior</p>
                 <p style="margin-top: 10px; color: #975a16;">El círculo simboliza los 6 electrones \( \pi \) deslocalizados</p>
                 <p style="margin-top: 6px; font-size: 0.9em; color: #975a16;">Longitud de enlace C—C: 1,39 Å (intermedia entre 1,34 Å y 1,54 Å)</p>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ046.webp" alt="Molécula de benceno representada como fórmula estructural, modelo de barras y esferas, modelo de espacio lleno y líquido transparente">
+                <div class="figure-caption"><strong>Una molécula, varias representaciones.</strong> El benceno puede representarse mediante una fórmula estructural, un modelo de barras y esferas o un modelo de espacio lleno, y en estado puro es un líquido transparente. Todas estas representaciones muestran la misma molécula: un anillo hexagonal plano con electrones π deslocalizados. La representación moderna con el círculo interior resume esa deslocalización, mientras que los modelos muestran la geometría tridimensional real.</div>
             </div>
         </div>
 

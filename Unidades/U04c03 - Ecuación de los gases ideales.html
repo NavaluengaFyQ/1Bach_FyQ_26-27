@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -283,6 +281,34 @@
         .pie-didactico i {
             margin-right: 8px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -338,7 +364,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -368,6 +393,11 @@
                 \[pV = k_1 \quad (T = \text{cte})\]
             </div>
             <p>donde \(k_1\) es una constante que depende de \(T\) y de la cantidad de gas.</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ264.webp" alt="Relación inversa entre presión y volumen de un gas">
+                <div class="figure-caption"><strong>La Ley de Boyle, en imágenes.</strong> Cuando un gas ocupa un volumen menor ejerce una presión mayor, y cuando ocupa un volumen mayor ejerce una presión menor. Esta proporcionalidad inversa entre \(p\) y \(V\) a temperatura constante es la primera pieza de la ecuación de Clapeyron.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -384,6 +414,11 @@
             <p>con \(T_0 = 273{,}15\,\text{K}\). Por tanto, a presión constante:</p>
             <div class="formula-box">
                 \[\frac{V}{T} = k_2 \quad (p = \text{cte})\]
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ262.webp" alt="Relación lineal entre presión y temperatura a volumen constante">
+                <div class="figure-caption"><strong>Presión y temperatura, directamente proporcionales.</strong> A volumen y cantidad de gas constantes, la presión aumenta linealmente con la temperatura absoluta. La extrapolación a presión cero conduce al cero absoluto (\(-273\,^{\circ}\text{C}\)), origen de la escala Kelvin que aparece en la ecuación de Clapeyron.</div>
             </div>
         </div>
         
@@ -414,6 +449,11 @@
                 \[k = n \cdot R\]
             </div>
             <p>donde \(R\) es una nueva constante de proporcionalidad que, por la Ley de Avogadro, debe ser <strong>idéntica para todos los gases</strong> (constante universal).</p>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ268.webp" alt="Un mol de gas ideal ocupa 22,4 L en condiciones estándar">
+                <div class="figure-caption"><strong>El mol como puente universal.</strong> Un mol de cualquier gas ideal ocupa aproximadamente 22,4 L en condiciones estándar (0 °C y 1 atm). Esta regularidad experimental, consecuencia de la Ley de Avogadro, es la que permite introducir la cantidad de sustancia \(n\) y la constante universal \(R\) en la ecuación de estado.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -646,7 +686,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

@@ -273,6 +273,34 @@
         .didactic-footer strong {
             color: #2b6cb0;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -389,6 +417,10 @@
                 <em>Para ir de masa a entidades: \( N = \frac{m}{M} \cdot N_{\text{A}} \)</em><br>
                 <em>Para ir de entidades a masa: \( m = \frac{N}{N_{\text{A}}} \cdot M \)</em>
             </div>
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ070.webp" alt="Esquema de conversión entre masa atómica, moles y número de átomos">
+                <div class="figure-caption"><strong>El diagrama de las conversiones.</strong> Para pasar de masa a moles se divide entre la masa molar; para pasar de moles a número de átomos se multiplica por el número de Avogadro. Este esquema resume visualmente el puente conceptual que conecta las tres magnitudes.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">7</span>
@@ -399,6 +431,16 @@
                 aunque sus masas sean distintas.
             </div>
             <p>El mol permite <strong>contar por pesaje</strong>, esencial en el laboratorio.</p>
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ065.webp" alt="Muestras de un mol de átomos de distintos elementos: zinc, carbono, magnesio, cobre, azufre, silicio, plomo y estaño">
+                    <div class="figure-caption"><strong>Un mol de átomos, masas distintas.</strong> Cada muestra contiene \(6,022\times10^{23}\) átomos, pero las masas difieren: un mol de zinc pesa 65,4 g y un mol de carbono solo 12,0 g. El mol iguala el número de partículas, no la masa.</div>
+                </div>
+                <div class="photo-figure">
+                    <img src="../imagenes/webp/ImagenQ066.webp" alt="Muestras de un mol de moléculas o unidades de fórmula de distintos compuestos: octanol, yoduro de mercurio(II), metanol y azufre">
+                    <div class="figure-caption"><strong>Un mol de moléculas, masas distintas.</strong> Lo mismo ocurre con los compuestos: un mol de metanol pesa 32,0 g y un mol de yoduro de mercurio(II) pesa 454,4 g, aunque ambos contienen \(6,02\times10^{23}\) entidades. El mol es el puente entre masa y número de partículas.</div>
+                </div>
+            </div>
         </div>
     </div>
 
