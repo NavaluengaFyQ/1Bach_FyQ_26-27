@@ -262,7 +262,6 @@ Figura 9.10 El efecto de la temperatura en la presión del gas: cuando la placa 
 Figura 9.11 En un volumen y una cantidad de aire constantes, la presión y la temperatura son directamente proporcionales, siempre que la temperatura esté en kelvin. (Las mediciones no pueden realizarse a temperaturas inferiores debido a la condensación del gas). Cuando esta línea se extrapola a presiones más bajas, alcanza una presión de 0 a -273 °C, que es el 0 en la escala kelvin y la temperatura más baja posible, llamada cero absoluto.
 Figura 9.12 El volumen y la temperatura están relacionados linealmente para 1 mol de gas metano a una presión constante de 1 atm. Si la temperatura está en kelvin, el volumen y la temperatura son directamente proporcionales. La línea se detiene en 111 K porque el metano se licua a esta temperatura; al extrapolarla, se cruza con el origen del gráfico, lo que representa una temperatura de cero absoluto.
 Figura 9.13 Cuando un gas ocupa un volumen menor, ejerce una presión mayor; cuando ocupa un volumen mayor, ejerce una presión menor (suponiendo que la cantidad de gas y la temperatura no cambian). Como P y V son inversamente proporcionales, un gráfico de 1𝑃 
-Figura 9.14 La relación entre la presión y el volumen es inversamente proporcional. (a) El gráfico de P frente a V es una hipérbola, mientras que (b) el gráfico de (1/𝑃 ) frente a V es lineal.
 Figura 9.15 La respiración se produce porque la expansión y contracción del volumen pulmonar crea pequeñas diferencias de presión entre los pulmones y el entorno, lo que hace que el aire entre y salga de los pulmones.
 Figura 9.16 Los buceadores utilizan aire comprimido para respirar bajo el agua (créditos: modificación del trabajo de Mark Goodchild).
 Figura 9.17 Los buceadores, ya sea en la Gran Barrera de Coral o en el Caribe, deben ser conscientes de la flotabilidad, la ecualización de la presión y la cantidad de tiempo que pasan bajo el agua, para evitar los riesgos asociados a los gases presurizados en el cuerpo (créditos: Kyle Taylor).
@@ -284,6 +283,7 @@ Figura 9.32 Aquí se muestra la distribución de la velocidad molecular para el 
 Figura 9.33 La distribución de la velocidad molecular del gas nitrógeno (N2) se desplaza hacia la derecha y se aplana a medida que aumenta la temperatura; se desplaza hacia la izquierda y se acentúa a medida que la temperatura disminuye.
 Figura 9.34 La velocidad molecular está directamente relacionada con la masa molecular. A una temperatura determinada, las moléculas más ligeras se mueven más rápido por término medio que las más pesadas.
 Figura 9.35 Un gráfico del factor de compresibilidad (Z) frente a la presión muestra que los gases pueden presentar desviaciones significativas del comportamiento predicho por la ley de los gases ideales.
+Figura 9.36 (a) Las atracciones entre las moléculas del gas sirven para disminuir el volumen del gas a presión constante en comparación con un gas ideal cuyas moléculas no experimentan fuerzas de atracción. (b) Estas fuerzas de atracción disminuirán la fuerza de las colisiones entre las moléculas y las paredes del recipiente, por lo que se reduce la presión ejercida a volumen constante en comparación con un gas ideal.
 Hay varias ecuaciones diferentes que aproximan mejor el comportamiento de los gases que la ley de los gases ideales. La primera y más sencilla fue desarrollada por el científico holandés Johannes van der Waals en 1879. La ecuación de Van der Waals mejora la ley de los gases ideales añadiendo dos términos: uno para tener en cuenta el volumen de las moléculas del gas y otro para las fuerzas de atracción entre ellas. La constante a corresponde a la fuerza de atracción entre las moléculas de un determinado gas, y la constante b corresponde al tamaño de las moléculas de un determinado gas. La "corrección" del término de presión en la ley de los gases ideales es  𝑛2⁢𝑎𝑉2, y la "corrección" del volumen es nb. Note que cuando V es relativamente grande y n es relativamente pequeño, ambos términos de corrección se vuelven despreciables, y la ecuación de van der Waals se reduce a la ley del gas ideal, PV = nRT. Esta
 Figura 10.1 El dióxido de carbono sólido ("hielo seco", a la izquierda) se sublima vigorosamente cuando se coloca en un líquido (a la derecha), enfriando el líquido y generando una densa niebla de agua por encima del cilindro (créditos: modificación del trabajo de Paul Flowers).
 Figura 10.2 Las transiciones entre los estados sólido, líquido y gaseoso de una sustancia se producen cuando las condiciones de temperatura o presión favorecen los cambios asociados en las fuerzas intermoleculares. (Nota: El espacio entre las partículas en la fase gaseosa es mucho mayor que el de la ilustración).
@@ -663,90 +663,4 @@ Figura 21.36 Se utilizan diferentes unidades para medir la tasa de emisión de u
 Figura 21.37 La exposición total anual a la radiación para una persona en los EE. UU. es de unos 620 mrem. Las distintas fuentes y sus cantidades relativas se muestran en este gráfico de barras (fuente: Comisión Reguladora Nuclear de los EE. UU.).
 Tabla periódica
 Figura E1 El gráfico muestra el grado de absorción de la luz en función de la longitud de onda para el agua. La absorción se indica en metros recíprocos y corresponde a la inversa de la distancia que recorre la luz a través del agua antes de que su intensidad disminuya en 1/e (~37 %).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Figura 9.14 La relación entre la presión y el volumen es inversamente proporcional. (a) El gráfico de P frente a V es una hipérbola, mientras que (b) el gráfico de (1/𝑃 ) frente a V es lineal.
