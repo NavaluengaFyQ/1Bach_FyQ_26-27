@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -269,7 +269,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -283,11 +282,12 @@
 <img src="../imagenes/U08c09 - Trabajo de rozamiento y pérdida de energía_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0112.webp">
+                    <img src="../imagenes/webp/ImagenF0112.webp" alt="Las fuerzas de fricción siempre se oponen al movimiento o al intento de movimiento entre objetos en contacto">
+                </a>
+                <figcaption class="figure-caption">Figura 6.10. Las fuerzas de fricción, como f, siempre se oponen al movimiento o al intento de movimiento entre objetos en contacto. La fricción se produce en parte por la aspereza de las superficies en contacto, como se ve en la vista ampliada. Por eso su trabajo es siempre negativo cuando el objeto se mueve, y disipa energía mecánica.</figcaption>
+            </figure>
 
         </div>
 
@@ -305,6 +305,13 @@
                 <span class="step-num">1</span>
                 <strong>Planteamiento del sistema con rozamiento</strong>
                 <p>Consideramos un cuerpo de masa \( m \) que se desliza sobre una superficie horizontal rugosa con coeficiente de rozamiento cinético \( \mu \). El cuerpo tiene velocidad inicial \( v_i \) y recorre una distancia \( \Delta x \) hasta detenerse (o cambiar su velocidad a \( v_f \)).</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0115.webp">
+                        <img src="../imagenes/webp/ImagenF0115.webp" alt="Caja situada en una superficie horizontal empujada con una fuerza P y sometida a la fricción">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.13. (a) Una caja situada en una superficie horizontal se empuja con una fuerza P. (b) Las fuerzas sobre la caja. Aquí, f puede representar la fuerza de fricción estática o cinética. En el modelo básico de deslizamiento horizontal, el peso y la normal se equilibran, y la fricción cinética es la encargada de frenar el movimiento.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -318,6 +325,13 @@
                 <div class="formula-box">
                     \[ F_r = \mu \cdot N = \mu \cdot m \cdot g \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0113.webp">
+                        <img src="../imagenes/webp/ImagenF0113.webp" alt="Gráfico de la fuerza de fricción frente a la fuerza aplicada: estática vs cinética">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.11. (a) La fuerza de fricción f entre el bloque y la superficie áspera se opone a la dirección de la fuerza aplicada F. La magnitud de la fricción estática equilibra la de la fuerza aplicada. (b) Cuando la fuerza aplicada supera a la fricción cinética, el bloque se mueve. (c) El gráfico muestra que f_s(máx) > f_k, lo que significa que μ_s > μ_k: arrancar un objeto cuesta más que mantenerlo en movimiento.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -328,6 +342,13 @@
                     \[ W_r = F_r \cdot \Delta x \cdot \cos 180^{\circ} = -\mu \cdot m \cdot g \cdot \Delta x \]
                 </div>
                 <p>El trabajo de rozamiento es siempre negativo (o nulo si no hay desplazamiento), lo que indica que disipa energía del sistema.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0139.webp">
+                        <img src="../imagenes/webp/ImagenF0139.webp" alt="Vista superior de las trayectorias para mover un sofá: trabajo de la fricción">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.4. Vista superior de las trayectorias para mover un sofá. La fuerza de fricción se opone al desplazamiento (α = 180°), por lo que su trabajo es siempre negativo: cada metro recorrido supone una pérdida de energía mecánica que aparece como calor. El trabajo total depende de la longitud del camino recorrido.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -363,6 +384,13 @@
                 <div class="formula-box">
                     \[ W_r = -\mu \cdot m \cdot g \cdot \cos\alpha \cdot \Delta x \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0116.webp">
+                        <img src="../imagenes/webp/ImagenF0116.webp" alt="Esquiador en un plano inclinado: la normal es N = mg cos α y la fricción es paralela a la pendiente">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.14. El movimiento del esquiador y la fricción son paralelos a la pendiente, por lo que lo más conveniente es proyectar todas las fuerzas en un sistema de coordenadas en el que un eje es paralelo a la pendiente y el otro es perpendicular. La fuerza normal N es perpendicular a la pendiente y la fricción f es paralela a la pendiente; el peso tiene componentes a lo largo de ambos ejes (w_y y w_x). La normal es igual en magnitud a w_y, por lo que N = mg cos α.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -373,6 +401,13 @@
                     \[ |W_r| = Q = \Delta E_{\text{interna}} \]
                 </div>
                 <p>donde \( Q \) es el calor generado por fricción.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0156.webp">
+                        <img src="../imagenes/webp/ImagenF0156.webp" alt="Rueda de esmeril aplicando una fuerza no conservativa que depende de la trayectoria">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.6. La rueda de esmeril aplica una fuerza no conservativa, ya que el trabajo realizado depende del número de rotaciones que haga la rueda, por lo que depende de la trayectoria. El rozamiento es la fuerza no conservativa paradigmática: su trabajo se disipa como calor y no puede recuperarse íntegramente como energía mecánica.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -403,6 +438,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> Esta demostración es crucial para conectar la mecánica con la termodinámica. Es importante que los estudiantes comprendan que la energía no "desaparece" sino que cambia de forma (mecánica → térmica). El ejercicio 10 del libro (velocidad inicial independiente de la masa) es un excelente resultado para discutir: ¿por qué un camión y una moto con la misma velocidad inicial no se detienen a la misma distancia en la realidad? (Respuesta: el coeficiente de rozamiento no es constante y depende de la presión sobre la superficie). Se recomienda contrastar problemas con y sin rozamiento para que los estudiantes aprecien cuándo puede aplicarse la conservación de la energía mecánica y cuándo debe usarse el teorema general de la energía cinética.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0159.webp">
+                    <img src="../imagenes/webp/ImagenF0159.webp" alt="Panel que cae desde un helicóptero: la resistencia del aire disipa energía mecánica">
+                </a>
+                <figcaption class="figure-caption">Figura 8.9. Un helicóptero pierde un panel que cae hasta alcanzar una velocidad límite de 45 m/s. En presencia de resistencia del aire (fuerza no conservativa), parte de la energía mecánica se disipa como calor: la variación de energía mecánica es precisamente el trabajo de las fuerzas no conservativas (\(W_{nc} = \Delta E_m\)).</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -471,6 +513,13 @@
                     <p>\( E_{c,i} = \frac{1}{2} \cdot 5,0 \cdot 2,0^2 = 10 \, \text{J} \).</p>
                     <p>\( E_{c,f} = E_{c,i} + W_{\text{neto}} = 10 + 64,04 = 74,04 \, \text{J} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0100.webp">
+                        <img src="../imagenes/webp/ImagenF0100.webp" alt="Diagramas de cuerpo libre para objetos A y B: la fricción actúa en sentido contrario en cada uno">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.32. (a) El diagrama de cuerpo libre para el objeto aislado A. (b) El diagrama de cuerpo libre para el objeto aislado B. Comparando los dos dibujos, vemos que la fricción actúa en sentido contrario en las dos figuras. Como el objeto A experimenta una fuerza que tiende a halar de este hacia la derecha, la fricción debe actuar hacia la izquierda. Debido a que el objeto B experimenta un componente de su peso que lo hala hacia la izquierda, hacia abajo de la pendiente, la fuerza de fricción debe oponerse y actuar hacia arriba de la rampa. La fricción siempre actúa en sentido contrario a la dirección del movimiento.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 4: Comparación de superficies -->
@@ -506,6 +555,13 @@
                     <p>b) \( W_{nc} = \Delta E_m = E_{m,f} - E_{m,i} = 36 - 49 = -13 \, \text{J} \).</p>
                     <p>El rozamiento del aire ha realizado un trabajo negativo de 13 J, disipando esa energía en forma de calor.</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0135.webp">
+                        <img src="../imagenes/webp/ImagenF0135.webp" alt="Diagrama de cuerpo libre de un objeto que cae a través de un medio resistivo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.33. Diagrama de cuerpo libre de un objeto que cae a través de un medio resistivo. La fuerza de arrastre (resistencia del aire) se opone al peso; su trabajo es siempre negativo y disipa energía mecánica del sistema. Es el caso real del ejercicio: parte de la energía potencial inicial no se convierte en cinética, sino que se transfiere al aire como calor.</figcaption>
+                </figure>
             </div>
 
             <!-- Observaciones claves -->
@@ -515,8 +571,6 @@
 
         </details>
         <!-- FIN BLOQUE DESPLEGABLE -->
-
-
 
 
 
@@ -575,9 +629,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -275,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -284,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.04.- </span>
                 <span class="texto">Fuerza de Rozamiento en Plano Horizontal</span>
             </div>
@@ -301,8 +331,6 @@
         <div class="formula-box">
             \[ F_r = \mu \, N \]
         </div>
-
-
 
 
 
@@ -324,8 +352,6 @@
 
 
 
-
-
     </div>
 
     <!-- OBJETIVO -->
@@ -340,6 +366,13 @@
         <div class="step">
             <span class="step-num">1</span>
             <strong>Diagrama de fuerzas:</strong> Consideremos un bloque de masa \( m \) apoyado sobre un plano horizontal. Sobre el bloque actúan dos fuerzas verticales: el peso \( \vec{P} \), dirigido hacia abajo, y la reacción normal \( \vec{N} \), dirigida hacia arriba y perpendicular al plano. En la dirección horizontal actúa una fuerza aplicada \( \vec{F} \) y la fuerza de rozamiento \( \vec{F}_r \) en sentido opuesto al movimiento.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0115.webp">
+                    <img src="../imagenes/webp/ImagenF0115.webp" alt="Caja situada sobre una superficie horizontal empujada con una fuerza P, y diagrama de las fuerzas que actúan sobre ella: peso, normal, fuerza aplicada y fuerza de rozamiento">
+                </a>
+                <div class="figure-caption"><strong>El diagrama de fuerzas de un bloque sobre plano horizontal.</strong> (a) Una caja se empuja con una fuerza \(\vec{P}\) sobre una superficie horizontal. (b) Las fuerzas que actúan sobre la caja son: el peso (hacia abajo), la normal \(\vec{N}\) del plano (hacia arriba), la fuerza aplicada \(\vec{P}\) y la fuerza de rozamiento \(\vec{f}\) en sentido opuesto a la tendencia de movimiento. Según que el bloque esté en reposo o se mueva, \(\vec{f}\) representará la fuerza de rozamiento estática o cinética. En ambos casos su módulo es \(f = \mu N\), como se deduce en el procedimiento.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -370,6 +403,13 @@
                 \[ F_{r,c} = \mu_c \, N \]
             </div>
             Experimentalmente se verifica que \( \mu_c < \mu_e \), lo que explica por qué es más fácil mantener un cuerpo en movimiento que iniciar el deslizamiento.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0113.webp">
+                    <img src="../imagenes/webp/ImagenF0113.webp" alt="Gráfico de la fuerza de fricción frente a la fuerza aplicada que muestra que la fricción estática máxima es mayor que la fricción cinética">
+                </a>
+                <div class="figure-caption"><strong>Por qué arrancar cuesta más que mantener el movimiento.</strong> (a) Mientras el bloque no se mueve, la fuerza de rozamiento estática equilibra exactamente la fuerza aplicada (parte izquierda del gráfico). (b) Cuando la fuerza aplicada supera \(f_{s,\text{máx}}\), el bloque empieza a deslizarse y la fricción cae bruscamente al valor de la fricción cinética (parte derecha del gráfico). (c) La comparación de ambas ramas muestra que \(f_{s,\text{máx}} > f_k\) y, por tanto, \(\mu_s > \mu_k\). Este es el motivo por el que iniciar el movimiento de un objeto exige más fuerza que mantenerlo deslizándose, y respalda la relación \(f = \mu N\) que hemos deducido.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">6</span>
@@ -391,6 +431,13 @@
         <p>donde \( \mu \) puede ser \( \mu_e \) (rozamiento estático) o \( \mu_c \) (rozamiento cinético), según el cuerpo esté en reposo o en movimiento.</p>
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Es importante aclarar que la fuerza de rozamiento no depende del área de contacto aparente, sino de la naturaleza microscópica de las superficies. El coeficiente puede ser mayor que la unidad (por ejemplo, caucho sobre asfalto seco o cobre sobre hierro fundido, donde \( \mu \approx 1{,}1 \)). Se recomienda realizar la experiencia del plano inclinado para determinar \( \mu_e = \tan \alpha \) de forma experimental, conectando la demostración teórica con la práctica de laboratorio.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0112.webp">
+                <img src="../imagenes/webp/ImagenF0112.webp" alt="Vista ampliada del contacto entre dos superficies ásperas que muestra los picos microscópicos que se oponen al movimiento y las uniones moleculares que generan la fricción">
+            </a>
+            <div class="figure-caption"><strong>El origen microscópico de la fricción.</strong> La fuerza de fricción se debe, en parte, a la aspereza de las superficies en contacto: para que el objeto se mueva, debe elevarse hasta donde los picos de la superficie superior pueden saltar sobre los de la inferior, y algunos de esos picos se quebrarán durante el movimiento. Pero la mayor parte de la fricción se debe en realidad a las fuerzas de atracción entre las moléculas de los dos objetos: incluso superficies perfectamente lisas y limpias pueden adherirse formando una «soldadura en frío». Esta imagen ilustra por qué el rozamiento es una propiedad de los materiales y no del área aparente de contacto: lo que importa es cuántas uniones microscópicas se forman, y eso depende de la fuerza normal \(N\) que presiona ambas superficies.</div>
         </div>
     </div>
 
@@ -542,13 +589,7 @@
         </div> <!-- fin contenido-desplegable -->
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
+    <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
 
@@ -594,7 +635,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

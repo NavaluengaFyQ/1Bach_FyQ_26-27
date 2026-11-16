@@ -1,13 +1,10 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T02.07. Energía de los niveles cuánticos del hidrógeno</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- FontAwesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
@@ -320,6 +317,9 @@
 
 
 
+
+
+
 <!-- Insertando imagen -->
 <style>
   img {
@@ -336,8 +336,12 @@
 <!-- -----FIN-------- -->
 
 
-
-
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ141.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Niveles de energía del hidrógeno">
+                    <img src="../imagenes/webp/ImagenQ141.webp" alt="Números cuánticos y niveles de energía del átomo de hidrógeno con sus valores numéricos" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Los niveles no son continuos.</strong> Cada nivel del hidrógeno se etiqueta con su número cuántico principal \(n=1,2,3\ldots\) y tiene una energía concreta \(E_n=-13{,}6/n^2\ \text{eV}\). Observa cómo los niveles se van acercando entre sí a medida que \(n\) crece: la distancia entre \(n=1\) y \(n=2\) es enorme comparada con la que hay entre \(n=5\) y \(n=6\). Demostrar esta expresión a partir del postulado de Bohr es precisamente el objetivo de esta página.</div>
+            </div>
 
 
 
@@ -360,6 +364,13 @@
                     \[ m_e v r = n \frac{h}{2\pi} \]
                 </div>
                 donde \(n = 1, 2, 3, \ldots\)
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0006.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Modelo de Bohr del átomo">
+                        <img src="../imagenes/webp/ImagenF0006.webp" alt="Modelo de Bohr de un átomo de un solo electrón: el electrón orbita alrededor del núcleo en una de varias órbitas circulares posibles" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El punto de partida: el modelo de Bohr.</strong> El electrón solo puede ocupar ciertas órbitas circulares permitidas, y esa restricción se traduce matemáticamente en la condición \(L=n\hbar\). Sin esta cuantización no hay niveles de energía discretos: el electrón podría orbitar a cualquier distancia y el espectro sería continuo, no de líneas.</div>
+                </div>
             </div>
 
             <div class="step">
@@ -402,6 +413,13 @@
                     \[ E_n = -\frac{13{,}6\ \text{eV}}{n^2} \]
                 </div>
                 que coincide con la energía del estado fundamental \(E_1 = -13{,}6\ \text{eV}\) cuando \(n = 1\).
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF1105.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro energético del hidrógeno con transiciones">
+                        <img src="../imagenes/webp/ImagenF1105.webp" alt="Espectro energético del átomo de hidrógeno con los niveles n=1,2,3,4,... y las flechas verticales de las transiciones permitidas, junto a la banda espectral a la que pertenecen" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La energía de los niveles converge a cero.</strong> El diagrama energético completo del hidrógeno muestra cómo los niveles se van apiñando contra el límite de ionización (\(E=0\), \(n\to\infty\)). Cada flecha vertical es una transición entre dos niveles; su energía es exactamente la diferencia \(E_{n_2}-E_{n_1}\) que predice la fórmula recién demostrada.</div>
+                </div>
             </div>
         </div>
 
@@ -411,6 +429,22 @@
             <div class="formula-box">
                 \[ E_n = \frac{E_1}{n^2} = -\frac{13{,}6\ \text{eV}}{n^2} \]
             </div>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ142.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Transiciones entre niveles de energía">
+                        <img src="../imagenes/webp/ImagenQ142.webp" alt="Niveles de energía del hidrógeno con flechas verticales que representan la absorción (izquierda) y la emisión (derecha) de fotones entre órbitas" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Transiciones entre niveles.</strong> Cuando el electrón salta de un nivel a otro, absorbe o emite un fotón cuya energía es la diferencia entre ambos niveles. Esta es la conexión directa entre la energía cuantizada \(E_n\) y las líneas espectrales observables.</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF1103.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro de emisión del hidrógeno">
+                        <img src="../imagenes/webp/ImagenF1103.webp" alt="Espectro de emisión del hidrógeno atómico con las líneas espectrales características agrupadas en series" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El espectro real que confirma la teoría.</strong> Las líneas nítidas que se observan experimentalmente (Lyman en el UV, Balmer en el visible, Paschen en el IR) corresponden exactamente a las transiciones entre los niveles cuantizados \(E_n=-13{,}6/n^2\ \text{eV}\). La fórmula deducida aquí no es un invento: está escrita en la luz que emite el hidrógeno.</div>
+                </div>
+            </div>
+
             <div class="note">
                 <strong>Observaciones sobre el alumnado:</strong> Es crucial destacar que la energía es negativa (estados ligados) y que tiende a cero cuando \(n \to \infty\), que corresponde al estado ionizado (electrón libre). La convergencia de los niveles hacia cero explica visualmente por qué las líneas espectrales se van espaciando menos en las series de Paschen o Brackett comparadas con la serie de Lyman.
             </div>
@@ -938,5 +972,6 @@
 
 
     </div> <!-- fin container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

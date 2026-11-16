@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.08.- </span>
                 <span class="texto">Momento de una Fuerza y Equilibrio de Rotación</span>
             </div>
@@ -330,6 +362,13 @@
                 \[ \vec{M}_O = \vec{r} \times \vec{F} \]
             </div>
             donde \( \vec{r} \) es el vector posición de \( P \) respecto a \( O \). El momento es un vector perpendicular al plano formado por \( \vec{r} \) y \( \vec{F} \).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0235.webp">
+                    <img src="../imagenes/webp/ImagenF0235.webp" alt="El torque como vector perpendicular al plano definido por los vectores r y F, con dirección determinada por la regla de la mano derecha">
+                </a>
+                <div class="figure-caption"><strong>El momento como vector perpendicular al plano de \(\vec{r}\) y \(\vec{F}\).</strong> Al definir el momento mediante el producto vectorial \(\vec{M}_O = \vec{r}\times\vec{F}\), su dirección es perpendicular al plano que contiene a \(\vec{r}\) (vector posición del punto de aplicación respecto a \(O\)) y a \(\vec{F}\) (fuerza aplicada). El sentido viene dado por la regla de la mano derecha: si se gira \(\vec{r}\) hacia \(\vec{F}\), el pulgar apunta en la dirección del momento. Esta propiedad vectorial es la que permite que el momento de una fuerza sea una magnitud física con dirección, y no simplemente un número.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -338,6 +377,13 @@
                 \[ M = r \, F \, \sin \theta = F \, d \]
             </div>
             donde \( \theta \) es el ángulo entre \( \vec{r} \) y \( \vec{F} \), y \( d = r \sin \theta \) es la distancia perpendicular desde \( O \) a la línea de acción de la fuerza (brazo de palanca).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0236.webp">
+                    <img src="../imagenes/webp/ImagenF0236.webp" alt="Disco que rota libremente en torno a su eje central; el torque rFsenθ es cero cuando θ=0 y máximo cuando θ=90, produciendo la máxima aceleración angular">
+                </a>
+                <div class="figure-caption"><strong>El ángulo decide cuánto torque produce una fuerza.</strong> Sobre un disco que puede girar libremente en torno a su eje central se aplica una fuerza a una distancia \(r\). La magnitud del torque es \(M = rF\sin\theta\). Cuando la fuerza se aplica alineada con el radio (\(\theta = 0°\)), el torque es nulo y el disco no rota. Cuando la fuerza es perpendicular al radio (\(\theta = 90°\)), el torque alcanza su valor máximo \(rF\) y el disco gira con la mayor aceleración angular posible. Este ejemplo muestra por qué el brazo de palanca \(d = r\sin\theta\) y no simplemente \(r\) es lo que cuenta: el momento depende no solo de la fuerza y de la distancia, sino también del ángulo entre ellas.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
@@ -445,6 +491,13 @@
                     <div class="paso">
                         <strong>c)</strong> Para obtener el mismo momento \(20\,\text{N·m}\) en el borde: \(20 = F \cdot 0,90 \Rightarrow F = \frac{20}{0,90} \approx 22,2\,\text{N}\). Es menor que \(25\,\text{N}\) porque el brazo es mayor.
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0234.webp">
+                        <img src="../imagenes/webp/ImagenF0234.webp" alt="El torque ilustrado para la rotación de una puerta sobre sus bisagras vista desde arriba: diferentes fuerzas, distancias y ángulos producen diferentes torques">
+                    </a>
+                    <div class="figure-caption"><strong>El ejemplo más cotidiano del momento: abrir una puerta.</strong> (a) Una fuerza \(\vec{F}\) aplicada a una distancia \(r\) de las bisagras (el punto de apoyo) produce un torque en sentido antihorario. (b) Una fuerza menor \(\vec{F}'\) a la misma distancia produce un torque menor. (c) La misma fuerza que en (a), aplicada más cerca de las bisagras, también produce un torque menor: el brazo de palanca es más corto. (d) La misma fuerza a la misma distancia, pero con un ángulo \(\theta\) menor de \(90°\), produce un torque menor porque solo cuenta la componente perpendicular al radio. Este esquema es exactamente el que corresponde al ejercicio 2: la fuerza aplicada en el picaporte (lejos de las bisagras, perpendicular a la puerta) es la situación ideal para abrirla con mínimo esfuerzo.</div>
                 </div>
             </div>
 

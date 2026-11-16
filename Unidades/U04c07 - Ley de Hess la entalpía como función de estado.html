@@ -9,6 +9,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -386,7 +387,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -404,7 +404,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -417,6 +416,13 @@
             <li>Las ecuaciones termoquímicas pueden <strong>sumarse, restarse, multiplicar por coeficientes</strong> e <strong>invertirse</strong> (cambiando el signo de \(\Delta H\)), manteniendo la validez física.</li>
         </ul>
         <p>Esta demostración es fundamental porque justifica el método de cálculo de entalpías de reacción a partir de entalpías de formación o de combustión.</p>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ105.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La energía en la vida cotidiana">
+                <img src="../imagenes/webp/ImagenQ105.webp" alt="Ejemplos cotidianos de energía en los cambios químicos: una hamburguesa (energía para el cuerpo), la combustión de gasolina (energía para el coche) y el coque en la siderurgia" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>La energía química que nos rodea.</strong> Una hamburguesa nos da energía para el día, la gasolina mueve el coche y el coque permite fundir el hierro. En todos estos procesos, la energía se intercambia con el entorno en forma de calor y trabajo. La Ley de Hess nos permitirá calcular esas variaciones de entalpía aunque no podamos medirlas directamente.</div>
+        </div>
     </div>
 
     <!-- PROCEDIMIENTO -->
@@ -455,6 +461,13 @@
                 \[\Delta H = q_p \quad (\text{a presión constante})\]
             </div>
             <p>Por tanto, el calor intercambiado a presión constante mide directamente la variación de entalpía.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ110.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Reacciones exotérmicas y endotérmicas">
+                    <img src="../imagenes/webp/ImagenQ110.webp" alt="Izquierda: soplete oxiacetilénico, ejemplo de reacción exotérmica que desprende calor. Derecha: bolsa de frío instantáneo, ejemplo de reacción endotérmica que absorbe calor" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Los dos signos de ΔH, en la vida real.</strong> El soplete oxiacetilénico es un ejemplo de reacción exotérmica (ΔH < 0): la energía se libera en forma de calor. La bolsa de frío instantáneo es un proceso endotérmico (ΔH > 0): el sistema absorbe calor del entorno y lo notamos como frío. Esta distinción de signos es precisamente lo que la entalpía cuantifica.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -551,6 +564,21 @@
             <li>Combinar datos de <strong>entalpías de formación, combustión o enlace</strong> para obtener cualquier \(\Delta H_r\).</li>
             <li>Predecir la <strong>dirección espontánea</strong> de procesos termodinámicos (junto con la entropía).</li>
         </ul>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ124.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Combustión de gasolina, ejemplo de reacción exotérmica">
+                    <img src="../imagenes/webp/ImagenQ124.webp" alt="Combustión de gasolina, proceso exotérmico en el que la energía química del combustible se libera en forma de calor" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Un ΔH muy negativo.</strong> La combustión de la gasolina es muy exotérmica: la variación de entalpía es fuertemente negativa. Aplicando la Ley de Hess, esa entalpía puede calcularse a partir de las entalpías de formación de reactivos y productos, sin necesidad de medir el calor liberado directamente en el motor.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ104.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Combustión de una cerilla">
+                    <img src="../imagenes/webp/ImagenQ104.webp" alt="La cabeza de una cerilla, al frotarla con una superficie rugosa, inicia una reacción de combustión que produce calor y luz" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Reacciones en cadena de la vida cotidiana.</strong> Al frotar una cerilla se inicia una reacción de combustión que desprende energía en forma de calor y luz. Es un ejemplo simple pero potente de cómo una reacción química con ΔH negativo puede ser la puerta a procesos más complejos, todos ellos modelables con las herramientas de la termoquímica y la Ley de Hess.</div>
+            </div>
+        </div>
         
         <div class="note-prof">
             <strong>💡 Observaciones sobre el alumnado:</strong><br>
@@ -750,5 +778,6 @@
 
 
 </div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

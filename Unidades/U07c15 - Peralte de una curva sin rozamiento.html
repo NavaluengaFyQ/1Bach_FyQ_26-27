@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,6 +6,8 @@
     <title>T07.15. Peralte de una Curva (Sin Rozamiento)</title>
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- MathJax -->
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -306,7 +306,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -319,8 +318,6 @@
 <img src="../imagenes/U07c15 - Peralte de una curva sin rozamiento.png" alt="Imagen" width="800">
 <img src="../imagenes/U07c15 - Peralte de una curva sin rozamiento_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -345,6 +342,13 @@
                 <li>La <strong>fuerza normal</strong> \( \vec{N} \), perpendicular a la superficie de la carretera hacia arriba.</li>
             </ul>
             No hay rozamiento (\( F_r = 0 \)).
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0124.webp">
+                    <img src="../imagenes/webp/ImagenF0124.webp" alt="Diagrama de fuerzas de un auto en una curva con peralte">
+                </a>
+                <figcaption class="figure-caption">Figura 6.22. El auto en una curva con peralte se aleja y gira a la izquierda. La pendiente de la carretera permite maniobrar en la curva sin depender del rozamiento: cuanto mayor sea el ángulo, más rápido se puede tomar la curva.</figcaption>
+            </figure>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -402,6 +406,13 @@
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Esta demostración conecta la dinámica circular con la estática (componentes de fuerzas). Es un excelente ejemplo de <strong>ingeniería física</strong>: las autopistas y pistas de carreras se peraltan precisamente por este principio. Se recomienda calcular un ejemplo numérico: para \( R = 100 \, \mathrm{m} \) y \( v = 72 \, \mathrm{km/h} = 20 \, \mathrm{m/s} \), se obtiene \( \tan \alpha = \frac{400}{9{,}8 \times 100} \approx 0{,}41 \), es decir, \( \alpha \approx 22^\circ \). También se puede relacionar con el peralte de las pistas de ciclismo o de los tramos de montaña rusa.
         </div>
+
+        <figure class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0123.webp">
+                <img src="../imagenes/webp/ImagenF0123.webp" alt="Auto en una curva plana (sin peralte) donde la fricción proporciona la fuerza centrípeta">
+            </a>
+            <figcaption class="figure-caption">Figura 6.21. En una curva plana (sin peralte), la fuerza centrípeta debe ser suministrada por la fricción entre los neumáticos y la carretera. El peralte sustituye (o reduce) esa dependencia y aumenta la seguridad a alta velocidad.</figcaption>
+        </figure>
     </div>
 
     <!-- ============================================================ -->
@@ -414,6 +425,13 @@
             <span class="badge-pulsa"><i class="fas fa-hand-pointer"></i> Pulsame</span>
         </summary>
         <div class="contenido-desplegable">
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0122.webp">
+                    <img src="../imagenes/webp/ImagenF0122.webp" alt="La fuerza centrípeta es perpendicular a la velocidad y provoca el movimiento circular uniforme">
+                </a>
+                <figcaption class="figure-caption">Figura 6.20. La fuerza centrípeta es perpendicular a la velocidad y provoca un movimiento circular uniforme. Cuanto mayor sea \(F_c\), menor será el radio de curvatura \(r\) y más pronunciada será la curva.</figcaption>
+            </figure>
 
             <!-- EJERCICIO 1: Cálculo del ángulo de peralte -->
             <div class="tarjeta-ejercicio">
@@ -551,68 +569,56 @@
         </div> <!-- fin contenido-desplegable -->
     </details>
 
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
 
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br> Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

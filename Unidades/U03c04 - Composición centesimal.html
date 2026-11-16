@@ -37,6 +37,9 @@
     <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -249,7 +252,9 @@
             </div>
             <p>donde \( A_r \) representa la masa atómica relativa de cada elemento.</p>
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ060.webp" alt="Modelo molecular del cloroformo, CHCl3, con sus átomos constituyentes">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ060.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Masa molecular del cloroformo CHCl3">
+                    <img src="../imagenes/webp/ImagenQ060.webp" alt="Modelo molecular del cloroformo, CHCl3, con sus átomos constituyentes" loading="lazy" decoding="async">
+                </a>
                 <div class="figure-caption"><strong>La masa molar, suma de contribuciones.</strong> La masa media de una molécula de cloroformo, CHCl₃, es 119,37 u: exactamente la suma de las masas atómicas medias de sus átomos constituyentes. Es la misma idea que expresa la ecuación [1]: \( M = \sum n_i A_r(i) \), aplicada ahora a una molécula real.</div>
             </div>
         </div>
@@ -260,9 +265,19 @@
                 \[ m_{\mathrm{A\ en\ 1\ mol}} = a \cdot M(\mathrm{A}) = a \cdot A_r(\mathrm{A})\ \mathrm{g} \]
                 \[ m_{\mathrm{B\ en\ 1\ mol}} = b \cdot M(\mathrm{B}) = b \cdot A_r(\mathrm{B})\ \mathrm{g} \]
             </div>
-            <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ065.webp" alt="Muestras de un mol de átomos de distintos elementos con masas diferentes">
-                <div class="figure-caption"><strong>Un mol, siempre el mismo número de átomos.</strong> Cada muestra contiene 6,022 × 10²³ átomos (1,00 mol de átomos), pero sus masas difieren porque cada elemento tiene distinta masa atómica. Por eso, al contar los átomos de un elemento en un mol de compuesto, la masa que aporta es \( a \cdot A_r(\mathrm{A}) \), no simplemente \( A_r(\mathrm{A}) \).</div>
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ065.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Un mol de átomos de distintos elementos">
+                        <img src="../imagenes/webp/ImagenQ065.webp" alt="Muestras de un mol de átomos de distintos elementos con masas diferentes" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Un mol de átomos: mismo número, distintas masas.</strong> Cada muestra contiene 6,022 × 10²³ átomos (1,00 mol de átomos), pero sus masas difieren porque cada elemento tiene distinta masa atómica. Por eso, al contar los átomos de un elemento en un mol de compuesto, la masa que aporta es \( a \cdot A_r(\mathrm{A}) \), no simplemente \( A_r(\mathrm{A}) \).</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ066.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Un mol de moléculas de distintos compuestos">
+                        <img src="../imagenes/webp/ImagenQ066.webp" alt="Cuatro muestras que contienen cada una 6,022 × 10²³ moléculas o unidades de fórmula (1 mol) de distintos compuestos, con masas muy diferentes" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Un mol de moléculas: misma cuenta, masas muy distintas.</strong> Cada muestra contiene 1 mol de unidades (6,022 × 10²³ moléculas) de un compuesto distinto. La masa que aporta cada molécula a la masa total del compuesto se calcula sumando las contribuciones \( n_i A_r(i) \) de todos sus átomos.</div>
+                </div>
             </div>
         </div>
         <div class="step">
@@ -270,6 +285,12 @@
             <strong>Calculamos la fracción másica</strong> de cada elemento. Es el cociente entre la masa del elemento y la masa total del compuesto:
             <div class="formula-box">
                 \[ x_{\mathrm{A}} = \frac{m_{\mathrm{A}}}{m_{\mathrm{total}}} = \frac{a \cdot A_r(\mathrm{A})}{a \cdot A_r(\mathrm{A}) + b \cdot A_r(\mathrm{B}) + c \cdot A_r(\mathrm{C})} \]
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ063.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La sal de mesa NaCl con proporción 1:1 entre iones">
+                    <img src="../imagenes/webp/ImagenQ063.webp" alt="Modelo de la sal de mesa (NaCl) mostrando la proporción 1:1 entre iones sodio y cloruro, y su fórmula de masa 58,44 u" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Fracción másica en un caso sencillo.</strong> En el NaCl, cada unidad de fórmula contiene 1 Na y 1 Cl. Su fórmula de masa es 58,44 u: el 39,3% corresponde al sodio y el 60,7% al cloro. Esa es la fracción másica que la ecuación [2] formaliza para cualquier compuesto: la contribución de un elemento dividida entre la masa total.</div>
             </div>
         </div>
         <div class="step">
@@ -310,11 +331,19 @@
             \( \%(\mathrm{C}) = \frac{36}{44} \times 100 = 81{,}8\% \)<br>
             \( \%(\mathrm{H}) = \frac{8}{44} \times 100 = 18{,}2\% \)
         </div>
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ062.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Masa molecular del ibuprofeno C13H18O2">
+                <img src="../imagenes/webp/ImagenQ062.webp" alt="Modelo molecular del ibuprofeno C13H18O2 con la suma de las masas atómicas de sus 13 carbonos, 18 hidrógenos y 2 oxígenos" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Un caso real: la masa molar del ibuprofeno.</strong> El ibuprofeno (C₁₃H₁₈O₂) tiene masa molecular media 180,15 u. Aplicando la misma fórmula \( M = \sum n_i A_r(i) \) a sus 13 carbonos, 18 hidrógenos y 2 oxígenos se obtiene la masa molar que después usaríamos para calcular su composición centesimal o para dosificar correctamente un comprimido de 200 mg.</div>
+        </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Es fundamental enfatizar que la composición centesimal es una <strong>propiedad intensiva</strong> del compuesto: no depende del tamaño de la muestra. Esta demostración conecta directamente con la Ley de Proust (proporciones definidas). Un error frecuente es confundir la composición centesimal con la fórmula empírica; conviene destacar que la primera da <strong>proporciones en masa</strong> y la segunda <strong>proporciones en número de átomos</strong>. La conversión requiere dividir por las masas atómicas. Para sales hidratadas, recomiendo calcular siempre la masa molar completa incluyendo el agua de cristalización para evitar errores de omisión.
         </div>
         <div class="photo-figure">
-            <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo la fórmula empírica se deriva de las masas de los elementos de la muestra">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ073.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: De la composición centesimal a la fórmula empírica">
+                <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo la fórmula empírica se deriva de las masas de los elementos de la muestra" loading="lazy" decoding="async">
+            </a>
             <div class="figure-caption"><strong>De la composición centesimal a la fórmula empírica.</strong> La fórmula empírica de un compuesto puede derivarse de las masas de todos los elementos de la muestra: la composición centesimal que acabamos de demostrar es, precisamente, el punto de partida de ese cálculo. Así se cierra el vínculo entre masa y número de átomos que menciona la nota anterior.</div>
         </div>
     </div>
@@ -517,6 +546,13 @@
                 <div class="ejercicio-body">
                     <p><strong>Enunciado.</strong> Para corregir una deficiencia de potasio en un suelo se puede usar cloruro de potasio (<strong>KCl</strong>, la silvina) o sulfato de potasio (<strong>K₂SO₄</strong>). Determinar cuál de los dos tiene mayor porcentaje en masa de potasio.</p>
                     <p><em>Datos:</em> \(A_r(\mathrm{K}) = 39{,}1\); \(A_r(\mathrm{Cl}) = 35{,}5\); \(A_r(\mathrm{S}) = 32{,}0\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ087.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Amoníaco puro como fertilizante agrícola">
+                            <img src="../imagenes/webp/ImagenQ087.webp" alt="El amoníaco puro se aplica habitualmente como fertilizante agrícola, y sus disoluciones diluidas se usan como limpiadores domésticos" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La química de los fertilizantes.</strong> Los compuestos nitrogenados como el amoníaco, la urea o los nitratos son fertilizantes habituales. En este ejercicio comparamos dos fertilizantes potásicos (KCl y K₂SO₄): la pregunta es exactamente la misma que se hace un ingeniero agrónomo antes de decidir qué producto comprar — <em>¿cuánto nutriente hay realmente en cada kilo de producto?</em> — y se responde con la composición centesimal.</div>
+                    </div>
                 </div>
 
                 <div class="ejercicio-resolucion">
@@ -689,6 +725,13 @@
                 <div class="ejercicio-body">
                     <p><strong>Enunciado.</strong> Una muestra de <strong>25,0 g de mineral de hierro</strong> contiene, tras análisis, <strong>14,0 g de hierro</strong>. Suponiendo que el hierro está presente como hematita pura (<strong>Fe₂O₃</strong>) y que el resto son impurezas inertes sin hierro, determinar la <strong>pureza</strong> del mineral (porcentaje de Fe₂O₃ en la muestra).</p>
                     <p><em>Datos:</em> \(A_r(\mathrm{Fe}) = 55{,}85\); \(A_r(\mathrm{O}) = 16{,}0\).</p>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ560.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Mineral que contiene hierro oxidado">
+                            <img src="../imagenes/webp/ImagenQ560.webp" alt="Mineral natural que contiene hierro oxidado, uno de los tipos de yacimiento de hierro utilizados en metalurgia" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>De la mena al metal: el hierro de la naturaleza.</strong> En la corteza terrestre el hierro aparece combinado en minerales, siendo la hematita (Fe₂O₃) una de las menas más importantes. Determinar qué porcentaje del mineral es realmente Fe₂O₃ puro — la «pureza» — es el primer paso del proceso metalúrgico: decide si merece la pena explotar el yacimiento y qué cantidad de hierro metálico se puede obtener.</div>
+                    </div>
                 </div>
 
                 <div class="ejercicio-resolucion">
@@ -798,5 +841,6 @@ if (window.MathJax && MathJax.typesetPromise) {
   MathJax.typesetPromise().catch(err => console.error('MathJax:', err));
 }
 </script>
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

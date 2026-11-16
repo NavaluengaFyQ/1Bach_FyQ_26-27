@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T05.15 - Demostración: Estructura y propiedades del grafeno y del fullereno</title>
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILOS ORIGINALES (se mantienen)
@@ -203,17 +206,13 @@
             padding: 12px 0;
             user-select: none;
         }
-        details summary::-webkit-details-marker {
-            display: none;
-        }
+        details summary::-webkit-details-marker { display: none; }
         details summary i {
             transition: transform 0.3s ease;
             font-size: 1.6rem;
             color: #2a7faa;
         }
-        details[open] summary i {
-            transform: rotate(180deg);
-        }
+        details[open] summary i { transform: rotate(180deg); }
         .exercise-card {
             background: white;
             border-radius: 14px;
@@ -252,9 +251,7 @@
             margin: 6px 0;
             box-shadow: none;
         }
-        .solution .step strong {
-            color: #0b3b5c;
-        }
+        .solution .step strong { color: #0b3b5c; }
         .didactic-footer {
             background: #d7e7f3;
             padding: 14px 20px;
@@ -266,9 +263,7 @@
             gap: 12px;
             color: #144a66;
         }
-        .didactic-footer i {
-            font-size: 1.8rem;
-        }
+        .didactic-footer i { font-size: 1.8rem; }
         .highlight-sol {
             background: #fff3cd;
             padding: 2px 6px;
@@ -302,6 +297,8 @@
             font-size: 0.9em; color: #4a5568; margin-top: 10px;
             line-height: 1.5; text-align: left;
         }
+        /* Los enlaces del lightbox no deben heredar estilos de enlace del tema */
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -311,7 +308,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T05.14.- </span>
                 <span class="texto">Demostración: Estructura y propiedades del grafeno y del fullereno</span>
             </div>
@@ -330,27 +327,21 @@
             <strong>Fullereno (\( C_{60} \)):</strong> Estructura esférica cerrada de 60 átomos de carbono
         </div>
 
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno.png">
+                <img src="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno.png"
+                     alt="Estructura y propiedades del grafeno y del fullereno">
+            </a>
+            <div class="figure-caption"><strong>Grafeno y fullereno: dimensionalidad y curvatura.</strong> Diagrama de la relación entre la estructura atómica (lámina hexagonal <em>sp</em>² del grafeno; esfera cerrada con pentágonos y hexágonos del fullereno) y las propiedades físico-químicas derivadas de cada geometría.</div>
+        </div>
 
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-<img src="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno.png" alt="Imagen" width="800">
-<img src="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
-
-
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno_2.png">
+                <img src="../imagenes/U05c14 - Estructura y propiedades del grafeno y del fullereno_2.png"
+                     alt="Esquema complementario de las propiedades del grafeno y del fullereno">
+            </a>
+            <div class="figure-caption"><strong>Esquema complementario.</strong> Segunda parte del diagrama comparativo entre el grafeno (2D, plano) y el fullereno C₆₀ (0D, esférico), destacando las propiedades emergentes que surgen de su dimensionalidad y curvatura.</div>
+        </div>
     </div>
 
     <!-- OBJETIVO -->
@@ -378,7 +369,9 @@
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ514.webp" alt="Orbitales p no hibridados y resonancia en el grafito">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ514.webp">
+                    <img src="../imagenes/webp/ImagenQ514.webp" alt="Orbitales p no hibridados y resonancia en el grafito">
+                </a>
                 <div class="figure-caption"><strong>Orbitales p y resonancia en el grafito.</strong> En el grafito, como en el grafeno, cada carbono aporta un orbital p perpendicular a la lámina; su solapamiento lateral genera electrones π deslocalizados que explican la conductividad y la estabilidad de la red hexagonal.</div>
             </div>
         </div>
@@ -406,7 +399,9 @@
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ170.webp" alt="Molécula de buckminsterfullereno C60 comparada con un balón de fútbol y una cúpula geodésica">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ170.webp">
+                    <img src="../imagenes/webp/ImagenQ170.webp" alt="Molécula de buckminsterfullereno C60 comparada con un balón de fútbol y una cúpula geodésica">
+                </a>
                 <div class="figure-caption"><strong>Del hexágono al balón de fútbol.</strong> El C60 se cierra con 12 pentágonos y 20 hexágonos, igual que un balón de fútbol; esa curvatura convierte una lámina de grafeno en una molécula esférica estable.</div>
             </div>
         </div>
@@ -449,7 +444,9 @@
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ330.webp" alt="Láminas de grafeno que pueden formar buckyballs, nanotubos y capas apiladas">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ330.webp">
+                    <img src="../imagenes/webp/ImagenQ330.webp" alt="Láminas de grafeno que pueden formar buckyballs, nanotubos y capas apiladas">
+                </a>
                 <div class="figure-caption"><strong>Una misma lámina, varias nanoformas.</strong> Las láminas de grafeno pueden cerrarse en buckyballs (fullerenos), enrollarse en nanotubos o apilarse como grafito; la dimensionalidad y la curvatura explican propiedades distintas.</div>
             </div>
         </div>
@@ -563,67 +560,50 @@
     </details>
     <!-- FIN DEL BLOQUE DESPLEGABLE -->
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

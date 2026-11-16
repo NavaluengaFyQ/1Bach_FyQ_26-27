@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>#T10.06 · Resistencias en Serie</title>
-<!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+<!-- MathJax -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
-/* ============================================
-   ESTILOS EXISTENTES (no modificados)
-   ============================================ */
 .container {
     max-width: 900px;
     width: 100%;
@@ -144,9 +143,6 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   NUEVOS ESTILOS PARA EL BLOQUE DESPLEGABLE
-   ============================================ */
 details.desmitificando {
     margin: 30px 15px 20px 15px;
     border: 2px solid #e53e3e;
@@ -258,6 +254,41 @@ details.desmitificando .contenido-ejercicios {
     margin-right: 8px;
     color: #d69e2e;
 }
+
+/* ============================================
+   ESTILOS PARA FIGURAS DEL BANCO DE IMÁGENES
+   ============================================ */
+figure.figura-banco {
+    margin: 18px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+figure.figura-banco img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+}
+figure.figura-banco figcaption {
+    font-size: 0.9em;
+    color: #4a5568;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+}
+figure.figura-banco figcaption .creditos {
+    display: block;
+    font-size: 0.82em;
+    color: #718096;
+    font-style: italic;
+    margin-top: 4px;
+}
 </style>
 </head>
 <body>
@@ -285,7 +316,7 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ R_{\text{eq}} = R_1 + R_2 + \cdots + R_n = \sum_{i=1}^{n} R_i \]
 
-            <!-- Insertando imagen -->
+            <!-- Imagen original (se deja como estaba) -->
             <style>
               img {
                 width: 100%;
@@ -294,17 +325,15 @@ details.desmitificando .contenido-ejercicios {
               }
             </style>
 
-            
             <img src="../imagenes/U10c06 - Resistencias en serie_2.png" alt="Imagen" width="800">
             <!-- -----FIN-------- -->
-
         </div>
+
     </div>
 
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Fundamentar matemáticamente por qué las resistencias en serie se suman directamente. Esta demostración conecta la Ley de Ohm con la conservación de la carga y la aditividad de las diferencias de potencial. Es esencial para el diseño y análisis de circuitos eléctricos, divisores de tensión y protecciones eléctricas.</p>
-    </div>
 
     <div class="section procedimiento">
         <h2>🔧 Procedimiento</h2>
@@ -314,6 +343,16 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ I = I_1 = I_2 = \cdots = I_n \]
             </div>
+
+            <!-- FIGURA: serie vs paralelo (I misma en serie) -->
+            <figure class="figura-banco">
+                <img src="../imagenes/webp/ImagenF0740.webp"
+                     alt="Comparación: en una conexión en serie la corriente es la misma en cada resistor; en paralelo el voltaje es el mismo"
+                     loading="lazy" decoding="async">
+                <figcaption>
+                    <strong>Figura 10.11.</strong> (a) Para una conexión en <strong>serie</strong> de resistores, la corriente es la <strong>misma</strong> en cada uno de ellos. (b) Para una conexión en paralelo de resistores, el voltaje es el mismo en cada resistor. Este es el punto de partida de la demostración: en serie, la intensidad única \( I \) atraviesa todas las resistencias.
+                </figcaption>
+            </figure>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -339,6 +378,8 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ V_{\text{total}} = I \cdot (R_1 + R_2 + \cdots + R_n) \]
             </div>
+
+
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -346,6 +387,16 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ V_{\text{total}} = I \cdot R_{\text{eq}} \]
             </div>
+
+            <!-- FIGURA: tres resistores en serie y su reducción a R_eq -->
+            <figure class="figura-banco">
+                <img src="../imagenes/webp/ImagenF0741.webp"
+                     alt="Tres resistores conectados en serie a una fuente de voltaje y su reducción a una resistencia equivalente"
+                     loading="lazy" decoding="async">
+                <figcaption>
+                    <strong>Figura 10.12.</strong> (a) Tres resistores conectados en <strong>serie</strong> a una fuente de voltaje. (b) El circuito original se reduce a una <strong>resistencia equivalente</strong> y una fuente de voltaje. La misma corriente recorre todos los resistores, mientras que las caídas de tensión se suman: \(V_{\text{total}} = V_1 + V_2 + V_3\). Este es exactamente el modelo que fundamenta la definición de \( R_{\text{eq}} \).
+                </figcaption>
+            </figure>
         </div>
         <div class="step">
             <span class="step-num">6</span>
@@ -369,10 +420,20 @@ details.desmitificando .contenido-ejercicios {
             \[ R_{\text{eq}} = \sum_{i=1}^{n} R_i \quad \text{(Resistencias en serie)} \]
         </div>
         <p>La resistencia equivalente de una asociación en serie es la suma aritmética de las resistencias individuales. Es siempre mayor que la mayor de las resistencias del conjunto.</p>
+
+        <!-- FIGURA: ejemplo de circuito en serie simple -->
+        <figure class="figura-banco">
+            <img src="../imagenes/webp/ImagenF0742.webp"
+                 alt="Circuito en serie simple con cinco resistores conectados a una batería de 9 V"
+                 loading="lazy" decoding="async">
+            <figcaption>
+                <strong>Figura 10.13.</strong> Un circuito en serie simple con cinco resistores. <em>Ejemplo 10.2 (Resistencia equivalente, corriente y potencia en un circuito en serie):</em> una batería con un voltaje del terminal de 9 V se conecta a un circuito formado por cuatro resistores de \(20\,\Omega\) y uno de \(10\,\Omega\), todos en serie. La resistencia equivalente del circuito es la suma: \(R_{\text{eq}} = 4\cdot 20 + 10 = 90\,\Omega\); la corriente que atraviesa cada resistor es la misma, y la caída de potencial en cada uno es proporcional a su resistencia.
+            </figcaption>
+        </figure>
     </div>
 
     <!-- ======================================== -->
-    <!-- BLOQUE DESPLEGABLE AÑADIDO (TAREA 1)      -->
+    <!-- BLOQUE DESPLEGABLE                       -->
     <!-- ======================================== -->
     <details class="desmitificando">
         <summary>
@@ -414,6 +475,12 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 3:</strong> Caídas: \( V_1 = I \cdot R_1 = 0{,}143 \times 15 = 2{,}14\,\text{V} \); \( V_2 = 0{,}143 \times 22 = 3{,}14\,\text{V} \); \( V_3 = 0{,}143 \times 47 = 6{,}71\,\text{V} \).</div>
                         <div class="paso"><strong>Verificación:</strong> \( 2{,}14 + 3{,}14 + 6{,}71 \approx 12\,\text{V} \).</div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0093.webp">
+                        <img src="../imagenes/webp/ImagenF0093.webp" alt="Cable de freno de bicicleta: transmite tensión a lo largo de toda su longitud" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">El cable de un freno de bicicleta transmite la tensión desde la palanca del manillar hasta el mecanismo de freno. A lo largo de todo su recorrido la tensión es la misma (despreciando rozamientos). Del mismo modo, la intensidad de corriente en una rama serie es única: si una resistencia "frena" más el paso, no es porque pase menos corriente por ella, sino porque cae más tensión en ella (\(V_i = I\,R_i\)).</figcaption>
+                    </figure>
                 </div>
             </div>
 
@@ -468,18 +535,18 @@ details.desmitificando .contenido-ejercicios {
                         </div>
                         <div class="paso"><strong>Paso 2:</strong> \( R_{\text{eq}} = 881{,}7 + 1322{,}5 = 2204{,}2\,\Omega \).</div>
                         <div class="paso"><strong>Paso 3:</strong> Intensidad: \( I = \frac{230}{2204{,}2} \approx 0{,}1043\,\text{A} \).</div>
-                        <div class="paso"><strong>Paso 4:</strong> Potencia real: \( P_{60}' = I^2 \cdot R_{60} \approx (0{,}1043)^2 \times 881{,}7 \approx 9{,}6\,\text{W} \); \( P_{40}' \approx (0{,}1043)^2 \times 1322{,}5 \approx 14{,}4\,\text{W} \).</div>
+                        <div class="paso"><strong>Paso 4:</strong> Potencia real: \( P_{60}' = I^2 \cdot R_{60} \approx 9{,}6\,\text{W} \); \( P_{40}' = I^2 \cdot R_{40} \approx 14{,}4\,\text{W} \).</div>
                         <div class="paso"><strong>Resultado:</strong> La bombilla de \( 40\,\text{W} \) (mayor resistencia) disipa más potencia en serie, por lo que brillará más. Esto es contrario a lo que ocurre en paralelo.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- PIE DE Observaciones claves -->
+            <!-- PIE -->
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> La principal "trampa" en serie es olvidar que la <strong>intensidad es la misma</strong> para todas las resistencias, pero la <strong>tensión se reparte</strong> proporcionalmente a cada resistencia. Además, la resistencia equivalente siempre es mayor que la mayor de las individuales, lo que puede resultar contraintuitivo. La analogía hidráulica (tuberías en serie) ayuda a visualizar que cada resistencia supone una "obstrucción" adicional al flujo de electrones.
             </div>
 
-        </div> <!-- /contenido-ejercicios -->
+        </div>
     </details>
 
     <!-- ============================================
@@ -527,8 +594,9 @@ details.desmitificando .contenido-ejercicios {
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

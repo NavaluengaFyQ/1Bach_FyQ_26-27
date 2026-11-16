@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.09.- </span>
                 <span class="texto">Fuerza Centrípeta en Movimiento Circular Uniforme</span>
             </div>
@@ -338,6 +370,13 @@
                 \[ a_c = \frac{v^2}{R} \]
             </div>
             Esta aceleración se debe exclusivamente al cambio de dirección de la velocidad, no a su módulo.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0062.webp">
+                    <img src="../imagenes/webp/ImagenF0062.webp" alt="Vector de aceleración centrípeta apuntando hacia el centro de la trayectoria circular, junto al vector de velocidad tangente al círculo">
+                </a>
+                <div class="figure-caption"><strong>La aceleración centrípeta siempre apunta hacia el centro.</strong> En un movimiento circular uniforme, el vector velocidad \(\vec{v}\) es tangente a la trayectoria y su módulo es constante. Sin embargo, la dirección de \(\vec{v}\) cambia continuamente; la aceleración asociada a ese cambio de dirección es la <em>aceleración centrípeta</em> \(\vec{a}_c\), que apunta siempre hacia el centro de la circunferencia y es perpendicular a \(\vec{v}\) en cada instante. El módulo de esta aceleración es \(a_c = v^2/R\). Al multiplicar por la masa se obtiene la fuerza centrípeta: \(\vec{F}_c = m\vec{a}_c\).</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
@@ -383,6 +422,13 @@
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Es crucial evitar la confusión entre fuerza centrípeta y fuerza centrífuga. La fuerza centrípeta es una fuerza real que actúa sobre el cuerpo en rotación, mientras que la centrífuga es una fuerza ficticia que aparece en sistemas de referencia no inerciales (rotantes). En un sistema inercial, solo existe la fuerza centrípeta. Un error común es pensar que el cuerpo "tira" hacia fuera; en realidad, tiende a moverse en línea recta (inercia) y la fuerza centrípeta lo obliga a curvar su trayectoria.
         </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0127.webp">
+                <img src="../imagenes/webp/ImagenF0127.webp" alt="Persona montada en un carrusel que siente una falsa fuerza centrífuga hacia fuera; en un marco inercial su inercia la lleva en línea recta y la fuerza centrípeta la obliga a girar">
+            </a>
+            <div class="figure-caption"><strong>Centrífuga vs centrípeta: la distinción clave.</strong> (a) Una persona en un carrusel siente que la empujan hacia fuera: es la falsa «fuerza centrífuga», que solo existe si nos ponemos en el marco de referencia rotante del propio carrusel. (b) En un marco inercial (por ejemplo, la Tierra), esa fuerza no existe: la persona tiende a seguir en línea recta por inercia, y la única fuerza real es la que el carrusel ejerce sobre ella hacia el centro — la fuerza centrípeta. Este es el sentido exacto de la observación del recuadro amarillo: en un sistema inercial, la centrífuga desaparece y solo queda la centrípeta.</div>
+        </div>
     </div>
 
     <!-- ============================================================ -->
@@ -417,6 +463,13 @@
                     <div class="paso">
                         <strong>b)</strong> La fuerza de rozamiento máxima es \(F_{r,\text{máx}} = \mu_e m g = 0,60 \cdot 1200 \cdot 9,8 = 0,60 \cdot 11760 = 7056\,\text{N}\). Como \(7056 < 9600\), el rozamiento no es suficiente, y el coche patinaría.
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0122.webp">
+                        <img src="../imagenes/webp/ImagenF0122.webp" alt="La fuerza de fricción entre los neumáticos y la carretera proporciona la fuerza centrípeta en una curva plana; a mayor fuerza centrípeta, menor radio de curvatura">
+                    </a>
+                    <div class="figure-caption"><strong>El rozamiento como fuerza centrípeta en una curva.</strong> En una curva sin peralte, la única fuerza horizontal que actúa sobre el coche es el rozamiento lateral de los neumáticos con el asfalto, que proporciona la fuerza centrípeta \(F_c = mv^2/R\). Para una misma velocidad, cuanto más cerrada es la curva (menor \(R\)), mayor debe ser la fuerza centrípeta requerida y, por tanto, mayor debe ser el coeficiente de rozamiento. En el ejercicio 1 se comprueba numéricamente si el rozamiento disponible (\(7056\ \text{N}\)) alcanza para la fuerza centrípeta necesaria (\(9600\ \text{N}\)): no alcanza, y el coche derraparía.</div>
                 </div>
             </div>
 

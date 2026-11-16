@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.03 - Ley de Hooke</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -319,6 +320,13 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Obtener la <strong>ley constitutiva del muelle elástico</strong> a partir del análisis gráfico de datos experimentales. Esta ley es fundamental para comprender el comportamiento de los sólidos deformables y constituye uno de los primeros ejemplos de <strong>modelización matemática</strong> en física: ajustar una función teórica a datos empíricos.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0071.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: El resorte como patrón de fuerza">
+                    <img src="../imagenes/webp/ImagenF0071.webp" alt="Tres paneles: un resorte en reposo, el mismo resorte estirado ejerciendo una fuerza restauradora, y una balanza de resorte utilizada para medir fuerzas" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El muelle como patrón de fuerza.</strong> Antes de medir hay que elegir una referencia. Un resorte calibrado es un patrón reproducible: la fuerza restauradora que ejerce al deformarse sirve como unidad estándar, y su balanza asociada es el instrumento con el que se recogieron los datos <em>F–x</em> de esta práctica.</div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -355,6 +363,13 @@
                 <span class="step-num">2</span>
                 <strong>Representación gráfica</strong>
                 <p>Se representan gráficamente los pares de valores \( (x, F) \), colocando el alargamiento \( x \) en el eje de abscisas (variable independiente) y la fuerza \( F \) en el eje de ordenadas (variable dependiente). Los puntos experimentales se aproximan a una <strong>recta</strong> que pasa por el origen.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0371.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Bloque sobre un muelle con vector de fuerza">
+                        <img src="../imagenes/webp/ImagenF0371.webp" alt="Bloque unido a un resorte sobre una mesa sin fricción, mostrando la posición de equilibrio en x=0 y el vector de fuerza ejercido por el resorte cuando se desplaza el bloque" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Lo que el gráfico <em>F–x</em> está resumiendo.</strong> A medida que el bloque se separa del equilibrio, el vector fuerza crece y cambia de sentido. Cada punto de la gráfica representa precisamente uno de estos estados: la ordenada es la magnitud de esa flecha y la abscisa, su desplazamiento.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -378,6 +393,13 @@
                     F = k \cdot x
                     \]
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0097.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Fuerza del resorte proporcional al desplazamiento">
+                        <img src="../imagenes/webp/ImagenF0097.webp" alt="Tres paneles de un resorte con un bloque: en reposo, comprimido (fuerza restauradora -kΔx1) y estirado (fuerza restauradora -kΔx2)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La ecuación se cumple en ambos sentidos.</strong> Tanto al comprimir como al estirar, la fuerza ejercida por el resorte es proporcional al desplazamiento: \( \vec{F} = -k\,\Delta\vec{x} \). El signo menos no aparece en el gráfico <em>F–x</em> porque este mide magnitudes; la dirección ya la aporta la propia recta al ser creciente.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -395,6 +417,13 @@
                 <span class="step-num">6</span>
                 <strong>Interpretación física</strong>
                 <p><strong>Interpretación física:</strong> la constante \( k \) representa la <strong>rigidez</strong> del muelle. Un muelle con \( k \) grande necesita mucha fuerza para alargarse poco (muelle duro); un muelle con \( k \) pequeño se alarga mucho con poca fuerza (muelle blando).</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0142.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Fuerza restauradora en extensión y compresión">
+                        <img src="../imagenes/webp/ImagenF0142.webp" alt="Tres paneles de un resorte: (a) en equilibrio sin fuerza, (b) estirado con fuerza restauradora hacia el equilibrio, (c) comprimido con fuerza restauradora hacia el equilibrio" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Siempre «tirando hacia casa».</strong> La fuerza restauradora apunta siempre hacia la posición de equilibrio: al estirar, tira hacia dentro; al comprimir, empuja hacia fuera. La «rigidez» \( k \) mide cuánta fuerza se necesita para producir una deformación dada y, por tanto, cuán «duro» o «blando» es el muelle.</div>
+                </div>
             </div>
         </div>
         
@@ -410,6 +439,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Es crucial que se comprenda que la Ley de Hooke es un <strong>modelo empírico</strong> válido solo dentro del <strong>límite elástico</strong> del material. Más allá de cierto alargamiento, el muelle sufre deformación plástica y la relación deja de ser lineal.&nbsp;
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0154.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Sistema vertical masa-resorte">
+                    <img src="../imagenes/webp/ImagenF0154.webp" alt="Sistema vertical masa-resorte con eje Y positivo hacia arriba, mostrando la masa en el punto de equilibrio A, expandiéndose hasta el punto B y deteniéndose en el punto C" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Aplicación directa: la masa colgada.</strong> En un muelle vertical, el peso de la masa hace las veces de fuerza aplicada y el alargamiento se mide respecto a la nueva posición de equilibrio. Este es exactamente el escenario de los ejercicios 4 y 5: si conocemos la masa, conocemos la fuerza; con \( k \), determinamos el estiramiento.</div>
             </div>
         </div>
 
@@ -684,5 +720,6 @@
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

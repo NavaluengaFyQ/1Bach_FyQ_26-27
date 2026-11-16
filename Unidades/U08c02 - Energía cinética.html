@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,7 +265,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -279,11 +278,12 @@
 <img src="../imagenes/U08c02 - Energía cinética_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0151.webp">
+                    <img src="../imagenes/webp/ImagenF0151.webp" alt="Ball Machine de George Rhoads: pelota que rueda, cae, rebota y colisiona">
+                </a>
+                <figcaption class="figure-caption">Figura 8.1. Parte de una escultura Ball Machine de George Rhoads. Una pelota en este artilugio se levanta, rueda, cae, rebota y colisiona con varios objetos. A lo largo de sus viajes, su energía cinética cambia en cantidades definidas y predecibles, que dependen de su posición y de los objetos con los que interactúa.</figcaption>
+            </figure>
 
         </div>
 
@@ -291,6 +291,13 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Demostrar que el trabajo realizado por la fuerza neta sobre un cuerpo se traduce en una variación de una magnitud que depende exclusivamente de la masa y del cuadrado de la velocidad. Esta magnitud, que denominamos energía cinética, representa la capacidad del cuerpo para realizar trabajo debido a su movimiento.</p>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0145.webp">
+                    <img src="../imagenes/webp/ImagenF0145.webp" alt="Persona caminando dentro de un vagón de tren: la energía cinética depende del marco de referencia">
+                </a>
+                <figcaption class="figure-caption">Figura 7.10. La energía cinética es relativa al marco de referencia. Los posibles movimientos de una persona que camina en un tren son (a) hacia la parte delantera del vagón y (b) hacia la parte trasera del vagón. El valor de \(E_c\) no es el mismo para un observador en el tren que para uno en las vías.</figcaption>
+            </figure>
         </div>
 
         <!-- PROCEDIMIENTO -->
@@ -411,6 +418,13 @@
                     <p>Por el teorema trabajo-energía: \( W_{\text{neto}} = \Delta E_c = \frac{1}{2} m v^2 - 0 = \frac{1}{2} \cdot 60 \cdot 8^2 = 1920 \, \text{J} \).</p>
                     <p>Como \( W = F \cdot \Delta x \) (fuerza paralela), entonces \( F = \frac{W}{\Delta x} = \frac{1920}{4,0} = 480 \, \text{N} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0146.webp">
+                        <img src="../imagenes/webp/ImagenF0146.webp" alt="Tracción de caballos: el trabajo cambia la energía cinética de la carga">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.11. La tracción de caballos es un evento común en las ferias estatales. El trabajo realizado por los caballos que halan de la carga da lugar a un cambio en la energía cinética de la carga, que, en última instancia, va más rápido.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 3: Trabajo de frenado (fuerza resistente) -->
@@ -427,6 +441,13 @@
                     <p>Este trabajo es realizado por la fuerza de resistencia: \( W = F \cdot \Delta x \cdot \cos 180^\circ = -F \cdot \Delta x \).</p>
                     <p>Igualando: \( -F \cdot 0,050 = -800 \Rightarrow F = 16\,000 \, \text{N} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0148.webp">
+                        <img src="../imagenes/webp/ImagenF0148.webp" alt="Las tablas ejercen una fuerza para detener la bala, que pierde energía cinética">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.13. Las tablas ejercen una fuerza para detener la bala. Como resultado, las tablas hacen trabajo y la bala pierde energía cinética.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 4: Relación entre Ec y cantidad de movimiento -->
@@ -459,6 +480,13 @@
                     <p>\( 392 = \frac{1}{2} \cdot 2,0 \cdot v^2 \Rightarrow v^2 = 392 \Rightarrow v \approx 19,8 \, \text{m/s} \).</p>
                     <p>(Coincide con \( \sqrt{2 g h} \)).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0152.webp">
+                        <img src="../imagenes/webp/ImagenF0152.webp" alt="Balón de fútbol descendiendo: la energía potencial gravitatoria se convierte en energía cinética">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.2. Cuando el balón de fútbol comienza a descender hacia el receptor, la energía potencial gravitacional se convierte de nuevo en energía cinética. Es el mismo principio del ejercicio de caída libre, pero aplicado a un proyectil.</figcaption>
+                </figure>
             </div>
 
             <!-- Observaciones claves -->
@@ -466,10 +494,15 @@
                 <strong>🎯 Observaciones claves:</strong> La energía cinética es una magnitud que cuantifica el movimiento. El teorema trabajo-energía cinética (\( W_{\text{neto}} = \Delta E_c \)) es una herramienta potentísima porque evita tener que conocer la aceleración o el tiempo; basta con conocer las velocidades y el trabajo realizado. Es fundamental que se identifiquen que el trabajo neto es la suma de los trabajos de todas las fuerzas, y que si el trabajo es positivo la energía cinética aumenta, y si es negativo disminuye.
             </div>
 
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0147.webp">
+                    <img src="../imagenes/webp/ImagenF0147.webp" alt="Pista sin fricción para un coche de juguete con un giro circular completo">
+                </a>
+                <figcaption class="figure-caption">Figura 7.12. Una pista sin fricción para un coche de juguete tiene un giro circular completo. ¿A qué altura debe arrancar el coche para que pueda dar la vuelta al círculo sin caerse? La respuesta combina conservación de energía mecánica (Ep ↔ Ec) con la dinámica del movimiento circular.</figcaption>
+            </figure>
+
         </details>
         <!-- FIN BLOQUE DESPLEGABLE -->
-
-
 
 
 
@@ -528,9 +561,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

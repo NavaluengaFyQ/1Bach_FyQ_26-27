@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +8,8 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
 /* ============================================
    ESTILOS EXISTENTES (no modificados)
@@ -287,11 +287,6 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ P = V \cdot I = I^2 \cdot R = \frac{V^2}{R} \]
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -305,11 +300,13 @@ details.desmitificando .contenido-ejercicios {
 <img src="../imagenes/U10c08 - Ley de Joule_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+<!-- Banco F: cortocircuito y potencia térmica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0772.webp">
+    <img src="../imagenes/webp/ImagenF0772.webp" alt="Cortocircuito en una tostadora: el aislamiento desgastado permite una trayectoria de baja resistencia y se genera potencia térmica muy rápidamente" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un <strong>cortocircuito</strong> es una trayectoria no deseada de baja resistencia a través de una fuente de voltaje. (a) El aislamiento desgastado de los cables de una tostadora permite que entren en contacto con una resistencia muy baja \(r\). Dado que \(P = V^2/r\), la potencia térmica se crea tan rápidamente que el cable se funde o se quema. (b) Esquema del cortocircuito. Es la manifestación más dramática del <strong>efecto Joule</strong>: la energía eléctrica se transforma en calor de forma explosiva cuando la resistencia es pequeña y la tensión está fija.</figcaption>
+</figure>
 
         </div>
     </div>
@@ -317,6 +314,15 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Obtener las tres formas equivalentes de la Ley de Joule que relacionan la potencia disipada con las magnitudes eléctricas fundamentales. Esta demostración es esencial para el cálculo de consumos energéticos, el diseño de sistemas de calefacción eléctrica, la protección de circuitos contra sobrecargas y la comprensión de la eficiencia energética en dispositivos eléctricos.</p>
+
+<!-- Banco F: circuito en serie y potencia total disipada -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0742.webp">
+    <img src="../imagenes/webp/ImagenF0742.webp" alt="Circuito en serie simple con cinco resistores conectados a una batería de 9 V" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un circuito en serie simple con cinco resistores. <em>Ejemplo 10.2 (Resistencia equivalente, corriente y potencia en un circuito en serie):</em> una batería de 9 V se conecta a cuatro resistores de \(20\,\Omega\) y uno de \(10\,\Omega\), todos en serie. Además de calcular la resistencia equivalente y la corriente, el ejemplo pide <strong>determinar la potencia total disipada por los resistores y la potencia suministrada por la batería</strong>: una aplicación directa de la Ley de Joule \(P = I^2 R = V^2/R\).</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -358,6 +364,15 @@ details.desmitificando .contenido-ejercicios {
                 \[ P = I^2 \cdot R \]
             </div>
             <p>Esta forma es especialmente útil cuando se conoce la intensidad que circula por la resistencia.</p>
+
+<!-- Banco F: potencia disipada por un resistor en combinación serie-paralelo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0745.webp">
+    <img src="../imagenes/webp/ImagenF0745.webp" alt="Tres resistores en combinación serie-paralelo; el ejemplo pide calcular la potencia disipada por R2" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Estos tres resistores se conectan a una fuente de voltaje de manera que \(R_2\) y \(R_3\) están en paralelo entre sí y esa combinación está en serie con \(R_1\). <em>Ejemplo 10.4 (Combinación de circuitos en serie y en paralelo):</em> entre otros apartados, se pide <strong>qué potencia se disipa por \(R_2\)</strong>. Para ello hay que calcular primero la corriente que la atraviesa y aplicar la forma \(P = I_2^2 R_2\) de la Ley de Joule, exactamente como se deriva en este paso.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -377,6 +392,15 @@ details.desmitificando .contenido-ejercicios {
                 \[ E = P \cdot t = V \cdot I \cdot t = I^2 \cdot R \cdot t = \frac{V^2}{R} \cdot t \]
             </div>
             <p>Esta energía se transforma en calor por efecto Joule, lo que explica el funcionamiento de hornos, secadores y fusibles.</p>
+
+<!-- Banco F: fusible y disyuntor contra sobrecarga térmica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0774.webp">
+    <img src="../imagenes/webp/ImagenF0774.webp" alt="Sistema de tres cables con disyuntor o fusible que protege contra la sobrecarga térmica en serie con el cable activo" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">(a) Esquema de un circuito simple de ac con una fuente de voltaje y un solo aparato representado por la resistencia \(R\). (b) El sistema de tres cables conecta el cable neutro a tierra en la fuente de voltaje y en el lugar del usuario, obligándolo a estar a cero voltios y proporcionando una vía de retorno alternativa para la corriente a través de tierra. <strong>Un disyuntor o fusible protege contra la sobrecarga térmica y está en serie en el cable activo.</strong> Ese fusible/disyuntor actúa precisamente por <strong>efecto Joule</strong>: al circular una corriente excesiva, la potencia disipada \(P = I^2 R\) calienta el elemento hasta fundirlo (fusible) o disparar el mecanismo (disyuntor), interrumpiendo el circuito.</figcaption>
+</figure>
+
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Las tres formas son matemáticamente equivalentes pero conceptualmente distintas. La forma \( P = I^2 R \) muestra explícitamente que la disipación de calor crece con el <strong>cuadrado</strong> de la intensidad, lo que explica por qué las pérdidas en líneas de transmisión se minimizan elevando el voltaje (y reduciendo la intensidad). La forma \( P = V^2/R \) muestra que para una tensión fija, una resistencia menor disipa más potencia. Es importante destacar que la Ley de Joule describe una <strong>transformación irreversible</strong> de energía eléctrica en térmica, fundamental para comprender la eficiencia energética.
@@ -389,6 +413,15 @@ details.desmitificando .contenido-ejercicios {
             \[ P = V \cdot I = I^2 \cdot R = \frac{V^2}{R} \quad \text{(Ley de Joule)} \]
         </div>
         <p>La potencia disipada en una resistencia se puede expresar de tres formas equivalentes. La elección de una u otra depende de las magnitudes conocidas en cada problema. El efecto Joule es la base del calentamiento eléctrico y de las pérdidas energéticas en conductores.</p>
+
+<!-- Banco F: batería con resistencia interna (pérdidas por efecto Joule) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0735.webp">
+    <img src="../imagenes/webp/ImagenF0735.webp" alt="Batería modelada como una emf idealizada con una resistencia interna r; el voltaje del terminal es V = ε − I·r" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Una batería puede ser modelada como una emf idealizada (\(\varepsilon\)) con una <strong>resistencia interna</strong> \(r\). El voltaje del terminal de la batería es \(V_{\text{terminal}} = \varepsilon - I\,r\). El término \(I\,r\) representa precisamente la <strong>caída de potencial debida a la disipación por efecto Joule dentro de la propia batería</strong>: la potencia \(I^2 r\) se convierte en calor y no llega al circuito exterior. Cuanto mayor es la corriente demandada, más energía se pierde en forma de calor en el interior de la fuente.</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
@@ -498,12 +531,6 @@ details.desmitificando .contenido-ejercicios {
         </div> <!-- /contenido-ejercicios -->
     </details>
 
-
-
-
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -551,15 +578,9 @@ details.desmitificando .contenido-ejercicios {
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

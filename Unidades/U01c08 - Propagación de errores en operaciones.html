@@ -1,11 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.08 - Propagación de Errores</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -333,11 +332,6 @@
                 \]
             </div>
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -352,18 +346,25 @@
 
 <!-- -----FIN-------- -->
 
-
-
-
-
-
-
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ026.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud y precisión ilustradas con dianas">
+                    <img src="../imagenes/webp/ImagenQ026.webp" alt="Tres dianas: (a) flechas agrupadas y centradas (exactas y precisas), (b) agrupadas pero descentradas (precisas pero no exactas) y (c) dispersas (ni exactas ni precisas)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cada flecha es una medida; su dispersión, el error.</strong> La propagación de errores cuantifica cómo la dispersión individual (cada lanzamiento) se traduce en la dispersión del resultado final cuando combinamos varias medidas. No es lo mismo sumar dos cantidades precisas que dos imprecisas: la fórmula de propagación describe exactamente ese efecto acumulativo.</div>
+            </div>
         </div>
         
         <!-- OBJETIVO -->
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Obtener las <strong>leyes de propagación de errores</strong> que permiten calcular la incertidumbre de un resultado obtenido a partir de operaciones con magnitudes medidas. Estas fórmulas son indispensables en cualquier trabajo experimental, ya que toda medida indirecta (obtenida por cálculo a partir de otras medidas directas) requiere estimar su error a partir de los errores de las medidas originales.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0011.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Balanza mecánica frente a balanza digital">
+                    <img src="../imagenes/webp/ImagenF0011.webp" alt="Balanza mecánica de doble plato (aprecia décimas de gramo) junto a una balanza digital (aprecia milésimas de gramo)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Todo error nace en el instrumento.</strong> La balanza mecánica aprecia décimas de gramo; la digital, milésimas. Esa diferencia de resolución es el error original \( \Delta A \) que después se propaga al calcular una densidad, un volumen o un cociente. Sin conocer el error de partida, las fórmulas de propagación no tienen nada que propagar.</div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -415,6 +416,13 @@
                     \]
                 </div>
                 <p><strong>Observación importante:</strong> en la resta, los errores se suman, no se restan. Esto hace que la resta de magnitudes similares sea especialmente problemática (pérdida de cifras significativas).</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ025.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Lectura estimada en una probeta graduada">
+                        <img src="../imagenes/webp/ImagenQ025.webp" alt="Probeta graduada con subdivisiones que el usuario debe estimar visualmente entre 21 y 22 mililitros para obtener la décima de mililitro" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El error absoluto puede pesar mucho si el valor es pequeño.</strong> Leer un volumen en una probeta implica estimar la última cifra: ese «error de lectura» puede ser, por ejemplo, ±0,1 mL. Si restamos dos volúmenes muy parecidos (21,5 mL − 21,3 mL), el error absoluto de 0,2 mL puede ser del mismo orden que el resultado, y el <em>error relativo</em> se dispara. Por eso en la resta <em>los errores absolutos se suman</em>, pero <em>los errores relativos explotan</em>.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -455,6 +463,13 @@
                     \frac{\Delta E}{|E|} = \frac{A \cdot \Delta B + B \cdot \Delta A}{|A \cdot B|} = \frac{\Delta B}{|B|} + \frac{\Delta A}{|A|}
                     \]
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ023.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Prototipo internacional de kilogramo">
+                        <img src="../imagenes/webp/ImagenQ023.webp" alt="Réplica del prototipo internacional de kilogramo conservada en el NIST, utilizada históricamente como patrón de masa" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La referencia de la masa y su incertidumbre.</strong> Este prototipo fue durante más de un siglo el patrón del kilogramo. Incluso una referencia tan cuidada tiene una incertidumbre, y esa incertidumbre se <em>multiplica</em> por cada masa que calibramos con ella. La fórmula del producto muestra exactamente cómo se acumulan los errores relativos: el del patrón más el del instrumento que lo usa.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -490,6 +505,13 @@
                     \]
                 </div>
                 <p>Obsérvese que el error relativo del cociente tiene la <strong>misma forma</strong> que el del producto.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ024.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Volúmenes de 1 m³, 1 dm³ y 1 cm³ comparados">
+                        <img src="../imagenes/webp/ImagenQ024.webp" alt="Comparación de cubos de 1 metro cúbico, 1 decímetro cúbico (1 litro) y 1 centímetro cúbico (1 mililitro), con las equivalencias correspondientes" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Cada salto de escala propaga su propio error.</strong> Convertir volúmenes entre m³, dm³ y cm³ implica multiplicar o dividir por potencias de \(10^{3}\), y cada medición de origen arrastra su incertidumbre. Al calcular una densidad \( \rho = m/V \), el error relativo de \( \rho \) es la suma de los errores relativos de \( m \) y de \( V \): no importa que \( V \) se exprese en cm³ o en m³, la incertidumbre <em>relativa</em> viaja con ella intacta.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -524,6 +546,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Estas fórmulas de propagación justifican las <strong>reglas de cifras significativas</strong> de la Demostración 5: en multiplicación/división, los errores relativos se suman, lo que explica que el resultado herede las cifras significativas del factor menos preciso. En suma/resta, los errores absolutos se suman, lo que explica que el resultado herede los decimales del término menos preciso.&nbsp;</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0009.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: El metro definido por la velocidad de la luz">
+                    <img src="../imagenes/webp/ImagenF0009.webp" alt="Esquema de la definición del metro como la distancia que recorre la luz en el vacío durante 1/299.792.458 de segundo" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Hasta el patrón tiene un límite (muy pequeño).</strong> El metro se define hoy a partir de la velocidad de la luz, con una precisión de nueve cifras significativas. Cualquier medición que hagamos en el laboratorio hereda, en última instancia, esa referencia: la propagación de errores nunca puede ser mejor que el eslabón más débil de la cadena de calibración. Conocerla es lo que permite afirmar con honestidad cuánta incertidumbre tiene un resultado.</div>
+            </div>
         </div>
 
         <!-- ======================================================== -->
@@ -802,12 +831,6 @@
             </div> <!-- fin .contenido -->
         </details>
 
-
-
-
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -855,15 +878,7 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

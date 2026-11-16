@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.07.- </span>
                 <span class="texto">Equilibrio Estático de un Punto Material</span>
             </div>
@@ -368,6 +400,13 @@
                 \[ \sum F_x = 0 \quad \text{y} \quad \sum F_y = 0 \]
             </div>
             Estas dos ecuaciones escalares permiten despejar hasta dos incógnitas (tensiones, ángulos, masas, etc.).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0094.webp">
+                    <img src="../imagenes/webp/ImagenF0094.webp" alt="Equilibrista sobre un alambre que se hunde 5 grados; el sistema de interés es el punto del alambre donde se encuentra el equilibrista">
+                </a>
+                <div class="figure-caption"><strong>Equilibrio estático de un punto material: el equilibrista.</strong> El peso del equilibrista hace que el alambre se hunda en \(5{,}0^\circ\). Si tomamos como sistema de interés el punto del alambre donde está apoyado, sobre él actúan tres fuerzas: el peso del equilibrista (hacia abajo) y las dos tensiones de los tramos de alambre (a izquierda y derecha, apuntando a lo largo del alambre). El punto está en reposo, por lo que la suma vectorial de esas tres fuerzas debe ser nula. Es exactamente el caso bidimensional del paso 6: dos ecuaciones escalares, \(\sum F_x = 0\) y \(\sum F_y = 0\), y dos incógnitas (la tensión \(T\) y el ángulo de hundimiento).</div>
+            </div>
         </div>
     </div>
 
@@ -380,6 +419,13 @@
         </div>
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Es esencial que los estudiantes comprendan la diferencia entre equilibrio estático (reposo permanente, \( \vec{v} = \vec{0} \)) y equilibrio dinámico (movimiento rectilíneo uniforme, \( \vec{v} = \text{cte} \neq \vec{0} \)). Aunque en ambos casos \( \sum \vec{F} = \vec{0} \), la condición inicial distingue uno de otro. En problemas de cuerdas y nudos, se recomienda dibujar siempre el diagrama de cuerpo libre antes de plantear las ecuaciones, identificando claramente el punto de estudio y todas las fuerzas que convergen en él.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0105.webp">
+                <img src="../imagenes/webp/ImagenF0105.webp" alt="Semáforo suspendido de dos alambres que forman ángulos distintos con la horizontal, con el diagrama de fuerzas y las componentes horizontales y verticales de las tensiones">
+            </a>
+            <div class="figure-caption"><strong>El ejemplo clásico: un semáforo suspendido de dos alambres.</strong> (b) El semáforo está sometido a su propio peso y a las dos tensiones de los alambres. (c) El sistema de interés es el nudo donde convergen los dos alambres: solo actúan sobre él las dos tensiones y el peso. (d) Al proyectar las fuerzas sobre los ejes \(x\) e \(y\): las componentes horizontales de las dos tensiones deben anularse mutuamente, y la suma de sus componentes verticales debe igualar al peso del semáforo. (e) Diagrama de cuerpo libre del nudo. Es la aplicación más limpia del criterio \(\sum\vec{F}=\vec{0}\): dos ecuaciones escalares, dos tensiones incógnitas, un sistema cerrado.</div>
         </div>
     </div>
 
@@ -415,6 +461,13 @@
                     <div class="paso">
                         <strong>b)</strong> Ambas tensiones son menores que \(80\,\text{N}\), por lo que la cuerda no se rompe.
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0095.webp">
+                        <img src="../imagenes/webp/ImagenF0095.webp" alt="Proyección de las tensiones del alambre del equilibrista sobre los ejes vertical y horizontal; las componentes se compensan para dar suma nula">
+                    </a>
+                    <div class="figure-caption"><strong>Del diagrama de fuerzas a las ecuaciones escalares.</strong> Este esquema muestra cómo, al proyectar cada tensión sobre los ejes \(x\) e \(y\), se obtiene un sistema de dos ecuaciones escalares que codifica el equilibrio del nudo. Las componentes verticales de las tensiones equilibran el peso, y sus componentes horizontales se cancelan entre sí. Con ángulos pequeños (como los \(5^\circ\) del equilibrista), la tensión \(T\) resulta mucho mayor que \(w\): es el mismo fenómeno que en el ejercicio 1, donde una pequeña inclinación de los tramos de cuerda da lugar a tensiones considerables. Este es el puente entre el diagrama geométrico y las fórmulas \(\sum F_x = 0\), \(\sum F_y = 0\).</div>
                 </div>
             </div>
 

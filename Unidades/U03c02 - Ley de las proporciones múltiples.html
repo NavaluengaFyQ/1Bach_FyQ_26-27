@@ -9,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -428,7 +430,9 @@
 
         <!-- Fotografía: dos compuestos de los mismos elementos con proporciones distintas -->
         <div class="photo-figure">
-            <img src="../imagenes/webp/ImagenQ032.webp" alt="Dos compuestos de cobre y cloro con proporciones diferentes: uno con un átomo de cloro por cada átomo de cobre y otro con el doble de cloro">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ032.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Dos compuestos de cobre y cloro con proporciones distintas">
+                <img src="../imagenes/webp/ImagenQ032.webp" alt="Dos compuestos de cobre y cloro con proporciones diferentes: uno con un átomo de cloro por cada átomo de cobre y otro con el doble de cloro" loading="lazy" decoding="async">
+            </a>
             <div class="figure-caption"><strong>Mismos elementos, proporciones distintas.</strong> El cobre (esferas marrones) y el cloro (esferas verdes) pueden formar compuestos diferentes según la proporción en que se combinen: en uno hay un átomo de cloro por cada átomo de cobre; en el otro, el doble. Las masas de cloro que se combinan con una masa fija de cobre guardan una relación de números enteros sencillos (1:2).</div>
         </div>
 
@@ -463,13 +467,21 @@
 
             <!-- Fotografía: modelo del CuO -->
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ030.webp" alt="Modelo molecular del óxido de cobre(II), CuO, mostrando la proporción 1:1 entre cobre y oxígeno">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ030.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Modelo molecular del óxido de cobre(II)">
+                    <img src="../imagenes/webp/ImagenQ030.webp" alt="Modelo molecular del óxido de cobre(II), CuO, mostrando la proporción 1:1 entre cobre y oxígeno" loading="lazy" decoding="async">
+                </a>
                 <div class="figure-caption"><strong>El óxido de cobre(II), CuO.</strong> Cada átomo de cobre (esfera marrón) se combina con un átomo de oxígeno (esfera roja). En el óxido de cobre(I), Cu₂O, la proporción es 2:1. Con una masa fija de oxígeno, las masas de cobre están en relación 1:2, números enteros sencillos.</div>
             </div>
         </div>
         <div class="step">
             <span class="step-num">6</span>
             <strong>Generalización</strong>. El mismo razonamiento aplica a cualquier par de compuestos entre los mismos elementos. La clave es que los átomos son <strong>unidades indivisibles</strong> que se combinan en proporciones discretas, lo que obliga a que las masas estén en relación entera.
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ011.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Pepita de oro y vista de sus átomos mediante STM">
+                    <img src="../imagenes/webp/ImagenQ011.webp" alt="Fotografía de una pepita de oro junto a una imagen de microscopio de efecto túnel que muestra cada esfera como un átomo de oro individual" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Los átomos son reales y discretos.</strong> Una imagen STM de un cristal de oro permite ver cada átomo como una esfera individual. Esa naturaleza discreta e indivisible es precisamente lo que obliga a los elementos a combinarse en proporciones de números enteros, fundamento experimental de la ley de Dalton.</div>
+            </div>
         </div>
     </div>
 
@@ -480,6 +492,14 @@
             \[ \frac{m_{\text{B en comp. 1 (A fija)}}}{m_{\text{B en comp. 2 (A fija)}}} = \frac{b \cdot c}{a \cdot d} = \text{relación de números enteros sencillos} \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">Las masas de un elemento que se combinan con una masa fija de otro elemento en diferentes compuestos están en relación de números enteros sencillos.</p>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ083.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Proporciones moleculares fijas en una reacción química">
+                <img src="../imagenes/webp/ImagenQ083.webp" alt="Ilustración de que los cocientes entre los números de moléculas de reactivos y productos son siempre los mismos, independientemente del número absoluto de moléculas implicadas" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Proporciones de números enteros.</strong> En cualquier reacción química, los cocientes entre los números de moléculas que reaccionan y se forman son siempre los mismos, independientemente de la cantidad absoluta. Esa regularidad de números enteros es la que la ley de Dalton convierte en principio: cuando dos elementos forman varios compuestos, las masas de uno que se combinan con una masa fija del otro están en relación de números enteros sencillos.</div>
+        </div>
+
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  Es crucial diferenciar esta ley de la de Proust. Mientras la Ley de Proporciones Definidas se aplica a <strong>un solo compuesto</strong> (proporción fija), la Ley de Proporciones Múltiples compara <strong>varios compuestos</strong> entre los mismos elementos. El ejemplo clásico de los óxidos de cobre (CuO y Cu₂O) o los de carbono (CO y CO₂) ilustra perfectamente cómo la misma masa de oxígeno se combina con masas de cobre o carbono en proporción 1:2 o 1:2 respectivamente. Esta ley fue una de las evidencias experimentales más sólidas que llevó a Dalton a postular la teoría atómica.
         </div>
@@ -701,5 +721,6 @@
 
 
 </div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

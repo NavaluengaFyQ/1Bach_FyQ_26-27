@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,7 +265,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -279,11 +278,12 @@
 <img src="../imagenes/U08c05 - Conservación de la energía mecánica_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0151.webp">
+                    <img src="../imagenes/webp/ImagenF0151.webp" alt="Ball Machine de George Rhoads: pelota con energía que cambia de forma y magnitud de manera predecible">
+                </a>
+                <figcaption class="figure-caption">Figura 8.1. Parte de una escultura Ball Machine de George Rhoads. Una pelota en este artilugio se levanta, rueda, cae, rebota y colisiona con varios objetos. A lo largo de sus viajes, su energía cinética cambia en cantidades definidas y predecibles, que dependen de su posición y de los objetos con los que interactúa. Ese balance predecible es una manifestación del principio de conservación de la energía.</figcaption>
+            </figure>
 
         </div>
 
@@ -304,6 +304,13 @@
                 <div class="formula-box">
                     \[ \text{Condición: } F_{\text{rozamiento}} = 0, \quad F_{\text{externas no conservativas}} = 0 \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0156.webp">
+                        <img src="../imagenes/webp/ImagenF0156.webp" alt="Rueda de esmeril: ejemplo de fuerza no conservativa cuyo trabajo depende de la trayectoria">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.6. La rueda de esmeril aplica una fuerza no conservativa, ya que el trabajo realizado depende del número de rotaciones que haga la rueda, por lo que depende de la trayectoria. Es el caso opuesto al del peso: solo cuando las fuerzas son conservativas se puede aplicar la conservación de la energía mecánica.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -370,6 +377,20 @@
                     <li><strong>Lanzamiento vertical:</strong> La velocidad en cualquier altura se obtiene sin necesidad de conocer el tiempo de vuelo.</li>
                     <li><strong>Péndulo simple:</strong> En los extremos \( E_c = 0 \), \( E_p \) máxima; en el punto más bajo \( E_p \) mínima, \( E_c \) máxima.</li>
                 </ul>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0157.webp">
+                        <img src="../imagenes/webp/ImagenF0157.webp" alt="Péndulo simple: partícula colgada de una cuerda sin masa">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.7. Una partícula colgada de una cuerda constituye un péndulo simple. Se muestra cuando se libera del reposo, junto con algunas distancias que se utilizan en el análisis del movimiento. En los extremos la energía es toda potencial; en el punto más bajo, toda cinética.</figcaption>
+                </figure>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0158.webp">
+                        <img src="../imagenes/webp/ImagenF0158.webp" alt="Gráficos de barras de energía total, potencial y cinética en distintas posiciones del péndulo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.8. Gráficos de barras que representan la energía total (E), la energía potencial (U) y la energía cinética (K) de la partícula en diferentes posiciones. (a) En el punto más alto, la energía es toda potencial. (b) A medio camino, se reparte entre potencial y cinética. (c) En el punto más bajo, toda es cinética. En todos los casos, la suma \(E_c + E_p\) permanece constante.</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -383,6 +404,20 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> Este es uno de los principios más poderosos de la física de 1º de Bachillerato. Es fundamental que los estudiantes comprendan las condiciones de aplicación: <strong>solo fuerzas conservativas y ausencia de rozamiento</strong>. Un error frecuente es aplicar la conservación de la energía mecánica en situaciones donde existe rozamiento, sin contabilizar el trabajo de las fuerzas no conservativas. Se recomienda contrastar problemas con y sin rozamiento para que los estudiantes internalicen la diferencia. El péndulo simple es un excelente ejemplo experimental para verificar este principio en el laboratorio.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0152.webp">
+                    <img src="../imagenes/webp/ImagenF0152.webp" alt="Balón de fútbol: la energía potencial gravitacional se convierte en energía cinética al descender">
+                </a>
+                <figcaption class="figure-caption">Figura 8.2. Cuando el balón de fútbol comienza a descender hacia el receptor, la energía potencial gravitacional se convierte de nuevo en energía cinética. En todo el vuelo (sin rozamiento), la suma \(E_c + E_p\) permanece constante.</figcaption>
+            </figure>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0159.webp">
+                    <img src="../imagenes/webp/ImagenF0159.webp" alt="Panel que cae desde un helicóptero: la resistencia del aire disipa energía mecánica">
+                </a>
+                <figcaption class="figure-caption">Figura 8.9. Un helicóptero pierde un panel que cae hasta alcanzar una velocidad límite de 45 m/s. En presencia de resistencia del aire, parte de la energía mecánica se disipa como calor: \(E_m\) ya NO se conserva y hay que incluir el trabajo de las fuerzas no conservativas. Es el contraste perfecto con el caso ideal estudiado en esta demostración.</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -412,6 +447,13 @@
                     <p>b) A 8,0 m del suelo, la altura recorrida es \( 25 - 8 = 17 \, \text{m} \). Por conservación: \( v = \sqrt{2 g \cdot 17} = \sqrt{333,2} \approx 18,3 \, \text{m/s} \).</p>
                     <p>También se puede plantear: \( E_{p,\text{inicial}} = E_{p,\text{final}} + E_{c,\text{final}} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0160.webp">
+                        <img src="../imagenes/webp/ImagenF0160.webp" alt="Gráfico de la energía potencial de un objeto en caída libre vertical">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.10. Gráfico de la energía potencial de un objeto en caída libre vertical, en la que se indican diversas cantidades. La recta \(U = mgy\) muestra cómo la energía potencial se convierte linealmente en cinética conforme cae el objeto.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 2: Lanzamiento vertical -->
@@ -477,6 +519,13 @@
                     <p>\( v_B^2 = 2 g (h_A - h_B) = 2 \cdot 9,8 \cdot (30 - 12) = 2 \cdot 9,8 \cdot 18 = 352,8 \)</p>
                     <p>\( v_B = \sqrt{352,8} \approx 18,8 \, \text{m/s} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0147.webp">
+                        <img src="../imagenes/webp/ImagenF0147.webp" alt="Pista sin fricción para un coche de juguete con un giro circular completo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.12. Una pista sin fricción para un coche de juguete tiene un giro circular completo. ¿A qué altura debe arrancar el coche para que pueda dar la vuelta al círculo sin caerse? Este problema clásico combina la conservación de la energía mecánica con la dinámica del movimiento circular (fuerza centrípeta).</figcaption>
+                </figure>
             </div>
 
             <!-- Observaciones claves -->
@@ -486,8 +535,6 @@
 
         </details>
         <!-- FIN BLOQUE DESPLEGABLE -->
-
-
 
 
 
@@ -546,9 +593,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

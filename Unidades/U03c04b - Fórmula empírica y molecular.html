@@ -9,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -334,7 +336,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -367,7 +368,9 @@
         </ul>
 
         <div class="photo-figure">
-            <img src="../imagenes/webp/ImagenQ047.webp" alt="Vinagre, fórmula estructural del ácido acético C2H4O2 y su modelo molecular, con la fórmula empírica CH2O">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ047.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Ácido acético con fórmula empírica CH2O">
+                <img src="../imagenes/webp/ImagenQ047.webp" alt="Vinagre, fórmula estructural del ácido acético C2H4O2 y su modelo molecular, con la fórmula empírica CH2O" loading="lazy" decoding="async">
+            </a>
             <div class="figure-caption"><strong>CH₂O, la misma proporción mínima, compuestos distintos.</strong> El ácido acético (C₂H₄O₂) del vinagre comparte con el formaldehído y la glucosa la fórmula empírica CH₂O: tres sustancias diferentes con una única proporción mínima de átomos. Es la diferencia esencial entre fórmula empírica y fórmula molecular.</div>
         </div>
     </div>
@@ -388,6 +391,13 @@
                 \[ n_{\text{A}} = \frac{\%(\text{A})}{A_r(\text{A})} \quad ; \quad n_{\text{B}} = \frac{\%(\text{B})}{A_r(\text{B})} \quad ; \quad n_{\text{C}} = \frac{\%(\text{C})}{A_r(\text{C})} \]
             </div>
             <p>Obtenemos así la relación <strong>molar</strong> (en moles de átomos) entre los elementos.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ068.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Conversión de masa atómica a moles">
+                    <img src="../imagenes/webp/ImagenQ068.webp" alt="Esquema que ilustra la conversión de masa atómica a moles dividiendo entre la masa molar" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El paso clave: dividir entre la masa molar.</strong> La conversión de una masa (en gramos) a cantidad de sustancia (en moles) se hace dividiendo por la masa molar. Es el paso [2] del procedimiento, y es el que permite comparar átomos de elementos distintos en igualdad de condiciones.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
@@ -406,7 +416,9 @@
             <p>Esta fórmula representa la <strong>proporción mínima</strong> de átomos en el compuesto.</p>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo se deriva la fórmula empírica de un compuesto a partir de las masas de todos los elementos de la muestra">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ073.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: De las masas de los elementos a la fórmula empírica">
+                    <img src="../imagenes/webp/ImagenQ073.webp" alt="Esquema que muestra cómo se deriva la fórmula empírica de un compuesto a partir de las masas de todos los elementos de la muestra" loading="lazy" decoding="async">
+                </a>
                 <div class="figure-caption"><strong>De las masas a la proporción mínima.</strong> El esquema resume el corazón del método: a partir de las masas de cada elemento en la muestra se calculan los moles, se dividen entre el menor y se reducen a enteros para obtener la fórmula empírica.</div>
             </div>
         </div>
@@ -427,6 +439,13 @@
                 \[ n = \frac{M_{\text{molecular experimental}}}{M_{\text{empírica}}} \]
             </div>
             <p>Este valor \( n \) debe ser un <strong>número entero</strong> (o muy cercano a un entero, dentro del error experimental).</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ066.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Un mol de moléculas de distintos compuestos">
+                    <img src="../imagenes/webp/ImagenQ066.webp" alt="Cuatro muestras que contienen cada una 6,022 × 10²³ moléculas (1 mol) de distintos compuestos, con masas muy diferentes" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La masa molar, la "huella" del compuesto.</strong> Cada muestra contiene 1 mol de moléculas de un compuesto distinto, pero la masa que pesa difiere: es la masa molar. Comparar esa masa con la de la fórmula empírica permite decidir cuántas "unidades empíricas" forman la molécula real.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">7</span>
@@ -457,8 +476,31 @@
             \[ (\text{A}_x\text{B}_y\text{C}_z)_n \quad \text{donde} \quad n = \frac{M_{\text{molecular}}}{M_{\text{empírica}}} \in \mathbb{Z}^+ \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La fórmula empírica da la proporción atómica mínima; la fórmula molecular da la estructura real del compuesto.</p>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ609.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Fructosa y lactosa, dos azúcares con proporciones mínimas distintas">
+                    <img src="../imagenes/webp/ImagenQ609.webp" alt="Estructuras moleculares de la fructosa, un monosacárido de cinco carbonos, y de la lactosa, un disacárido formado por dos azúcares isómeros de seis carbonos" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Fórmula empírica vs. molecular en azúcares.</strong> La fructosa y la lactosa tienen la misma proporción mínima de C, H y O (CH₂O), pero masas molares muy distintas. Por eso la misma fórmula empírica puede corresponder a compuestos completamente distintos — solo la masa molar permite decidir cuál es la fórmula molecular real.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ062.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Ibuprofeno C13H18O2 y su masa molecular">
+                    <img src="../imagenes/webp/ImagenQ062.webp" alt="Modelo molecular del ibuprofeno C13H18O2 con la suma de las masas atómicas de sus 13 carbonos, 18 hidrógenos y 2 oxígenos" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Un caso cotidiano: el ibuprofeno.</strong> La fórmula molecular del ibuprofeno (C₁₃H₁₈O₂) tiene masa molar 180,15 g/mol, mientras que su fórmula empírica es C₁₃H₁₈O₂ (coinciden, n = 1). Comprobar esta coincidencia es un buen ejercicio de coherencia: dividiendo la masa molar experimental entre la masa de la fórmula empírica debe salir 1.</div>
+            </div>
+        </div>
+
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  Esta demostración articula todo el conocimiento previo: composición centesimal, moles, masas molares y ecuación de estado de gases (para determinar \( M_{\text{molecular}} \)). Es esencial que se comprenda que la fórmula empírica siempre se puede obtener de la composición centesimal, pero la fórmula molecular requiere un dato adicional: la masa molar experimental. Sin este dato, no podemos distinguir entre \( \text{CH}_2\text{O} \) (formaldehído, \( M = 30 \)), \( \text{C}_2\text{H}_4\text{O}_2 \) (ácido acético, \( M = 60 \)) o \( \text{C}_6\text{H}_{12}\text{O}_6 \) (glucosa, \( M = 180 \)), que comparten la misma fórmula empírica. Recomiendo practicar con compuestos donde \( n = 1, 2, 3 \) para consolidar el concepto, y luego con casos más complejos donde los valores de moles no dan enteros directamente (ej. 1,5 → multiplicar por 2).
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ049.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Isómeros estructurales del ácido acético y el formiato de metilo">
+                <img src="../imagenes/webp/ImagenQ049.webp" alt="Estructuras moleculares del ácido acético y del formiato de metilo, ambos con la misma fórmula molecular C2H4O2 pero distinta estructura y propiedades" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Más allá de la fórmula: los isómeros.</strong> El ácido acético y el formiato de metilo comparten la misma fórmula molecular (C₂H₄O₂) y, por tanto, la misma fórmula empírica (CH₂O). La fórmula molecular es el primer paso para identificar un compuesto, pero dos isómeros pueden ser sustancias químicamente distintas. La estructura (la forma en que se conectan los átomos) es la siguiente capa de información.</div>
         </div>
     </div>
 
@@ -516,6 +558,13 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ060.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Masa molecular del cloroformo CHCl3">
+                        <img src="../imagenes/webp/ImagenQ060.webp" alt="Modelo molecular del cloroformo CHCl3 con la suma de las masas atómicas medias de sus átomos constituyentes (119,37 u)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La masa molar empírica también se calcula sumando.</strong> Igual que la masa molecular del cloroformo (CHCl₃) es 119,37 u, la masa empírica de CH₂O es 30 g/mol: se obtiene sumando las masas atómicas de los átomos que la forman. Ese valor es el denominador del factor \( n \) que convierte la fórmula empírica en molecular.</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 3 -->
@@ -540,7 +589,9 @@
                 </div>
 
                 <div class="photo-figure">
-                    <img src="../imagenes/webp/ImagenQ103.webp" alt="Esquema del análisis de combustión para determinar el contenido de carbono e hidrógeno de una muestra y obtener la fórmula empírica del polietileno">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ103.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Análisis de combustión para obtener la fórmula empírica">
+                        <img src="../imagenes/webp/ImagenQ103.webp" alt="Esquema del análisis de combustión para determinar el contenido de carbono e hidrógeno de una muestra y obtener la fórmula empírica del polietileno" loading="lazy" decoding="async">
+                    </a>
                     <div class="figure-caption"><strong>Análisis de combustión: la fórmula empírica en el laboratorio.</strong> Al quemar una muestra y medir el CO₂ y el H₂O producidos se calculan las masas de carbono e hidrógeno y, a partir de ellas, la fórmula empírica. El análisis de combustión del polietileno (Figura de ejemplo) es el mismo procedimiento experimental que aplicamos en este ejercicio.</div>
                 </div>
             </div>
@@ -585,6 +636,13 @@
                             <li>Masa de agua en el hidrato: 246 - 120 = 126 g. Moles de agua: 126/18 = 7. Fórmula: MgSO₄·7H₂O.</li>
                         </ul>
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ600.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Isómeros del butano y el isobutano con la misma fórmula molecular">
+                        <img src="../imagenes/webp/ImagenQ600.webp" alt="Estructuras del n-butano y del 2-metilpropano (isobutano), dos alcanos con la misma fórmula molecular C4H10 pero diferente estructura" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Misma fórmula molecular, distintas sustancias.</strong> El n-butano y el 2-metilpropano (isobutano) comparten fórmula molecular C₄H₁₀ y, por tanto, masa molar. Pero son sustancias distintas por su estructura. Es la prueba de que la fórmula molecular no agota toda la información: los isómeros existen y solo la estructura los distingue.</div>
                 </div>
             </div>
 
@@ -654,9 +712,7 @@
 
 
 
-
-
-
 </div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

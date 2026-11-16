@@ -1,20 +1,21 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.01 - Primera ecuación del MRUA</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
            ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
             max-width: 900px;
             width: 100%;
@@ -25,7 +26,6 @@
             margin: 20px auto;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -35,7 +35,6 @@
             justify-content: space-between;
             gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
         .header-left {
             display: flex;
             flex-direction: column;
@@ -73,7 +72,6 @@
             font-size: 1em;
             font-weight: 300;
         }
-        /* Zona derecha de la cabecera */
         .header-right img {
             max-height: 70px;
             max-width: 180px;
@@ -83,19 +81,16 @@
             border-radius: 8px;
             padding: 4px;
         }
-        /* ---------- SECCIONES PRINCIPALES ---------- */
         .section {
             padding: 25px 30px;
             margin: 15px;
             border-radius: 12px;
             border-left: 5px solid;
         }
-        /* Variantes de color para cada tipo de sección */
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
         .section h2 {
             font-size: 1.3em;
             margin-bottom: 15px;
@@ -107,7 +102,6 @@
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
-        /* ---------- CAJA DE FÓRMULA ---------- */
         .formula-box {
             background: #edf2f7;
             border: 2px solid #cbd5e0;
@@ -117,7 +111,6 @@
             text-align: center;
             font-size: 1.1em;
         }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
         .step {
             background: white;
             border-left: 4px solid #a0aec0;
@@ -138,7 +131,6 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        /* ---------- NOTA DESTACADA ---------- */
         .note {
             background: #fffbeb;
             border: 1px solid #f6e05e;
@@ -148,7 +140,6 @@
             font-size: 0.95em;
             color: #744210;
         }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
         p {
             line-height: 1.7;
             margin-bottom: 10px;
@@ -211,7 +202,6 @@
         details .details-content {
             padding: 0.5rem 1.8rem 2rem 1.8rem;
         }
-        /* Tarjetas de ejercicios dentro del desplegable */
         .exercise-card {
             background: #f9fcff;
             border: 1px solid #dce7f2;
@@ -265,6 +255,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (solo .png envueltas en lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +293,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.01.- </span>
                 <span class="texto">Primera ecuación del MRUA</span>
             </div>
@@ -291,25 +310,7 @@
         <div class="formula-box">\[ v = v_0 + at \]</div>
 
 
-
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-
-<img src="../imagenes/U06c01 - Primera ecuación del MRUA_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
-
-
-
+                <img src="../imagenes/U06c01 - Primera ecuación del MRUA_2.png"  alt="Imagen" width="800">
 
 
 
@@ -337,6 +338,13 @@
             <strong>Definición de aceleración constante</strong>
             <p>Si la aceleración \( a \) es constante, la definición operativa de aceleración media es:</p>
             <div class="formula-box">\[ a = \frac{\Delta v}{\Delta t} = \frac{v - v_0}{t - 0} \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0045.webp">
+                    <img src="../imagenes/webp/ImagenF0045.webp" alt="Gráfico velocidad-tiempo con aceleración constante mostrando las velocidades inicial v0 y final v">
+                </a>
+                <div class="figure-caption"><strong>La aceleración como pendiente del gráfico v-t.</strong> Con aceleración constante, el gráfico velocidad-tiempo es una recta cuya pendiente es precisamente \(a = \dfrac{v - v_0}{t}\). La recta arranca de \(v_0\) en \(t = 0\) y alcanza \(v\) en el instante \(t\), de modo que la ecuación \(v = v_0 + at\) es la ecuación explícita de esa recta.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -351,6 +359,13 @@
             <strong>Despeje de la velocidad final</strong>
             <p>Despejando finalmente la velocidad final \( v \):</p>
             <div class="formula-box">\[ v = v_0 + at \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0042.webp">
+                    <img src="../imagenes/webp/ImagenF0042.webp" alt="Gráfico velocidad-tiempo lineal con pendiente negativa constante igual a la aceleración">
+                </a>
+                <div class="figure-caption"><strong>Velocidad lineal frente al tiempo.</strong> Si la aceleración es constante, el gráfico \(v(t)\) es una recta. Su pendiente (positiva o negativa) es la aceleración \(a\). En el ejemplo mostrado, la pendiente negativa constante corresponde a una deceleración uniforme; la ecuación \(v = v_0 + at\) describe exactamente esta recta.</div>
+            </div>
         </div>
     </div>
 
@@ -360,6 +375,13 @@
         <div class="formula-box" style="border-color: #38b2ac; border-width: 3px; background: #e6fffa;">\[ v = v_0 + at \]</div>
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Esta ecuación es válida únicamente cuando la aceleración es constante. En el gráfico \( v-t \), la aceleración representa la pendiente de la recta, por lo que un valor de \( a \) constante implica una trayectoria rectilínea en el diagrama velocidad-tiempo.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0050.webp">
+                <img src="../imagenes/webp/ImagenF0050.webp" alt="Gráficos de velocidad y posición en función del tiempo de una lancha a motor que reduce su velocidad hasta detenerse">
+            </a>
+            <div class="figure-caption"><strong>Aplicación real: una lancha que frena.</strong> La lancha reduce su velocidad a cero en 6,3 s. La recta descendente del gráfico \(v(t)\) (a) tiene pendiente negativa constante, igual a la aceleración de frenado. La ecuación \(v = v_0 + at\) permite calcular la velocidad en cualquier instante: si \(v_0\) es la velocidad inicial y \(a < 0\), la velocidad disminuye linealmente hasta anularse y, después, se vuelve negativa (la lancha invierte su dirección).</div>
         </div>
     </div>
 
@@ -466,67 +488,50 @@
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

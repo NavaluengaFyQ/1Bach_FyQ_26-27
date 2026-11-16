@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -266,7 +266,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -280,11 +279,12 @@
 <img src="../imagenes/U08c10 - Conservación de la energía en un péndulo_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0157.webp">
+                    <img src="../imagenes/webp/ImagenF0157.webp" alt="Péndulo simple: partícula colgada de una cuerda sin masa">
+                </a>
+                <figcaption class="figure-caption">Figura 8.7. Una partícula colgada de una cuerda constituye un péndulo simple. Se muestra cuando se libera del reposo, junto con algunas distancias que se utilizan en el análisis del movimiento. La geometría del triángulo rectángulo que forma el hilo con la vertical permite relacionar el ángulo θ con la altura ganada h = L(1 − cos θ).</figcaption>
+            </figure>
 
         </div>
 
@@ -357,6 +357,13 @@
                 <div class="formula-box">
                     \[ mgL(1 - \cos\theta) = \frac{1}{2}mv^{2} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0158.webp">
+                        <img src="../imagenes/webp/ImagenF0158.webp" alt="Gráficos de barras de energía total, potencial y cinética en distintas posiciones del péndulo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.8. Gráficos de barras que representan la energía total (E), la energía potencial (U) y la energía cinética (K) de la partícula en diferentes posiciones. (a) En el punto más alto, toda la energía es potencial (E = U, K = 0). (b) A mitad de camino, la energía se reparte entre potencial y cinética. (c) En el punto más bajo, toda es cinética (E = K, U = 0). En los tres casos, la suma E = U + K permanece constante: es la esencia del principio de conservación.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -392,6 +399,13 @@
                     \[ h' = L(1 - \cos\theta) = h \]
                 </div>
                 <p>La altura alcanzada en el extremo opuesto es exactamente la misma, confirmando la simetría del movimiento.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0152.webp">
+                        <img src="../imagenes/webp/ImagenF0152.webp" alt="Balón de fútbol: la energía potencial gravitacional se convierte en energía cinética al descender y viceversa">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.2. Cuando el balón de fútbol comienza a descender hacia el receptor, la energía potencial gravitacional se convierte de nuevo en energía cinética. Este vaivén Ep ↔ Ec es análogo al del péndulo: en ambos casos, la energía mecánica total se conserva y la altura máxima simétrica se recupera al volver al extremo opuesto.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -425,6 +439,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> El péndulo simple es el ejemplo paradigmático de conservación de la energía mecánica y una excelente oportunidad para el laboratorio. Se recomienda que los estudiantes verifiquen experimentalmente que: (1) la velocidad en el punto más bajo no depende de la masa, (2) la altura alcanzada en el otro extremo es igual a la inicial (sin rozamiento), y (3) con rozamiento, la amplitud disminuye. El ejercicio 15 del libro propone elaborar una tabla Excel para comprobar el resultado, lo cual es una excelente oportunidad para integrar herramientas informáticas. Es importante destacar que la fórmula \( h = L(1 - \cos\theta) \) es puramente geométrica y que los estudiantes a menudo confunden la altura \( h \) con el arco recorrido \( s = L\theta \). La demostración del ejercicio 31 (hilo que se engancha en un punto intermedio) es un excelente problema de extensión que muestra que el péndulo asciende a la misma altura independientemente de la longitud efectiva del hilo.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0155.webp">
+                    <img src="../imagenes/webp/ImagenF0155.webp" alt="Puente elástico: transformación de energía potencial gravitacional en energía potencial elástica">
+                </a>
+                <figcaption class="figure-caption">Figura 8.5. Un puente elástico transforma la energía potencial gravitacional al inicio del salto en energía potencial elástica al final del mismo. La transformación cíclica entre formas de energía (Ep gravitatoria ↔ Ec ↔ Ep elástica) es la misma idea que subyace al péndulo, donde Ep ↔ Ec se intercambian continuamente sin pérdida de energía mecánica total.</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -531,8 +552,6 @@
 
 
 
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -586,9 +605,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,6 +268,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +306,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.01.- </span>
                 <span class="texto">Primera Ley de Newton</span>
             </div>
@@ -301,10 +333,16 @@
           }
         </style>
 
-        
+
         <img src="../imagenes/U07c01 - Primera ley de Newton_2.png" alt="Imagen" width="800">
         <!-- -----FIN-------- -->
 
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0068.webp">
+                <img src="../imagenes/webp/ImagenF0068.webp" alt="Retrato de Isaac Newton (1642-1727), autor de las leyes del movimiento y de la ley de la gravitación universal">
+            </a>
+            <div class="figure-caption"><strong>Isaac Newton (1642-1727).</strong> Publicó su obra fundamental <em>Philosophiae Naturalis Principia Mathematica</em> en 1687. En ella formuló las tres leyes del movimiento que hoy llevan su nombre y que siguen siendo la base de la mecánica clásica. La primera de ellas —la ley de la inercia— establece que un cuerpo mantiene su estado de reposo o de movimiento rectilíneo uniforme mientras la fuerza neta sobre él sea nula. Newton también descubrió la ley de la gravitación universal, inventó el cálculo infinitesimal y realizó aportaciones decisivas a la teoría de la luz y el color.</div>
+        </div>
     </div>
 
     <!-- OBJETIVO -->
@@ -372,6 +410,13 @@
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Es importante destacar a los estudiantes que esta ley no es evidente en la vida cotidiana debido al rozamiento. La idealización de "superficie lisa" o "ausencia de fuerzas" es un modelo teórico. Galileo fue pionero al inferir este principio mediante experimentos mentales de planos inclinados cada vez más suaves, sentando las bases del método científico moderno.
         </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0073.webp">
+                <img src="../imagenes/webp/ImagenF0073.webp" alt="Disco de hockey en reposo que permanece en reposo hasta que una fuerza exterior lo empuja, y disco en movimiento que continúa en movimiento rectilíneo hasta que una fuerza lo frena">
+            </a>
+            <div class="figure-caption"><strong>La inercia en acción: el disco de hockey.</strong> (a) Un disco de hockey en reposo permanece en reposo hasta que una fuerza exterior —por ejemplo un palo de hockey— cambia su estado. (b) Un disco en movimiento continúa desplazándose en línea recta hasta que una fuerza exterior lo frena o desvía. La superficie de hielo, aunque resbaladiza, no es perfectamente lisa: su rozamiento residual acaba deteniendo el disco, lo que suele hacernos olvidar que, en ausencia de fuerza neta, el disco seguiría moviéndose indefinidamente. Este es exactamente el contenido de la primera ley de Newton.</div>
+        </div>
     </div>
 
     <!-- ============================================================ -->
@@ -437,6 +482,13 @@
                     <div class="paso">
                         <strong>c)</strong> Ahora la fuerza neta horizontal es \(60 - 40 = 20\,\text{N}\) hacia la derecha. Calculamos la fuerza de rozamiento estático máxima: \(F_{r,\text{máx}} = \mu_e \cdot N = 0,60 \cdot (12 \cdot 9,8) \approx 70,6\,\text{N}\). Como la fuerza neta aplicada (20 N) es menor que la máxima, el rozamiento estático puede contrarrestarla, y el bloque sigue en reposo. La fuerza de rozamiento real será de 20 N hacia la izquierda (equilibrando la neta).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0074.webp">
+                        <img src="../imagenes/webp/ImagenF0074.webp" alt="Mesa de hockey de aire que ilustra las leyes de Newton: con el aire apagado la fricción frena rápidamente el disco; con el aire encendido el disco se desliza mucho más">
+                    </a>
+                    <div class="figure-caption"><strong>Aproximación práctica a un sistema inercial: la mesa de hockey de aire.</strong> Con el aire apagado, la fricción entre el disco y la mesa es considerable y el disco se detiene rápidamente. Con el aire encendido, se crea un colchón de aire que reduce el contacto y, con él, la fricción. El disco se desliza entonces con velocidad casi constante por la mesa. Cuanto menor es la fuerza neta, más se aproxima el sistema a un movimiento rectilíneo uniforme: es exactamente el régimen que describe la primera ley de Newton y el que Galileo intuyó con sus planos inclinados ideales.</div>
                 </div>
             </div>
 
@@ -543,49 +595,47 @@
     <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

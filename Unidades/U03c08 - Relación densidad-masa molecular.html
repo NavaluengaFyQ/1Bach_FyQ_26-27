@@ -9,6 +9,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -328,7 +329,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -342,8 +342,6 @@
 <img src="../imagenes/U03c06 - Relación densidad-masa molecular_2.png" alt="Imagen" width="800"> <br><br>
 <img src="../imagenes/U03c06 - Relación densidad-masa molecular_3.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -430,6 +428,13 @@
                 <img src="../imagenes/webp/ImagenQ250.webp" alt="Globos aerostáticos de aire caliente elevándose">
                 <div class="figure-caption"><strong>Aire caliente, menos denso.</strong> El aire caliente del interior del globo tiene menor densidad que el aire frío exterior; esta imagen ilustra cómo, a presión constante, al aumentar la temperatura disminuye la densidad de un gas, tal como predice \(d=\frac{pM}{RT}\).</div>
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ260.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Globos de hidrógeno y aerostáticos históricos">
+                    <img src="../imagenes/webp/ImagenQ260.webp" alt="Tres globos históricos: el primero lleno de hidrógeno, un globo aerostático tripulado y un globo tripulado lleno de hidrógeno" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Gases menos densos que el aire.</strong> El hidrógeno (\(M = 2 \text{ g/mol}\)) es mucho menos denso que el aire (\(M\) media \(\approx 29 \text{ g/mol}\)), y por eso los globos llenos de H₂ se elevan. Esta observación histórica ilustra la proporcionalidad directa entre densidad y masa molar a igual presión y temperatura: \(d = pM/(RT)\).</div>
+            </div>
         </div>
     </div>
 
@@ -447,6 +452,22 @@
             <img src="../imagenes/webp/ImagenQ268.webp" alt="Representación de un mol de gas ideal ocupando unos 22,4 L en condiciones normales">
             <div class="figure-caption"><strong>Un mol de gas en condiciones normales.</strong> Un mol de gas ideal ocupa aproximadamente 22,4 L a 0 °C y 1 atm; de ahí la regla práctica \(d=\frac{M}{22,4}\,\text{g/L}\), muy útil para estimar densidades de gases en condiciones normales.</div>
         </div>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ285.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Factor de compresibilidad de los gases reales">
+                    <img src="../imagenes/webp/ImagenQ285.webp" alt="Gráfico del factor de compresibilidad Z frente a la presión para distintos gases reales" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El factor de compresibilidad: la prueba de la idealidad.</strong> Si todos los gases fueran ideales, el factor \(Z = pV/(nRT)\) valdría siempre 1. La experiencia muestra que a presiones altas los gases reales se desvían de esa predicción: algunos se comprimen más (\(Z<1\)) y otros menos (\(Z>1\)) de lo esperado. La ecuación de Clapeyron es, por tanto, una excelente aproximación a bajas presiones.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ286.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Atracciones intermoleculares en un gas real">
+                    <img src="../imagenes/webp/ImagenQ286.webp" alt="Esquema de las atracciones intermoleculares en un gas real y su efecto sobre el volumen efectivo y la presión" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cuando el gas deja de ser ideal.</strong> En un gas real, las fuerzas de atracción entre moléculas reducen la fuerza de sus choques contra las paredes y hacen que el volumen disponible sea algo menor que el previsto por la ley ideal. Estas desviaciones son la base de la ecuación de Van der Waals y marcan los límites de aplicabilidad de \(pM = dRT\).</div>
+            </div>
+        </div>
+
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  Esta demostración es una de las más aplicadas en problemas de 1º de Bachillerato. Es crucial que se domine las dos formas de la ecuación: despejar \( M \) para identificación de gases (tema central en determinación de fórmulas moleculares) y despejar \( d \) para cálculos de flotabilidad y mezclas gaseosas. Un error frecuente es olvidar convertir la temperatura a Kelvin o mezclar unidades de presión y volumen incompatibles con el valor de \( R \) elegido. Se recomienda practicar con ambos valores de \( R \): \( 0,082 \frac{\text{atm·L}}{\text{mol·K}} \) y \( 8,314 \frac{\text{J}}{\text{mol·K}} \). La relación también permite deducir que, en condiciones normales, la densidad de un gas es \( d = \frac{M}{22,4} \frac{\text{g}}{\text{L}} \), una fórmula mnemotécnica muy útil.
         </div>
@@ -643,5 +664,6 @@
 
 
 </div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

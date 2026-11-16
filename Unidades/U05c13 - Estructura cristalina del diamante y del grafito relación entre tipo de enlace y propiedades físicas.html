@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T05.14 - Demostración: Estructura cristalina del diamante y del grafito</title>
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILOS ORIGINALES (se mantienen)
@@ -191,17 +194,13 @@
             padding: 12px 0;
             user-select: none;
         }
-        details summary::-webkit-details-marker {
-            display: none;
-        }
+        details summary::-webkit-details-marker { display: none; }
         details summary i {
             transition: transform 0.3s ease;
             font-size: 1.6rem;
             color: #2a7faa;
         }
-        details[open] summary i {
-            transform: rotate(180deg);
-        }
+        details[open] summary i { transform: rotate(180deg); }
         .exercise-card {
             background: white;
             border-radius: 14px;
@@ -240,9 +239,7 @@
             margin: 6px 0;
             box-shadow: none;
         }
-        .solution .step strong {
-            color: #0b3b5c;
-        }
+        .solution .step strong { color: #0b3b5c; }
         .didactic-footer {
             background: #d7e7f3;
             padding: 14px 20px;
@@ -254,9 +251,7 @@
             gap: 12px;
             color: #144a66;
         }
-        .didactic-footer i {
-            font-size: 1.8rem;
-        }
+        .didactic-footer i { font-size: 1.8rem; }
         .highlight-sol {
             background: #fff3cd;
             padding: 2px 6px;
@@ -290,6 +285,8 @@
             font-size: 0.9em; color: #4a5568; margin-top: 10px;
             line-height: 1.5; text-align: left;
         }
+        /* Los enlaces del lightbox no deben heredar estilos de enlace del tema */
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -299,7 +296,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T05.13.- </span>
                 <span class="texto">Demostración: Estructura cristalina del diamante y del grafito</span>
             </div>
@@ -318,29 +315,21 @@
             <strong>Grafito:</strong> capas hexagonales bidimensionales con fuerzas de Van der Waals interlaminares
         </div>
 
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas.png">
+                <img src="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas.png"
+                     alt="Estructura cristalina del diamante y del grafito: relación entre tipo de enlace y propiedades físicas">
+            </a>
+            <div class="figure-caption"><strong>Diamante y grafito: dos estructuras, dos comportamientos.</strong> Diagrama de la relación entre el tipo de enlace covalente (red tetraédrica <em>sp</em>³ en el diamante; capas hexagonales <em>sp</em>² en el grafito) y las propiedades físicas macroscópicas de cada alótropo del carbono.</div>
+        </div>
 
-
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-<img src="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas.png" alt="Imagen" width="800">
-<img src="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
-
-
-
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas_2.png">
+                <img src="../imagenes/U05c13 - Estructura cristalina del diamante y del grafito relación entre tipo de enlace y propiedades físicas_2.png"
+                     alt="Esquema complementario de la estructura cristalina del diamante y del grafito">
+            </a>
+            <div class="figure-caption"><strong>Esquema complementario.</strong> Segunda parte del diagrama comparativo entre las estructuras cristalinas del diamante y del grafito, mostrando la correlación entre la disposición espacial de los enlaces C—C y las propiedades observables.</div>
+        </div>
     </div>
 
     <!-- OBJETIVO -->
@@ -380,7 +369,9 @@
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ513.webp" alt="Estructuras cristalinas del diamante con tetraedros tridimensionales y del grafito con capas de anillos hexagonales">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ513.webp">
+                    <img src="../imagenes/webp/ImagenQ513.webp" alt="Estructuras cristalinas del diamante con tetraedros tridimensionales y del grafito con capas de anillos hexagonales">
+                </a>
                 <div class="figure-caption"><strong>Dos formas del mismo elemento, dos arquitecturas opuestas.</strong> En el diamante (a), los enlaces covalentes forman tetraedros tridimensionales que se extienden en todas las direcciones. En el grafito (b), cada capa plana está compuesta por anillos de seis miembros, y las capas se mantienen unidas por fuerzas débiles. Esta diferencia estructural es la raíz de que uno sea el material más duro y el otro un lubricante.</div>
             </div>
         </div>
@@ -407,7 +398,9 @@
             </ul>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ329.webp" alt="Diamante extremadamente duro frente al grafito que se desprende del papel por las débiles atracciones entre capas">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ329.webp">
+                    <img src="../imagenes/webp/ImagenQ329.webp" alt="Diamante extremadamente duro frente al grafito que se desprende del papel por las débiles atracciones entre capas">
+                </a>
                 <div class="figure-caption"><strong>La estructura se traduce en comportamiento.</strong> El diamante es extremadamente duro porque sus átomos de carbono están fuertemente unidos en todas las direcciones. El grafito, en cambio, se desprende del papel (como en la mina del lápiz) debido a las débiles atracciones entre sus capas de carbono. La imagen de la superficie de grafito muestra la distancia entre átomos de carbono adyacentes, reforzando la idea de que la organización estructural determina las propiedades macroscópicas.</div>
             </div>
         </div>
@@ -462,6 +455,25 @@
                     <td>2,26</td>
                 </tr>
             </table>
+
+            <div class="note">
+                <strong>Para ampliar: otros tipos de cristales.</strong> El diamante y el grafito son <em>cristales covalentes</em>, pero existen otros tipos de cristales (iónicos, metálicos, moleculares) con arquitecturas y propiedades muy distintas. A modo de comparación, las figuras siguientes muestran la estructura del <strong>cloruro de sodio (NaCl)</strong>, un cristal iónico típico: una red cúbica centrada en las caras donde cada ion Na⁺ está rodeado por seis Cl⁻ y viceversa. Contemplar esta estructura junto a las del diamante y el grafito ayuda a apreciar la diversidad de arquitecturas cristalinas y su relación con las propiedades macroscópicas.
+            </div>
+
+            <div class="photo-pair">
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/ImagenF0196.jpg">
+                        <img src="../imagenes/ImagenF0196.jpg" alt="Dibujo de un cristal de cloruro de sodio (NaCl)">
+                    </a>
+                    <figcaption class="figure-caption"><strong>Cristal iónico de NaCl.</strong> Dibujo de la red cristalina del cloruro de sodio. A diferencia del diamante (red covalente tridimensional) y del grafito (capas covalentes unidas por Van der Waals), el NaCl es un cristal iónico formado por iones Na⁺ y Cl⁻ alternados.</figcaption>
+                </figure>
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/ImagenF0197.jpg">
+                        <img src="../imagenes/ImagenF0197.jpg" alt="Celda unitaria de un cristal de NaCl">
+                    </a>
+                    <figcaption class="figure-caption"><strong>Celda unitaria de NaCl.</strong> La celda unitaria es la unidad repetitiva mínima de un cristal. En el NaCl, es un cubo con iones Cl⁻ en los vértices y en el centro de las caras, e iones Na⁺ en los puntos medios de las aristas y en el centro del cubo.</figcaption>
+                </figure>
+            </div>
         </div>
 
         <div class="note">
@@ -562,7 +574,9 @@
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ516.webp" alt="Grafeno y nanotubos de carbono como alótropos del carbono">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ516.webp">
+                    <img src="../imagenes/webp/ImagenQ516.webp" alt="Grafeno y nanotubos de carbono como alótropos del carbono">
+                </a>
                 <div class="figure-caption"><strong>Más allá del diamante y el grafito.</strong> El grafeno (una capa individual de grafito) y los nanotubos de carbono (cilindros de grafeno enrollado) son alótropos del carbono que heredan la estructura hexagonal sp² pero adquieren propiedades extraordinarias por su dimensionalidad reducida. El grafeno es el material más resistente conocido y un excelente conductor; los nanotubos combinan ligereza y alta resistencia mecánica. La familia del carbono es mucho más amplia que los dos alótropos clásicos.</div>
             </div>
         </div>
@@ -575,65 +589,50 @@
     </details>
     <!-- FIN DEL BLOQUE DESPLEGABLE -->
 
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

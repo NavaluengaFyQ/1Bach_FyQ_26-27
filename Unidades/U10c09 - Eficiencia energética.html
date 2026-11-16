@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +8,8 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
 /* ============================================
    ESTILOS EXISTENTES (no modificados)
@@ -291,11 +291,6 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ \eta_{\text{Carnot}} = 1 - \frac{T_{\text{f}}}{T_{\text{c}}} \]
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -309,11 +304,13 @@ details.desmitificando .contenido-ejercicios {
 <img src="../imagenes/U10c09 - Eficiencia energética_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+<!-- Banco F: la energía en la sociedad adopta muchas formas y se transforma -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0163.webp">
+    <img src="../imagenes/webp/ImagenF0163.webp" alt="La energía que utilizamos en la sociedad adopta muchas formas (sol, paneles solares, quemador de gas) y se convierte de una en otra según el proceso" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">La energía que utilizamos en la sociedad adopta muchas formas, que se convierten de una en otra dependiendo del proceso que se realice. Cada conversión tiene una <strong>eficiencia</strong> asociada: no toda la energía de entrada se transforma en la forma deseada, sino que una parte se disipa como calor no aprovechable. El concepto de eficiencia energética cuantifica precisamente qué fracción de la energía inicial se convierte en energía útil.</figcaption>
+</figure>
 
         </div>
     </div>
@@ -321,6 +318,23 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Fundamentar el concepto de eficiencia energética como medida de calidad de una transformación energética. Esta demostración conecta la conservación de la energía con la inevitabilidad de las pérdidas, y establece el límite teórico de eficiencia para máquinas térmicas mediante el ciclo de Carnot. Es esencial para la comprensión de la sostenibilidad energética y la transición hacia vehículos eléctricos.</p>
+
+<!-- Banco F: consumo mundial de energía por fuentes -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0164.webp">
+    <img src="../imagenes/webp/ImagenF0164.webp" alt="Gráfico de consumo mundial de energía por fuentes; el porcentaje de renovables va en aumento" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Consumo mundial de energía por fuentes; el porcentaje de renovables va en aumento, lo que representa el 19 % en 2012. La <strong>eficiencia energética</strong> es una palanca clave en la sostenibilidad: mejorar la eficiencia de los dispositivos y procesos permite obtener el mismo servicio con menos energía primaria, reduciendo la dependencia de fuentes fósiles sin necesidad de aumentar la generación.</figcaption>
+</figure>
+
+<!-- Banco F: parque eólico como ejemplo de fuente renovable -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0202.webp">
+    <img src="../imagenes/webp/ImagenF0202.webp" alt="Parque eólico de Brazos en el oeste de Texas" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Parque eólico de Brazos, en el oeste de Texas. En 2012, los parques eólicos de los EE. UU. generaban 60 gigavatios de potencia, capacidad suficiente para abastecer de energía a 15 millones de hogares durante un año. La electricidad de origen renovable permite cerrar la cadena energética del vehículo eléctrico con una <strong>eficiencia global «pozo a rueda»</strong> muy superior a la del motor de combustión interna, como se analiza en esta página.</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -331,6 +345,15 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ E_{\text{total}} = E_{\text{útil}} + E_{\text{pérdidas}} \]
             </div>
+
+<!-- Banco F: disipación de energía por la resistencia del aire (ejemplo de pérdidas) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0159.webp">
+    <img src="../imagenes/webp/ImagenF0159.webp" alt="Un helicóptero pierde un panel que cae y alcanza una velocidad límite; la resistencia del aire disipa parte de su energía mecánica" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un helicóptero pierde un panel que cae hasta alcanzar una velocidad límite. <em>Ejemplo 8.8 (Resistencia del aire en un objeto que cae):</em> un panel de \(15\,\text{kg}\) cae desde \(1\,\text{km}\) de altura y llega al suelo a \(45\,\text{m/s}\). ¿Cuánta energía mecánica se disipó por la resistencia del aire durante el descenso? Este es un ejemplo paradigmático de <strong>\(E_{\text{pérdidas}}\)</strong>: parte de la energía potencial gravitatoria inicial no se convierte en energía cinética final, sino que se disipa al medio en forma de calor y turbulencias. El balance \(E_{\text{total}} = E_{\text{útil}} + E_{\text{pérdidas}}\) cuantifica exactamente esa diferencia.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -399,6 +422,15 @@ details.desmitificando .contenido-ejercicios {
             \[ \eta_{\text{Carnot}} = 1 - \frac{T_{\text{f}}}{T_{\text{c}}} \quad \text{(Límite teórico para máquinas térmicas)} \]
         </div>
         <p>La eficiencia mide la calidad de una transformación energética. Para máquinas térmicas, el límite máximo está dado por el rendimiento de Carnot, que depende exclusivamente de las temperaturas de los focos caliente y frío. Los motores eléctricos, al no ser máquinas térmicas, pueden alcanzar eficiencias mucho mayores.</p>
+
+<!-- Banco F: matrices de celdas solares como ejemplo de conversión eficiente -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0165.webp">
+    <img src="../imagenes/webp/ImagenF0165.webp" alt="Matrices de celdas solares que convierten energía solar en energía eléctrica almacenada" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Matrices de celdas solares que se encuentran en una zona soleada y convierten la energía solar en energía eléctrica almacenada. La eficiencia de conversión fotovoltaica comercial ronda el \(15\text{--}22\%\), pero al no ser una máquina térmica no está limitada por el rendimiento de Carnot. El concepto de eficiencia energética permite comparar tecnologías muy distintas (solar, eólica, motores de combustión, motores eléctricos) bajo una misma métrica: qué fracción de la energía de entrada se convierte en la forma deseada.</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
@@ -521,12 +553,6 @@ details.desmitificando .contenido-ejercicios {
         </div> <!-- /contenido-ejercicios -->
     </details>
 
-
-
-
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -574,15 +600,9 @@ details.desmitificando .contenido-ejercicios {
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

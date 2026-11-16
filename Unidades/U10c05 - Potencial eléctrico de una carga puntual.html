@@ -1,19 +1,16 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>#T10.05 · Potencial Eléctrico de una Carga Puntual</title>
-<!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+<!-- MathJax -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
-/* ============================================
-   ESTILOS EXISTENTES (no modificados)
-   ============================================ */
 .container {
     max-width: 900px;
     width: 100%;
@@ -146,9 +143,6 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   NUEVOS ESTILOS PARA EL BLOQUE DESPLEGABLE
-   ============================================ */
 details.desmitificando {
     margin: 30px 15px 20px 15px;
     border: 2px solid #ed8936;
@@ -260,6 +254,41 @@ details.desmitificando .contenido-ejercicios {
     margin-right: 8px;
     color: #d69e2e;
 }
+
+/* ============================================
+   ESTILOS PARA FIGURAS DEL BANCO DE IMÁGENES
+   ============================================ */
+figure.figura-banco {
+    margin: 18px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+figure.figura-banco img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+}
+figure.figura-banco figcaption {
+    font-size: 0.9em;
+    color: #4a5568;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+}
+figure.figura-banco figcaption .creditos {
+    display: block;
+    font-size: 0.82em;
+    color: #718096;
+    font-style: italic;
+    margin-top: 4px;
+}
 </style>
 </head>
 <body>
@@ -287,12 +316,7 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ V = K \frac{Q}{r} \]
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -303,11 +327,15 @@ details.desmitificando .contenido-ejercicios {
 
 <img src="../imagenes/U10c05 - Potencial eléctrico de una carga puntual.png" alt="Imagen" width="800">
 <img src="../imagenes/U10c05 - Potencial eléctrico de una carga puntual_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
-
-
-
+<!-- Banco F: definición diferencial de trabajo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+    <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores utilizados para definir el trabajo: fuerza y desplazamiento infinitesimal" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El trabajo infinitesimal es el producto escalar \(dW = \vec{F}\cdot d\vec{s}\) y el trabajo total es la integral de este producto a lo largo de la trayectoria. Definir el potencial eléctrico como el trabajo externo por unidad de carga exige integrar la fuerza (o el campo) desde el infinito hasta el punto considerado.</figcaption>
+</figure>
 
 
 
@@ -317,6 +345,25 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Obtener la expresión escalar del potencial eléctrico, que es una magnitud más sencilla de manejar que el campo vectorial. El potencial permite calcular trabajos y energías potenciales sin necesidad de integrales vectoriales, simplificando enormemente los problemas electrostáticos. Esta demostración conecta el concepto de trabajo con el campo eléctrico y establece las bases para el estudio de la energía en sistemas de cargas.</p>
+
+<!-- Banco Q: presa Hoover, energía potencial gravitatoria -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ106.webp">
+    <img src="../imagenes/webp/ImagenQ106.webp" alt="Agua en las cataratas Victoria y presa Hoover: energía potencial gravitatoria convertida en cinética" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El agua a mayor altura (cataratas Victoria, presa Hoover) tiene mayor energía potencial gravitatoria que la que está a menor altura. El potencial eléctrico \(V\) juega un papel análogo: es la energía potencial por unidad de carga, y permite calcular el trabajo necesario para mover una carga entre dos puntos sin tener que integrar el campo paso a paso.</figcaption>
+</figure>
+
+<!-- Banco F: fuente de emf mantiene un terminal a mayor potencial -->
+<figure class="figura-banco">
+  <img src="../imagenes/webp/ImagenF0732.webp"
+       alt="Una fuente de emf mantiene un terminal a un potencial eléctrico mayor que el otro, actuando como fuente de corriente en un circuito"
+       loading="lazy" decoding="async">
+  <figcaption>
+    <strong>Figura 10.3.</strong> Una fuente de emf mantiene un terminal a un <strong>potencial eléctrico mayor</strong> que el otro terminal, actuando como fuente de corriente en un circuito. El concepto de potencial eléctrico \(V\) que se deriva en esta página es precisamente el que subyace a la noción de «voltaje» o «diferencia de potencial» entre dos puntos: una magnitud escalar que indica la energía por unidad de carga disponible para mover cargas entre ellos.
+  </figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -342,6 +389,15 @@ details.desmitificando .contenido-ejercicios {
                 \[ W_{\text{ext}} = -\int_{\infty}^{r} q_0 \cdot K \frac{Q}{r'^2} \cdot dr' \]
             </div>
             <p>donde \( r' \) es la variable de integración.</p>
+
+<!-- Banco F: integral como área bajo la curva -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0143.webp">
+    <img src="../imagenes/webp/ImagenF0143.webp" alt="Curva f(x) frente a x con el área de una franja infinitesimal y su integral" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El área de una franja infinitesimal es \(f(x)\,dx\) y la suma (integral) de todas ellas entre dos valores es el área total bajo la curva. En el cálculo del potencial, la función que se integra es \(E(r) \propto 1/r^2\), y la integral desde el infinito hasta \(r\) da como resultado una función \(1/r\), mucho más suave que el campo del que proviene.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">4</span>
@@ -373,6 +429,15 @@ details.desmitificando .contenido-ejercicios {
                 <li>Si \( Q < 0 \): el potencial es negativo y aumenta (se hace menos negativo) al alejarse</li>
             </ul>
             <p>El potencial en el infinito es cero por convenio, lo que fija la referencia de energía.</p>
+
+<!-- Banco Q: catión Na+ frente a Na neutro -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ054.webp">
+    <img src="../imagenes/webp/ImagenQ054.webp" alt="Átomo de sodio neutro frente a catión de sodio (Na+) con carga positiva" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un átomo de sodio neutro tiene el mismo número de protones y electrones; al perder un electrón se convierte en un catión Na⁺. El signo de la carga fuente \(Q\) es lo que decide si el potencial que crea en su entorno es positivo (carga positiva) o negativo (carga negativa).</figcaption>
+</figure>
+
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Es crucial enfatizar que el potencial es una <strong>magnitud escalar</strong>, lo que simplifica enormemente los cálculos respecto al campo vectorial. En el SI se mide en voltios (\( \text{V} = \text{J} \cdot \text{C}^{-1} \)). La elección del infinito como referencia de potencial cero es un convenio matemático, no una necesidad física; para problemas con cargas infinitas se elige otro punto de referencia. La relación \( V = K \frac{Q}{r} \) es análoga a la energía potencial gravitatoria \( U = -G \frac{Mm}{r} \), permitiendo establecer paralelismos instructivos.
@@ -385,10 +450,21 @@ details.desmitificando .contenido-ejercicios {
             \[ V = K \frac{Q}{r} \quad \text{(Potencial eléctrico de una carga puntual)} \]
         </div>
         <p>El potencial eléctrico de una carga puntual es una magnitud escalar que depende inversamente de la distancia a la carga. Es positivo para cargas positivas y negativo para cargas negativas, y se anula en el infinito por convenio.</p>
+
+<!-- Banco F: gráfico del voltaje/potencial a través de un circuito -->
+<figure class="figura-banco">
+  <img src="../imagenes/webp/ImagenF0737.webp"
+       alt="Gráfico del voltaje a través de un circuito con una batería y una resistencia de carga, mostrando cómo el potencial eléctrico varía entre puntos"
+       loading="lazy" decoding="async">
+  <figcaption>
+    <strong>Figura 10.8.</strong> Gráfico del voltaje a través del circuito de una batería y una resistencia de carga. El potencial eléctrico aumenta en la emf de la batería debido a las reacciones químicas que realizan trabajo sobre las cargas; hay una disminución del potencial eléctrico en la batería debido a la resistencia interna (\(-Ir\)), y una nueva disminución en la resistencia de carga (\(-IR\)). Este tipo de gráficos ilustra el mismo concepto escalar \(V\) que hemos derivado para una carga puntual: el potencial en cada punto es la energía por unidad de carga, y las diferencias de potencial entre puntos determinan el trabajo necesario para mover cargas entre ellos.
+  </figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
-    <!-- BLOQUE DESPLEGABLE AÑADIDO (TAREA 1)      -->
+    <!-- BLOQUE DESPLEGABLE                       -->
     <!-- ======================================== -->
     <details class="desmitificando">
         <summary>
@@ -415,7 +491,6 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Sustituimos los valores: \( K = 8{,}99\times10^9\,\text{N·m}^2/\text{C}^2 \), \( Q = -5{,}0\times10^{-6}\,\text{C} \), \( r = 0{,}12\,\text{m} \):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ V = 8{,}99\times10^9 \cdot \frac{-5{,}0\times10^{-6}}{0{,}12}
-                            = 8{,}99\times10^9 \cdot (-4{,}17\times10^{-5})
                             \approx -3{,}75\times10^{5}\,\text{V} \]
                         </div>
                         <div class="paso"><strong>Resultado:</strong> \( V = -3{,}75\times10^{5}\,\text{V} \) (negativo, como corresponde a una carga negativa).</div>
@@ -434,7 +509,7 @@ details.desmitificando .contenido-ejercicios {
                     <p>El potencial eléctrico a una distancia de \( 0{,}50\,\text{m} \) de una carga puntual es de \( 1{,}8\times10^{4}\,\text{V} \). ¿Cuánto vale la carga? ¿Es positiva o negativa?</p>
                     <div class="resolucion">
                         <div class="paso"><strong>Paso 1:</strong> Despejamos \( Q \) de \( V = K \frac{Q}{r} \): \( Q = \frac{V \cdot r}{K} \).</div>
-                        <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( Q = \frac{1{,}8\times10^{4} \times 0{,}50}{8{,}99\times10^9} = \frac{9{,}0\times10^{3}}{8{,}99\times10^9} \approx 1{,}0\times10^{-6}\,\text{C} \).</div>
+                        <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( Q = \frac{1{,}8\times10^{4} \times 0{,}50}{8{,}99\times10^9} \approx 1{,}0\times10^{-6}\,\text{C} \).</div>
                         <div class="paso"><strong>Resultado:</strong> \( Q \approx +1{,}0\,\mu\text{C} \). Es positiva porque el potencial es positivo.</div>
                     </div>
                 </div>
@@ -463,10 +538,16 @@ details.desmitificando .contenido-ejercicios {
                         </div>
                         <div class="paso"><strong>Paso 4:</strong> El potencial total es la suma escalar:</div>
                         <div class="formula-box" style="margin:5px 0;">
-                            \[ V_{\text{total}} = V_1 + V_2 = 4{,}50\times10^5 - 8{,}99\times10^5 = -4{,}49\times10^{5}\,\text{V} \]
+                            \[ V_{\text{total}} = V_1 + V_2 = -4{,}49\times10^{5}\,\text{V} \]
                         </div>
                         <div class="paso"><strong>Resultado:</strong> \( V_{\text{total}} \approx -4{,}5\times10^{5}\,\text{V} \).</div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0017.webp">
+                        <img src="../imagenes/webp/ImagenF0017.webp" alt="Relaciones entre dos vectores: paralelos, antiparalelos y ortogonales" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">La gran ventaja del potencial frente al campo es que es una magnitud escalar: al superponer potenciales no hay que preocuparse por direcciones ni por descomponer en componentes, basta con sumar o restar números con su signo. Es una de las razones por las que se prefiere trabajar con \(V\) cuando es posible.</figcaption>
+                    </figure>
                 </div>
             </div>
 
@@ -481,7 +562,7 @@ details.desmitificando .contenido-ejercicios {
                     <p>Una carga \( q = +3{,}0\,\mu\text{C} \) se mueve desde un punto \( A \), donde el potencial es \( V_A = 200\,\text{V} \), hasta un punto \( B \), donde \( V_B = 800\,\text{V} \). Calcula el trabajo que debe realizar una fuerza externa para llevar la carga de \( A \) a \( B \) en equilibrio.</p>
                     <div class="resolucion">
                         <div class="paso"><strong>Paso 1:</strong> El trabajo externo es \( W_{\text{ext}} = q (V_B - V_A) \).</div>
-                        <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( W_{\text{ext}} = (3{,}0\times10^{-6}) \cdot (800 - 200) = 3{,}0\times10^{-6} \cdot 600 = 1{,}8\times10^{-3}\,\text{J} \).</div>
+                        <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( W_{\text{ext}} = (3{,}0\times10^{-6}) \cdot (800 - 200) = 1{,}8\times10^{-3}\,\text{J} \).</div>
                         <div class="paso"><strong>Resultado:</strong> Se requiere \( 1{,}8\times10^{-3}\,\text{J} \) de trabajo externo. (El potencial aumenta, por lo que se debe aportar energía).</div>
                     </div>
                 </div>
@@ -500,48 +581,38 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 1:</strong> La energía potencial de un sistema de dos cargas es \( U = K \frac{q_1 q_2}{r} \).</div>
                         <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( U = 8{,}99\times10^9 \cdot \frac{(6{,}0\times10^{-6})(-2{,}0\times10^{-6})}{0{,}15} \).</div>
                         <div class="formula-box" style="margin:5px 0;">
-                            \[ U = 8{,}99\times10^9 \cdot \frac{-12\times10^{-12}}{0{,}15}
-                            = 8{,}99\times10^9 \cdot (-8{,}0\times10^{-11})
+                            \[ U = 8{,}99\times10^9 \cdot (-8{,}0\times10^{-11})
                             \approx -0{,}72\,\text{J} \]
                         </div>
                         <div class="paso"><strong>Resultado:</strong> \( U \approx -0{,}72\,\text{J} \) (negativa, porque las cargas son de signo opuesto y el sistema está ligado).</div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0155.webp">
+                        <img src="../imagenes/webp/ImagenF0155.webp" alt="Puente elástico: transformación de energía potencial gravitacional en elástica" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">En un puente elástico, la energía potencial se transforma de una forma a otra, pero se conserva en ausencia de pérdidas. Análogamente, la energía potencial electrostática de un sistema de dos cargas \(U = K\,q_1 q_2/r\) es negativa cuando las cargas se atraen (sistema ligado, como el saltador cuando la cuerda está tensa) y positiva cuando se repelen (sistema que tiende a separarse).</figcaption>
+                    </figure>
                 </div>
             </div>
 
-            <!-- PIE DE Observaciones claves -->
+            <!-- PIE -->
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> El potencial eléctrico es una magnitud <strong>escalar</strong>, lo que hace que la superposición sea una simple suma algebraica, a diferencia del campo que requiere suma vectorial. La principal "trampa" es olvidar que el potencial puede ser negativo y que el trabajo depende de la <strong>diferencia</strong> de potencial, no del valor absoluto. La energía potencial de un sistema se obtiene multiplicando la carga por el potencial creado por las otras cargas.
             </div>
 
-        </div> <!-- /contenido-ejercicios -->
+        </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -549,36 +620,21 @@ details.desmitificando .contenido-ejercicios {
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

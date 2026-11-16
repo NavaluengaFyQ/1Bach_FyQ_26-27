@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.10.- </span>
                 <span class="texto">Conservación del Momento Lineal</span>
             </div>
@@ -378,6 +410,13 @@
             <div class="formula-box">
                 \[ m_1 \vec{v}_1 + m_2 \vec{v}_2 = m_1 \vec{v}'_1 + m_2 \vec{v}'_2 \]
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0180.webp">
+                    <img src="../imagenes/webp/ImagenF0180.webp" alt="Dos bolas de billar antes y después de una colisión; los momentos individuales cambian, pero el momento total del sistema se conserva">
+                </a>
+                <div class="figure-caption"><strong>La conservación del momento total en una colisión.</strong> Antes del choque, las dos bolas de billar viajan con momentos \(\vec{p}_1\) y \(\vec{p}_2\). La suma vectorial de ambos (marcada como \(\vec{p}_{\text{total}}\) en rojo) es el momento total del sistema. Tras la colisión, cada bola se mueve con un momento distinto, \(\vec{p}'_1\) y \(\vec{p}'_2\), pero la suma \(\vec{p}'_{\text{total}}\) es exactamente igual al momento total inicial. Este es el contenido de la ecuación \(m_1\vec{v}_1 + m_2\vec{v}_2 = m_1\vec{v}'_1 + m_2\vec{v}'_2\): las fuerzas internas del choque cambian los momentos individuales, pero no el momento total del sistema. Es la manifestación más limpia del principio de conservación del momento lineal.</div>
+            </div>
         </div>
     </div>
 
@@ -426,6 +465,13 @@
                     <div class="paso">
                         <strong>b)</strong> \(E_{c,i} = \frac{1}{2} m_1 v_1^2 = \frac{1}{2} \cdot 2,0 \times 10^4 \cdot (2,0)^2 = 4,0 \times 10^4\,\text{J}\). \(E_{c,f} = \frac{1}{2} (m_1+m_2) v'^2 = \frac{1}{2} \cdot 3,5 \times 10^4 \cdot (1,14)^2 \approx 2,28 \times 10^4\,\text{J}\). Pérdida: \(\frac{E_{c,i} - E_{c,f}}{E_{c,i}} \approx \frac{4,0 - 2,28}{4,0} = 0,43\) (43%).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0182.webp">
+                        <img src="../imagenes/webp/ImagenF0182.webp" alt="Dos carros de laboratorio que colisionan y se pegan tras la colisión gracias a pequeños imanes en sus extremos">
+                    </a>
+                    <div class="figure-caption"><strong>Choque perfectamente inelástico: los carros se pegan.</strong> Dos carros de laboratorio ruedan sobre una pista plana sin fricción. Cuando chocan, los imanes de sus extremos hacen que queden unidos, moviéndose juntos después del choque. Es exactamente la situación del ejercicio 1: dos masas que se acoplan y siguen como un único cuerpo. El momento lineal total se conserva, pero la energía cinética no: parte se disipa en la deformación, el calor y el sonido del impacto. Este es el caso más sencillo de conservación del momento y la mejor introducción al principio.</div>
                 </div>
             </div>
 
@@ -480,6 +526,13 @@
                     <div class="paso">
                         <strong>b)</strong> Energía cinética final: \(E_c = \frac{1}{2} \cdot 0,60 \cdot (10)^2 + \frac{1}{2} \cdot 0,80 \cdot (8,0)^2 + \frac{1}{2} \cdot 0,60 \cdot (14,6)^2 = 30 + 25,6 + 63,9 \approx 119,5\,\text{J}\). Inicialmente \(E_c=0\), así que la energía liberada es \(119,5\,\text{J}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0191.webp">
+                        <img src="../imagenes/webp/ImagenF0191.webp" alt="Tanque de buceo que estalla en tres pedazos que salen disparados en diferentes direcciones">
+                    </a>
+                    <div class="figure-caption"><strong>La explosión como conservación del momento: el tanque de buceo.</strong> Un tanque de buceo que estalla de repente en tres pedazos es un ejemplo de fragmentación en el que el momento lineal total se conserva. Antes de la explosión, el sistema (el tanque entero) está en reposo: \(\vec{p}_{\text{inicial}} = \vec{0}\). Después, los tres fragmentos salen en distintas direcciones, pero la suma vectorial de sus momentos debe seguir siendo nula: \(\vec{p}_1 + \vec{p}_2 + \vec{p}_3 = \vec{0}\). Es el mismo principio que se aplica en el ejercicio 3: conociendo dos fragmentos, se deduce el tercero. Y al igual que en los choques inelásticos, la energía cinética no se conserva —de hecho aumenta—, porque la energía química y de presión almacenada se convierte en energía cinética.</div>
                 </div>
             </div>
 

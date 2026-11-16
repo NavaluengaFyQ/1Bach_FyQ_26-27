@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -333,7 +333,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -347,11 +346,12 @@
 <img src="../imagenes/U09c01 - Trabajo en procesos de expansión y compresión a presión constante_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+                    <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores fuerza y desplazamiento que definen el trabajo mecánico">
+                </a>
+                <figcaption class="figure-caption">Figura 7.2. Vectores utilizados para definir el trabajo. La fuerza que actúa sobre una partícula y su desplazamiento infinitesimal se muestran en un punto de la trayectoria. El trabajo infinitesimal es el producto punto de estos dos vectores. En el caso del gas, la fuerza es la presión ejercida sobre el émbolo y el desplazamiento es el avance de dicho émbolo.</figcaption>
+            </figure>
 
         </div>
 
@@ -370,6 +370,13 @@
                 <div class="formula-box">
                     \[ W = F \Delta x \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0138.webp">
+                        <img src="../imagenes/webp/ImagenF0138.webp" alt="Trabajo realizado por una fuerza constante: cortacésped, maletín y caminar">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.3. Trabajo realizado por una fuerza constante. (a) Una persona empuja un cortacésped con una fuerza constante: el componente de la fuerza paralelo al desplazamiento es el trabajo realizado, \(W = F \Delta x \cos\theta\). (b) Una persona sostiene un maletín: no se realiza trabajo porque el desplazamiento es cero. (c) La persona de (b) camina horizontalmente mientras sostiene el maletín: no se realiza trabajo porque cos θ = 0. En el caso del gas, la fuerza es paralela al desplazamiento del émbolo, por lo que cos θ = 1.</figcaption>
+                </figure>
             </div>
             <div class="step">
                 <span class="step-num">2</span>
@@ -377,6 +384,13 @@
                 <div class="formula-box">
                     \[ p = \frac{F}{S} \quad \Rightarrow \quad F = pS \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0089.webp">
+                        <img src="../imagenes/webp/ImagenF0089.webp" alt="Fuerza normal de una mesa sobre una bolsa de comida: presión como fuerza distribuida sobre una superficie">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.21. (a) La persona que sostiene la bolsa de comida para perros debe suministrar una fuerza ascendente de magnitud igual y dirección contraria al peso. (b) La mesa de juego cede cuando se coloca la comida para perros sobre ella, como si fuera un trampolín rígido. Las fuerzas restauradoras elásticas en la mesa crecen a medida que se hunde hasta que suministran una fuerza normal de magnitud igual y dirección contraria al peso. La presión es precisamente la fuerza distribuida por unidad de superficie: \(p = F/S\).</figcaption>
+                </figure>
             </div>
             <div class="step">
                 <span class="step-num">3</span>
@@ -384,6 +398,13 @@
                 <div class="formula-box">
                     \[ \Delta V = S \Delta x \quad \Rightarrow \quad \Delta x = \frac{\Delta V}{S} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0143.webp">
+                        <img src="../imagenes/webp/ImagenF0143.webp" alt="Curva f(x) con el área de una franja infinitesimal y la suma de dichas áreas (integral)">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.8. Curva de f(x) en función de x que muestra el área de una franja infinitesimal, f(x)dx, y la suma de dichas áreas, que es la integral de f(x). Este es el fundamento geométrico que conecta el trabajo con el área bajo la curva; en un diagrama p-V isobárico, el área es un rectángulo de altura p y base ΔV.</figcaption>
+                </figure>
             </div>
             <div class="step">
                 <span class="step-num">4</span>
@@ -399,6 +420,13 @@
                     \[ W = -p \Delta V \]
                 </div>
                 Si el sistema se comprime (\(\Delta V < 0\)), el trabajo es positivo porque el entorno aporta energía al sistema.
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0144.webp">
+                        <img src="../imagenes/webp/ImagenF0144.webp" alt="Curva de la fuerza del resorte f(x) = -kx con áreas positivas y negativas bajo la línea">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.9. Curva de la fuerza del resorte f(x) = -kx en función de x, donde se muestran las áreas bajo la línea, tanto para valores positivos como negativos de x. La convención de signos en termodinámica funciona de forma análoga: el signo del trabajo depende de si el área se recorre en un sentido (expansión, ΔV > 0 → W < 0) o en el opuesto (compresión, ΔV < 0 → W > 0).</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -521,6 +549,13 @@
                         <p><span class="step-label">b)</span> Cada ciclo el gas realiza \(1.62\,\text{kJ}\) de trabajo. En un segundo (4 ciclos): \(W_{\text{total}} = 4 \times 1.62 = 6.48\,\text{kJ}\).</p>
                         <p>Potencia = \(W_{\text{total}} / t = 6.48\,\text{kJ} / 1\,\text{s} = 6.48\,\text{kW}\).</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenF0150.webp">
+                            <img src="../imagenes/webp/ImagenF0150.webp" alt="Coche subiendo una cuesta a velocidad constante: potencia del motor">
+                        </a>
+                        <figcaption class="figure-caption">Figura 7.15. Queremos calcular la potencia necesaria para subir un auto por una colina a velocidad constante. En un motor de combustión, cada ciclo de expansión isobárica del gas realiza un trabajo \(W = -p\Delta V\) que se transforma en energía mecánica del pistón; la potencia desarrollada es ese trabajo multiplicado por el número de ciclos por segundo. El ejercicio 5 ilustra esta misma idea aplicada a la fase de expansión.</figcaption>
+                    </figure>
                 </div>
 
             </div> <!-- fin contenido-ejercicios -->
@@ -529,8 +564,6 @@
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> El trabajo a presión constante es el área de un rectángulo en el diagrama \(p\)-\(V\). El signo negativo solo indica la dirección de la transferencia de energía: si el volumen aumenta, el sistema pierde energía (expansión); si disminuye, el sistema gana energía (compresión). ¡No olvides convertir siempre las unidades!
             </div>
         </details>
-
-
 
 
 
@@ -589,9 +622,9 @@
 
 
 
-
-
-
     </div> <!-- fin container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

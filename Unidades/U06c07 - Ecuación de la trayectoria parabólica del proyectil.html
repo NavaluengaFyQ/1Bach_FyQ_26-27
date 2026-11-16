@@ -1,15 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.07 - Ecuación de la trayectoria parabólica del proyectil</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,6 +267,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +305,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.07.- </span>
                 <span class="texto">Ecuación de la trayectoria parabólica del proyectil</span>
             </div>
@@ -293,8 +324,6 @@
 
 
 
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -307,8 +336,6 @@
 <img src="../imagenes/U06c07 - Ecuación de la trayectoria parabólica del proyectil.png" alt="Imagen" width="800">
 <img src="../imagenes/U06c07 - Ecuación de la trayectoria parabólica del proyectil_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -332,6 +359,13 @@
             <p>Partimos de las ecuaciones paramétricas del tiro oblicuo, descomponiendo el movimiento en sus componentes horizontal y vertical:</p>
             <div class="formula-box">\[ x = v_{0} \cos\theta \cdot t \]</div>
             <div class="formula-box">\[ y = v_{0} \sin\theta \cdot t - \frac{1}{2} g t^{2} \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0056.webp">
+                    <img src="../imagenes/webp/ImagenF0056.webp" alt="Movimiento bidimensional de un proyectil descompuesto en sus componentes horizontal y vertical independientes">
+                </a>
+                <div class="figure-caption"><strong>Por qué el movimiento del proyectil se separa en dos ecuaciones.</strong> (a) El proyectil se analiza como dos movimientos unidimensionales independientes: uno horizontal y otro vertical. (b) En el eje \(x\) el movimiento es un MRU: \(a_x=0\) y \(v_x\) es constante, de ahí \(x = v_0\cos\theta\cdot t\). (c) En el eje \(y\) el movimiento es un MRUA con \(a_y=-g\): la velocidad vertical empieza a disminuir, se anula en el punto más alto y luego crece en sentido contrario. (d) Recombinando los dos movimientos se obtiene en cada instante la velocidad total del proyectil. Estas dos ecuaciones paramétricas son el punto de partida para eliminar el tiempo y deducir la trayectoria parabólica.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -369,6 +403,13 @@
         <div class="formula-box" style="border-color: #38b2ac; border-width: 3px; background: #e6fffa;">\[ y = x \tan\theta - \frac{g x^{2}}{2 v_{0}^{2} \cos^{2}\theta} \]</div>
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> La ecuación tiene la forma \( y = Ax - Bx^{2} \), que corresponde a una parábola con eje vertical. El término lineal representa la inclinación inicial, mientras que el término cuadrático (negativo) modela la caída por gravedad. La simetría de la trayectoria respecto al eje vertical que pasa por la altura máxima solo es perfecta cuando el proyectil se lanza y aterriza al mismo nivel.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0057.webp">
+                <img src="../imagenes/webp/ImagenF0057.webp" alt="Trayectoria parabólica de un proyectil de fuegos artificiales que explota en el punto más alto">
+            </a>
+            <div class="figure-caption"><strong>La parábola real: fuegos artificiales.</strong> La trayectoria de un proyectil de fuegos artificiales describe una parábola perfecta mientras se desprecia la resistencia del aire. En este caso la mecha se ajusta para que el proyectil explote justo en el vértice de la parábola, a \(233\ \text{m}\) de altura y \(125\ \text{m}\) de distancia horizontal. El vértice de la parábola \(y = x\tan\theta - \tfrac{gx^2}{2v_0^2\cos^2\theta}\) se alcanza en \(x_v = \dfrac{v_0^2\sin 2\theta}{2g}\) y su altura es \(y_v = \dfrac{v_0^2\sin^2\theta}{2g}\); ambos valores coinciden con los de este ejemplo.</div>
         </div>
     </div>
 
@@ -460,6 +501,13 @@
                     <div class="paso"><strong>Paso 3 (b):</strong> Igualamos \( y_1 = y_2 \) para encontrar la intersección (sin contar el origen): \( 0.577 x - 0.007259 x^2 = 1.732 x - 0.02178 x^2 \). Reordenamos: \( 0 = (1.732 - 0.577)x + (-0.02178 + 0.007259)x^2 = 1.155 x - 0.014521 x^2 \). Factorizamos \( x (1.155 - 0.014521 x) = 0 \) → \( x = 0 \) (origen) o \( x = \frac{1.155}{0.014521} \approx 79.5 \, \text{m} \).</div>
                     <div class="paso"><strong>Resultados:</strong> a) \( y_1 = 0.577x - 0.007259x^2 \), \( y_2 = 1.732x - 0.02178x^2 \) b) Se cruzan a \( x \approx 79.5 \, \text{m} \) del origen.</div>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0058.webp">
+                        <img src="../imagenes/webp/ImagenF0058.webp" alt="Trayectorias de proyectiles en terreno llano que muestran el efecto de la rapidez inicial y del ángulo inicial sobre el alcance">
+                    </a>
+                    <div class="figure-caption"><strong>El ángulo inicial decide la forma de la parábola.</strong> (a) Para un mismo ángulo, cuanto mayor sea la rapidez inicial \(v_0\), más lejos llega el proyectil. (b) Para una misma rapidez inicial, distintos ángulos producen distintas trayectorias: los ángulos complementarios (por ejemplo \(15^\circ\) y \(75^\circ\)) dan el mismo alcance pero alturas máximas muy diferentes. Este es el fenómeno que analiza el ejercicio 4: dos lanzamientos con \(\theta = 30^\circ\) y \(\theta = 60^\circ\) (complementarios) parten de \(v_0\) distinto en el enunciado, pero ilustran la misma idea — pequeños cambios en \(\theta\) modifican radicalmente la forma de la parábola y sus puntos de cruce.</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 5 -->
@@ -491,67 +539,50 @@
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

@@ -1,15 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.08 - Alcance máximo y altura máxima del proyectil</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -271,6 +273,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -280,7 +311,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.08.- </span>
                 <span class="texto">Alcance máximo y altura máxima del proyectil</span>
             </div>
@@ -299,8 +330,6 @@
 
 
 
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -313,8 +342,6 @@
 <img src="../imagenes/U06c08 - Alcance máximo y altura máxima del proyectil.png" alt="Imagen" width="800">
 <img src="../imagenes/U06c08 - Alcance máximo y altura máxima del proyectil_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -360,6 +387,13 @@
             <strong>Simplificación algebraica</strong>
             <p>Operando algebraicamente:</p>
             <div class="formula-box">\[ H = \frac{v_{0}^{2} \sin^{2}\theta}{g} - \frac{v_{0}^{2} \sin^{2}\theta}{2g} = \frac{v_{0}^{2} \sin^{2}\theta}{2g} \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0057.webp">
+                    <img src="../imagenes/webp/ImagenF0057.webp" alt="Trayectoria parabólica de un proyectil de fuegos artificiales con explosión en el vértice, a 233 m de altura y 125 m de distancia horizontal">
+                </a>
+                <div class="figure-caption"><strong>La altura máxima \(H\) en un proyectil real.</strong> Los fuegos artificiales se diseñan para que la mecha active la explosión justo en el vértice de la parábola, donde la componente vertical de la velocidad se anula y la altura es máxima. En este caso concreto, el vértice se alcanza a \(233\ \text{m}\) de altura y \(125\ \text{m}\) de distancia horizontal. Esos dos valores son precisamente \(H = \dfrac{v_0^2\sin^2\theta}{2g}\) y \(x_v = \dfrac{v_0^2\sin 2\theta}{2g}\): la fórmula que hemos deducido describe la altura real alcanzada por el proyectil.</div>
+            </div>
         </div>
 
         <div class="subtitle" style="margin-top:30px;">B) Cálculo del alcance horizontal \( R \)</div>
@@ -399,6 +433,13 @@
         <div class="formula-box" style="border-color: #38b2ac; border-width: 3px; background: #e6fffa;">\[ H = \frac{v_{0}^{2} \sin^{2}\theta}{2g} \qquad \text{y} \qquad R = \frac{v_{0}^{2} \sin(2\theta)}{g} \]</div>
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> El alcance máximo para una velocidad de lanzamiento dada se obtiene cuando \( \sin(2\theta) = 1 \), es decir, para \( \theta = 45^{\circ} \). Sin embargo, la altura máxima crece monótonamente con el ángulo hasta \( \theta = 90^{\circ} \) (tiro vertical). Esto ilustra la diferencia entre optimizar distancia y optimizar altura en lanzamientos parabólicos.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0059.webp">
+                <img src="../imagenes/webp/ImagenF0059.webp" alt="Dos trayectorias de una pelota de golf con el mismo alcance de 90 metros, pero con distintas alturas máximas, lanzadas con ángulos complementarios">
+            </a>
+            <div class="figure-caption"><strong>Dos ángulos, un mismo alcance, dos alturas muy diferentes.</strong> Dos lanzamientos de pelota de golf con ángulos complementarios alcanzan exactamente la misma distancia horizontal (\(90\ \text{m}\)) porque \(\sin(2\theta)\) toma el mismo valor para \(\theta\) y \(90^\circ-\theta\). Sin embargo, las trayectorias son muy distintas: la del ángulo mayor sube mucho más alto y permanece más tiempo en el aire, mientras que la del ángulo menor es más plana y rápida. El alcance \(R\) solo depende de \(\sin(2\theta)\), pero la altura máxima \(H\) crece con \(\sin^2\theta\): por eso, para un mismo alcance, puede elegirse la trayectoria más alta o más baja según convenga (por ejemplo, para superar un obstáculo o para minimizar el tiempo de vuelo).</div>
         </div>
     </div>
 
@@ -487,6 +528,13 @@
                     <div class="paso"><strong>Paso 3:</strong> Conclusión: ángulos complementarios (\( \theta \) y \( 90^\circ - \theta \)) producen el mismo alcance para la misma velocidad inicial.</div>
                     <div class="paso"><strong>Resultado:</strong> a) \( R_{30} = R_{60} \approx 220.9 \, \text{m} \) b) Alcances iguales.</div>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0058.webp">
+                        <img src="../imagenes/webp/ImagenF0058.webp" alt="Trayectorias de proyectiles en terreno llano que muestran cómo varía el alcance con la rapidez inicial y con el ángulo inicial, siendo iguales para ángulos complementarios de 15° y 75°">
+                    </a>
+                    <div class="figure-caption"><strong>El alcance depende de \(v_0\) y de \(\sin(2\theta)\).</strong> (a) Para un mismo ángulo inicial, cuanto mayor es \(v_0\), mayor es el alcance — coherente con \(R \propto v_0^2\). (b) Para la misma \(v_0\), distintos ángulos producen distintas parábolas, pero los ángulos complementarios (como \(15^\circ\) y \(75^\circ\)) dan exactamente el mismo alcance: es la propiedad de la función \(\sin(2\theta)\), que toma el mismo valor en \(\theta\) y \(90^\circ-\theta\). El ejercicio 4 es una comprobación numérica de ese hecho con \(30^\circ\) y \(60^\circ\): \(R_{30} = R_{60}\).</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 5 -->
@@ -515,67 +563,50 @@
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

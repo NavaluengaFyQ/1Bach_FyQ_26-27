@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -344,7 +343,6 @@
 
 
 
-
         </div>
 
         <!-- SECCIÓN OBJETIVO -->
@@ -366,11 +364,33 @@
                     <li>\(m_l\): número cuántico magnético (\(m_l = -l, \ldots, 0, \ldots, +l\))</li>
                     <li>\(m_s\): número cuántico de spin (\(m_s = +\frac{1}{2}\) o \(-\frac{1}{2}\))</li>
                 </ul>
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ146.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Capas numeradas por el número cuántico principal">
+                            <img src="../imagenes/webp/ImagenQ146.webp" alt="Diferentes capas electrónicas del átomo numeradas por el número cuántico principal n" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>El nivel lo fija \(n\).</strong> Cada valor de \(n\) define una capa (K, L, M, N…) y determina cuántos subniveles puede contener: para \(n\) dado, \(l\) va de \(0\) a \(n-1\). Es el punto de partida del conteo que nos llevará a \(2n^2\).</div>
+                    </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ148.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Formas de los orbitales s, p, d y f">
+                            <img src="../imagenes/webp/ImagenQ148.webp" alt="Formas de los orbitales atómicos s, p, d y f" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Cada subnivel tiene su forma.</strong> Los valores de \(l\) (\(s,\,p,\,d,\,f\)) corresponden a formas distintas de nube de probabilidad. Cada uno contiene \(2l+1\) orbitales: 1 para \(s\), 3 para \(p\), 5 para \(d\) y 7 para \(f\). Sumar esos orbitales será el siguiente paso.</div>
+                    </div>
+                </div>
             </div>
 
             <div class="step">
                 <span class="step-num">2</span>
                 <strong>Aplicar el principio de exclusión de Pauli:</strong> dos electrones de un mismo átomo no pueden tener los cuatro números cuánticos idénticos. Por tanto, para cada combinación \((n, l, m_l)\) solo pueden existir dos electrones (con spins opuestos).
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ150.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Estados de espín del electrón ±1/2">
+                        <img src="../imagenes/webp/ImagenQ150.webp" alt="Electrones con valores de espín +1/2 y -1/2, mostrados como flechas arriba y abajo" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El "cupo" de dos por orbital.</strong> Un orbital queda definido por \((n, l, m_l)\), y Pauli prohíbe que dos electrones tengan los cuatro números cuánticos iguales. Por eso el spin solo puede tomar dos valores (\(+\tfrac12\) y \(-\tfrac12\)), lo que fija el famoso "2 electrones por orbital" del que sale el factor 2 de la fórmula \(N_{\text{máx}} = 2n^2\).</div>
+                </div>
             </div>
 
             <div class="step">
@@ -403,6 +423,13 @@
                 <div class="formula-box">
                     \[ N_{\text{máx}} = 2 \times n^2 = 2n^2 \]
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ151.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Diagrama de niveles de orbitales atómicos">
+                        <img src="../imagenes/webp/ImagenQ151.webp" alt="Diagrama de nivel de energía generalizado para los orbitales atómicos en un átomo con dos o más electrones" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Los orbitales que estamos sumando.</strong> El diagrama muestra todos los orbitales disponibles ordenados por energía. Para cada nivel \(n\) hay exactamente \(n^2\) orbitales (1 en el primero, 4 en el segundo, 9 en el tercero, 16 en el cuarto…), y como cada uno alberga 2 electrones, el cupo total del nivel es justamente \(2n^2\).</div>
+                </div>
             </div>
         </div>
 
@@ -412,6 +439,22 @@
             <div class="formula-box">
                 \[ N_{\text{máx}} = 2n^2 \]
             </div>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ153.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Orden de energía de los orbitales atómicos">
+                        <img src="../imagenes/webp/ImagenQ153.webp" alt="Diagrama del orden de energía de los orbitales atómicos, útil para derivar las configuraciones electrónicas del estado fundamental" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El cupo teórico no se llena en orden.</strong> Aunque \(2n^2\) marca el máximo de cada nivel, los electrones se colocan siguiendo el orden creciente de energía de los orbitales (diagrama de Madelung), no por capas completas. Por eso los niveles superiores pueden quedarse "a medias" mientras los inferiores ya están completos.</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ154.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Configuraciones electrónicas en la tabla periódica">
+                        <img src="../imagenes/webp/ImagenQ154.webp" alt="Tabla periódica parcial que muestra las configuraciones electrónicas de las subcapas de valencia de los átomos" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La huella de \(2n^2\) en la tabla periódica.</strong> Las configuraciones electrónicas de los elementos siguen los cupos \(2,\,8,\,18,\,32\dots\) de cada nivel, pero los periodos no siempre coinciden con esos números exactos por la intercalación de los subniveles \(d\) y \(f\). El resultado \(2n^2\) es el ladrillo básico con el que se construye toda la estructura periódica.</div>
+                </div>
+            </div>
+
             <div class="note">
                 <strong>Observaciones sobre el alumnado:</strong> Es recomendable verificar la fórmula con los primeros niveles: K (\(n=1\), 2 e⁻), L (\(n=2\), 8 e⁻), M (\(n=3\), 18 e⁻), N (\(n=4\), 32 e⁻). Esto coincide con las configuraciones de los gases nobles (He, Ne, Ar, Kr) y justifica por qué el periodo \(n\) de la tabla periódica contiene hasta \(2n^2\) elementos, aunque las transiciones d y f complican ligeramente la cuenta en los periodos superiores.
             </div>
@@ -836,5 +879,6 @@
 
 
     </div> <!-- fin container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

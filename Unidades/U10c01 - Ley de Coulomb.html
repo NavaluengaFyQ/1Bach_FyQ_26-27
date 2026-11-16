@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>#T10.01 · Ley de Coulomb</title>
 <!-- MathJax -->
-<!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
-/* ============================================
-   ESTILOS EXISTENTES (no modificados)
-   ============================================ */
 .container {
     max-width: 900px;
     width: 100%;
@@ -147,10 +143,6 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   NUEVOS ESTILOS PARA EL BLOQUE DESPLEGABLE
-   ============================================ */
-/* Contenedor principal del desplegable */
 details.desmitificando {
     margin: 30px 15px 20px 15px;
     border: 2px solid #764ba2;
@@ -159,7 +151,6 @@ details.desmitificando {
     padding: 0.5rem 1rem 1rem 1rem;
     transition: all 0.2s;
 }
-/* Ocultar el triángulo nativo del navegador */
 details.desmitificando summary {
     list-style: none;
     cursor: pointer;
@@ -174,7 +165,6 @@ details.desmitificando summary {
 details.desmitificando summary::-webkit-details-marker {
     display: none;
 }
-/* Icono FontAwesome con animación de rotación */
 details.desmitificando summary i.fa-chevron-circle-down {
     transition: transform 0.3s ease;
     color: #764ba2;
@@ -183,7 +173,6 @@ details.desmitificando summary i.fa-chevron-circle-down {
 details.desmitificando[open] summary i.fa-chevron-circle-down {
     transform: rotate(180deg);
 }
-/* Etiqueta "🖱️ Pulsame" */
 details.desmitificando summary .pulsame {
     font-size: 0.8rem;
     color: #6b46c1;
@@ -194,14 +183,12 @@ details.desmitificando summary .pulsame {
     margin-left: auto;
     white-space: nowrap;
 }
-/* Contenido interno */
 details.desmitificando .contenido-ejercicios {
     margin-top: 0.5rem;
     border-top: 1px solid #d6bcf0;
     padding-top: 1rem;
 }
 
-/* Tarjetas de ejercicios */
 .ejercicio-card {
     background: white;
     border-radius: 12px;
@@ -289,7 +276,7 @@ details.desmitificando .contenido-ejercicios {
 
     <!-- ===== SECCIONES EXISTENTES ===== -->
     <div class="section enunciado">
-        <h2>📋 Enunciado</h2>
+        <h2>📘 Enunciado</h2>
         <p>Partiendo de la definición de fuerza electrostática como la interacción entre dos cargas puntuales en el vacío, y de las observaciones experimentales de que dicha fuerza es:</p>
         <ul>
             <li>Directamente proporcional al producto de las cargas \( q_1 \) y \( q_2 \)</li>
@@ -300,12 +287,7 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ \vec{F} = K \frac{q_1 \cdot q_2}{r^2} \hat{u}_r \]
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -316,13 +298,23 @@ details.desmitificando .contenido-ejercicios {
 
 <img src="../imagenes/U10c01 - Ley de Coulomb.png" alt="Imagen" width="800">
 <img src="../imagenes/U10c01 - Ley de Coulomb_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
+<!-- Banco Q: medida de la carga elemental -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ034.webp">
+    <img src="../imagenes/webp/ImagenQ034.webp" alt="Experimento de Millikan: medida de la carga de gotas de aceite individuales" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El experimento de Millikan midió la carga de las gotas de aceite individuales, demostrando que la carga eléctrica está cuantizada en múltiplos de la carga elemental \(e\). Conocer el valor de \(q\) con precisión fue imprescindible para que la ley de Coulomb pasase de proporcionalidad a igualdad cuantitativa.</figcaption>
+</figure>
 
-
-
-
-
+<!-- Banco F: relaciones entre vectores -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0017.webp">
+    <img src="../imagenes/webp/ImagenF0017.webp" alt="Relaciones entre dos vectores: paralelos, antiparalelos y ortogonales" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Diversas relaciones entre dos vectores: paralelos, antiparalelos y ortogonales. La fuerza de Coulomb tiene siempre la dirección de la recta que une las dos cargas: el sentido (repulsivo o atractivo) depende del signo del producto \(q_1 q_2\), lo que se traduce en un vector paralelo o antiparalelo al vector unitario \(\hat{u}_r\).</figcaption>
+</figure>
 
         </div>
     </div>
@@ -330,10 +322,27 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Obtener de manera formal la expresión vectorial de la Ley de Coulomb, que constituye el fundamento de toda la electrostática. Esta ley permite cuantificar la interacción entre cargas eléctricas y es indispensable para comprender conceptos posteriores como el campo eléctrico y el potencial. La demostración parte del análisis dimensional y de la simetría del problema.</p>
+
+<!-- Banco Q: combinación de cargas opuestas -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ031.webp">
+    <img src="../imagenes/webp/ImagenQ031.webp" alt="Cobre y oxígeno reaccionan: los átomos se reorganizan para formar un compuesto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Cuando los elementos cobre y oxígeno reaccionan, sus átomos se reorganizan para formar un compuesto estable. La fuerza electrostática entre cargas opuestas es precisamente la que mantiene unidos los iones en un compuesto iónico: la ley de Coulomb es la base microscópica de la química.</figcaption>
+</figure>
+
+<!-- Banco F: diagrama de fuerzas -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0072.webp">
+    <img src="../imagenes/webp/ImagenF0072.webp" alt="Fuerzas sobre el estudiante: silla, mesa, suelo y atracción gravitatoria; diagrama de cuerpo libre" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Las fuerzas que actúan sobre un cuerpo son magnitudes vectoriales y se suman como tales; un diagrama de cuerpo libre permite analizarlas por separado. La fuerza de Coulomb se manipula exactamente con las mismas herramientas vectoriales que cualquier otra fuerza en mecánica newtoniana.</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
-        <h2>🔧 Procedimiento</h2>
+        <h2>🔬 Procedimiento</h2>
         <div class="step">
             <span class="step-num">1</span>
             <strong>Análisis de proporcionalidad.</strong> Experimentalmente se observa que la fuerza \( F \) entre dos cargas puntuales depende de tres magnitudes: las cargas \( q_1 \) y \( q_2 \), y la distancia \( r \). Por tanto, podemos escribir la relación funcional:
@@ -368,6 +377,15 @@ details.desmitificando .contenido-ejercicios {
                 <li>Si \( q_1 \cdot q_2 > 0 \) (mismo signo): fuerza repulsiva, \( \vec{F} \) en sentido de \( \hat{u}_r \)</li>
                 <li>Si \( q_1 \cdot q_2 < 0 \) (signo contrario): fuerza atractiva, \( \vec{F} \) en sentido opuesto a \( \hat{u}_r \)</li>
             </ul>
+
+<!-- Banco Q: signo de la carga -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ054.webp">
+    <img src="../imagenes/webp/ImagenQ054.webp" alt="Átomo de sodio neutro frente a catión de sodio (Na+) con carga positiva" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un átomo de sodio neutro tiene igual número de protones y electrones; al perder un electrón se convierte en un catión Na⁺ con carga neta positiva. El signo de la carga (positivo o negativo) es lo que determina si la fuerza de Coulomb entre dos iones será atractiva o repulsiva.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -379,6 +397,15 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ F = K \frac{|q_1| \cdot |q_2|}{r^2} \]
             </div>
+
+<!-- Banco F: vector en 3D -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0028.webp">
+    <img src="../imagenes/webp/ImagenF0028.webp" alt="Vector en el espacio tridimensional como suma vectorial de sus tres componentes" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un vector en el espacio tridimensional es la suma vectorial de sus tres componentes. La forma vectorial de la ley de Coulomb \(\vec{F} = K\,q_1 q_2\,\hat{u}_r/r^2\) es precisamente eso: una fuerza con módulo, dirección y sentido, expresable en coordenadas cartesianas sumando sus componentes \(F_x\), \(F_y\), \(F_z\).</figcaption>
+</figure>
+
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Es fundamental enfatizar que esta ley solo es válida para <strong>cargas puntuales</strong> o distribuciones esféricas de carga. Para cuerpos de forma arbitraria, la carga debe dividirse en elementos diferenciales e integrar. Además, el principio de acción-reacción implica que \( \vec{F}_{12} = -\vec{F}_{21} \), lo cual es un excelente punto de conexión con la mecánica newtoniana.
@@ -391,10 +418,27 @@ details.desmitificando .contenido-ejercicios {
             \[ \vec{F} = K \frac{q_1 \cdot q_2}{r^2} \hat{u}_r \quad \text{con} \quad K = \frac{1}{4\pi\varepsilon_0} \]
         </div>
         <p>La ley de Coulomb describe la fuerza eléctrica entre dos cargas puntuales. Es una fuerza central que cumple la tercera ley de Newton y es la base de la electrostática.</p>
+
+<!-- Banco Q: patrones de carga iónica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ055.webp">
+    <img src="../imagenes/webp/ImagenQ055.webp" alt="Patrones regulares de carga iónica que forman los elementos de la tabla periódica" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Muchos elementos presentan un patrón regular de carga iónica al formar iones (Na⁺, Mg²⁺, Al³⁺, Cl⁻, O²⁻...). Conocer la carga de cada ion es imprescindible para aplicar la ley de Coulomb a problemas reales de química y física de materiales.</figcaption>
+</figure>
+
+<!-- Banco Q: fuerzas eléctricas en el átomo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ036.webp">
+    <img src="../imagenes/webp/ImagenQ036.webp" alt="Experimento de Geiger y Rutherford: partículas alfa desviadas por una lámina de oro" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Geiger y Rutherford dispararon partículas α contra una lámina de oro: la mayoría pasaban, pero unas pocas se desviaban con ángulos muy grandes. Esa deflexión era la manifestación directa de la fuerza de Coulomb entre la carga positiva del núcleo y las partículas α: la ley de Coulomb funciona a escalas subatómicas.</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
-    <!-- BLOQUE DESPLEGABLE AÑADIDO (TAREA 1)      -->
+    <!-- BLOQUE DESPLEGABLE                       -->
     <!-- ======================================== -->
     <details class="desmitificando">
         <summary>
@@ -450,7 +494,6 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Sustituimos \( |q_1| = |q_2| = 2{,}5\times10^{-6}\,\text{C} \), \( F = 0{,}50\,\text{N} \):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ r = \sqrt{ 8{,}99\times10^9 \cdot \frac{(2{,}5\times10^{-6})^2}{0{,}50} }
-                            = \sqrt{ 8{,}99\times10^9 \cdot \frac{6{,}25\times10^{-12}}{0{,}50} }
                             = \sqrt{ 8{,}99\times10^9 \cdot 1{,}25\times10^{-11} } \]
                         </div>
                         <div class="paso"><strong>Paso 3:</strong> Operamos:</div>
@@ -474,7 +517,7 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 1:</strong> Escribimos la situación inicial: \( F_1 = K \frac{q_1 q_2}{r_1^2} \).</div>
                         <div class="paso"><strong>Paso 2:</strong> Nueva situación: \( q_1' = 2q_1 \), \( q_2' = 2q_2 \), \( r_2 = 3r_1 \). Entonces:</div>
                         <div class="formula-box" style="margin:5px 0;">
-                            \[ F_2 = K \frac{(2q_1)(2q_2)}{(3r_1)^2} = K \frac{4 q_1 q_2}{9 r_1^2} = \frac{4}{9} \left( K \frac{q_1 q_2}{r_1^2} \right) = \frac{4}{9} F_1 \]
+                            \[ F_2 = K \frac{(2q_1)(2q_2)}{(3r_1)^2} = \frac{4}{9} F_1 \]
                         </div>
                         <div class="paso"><strong>Paso 3:</strong> Sustituimos \( F_1 = 2{,}0\,\text{N} \):</div>
                         <div class="formula-box" style="margin:5px 0;">
@@ -503,7 +546,6 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 3:</strong> Calculamos el numerador: \( 0{,}80\times1{,}2 = 0{,}96 \), y \( (10^{-9})^2 = 10^{-18} \), luego \( 0{,}96\times10^{-18} \). El denominador: \( (0{,}50)^2 \times 10^{-6} = 0{,}25\times10^{-6} \).</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ F = 8{,}99\times10^9 \cdot \frac{0{,}96\times10^{-18}}{0{,}25\times10^{-6}} 
-                            = 8{,}99\times10^9 \cdot (3{,}84\times10^{-12}) 
                             \approx 3{,}45\times10^{-2}\,\text{N} \]
                         </div>
                         <div class="paso"><strong>Resultado:</strong> La fuerza de atracción es de aproximadamente \( 3{,}5\times10^{-2}\,\text{N} \), un valor pequeño pero medible.</div>
@@ -523,56 +565,35 @@ details.desmitificando .contenido-ejercicios {
                     <div class="resolucion">
                         <div class="paso"><strong>Paso 1:</strong> Fuerza eléctrica (módulo):</div>
                         <div class="formula-box" style="margin:5px 0;">
-                            \[ F_e = 8{,}99\times10^9 \cdot \frac{(1{,}6\times10^{-19})^2}{(1{,}0\times10^{-9})^2}
-                            = 8{,}99\times10^9 \cdot \frac{2{,}56\times10^{-38}}{1{,}0\times10^{-18}}
-                            = 8{,}99\times10^9 \cdot 2{,}56\times10^{-20}
-                            \approx 2{,}30\times10^{-10}\,\text{N} \]
+                            \[ F_e \approx 2{,}30\times10^{-10}\,\text{N} \]
                         </div>
                         <div class="paso"><strong>Paso 2:</strong> Fuerza gravitatoria:</div>
                         <div class="formula-box" style="margin:5px 0;">
-                            \[ F_g = 6{,}67\times10^{-11} \cdot \frac{(1{,}67\times10^{-27})(9{,}11\times10^{-31})}{(1{,}0\times10^{-9})^2}
-                            = 6{,}67\times10^{-11} \cdot \frac{1{,}52\times10^{-57}}{1{,}0\times10^{-18}}
-                            = 6{,}67\times10^{-11} \cdot 1{,}52\times10^{-39}
-                            \approx 1{,}01\times10^{-49}\,\text{N} \]
+                            \[ F_g \approx 1{,}01\times10^{-49}\,\text{N} \]
                         </div>
-                        <div class="paso"><strong>Paso 3:</strong> Comparación: \( \frac{F_e}{F_g} \approx \frac{2{,}30\times10^{-10}}{1{,}01\times10^{-49}} \approx 2{,}3\times10^{39} \). La fuerza eléctrica es ¡\( 10^{39} \) veces mayor que la gravitatoria!</div>
+                        <div class="paso"><strong>Paso 3:</strong> Comparación: \( \frac{F_e}{F_g} \approx 2{,}3\times10^{39} \). La fuerza eléctrica es ¡\( 10^{39} \) veces mayor que la gravitatoria!</div>
                     </div>
                 </div>
             </div>
 
-            <!-- PIE DE Observaciones claves -->
+            <!-- PIE -->
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> La Ley de Coulomb es formalmente análoga a la ley de gravitación universal de Newton, pero con una diferencia fundamental: la fuerza eléctrica puede ser atractiva o repulsiva según el signo de las cargas. Este hecho da lugar a la riqueza de fenómenos electrostáticos. Además, la constante \( K \) es enorme comparada con \( G \), lo que explica por qué las fuerzas eléctricas dominan a escala atómica y molecular.
             </div>
 
-        </div> <!-- /contenido-ejercicios -->
+        </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -580,36 +601,21 @@ details.desmitificando .contenido-ejercicios {
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

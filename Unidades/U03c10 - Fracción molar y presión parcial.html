@@ -9,6 +9,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -330,7 +331,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -346,12 +346,17 @@
 
 
 
-
-
         </div>
         <div class="photo-figure">
             <img src="../imagenes/webp/ImagenQ355.webp" alt="Mezcla espontánea de muestras de helio y argón para formar una solución gaseosa">
             <div class="figure-caption"><strong>Gases que se mezclan.</strong> Cuando dos gases como el helio y el argón se ponen en contacto, se mezclan espontáneamente y cada uno pasa a ocupar todo el volumen. A partir de ese momento, cada gas ejerce su propia presión parcial, independientemente del otro.</div>
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ277.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Mezcla espontánea de H₂ y O₂">
+                <img src="../imagenes/webp/ImagenQ277.webp" alt="Mezcla de dos gases (H₂ y O₂) que estaban separados por una llave de paso: al abrirla, el gas más ligero difunde más rápidamente y ambos se distribuyen uniformemente en el recipiente" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>La mezcla espontánea de dos gases.</strong> Inicialmente separados, el H₂ y el O₂ se mezclan al abrir la llave de paso hasta distribuirse uniformemente. Aunque sus moléculas difunden a velocidades distintas, al final cada gas ocupa todo el volumen y ejerce su propia presión parcial sobre las paredes, contribuyendo a la presión total.</div>
         </div>
     </div>
 
@@ -383,6 +388,13 @@
                 \[ p_i \cdot V = n_i \cdot R \cdot T \]
             </div>
             <p>Esta es la <strong>presión parcial</strong> del componente \( i \).</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ281.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Efectos de T, V y n sobre la presión de un gas">
+                    <img src="../imagenes/webp/ImagenQ281.webp" alt="Ilustración de los tres efectos sobre un gas: aumento de temperatura, reducción de volumen y aumento de cantidad de gas, que producen en todos los casos un aumento de la presión" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cada gas obedece la ecuación de Clapeyron por separado.</strong> La presión de un gas depende de su temperatura, del volumen disponible y de su cantidad (número de moles). En una mezcla, cada componente sigue esta misma ecuación aplicada a sus propios moles: de ahí surge la presión parcial \(p_i = n_iRT/V\).</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">3</span>
@@ -429,6 +441,13 @@
                 \[ x_i = \frac{p_i}{p_{\text{total}}} = \frac{V_i}{V_{\text{total}}} \]
             </div>
             <p>Donde \( V_i \) es el <strong>volumen parcial</strong> (Ley de Amagat). Para gases ideales, las fracciones molares, de presión y de volumen coinciden.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ268.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Un mol de gas ocupa 22,4 L en condiciones normales">
+                    <img src="../imagenes/webp/ImagenQ268.webp" alt="Un mol de gas ideal, independientemente de su identidad química, ocupa aproximadamente 22,4 L en condiciones estándar (0 °C y 1 atm)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Por qué fracción molar = fracción en volumen.</strong> Un mol de cualquier gas ideal ocupa aproximadamente 22,4 L en condiciones normales. Esto significa que el volumen ocupado por cada componente es proporcional a sus moles, y por tanto la fracción en volumen coincide con la fracción molar. De ahí que, para gases ideales, \(x_i = n_i/n_{\text{total}} = V_i/V_{\text{total}} = p_i/p_{\text{total}}\).</div>
+            </div>
         </div>
     </div>
 
@@ -445,6 +464,22 @@
             \[ x_i = \frac{p_i}{p_{\text{total}}} = \frac{n_i}{n_{\text{total}}} = \frac{V_i}{V_{\text{total}}} \]
         </div>
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La presión parcial de un gas en una mezcla es directamente proporcional a su fracción molar, con la presión total como constante de proporcionalidad.</p>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ285.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Factor de compresibilidad de los gases reales">
+                    <img src="../imagenes/webp/ImagenQ285.webp" alt="Gráfico del factor de compresibilidad Z frente a la presión para distintos gases: si los gases fueran ideales Z sería siempre 1, pero a presiones altas se desvía" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Límite de validez de la Ley de Dalton.</strong> La ley de Dalton es una consecuencia de la idealidad: presupone que las moléculas de gases distintos no interactúan. A altas presiones, los gases reales se desvían del comportamiento ideal (el factor \(Z\) deja de valer 1) y las presiones parciales ya no siguen exactamente esta proporcionalidad.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ286.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Atracciones intermoleculares en un gas real">
+                    <img src="../imagenes/webp/ImagenQ286.webp" alt="Esquema de las atracciones intermoleculares en un gas real: reducen la fuerza de las colisiones con las paredes y por tanto la presión efectiva del gas" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La base molecular de la independencia.</strong> En un gas ideal se supone que las moléculas no se atraen ni se repelen entre sí, por lo que cada gas contribuye a la presión total con independencia de los demás: es el fundamento físico de la Ley de Dalton. En un gas real, las atracciones intermoleculares alteran ligeramente esa independencia, especialmente a alta presión.</div>
+            </div>
+        </div>
+
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong>  La Ley de Dalton es una consecuencia directa de la idealidad de los gases y de la independencia de sus comportamientos. Es fundamental que no se confunda "presión parcial" con "presión total". Un error común es calcular la presión parcial usando el volumen total pero los moles del componente solo (lo cual es correcto) pero olvidando que el gas ocupa todo el volumen. Recomiendo usar el ejemplo del aire (78% N₂, 21% O₂, 1% Ar) para calcular presiones parciales a nivel del mar (p_total = 1 atm → p_N₂ ≈ 0,78 atm). La extensión a la Ley de Amagat (volúmenes parciales) refuerza la simetría del modelo ideal.
         </div>
@@ -561,6 +596,13 @@
                         <img src="../imagenes/webp/ImagenQ271.webp" alt="Recolección de un gas sobre agua en un matraz, donde el gas atrapado es una mezcla del gas producido y vapor de agua">
                         <div class="figure-caption"><strong>Recoger gas sobre agua.</strong> Cuando un gas se recoge sobre agua, el gas atrapado es una mezcla del gas producido y vapor de agua; por eso la presión total es la suma de la presión parcial del gas seco y la presión de vapor del agua, tal como se aplica en este ejercicio.</div>
                     </div>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ272.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Presión de vapor del agua en función de la temperatura">
+                            <img src="../imagenes/webp/ImagenQ272.webp" alt="Gráfico de la presión de vapor del agua a nivel del mar en función de la temperatura: la presión de vapor crece de forma no lineal al aumentar la temperatura" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La presión de vapor del agua importa.</strong> La presión de vapor del agua aumenta con la temperatura (a 20 °C vale unos 0,023 atm, como en el ejercicio, pero a 100 °C iguala la presión atmosférica). Por eso, al recoger gases sobre agua, la presión total que marca el manómetro es la suma del gas seco más ese vapor de agua. Es imprescindible restar la presión de vapor del agua para obtener la presión parcial real del gas que hemos generado.</div>
+                    </div>
                 </div>
             </div>
 
@@ -588,6 +630,12 @@
                             <li>Suma: 0,741 + 0,1995 + 0,0095 = 0,95 atm.</li>
                         </ul>
                     </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ266.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Buceadores respirando aire comprimido">
+                            <img src="../imagenes/webp/ImagenQ266.webp" alt="Buceadores equipados con tanques de aire comprimido, respirando una mezcla gaseosa a alta presión bajo el agua" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>El aire que respiramos es una mezcla, en la superficie y bajo el agua.</strong> El aire es una mezcla de N₂, O₂, Ar, CO₂ y vapor de agua, y cada componente ejerce su propia presión parcial. En las botellas de buceo, la mezcla se comprime a altas presiones: por eso es tan importante calcular correctamente la presión parcial del O₂ (que a alta presión puede ser tóxica) y del N₂ (responsable de la narcosis y de la enfermedad descompresiva). La Ley de Dalton es, literalmente, una cuestión de vida o muerte para los buceadores.</div>
+                    </div>
                 </div>
             </div>
 
@@ -598,7 +646,6 @@
 
         </div>
     </details>
-
 
 
 
@@ -660,5 +707,6 @@
 
 
 </div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.05 - Cifras Significativas</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -341,12 +342,25 @@
 
             <!-- -----FIN-------- -->
 
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ025.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Lectura de una probeta graduada y estimación del último dígito">
+                    <img src="../imagenes/webp/ImagenQ025.webp" alt="Probeta graduada de 21 a 22 mililitros donde se subdivide mentalmente la distancia entre marcas para estimar la décima de mililitro, generando la última cifra significativa" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>«El primer dígito estimado» en acción.</strong> Al leer una probeta graduada, los dígitos hasta la marca más fina se conocen con certeza; la fracción entre dos marcas se estima. Ese dígito estimado es la última cifra significativa de la medida y establece la precisión absoluta de la misma. Las reglas de propagación que vamos a demostrar protegen exactamente esa información: no perderla ni inventarla.</div>
+            </div>
         </div>
         
         <!-- OBJETIVO -->
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Establecer las <strong>reglas de propagación del error</strong> en operaciones aritméticas. Estas reglas garantizan que el resultado final no presente una precisión ficticia (mayor que la de los datos originales) ni pierda información útil innecesariamente. Son fundamentales para el tratamiento correcto de datos experimentales.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ026.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud y precisión ilustradas con dianas">
+                    <img src="../imagenes/webp/ImagenQ026.webp" alt="Tres dianas: flechas agrupadas en el centro (exactas y precisas), agrupadas pero descentradas (precisas pero no exactas) y dispersas (ni exactas ni precisas)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Precisión y exactitud: el marco conceptual.</strong> Las reglas de propagación no miden si acertamos el valor real (exactitud), sino cuánta precisión podemos reclamar en función de los datos de partida. Una cadena de cálculos nunca puede ser más precisa que el eslabón menos preciso: la cifra significativa es la expresión cuantitativa de esta idea.</div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -374,6 +388,13 @@
                     \frac{\Delta (A \cdot B)}{|A \cdot B|} \approx \frac{\Delta A}{|A|} + \frac{\Delta B}{|B|}
                     \]
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0011.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Balanza mecánica frente a balanza digital">
+                        <img src="../imagenes/webp/ImagenF0011.webp" alt="Comparación entre una balanza mecánica de doble plato (resolución de décimas de gramo) y una balanza digital (resolución de milésimas de gramo)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Dos balanzas, dos precisiones distintas.</strong> La balanza mecánica aprecia hasta la décima de gramo; la digital, hasta la milésima. Si multiplicamos una masa medida con la mecánica (por ejemplo, \(2{,}5\,\text{g}\), <span class="cs">2 CS</span>) por un volumen de alta precisión (por ejemplo, \(3{,}42\,\text{cm}^3\), <span class="cs">3 CS</span>), el resultado no puede pretender más de <span class="cs">2 CS</span>: la balanza menos precisa marca el techo de la densidad calculada.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -396,6 +417,13 @@
                     \[
                     \Delta (A + B) = \Delta A + \Delta B
                     \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ024.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Volúmenes de 1 m³, 1 dm³ y 1 cm³ comparados">
+                        <img src="../imagenes/webp/ImagenQ024.webp" alt="Comparación gráfica de volúmenes: un cubo de 1 metro cúbico, uno de 1 decímetro cúbico (1 litro) y uno de 1 centímetro cúbico (1 mililitro)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Sumar magnitudes de escalas muy distintas.</strong> Un volumen medido en metros cúbicos (precisión de, digamos, ±0,01 m³) y otro medido en centímetros cúbicos (precisión de ±0,01 cm³ = ±10⁻⁸ m³) no se pueden sumar honestamente al mismo número de decimales. La incertidumbre absoluta del primero (0,01 m³) absorbe por completo la precisión del segundo: la suma solo puede expresarse con la precisión del término más grosero.</div>
                 </div>
             </div>
             
@@ -431,6 +459,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Es común que se confunda ambas reglas. Recomendar memorizar: <em>"En multiplicación, cuento cifras; en suma, cuento decimales"</em>. Insistir en que estas reglas son <strong>conservadoras</strong>: nunca aumentan la precisión de los datos originales.
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0009.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Definición del metro a partir de la velocidad de la luz">
+                    <img src="../imagenes/webp/ImagenF0009.webp" alt="Esquema de la definición del metro como la distancia recorrida por la luz en el vacío durante 1/299.792.458 de segundo" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El techo teórico de la precisión.</strong> El metro, unidad básica de longitud, está hoy definido a partir de la velocidad de la luz, con nueve cifras significativas garantizadas. Ningún instrumento puede superar esa referencia; las reglas de propagación solo nos aseguran que, partiendo de esa base, nuestro resultado no reclamará más precisión de la que honestamente tenemos.</div>
             </div>
         </div>
 
@@ -694,5 +729,6 @@
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

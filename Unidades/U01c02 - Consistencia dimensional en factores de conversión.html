@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.02 - Factores de Conversión</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -346,6 +347,13 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Demostrar que multiplicar una cantidad por factores de conversión (cada uno igual a la unidad) no altera el <strong>valor numérico</strong> de la magnitud, pero sí transforma sus unidades de forma coherente. Este método evita errores de conversión y permite encadenar múltiples transformaciones en una sola expresión.</p>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0007.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Mapa con escala en unidades desconocidas">
+                    <img src="../imagenes/webp/ImagenF0007.webp" alt="Mapa en el que la escala viene dada en '1 cable', una unidad desconocida, lo que hace imposible interpretar las distancias" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Sin patrón, no hay medida.</strong> Un mapa con escala "1 cable" es inservible: no sabemos cuánto mide un cable en unidades que todos reconozcamos. Los factores de conversión existen precisamente para traducir cualquier unidad a una referencia acordada, manteniendo intacto el valor físico de la magnitud.</div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -361,6 +369,21 @@
                     1\,\text{km} = 10^{3}\,\text{m} \quad \Longrightarrow \quad \frac{1\,\text{km}}{10^{3}\,\text{m}} = 1 \quad \text{y} \quad \frac{10^{3}\,\text{m}}{1\,\text{km}} = 1
                     \]
                 </div>
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ022.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Longitudes relativas de 1 m, 1 yd, 1 cm y 1 in">
+                            <img src="../imagenes/webp/ImagenQ022.webp" alt="Comparación gráfica de las longitudes relativas de 1 metro, 1 yarda, 1 centímetro y 1 pulgada, junto con las equivalencias 2,54 cm = 1 in y 1 m = 1,094 yd" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Equivalencias que son, en sí mismas, factores.</strong> Cada una de estas relaciones —\(2{,}54\,\text{cm} = 1\,\text{in}\), \(1\,\text{m} = 1{,}094\,\text{yd}\)— puede escribirse como fracción y convertirse en un factor de conversión. La igualdad física garantiza que el cociente vale 1.</div>
+                    </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ023.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Prototipo internacional de kilogramo">
+                            <img src="../imagenes/webp/ImagenQ023.webp" alt="Réplica del prototipo internacional de kilogramo conservada en el NIST, patrón histórico de masa del Sistema Internacional" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>El patrón que define el factor.</strong> Un factor de conversión solo es válido porque existe un patrón reconocido con el que se compara. Este prototipo de kilogramo materializó durante décadas la referencia que hacía posibles todas las conversiones de masa, hasta su redefinición a partir de constantes fundamentales.</div>
+                    </div>
+                </div>
             </div>
             
             <div class="step">
@@ -371,6 +394,13 @@
                     \[
                     Q_{\text{origen}} \times \frac{\text{unidad destino}}{\text{unidad origen}} = Q_{\text{destino}}
                     \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ027.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Escalas de temperatura Fahrenheit, Celsius y Kelvin">
+                        <img src="../imagenes/webp/ImagenQ027.webp" alt="Comparación de las escalas de temperatura Fahrenheit, Celsius y Kelvin con sus tamaños relativos" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Una misma temperatura, tres unidades.</strong> Un cuerpo a 300 K está a 26,85 °C, que son 80,33 °F. Cada escala es una manera distinta de escribir la misma magnitud física. Aplicar el factor adecuado nos permite pasar de una a otra sin cambiar lo que el termómetro realmente mide.</div>
                 </div>
             </div>
             
@@ -393,6 +423,13 @@
                     \[
                     90\,\frac{\cancel{\text{cm}}}{\cancel{\text{min}}} \times \frac{1\,\text{km}}{10^{5}\,\cancel{\text{cm}}} \times \frac{1440\,\cancel{\text{min}}}{1\,\cancel{\text{día}}} \times \frac{7\,\cancel{\text{días}}}{1\,\text{semana}}
                     \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ024.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Volúmenes relativos de 1 m³, 1 dm³ (1 L) y 1 cm³ (1 mL)">
+                        <img src="../imagenes/webp/ImagenQ024.webp" alt="Comparación de volúmenes de cubos de 1 metro cúbico, 1 decímetro cúbico (1 litro) y 1 centímetro cúbico (1 mililitro)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Cadena de conversiones de volumen.</strong> \(1\,\text{m}^3 = 10^3\,\text{dm}^3 = 10^3\,\text{L}\) y \(1\,\text{cm}^3 = 1\,\text{mL}\). Cada salto introduce un factor de \(10^3\) o \(10^{-3}\). Al encadenarlos, el exponente se va ajustando automáticamente y la cancelación de unidades garantiza el resultado final.</div>
                 </div>
             </div>
             
@@ -431,6 +468,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Es clave tener claro que el factor de conversión debe colocarse de forma que la unidad que se quiere eliminar quede en el denominador (si la que se quiere eliminar originalmente está en el numerador, y viceversa). Recomendar escribir siempre las unidades durante el cálculo; si la unidad final no es la deseada, se sabrá que ha invertido algún factor.</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0009.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: El metro definido a partir de la velocidad de la luz">
+                    <img src="../imagenes/webp/ImagenF0009.webp" alt="Esquema de la definición del metro como la distancia recorrida por la luz en el vacío durante 1/299.792.458 de segundo" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El patrón definitivo: la luz.</strong> El metro ya no se materializa en una barra física, sino como la distancia que recorre la luz en \(1/299\,792\,458\) de segundo. Cualquier factor que relacione metros con otras unidades se apoya, en última instancia, en una constante universal: por eso la consistencia dimensional es absoluta.</div>
+            </div>
         </div>
 
         <!-- ======================================================== -->
@@ -712,5 +756,6 @@
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

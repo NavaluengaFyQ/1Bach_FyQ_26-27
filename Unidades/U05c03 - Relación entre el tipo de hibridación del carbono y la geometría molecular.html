@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#T05.04 - Demostración: Hibridación del carbono y geometría molecular</title>
+    <title>#T05.03 - Demostración: Fórmula general de cicloalcanos y alquenos</title>
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -134,29 +135,25 @@
         }
         p { line-height: 1.7; margin-bottom: 10px; }
         ul { margin-left: 20px; line-height: 1.7; }
-        .geometry-table {
-            width: 100%;
-            border-collapse: collapse;
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
             margin: 16px 0;
-            background: #ffffff;
+        }
+        .comparison-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .geometry-table th {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 14px 16px;
+            padding: 16px;
             text-align: center;
-            font-weight: 600;
         }
-        .geometry-table td {
-            padding: 14px 16px;
-            text-align: center;
-            border-bottom: 1px solid #e2e8f0;
+        .comparison-box .title {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.95em;
         }
-        .geometry-table tr:last-child td { border-bottom: none; }
-        .geometry-table tr:nth-child(even) { background: #f7fafc; }
 
         /* ============================================
            ESTILOS PARA EL BLOQUE DESPLEGABLE
@@ -264,10 +261,9 @@
             .header { flex-direction: column; align-items: flex-start; }
             .header-right { align-self: flex-end; }
             .section { padding: 18px; margin: 10px; }
+            .comparison { grid-template-columns: 1fr; }
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
-            .geometry-table { font-size: 0.85em; }
-            .geometry-table th, .geometry-table td { padding: 10px 8px; }
         }
 
         /* =========================================================
@@ -307,8 +303,8 @@
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
                 <img src="../img_comunes/Cápsula.png" width="40" height="auto">
-                <span class="codigo">#T05.03.- </span>
-                <span class="texto">Demostración: Hibridación del carbono y geometría molecular</span>
+                <span class="codigo">#T05.02.- </span>
+                <span class="texto">Demostración: Fórmula general de cicloalcanos y alquenos</span>
             </div>
         </div>
         <div class="header-right">
@@ -319,50 +315,49 @@
     <!-- ENUNCIADO -->
     <div class="section enunciado">
         <h2>📘 Enunciado</h2>
-        <p>Partiendo de la configuración electrónica del carbono (\( 1s^2\,2s^2\,2p^2 \)) y del concepto de hibridación de orbitales atómicos, demostrar que el tipo de hibridación del carbono determina la geometría molecular y los ángulos de enlace en los compuestos orgánicos, estableciendo la siguiente correspondencia:</p>
+        <p>Partiendo de la fórmula general de los alcanos acíclicos \( C_nH_{2n+2} \) y considerando que tanto los cicloalcanos como los alquenos acíclicos presentan un grado de insaturación adicional respecto al alcano de referencia, demostrar que la fórmula general compartida por ambas familias es:</p>
         <div class="formula-box">
-            \( sp^3 \rightarrow \text{tetraédrica} \rightarrow 109{,}5^\circ \)
-            <br>
-            \( sp^2 \rightarrow \text{trigonal plana} \rightarrow 120^\circ \)
-            <br>
-            \( sp \rightarrow \text{lineal} \rightarrow 180^\circ \)
+            \( C_nH_{2n} \)
         </div>
+ 
+        <!-- Insertando imagen -->
+        <style>
+          img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+          }
+        </style>
+
+        
+        <img src="../imagenes/U05c02 - Deducción de la fórmula general de los cicloalcanos y alquenos acíclicos_2.png" alt="Imagen" width="800">
+        <!-- -----FIN-------- -->
 
 
-
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-<img src="../imagenes/U05c03 - Relación entre el tipo de hibridación del carbono y la geometría molecular.png" alt="Imagen" width="800">
-<img src="../imagenes/U05c03 - Relación entre el tipo de hibridación del carbono y la geometría molecular_2.png" alt="Imagen" width="800">
-
-<!-- -----FIN-------- -->
-
-
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ600.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Los dos isómeros del butano">
+                <img src="../imagenes/webp/ImagenQ600.webp" alt="Estructuras de Lewis del n-butano (cadena lineal) y del 2-metilpropano o isobutano (cadena ramificada): ambos tienen la misma fórmula molecular C₄H₁₀" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>El punto de partida: los alcanos saturados.</strong> El n-butano y el isobutano son ambos alcanos acíclicos saturados (C₄H₁₀), cumplan o no la fórmula \(C_nH_{2n+2}\) con la misma cantidad de carbonos. A partir de esta fórmula de referencia, cualquier pérdida de dos hidrógenos (por formar un ciclo o un doble enlace) nos llevará a la fórmula general \(C_nH_{2n}\) que vamos a demostrar en esta página.</div>
+        </div>
 
     </div>
 
     <!-- OBJETIVO -->
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
-        <p>Justificar geométricamente por qué las cadenas de alcanos presentan forma de zigzag, por qué los alquenos son planos, y por qué los alquinos son lineales. Esta comprensión es esencial para:</p>
+        <p>Comprender por qué dos familias químicas tan diferentes como los cicloalcanos (anillos saturados) y los alquenos (cadenas con doble enlace) comparten la misma fórmula general. Esto ilustra el concepto de <strong>isomería de función</strong> y establece las bases para el cálculo del grado de insaturación. La demostración permite:</p>
         <ul>
-            <li>Predecir la forma tridimensional de cualquier molécula orgánica.</li>
-            <li>Comprender la imposibilidad de rotación alrededor de un doble enlace (base de la isomería cis-trans).</li>
-            <li>Entender la formación de los orbitales \( \sigma \) y \( \pi \) en los enlaces múltiples.</li>
+            <li>Relacionar la pérdida de dos átomos de hidrógeno con la formación de un anillo o un doble enlace.</li>
+            <li>Entender que cada grado de insaturación reduce en 2 el número de hidrógenos respecto al alcano de referencia.</li>
+            <li>Predecir la fórmula de compuestos con múltiples insaturaciones.</li>
         </ul>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ046.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: El benceno, un compuesto aromático">
+                <img src="../imagenes/webp/ImagenQ046.webp" alt="El benceno (C₆H₆) representado como fórmula estructural, modelo de barras y esferas y modelo de espacio lleno, junto a una fotografía del líquido transparente" loading="lazy" decoding="async">
+                <div class="figure-caption"><strong>Hasta dónde puede llegar la insaturación.</strong> El benceno (C₆H₆) contiene seis carbonos, pero tiene solo seis hidrógenos: frente a los 14 que predeciría \(C_nH_{2n+2}\), ha perdido 8 hidrógenos, equivalentes a 4 grados de insaturación (tres dobles enlaces más un anillo). Compararlo con los cicloalcanos y alquenos ayuda a ver la fórmula \(C_nH_{2n}\) como el primer escalón de una serie de insaturaciones crecientes.</div>
+        </div>
     </div>
 
     <!-- PROCEDIMIENTO -->
@@ -371,105 +366,82 @@
 
         <div class="step">
             <span class="step-num">1</span>
-            <strong>Configuración base del carbono.</strong> El carbono tiene 4 electrones de valencia (\( 2s^2\,2p^2 \)). Para formar 4 enlaces, promueve un electrón del orbital \( 2s \) al orbital \( 2p \) vacío, obteniendo \( 2s^1\,2p^3 \). Los orbitales híbridos se forman por combinación lineal de orbitales atómicos.
+            <strong>Partir del alcano de referencia.</strong> Para una cadena de \( n \) carbonos, el alcano acíclico saturado tiene fórmula:
+            <div class="formula-box">
+                \( C_nH_{2n+2} \)
+            </div>
         </div>
 
         <div class="step">
             <span class="step-num">2</span>
-            <strong>Hibridación \( sp^3 \) (4 orbitales híbridos):</strong>
-            <ul>
-                <li>Se combinan 1 orbital \( s \) y 3 orbitales \( p \).</li>
-                <li>Se generan 4 orbitales híbridos equivalentes dirigidos hacia los vértices de un tetraedro regular.</li>
-                <li>La repulsión electrónica mínima se alcanza con ángulos de \( 109{,}5^\circ \).</li>
-                <li><strong>Ejemplo:</strong> Metano (\( CH_4 \)), etano (\( C_2H_6 \)). Todos los alcanos saturados.</li>
-            </ul>
-            <div class="formula-box">
-                \( \text{Ángulo } sp^3 = \arccos\left(-\frac{1}{3}\right) \approx 109{,}47^\circ \approx 109{,}5^\circ \)
-            </div>
+            <strong>Caso A: Formación de un cicloalcano.</strong> Al cerrar una cadena lineal para formar un anillo, los dos carbonos terminales que antes tenían 3 hidrógenos cada uno (6 H en total) ahora solo pueden tener 2 hidrógenos cada uno (4 H en total) porque deben unirse entre sí. Se pierden <strong>2 átomos de hidrógeno</strong>.
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ223.webp" alt="Hibridación de un orbital s y tres orbitales p para producir cuatro orbitales sp3 orientados a 109,5°">
-                <div class="figure-caption"><strong>La geometría tetraédrica, construida orbital a orbital.</strong> La combinación de un orbital s y tres orbitales p genera cuatro orbitales híbridos sp³ equivalentes, orientados hacia los vértices de un tetraedro regular con ángulos de 109,5°. Esta disposición minimiza la repulsión entre los pares electrónicos y es la responsable de la forma en zigzag de las cadenas de alcanos.</div>
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ044.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La molécula cíclica de azufre S₈">
+                    <img src="../imagenes/webp/ImagenQ044.webp" alt="Molécula de azufre S₈ representada como fórmula estructural, modelo de barras y esferas y modelo de espacio lleno, formando un anillo de ocho átomos de azufre" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Una idea, dos elementos: los anillos cerrados.</strong> La molécula de azufre S₈ forma un anillo cerrado de ocho átomos. Lo mismo ocurre con los cicloalcanos: al cerrarse el anillo de carbonos, se pierden dos hidrógenos respecto a la cadena abierta, exactamente como ilustra esta estructura cíclica. La fórmula general de los cicloalcanos, \(C_nH_{2n}\), es consecuencia directa de esa pérdida de hidrógenos.</div>
             </div>
         </div>
 
         <div class="step">
             <span class="step-num">3</span>
-            <strong>Hibridación \( sp^2 \) (3 orbitales híbridos + 1 orbital \( p \) puro):</strong>
-            <ul>
-                <li>Se combinan 1 orbital \( s \) y 2 orbitales \( p \).</li>
-                <li>Se generan 3 orbitales híbridos coplanarios dirigidos a los vértices de un triángulo equilátero.</li>
-                <li>El orbital \( p \) restante, no hibridado, forma el enlace \( \pi \) por solapamiento lateral.</li>
-                <li>La repulsión mínima en el plano da ángulos de \( 120^\circ \).</li>
-                <li><strong>Ejemplo:</strong> Eteno (\( C_2H_4 \)), benceno (\( C_6H_6 \)).</li>
-            </ul>
-            <div class="formula-box">
-                \( \text{Ángulo } sp^2 = 120^\circ \)
+            <strong>Caso B: Formación de un alqueno.</strong> Al convertir un enlace sencillo C—C en un doble enlace C=C, cada carbono implicado pierde un hidrógeno (pasa de tener 2 enlaces C—H a tener 1 enlace C—H en ese carbono). En total se pierden <strong>2 átomos de hidrógeno</strong>.
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ603.webp" alt="Modelos moleculares de eteno, propeno y 1-buteno">
+                <div class="figure-caption"><strong>La familia de los alquenos.</strong> Eteno (C₂H₄), propeno (C₃H₆) y 1-buteno (C₄H₈) ilustran cómo la presencia de un doble enlace reduce en dos el número de hidrógenos respecto al alcano correspondiente. Las estructuras ampliadas y los modelos de barras y esferas muestran la geometría planar del doble enlace, característica de estos compuestos insaturados.</div>
             </div>
 
             <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ231.webp" alt="Hibridación sp2 en el eteno con formación de enlaces sigma y pi">
-                <div class="figure-caption"><strong>La planaridad del doble enlace.</strong> En el eteno, cada carbono está hibridado sp²: tres orbitales híbridos forman el esqueleto σ (plano, 120°) y el orbital p no hibridado se solapa lateralmente con el del otro carbono para formar el enlace π. Esa nube electrónica por encima y por debajo del plano impide la rotación libre y da lugar a la isomería cis-trans.</div>
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ604.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Polimerización del etileno">
+                    <img src="../imagenes/webp/ImagenQ604.webp" alt="Esquema de la reacción de polimerización del etileno para formar polietileno, donde se abren los dobles enlaces de las moléculas de eteno y se enlazan entre sí" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El doble enlace como firma reactiva.</strong> En la polimerización del etileno para dar polietileno, los dobles enlaces C=C se abren y las moléculas se enlazan formando cadenas muy largas. Este proceso es una prueba directa de por qué los alquenos son mucho más reactivos que los alcanos: el doble enlace que reduce dos hidrógenos respecto al alcano de referencia es, a la vez, un punto de reactividad química muy alta.</div>
             </div>
         </div>
 
         <div class="step">
             <span class="step-num">4</span>
-            <strong>Hibridación \( sp \) (2 orbitales híbridos + 2 orbitales \( p \) puros):</strong>
-            <ul>
-                <li>Se combinan 1 orbital \( s \) y 1 orbital \( p \).</li>
-                <li>Se generan 2 orbitales híbridos linealmente opuestos.</li>
-                <li>Los 2 orbitales \( p \) restantes forman dos enlaces \( \pi \) perpendiculares entre sí (enlaces \( \pi \) ortogonales).</li>
-                <li>La geometría es lineal con ángulo de \( 180^\circ \).</li>
-                <li><strong>Ejemplo:</strong> Etino (\( C_2H_2 \)), cianuro de hidrógeno (HCN).</li>
-            </ul>
+            <strong>Aplicar la corrección algebraica.</strong> En ambos casos, la fórmula se obtiene restando 2 hidrógenos a la fórmula del alcano:
             <div class="formula-box">
-                \( \text{Ángulo } sp = 180^\circ \)
-            </div>
-
-            <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ234.webp" alt="Enlaces sigma y pi en la molécula de acetileno con hibridación sp">
-                <div class="figure-caption"><strong>La linealidad del triple enlace.</strong> En el acetileno (C₂H₂), los dos carbonos están hibridados sp: sus orbitales híbridos se orientan a 180°, dando una molécula lineal. Los dos orbitales p no hibridados de cada carbono, perpendiculares entre sí, forman dos enlaces π ortogonales. El resultado es un triple enlace rígido y una geometría completamente lineal.</div>
+                \( C_nH_{(2n+2)-2} = C_nH_{2n} \)
             </div>
         </div>
 
         <div class="step">
             <span class="step-num">5</span>
-            <strong>Tabla resumen de correspondencias:</strong>
-            <table class="geometry-table">
-                <tr>
-                    <th>Hibridación</th>
-                    <th>Nº orbitales \( sp \)</th>
-                    <th>Geometría</th>
-                    <th>Ángulo de enlace</th>
-                    <th>Ejemplo típico</th>
-                </tr>
-                <tr>
-                    <td>\( sp^3 \)</td>
-                    <td>4</td>
-                    <td>Tetraédrica</td>
-                    <td>\( 109{,}5^\circ \)</td>
-                    <td>Metano</td>
-                </tr>
-                <tr>
-                    <td>\( sp^2 \)</td>
-                    <td>3</td>
-                    <td>Trigonal plana</td>
-                    <td>\( 120^\circ \)</td>
-                    <td>Eteno</td>
-                </tr>
-                <tr>
-                    <td>\( sp \)</td>
-                    <td>2</td>
-                    <td>Lineal</td>
-                    <td>\( 180^\circ \)</td>
-                    <td>Etino</td>
-                </tr>
-            </table>
+            <strong>Verificación con ejemplos:</strong>
+            <div class="comparison">
+                <div class="comparison-box">
+                    <div class="title">Cicloalcanos</div>
+                    <p>Ciclopropano: \( C_3H_6 \)</p>
+                    <p>Ciclobutano: \( C_4H_8 \)</p>
+                    <p>Ciclohexano: \( C_6H_{12} \)</p>
+                </div>
+                <div class="comparison-box">
+                    <div class="title">Alquenos</div>
+                    <p>Eteno: \( C_2H_4 \)</p>
+                    <p>Prop-1-eno: \( C_3H_6 \)</p>
+                    <p>But-2-eno: \( C_4H_8 \)</p>
+                </div>
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ606.webp" alt="Isómeros estructurales y geométricos del buteno">
+                <div class="figure-caption"><strong>Isomería en alquenos.</strong> El buteno (C₄H₈) presenta isómeros estructurales (1-buteno y 2-buteno) y geométricos (cis-2-buteno y trans-2-buteno). Todos comparten la misma fórmula molecular, lo que demuestra que la fórmula general CₙH₂ₙ no implica una única estructura, sino una familia de compuestos con propiedades distintas.</div>
+            </div>
         </div>
 
         <div class="note">
-            <strong>Observaciones sobre el alumnado:</strong> Es crucial que los estudiantes comprendan que la hibridación no es un proceso real que ocurre en la molécula, sino un <em>modelo teórico</em> que permite explicar la geometría observada experimentalmente. La imposibilidad de rotación libre en los alquenos (por la ruptura del enlace \( \pi \)) y la forma zigzag de los alcanos (por los ángulos tetraédricos) son consecuencias directas de este modelo. Se recomienda utilizar modelos moleculares de bolas y varillas para reforzar la comprensión espacial.
+            <strong>Observaciones sobre el alumnado:</strong> Esta coincidencia de fórmulas generales entre cicloalcanos y alquenos es el fundamento de la isomería de función. Es recomendable enfatizar que, aunque compartan fórmula, sus propiedades químicas difieren radicalmente (los alquenos son mucho más reactivos por el doble enlace). Esta demostración también prepara el terreno para generalizar: cada grado de insaturación (anillo o \( \pi \)) resta 2 H al alcano de referencia.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ607.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La fórmula condensada del benceno">
+                    <img src="../imagenes/webp/ImagenQ607.webp" alt="Fórmula condensada del benceno que muestra su estructura de enlaces C-C alternados" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cuando la fórmula engaña.</strong> La fórmula condensada del benceno (C₆H₆) muestra una estructura en la que alternan enlaces sencillos y dobles. Aplicando el criterio de insaturación, el benceno tiene \( \text{IHD} = (2\cdot6+2-6)/2 = 4 \) grados, la suma de tres dobles enlaces y un anillo. Comparar esta situación con los alquenos y cicloalcanos ayuda a comprender por qué la fórmula \(C_nH_{2n}\) corresponde exactamente a un grado de insaturación.</div>
+            </div>
         </div>
     </div>
 
@@ -477,26 +449,37 @@
     <div class="section resultado">
         <h2>✅ Resultado</h2>
         <div class="formula-box">
-            <strong>Resumen de la demostración</strong>
-            <p style="text-align: left; font-size: 0.95em; margin: 10px 0 0 0;">
-                <strong>\( sp^3 \):</strong> 4 enlaces \( \sigma \) &nbsp;&rarr;&nbsp; Tetraédrica &nbsp;&rarr;&nbsp; \( \boxed{109{,}5^\circ} \)<br><br>
-                <strong>\( sp^2 \):</strong> 3 enlaces \( \sigma \) + 1 enlace \( \pi \) &nbsp;&rarr;&nbsp; Trigonal plana &nbsp;&rarr;&nbsp; \( \boxed{120^\circ} \)<br><br>
-                <strong>\( sp \):</strong> 2 enlaces \( \sigma \) + 2 enlaces \( \pi \) &nbsp;&rarr;&nbsp; Lineal &nbsp;&rarr;&nbsp; \( \boxed{180^\circ} \)
-            </p>
+            <strong>Fórmula general de cicloalcanos y alquenos acíclicos</strong><br>
+            \( \boxed{C_nH_{2n}} \)
         </div>
-        <p>La demostración realizada mediante el análisis de la combinación de orbitales atómicos y la teoría de repulsión de pares electrónicos (TRPECV) confirma la correspondencia entre el tipo de hibridación y la geometría molecular. Esta relación es fundamental para comprender la estructura tridimensional de los compuestos orgánicos y sus propiedades físicas y químicas.</p>
+        <p>La demostración realizada mediante el análisis de la pérdida de hidrógenos al formar un anillo (cicloalcano) o un doble enlace (alqueno) confirma que ambas familias presentan la misma fórmula general \( C_nH_{2n} \). Esta relación se cumple para todos los cicloalcanos y alquenos de cadena abierta con un solo grado de insaturación.</p>
         <div style="background: #e6fffa; border-radius: 8px; padding: 10px; margin-top: 12px; border-left: 4px solid #319795;">
-            <p style="margin: 0;"><strong>📌 Conclusión:</strong> La hibridación del carbono es un modelo predictivo que permite establecer la geometría molecular, los ángulos de enlace y la disposición espacial de los átomos en las moléculas orgánicas, siendo la base para entender la isomería y la reactividad química.</p>
+            <p style="margin: 0;"><strong>📌 Conclusión:</strong> La fórmula \( C_nH_{2n} \) es característica de compuestos con un grado de insaturación, ya sea un anillo o un enlace múltiple, y constituye la base para el cálculo del índice de deficiencia de hidrógeno (IHD).</p>
+        </div>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ610.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La glucosa como azúcar de seis carbonos">
+                    <img src="../imagenes/webp/ImagenQ610.webp" alt="Estructura molecular de la glucosa, un azúcar de seis carbonos que no sigue la fórmula de un hidrocarburo sencillo pero que presenta también anillos en su estructura cíclica" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Más allá de los hidrocarburos: la glucosa y sus anillos.</strong> Muchos azúcares, como la glucosa, contienen anillos en su forma cíclica. Aunque ya no son hidrocarburos puros (porque incluyen oxígeno), su estructura cíclica recuerda al caso de los cicloalcanos: el cierre del anillo es un tipo de insaturación que reduce el número de hidrógenos respecto a la cadena abierta equivalente.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ609.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Fructosa y lactosa">
+                    <img src="../imagenes/webp/ImagenQ609.webp" alt="Estructuras moleculares de la fructosa y de la lactosa, mostrando cómo los azúcares pueden presentar estructuras cíclicas o abiertas según el contexto" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Anillos y cadenas en la química de la vida.</strong> La fructosa y la lactosa ejemplifican cómo las moléculas orgánicas pueden pasar de cadenas abiertas a anillos, un cambio que afecta al número de hidrógenos disponibles. El mismo razonamiento que se aplica a cicloalcanos y alquenos permite entender la diversidad estructural de los azúcares.</div>
+            </div>
         </div>
     </div>
 
     <!-- ==================================================
          BLOQUE DESPLEGABLE: EJERCICIOS TIPO RESUELTOS
          ================================================== -->
-    <details id="ejerciciosDesplegable">
+    <details>
         <summary>
             <i class="fas fa-chevron-circle-down"></i>
-            <span>🧪 DESMITIFICANDO Demostración: Hibridación del carbono y geometría molecular</span>
+            <span>🧪 DESMITIFICANDO Demostración: Fórmula general de cicloalcanos y alquenos</span>
             <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
                 <i class="fas fa-hand-pointer"></i> Pulsame
             </span>
@@ -507,20 +490,20 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 1</span>
-                    Identificación de hibridación en una molécula sencilla
+                    Identificación y nomenclatura
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Indica el tipo de hibridación de cada átomo de carbono en el <strong>propan-1-ol</strong> (\( CH_3-CH_2-CH_2OH \)) y determina los ángulos de enlace aproximados alrededor de cada carbono.
+                        <strong>Enunciado:</strong> Un compuesto orgánico tiene fórmula molecular \( C_7H_{14} \). Sabiendo que es acíclico, ¿de qué familia puede ser? Nombra el compuesto correspondiente a la cadena lineal.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. El propan-1-ol tiene 3 carbonos: C1 (\( CH_3 \)), C2 (\( CH_2 \)) y C3 (\( CH_2OH \)).</div>
-                        <div class="paso">2. Todos los carbonos forman exclusivamente <strong>enlaces sencillos</strong> (C—C y C—H, C—O). No hay enlaces múltiples.</div>
-                        <div class="paso">3. Por tanto, los tres carbonos presentan <strong>hibridación \( sp^3 \).</strong></div>
-                        <div class="paso">4. La geometría alrededor de cada carbono es <strong>tetraédrica</strong>, con ángulos de enlace aproximados de <strong>\( 109{,}5^\circ \).</strong></div>
+                        <div class="paso">1. Comprobamos si cumple la fórmula de alcano: para \( n=7 \), el alcano sería \( C_7H_{16} \).</div>
+                        <div class="paso">2. Tiene 14 H en lugar de 16, es decir, faltan 2 H → un grado de insaturación.</div>
+                        <div class="paso">3. Como es acíclico, el único grado posible es un doble enlace → se trata de un <strong>alqueno</strong>.</div>
+                        <div class="paso">4. La cadena lineal de 7 carbonos con un doble enlace se nombra como <strong>hept-1-eno</strong> (o hept-2-eno, etc. según la posición). El más sencillo es hept-1-eno.</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ Todos los carbonos son \( sp^3 \). Ángulos: \( 109{,}5^\circ \).
+                            ✅ Es un alqueno. Ejemplo: hept-1-eno (\( C_7H_{14} \)).
                         </div>
                     </div>
                 </div>
@@ -530,20 +513,20 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 2</span>
-                    Hibridación mixta en un compuesto insaturado
+                    Comparación entre alcano, cicloalcano y alqueno
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Determina la hibridación de cada carbono en el <strong>but-1-en-3-ino</strong> (\( CH_2=CH-C\equiv CH \)) y predice su geometría global.
+                        <strong>Enunciado:</strong> Para \( n=5 \), escribe las fórmulas moleculares del alcano acíclico, del cicloalcano y del alqueno acíclico. ¿Qué relación observas?
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. Numeramos los carbonos: C1 (\( CH_2= \)), C2 (\( =CH- \)), C3 (\( -C\equiv \)), C4 (\( \equiv CH \)).</div>
-                        <div class="paso">2. C1 y C2 están unidos por un doble enlace → hibridación \( sp^2 \). Geometría <strong>trigonal plana</strong> (\( 120^\circ \)).</div>
-                        <div class="paso">3. C3 y C4 están unidos por un triple enlace → hibridación \( sp \). Geometría <strong>lineal</strong> (\( 180^\circ \)).</div>
-                        <div class="paso">4. La molécula presenta una zona plana (los dos \( sp^2 \)) y una zona lineal (los dos \( sp \)).</div>
+                        <div class="paso">1. Alcano: \( C_5H_{2\cdot5+2} = C_5H_{12} \) (pentano).</div>
+                        <div class="paso">2. Cicloalcano: \( C_5H_{2\cdot5} = C_5H_{10} \) (ciclopentano).</div>
+                        <div class="paso">3. Alqueno: \( C_5H_{2\cdot5} = C_5H_{10} \) (pent-1-eno, por ejemplo).</div>
+                        <div class="paso">4. Observamos que cicloalcano y alqueno tienen la misma fórmula, pero son compuestos distintos (isómeros de función).</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ C1, C2: \( sp^2 \) (plana, \( 120^\circ \)). C3, C4: \( sp \) (lineal, \( 180^\circ \)).
+                            ✅ \( C_5H_{12} \) (alcano), \( C_5H_{10} \) (cicloalcano y alqueno). Comparten fórmula entre ellos.
                         </div>
                     </div>
                 </div>
@@ -553,20 +536,20 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 3</span>
-                    Imposibilidad de rotación (isomería cis-trans)
+                    Determinación de \( n \) a partir de la masa molar (cicloalcano)
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Explica, utilizando el concepto de hibridación, por qué el <strong>but-2-eno</strong> (\( CH_3-CH=CH-CH_3 \)) presenta isomería cis-trans, mientras que el <strong>butano</strong> no.
+                        <strong>Enunciado:</strong> Un cicloalcano tiene una masa molar de \( 70 \, \text{g/mol} \). Determina su fórmula molecular y su nombre (anillo sencillo).
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. En el but-2-eno, los carbonos del doble enlace son \( sp^2 \). El enlace \( \pi \) se forma por solapamiento lateral de orbitales \( p \) puros.</div>
-                        <div class="paso">2. Para rotar alrededor del enlace C=C, el enlace \( \pi \) debe romperse, lo que requiere mucha energía. Por tanto, la molécula es <strong>rígida y plana</strong>.</div>
-                        <div class="paso">3. Esto permite que los sustituyentes (los grupos \( CH_3 \)) se sitúen del mismo lado (<em>cis</em>) o en lados opuestos (<em>trans</em>), dando lugar a isómeros.</div>
-                        <div class="paso">4. En el butano, todos los carbonos son \( sp^3 \). Solo hay enlaces \( \sigma \) sencillos, que permiten la rotación libre, por lo que no hay isomería cis-trans.</div>
+                        <div class="paso">1. La masa molar de un cicloalcano es \( M = 12n + 1\cdot(2n) = 14n \) (en g/mol).</div>
+                        <div class="paso">2. Igualamos: \( 14n = 70 \) → \( n = 5 \).</div>
+                        <div class="paso">3. Fórmula molecular: \( C_5H_{10} \).</div>
+                        <div class="paso">4. El cicloalcano con 5 carbonos en el anillo es <strong>ciclopentano</strong>.</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ La rigidez del enlace \( C=C \) (por el enlace \( \pi \)) impide la rotación y da lugar a la isomería geométrica.
+                            ✅ \( C_5H_{10} \) → ciclopentano.
                         </div>
                     </div>
                 </div>
@@ -576,19 +559,20 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 4</span>
-                    Conteo de enlaces \( \sigma \) y \( \pi \)
+                    Grado de insaturación y fórmulas alternativas
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Calcula el número de enlaces \( \sigma \) y \( \pi \) presentes en las moléculas de <strong>etano</strong>, <strong>eteno</strong> y <strong>etino</strong>. Relaciona el resultado con el tipo de hibridación de cada carbono.
+                        <strong>Enunciado:</strong> Un compuesto tiene fórmula \( C_6H_{10} \). ¿Cuántos grados de insaturación posee? ¿Podría ser un cicloalqueno? Justifica.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. <strong>Etano (\( C_2H_6 \)):</strong> solo enlaces sencillos. \( sp^3 \). Enlaces: 1 C—C + 6 C—H = 7 enlaces \( \sigma \), 0 enlaces \( \pi \).</div>
-                        <div class="paso">2. <strong>Eteno (\( C_2H_4 \)):</strong> doble enlace C=C. \( sp^2 \). Enlaces: 1 C—C (\( \sigma \)) + 1 C—C (\( \pi \)) + 4 C—H (\( \sigma \)) = 5 enlaces \( \sigma \), 1 enlace \( \pi \).</div>
-                        <div class="paso">3. <strong>Etino (\( C_2H_2 \)):</strong> triple enlace C≡C. \( sp \). Enlaces: 1 C—C (\( \sigma \)) + 2 C—C (\( \pi \)) + 2 C—H (\( \sigma \)) = 3 enlaces \( \sigma \), 2 enlaces \( \pi \).</div>
+                        <div class="paso">1. El alcano de referencia con 6 carbonos sería \( C_6H_{14} \).</div>
+                        <div class="paso">2. La diferencia de H es \( 14 - 10 = 4 \) → cada grado de insaturación resta 2 H → \( 4/2 = 2 \) grados de insaturación.</div>
+                        <div class="paso">3. Un cicloalqueno tiene un anillo (1 grado) y un doble enlace (otro grado), total 2 grados. Eso encaja.</div>
+                        <div class="paso">4. Por tanto, sí podría ser un cicloalqueno, por ejemplo ciclohexeno (\( C_6H_{10} \)).</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ Etano: 7σ, 0π. Eteno: 5σ, 1π. Etino: 3σ, 2π. Coincide con el aumento de orbitales \( p \) no hibridados.
+                            ✅ Tiene 2 grados de insaturación; podría ser cicloalqueno (ej. ciclohexeno).
                         </div>
                     </div>
                 </div>
@@ -598,54 +582,45 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 5</span>
-                    Forma de las cadenas (zigzag vs. plana)
+                    Combustión de un alqueno (contexto real)
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> El ácido oleico (un ácido graso insaturado) tiene un doble enlace en su cadena. Explica por qué su cadena presenta un "quiebro" (kink) en lugar de la forma de zigzag típica de los ácidos grasos saturados.
+                        <strong>Enunciado:</strong> Se queman completamente \( 1{,}2 \, \text{mol} \) de but-1-eno (\( C_4H_8 \)). Calcula los moles de \( CO_2 \) y \( H_2O \) producidos.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. En los ácidos grasos saturados, todos los carbonos son \( sp^3 \), con ángulos de \( 109{,}5^\circ \), lo que produce una <strong>estructura en zigzag</strong> en el espacio.</div>
-                        <div class="paso">2. En el ácido oleico, los dos carbonos del doble enlace son \( sp^2 \), con un ángulo de \( 120^\circ \).</div>
-                        <div class="paso">3. La geometría \( sp^2 \) es plana y fuerza un cambio brusco en la dirección de la cadena, creando un <strong>quiebro</strong> (kink) de aproximadamente \( 60^\circ \) con respecto a la dirección del zigzag.</div>
-                        <div class="paso">4. Este quiebro impide que las moléculas se empaqueten tan estrechamente como en las saturadas, por lo que los aceites insaturados son líquidos a temperatura ambiente.</div>
-                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ El \( sp^2 \) (plano, \( 120^\circ \)) introduce un quiebro en la cadena, alterando el zigzag \( sp^3 \) habitual.
+                        <div class="paso">1. Ecuación de combustión ajustada para el but-1-eno:<br>
+                            \( C_4H_8 + 6\,O_2 \rightarrow 4\,CO_2 + 4\,H_2O \).<br>
+                            (Por cada mol de alqueno se producen 4 mol de \( CO_2 \) y 4 mol de \( H_2O \)).
                         </div>
+                        <div class="paso">2. Para \( 1{,}2 \, \text{mol} \) de but-1-eno:<br>
+                            \( CO_2 = 1{,}2 \times 4 = 4{,}8 \, \text{mol} \)<br>
+                            \( H_2O = 1{,}2 \times 4 = 4{,}8 \, \text{mol} \).
+                        </div>
+                        <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
+                            ✅ Se producen \( 4{,}8 \, \text{mol} \) de \( CO_2 \) y \( 4{,}8 \, \text{mol} \) de \( H_2O \).
+                        </div>
+                    </div>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ605.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Códigos de reciclaje de plásticos">
+                            <img src="../imagenes/webp/ImagenQ605.webp" alt="Códigos impresos en distintos tipos de plásticos reciclables, identificados con números del 1 al 7" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Alquenos en la vida diaria: los plásticos.</strong> Muchos plásticos reciclables se fabrican a partir de alquenos como el etileno o el propileno, que se polimerizan para dar polietileno o polipropileno. Los códigos impresos en los envases identifican el tipo de polímero. Detrás de cada uno hay una cadena de reacciones cuyo punto de partida es la fórmula \(C_nH_{2n}\) que hemos estudiado.</div>
                     </div>
                 </div>
             </div>
 
             <!-- PIE DIDÁCTICO -->
             <div class="pie-didactico">
-                <strong>🧠 Observaciones claves:</strong> La hibridación no es una realidad física, sino un <em>modelo matemático</em> que nos permite predecir la geometría observada. Entender que \( sp^3 \) da tetraedros (zigzag), \( sp^2 \) da planitud (imposibilidad de rotación y quiebros) y \( sp \) da linealidad es fundamental para explicar propiedades macroscópicas como puntos de fusión, solubilidad o reactividad, así como la existencia de isómeros geométricos.
+                <strong>💡 Observaciones claves:</strong> La fórmula \( C_nH_{2n} \) es el resultado de aplicar una única insaturación (un doble enlace o un anillo) a la fórmula del alcano. Este razonamiento es la base del <em>índice de deficiencia de hidrógeno (IHD)</em>, que permite determinar la estructura de compuestos orgánicos a partir de su fórmula molecular. Comparar las fórmulas de alcano, alqueno y cicloalcano ayuda a visualizar cómo los enlaces múltiples y los anillos afectan a la composición elemental.
             </div>
 
         </div><!-- fin details-content -->
     </details>
 
-</div><!-- fin container -->
-
-<script>
-    // Forzar la re-renderización de MathJax cuando se abre el desplegable
-    document.addEventListener('DOMContentLoaded', function() {
-        const details = document.getElementById('ejerciciosDesplegable');
-        if (details) {
-            details.addEventListener('toggle', function() {
-                if (this.open && window.MathJax && window.MathJax.typesetPromise) {
-                    MathJax.typesetPromise();
-                }
-            });
-        }
-    });
-
-
-
-
-
-
-<!-- ============================================
+    <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
 
@@ -672,7 +647,7 @@
 
         <div style="text-align:center;">
             <a
-                href="https://clasesinstitutofyq-netizen.github.io/1Bach/"
+                href="../index.html"
                 target="_blank"
                 style="
                     display:inline-block;
@@ -692,14 +667,7 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-</script>
+</div><!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

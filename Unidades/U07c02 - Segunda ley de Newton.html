@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.02.- </span>
                 <span class="texto">Segunda Ley de Newton</span>
             </div>
@@ -309,7 +341,7 @@
           }
         </style>
 
-        
+
         <img src="../imagenes/U07c02 - Segunda ley de Newton_2.png" alt="Imagen" width="800">
         <!-- -----FIN-------- -->
 
@@ -363,6 +395,13 @@
             <div class="formula-box">
                 \[ a = \frac{F}{m} \quad ; \quad \text{si } F = \text{cte} \Rightarrow a \propto \frac{1}{m} \]
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0076.webp">
+                    <img src="../imagenes/webp/ImagenF0076.webp" alt="Diferentes fuerzas ejercidas sobre una misma masa producen diferentes aceleraciones: dos estudiantes empujan un auto detenido, se transfieren las fuerzas a un diagrama de cuerpo libre, y una grúa aplica una fuerza mayor sobre la misma masa produciendo una mayor aceleración">
+                </a>
+                <div class="figure-caption"><strong>Misma masa, distintas fuerzas → distintas aceleraciones.</strong> (a) Dos estudiantes empujan un auto detenido; se muestran todas las fuerzas externas que actúan sobre él. (b) Esas fuerzas se trasladan a un plano de coordenadas (diagrama de cuerpo libre) para sumarlas vectorialmente. (c) Una grúa puede aplicar una fuerza externa mucho mayor sobre la misma masa y, por tanto, producir una aceleración mayor. Este es exactamente el contenido de \(F = ma\): para una masa fija, la aceleración crece proporcionalmente con la fuerza neta.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">6</span>
@@ -371,6 +410,13 @@
                 \[ F_x = m a_x \quad ; \quad F_y = m a_y \quad ; \quad F_z = m a_z \]
             </div>
             Esto permite desacoplar el problema en cada dirección espacial.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0081.webp">
+                    <img src="../imagenes/webp/ImagenF0081.webp" alt="Cuatro fuerzas aplicadas en el plano xy sobre una partícula de 4,0 kg">
+                </a>
+                <div class="figure-caption"><strong>Carácter vectorial de la segunda ley: cuatro fuerzas en 2D.</strong> Sobre una partícula de \(4{,}0\ \text{kg}\) actúan cuatro fuerzas simultáneas en el plano \(xy\). Para encontrar la aceleración hay que sumar primero todas las fuerzas vectorialmente y obtener la fuerza neta. Solo después se aplica \(\vec{F}_{\text{neta}} = m\vec{a}\) descompuesta en cada eje: \(F_x = ma_x\) y \(F_y = ma_y\). Este es el sentido operativo de la forma vectorial: la ley se cumple dirección por dirección, no sumando módulos a la ligera.</div>
+            </div>
         </div>
     </div>
 
@@ -447,6 +493,13 @@
                     <div class="paso">
                         <strong>b)</strong> Con \(F' = 36\,\text{N}\) sobre A: \(a'_A = \frac{F'}{m_A} = \frac{36}{4,0} = 9,0\,\text{m/s}^2\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0077.webp">
+                        <img src="../imagenes/webp/ImagenF0077.webp" alt="La misma fuerza ejercida sobre sistemas de masas diferentes produce aceleraciones diferentes: un jugador empuja un balón de baloncesto y el mismo jugador ejerce una fuerza idéntica en un vehículo todoterreno detenido">
+                    </a>
+                    <div class="figure-caption"><strong>Misma fuerza, distintas masas → distintas aceleraciones.</strong> (a) Un jugador de baloncesto empuja el balón para hacer un pase. (b) El mismo jugador ejerce una fuerza idéntica sobre un vehículo todoterreno detenido: la aceleración resultante es mucho menor. (c) Los diagramas de cuerpo libre de ambas situaciones son idénticos, lo que permite comparar directamente qué ocurre al cambiar solo la masa. Es la ilustración práctica de \(a = F/m\): con la misma fuerza, duplicar la masa reduce la aceleración a la mitad. Este ejercicio 2 muestra numéricamente el mismo fenómeno: \(m_A = 4\ \text{kg}\) con \(a_A = 6\ \text{m/s}^2\) y \(m_B = 8\ \text{kg}\) con \(a_B = 3\ \text{m/s}^2\) bajo la misma fuerza de \(24\ \text{N}\).</div>
                 </div>
             </div>
 
@@ -547,49 +600,47 @@
     <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

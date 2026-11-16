@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.14.- </span>
                 <span class="texto">Velocidad Orbital y Periodo de un Satélite</span>
             </div>
@@ -329,6 +361,13 @@
             <strong>Fuerza gravitatoria como fuerza centrípeta:</strong> Un satélite de masa \( m \) orbita alrededor de la Tierra (masa \( M_T \)) en una trayectoria circular de radio \( r = R_T + h \), donde \( h \) es la altura sobre la superficie. La única fuerza que actúa (idealmente) es la gravitatoria, que debe proporcionar la fuerza centrípeta:
             <div class="formula-box">
                 \[ F_g = F_c \]
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0195.webp">
+                    <img src="../imagenes/webp/ImagenF0195.webp" alt="Sistema Tierra-Luna con el centro de masa del sistema y las distancias desde el centro de la Tierra">
+                </a>
+                <div class="figure-caption"><strong>El modelo orbital por excelencia: el sistema Tierra-Luna.</strong> La Luna orbita alrededor del centro de masas del sistema Tierra-Luna, a una distancia del orden de \(3{,}8 \times 10^8\ \text{m}\). Este caso es modélico porque nos permite ver la fuerza gravitatoria como la única fuerza significativa que actúa sobre el cuerpo en órbita: una atracción dirigida hacia el centro de masas del sistema, que proporciona la fuerza centrípeta necesaria para mantener la trayectoria curva. La misma ley \(F = GMm/r^2\) que describe la caída de una manzana sobre la Tierra describe también la órbita de la Luna y, con ella, la de cualquier satélite artificial.</div>
             </div>
         </div>
         <div class="step">
@@ -389,6 +428,13 @@
         <p>A mayor altura \( h \): menor velocidad orbital y mayor periodo de revolución.</p>
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Es importante destacar que la velocidad orbital <strong>no depende de la masa del satélite</strong>: una estación espacial y un astronauta a su lado orbitan con la misma velocidad (por eso el astronauta parece "flotar" — está en caída libre continua). Un satélite geoestacionario tiene \( T = 24 \, \mathrm{h} \) y orbita a \( h \approx 35\,800 \, \mathrm{km} \). Se recomienda calcular estos valores numéricamente en clase para reforzar la comprensión.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0200.webp">
+                <img src="../imagenes/webp/ImagenF0200.webp" alt="El transbordador espacial con sus propulsores de combustible sólido y el gran tanque de combustible líquido externo">
+            </a>
+            <div class="figure-caption"><strong>Del concepto a la ingeniería: el transbordador espacial.</strong> El transbordador espacial era un sistema complejo de tecnologías: propulsores de combustible sólido reutilizables a ambos lados, un gran tanque de combustible líquido externo desechable, y el orbitador con baldosas cerámicas como escudo térmico para la reentrada. Cada una de estas piezas desempeñaba un papel en la consecución de una velocidad orbital. Llegar a la órbita no consiste solo en «subir alto»: hay que alcanzar la velocidad tangencial correcta \(v = \sqrt{GM_T/r}\), y mantenerla mientras se está en caída libre continua alrededor de la Tierra. Este es el sentido práctico del resultado \(v = \sqrt{GM_T/r}\) que acabamos de deducir.</div>
         </div>
     </div>
 
@@ -530,6 +576,13 @@
                     <div class="paso">
                         <strong>b)</strong> \(T = \frac{2\pi r}{v} = \frac{2\pi \cdot 3,80 \times 10^6}{3,36 \times 10^3} \approx \frac{2,388 \times 10^7}{3,36 \times 10^3} \approx 7,11 \times 10^3\,\text{s} \approx 118,5\,\text{min}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0201.webp">
+                        <img src="../imagenes/webp/ImagenF0201.webp" alt="Cohete acelerando hacia la derecha por la expulsión de masa de combustible hacia la izquierda; la conservación del momento permite determinar el cambio de velocidad">
+                    </a>
+                    <div class="figure-caption"><strong>Llegar a la órbita: la propulsión del cohete.</strong> Para colocar un satélite en órbita alrededor de Marte (o de cualquier otro astro) no basta con elevarlo: hay que darle la velocidad tangencial adecuada, \(v = \sqrt{GM/r}\). El cohete lo consigue expulsando masa de combustible hacia atrás. Por conservación del momento, el cohete acelera hacia delante. La masa \(m\) en la imagen es la masa instantánea total del cohete, y el cambio de velocidad resultante se puede calcular precisamente con el principio de conservación del momento, que estudiaremos más adelante. El resultado final de esta fase de propulsión es que el satélite queda con la velocidad orbital apropiada para el radio \(r\) que se desee: exactamente el resultado que se aplica en este ejercicio 5.</div>
                 </div>
             </div>
 

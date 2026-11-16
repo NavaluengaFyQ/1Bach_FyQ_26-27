@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.01 - Error Relativo</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- MathJax para fórmulas -->
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -355,6 +356,21 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Obtener una expresión que permita <strong>comparar la calidad de medidas de magnitudes muy diferentes</strong>. El error absoluto no basta para valorar la bondad de una medida: un error de \( 1\,\text{cm} \) al medir una mesa es grave, pero el mismo error al medir la distancia Tierra–Sol es despreciable. El error relativo proporciona una medida <strong>adimensional y normalizada</strong> del error, independiente de la escala de la magnitud medida.</p>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ026.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud frente a precisión en dianas">
+                        <img src="../imagenes/webp/ImagenQ026.webp" alt="Tres dianas que ilustran exactitud y precisión: flechas agrupadas en el centro, flechas agrupadas pero descentradas y flechas dispersas" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Exactitud y precisión no son sinónimos.</strong> La <em>exactitud</em> mide la cercanía al valor real (el centro de la diana); la <em>precisión</em>, la reproducibilidad entre medidas repetidas. El error relativo cuantifica la primera, pero conviene interpretarlo junto con la segunda para valorar la calidad real de una medida.</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0012.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud y precisión aplicadas a un GPS">
+                        <img src="../imagenes/webp/ImagenF0012.webp" alt="Diagrama de GPS mostrando (a) puntos dispersos pero centrados (alta exactitud, baja precisión) y (b) puntos agrupados pero desplazados del centro (alta precisión, baja exactitud)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El GPS como ejemplo cotidiano.</strong> Al marcar un restaurante sobre un plano, los intentos del receptor pueden estar dispersos alrededor del punto real (exactos pero imprecisos) o agrupados lejos del centro (precisos pero inexactos). El error relativo solo mide la distancia al valor real; por eso conviene acompañarlo del concepto de precisión.</div>
+                </div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -382,6 +398,13 @@
                 <span class="step-num">2</span>
                 <strong>Limitación del error absoluto</strong>
                 <p>El error absoluto tiene las <strong>mismas unidades</strong> que la magnitud medida. Por tanto, no permite comparar directamente la calidad de dos medidas de magnitudes distintas. Se necesita una magnitud adimensional que indique <em>qué fracción del valor real representa el error</em>.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0011.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Balanza mecánica frente a balanza digital">
+                        <img src="../imagenes/webp/ImagenF0011.webp" alt="Comparación entre una balanza mecánica de doble plato (precisión de décimas de gramo) y una balanza digital (precisión de milésimas de gramo)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Instrumentos distintos, distinto error.</strong> Una balanza mecánica aprecia décimas de gramo; una digital, milésimas. Un mismo error absoluto de \(0{,}1\,\text{g}\) es enorme en la primera y despreciable en la segunda: la escala de la medida importa, y esto justifica dividir por el valor real para obtener una magnitud comparable.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -392,6 +415,13 @@
                     \[
                     \varepsilon_{r} = \frac{\varepsilon_{a}}{v_{\text{real}}}
                     \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ023.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Prototipo internacional de kilogramo">
+                        <img src="../imagenes/webp/ImagenQ023.webp" alt="Réplica del prototipo internacional de kilogramo conservada en el NIST, utilizada históricamente como patrón de masa del Sistema Internacional" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El valor real es una referencia metrológica.</strong> El \(v_{\text{real}}\) del denominador no es un concepto abstracto: durante décadas estuvo materializado en patrones como este prototipo de kilogramo (hoy redefinido a partir de la constante de Planck). Sin una referencia acordada, el error relativo carece de sentido.</div>
                 </div>
             </div>
             
@@ -443,6 +473,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Es importante destacar que el error relativo permite comparar la calidad de medidas de magnitudes distintas. Por ejemplo, un error de \( 2\,\text{cm} \) al medir una mesa de \( 100\,\text{cm} \) supone un \( \varepsilon_{r} = 2\,\% \), mientras que el mismo error de \( 2\,\text{cm} \) al medir un viaducto de \( 236\,\text{m} \) supone solo un \( \varepsilon_{r} \approx 0{,}008\,\% \). 
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ025.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Lectura en probeta graduada">
+                    <img src="../imagenes/webp/ImagenQ025.webp" alt="Probeta graduada de 21 a 22 mL con subdivisiones en décimas de mililitro, que exigen estimar visualmente la cifra final" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La última cifra significativa siempre se estima.</strong> En una probeta graduada hay que subdividir mentalmente la distancia entre dos marcas para leer la fracción de mililitro. Ese pequeño margen de lectura es el error absoluto que, convertido en relativo, nos permite comparar la calidad de la medida con la de otros instrumentos.</div>
             </div>
         </div>
 
@@ -726,5 +763,6 @@
     </div> <!-- fin .container -->
 
 
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

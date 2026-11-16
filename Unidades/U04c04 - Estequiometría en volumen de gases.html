@@ -8,6 +8,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -281,6 +282,34 @@
         .pie-didactico i {
             margin-right: 8px;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS DE LABORATORIO (adaptadas al tamaño real)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -317,7 +346,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -332,9 +360,12 @@
 <!-- -----FIN-------- -->
 
 
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ273.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Síntesis del amoniaco en proporción 1:3:2">
+                <img src="../imagenes/webp/ImagenQ273.webp" alt="Un volumen de nitrógeno se combina con tres volúmenes de hidrógeno para dar dos volúmenes de amoniaco" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>La Ley de Gay-Lussac, en una sola imagen.</strong> En la síntesis del amoniaco, un volumen de nitrógeno reacciona con tres volúmenes de hidrógeno para producir dos volúmenes de amoniaco. Esa proporción 1 : 3 : 2 coincide exactamente con los coeficientes de la ecuación ajustada \(\mathrm{N_2 + 3\,H_2 \rightarrow 2\,NH_3}\), lo que constituye la base experimental de la estequiometría volumétrica de gases.</div>
+        </div>
 
     </div>
 
@@ -347,6 +378,13 @@
             <li>Por tanto, las <strong>relaciones volumétricas</strong> son equivalentes a las <strong>relaciones molares</strong> y, por extensión, a los coeficientes estequiométricos.</li>
         </ul>
         <p>Esta demostración simplifica enormemente los cálculos estequiométricos en reacciones gaseosas y justifica el método directo utilizado en numerosos problemas.</p>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ281.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Efectos de T, V y n sobre la presión de un gas">
+                <img src="../imagenes/webp/ImagenQ281.webp" alt="Tres escenarios que muestran cómo afectan al gas el aumento de temperatura, la reducción del volumen y el aumento de la cantidad de sustancia" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Todo depende de \(p\), \(V\), \(T\) y \(n\).</strong> La imagen resume los tres efectos básicos: al aumentar la temperatura, la presión sube; al reducir el volumen, la presión sube; y al añadir más moles a presión constante, el volumen crece. Esta última relación, \(V \propto n\) a \(p\) y \(T\) constantes, es la pieza clave que permite igualar relaciones volumétricas con relaciones molares.</div>
+        </div>
     </div>
 
     <!-- PROCEDIMIENTO -->
@@ -367,6 +405,13 @@
             <div class="formula-box">
                 \[V \propto n \quad (p, T = \text{cte})\]
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ268.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Un mol de gas ocupa 22,4 L en condiciones normales">
+                    <img src="../imagenes/webp/ImagenQ268.webp" alt="Un mol de gas ideal, independientemente de su identidad química, ocupa aproximadamente 22,4 L en condiciones estándar (0 °C y 1 atm)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El volumen molar, motor de la proporcionalidad.</strong> Un mol de cualquier gas ideal ocupa aproximadamente 22,4 L en condiciones estándar, y dos moles ocupan 44,8 L. La proporcionalidad directa entre \(V\) y \(n\) es la razón por la que el factor estequiométrico \(\nu_B/\nu_A\) que se aplica a los moles también se puede aplicar directamente a los volúmenes cuando \(p\) y \(T\) son constantes.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -378,6 +423,21 @@
             <p>Sean \(V_A, V_B, V_C, V_D\) los volúmenes ocupados por cada gas en las condiciones de la reacción. Aplicando la relación \(V_i = n_i \cdot k\) a cada sustancia:</p>
             <div class="formula-box">
                 \[n_A = \frac{V_A}{k}, \quad n_B = \frac{V_B}{k}, \quad n_C = \frac{V_C}{k}, \quad n_D = \frac{V_D}{k}\]
+            </div>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ083.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Proporciones fijas entre reactivos y productos">
+                        <img src="../imagenes/webp/ImagenQ083.webp" alt="Diagrama que muestra que los cocientes entre los números de moléculas de reactivos y de productos son los mismos e independientes del número absoluto de moléculas" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Proporciones que no dependen de la escala.</strong> Los cocientes entre el número de moléculas de reactivos y productos vienen fijados por los coeficientes de la ecuación química, sea cual sea la cantidad de sustancia implicada. Esa constancia es la que, aplicada a volúmenes, permite igualar los cocientes \(V_i/\nu_i\) en las mismas condiciones de \(p\) y \(T\).</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ082.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Ecuación de la combustión del metano">
+                        <img src="../imagenes/webp/ImagenQ082.webp" alt="Ecuación de la combustión del metano, CH₄ + 2O₂ → CO₂ + 2H₂O, junto con su representación molecular" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Una ecuación que también funciona en volúmenes.</strong> En la combustión del metano, si todos los gases están en las mismas condiciones, basta con leer los coeficientes como volúmenes: 1 L de CH₄ consume 2 L de O₂ y produce 1 L de CO₂ (el agua, si es vapor). La estequiometría volumétrica evita pasar por los moles.</div>
+                </div>
             </div>
         </div>
         
@@ -422,6 +482,21 @@
                 </li>
             </ul>
             <p>Esto permite resolver problemas de estequiometría gaseosa operando <strong>directamente con volúmenes</strong>, sin necesidad de calcular previamente los moles mediante la ecuación de Clapeyron.</p>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ095.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Diagrama de flujo de la estequiometría">
+                        <img src="../imagenes/webp/ImagenQ095.webp" alt="Diagrama de flujo que relaciona volumen, masa, moles y número de partículas mediante los coeficientes estequiométricos de la ecuación ajustada" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El atajo que justifica la ley.</strong> Este diagrama muestra que, en general, hay que pasar por los moles para convertir entre magnitudes. La Ley de Gay-Lussac supone un atajo: cuando todos los gases se miden en las mismas condiciones, podemos saltar directamente de volumen a volumen usando los coeficientes, sin pasar por los moles.</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ519.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Electrólisis del agua y volúmenes de gas">
+                        <img src="../imagenes/webp/ImagenQ519.webp" alt="Electrólisis del agua que produce el doble de volumen de hidrógeno que de oxígeno, en proporción con la estequiometría 2:1" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Volúmenes que coinciden con los coeficientes.</strong> En la electrólisis del agua, el volumen de hidrógeno obtenido es el doble que el de oxígeno, en la misma proporción 2:1 que aparece en la ecuación \(2\,H_2O \rightarrow 2\,H_2 + O_2\). Es una verificación experimental directa de que, en las mismas condiciones, la relación de volúmenes de gases equivale a la relación de moles.</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -444,7 +519,22 @@
             <li>La proporcionalidad directa entre volumen y número de moles a \(p, T\) constantes.</li>
             <li>La conservación de los moles en la estequiometría de la ecuación ajustada.</li>
         </ul>
-        
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ277.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Mezcla espontánea de dos gases">
+                    <img src="../imagenes/webp/ImagenQ277.webp" alt="Dos gases, H₂ y O₂, separados por una llave de paso, se mezclan espontáneamente al abrirla hasta distribuirse uniformemente" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La independencia química del gas.</strong> Al mezclarse, los gases ocupan todo el volumen y se comportan de forma independiente de su identidad. Esa independencia es la razón por la que la relación \(V \propto n\) (y, por tanto, la equivalencia entre coeficientes y volúmenes) es universal para los gases ideales.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ271.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Gas recogido sobre agua">
+                    <img src="../imagenes/webp/ImagenQ271.webp" alt="Un matraz donde se ha recogido gas sobre agua: el gas atrapado es una mezcla del gas producido y vapor de agua" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cuando hay que corregir las condiciones.</strong> Recoger gas sobre agua es un buen recordatorio de las limitaciones: si el gas está mezclado con vapor de agua, su presión parcial no es la presión total, y el volumen medido no corresponde solo a los moles del gas que nos interesa. La ley volumétrica exige gases «limpios» y en las mismas condiciones.</div>
+            </div>
+        </div>
+
         <div class="note-prof">
             <strong>💡 Observaciones sobre el alumnado:</strong><br>
             Es crucial advertir a los estudiantes que esta simplificación <strong>solo es válida cuando todos los gases se miden en las mismas condiciones de presión y temperatura</strong>. Si un reactivo es sólido o líquido, o si los gases se encuentran en condiciones diferentes, debe aplicarse primero la ecuación de Clapeyron para calcular los moles y luego utilizar el factor de conversión estequiométrico. Un error frecuente es aplicar relaciones volumétricas directas cuando las condiciones no son homogéneas.
@@ -544,6 +634,13 @@
                     <p>Volumen total de O₂ = \(30,0 + 26,0 = 56,0\,\mathrm{L}\).</p>
                     <p><strong>Resultado:</strong> se necesitan \(\mathbf{56,0\,L}\) de O₂.</p>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ094.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Combustión del octano, hidrocarburo similar a los del ejercicio">
+                        <img src="../imagenes/webp/ImagenQ094.webp" alt="Ecuación ajustada de la combustión del octano y cálculo de la masa de oxígeno necesaria para quemar una masa dada de combustible" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Combustibles «reales», mismos principios.</strong> El octano (uno de los principales componentes de la gasolina) se quema con la misma lógica que el propano y el butano del ejercicio: se ajusta la ecuación, se identifican los coeficientes y, si todos los gases están en las mismas condiciones, se aplican directamente a los volúmenes. La complejidad cambia, pero el fundamento —la conservación de los átomos y la proporcionalidad \(V \propto n\)— es idéntico.</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 5 -->
@@ -568,6 +665,13 @@
                     <div class="math">\(V_{\mathrm{SO_3}} = 8,0 \times \frac{2}{2} = 8,0\,\mathrm{L}\)</div>
                     <p><strong>Resultados:</strong> a) el reactivo limitante es \(\mathrm{SO_2}\); b) se producen \(\mathbf{8,0\,L}\) de \(\mathrm{SO_3}\).</p>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ096.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Estequiometría en los airbags">
+                        <img src="../imagenes/webp/ImagenQ096.webp" alt="Airbags desplegados en el interior de un coche tras un impacto: la cantidad exacta de gas que los infla se ha calculado con la ecuación de los gases y la estequiometría" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El reactivo limitante, en milisegundos.</strong> En una reacción que infla un airbag, los reactivos se han pesado al miligramo: la cantidad de gas que se produce depende estrictamente del reactivo limitante. La estequiometría volumétrica permite traducir esa cantidad de gas en un volumen exacto de airbag, garantizando que el dispositivo funcione correctamente en el instante del impacto.</div>
+                </div>
             </div>
 
             <!-- PIE DIDÁCTICO -->
@@ -577,7 +681,6 @@
             </div>
         </div>
     </details>
-
 
 
 
@@ -669,5 +772,6 @@
 
 
 </div>
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

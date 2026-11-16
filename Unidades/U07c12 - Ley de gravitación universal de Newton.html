@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.12.- </span>
                 <span class="texto">Ley de Gravitación Universal de Newton</span>
             </div>
@@ -313,6 +345,12 @@
         <img src="../imagenes/U07c12 - Ley de gravitación universal de Newton_2.png" alt="Imagen" width="800">
         <!-- -----FIN-------- -->
 
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0259.webp">
+                <img src="../imagenes/webp/ImagenF0259.webp" alt="El sistema solar formado a partir de una nube de gas y polvo que rotaba; el movimiento orbital y la rotación de los planetas conservan el momento angular de la nube madre">
+            </a>
+            <div class="figure-caption"><strong>El problema que Kepler y Newton resolvieron.</strong> El sistema solar se formó a partir de una nube de gas y polvo que rotaba. Las órbitas de los planetas y sus rotaciones comparten la misma dirección original, como consecuencia de la conservación del momento angular de la nube primigenia. Pero lo que Kepler descubrió empíricamente —que el cuadrado del periodo orbital era proporcional al cubo del semieje mayor de la órbita— necesitaba una explicación física. Esa explicación, la ley de gravitación universal, es la que vamos a deducir en este procedimiento: combinando la tercera ley de Kepler con la mecánica newtoniana se llega a la ley \(F = GMm/r^2\).</div>
+        </div>
     </div>
 
     <!-- OBJETIVO -->
@@ -373,6 +411,13 @@
                 \[ F = G \, \frac{M \, m}{r^2} \]
             </div>
             donde \( r \) es la distancia entre los centros de las dos masas. La fuerza es atractiva, dirigida a lo largo de la línea que une ambas masas.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0060.webp">
+                    <img src="../imagenes/webp/ImagenF0060.webp" alt="Proyectil a satélite: al aumentar la rapidez inicial de un proyectil lanzado desde una torre alta, el alcance se alarga por la curvatura de la Tierra y con 8000 m/s se alcanza la órbita">
+                </a>
+                <div class="figure-caption"><strong>El experimento mental que unificó la física terrestre y la celestial.</strong> Newton imaginó un proyectil lanzado horizontalmente desde una torre muy alta, con la resistencia del aire despreciable. Al aumentar la velocidad inicial, el alcance del proyectil es cada vez mayor, porque la Tierra se curva bajo su trayectoria. Con una rapidez inicial de unos \(8000\ \text{m/s}\), el proyectil cae «hacia la Tierra» al mismo ritmo al que la Tierra se curva bajo él, y entra en órbita: se convierte en un satélite. Lo fascinante es que la ley que describe el movimiento del proyectil es exactamente la misma que describe la órbita de la Luna alrededor de la Tierra o la de los planetas alrededor del Sol. La fuerza responsable de una manzana que cae y la fuerza responsable de las órbitas planetarias son la misma: la gravitación universal.</div>
+            </div>
         </div>
     </div>
 
@@ -495,6 +540,13 @@
                     <div class="paso">
                         <strong>b)</strong> Queremos \(g = g_0/2\). Entonces \(g_0 \frac{R_T^2}{r^2} = \frac{g_0}{2} \Rightarrow r^2 = 2 R_T^2 \Rightarrow r = R_T \sqrt{2}\). La altura \(h = r - R_T = R_T (\sqrt{2} - 1) \approx 6,38 \times 10^6 \cdot (1,4142 - 1) \approx 6,38 \times 10^6 \cdot 0,4142 \approx 2,64 \times 10^6\,\text{m} = 2640\,\text{km}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0251.webp">
+                        <img src="../imagenes/webp/ImagenF0251.webp" alt="El rover Curiosity del Laboratorio Científico de Marte de la NASA durante las pruebas en el laboratorio de Propulsión a Chorro">
+                    </a>
+                    <div class="figure-caption"><strong>La gravedad en otros planetas: el rover Curiosity en Marte.</strong> El rover Curiosity del Laboratorio Científico de Marte de la NASA, fotografiado durante las pruebas de ensamblaje en el Laboratorio de Propulsión a Chorro (Pasadena, California). En Marte, la aceleración de la gravedad es \(g_M \approx 3{,}71\ \text{m/s}^2\), aproximadamente un 38% de la terrestre. Esto se debe a que Marte tiene menor masa (\(6{,}42 \times 10^{23}\ \text{kg}\)) y menor radio (\(3{,}39 \times 10^6\ \text{m}\)) que la Tierra. La misma ley \(F = GMm/r^2\) que hemos deducido permite calcular la gravedad en la superficie de cualquier planeta conocido su masa y su radio. El ejercicio 4 es la misma relación \(g \propto 1/r^2\), aplicada a distintas alturas sobre un mismo planeta.</div>
                 </div>
             </div>
 

@@ -1,11 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T02.02. Cálculo de la masa atómica ponderada a partir de isótopos</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- FontAwesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
@@ -314,11 +313,6 @@
                 \[ A = \frac{A_1 \cdot \%_1 + A_2 \cdot \%_2 + \ldots + A_n \cdot \%_n}{100} \]
             </div>
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -333,12 +327,12 @@
 
 <!-- -----FIN-------- -->
 
-
-
-
-
-
-
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ045.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Diferencias entre H, 2H, H2 y 2H2">
+                    <img src="../imagenes/webp/ImagenQ045.webp" alt="Esquema que compara los símbolos H, 2H, H2 y 2H2 para mostrar que representan entidades químicas muy diferentes: un átomo de protio, un átomo de deuterio, una molécula de hidrógeno y una molécula de dideuterio" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Antes de ponderar: identificar bien los isótopos.</strong> El hidrógeno tiene tres isótopos (\(^1\text{H}\), \(^2\text{H}\), \(^3\text{H}\)) con masas muy distintas. La fórmula \(A = \sum A_i \cdot \%_i / 100\) es precisamente lo que nos permite reducir esa variedad a un único valor decimal utilizable en estequiometría. Sin identificar correctamente cada isótopo, no hay media ponderada posible.</div>
+            </div>
         </div>
 
         <!-- SECCIÓN OBJETIVO -->
@@ -354,6 +348,13 @@
             <div class="step">
                 <span class="step-num">1</span>
                 <strong>Definir la masa atómica como promedio ponderado:</strong> si un elemento posee varios isótopos en la naturaleza, la masa atómica debe reflejar la contribución de cada uno según su frecuencia de aparición.
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ042.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro de masas del circonio y sus isótopos">
+                        <img src="../imagenes/webp/ImagenQ042.webp" alt="Espectro de masas del circonio en el que cada pico corresponde a un isótopo distinto, con diferente número másico y abundancia relativa" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Así se miden las abundancias.</strong> Un espectrómetro de masas separa los isótopos de un elemento (aquí, el circonio) según su relación masa/carga. La altura de cada pico indica la abundancia relativa de ese isótopo: son precisamente los \(\%_i\) de la fórmula. La media ponderada no es un invento teórico; es la manera de resumir ese espectro en un único número útil.</div>
+                </div>
             </div>
 
             <div class="step">
@@ -361,6 +362,13 @@
                 <strong>Expresar la contribución de cada isótopo:</strong> la masa total aportada por el isótopo \(i\)-ésimo es proporcional a su masa \(A_i\) multiplicada por su fracción de abundancia \(\frac{\%_i}{100}\).
                 <div class="formula-box">
                     \[ \text{Contribución del isótopo } i = A_i \cdot \frac{\%_i}{100} \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ041.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Notación simbólica de un átomo con A, Z y carga">
+                        <img src="../imagenes/webp/ImagenQ041.webp" alt="Esquema de la notación simbólica de un átomo: superíndice izquierdo para el número másico A, subíndice izquierdo para el número atómico Z (a veces omitido) y superíndice derecho para la carga" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Cómo se etiqueta cada isótopo.</strong> La notación \(^{A}_{Z}\text{X}\) permite escribir sin ambigüedad cualquier isótopo: \(^{35}_{17}\text{Cl}\) y \(^{37}_{17}\text{Cl}\) son dos isótopos distintos del cloro, con \(Z\) idéntico pero \(A\) diferente. La fórmula de la media ponderada utiliza precisamente esas \(A_i\) como pesos de la masa atómica final.</div>
                 </div>
             </div>
 
@@ -395,6 +403,13 @@
             <div class="note">
                 <strong>Observaciones sobre el alumnado:</strong> Resulta especialmente ilustrativo aplicar esta fórmula con datos reales del plomo o el cloro, donde se puede comprobar que la masa atómica de la tabla periódica no coincide exactamente con ningún isótopo concreto. Esto refuerza el concepto de "promedio ponderado" frente al de "media aritmética simple".
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ052.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Tabla periódica con las masas atómicas">
+                    <img src="../imagenes/webp/ImagenQ052.webp" alt="Tabla periódica de los elementos con sus masas atómicas decimales, resultado de la media ponderada de los isótopos naturales de cada elemento" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Donde acaba la fórmula: la tabla periódica.</strong> Las masas atómicas que aparecen bajo cada símbolo (por ejemplo, 35,45 u para el Cl, 63,55 u para el Cu) son el resultado directo de aplicar esta media ponderada. Esos decimales «extraños» son la huella de los distintos isótopos con sus abundancias: si un elemento tuviera un único isótopo natural, su masa atómica sería un número entero (o casi entero).</div>
+            </div>
         </div>
 
         <!-- ============================================ -->
@@ -410,6 +425,13 @@
             </summary>
             <div class="contenido-desplegable">
 
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ053.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Tabla periódica organizada por grupos">
+                        <img src="../imagenes/webp/ImagenQ053.webp" alt="Tabla periódica en la que los elementos con propiedades similares aparecen agrupados en columnas o grupos" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Dónde encontrar la masa atómica de cada elemento.</strong> La tabla periódica agrupa los elementos por columnas (grupos) y muestra, para cada uno, su masa atómica ponderada. Los ejercicios de esta sección trabajan con esas masas y con las abundancias de los isótopos que las justifican.</div>
+                </div>
+
                 <!-- EJERCICIO 1 -->
                 <div class="ejercicio-card">
                     <div class="ej-header">
@@ -417,7 +439,7 @@
                         <span class="tit">Cálculo directo con dos isótopos</span>
                     </div>
                     <div class="enunciado">
-                        <p>El boro natural está formado por dos isótopos: \(^{10}\text{B}\) (masa 10,01 u, abundancia 19,9 %) y \(^{11}\text{B}\) (masa 11,01 u, abundancia 80,1 %). Calcula la masa atómica del boro.</p>
+                        <p>El boro natural está formado por dos isótopos: \(^{10}\text{B}\) (masa 10,01 u, abundancia 19,9 %) y \(^{11}\text{B}\) (masa 11,01 u, abundancia 80,1 %). Calcula la masa atómica del boro.</p>
                     </div>
                     <div class="resolucion">
                         <p><strong>Resolución:</strong></p>
@@ -450,7 +472,7 @@
                         \[
                         84,91x + 86,91 - 86,91x = 85,47 \quad\Rightarrow\quad -2,00x = -1,44 \quad\Rightarrow\quad x = 0,72
                         \]
-                        <p>Por tanto, \(^{85}\text{Rb}\) tiene un 72 % y \(^{87}\text{Rb}\) un 28 %.</p>
+                        <p>Por tanto, \(^{85}\text{Rb}\) tiene un 72 % y \(^{87}\text{Rb}\) un 28 %.</p>
                     </div>
                 </div>
 
@@ -461,11 +483,11 @@
                         <span class="tit">Tres isótopos: silicio</span>
                     </div>
                     <div class="enunciado">
-                        <p>El silicio natural contiene tres isótopos: \(^{28}\text{Si}\) (masa 27,98 u, abundancia 92,23 %), \(^{29}\text{Si}\) (masa 28,98 u, abundancia 4,68 %) y \(^{30}\text{Si}\) (masa 29,97 u). Calcula la abundancia del tercer isótopo y la masa atómica del silicio.</p>
+                        <p>El silicio natural contiene tres isótopos: \(^{28}\text{Si}\) (masa 27,98 u, abundancia 92,23 %), \(^{29}\text{Si}\) (masa 28,98 u, abundancia 4,68 %) y \(^{30}\text{Si}\) (masa 29,97 u). Calcula la abundancia del tercer isótopo y la masa atómica del silicio.</p>
                     </div>
                     <div class="resolucion">
                         <p><strong>Resolución:</strong></p>
-                        <p>La suma de las abundancias debe ser 100 %, por lo que la abundancia de \(^{30}\text{Si}\) es:</p>
+                        <p>La suma de las abundancias debe ser 100 %, por lo que la abundancia de \(^{30}\text{Si}\) es:</p>
                         \[
                         \%_{30} = 100 - 92,23 - 4,68 = 3,09\%
                         \]
@@ -487,7 +509,7 @@
                         <span class="tit">Cálculo de la masa de un isótopo desconocido</span>
                     </div>
                     <div class="enunciado">
-                        <p>El galio tiene dos isótopos: \(^{69}\text{Ga}\) (abundancia 60,1 %) y \(^{71}\text{Ga}\) (abundancia 39,9 %). La masa atómica del galio es 69,72 u. Si la masa del \(^{69}\text{Ga}\) es 68,93 u, ¿cuál es la masa del \(^{71}\text{Ga}\)?</p>
+                        <p>El galio tiene dos isótopos: \(^{69}\text{Ga}\) (abundancia 60,1 %) y \(^{71}\text{Ga}\) (abundancia 39,9 %). La masa atómica del galio es 69,72 u. Si la masa del \(^{69}\text{Ga}\) es 68,93 u, ¿cuál es la masa del \(^{71}\text{Ga}\)?</p>
                     </div>
                     <div class="resolucion">
                         <p><strong>Resolución:</strong></p>
@@ -512,7 +534,7 @@
                         <span class="tit">Relación entre masa atómica y número de átomos</span>
                     </div>
                     <div class="enunciado">
-                        <p>Una muestra de 5,00 g de un elemento puro contiene \(4,50 \times 10^{22}\) átomos. Sabiendo que el elemento tiene dos isótopos de masas 10,00 u y 11,00 u con abundancias del 20 % y 80 % respectivamente, calcula la masa atómica del elemento y comprueba si los datos son consistentes.</p>
+                        <p>Una muestra de 5,00 g de un elemento puro contiene \(4,50 \times 10^{22}\) átomos. Sabiendo que el elemento tiene dos isótopos de masas 10,00 u y 11,00 u con abundancias del 20 % y 80 % respectivamente, calcula la masa atómica del elemento y comprueba si los datos son consistentes.</p>
                     </div>
                     <div class="resolucion">
                         <p><strong>Resolución:</strong></p>
@@ -531,13 +553,11 @@
 
                 <!-- Observaciones claves -->
                 <div class="clave-didactica">
-                    💡 <strong>Observaciones claves:</strong> La masa atómica es un promedio ponderado, no una media aritmética. Si un isótopo es más abundante, "tira" de la masa promedio hacia su valor. La fórmula siempre debe dar un número entre las masas de los isótopos extremos, y la suma de abundancias debe ser 100 %.
+                    💡 <strong>Observaciones claves:</strong> La masa atómica es un promedio ponderado, no una media aritmética. Si un isótopo es más abundante, "tira" de la masa promedio hacia su valor. La fórmula siempre debe dar un número entre las masas de los isótopos extremos, y la suma de abundancias debe ser 100 %.
                 </div>
 
             </div> <!-- fin contenido-desplegable -->
         </details>
-
-
 
 <!-- ============================================================ -->
 <!-- BLOQUE DESPLEGABLE: Fórmula 2 · Masa atómica ponderada        -->
@@ -768,13 +788,6 @@
     </details>
 </div>
 
-
-
-
-
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -822,15 +835,7 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
     </div> <!-- fin container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

@@ -1,19 +1,16 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>#T10.03 · Principio de Superposición</title>
-<!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+<!-- MathJax -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
-/* ============================================
-   ESTILOS EXISTENTES (no modificados)
-   ============================================ */
 .container {
     max-width: 900px;
     width: 100%;
@@ -146,9 +143,6 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   NUEVOS ESTILOS PARA EL BLOQUE DESPLEGABLE
-   ============================================ */
 details.desmitificando {
     margin: 30px 15px 20px 15px;
     border: 2px solid #48bb78;
@@ -287,12 +281,7 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ \vec{E}_R = \sum_{i=1}^{n} \vec{E}_i = \sum_{i=1}^{n} K \frac{q_i}{r_i^2} \hat{u}_{r_i} \]
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -303,13 +292,31 @@ details.desmitificando .contenido-ejercicios {
 
 <img src="../imagenes/U10c03 - Principio de superposición.png" alt="Imagen" width="800">
 <img src="../imagenes/U10c03 - Principio de superposición_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
+<!-- Banco F: definición de vector (cola-cabeza y magnitud) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0014.webp">
+    <img src="../imagenes/webp/ImagenF0014.webp" alt="Definición de un vector: se dibuja desde la cola (origen) hasta la cabeza (extremo), y su magnitud es la longitud" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un vector se dibuja desde un punto inicial u origen (la «cola») hasta un punto extremo o terminal (la «cabeza»), marcado con una punta de flecha. La magnitud es la longitud del vector y es siempre una cantidad escalar positiva. Los campos eléctricos \(\vec{E}_i\) son vectores que se suman usando esta representación (cola-cabeza o componentes), no sumando simplemente sus módulos.</figcaption>
+</figure>
 
+<!-- Banco F: regla del paralelogramo (suma vectorial) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0020.webp">
+    <img src="../imagenes/webp/ImagenF0020.webp" alt="Regla del paralelogramo para la suma de dos vectores: resultante y diferencia" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">La regla del paralelogramo para la suma de dos vectores: se traslada cada vector a un origen común y se construye un paralelogramo con dos lados sobre los vectores; la resultante \(\vec{R}\) es la diagonal desde el origen hasta la esquina opuesta. El principio de superposición aplica exactamente esta regla a los campos eléctricos \(\vec{E}_1\) y \(\vec{E}_2\) creados por cada carga.</figcaption>
+</figure>
 
-
-
-
+<!-- Banco Q: medida de la carga con Millikan -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ034.webp">
+    <img src="../imagenes/webp/ImagenQ034.webp" alt="Experimento de Millikan: medida de la carga de gotas de aceite individuales" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El experimento de Millikan permitió medir la carga de gotas de aceite individuales y demostrar que la carga eléctrica está cuantizada. Conocer la carga de cada fuente \(q_i\) es imprescindible para poder sumar los campos \(\vec{E}_i\) que cada una crea en el punto \(P\), tal como pide el principio de superposición.</figcaption>
+</figure>
 
         </div>
     </div>
@@ -317,6 +324,23 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Justificar matemáticamente por qué los campos eléctricos se suman vectorialmente, permitiendo calcular el campo de distribuciones complejas de carga a partir del campo de cargas individuales. Este principio es fundamental para resolver problemas con múltiples cargas y constituye la base del cálculo de campos mediante integración para distribuciones continuas.</p>
+
+<!-- Banco F: paralelogramo aplicado varias veces -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0021.webp">
+    <img src="../imagenes/webp/ImagenF0021.webp" alt="Regla del paralelogramo aplicada cuatro veces: vector resultante de varios vectores" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Al utilizar la regla del paralelogramo cuatro veces, se obtiene el vector resultante \(\vec{R} = \vec{A} + \vec{B} + \vec{C} + \vec{D} + \vec{E}\), que conecta el punto inicial con el punto final. Es exactamente lo que hacemos con los campos eléctricos: sumar \(\vec{E}_1 + \vec{E}_2 + \dots + \vec{E}_n\) para obtener \(\vec{E}_R\) en el punto \(P\).</figcaption>
+</figure>
+
+<!-- Banco Q: patrones de carga iónica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ055.webp">
+    <img src="../imagenes/webp/ImagenQ055.webp" alt="Patrones regulares de carga iónica en la tabla periódica" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Muchos elementos presentan un patrón regular de carga iónica al formar iones (Na⁺, Mg²⁺, Al³⁺, Cl⁻, O²⁻...). Conocer de antemano la carga de cada ion permite aplicar el principio de superposición a sistemas reales de varios iones: cada uno aporta su propio vector de campo eléctrico al punto donde se mide.</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -340,6 +364,15 @@ details.desmitificando .contenido-ejercicios {
                 \[ \vec{F}_R = \vec{F}_1 + \vec{F}_2 + \cdots + \vec{F}_n = \sum_{i=1}^{n} \vec{F}_i \]
             </div>
             <p>Esto es consecuencia directa de la linealidad de la ecuación de fuerza: la fuerza total es la suma vectorial de las fuerzas parciales.</p>
+
+<!-- Banco F: método cabeza-cola con varios vectores -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0022.webp">
+    <img src="../imagenes/webp/ImagenF0022.webp" alt="Método de cabeza a cola para sumar cuatro vectores y dibujar el vector resultante" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Método de cola a cabeza para dibujar el vector resultante \(\vec{R} = \vec{A} + \vec{B} + \vec{C} + \vec{D}\): se van colocando los vectores de modo que la cola de cada uno coincida con la cabeza del anterior. La resultante se dibuja desde la cola del primero hasta la cabeza del último. La fuerza neta \(\vec{F}_R\) sobre una carga de prueba se construye exactamente así sumando las \(\vec{F}_i\) debidas a cada carga fuente.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">4</span>
@@ -358,6 +391,15 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ \vec{E}_R = \vec{E}_1 + \vec{E}_2 + \cdots + \vec{E}_n = \sum_{i=1}^{n} \vec{E}_i \]
             </div>
+
+<!-- Banco F: álgebra de vectores en una dimensión -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0019.webp">
+    <img src="../imagenes/webp/ImagenF0019.webp" alt="Álgebra de vectores en una dimensión: multiplicación por un escalar, suma y resta de vectores" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Álgebra de vectores en una dimensión: (a) multiplicación por un escalar; (b) suma de dos vectores, donde \(\vec{R}\) es la resultante de \(\vec{A}\) y \(\vec{B}\); (c) sustracción de vectores. La operación \(\vec{E}_R = \sum \vec{E}_i\) del principio de superposición no es más que aplicar repetidamente esta suma vectorial a los campos individuales.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">6</span>
@@ -366,6 +408,23 @@ details.desmitificando .contenido-ejercicios {
                 \[ \vec{E}_R = \sum_{i=1}^{n} K \frac{q_i}{r_i^2} \hat{u}_{r_i} \]
             </div>
             <p>Este resultado demuestra que el campo total es la <strong>suma vectorial</strong> de los campos individuales, sin que la presencia de unas cargas modifique el campo creado por las otras (en el vacío).</p>
+
+<!-- Banco F: componentes escalares con signo por cuadrante -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0025.webp">
+    <img src="../imagenes/webp/ImagenF0025.webp" alt="Componentes escalares de un vector: el signo depende del cuadrante" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Los componentes escalares de un vector pueden ser positivos o negativos según el cuadrante. En la práctica, el principio de superposición se aplica sumando por componentes: \(E_{Rx} = \sum E_{ix}\) y \(E_{Ry} = \sum E_{iy}\), respetando los signos de cada término. Es el método operativo más seguro cuando hay tres o más cargas.</figcaption>
+</figure>
+
+<!-- Banco F: vector como suma de componentes cartesianas -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0023.webp">
+    <img src="../imagenes/webp/ImagenF0023.webp" alt="Vector en el plano cartesiano como suma vectorial de sus componentes x e y" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un vector \(\vec{A}\) en el plano es la suma vectorial de sus componentes \(x\) e \(y\): \(\vec{A} = A_x\,\hat{i} + A_y\,\hat{j}\). Cada campo \(\vec{E}_i\) se descompone así antes de sumar, y el campo total es \(\vec{E}_R = (\sum E_{ix})\,\hat{i} + (\sum E_{iy})\,\hat{j}\). Es el método sistemático para aplicar superposición sin equivocarse con las direcciones.</figcaption>
+</figure>
+
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> El principio de superposición es válido gracias a la <strong>linealidad</strong> de las ecuaciones del electromagnetismo en el vacío. Es importante advertir a los estudiantes que este principio <strong>no</strong> se aplica en medios materiales donde las cargas inducidas modifican el campo original. Para distribuciones continuas de carga, la suma se transforma en integral: \( \vec{E} = \int K \frac{dq}{r^2} \hat{u}_r \). Este es un excelente punto de transición hacia el cálculo integral.
@@ -378,10 +437,27 @@ details.desmitificando .contenido-ejercicios {
             \[ \vec{E}_R = \sum_{i=1}^{n} \vec{E}_i = \sum_{i=1}^{n} K \frac{q_i}{r_i^2} \hat{u}_{r_i} \]
         </div>
         <p>El campo eléctrico total en un punto debido a un sistema de cargas puntuales es la suma vectorial de los campos creados por cada carga individualmente. Este principio permite calcular el campo de distribuciones complejas a partir del campo de cargas simples.</p>
+
+<!-- Banco F: vector en 3D -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0028.webp">
+    <img src="../imagenes/webp/ImagenF0028.webp" alt="Vector en el espacio tridimensional como suma vectorial de sus tres componentes" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un vector en el espacio tridimensional es la suma vectorial de sus tres componentes. El campo total \(\vec{E}_R = \sum \vec{E}_i\) es un vector tridimensional que, en el caso general, tendrá componentes \(E_{Rx}\), \(E_{Ry}\) y \(E_{Rz}\): el principio de superposición se aplica componente a componente.</figcaption>
+</figure>
+
+<!-- Banco Q: partículas alfa desviadas por el núcleo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ037.webp">
+    <img src="../imagenes/webp/ImagenQ037.webp" alt="Partículas alfa desviadas por el campo eléctrico del núcleo atómico" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Las partículas α solo se desvían cuando pasan cerca del núcleo atómico, donde el campo eléctrico es intenso. En la lámina de oro hay muchísimos núcleos, y el campo total que siente cada partícula α es la superposición vectorial del campo de cada núcleo individual: una comprobación experimental del principio de superposición a escala atómica.</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
-    <!-- BLOQUE DESPLEGABLE AÑADIDO (TAREA 1)      -->
+    <!-- BLOQUE DESPLEGABLE                       -->
     <!-- ======================================== -->
     <details class="desmitificando">
         <summary>
@@ -405,13 +481,11 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Campo creado por \( q_1 \) (positiva): en \( P \) apunta hacia la derecha (\( +\hat{x} \)):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_1 = 8{,}99\times10^9 \cdot \frac{5{,}0\times10^{-6}}{(0{,}04)^2}
-                            = 8{,}99\times10^9 \cdot \frac{5{,}0\times10^{-6}}{1{,}6\times10^{-3}}
                             = 2{,}81\times10^{7}\,\text{N/C} \quad (+\hat{x}) \]
                         </div>
                         <div class="paso"><strong>Paso 3:</strong> Campo creado por \( q_2 \) (negativa). En \( P \), la carga negativa atrae a una carga de prueba positiva, luego \( \vec{E}_2 \) apunta hacia la derecha (\( +\hat{x} \)):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_2 = 8{,}99\times10^9 \cdot \frac{2{,}0\times10^{-6}}{(0{,}04)^2}
-                            = 8{,}99\times10^9 \cdot \frac{2{,}0\times10^{-6}}{1{,}6\times10^{-3}}
                             = 1{,}12\times10^{7}\,\text{N/C} \quad (+\hat{x}) \]
                         </div>
                         <div class="paso"><strong>Paso 4:</strong> Sumamos vectorialmente (misma dirección):</div>
@@ -439,7 +513,7 @@ details.desmitificando .contenido-ejercicios {
                             \[ E_1 = 8{,}99\times10^9 \cdot \frac{3{,}0\times10^{-6}}{(0{,}04)^2}
                             = 1{,}69\times10^{7}\,\text{N/C} \quad (+\hat{x}) \]
                         </div>
-                        <div class="paso"><strong>Paso 3:</strong> Campo de \( q_2 \) (en \( (0,0{,}03) \)): vector desde \( q_2 \) a \( P \) es \( (0{,}04, -0{,}03) \). Su módulo es \( 0{,}05 \). El unitario es \( \hat{u} = (0{,}04/0{,}05,\; -0{,}03/0{,}05) = (0{,}8, -0{,}6) \).</div>
+                        <div class="paso"><strong>Paso 3:</strong> Campo de \( q_2 \) (en \( (0,0{,}03) \)): vector desde \( q_2 \) a \( P \) es \( (0{,}04, -0{,}03) \). Su módulo es \( 0{,}05 \). El unitario es \( \hat{u} = (0{,}8, -0{,}6) \).</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_2 = 8{,}99\times10^9 \cdot \frac{4{,}0\times10^{-6}}{(0{,}05)^2}
                             = 1{,}44\times10^{7}\,\text{N/C} \]
@@ -448,6 +522,12 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 5:</strong> Sumamos: \( \vec{E}_R = (1{,}69\times10^7 + 1{,}15\times10^7)\,\hat{x} + (-8{,}64\times10^6)\,\hat{y} = (2{,}84\times10^7\,\hat{x} - 8{,}64\times10^6\,\hat{y}) \) N/C.</div>
                         <div class="paso"><strong>Módulo:</strong> \( E_R = \sqrt{(2{,}84)^2 + (0{,}864)^2}\times10^7 \approx 2{,}97\times10^7\,\text{N/C} \).</div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0017.webp">
+                        <img src="../imagenes/webp/ImagenF0017.webp" alt="Relaciones entre dos vectores: paralelos, antiparalelos y ortogonales" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">Diversas relaciones entre dos vectores: paralelos, antiparalelos y ortogonales. En la superposición de campos eléctricos, la situación más simple (ejercicio 1) es cuando ambos vectores son paralelos y basta con sumar módulos; cuando son ortogonales (como aquí), hay que descomponer en componentes y sumar por separado.</figcaption>
+                    </figure>
                 </div>
             </div>
 
@@ -494,7 +574,7 @@ details.desmitificando .contenido-ejercicios {
                             = 3{,}37\times10^{7}\,\text{N/C} \quad (-\hat{y}) \]
                         </div>
                         <div class="paso"><strong>Paso 4:</strong> Campo total: \( \vec{E}_R = (-4{,}00\times10^7\,\hat{x} - 3{,}37\times10^7\,\hat{y}) \) N/C.</div>
-                        <div class="paso"><strong>Paso 5:</strong> Fuerza sobre \( q = -2{,}0\,\mu\text{C} \): \( \vec{F} = q \vec{E}_R = (-2{,}0\times10^{-6}) \cdot (-4{,}00\times10^7\,\hat{x} - 3{,}37\times10^7\,\hat{y}) = (80\,\hat{x} + 67{,}4\,\hat{y}) \) N.</div>
+                        <div class="paso"><strong>Paso 5:</strong> Fuerza sobre \( q = -2{,}0\,\mu\text{C} \): \( \vec{F} = q \vec{E}_R = (80\,\hat{x} + 67{,}4\,\hat{y}) \) N.</div>
                         <div class="paso"><strong>Resultado:</strong> \( \vec{F} = (80\,\hat{x} + 67{,}4\,\hat{y}) \) N. (Módulo ≈ 104,6 N).</div>
                     </div>
                 </div>
@@ -514,9 +594,8 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Campo creado por la carga en \( A \): distancia \( r_A = \sqrt{0{,}10^2 + 0{,}10^2} = 0{,}1414\,\text{m} \). Vector unitario desde \( A \) a \( P \): \( \hat{u}_A = (0{,}707, 0{,}707) \).</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_A = 8{,}99\times10^9 \cdot \frac{2{,}0\times10^{-6}}{(0{,}1414)^2}
-                            = 8{,}99\times10^9 \cdot \frac{2{,}0\times10^{-6}}{0{,}02}
                             = 8{,}99\times10^5\,\text{N/C} \]
-                            \[ \vec{E}_A = 8{,}99\times10^5 (0{,}707, 0{,}707) = (6{,}36\times10^5, 6{,}36\times10^5) \]
+                            \[ \vec{E}_A = (6{,}36\times10^5, 6{,}36\times10^5) \]
                         </div>
                         <div class="paso"><strong>Paso 3:</strong> Carga en \( B(0,0{,}10) \): distancia \( r_B = 0{,}10\,\text{m} \), unitario \( (1,0) \).</div>
                         <div class="formula-box" style="margin:5px 0;">
@@ -538,39 +617,24 @@ details.desmitificando .contenido-ejercicios {
                 </div>
             </div>
 
-            <!-- PIE DE Observaciones claves -->
+            <!-- PIE -->
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> El principio de superposición es una consecuencia de la <strong>linealidad</strong> del campo eléctrico. La "trampa" más común es sumar módulos en lugar de vectores, o asignar direcciones incorrectas. Recuerda siempre: el campo de una carga positiva apunta <em>desde</em> la carga hacia el punto; el de una negativa apunta <em>hacia</em> la carga. Dibujar un diagrama con los vectores unitarios es el primer paso infalible.
             </div>
 
-        </div> <!-- /contenido-ejercicios -->
+        </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -578,36 +642,21 @@ details.desmitificando .contenido-ejercicios {
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

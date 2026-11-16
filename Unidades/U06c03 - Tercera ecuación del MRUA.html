@@ -1,15 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.03 - Tercera ecuación del MRUA</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,6 +267,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +305,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.03.- </span>
                 <span class="texto">Tercera ecuación del MRUA</span>
             </div>
@@ -293,8 +324,6 @@
 
 
 
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -307,8 +336,6 @@
 
 <img src="../imagenes/U06c03 - Tercera ecuación del MRUA_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -331,6 +358,13 @@
             <strong>Despeje del tiempo</strong>
             <p>De la primera ecuación del movimiento, despejamos el tiempo:</p>
             <div class="formula-box">\[ t = \frac{v - v_0}{a} \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0046.webp">
+                    <img src="../imagenes/webp/ImagenF0046.webp" alt="Avión que aterriza y reduce su velocidad de 70 m/s a 10 m/s antes de llegar a la terminal">
+                </a>
+                <div class="figure-caption"><strong>Motivación: cuando el tiempo no se conoce.</strong> El avión aterriza con \(v_0 = 70{,}0\ \text{m/s}\) y reduce su velocidad hasta \(v = 10{,}0\ \text{m/s}\) con aceleración negativa. En este tipo de problemas se conocen \(v_0\), \(v\) y \(a\), pero no \(t\) ni \(\Delta x\) directamente. La tercera ecuación del MRUA permite relacionar \(v\), \(v_0\), \(a\) y \(\Delta x\) sin necesidad de conocer el tiempo transcurrido.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -375,6 +409,13 @@
         <div class="formula-box" style="border-color: #38b2ac; border-width: 3px; background: #e6fffa;">\[ v^2 = v_0^2 + 2a(x - x_0) \]</div>
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Esta ecuación es especialmente útil cuando se conoce la distancia recorrida pero no el tiempo transcurrido, como en el cálculo de la velocidad de impacto en caída libre desde una altura conocida o en la distancia de frenado de un vehículo.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0047.webp">
+                <img src="../imagenes/webp/ImagenF0047.webp" alt="Distancias de frenado para pavimento seco y húmedo de un auto que viaja inicialmente a 30 m/s, incluyendo el tiempo de reacción del conductor">
+            </a>
+            <div class="figure-caption"><strong>Aplicación por excelencia: la distancia de frenado.</strong> La distancia que necesita un auto para detenerse depende de su velocidad inicial y de la aceleración de frenado según \(v^2 = v_0^2 + 2a\Delta x\). Con \(v=0\), la distancia de frenado es \(\Delta x = v_0^2 / (2|a|)\). La figura compara las distancias en pavimento seco y húmedo para un auto que viaja a \(30{,}0\ \text{m/s}\): al cambiar el coeficiente de fricción (es decir, la aceleración disponible), la distancia varía notablemente, mostrando la utilidad de la ecuación sin tiempo.</div>
         </div>
     </div>
 
@@ -455,6 +496,13 @@
                     <div class="paso"><strong>Paso 3:</strong> \( v = \sqrt{1470} \approx 38.3 \, \text{m/s} \).</div>
                     <div class="paso"><strong>Resultado:</strong> \( v \approx 38.3 \, \text{m/s} \) (hacia abajo).</div>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0049.webp">
+                        <img src="../imagenes/webp/ImagenF0049.webp" alt="Posiciones y velocidades a intervalos de un segundo de una pelota lanzada hacia abajo desde un edificio con velocidad inicial de 4,9 m/s">
+                    </a>
+                    <div class="figure-caption"><strong>Caída vertical: posiciones y velocidades.</strong> Una pelota lanzada hacia abajo desde un edificio recorre posiciones que crecen cuadráticamente con el tiempo. Las velocidades sucesivas aumentan de forma lineal (\(v = v_0 + gt\)). La tercera ecuación del MRUA permite también calcular la velocidad al llegar al suelo conociendo solo la altura, sin necesidad de determinar el tiempo de caída: \(v^2 = v_0^2 + 2g\Delta y\).</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 5 -->
@@ -480,7 +528,6 @@
                 <strong>Observaciones claves:</strong> La ecuación \( v^2 = v_0^2 + 2a\Delta x \) elimina la variable tiempo, lo que la hace ideal para problemas donde el tiempo no se conoce o no es necesario. La "trampa" habitual es olvidar que la aceleración y el desplazamiento pueden tener signos opuestos (como en el frenado), lo que afecta al resultado final. Estos ejercicios muestran cómo aplicar correctamente la ecuación en distintas situaciones.</div>
         </div>
     </details>
-
 
 
 
@@ -1367,9 +1414,6 @@
 
 
 
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -1416,7 +1460,6 @@
 </div>
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
-
 
 
 

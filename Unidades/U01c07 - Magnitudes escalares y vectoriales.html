@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.07 - Escalares vs Vectoriales</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -383,6 +384,13 @@
                     \]
                 </div>
                 <p>Ejemplos: masa, temperatura, tiempo, energía, densidad. La suma de escalares es la <strong>suma algebraica ordinaria</strong>.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0013.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Poste indicador con distancias y direcciones">
+                        <img src="../imagenes/webp/ImagenF0013.webp" alt="Poste indicador que muestra distancias (magnitudes escalares) y direcciones hacia distintas ciudades (información vectorial de desplazamiento)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>«¿Cuánto?» y «¿hacia dónde?».</strong> Un poste indicador es el ejemplo perfecto: la <em>distancia</em> a una ciudad es una magnitud escalar (un número con unidad), pero para llegar hay que conocer también la <em>dirección</em> y el <em>sentido</em>. El desplazamiento hasta la ciudad es, por tanto, una magnitud vectorial. La diferencia entre ambas empieza aquí.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -395,6 +403,13 @@
                     \]
                 </div>
                 <p>Ejemplos: velocidad, aceleración, fuerza, campo eléctrico. La suma de vectores requiere la <strong>regla del paralelogramo</strong>.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0014.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Anatomía de un vector">
+                        <img src="../imagenes/webp/ImagenF0014.webp" alt="Dibujo de un vector desde su origen (cola) hasta su punto terminal (cabeza marcada por una flecha); la magnitud es la longitud del vector y es siempre positiva" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Anatomía de un vector.</strong> La <em>cola</em> es el punto de aplicación; la <em>cabeza</em>, la punta de flecha que indica el sentido. La <em>longitud</em> es el módulo (siempre positivo). La recta sobre la que se apoya el vector define su dirección; la flecha, su sentido. Cuatro ingredientes que no aparecen en una magnitud escalar.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -413,6 +428,21 @@
                     \]
                 </div>
                 <p>Esto demuestra que <strong>la misma situación física requiere operaciones matemáticas distintas</strong> según la naturaleza escalar o vectorial de la magnitud.</p>
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenF0015.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Vector desplazamiento del punto A al punto B">
+                            <img src="../imagenes/webp/ImagenF0015.webp" alt="Vector desplazamiento desde el punto A (campamento) hasta el punto B (lugar de pesca), mostrando que el desplazamiento es el mismo para cualquier camino real entre ambos puntos" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Un mismo desplazamiento, caminos distintos.</strong> Ir de A a B es un vector: importa el punto de partida y el de llegada, no el camino. En cambio, la <em>distancia recorrida</em> (longitud del camino) sí depende del trayecto y es un escalar. La distinción que acabas de leer se ve aquí en acción.</div>
+                    </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenF0020.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Regla del paralelogramo para sumar vectores">
+                            <img src="../imagenes/webp/ImagenF0020.webp" alt="Regla del paralelogramo para sumar dos vectores: (a) el vector resultante R es la diagonal del paralelogramo construido sobre los dos vectores; (b) la diferencia D = A - B se obtiene con la otra diagonal" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Sumar vectores no es sumar sus módulos.</strong> La regla del paralelogramo muestra por qué \( \vec{d}_1 + \vec{d}_2 \) no vale \( 3+4 = 7 \) sino \( \sqrt{3^2+4^2} = 5 \) cuando los vectores son perpendiculares. La diagonal del paralelogramo es el «camino neto». La suma vectorial siempre tiene en cuenta la geometría, no sólo los números.</div>
+                    </div>
+                </div>
             </div>
             
             <div class="step">
@@ -480,6 +510,13 @@
                     \]
                 </div>
                 <p>donde \( \hat{i}, \hat{j}, \hat{k} \) son los vectores unitarios de los ejes coordenados.</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0023.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Componentes vectoriales cartesianas de un vector">
+                        <img src="../imagenes/webp/ImagenF0023.webp" alt="Vector A en el plano cartesiano descompuesto como suma vectorial de sus componentes vectoriales x e y, siendo las proyecciones ortogonales sobre los ejes" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Un vector se «descompone» en componentes.</strong> La notación \( \vec{V} = V_x\hat{i} + V_y\hat{j} + V_z\hat{k} \) no es arbitraria: cada componente es la proyección ortogonal del vector sobre un eje. Es el puente entre la geometría de la flecha y el álgebra de los números, y permite sumar, restar y multiplicar vectores con métodos algebraicos.</div>
+                </div>
             </div>
         </div>
         
@@ -505,6 +542,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong><br>
                 Es común que se confunda "velocidad" con "rapidez" (celeridad). La rapidez es escalar (solo el módulo de la velocidad); la velocidad es vectorial. Esta distinción será crucial en cinemática (unidad 2) y dinámica (unidad 3).</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0069.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Dos patinadores empujan a un tercero mostrando la suma vectorial de fuerzas">
+                    <img src="../imagenes/webp/ImagenF0069.webp" alt="Vista aérea de dos patinadores que empujan a un tercero, con el diagrama de cuerpo libre mostrando cómo las fuerzas se suman como vectores y dan la fuerza total resultante" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La física real está llena de vectores.</strong> Cuando dos patinadores empujan a un tercero, cada uno ejerce una fuerza con su propia dirección y sentido. La fuerza total se obtiene sumando los vectores, no los módulos. Todo el estudio de la dinámica —y las tres leyes de Newton— descansa sobre este tipo de operaciones: por eso dominar la distinción escalar/vectorial es imprescindible antes de continuar.</div>
+            </div>
         </div>
 
         <!-- ======================================================== -->
@@ -772,5 +816,6 @@
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

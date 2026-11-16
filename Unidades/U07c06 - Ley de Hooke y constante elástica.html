@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.06.- </span>
                 <span class="texto">Ley de Hooke y Constante Elástica</span>
             </div>
@@ -309,9 +341,9 @@
           }
         </style>
 
-        
+
         <img src="../imagenes/U07c06 - Ley de Hooke y constante elástica_2.png" alt="Imagen" width="800">
-        
+
         <!-- -----FIN-------- -->
 
     </div>
@@ -344,6 +376,13 @@
                 \[ F_e = k \, |\Delta x| \]
             </div>
             La constante de proporcionalidad \( k \) se denomina <strong>constante elástica</strong> o <strong>constante recuperadora</strong> del muelle.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0071.webp">
+                    <img src="../imagenes/webp/ImagenF0071.webp" alt="La fuerza ejercida por un resorte estirado como unidad de fuerza estándar: resorte en longitud natural, resorte estirado Δx con fuerza restauradora, y balanza de resorte usando el resorte para medir fuerza">
+                </a>
+                <div class="figure-caption"><strong>El resorte como patrón de fuerza: la ley de Hooke en acción.</strong> (a) Un resorte tiene una longitud \(x\) cuando está inalterado. (b) Al estirarlo una distancia \(\Delta x\), ejerce una fuerza restauradora \(\vec{F}_{\text{restauración}}\) que resulta reproducible: siempre la misma para el mismo estiramiento. Esa reproducibilidad es la base de la ley de Hooke. (c) Una balanza de resorte aprovecha esta propiedad: la fuerza \(\vec{F}_{\text{restauración}}\) que actúa sobre lo que cuelga del gancho es proporcional al estiramiento. En el ejemplo, la fuerza equivale a seis unidades de la fuerza estándar utilizada para calibrarla. Este es exactamente el principio \(F = k\Delta x\): la fuerza es proporcional al alargamiento, con \(k\) como constante característica del resorte.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">4</span>
@@ -352,6 +391,13 @@
                 \[ \vec{F}_e = -k \, \Delta \vec{x} \]
             </div>
             El signo negativo indica que la fuerza elástica se opone a la deformación, tendiendo a restaurar la longitud natural del muelle.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0097.webp">
+                    <img src="../imagenes/webp/ImagenF0097.webp" alt="Resorte en posición relajada, comprimido por Δx1 y estirado por Δx2, mostrando la fuerza restauradora -kΔx en cada caso">
+                </a>
+                <div class="figure-caption"><strong>La fuerza restauradora siempre apunta al equilibrio.</strong> (a) El resorte en reposo no ejerce fuerza sobre el bloque. (b) Si el resorte se comprime por un desplazamiento \(\Delta\vec{x}_1\), ejerce una fuerza restauradora \(-k\Delta\vec{x}_1\) hacia la derecha (opuesta a la compresión). (c) Si el resorte se estira por \(\Delta\vec{x}_2\), ejerce una fuerza restauradora \(-k\Delta\vec{x}_2\) hacia la izquierda (opuesta al estiramiento). En ambos casos, el signo negativo de \(\vec{F}_e = -k\Delta\vec{x}\) es lo que garantiza que la fuerza apunte siempre hacia la posición de equilibrio: es la «restauradora» que da nombre a la ley.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -499,6 +545,13 @@
                     <div class="paso">
                         <strong>c)</strong> Usamos conservación de energía elástica: \(\frac{1}{2} k (\Delta x)^2 = \frac{1}{2} m v^2 \Rightarrow v = \sqrt{\frac{k}{m}} \Delta x = \sqrt{\frac{150}{2,0}} \cdot 0,10 = \sqrt{75} \cdot 0,10 \approx 8,66 \cdot 0,10 \approx 0,866\,\text{m/s}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0142.webp">
+                        <img src="../imagenes/webp/ImagenF0142.webp" alt="Las tres configuraciones de un resorte: en equilibrio (a) no ejerce fuerza, con extensión (b) y con compresión (c) ejerce fuerza restauradora en sentido contrario">
+                    </a>
+                    <div class="figure-caption"><strong>Las tres configuraciones de un resorte.</strong> (a) En su posición de equilibrio el resorte no ejerce fuerza alguna. (b) Estirado, ejerce una fuerza en sentido contrario al estiramiento. (c) Comprimido, ejerce una fuerza en sentido contrario a la compresión. En todos los casos el módulo es \(F = k|\Delta x|\) y el sentido es siempre hacia la posición de equilibrio. Este esquema es la clave del ejercicio 4: al comprimir el muelle y soltarlo, la fuerza restauradora empuja al bloque hacia la posición natural, y como \(F\) va disminuyendo a medida que el muelle se descomprime, la aceleración también disminuye mientras la velocidad aumenta: es la conversión de energía potencial elástica en energía cinética.</div>
                 </div>
             </div>
 

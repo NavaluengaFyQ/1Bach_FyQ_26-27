@@ -8,6 +8,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -364,7 +365,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -382,7 +382,6 @@
 
 
 
-
     </div>
 
     <!-- OBJETIVO -->
@@ -395,6 +394,13 @@
             <li>Permita calcular la <strong>cantidad de reactivo en exceso</strong> de forma inmediata.</li>
         </ul>
         <p>Esta demostración es esencial porque el concepto de reactivo limitante es fundamental en toda estequiometría práctica, desde la síntesis en laboratorio hasta los procesos industriales a escala.</p>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ095.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Diagrama de flujo de los cálculos estequiométricos">
+                <img src="../imagenes/webp/ImagenQ095.webp" alt="Diagrama de flujo que relaciona volumen, masa, moles y número de partículas mediante los coeficientes estequiométricos de la ecuación ajustada" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>El mapa de todo cálculo estequiométrico.</strong> El diagrama de flujo resume los pasos habituales de cualquier problema de estequiometría: pasar a moles, aplicar el factor estequiométrico entre sustancias y convertir a la magnitud deseada. El reactivo limitante es la pieza que nos dice cuánto puede avanzar la reacción por ese camino.</div>
+        </div>
     </div>
 
     <!-- PROCEDIMIENTO -->
@@ -466,6 +472,13 @@
             <div class="formula-box-highlight">
                 \[n_B^{\text{exceso}} = n_B^0 - n_B^{\text{consumido}} = n_B^0 - \frac{\nu_B}{\nu_A} \cdot n_A^0\]
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ090.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: La reacción del aluminio con yodo">
+                    <img src="../imagenes/webp/ImagenQ090.webp" alt="La reacción exotérmica entre el aluminio y el yodo produce yoduro de aluminio, generando calor suficiente para vaporizar el yodo (vapor púrpura visible)" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El reactivo limitante, a simple vista.</strong> El aluminio y el yodo reaccionan de forma espectacular: el calor desprendido es tan intenso que el yodo sobrante se volatiliza en forma de vapor púrpura. Cuando uno de los dos reactivos se agota, la reacción se detiene y el otro queda en exceso. Reconocer cuál es el limitante permite calcular exactamente cuánto producto se forma y cuánto reactivo queda sin reaccionar.</div>
+            </div>
         </div>
         
         <div class="step">
@@ -479,6 +492,21 @@
                 \[\text{Reactivo limitante} = R_j \text{ tal que } \frac{n_j^0}{\nu_j} = \min_{i=1,\ldots,k}\left(\frac{n_i^0}{\nu_i}\right)\]
             </div>
             <p>El reactivo cuyo cociente \(\frac{n_i^0}{\nu_i}\) sea mínimo es el que impone el límite al avance de la reacción.</p>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ091.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Cálculo estequiométrico de moles de I₂">
+                        <img src="../imagenes/webp/ImagenQ091.webp" alt="Cálculo del número de moles de I₂ necesarios para reaccionar con una cantidad dada de Al según la ecuación ajustada 2Al + 3I₂ → 2AlI₃" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El factor estequiométrico, leído en la ecuación.</strong> Cada reacción ajustada nos da el cociente exacto entre las cantidades de reactivos. Ese cociente es la base para comparar y decidir cuál se agota primero cuando las cantidades reales no están en proporción estequiométrica.</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ092.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Cálculo estequiométrico de moléculas de CO₂">
+                        <img src="../imagenes/webp/ImagenQ092.webp" alt="Cálculo del número de moléculas de CO₂ producidas al quemar 0,75 mol de propano según la ecuación ajustada" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Del reactivo limitante al producto formado.</strong> Una vez identificado el reactivo limitante, el factor estequiométrico permite calcular cuánto producto se forma (en moles, masa o número de moléculas). Es el paso siguiente al criterio \(q_i = n_i/\nu_i\) que se ha demostrado en esta página.</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -504,6 +532,21 @@
             <li>Calcular la <strong>cantidad de exceso</strong> del reactivo sobrante.</li>
             <li>Determinar el <strong>rendimiento máximo teórico</strong> de productos a partir del avance de reacción \(\xi_{\text{real}} = \min_i(q_i)\).</li>
         </ul>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ096.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Airbags y la estequiometría del reactivo limitante">
+                    <img src="../imagenes/webp/ImagenQ096.webp" alt="Airbags desplegados en el interior de un coche tras un impacto: la cantidad exacta de gas que los infla se calcula con la ecuación de los gases y la estequiometría, dependiendo del reactivo limitante" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Cuando el limitante es cuestión de vida o muerte.</strong> Los airbags se inflan mediante una reacción química muy rápida que genera un gas inerte. Si el reactivo limitante está mal calculado, el airbag no se llena a tiempo o se llena demasiado. La identificación rigurosa del reactivo limitante (con \(q_i = n_i/\nu_i\)) es la base para dimensionar correctamente estos dispositivos de seguridad.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ099.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Comprimidos de ibuprofeno de 200 mg">
+                    <img src="../imagenes/webp/ImagenQ099.webp" alt="Comprimidos de ibuprofeno de 200 mg, ejemplo real en el que la masa exacta de producto depende del reactivo limitante en la síntesis industrial" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La píldora como problema estequiométrico.</strong> En la fabricación industrial de ibuprofeno, cada comprimido debe contener exactamente 200 mg de principio activo. Saber cuánto se va a producir depende de identificar correctamente el reactivo limitante en la síntesis. Un cálculo mal hecho se traduce en lotes defectuosos, pérdidas económicas o riesgos para la salud.</div>
+            </div>
+        </div>
         
         <div class="note-prof">
             <strong>💡 Observaciones sobre el alumnado:</strong><br>
@@ -685,7 +728,6 @@
 
 
 
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -742,5 +784,6 @@
 
 
 </div>
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

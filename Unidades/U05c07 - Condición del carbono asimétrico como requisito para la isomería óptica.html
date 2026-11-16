@@ -8,6 +8,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -323,7 +324,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -338,9 +338,12 @@
 <!-- -----FIN-------- -->
 
 
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ609.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Quiralidad en azúcares naturales">
+                <img src="../imagenes/webp/ImagenQ609.webp" alt="Estructuras moleculares de la fructosa y la lactosa, azúcares naturales que contienen varios carbonos asimétricos en su esqueleto" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Quiralidad en azúcares naturales.</strong> La fructosa y la lactosa, como muchos azúcares, contienen varios carbonos unidos a cuatro sustituyentes diferentes. Esa riqueza de centros quirales explica por qué existen tantos estereoisómeros distintos de los azúcares naturales y por qué sus propiedades biológicas son tan específicas.</div>
+        </div>
 
     </div>
 
@@ -372,6 +375,13 @@
                 <img src="../imagenes/webp/ImagenQ193.webp" alt="Estructura molecular del metano con disposición tetraédrica de los átomos de hidrógeno">
                 <div class="figure-caption"><strong>La geometría tetraédrica del carbono sp³.</strong> El metano (CH₄) muestra la disposición tetraédrica característica del carbono hibridado sp³: los cuatro sustituyentes ocupan los vértices de un tetraedro regular. Cuando esos cuatro vértices están ocupados por grupos diferentes, la molécula deja de tener plano de simetría y se vuelve quiral.</div>
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ224.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Los cuatro orbitales sp³ y la geometría tetraédrica">
+                    <img src="../imagenes/webp/ImagenQ224.webp" alt="Los cuatro orbitales atómicos de valencia del carbono se hibridan para formar cuatro orbitales sp³ equivalentes orientados hacia los vértices de un tetraedro regular" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Los cuatro orbitales sp³ y la geometría tetraédrica.</strong> Los cuatro orbitales híbridos sp³ del carbono apuntan hacia los vértices de un tetraedro regular. Esta geometría es la base de la quiralidad: cuando los cuatro vértices están ocupados por grupos diferentes, la molécula pierde cualquier plano de simetría y aparece un par de enantiómeros no superponibles.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -400,6 +410,13 @@
 
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Es fundamental que los estudiantes no confundan "grupos diferentes" con "átomos diferentes". Por ejemplo, en el 2-clorobutano, los sustituyentes \( CH_3 \) y \( CH_2CH_3 \) son grupos distintos aunque ambos contienen carbono e hidrógeno. Se recomienda el uso de modelos moleculares de bolas y varillas para que se comprueben manualmente la no superponibilidad de los enantiómeros. También es útil mencionar la importancia biológica de la quiralidad (p. ej., la L-valina es esencial, mientras que la D-valina no lo es).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ618.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Pequeños cambios estructurales, grandes efectos biológicos">
+                    <img src="../imagenes/webp/ImagenQ618.webp" alt="Estructuras de la morfina, la codeína y la heroína, que comparten un esqueleto molecular similar pero difieren en pequeños grupos funcionales que alteran radicalmente su actividad" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Pequeños cambios estructurales, grandes efectos biológicos.</strong> La morfina, la codeína y la heroína comparten un esqueleto molecular muy parecido, pero pequeños cambios en sus grupos funcionales alteran radicalmente su potencia y sus efectos. Algo análogo ocurre con los enantiómeros: la misma conectividad atómica, pero una disposición espacial distinta se traduce en actividades biológicas completamente diferentes. Esa es la razón por la que la quiralidad es crítica en la química farmacéutica.</div>
+            </div>
         </div>
     </div>
 
@@ -587,11 +604,7 @@
             });
         }
     });
-
-
-
-
-
+</script>
 
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
@@ -640,14 +653,6 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-</script>
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

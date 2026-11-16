@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.13.- </span>
                 <span class="texto">Relación entre Gravedad Terrestre y Masa de la Tierra</span>
             </div>
@@ -309,7 +341,7 @@
           }
         </style>
 
-        
+
         <img src="../imagenes/U07c13 - Relación entre gravedad terrestre y masa de la Tierra_2.png" alt="Imagen" width="800">
         <!-- -----FIN-------- -->
 
@@ -354,6 +386,13 @@
                 \[ g = G \, \frac{M_T}{R_T^2} \]
             </div>
             Esto demuestra que la aceleración de la gravedad no depende de la masa del objeto que cae.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0048.webp">
+                    <img src="../imagenes/webp/ImagenF0048.webp" alt="Martillo y pluma cayendo con la misma aceleración en la Luna, demostrando que la gravedad no depende de la masa del objeto">
+                </a>
+                <div class="figure-caption"><strong>La prueba experimental definitiva: martillo y pluma en la Luna.</strong> En 1971, el astronauta David R. Scott dejó caer sobre la superficie lunar un martillo y una pluma: ambos llegaron al suelo exactamente al mismo tiempo. En ausencia de atmósfera (y por tanto de resistencia del aire), la única fuerza que actúa sobre ambos cuerpos es la gravedad, y el resultado confirma lo que acabamos de demostrar en la ecuación: la aceleración \(g = GM_T/R_T^2\) es independiente de la masa del objeto que cae. Si hubiera dependido de \(m\), el martillo (mucho más pesado) habría caído antes que la pluma; y no lo hizo. En la Luna, además, el valor de \(g\) es \(1{,}67\ \text{m/s}^2\) (frente a \(9{,}81\ \text{m/s}^2\) en la Tierra), porque \(M_L\) y \(R_L\) son distintos: la misma fórmula se aplica a cualquier astro.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -375,6 +414,13 @@
                 \[ g(h) = G \, \frac{M_T}{(R_T + h)^2} = g_0 \left( \frac{R_T}{R_T + h} \right)^2 \]
             </div>
             donde \( g_0 = 9{,}8 \, \mathrm{m/s^2} \). Para alturas pequeñas (\( h \ll R_T \)), \( g(h) \approx g_0 \).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0053.webp">
+                    <img src="../imagenes/webp/ImagenF0053.webp" alt="Dos vectores de posición dibujados desde el centro de la Tierra con el eje y como norte y el eje x como este, mostrando la distancia al centro de la Tierra como referencia">
+                </a>
+                <div class="figure-caption"><strong>Todo se mide desde el centro de la Tierra.</strong> Para aplicar la ley de gravitación hay que tomar como origen el centro del astro: la distancia que aparece en el denominador \(F = GMm/r^2\) no es la altura sobre la superficie, sino la distancia \(r\) al centro de la Tierra. El esquema muestra dos vectores de posición trazados desde el centro terrestre, con el eje \(y\) como norte y el eje \(x\) como este: es exactamente la imagen mental que hay que tener para entender la fórmula de \(g(h)\). A una altura \(h\) sobre la superficie, la distancia al centro es \(r = R_T + h\), y por eso \(g\) disminuye con la altura según \(g(h) = g_0(R_T/(R_T+h))^2\).</div>
+            </div>
         </div>
     </div>
 
@@ -471,6 +517,13 @@
                     <div class="paso">
                         <strong>b)</strong> El peso es \(P = m g = 50 \cdot 5,00 = 250\,\text{N}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0251.webp">
+                        <img src="../imagenes/webp/ImagenF0251.webp" alt="El rover Curiosity del Laboratorio Científico de Marte de la NASA durante las pruebas de ensamblaje">
+                    </a>
+                    <div class="figure-caption"><strong>Aplicación real: la gravedad en Marte.</strong> El rover Curiosity del Laboratorio Científico de Marte de la NASA, fotografiado durante las pruebas de ensamblaje en el Laboratorio de Propulsión a Chorro (Pasadena, California). En Marte, la aceleración de la gravedad es \(g_M \approx 3{,}71\ \text{m/s}^2\), apenas un 38% de la terrestre, porque Marte tiene menor masa (\(6{,}42 \times 10^{23}\ \text{kg}\)) y menor radio (\(3{,}39 \times 10^6\ \text{m}\)) que la Tierra. Es exactamente el mismo cálculo que se hace en el ejercicio 3: la fórmula \(g = GM/R^2\) permite determinar la gravedad superficial de cualquier astro, conocido su tamaño y su masa. Este es el poder predictivo de la ley de gravitación universal.</div>
                 </div>
             </div>
 

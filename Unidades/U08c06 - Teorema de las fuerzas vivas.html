@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,7 +265,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -279,11 +278,12 @@
 <img src="../imagenes/U08c06 - Teorema de las fuerzas vivas_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+                    <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores fuerza y desplazamiento que definen el trabajo mecánico">
+                </a>
+                <figcaption class="figure-caption">Figura 7.2. Vectores utilizados para definir el trabajo. La fuerza que actúa sobre una partícula y su desplazamiento infinitesimal se muestran en un punto de la trayectoria entre A y B. El trabajo infinitesimal es el producto punto de estos dos vectores; el trabajo total es la integral del producto punto a lo largo de la trayectoria. Sobre esta base se demuestra el teorema de las fuerzas vivas.</figcaption>
+            </figure>
 
         </div>
 
@@ -301,6 +301,13 @@
                 <span class="step-num">1</span>
                 <strong>Planteamiento con fuerzas múltiples</strong>
                 <p>Consideramos un cuerpo de masa \( m \) sobre el que actúan \( n \) fuerzas simultáneamente: \( \vec{F}_1, \vec{F}_2, \ldots, \vec{F}_n \). Estas fuerzas pueden ser conservativas (peso, elástica) o no conservativas (rozamiento, resistencia del aire, fuerzas externas aplicadas).</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0112.webp">
+                        <img src="../imagenes/webp/ImagenF0112.webp" alt="Fuerzas de fricción opuestas al movimiento entre objetos en contacto">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.10. Las fuerzas de fricción, como f, siempre se oponen al movimiento o al intento de movimiento entre objetos en contacto. La fricción es el ejemplo típico de fuerza no conservativa: su trabajo depende de la trayectoria y disipa energía mecánica. Por eso el teorema de las fuerzas vivas es más general que la conservación de la energía mecánica.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -319,6 +326,13 @@
                 <div class="formula-box">
                     \[ W_{\text{neto}} = \sum_{i=1}^{n} W_i = \sum_{i=1}^{n} \int \vec{F}_i \cdot d\vec{r} = \int \vec{F}_{\text{neto}} \cdot d\vec{r} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0138.webp">
+                        <img src="../imagenes/webp/ImagenF0138.webp" alt="Trabajo realizado por una fuerza constante: cortacésped, maletín y caminar">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.3. Trabajo realizado por una fuerza constante. (a) Una persona empuja un cortacésped con una fuerza constante: solo el componente de la fuerza paralelo al desplazamiento realiza trabajo. (b) Una persona sostiene un maletín: no se realiza trabajo porque el desplazamiento es cero. (c) La persona de (b) camina horizontalmente mientras sostiene el maletín: no se realiza trabajo porque cos θ es cero.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -350,6 +364,13 @@
                 <div class="formula-box">
                     \[ W_{\text{neto}} = m \left[ \frac{v^{2}}{2} \right]_{v_i}^{v_f} = \frac{1}{2} m v_f^{2} - \frac{1}{2} m v_i^{2} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0141.webp">
+                        <img src="../imagenes/webp/ImagenF0141.webp" alt="Trayectoria parabólica de una partícula bajo una fuerza variable: el trabajo se obtiene por integración">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.6. La trayectoria parabólica de una partícula sobre la que actúa una fuerza determinada. El teorema de las fuerzas vivas se obtiene integrando el producto \( \vec{F}_{\text{neto}} \cdot d\vec{r} \) a lo largo de la trayectoria; el resultado final solo depende de las velocidades inicial y final (energías cinéticas), no del camino concreto seguido.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -390,6 +411,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> Este teorema es más general y poderoso que el principio de conservación de la energía mecánica, ya que no requiere que todas las fuerzas sean conservativas. Es fundamental que los estudiantes distingan entre: (a) <strong>trabajo neto</strong> = variación de energía cinética (siempre válido), y (b) <strong>trabajo de fuerzas no conservativas</strong> = variación de energía mecánica. Un ejercicio recomendado es resolver el mismo problema con rozamiento usando ambos enfoques: (1) dinámica newtoniana con aceleración, y (2) teorema de la energía cinética, para apreciar la elegancia del método energético. El nombre histórico "fuerzas vivas" (vis viva) proviene de Leibniz y refleja la visión del movimiento como una "fuerza viva" almacenada en el cuerpo.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0148.webp">
+                    <img src="../imagenes/webp/ImagenF0148.webp" alt="Tablas que ejercen una fuerza para detener una bala; la bala pierde energía cinética">
+                </a>
+                <figcaption class="figure-caption">Figura 7.13. Las tablas ejercen una fuerza para detener la bala. Como resultado, las tablas hacen trabajo (negativo) y la bala pierde energía cinética. Es el ejemplo paradigmático del teorema de las fuerzas vivas: \( W_{\text{neto}} = \Delta E_c \).</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -422,6 +450,13 @@
                     <p>\( -F_r \cdot 50 = -240\,000 \Rightarrow F_r = 4\,800 \, \text{N} \).</p>
                     <p>c) \( F_r = \mu m g \Rightarrow \mu = \frac{F_r}{m g} = \frac{4800}{1200 \cdot 9,8} \approx 0,408 \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0139.webp">
+                        <img src="../imagenes/webp/ImagenF0139.webp" alt="Vista superior de las trayectorias para mover un sofá: trabajo de la fricción">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.4. Vista superior de las trayectorias para mover un sofá. La fuerza de fricción se opone al desplazamiento (α = 180°), por lo que su trabajo es siempre negativo y disipa energía mecánica. Es exactamente lo que ocurre en el frenado del coche del ejercicio.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 2: Fuerza oblicua con rozamiento -->
@@ -442,6 +477,13 @@
                     <p>Por el teorema: \( \Delta E_c = W_{\text{neto}} \Rightarrow \frac{1}{2} m v_f^2 - 0 = 179,7 \).</p>
                     <p>\( v_f = \sqrt{\frac{2 \cdot 179,7}{8}} = \sqrt{44,925} \approx 6,70 \, \text{m/s} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0115.webp">
+                        <img src="../imagenes/webp/ImagenF0115.webp" alt="Caja sobre superficie horizontal empujada con una fuerza P y sometida a fricción">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.13. (a) Una caja situada en una superficie horizontal se empuja con una fuerza P. (b) Las fuerzas sobre la caja. Aquí, f puede representar la fuerza de fricción estática o cinética. La normal se reduce si la fuerza aplicada tiene componente vertical ascendente, como en este ejercicio.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 3: Ascenso con rozamiento en plano inclinado -->
@@ -462,6 +504,13 @@
                     <p>Inicial: \( E_{c,i} = \frac{1}{2} \cdot 5 \cdot 8^2 = 160 \, \text{J} \), final \( E_{c,f} = 0 \).</p>
                     <p>\( \Delta E_c = -160 \, \text{J} = -F_{\text{neto}} \cdot d \Rightarrow d = \frac{160}{34,03} \approx 4,70 \, \text{m} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0116.webp">
+                        <img src="../imagenes/webp/ImagenF0116.webp" alt="Esquiador en un plano inclinado: descomposición de fuerzas con fricción">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.14. El movimiento del esquiador y la fricción son paralelos a la pendiente, por lo que lo más conveniente es proyectar todas las fuerzas en un sistema de coordenadas en el que un eje es paralelo a la pendiente y el otro es perpendicular. La normal es perpendicular a la pendiente, y la fricción es paralela a la pendiente. La fricción realiza trabajo negativo durante la subida.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 4: Caída vertical con resistencia del aire -->
@@ -480,6 +529,13 @@
                     <p>Por tanto: \( 94,08 + W_{\text{aire}} = 40 \Rightarrow W_{\text{aire}} = 40 - 94,08 = -54,08 \, \text{J} \).</p>
                     <p>La resistencia del aire realiza trabajo negativo (disipa energía).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0135.webp">
+                        <img src="../imagenes/webp/ImagenF0135.webp" alt="Diagrama de cuerpo libre de un objeto que cae a través de un medio resistivo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 6.33. Diagrama de cuerpo libre de un objeto que cae a través de un medio resistivo. La fuerza de arrastre (resistencia del aire) se opone al peso; su trabajo es siempre negativo y disipa energía mecánica del sistema.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 5: Montaña rusa con rozamiento (pérdida de energía) -->
@@ -498,6 +554,13 @@
                     <p>Por el teorema: \( W_{nc} = \Delta E_m = -12\,450 \, \text{J} \).</p>
                     <p>Las fuerzas no conservativas han realizado un trabajo negativo de 12,45 kJ, que corresponde a la energía perdida por rozamiento y resistencia.</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0150.webp">
+                        <img src="../imagenes/webp/ImagenF0150.webp" alt="Coche subiendo una cuesta a velocidad constante: potencia y disipación de energía">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.15. Queremos calcular la potencia necesaria para subir un auto por una colina a velocidad constante. En un problema de montaña rusa como el del ejercicio, parte de la energía mecánica inicial se disipa por la resistencia del aire y la fricción: es la manifestación del trabajo de las fuerzas no conservativas.</figcaption>
+                </figure>
             </div>
 
             <!-- Observaciones claves -->
@@ -507,8 +570,6 @@
 
         </details>
         <!-- FIN BLOQUE DESPLEGABLE -->
-
-
 
 
 
@@ -567,9 +628,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

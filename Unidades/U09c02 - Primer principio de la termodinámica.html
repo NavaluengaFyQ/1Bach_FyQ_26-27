@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T09.02 - Demostración: Primer Principio de la Termodinámica</title>
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
-        /* ============================================
-           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
-           ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
             max-width: 900px;
             width: 100%;
@@ -25,7 +19,6 @@
             overflow: hidden;
             margin: 20px auto;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -35,271 +28,131 @@
             justify-content: space-between;
             gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-        }
-        .header-sub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .header-sub img {
-            max-height: 30px;
-            width: auto;
-        }
+        .header-left { display: flex; flex-direction: column; justify-content: center; }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-sub { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+        .header-sub img { max-height: 30px; width: auto; }
         .header-sub .codigo {
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: bold; font-size: 1em;
             background: rgba(255,255,255,0.15);
-            padding: 2px 8px;
-            border-radius: 12px;
+            padding: 2px 8px; border-radius: 12px;
         }
-        .header-sub .texto {
-            font-size: 1em;
-        }
-        /* Zona derecha de la cabecera */
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* ---------- SECCIONES PRINCIPALES ---------- */
+        .header-sub .texto { font-size: 1em; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; }
         .section {
-            padding: 25px 30px;
-            margin: 15px;
-            border-radius: 12px;
-            border-left: 5px solid;
+            padding: 25px 30px; margin: 15px;
+            border-radius: 12px; border-left: 5px solid;
         }
-        /* Variantes de color para cada tipo de sección */
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
         .section h2 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.3em; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
         }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
-
-        /* ---------- CAJA DE FÓRMULA ---------- */
         .formula-box {
-            background: #edf2f7;
-            border: 2px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
+            background: #edf2f7; border: 2px solid #cbd5e0;
+            border-radius: 10px; padding: 15px; margin: 15px 0;
+            text-align: center; font-size: 1.1em;
         }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
         .step {
-            background: white;
-            border-left: 4px solid #a0aec0;
-            padding: 15px;
-            margin: 12px 0;
+            background: white; border-left: 4px solid #a0aec0;
+            padding: 15px; margin: 12px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .step-num {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: bold;
+            display: inline-block; background: #667eea; color: white;
+            width: 28px; height: 28px; border-radius: 50%;
+            text-align: center; line-height: 28px; font-weight: bold;
             margin-right: 10px;
         }
-        /* ---------- NOTA DESTACADA ---------- */
         .note {
-            background: #fffbeb;
-            border: 1px solid #f6e05e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #744210;
+            background: #fffbeb; border: 1px solid #f6e05e;
+            border-radius: 8px; padding: 12px; margin-top: 15px;
+            font-size: 0.95em; color: #744210;
         }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        /* Ajustes para listas y tablas */
-        ul, ol {
-            padding-left: 25px;
-            margin: 10px 0;
-        }
-        li {
-            line-height: 1.7;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e0;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #edf2f7;
-        }
-
-        /* ============================================
-           ESTILOS PARA EL BLOQUE DESPLEGABLE
-           ============================================ */
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #cbd5e0; padding: 8px; text-align: left; }
+        th { background: #edf2f7; }
         details.ejercicios-desplegable {
             margin: 30px 25px 20px 25px;
-            background: #f1f5f9;
-            border-radius: 20px;
+            background: #f1f5f9; border-radius: 20px;
             padding: 0.5rem 1.5rem 1.5rem 1.5rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #cbd5e0;
         }
         details.ejercicios-desplegable summary {
-            list-style: none;
-            cursor: pointer;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1e293b;
-            padding: 0.8rem 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            user-select: none;
-            transition: color 0.2s;
+            list-style: none; cursor: pointer;
+            font-size: 1.4rem; font-weight: 600; color: #1e293b;
+            padding: 0.8rem 0.5rem; display: flex;
+            align-items: center; gap: 0.75rem;
+            user-select: none; transition: color 0.2s;
         }
-        details.ejercicios-desplegable summary::-webkit-details-marker {
-            display: none;
-        }
+        details.ejercicios-desplegable summary::-webkit-details-marker { display: none; }
         details.ejercicios-desplegable summary .fa-chevron-circle-down {
-            transition: transform 0.3s ease;
-            color: #667eea;
-            font-size: 1.8rem;
+            transition: transform 0.3s ease; color: #667eea; font-size: 1.8rem;
         }
-        details.ejercicios-desplegable[open] summary .fa-chevron-circle-down {
-            transform: rotate(180deg);
-        }
+        details.ejercicios-desplegable[open] summary .fa-chevron-circle-down { transform: rotate(180deg); }
         details.ejercicios-desplegable summary .icono-pulsame {
-            background: #667eea;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
+            background: #667eea; color: white; font-size: 0.75rem;
+            font-weight: 500; padding: 0.2rem 0.9rem;
+            border-radius: 30px; letter-spacing: 0.3px;
             margin-left: 0.3rem;
         }
         .contenido-ejercicios {
-            margin-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
+            margin-top: 1.2rem; display: flex;
+            flex-direction: column; gap: 1.8rem;
         }
         .tarjeta-ej {
-            background: white;
-            border-radius: 18px;
+            background: white; border-radius: 18px;
             padding: 1.2rem 1.8rem 1.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             border: 1px solid #e9edf4;
         }
         .tarjeta-ej .ej-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
+            display: flex; align-items: baseline; gap: 1rem;
             border-bottom: 2px solid #dbeafe;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            padding-bottom: 0.5rem; margin-bottom: 1rem;
         }
         .tarjeta-ej .ej-num {
-            background: #667eea;
-            color: white;
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
+            background: #667eea; color: white; font-weight: 700;
+            font-size: 0.9rem; padding: 0.2rem 1rem; border-radius: 30px;
         }
         .tarjeta-ej .ej-titulo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #1e293b;
+            font-weight: 600; font-size: 1.2rem; color: #1e293b;
         }
-        .tarjeta-ej .enunciado {
-            margin-bottom: 0.8rem;
-        }
-        .tarjeta-ej .enunciado ul {
-            margin-left: 1.5rem;
-        }
+        .tarjeta-ej .enunciado { margin-bottom: 0.8rem; }
+        .tarjeta-ej .enunciado ul { margin-left: 1.5rem; }
         .resolucion {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.2rem 1.5rem;
-            border-left: 4px solid #667eea;
-            margin-top: 0.8rem;
-            font-size: 0.98rem;
+            background: #f8fafc; border-radius: 14px;
+            padding: 1.2rem 1.5rem; border-left: 4px solid #667eea;
+            margin-top: 0.8rem; font-size: 0.98rem;
         }
-        .resolucion p {
-            margin: 0.5rem 0;
-        }
-        .resolucion .step-label {
-            font-weight: 600;
-            color: #1e293b;
-        }
+        .resolucion p { margin: 0.5rem 0; }
+        .resolucion .step-label { font-weight: 600; color: #1e293b; }
         .pie-clave {
-            margin-top: 1.8rem;
-            background: #e0f2fe;
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            font-size: 0.98rem;
-            border-left: 6px solid #0ea5e9;
+            margin-top: 1.8rem; background: #e0f2fe;
+            border-radius: 14px; padding: 1rem 1.5rem;
+            font-size: 0.98rem; border-left: 6px solid #0ea5e9;
             color: #0c4a6e;
         }
-        .pie-clave i {
-            margin-right: 0.5rem;
-        }
+        .pie-clave i { margin-right: 0.5rem; }
         @media (max-width: 640px) {
-            .container {
-                margin: 10px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-right {
-                align-self: flex-end;
-            }
-            details.ejercicios-desplegable summary {
-                font-size: 1.1rem;
-                flex-wrap: wrap;
-            }
-            .tarjeta-ej {
-                padding: 1rem;
-            }
+            .container { margin: 10px; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            details.ejercicios-desplegable summary { font-size: 1.1rem; flex-wrap: wrap; }
+            .tarjeta-ej { padding: 1rem; }
         }
     </style>
 </head>
@@ -310,7 +163,7 @@
             <div class="header-left">
                 <h1>IES Valle del Alberche</h1>
                 <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                    <img src="../img_comunes/Cápsula.png" width="40" height="auto">
                     <span class="codigo">#T09.02.- </span>
                     <span class="texto">Demostración: Primer Principio de la Termodinámica</span>
                 </div>
@@ -320,7 +173,6 @@
             </div>
         </div>
 
-        <!-- SECCIONES TRANSFORMADAS -->
         <!-- ENUNCIADO -->
         <div class="section enunciado">
             <h2>📘 Enunciado</h2>
@@ -329,30 +181,20 @@
                 \[ \Delta U = Q + W \]
             </div>
 
+            <!-- PNG originales intactos -->
+            <style>
+              img { width: 100%; height: auto; max-width: 100%; }
+            </style>
+            <img src="../imagenes/U09c02 - Primer principio de la termodinámica.png" alt="Imagen" width="800">
+            <img src="../imagenes/U09c02 - Primer principio de la termodinámica_2.png" alt="Imagen" width="800">
+            <!-- -----FIN-------- -->
 
-
-
-
-
-<!-- Insertando imagen -->
-<style>
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-</style>
-
-<img src="../imagenes/U09c02 - Primer principio de la termodinámica.png" alt="Imagen" width="800">
-<img src="../imagenes/U09c02 - Primer principio de la termodinámica_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
-
-
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ105.webp">
+                    <img src="../imagenes/webp/ImagenQ105.webp" alt="La energía en la vida cotidiana: hamburguesa, gasolina y coque">
+                </a>
+                <figcaption class="figure-caption">Figura 5.2. La energía implicada en los cambios químicos es importante para nuestra vida cotidiana: (a) una hamburguesa con queso para el almuerzo proporciona la energía que necesita para pasar el resto del día; (b) la combustión de la gasolina proporciona la energía que mueve su automóvil (y a usted) entre la casa, el trabajo y la escuela; y (c) el coque, una forma procesada de carbón, proporciona la energía necesaria para convertir el mineral de hierro en hierro. En todos los casos, la energía se transforma de unas formas en otras sin que la contabilidad global deje de cuadrar: ese es el principio que formaliza el Primer Principio de la Termodinámica.</figcaption>
+            </figure>
         </div>
 
         <!-- OBJETIVO -->
@@ -364,10 +206,26 @@
         <!-- PROCEDIMIENTO -->
         <div class="section procedimiento">
             <h2>🔬 Procedimiento</h2>
+
             <div class="step">
                 <span class="step-num">1</span>
                 <strong>Principio de conservación de la energía:</strong> La energía total del universo se conserva. Si un sistema intercambia energía con su entorno, la variación de su energía interna \(\Delta U\) debe ser igual a la energía que recibe del exterior menos la energía que cede al exterior.
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ106.webp">
+                        <img src="../imagenes/webp/ImagenQ106.webp" alt="Cataratas Victoria y presa Hoover: energía potencial, cinética y eléctrica">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.3. (a) El agua a mayor altura, por ejemplo, en la cima de las cataratas Victoria, tiene una energía potencial mayor que el agua a menor altura. A medida que el agua cae, parte de su energía potencial se convierte en energía cinética. (b) Si el agua fluye a través de generadores en el fondo de una presa, como la presa Hoover, su energía cinética se convierte en energía eléctrica. La energía no se crea ni se destruye: solo se transforma. Esa es la base del principio de conservación que da lugar al Primer Principio.</figcaption>
+                </figure>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ112.webp">
+                        <img src="../imagenes/webp/ImagenQ112.webp" alt="Planta termosolar con espejos cilindro-parabólicos que concentran la luz solar">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.9. Esta planta termosolar utiliza espejos cilindro-parabólicos para concentrar la luz solar. La radiación solar se convierte en calor (energía interna del fluido), que a su vez se transforma en trabajo útil. El balance entre la energía que entra (radiación) y la que sale (trabajo y calor residual) nunca deja de cumplirse: es el mismo tipo de contabilidad que aplicamos al Primer Principio.</figcaption>
+                </figure>
             </div>
+
             <div class="step">
                 <span class="step-num">2</span>
                 <strong>Formas de intercambio energético:</strong> En termodinámica, un sistema solo puede intercambiar energía con su entorno de dos maneras:
@@ -375,7 +233,29 @@
                     <li><strong>Calor (\(Q\)):</strong> flujo de energía debido a una diferencia de temperatura entre el sistema y el entorno.</li>
                     <li><strong>Trabajo (\(W\)):</strong> flujo de energía debido a fuerzas macroscópicas que producen desplazamientos (expansión, compresión, agitación, etc.).</li>
                 </ul>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ107.webp">
+                        <img src="../imagenes/webp/ImagenQ107.webp" alt="Moléculas de agua caliente moviéndose más rápido que las de agua fría">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.4. (a) Las moléculas de una muestra de agua caliente se mueven más rápidamente que (b) las de una muestra de agua fría. La temperatura es una medida de la energía cinética media de las moléculas: el calor es la transferencia de esa energía cinética molecular de un cuerpo a otro por colisiones, no una sustancia que "se tiene".</figcaption>
+                </figure>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ109.webp">
+                        <img src="../imagenes/webp/ImagenQ109.webp" alt="Equilibrio térmico: transferencia de energía por colisiones entre sustancias a distinta temperatura">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.6. (a) Las sustancias H y L están inicialmente a temperaturas diferentes y sus átomos tienen energías cinéticas medias distintas. (b) Cuando entran en contacto, las colisiones entre las moléculas dan lugar a la transferencia de energía cinética (térmica) de la materia más caliente a la más fría. (c) Los dos objetos alcanzan el "equilibrio térmico" cuando ambas sustancias están a la misma temperatura y sus moléculas tienen la misma energía cinética media. Este es el mecanismo microscópico del calor.</figcaption>
+                </figure>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+                        <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores fuerza y desplazamiento que definen el trabajo mecánico">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.2. Vectores utilizados para definir el trabajo. La fuerza que actúa sobre una partícula y su desplazamiento infinitesimal se muestran en un punto de la trayectoria entre A y B. El trabajo infinitesimal es el producto punto de estos dos vectores; el trabajo total es la integral del producto punto a lo largo de la trayectoria. Este es el segundo mecanismo de intercambio energético del Primer Principio, junto con el calor.</figcaption>
+                </figure>
             </div>
+
             <div class="step">
                 <span class="step-num">3</span>
                 <strong>Convención de signos:</strong> Se adopta la convención IUPAC:
@@ -383,17 +263,40 @@
                     \[ Q > 0 \text{ (calor absorbido por el sistema)} \quad ; \quad Q < 0 \text{ (calor cedido por el sistema)} \]
                     \[ W > 0 \text{ (trabajo realizado sobre el sistema)} \quad ; \quad W < 0 \text{ (trabajo realizado por el sistema)} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ114.webp">
+                        <img src="../imagenes/webp/ImagenQ114.webp" alt="Procesos exotérmico (q negativo) y endotérmico (q positivo) en calorimetría">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.11. En una determinación calorimétrica, o bien (a) se produce un proceso exotérmico y el calor, \(q\), es negativo, lo que indica que la energía térmica se transfiere del sistema a su entorno, o bien (b) se produce un proceso endotérmico y el calor, \(q\), es positivo, lo que indica que la energía térmica se transfiere del entorno al sistema. Esta es exactamente la convención de signos que utilizamos en el Primer Principio: el signo de \(Q\) y de \(W\) no indica "cantidad", sino la dirección de la transferencia (entra o sale del sistema).</figcaption>
+                </figure>
             </div>
+
             <div class="step">
                 <span class="step-num">4</span>
                 <strong>Balance energético:</strong> La variación de energía interna del sistema es la suma algebraica de todas las energías que entran al sistema. Si el sistema absorbe calor (\(Q > 0\)), su energía interna aumenta. Si el entorno realiza trabajo sobre el sistema (\(W > 0\), compresión), su energía interna también aumenta. Por tanto:
                 <div class="formula-box">
                     \[ \Delta U = Q + W \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ122.webp">
+                        <img src="../imagenes/webp/ImagenQ122.webp" alt="La energía interna U puede modificarse mediante flujo de calor y trabajo">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.19. La energía interna, \(U\), de un sistema puede modificarse mediante el flujo de calor y el trabajo. Si el calor fluye hacia el sistema, \(q_{\text{dentro}}\), o se realiza trabajo sobre el sistema, \(w_{\text{sobre}}\), su energía interna aumenta, \(\Delta U > 0\). Si el calor fluye fuera del sistema, \(q_{\text{fuera}}\), o el trabajo es realizado por el sistema, \(w_{\text{por}}\), su energía interna disminuye, \(\Delta U < 0\). Este esquema es la representación gráfica exacta de la ecuación \(\Delta U = Q + W\).</figcaption>
+                </figure>
             </div>
+
             <div class="step">
                 <span class="step-num">5</span>
                 <strong>Interpretación física:</strong> Esta ecuación indica que la energía interna es una <em>función de estado</em> (su variación solo depende del estado inicial y final), mientras que \(Q\) y \(W\) son <em>formas de intercambio</em> (dependen del camino seguido). El sistema no "tiene" calor ni trabajo; solo tiene energía interna, y el calor y el trabajo son procesos de transferencia.
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ123.webp">
+                        <img src="../imagenes/webp/ImagenQ123.webp" alt="Caminos X e Y al Kilimanjaro: función de estado vs distancia recorrida">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.20. Los caminos X e Y representan dos rutas diferentes hacia la cumbre del monte Kilimanjaro. Ambas tienen el mismo cambio de altitud (la altitud o elevación en una montaña es una función de estado; no depende del camino), pero tienen distancias recorridas muy diferentes (la distancia recorrida no es una función de estado; depende del camino). Exactamente lo mismo ocurre en termodinámica: \(U\) es función de estado (como la altitud) y \(\Delta U\) solo depende de los estados inicial y final, mientras que \(Q\) y \(W\) (como la distancia recorrida) dependen del camino concreto seguido.</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -410,8 +313,15 @@
                 <li>\(W\): trabajo intercambiado (J) — positivo si se realiza sobre el sistema, negativo si lo realiza el sistema</li>
             </ul>
             <div class="note">
-                <strong>💡 Observaciones sobre el alumnado:</strong> Es crucial distinguir entre "energía interna" (propiedad del sistema) y "calor/trabajo" (procesos de transferencia). Un error frecuente es afirmar que "un cuerpo caliente tiene más calor". Se recomienda usar la analogía de la cuenta bancaria: el saldo es la energía interna, los ingresos son el calor/work recibidos, y los gastos son el calor/work cedidos. El saldo no "tiene" ingresos, solo tiene un valor numérico.
+                <strong>💡 Observaciones sobre el alumnado:</strong> Es crucial distinguir entre "energía interna" (propiedad del sistema) y "calor/trabajo" (procesos de transferencia). Un error frecuente es afirmar que "un cuerpo caliente tiene más calor". Se recomienda usar la analogía de la cuenta bancaria: el saldo es la energía interna, los ingresos son el calor/trabajo recibidos, y los gastos son el calor/trabajo cedidos. El saldo no "tiene" ingresos, solo tiene un valor numérico.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ110.webp">
+                    <img src="../imagenes/webp/ImagenQ110.webp" alt="Soplete oxiacetilénico (exotérmico) y bolsa fría (endotérmico)">
+                </a>
+                <figcaption class="figure-caption">Figura 5.7. (a) Un soplete oxiacetilénico produce calor por la combustión de acetileno en oxígeno. La energía liberada por esta reacción exotérmica calienta y luego funde el metal que se corta. (b) Una bolsa fría utiliza un proceso endotérmico para crear la sensación de frío. En el primer caso, el sistema cede calor al entorno (\(Q < 0\)); en el segundo, lo absorbe (\(Q > 0\)). Es la manifestación directa del término \(Q\) del Primer Principio.</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================== -->
@@ -442,6 +352,13 @@
                         <p><span class="step-label">Paso 3:</span> Aplicar \(\Delta U = Q + W = 1881 + 250 = 2131\,\text{J}\).</p>
                         <p><span class="step-label">Resultado:</span> La energía interna aumenta en \(2.13\,\text{kJ}\).</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ119.webp">
+                            <img src="../imagenes/webp/ImagenQ119.webp" alt="Bolsa de frío instantáneo: disolución endotérmica de nitrato de amonio">
+                        </a>
+                        <figcaption class="figure-caption">Figura 5.16. Una bolsa de frío instantáneo consiste en una bolsa que contiene nitrato de amonio sólido y una segunda bolsa de agua. Cuando se rompe la bolsa de agua, la bolsa se enfría porque la disolución del nitrato de amonio es un proceso endotérmico que elimina la energía térmica del agua. A continuación, la bolsa fría elimina la energía térmica de su cuerpo. Aquí \(Q > 0\) para el sistema (la disolución absorbe calor del entorno), aunque la sensación en la mano sea de frío.</figcaption>
+                        </figure>
                 </div>
 
                 <!-- EJERCICIO 2 -->
@@ -465,6 +382,13 @@
                         <p><span class="step-label">b)</span> \(\Delta U = Q + W = 800 + (-486.2) = 313.8\,\text{J}\).</p>
                         <p><span class="step-label">Resultado:</span> La energía interna aumenta en \(314\,\text{J}\).</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ265.webp">
+                            <img src="../imagenes/webp/ImagenQ265.webp" alt="La respiración como expansión y contracción del volumen pulmonar">
+                        </a>
+                        <figcaption class="figure-caption">Figura 9.15. La respiración se produce porque la expansión y contracción del volumen pulmonar crea pequeñas diferencias de presión entre los pulmones y el entorno, lo que hace que el aire entre y salga de los pulmones. Es un ejemplo cotidiano de proceso isobárico (o casi isobárico) en el que el trabajo \(W = -p\Delta V\) se realiza contra la presión atmosférica.</figcaption>
+                        </figure>
                 </div>
 
                 <!-- EJERCICIO 3 -->
@@ -483,6 +407,13 @@
                         <p>\(Q = -620\,\text{J}\) (signo negativo: calor cedido).</p>
                         <p><span class="step-label">Resultado:</span> El sistema cede \(620\,\text{J}\) de calor al entorno.</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ266.webp">
+                            <img src="../imagenes/webp/ImagenQ266.webp" alt="Buceadores con aire comprimido: compresión y descompresión controladas">
+                        </a>
+                        <figcaption class="figure-caption">Figura 9.16. Los buceadores utilizan aire comprimido para respirar bajo el agua. La compresión (y descompresión) controlada del gas es un proceso en el que el trabajo se realiza sobre el sistema (compresión) o por el sistema (expansión). En el límite isotérmico (cuando hay tiempo para que el gas intercambie calor con el entorno), la variación de energía interna es nula y todo el trabajo se compensa con calor.</figcaption>
+                        </figure>
                 </div>
 
                 <!-- EJERCICIO 4 -->
@@ -506,6 +437,13 @@
                         <p>\(\Delta T = -480 / (31.2) \approx -15.38\,\text{K}\).</p>
                         <p><span class="step-label">Resultado:</span> La temperatura desciende \(15.4\,\text{K}\).</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ250.webp">
+                            <img src="../imagenes/webp/ImagenQ250.webp" alt="Globos aerostáticos: el aire caliente en su interior es menos denso que el aire frío circundante">
+                        </a>
+                        <figcaption class="figure-caption">Figura 9.1. El aire caliente del interior de estos globos es menos denso que el aire frío circundante. Esto da lugar a una fuerza de flotación que hace que los globos se eleven cuando se desatan sus cabos. La relación entre la temperatura y la densidad del gas está directamente ligada a la expansión adiabática: cuando un gas se expande sin intercambiar calor, realiza trabajo a costa de su energía interna y su temperatura desciende.</figcaption>
+                        </figure>
                 </div>
 
                 <!-- EJERCICIO 5 -->
@@ -530,6 +468,13 @@
                         <p><span class="step-label">c)</span> Para que se cumpla, \(W_{\text{neto}} = -Q_{\text{neto}} = -0.9\,\text{kJ}\) (trabajo realizado por el sistema).</p>
                         <p><span class="step-label">Conclusión:</span> Los datos iniciales son inconsistentes; el trabajo neto debería ser \(-0.9\,\text{kJ}\) para que el ciclo sea válido.</p>
                     </div>
+
+                    <figure class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ124.webp">
+                            <img src="../imagenes/webp/ImagenQ124.webp" alt="La combustión de la gasolina es muy exotérmica">
+                        </a>
+                        <figcaption class="figure-caption">Figura 5.21. La combustión de la gasolina es muy exotérmica. En un motor de combustión, la energía química liberada como calor (\(Q < 0\) para el sistema, porque se cede al entorno) se transforma parcialmente en trabajo útil (\(W < 0\), realizado por el sistema). En un ciclo completo, la suma de \(Q\) y \(W\) intercambiados con el entorno es cero porque la energía interna vuelve a su valor inicial. Es el ejemplo real del Ejercicio 5.</figcaption>
+                        </figure>
                 </div>
 
             </div> <!-- fin contenido-ejercicios -->
@@ -539,68 +484,24 @@
             </div>
         </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
-        ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
-
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+        <!-- BLOQUE "ES HORA DE" -->
+        <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+            <div style="max-width: 100%; padding: 15px; margin: 10px auto; text-align: center; background: #f8fafc; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <p style="font-size: clamp(0.95rem, 3vw, 1.2rem); color: #2d3748; margin-top: 0; margin-bottom: 12px; padding: 0 10px;">
+                    <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                    <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+                </p>
+                <div style="text-align:center;">
+                    <a href="../index.html" target="_blank" style="display:inline-block; padding:12px 24px; background:#0078D4; color:white; text-decoration:none; border-radius:12px; font-weight:bold;">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
 
     </div> <!-- fin container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

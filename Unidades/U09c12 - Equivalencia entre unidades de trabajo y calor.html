@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T09.12 - Demostración: Equivalencia trabajo-calor</title>
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
-        /* ============================================
-           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
-           ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
             max-width: 900px;
             width: 100%;
@@ -25,7 +20,6 @@
             overflow: hidden;
             margin: 20px auto;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -35,271 +29,135 @@
             justify-content: space-between;
             gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-        }
-        .header-sub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .header-sub img {
-            max-height: 30px;
-            width: auto;
-        }
+        .header-left { display: flex; flex-direction: column; justify-content: center; }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-sub { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+        .header-sub img { max-height: 30px; width: auto; }
         .header-sub .codigo {
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: bold; font-size: 1em;
             background: rgba(255,255,255,0.15);
-            padding: 2px 8px;
-            border-radius: 12px;
+            padding: 2px 8px; border-radius: 12px;
         }
-        .header-sub .texto {
-            font-size: 1em;
-        }
-        /* Zona derecha de la cabecera */
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
+        .header-sub .texto { font-size: 1em; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; }
 
-        /* ---------- SECCIONES PRINCIPALES ---------- */
         .section {
-            padding: 25px 30px;
-            margin: 15px;
-            border-radius: 12px;
-            border-left: 5px solid;
+            padding: 25px 30px; margin: 15px;
+            border-radius: 12px; border-left: 5px solid;
         }
-        /* Variantes de color para cada tipo de sección */
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
         .section h2 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.3em; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
         }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
 
-        /* ---------- CAJA DE FÓRMULA ---------- */
         .formula-box {
-            background: #edf2f7;
-            border: 2px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
+            background: #edf2f7; border: 2px solid #cbd5e0;
+            border-radius: 10px; padding: 15px; margin: 15px 0;
+            text-align: center; font-size: 1.1em;
         }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
         .step {
-            background: white;
-            border-left: 4px solid #a0aec0;
-            padding: 15px;
-            margin: 12px 0;
+            background: white; border-left: 4px solid #a0aec0;
+            padding: 15px; margin: 12px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .step-num {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: bold;
-            margin-right: 10px;
+            display: inline-block; background: #667eea; color: white;
+            width: 28px; height: 28px; border-radius: 50%;
+            text-align: center; line-height: 28px;
+            font-weight: bold; margin-right: 10px;
         }
-        /* ---------- NOTA DESTACADA ---------- */
         .note {
-            background: #fffbeb;
-            border: 1px solid #f6e05e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #744210;
+            background: #fffbeb; border: 1px solid #f6e05e;
+            border-radius: 8px; padding: 12px; margin-top: 15px;
+            font-size: 0.95em; color: #744210;
         }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        /* Ajustes para listas y tablas */
-        ul, ol {
-            padding-left: 25px;
-            margin: 10px 0;
-        }
-        li {
-            line-height: 1.7;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e0;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #edf2f7;
-        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #cbd5e0; padding: 8px; text-align: left; }
+        th { background: #edf2f7; }
 
-        /* ============================================
-           ESTILOS PARA EL BLOQUE DESPLEGABLE
-           ============================================ */
         details.ejercicios-desplegable {
             margin: 30px 25px 20px 25px;
-            background: #f1f5f9;
-            border-radius: 20px;
+            background: #f1f5f9; border-radius: 20px;
             padding: 0.5rem 1.5rem 1.5rem 1.5rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #cbd5e0;
         }
         details.ejercicios-desplegable summary {
-            list-style: none;
-            cursor: pointer;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1e293b;
-            padding: 0.8rem 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            user-select: none;
-            transition: color 0.2s;
+            list-style: none; cursor: pointer; font-size: 1.4rem;
+            font-weight: 600; color: #1e293b; padding: 0.8rem 0.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
+            user-select: none; transition: color 0.2s;
         }
-        details.ejercicios-desplegable summary::-webkit-details-marker {
-            display: none;
-        }
+        details.ejercicios-desplegable summary::-webkit-details-marker { display: none; }
         details.ejercicios-desplegable summary .fa-chevron-circle-down {
             transition: transform 0.3s ease;
-            color: #667eea;
-            font-size: 1.8rem;
+            color: #667eea; font-size: 1.8rem;
         }
         details.ejercicios-desplegable[open] summary .fa-chevron-circle-down {
             transform: rotate(180deg);
         }
         details.ejercicios-desplegable summary .icono-pulsame {
-            background: #667eea;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-            margin-left: 0.3rem;
+            background: #667eea; color: white; font-size: 0.75rem;
+            font-weight: 500; padding: 0.2rem 0.9rem;
+            border-radius: 30px; letter-spacing: 0.3px; margin-left: 0.3rem;
         }
         .contenido-ejercicios {
             margin-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
+            display: flex; flex-direction: column; gap: 1.8rem;
         }
         .tarjeta-ej {
-            background: white;
-            border-radius: 18px;
+            background: white; border-radius: 18px;
             padding: 1.2rem 1.8rem 1.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             border: 1px solid #e9edf4;
         }
         .tarjeta-ej .ej-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
+            display: flex; align-items: baseline; gap: 1rem;
             border-bottom: 2px solid #dbeafe;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            padding-bottom: 0.5rem; margin-bottom: 1rem;
         }
         .tarjeta-ej .ej-num {
-            background: #667eea;
-            color: white;
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
+            background: #667eea; color: white; font-weight: 700;
+            font-size: 0.9rem; padding: 0.2rem 1rem; border-radius: 30px;
         }
         .tarjeta-ej .ej-titulo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #1e293b;
+            font-weight: 600; font-size: 1.2rem; color: #1e293b;
         }
-        .tarjeta-ej .enunciado {
-            margin-bottom: 0.8rem;
-        }
-        .tarjeta-ej .enunciado ul {
-            margin-left: 1.5rem;
-        }
+        .tarjeta-ej .enunciado { margin-bottom: 0.8rem; }
+        .tarjeta-ej .enunciado ul { margin-left: 1.5rem; }
         .resolucion {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.2rem 1.5rem;
-            border-left: 4px solid #667eea;
-            margin-top: 0.8rem;
-            font-size: 0.98rem;
+            background: #f8fafc; border-radius: 14px;
+            padding: 1.2rem 1.5rem; border-left: 4px solid #667eea;
+            margin-top: 0.8rem; font-size: 0.98rem;
         }
-        .resolucion p {
-            margin: 0.5rem 0;
-        }
-        .resolucion .step-label {
-            font-weight: 600;
-            color: #1e293b;
-        }
+        .resolucion p { margin: 0.5rem 0; }
+        .resolucion .step-label { font-weight: 600; color: #1e293b; }
         .pie-clave {
-            margin-top: 1.8rem;
-            background: #e0f2fe;
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            font-size: 0.98rem;
-            border-left: 6px solid #0ea5e9;
+            margin-top: 1.8rem; background: #e0f2fe;
+            border-radius: 14px; padding: 1rem 1.5rem;
+            font-size: 0.98rem; border-left: 6px solid #0ea5e9;
             color: #0c4a6e;
         }
-        .pie-clave i {
-            margin-right: 0.5rem;
-        }
+        .pie-clave i { margin-right: 0.5rem; }
         @media (max-width: 640px) {
-            .container {
-                margin: 10px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-right {
-                align-self: flex-end;
-            }
-            details.ejercicios-desplegable summary {
-                font-size: 1.1rem;
-                flex-wrap: wrap;
-            }
-            .tarjeta-ej {
-                padding: 1rem;
-            }
+            .container { margin: 10px; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            details.ejercicios-desplegable summary { font-size: 1.1rem; flex-wrap: wrap; }
+            .tarjeta-ej { padding: 1rem; }
         }
     </style>
 </head>
@@ -320,7 +178,6 @@
             </div>
         </div>
 
-        <!-- SECCIONES TRANSFORMADAS -->
         <!-- ENUNCIADO -->
         <div class="section enunciado">
             <h2>📘 Enunciado</h2>
@@ -329,12 +186,7 @@
                 \[ 1 \text{ cal} = 4{,}1868 \text{ J} \]
             </div>
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -345,13 +197,23 @@
 
 <img src="../imagenes/U09c12 - Equivalencia entre unidades de trabajo y calor.png" alt="Imagen" width="800">
 <img src="../imagenes/U09c12 - Equivalencia entre unidades de trabajo y calor_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
+<!-- Banco Q: combustión (calor + luz) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ104.webp">
+    <img src="../imagenes/webp/ImagenQ104.webp" alt="Combustión de una cerilla: libera energía en forma de calor y luz" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Al deslizar la cabeza de un fósforo por una superficie rugosa se inicia una reacción de combustión que produce energía en forma de calor y luz. El calor es una forma de energía en tránsito, no un fluido material: la aportación de Joule fue demostrar que puede medirse con la misma unidad que el trabajo.</figcaption>
+</figure>
 
-
-
-
-
+<!-- Banco Q: etiquetas nutricionales (Calorías) -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ121.webp">
+    <img src="../imagenes/webp/ImagenQ121.webp" alt="Etiqueta nutricional de un alimento: el contenido energético se indica en Calorías o kilojulios" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">La información nutricional del alimento aparece en la etiqueta del envase. En los EE. UU. el contenido energético se indica en Calorías (1 Cal = 1 kcal); en el resto del mundo se suelen utilizar kilojulios. Es el ejemplo cotidiano más claro de que calor y trabajo se miden con unidades interconvertibles.</figcaption>
+</figure>
 
         </div>
 
@@ -359,6 +221,23 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Establecer la equivalencia cuantitativa entre dos formas de energía aparentemente distintas —el trabajo mecánico y el calor— demostrando que son interconvertibles y que se miden con la misma unidad fundamental (el julio en el SI). Este resultado histórico, obtenido experimentalmente por James Prescott Joule en 1843-1850, sentó las bases del Primer Principio de la Termodinámica y de la conservación de la energía.</p>
+
+<!-- Banco F: definición de trabajo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+    <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores que definen el trabajo: fuerza y desplazamiento infinitesimal" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El trabajo infinitesimal es el producto escalar \(dW = \vec{F}\cdot d\vec{s}\). En el experimento de Joule, este trabajo mecánico (pesas que caen y mueven paletas) se convertía íntegramente en calor absorbido por el agua: la equivalencia entre ambos es precisamente lo que demostró.</figcaption>
+</figure>
+
+<!-- Banco Q: energía interna q+w -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ122.webp">
+    <img src="../imagenes/webp/ImagenQ122.webp" alt="Energía interna: el flujo de calor y el trabajo modifican la energía interna de un sistema" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">La energía interna \(U\) de un sistema puede modificarse mediante flujo de calor y mediante trabajo. El resultado del experimento de Joule (\(\Delta U = W\) cuando \(q=0\)) es precisamente el punto de partida del Primer Principio de la Termodinámica.</figcaption>
+</figure>
+
         </div>
 
         <!-- PROCEDIMIENTO -->
@@ -367,6 +246,12 @@
             <div class="step">
                 <span class="step-num">1</span>
                 <strong>Descripción del experimento de Joule:</strong> Joule utilizó un dispositivo consistente en un recipiente con agua dotado de paletas rotativas conectadas mediante un eje a un sistema de pesas que caían. Al descender las pesas, el trabajo gravitatorio se convertía en trabajo de agitación mecánica sobre el agua, aumentando su temperatura.
+                <figure class="photo-figure">
+                  <a class="lightbox-link" href="../imagenes/webp/ImagenQ109.webp">
+                    <img src="../imagenes/webp/ImagenQ109.webp" alt="Transferencia de energía térmica entre dos sustancias hasta alcanzar el equilibrio térmico" loading="lazy" decoding="async">
+                  </a>
+                  <figcaption class="figure-caption">Cuando dos cuerpos a distinta temperatura entran en contacto, las colisiones moleculares transfieren energía cinética del más caliente al más frío hasta alcanzar el equilibrio térmico. En el experimento de Joule, el trabajo de las paletas agitaba el agua y aumentaba su energía térmica: exactamente el mismo efecto que produce la transferencia de calor.</figcaption>
+                </figure>
             </div>
             <div class="step">
                 <span class="step-num">2</span>
@@ -383,6 +268,12 @@
                     \[ Q = m_{\text{agua}} c_e \Delta T \]
                 </div>
                 donde \( c_e = 1 \text{ cal g}^{-1} \text{°C}^{-1} \) es el calor específico del agua en la escala calorimétrica.
+                <figure class="photo-figure">
+                  <a class="lightbox-link" href="../imagenes/webp/ImagenQ111.webp">
+                    <img src="../imagenes/webp/ImagenQ111.webp" alt="Sartén grande y sartén pequeña: la capacidad calorífica depende de la masa" loading="lazy" decoding="async">
+                  </a>
+                  <figcaption class="figure-caption">Debido a su mayor masa, una sartén grande tiene una capacidad calorífica mayor que una pequeña. El calor específico \(c_e\) (por unidad de masa) es una propiedad del material; la capacidad \(C = m c_e\) depende además de cuánta masa hay. En el experimento de Joule, el agua es el medio que absorbe el calor generado por el trabajo.</figcaption>
+                </figure>
             </div>
             <div class="step">
                 <span class="step-num">4</span>
@@ -448,14 +339,29 @@
             <div class="formula-box">
                 \[ 1 \text{ atm} \cdot \text{L} = 101{,}325 \text{ J} \approx 101{,}3 \text{ J} \]
             </div>
+
+<!-- Banco Q: calorimetría, procesos exotérmicos/endotérmicos -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ114.webp">
+    <img src="../imagenes/webp/ImagenQ114.webp" alt="Diagrama calorimétrico: procesos exotérmico y endotérmico" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">En una determinación calorimétrica, o bien se produce un proceso exotérmico (el calor \(q\) es negativo, la energía térmica pasa del sistema al entorno) o bien un proceso endotérmico (\(q\) es positivo, la energía térmica pasa del entorno al sistema). Medir estas cantidades es lo que permitió a Joule y a sus contemporáneos cuantificar el calor con precisión.</figcaption>
+</figure>
+
+<!-- Banco Q: calorimetría metal-agua -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ117.webp">
+    <img src="../imagenes/webp/ImagenQ117.webp" alt="En un proceso de calorimetría simple, el calor se transfiere del metal caliente al agua fría" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">En un proceso de calorimetría simple, el calor \(q\) se transfiere del metal caliente \(M\) al agua fría \(W\) hasta que ambos alcanzan la misma temperatura. Conociendo la masa de agua y su incremento de temperatura, se determina el calor absorbido; y a partir de ahí, el equivalente mecánico \(J = W/Q\).</figcaption>
+</figure>
+
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> Es fundamental que se comprenda que el experimento de Joule no "creó" el calor a partir del trabajo, sino que demostró que el calor y el trabajo son <em>formas equivalentes de energía</em>. Antes de Joule, se creía que el calor era un fluido invisible (el "calórico") que fluía entre los cuerpos. El experimento demostró que el calor es una forma de energía en tránsito, no una sustancia. Se recomienda contrastar el valor de \( J \) con el factor de conversión inverso: \( 1 \text{ J} = 0{,}239 \text{ cal} \), que aparece frecuentemente en los problemas del libro de texto. También es útil mencionar que en nutrición se usa la "Caloría" con mayúscula (1 Cal = 1 kcal = 4186,8 J) para evitar confusiones.
             </div>
         </div>
 
-        <!-- ========================================================== -->
-        <!-- BLOQUE DESPLEGABLE: EJERCICIOS TIPO RESUELTOS              -->
-        <!-- ========================================================== -->
+        <!-- BLOQUE DESPLEGABLE: EJERCICIOS -->
         <details class="ejercicios-desplegable">
             <summary>
                 <i class="fas fa-chevron-circle-down"></i>
@@ -465,7 +371,6 @@
 
             <div class="contenido-ejercicios">
 
-                <!-- EJERCICIO 1 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 1</span>
@@ -487,7 +392,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 2 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 2</span>
@@ -509,7 +413,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 3 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 3</span>
@@ -527,9 +430,14 @@
                         <p><span class="step-label">a)</span> \( 220 \, \text{Cal} = 220 \, \text{kcal} = 220 \times 4.1868 = 921.1 \, \text{kJ} \).</p>
                         <p><span class="step-label">b)</span> Fracción = \( \frac{500}{921.1} \approx 0.543 \), es decir, \( 54.3\% \).</p>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenQ105.webp">
+                        <img src="../imagenes/webp/ImagenQ105.webp" alt="Energía en la vida cotidiana: hamburguesa, gasolina y coque" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">La energía implicada en los cambios cotidianos se mide en distintas unidades según el contexto: la hamburguesa aporta energía al cuerpo (en Calorías), la gasolina mueve el coche (en julios), el coque permite obtener hierro. Todas son formas interconvertibles de energía: precisamente lo que demostró Joule.</figcaption>
+                    </figure>
                 </div>
 
-                <!-- EJERCICIO 4 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 4</span>
@@ -549,9 +457,14 @@
                         <p><span class="step-label">b)</span> \( Q = m_{\text{agua}} c_e \Delta T = 500 \times 1 \times 0.48 = 240 \, \text{cal} \).</p>
                         <p><span class="step-label">c)</span> \( J = \frac{W}{Q} = \frac{980}{240} \approx 4.083 \, \text{J cal}^{-1} \) (próximo al valor aceptado 4.1868, la diferencia se debe a pérdidas experimentales).</p>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenQ108.webp">
+                        <img src="../imagenes/webp/ImagenQ108.webp" alt="Termómetros de alcohol/mercurio y bimetálico" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">En un termómetro de alcohol o mercurio, el líquido se expande cuando se calienta y se contrae cuando se enfría. Medir con precisión el incremento \(\Delta T\) del agua fue esencial para Joule: solo con termómetros fiables pudo cuantificar el calor absorbido y, a partir de él, el equivalente mecánico.</figcaption>
+                    </figure>
                 </div>
 
-                <!-- EJERCICIO 5 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 5</span>
@@ -572,38 +485,23 @@
                     </div>
                 </div>
 
-            </div> <!-- fin contenido-ejercicios -->
+            </div>
 
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> El equivalente mecánico del calor (\( 1 \, \text{cal} = 4.1868 \, \text{J} \)) es una constante fundamental que demuestra la equivalencia entre trabajo y calor. Aprender a convertir entre julios y calorías (y viceversa) es esencial, ya que en muchos problemas de termodinámica nos encontraremos con ambas unidades. Recuerda que en nutrición, la "Caloría" (con mayúscula) equivale a una kilocaloría.
             </div>
         </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -611,36 +509,21 @@
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
+    </div>
 
-
-
-
-
-
-
-
-
-
-    </div> <!-- fin container -->
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

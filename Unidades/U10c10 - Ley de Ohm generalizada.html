@@ -8,6 +8,8 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
 /* ============================================
    ESTILOS EXISTENTES (no modificados)
@@ -298,12 +300,37 @@ details.desmitificando .contenido-ejercicios {
             <img src="../imagenes/U10c10 - Ley de Ohm generalizada_2.png" alt="Imagen" width="800">
             <!-- -----FIN-------- -->
 
+<!-- Banco F: la fuente de emf mantiene un terminal a mayor potencial -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0732.webp">
+    <img src="../imagenes/webp/ImagenF0732.webp" alt="Una fuente de emf mantiene un terminal a un potencial eléctrico mayor que el otro, actuando como fuente de corriente en un circuito" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.3.</strong> Una fuente de emf mantiene un terminal a un potencial eléctrico mayor que el otro terminal, actuando como fuente de corriente en un circuito. La fem \(\varepsilon\) se define como la energía que el generador aporta por unidad de carga. Es una propiedad <em>intrínseca</em> de la fuente; en cambio, la tensión \(V\) que se mide en sus bornes cuando circula corriente es menor que \(\varepsilon\) precisamente por la caída interna \(I\cdot r\).</figcaption>
+</figure>
+
         </div>
     </div>
 
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Fundamentar matemáticamente por qué la tensión medida en los bornes de un generador real es menor que su fem cuando suministra corriente. Esta demostración conecta el modelo ideal de generador con el comportamiento real, explicando fenómenos como la caída de tensión en baterías descargadas y la necesidad de mantener baja la resistencia interna en fuentes de alimentación. Es esencial para el diseño de circuitos y el análisis de instalaciones eléctricas.</p>
+
+<!-- Banco F: diversas fuentes de voltaje -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0731.webp">
+    <img src="../imagenes/webp/ImagenF0731.webp" alt="Diversas fuentes de voltaje: parque eólico, presa hidroeléctrica, parque solar y baterías de níquel-hidruro metálico" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.2.</strong> Diversas fuentes de voltaje: (a) el parque eólico de Brazos en Fluvanna, Texas; (b) la presa de Krasnoyarsk en Rusia; (c) un parque solar; (d) un grupo de baterías de níquel-hidruro metálico. <strong>La salida de voltaje de cada aparato depende de su construcción y de la carga. La salida de voltaje es igual a la emf solo si no hay carga.</strong> Esta es la observación experimental que motiva toda la demostración: con corriente circulando, \(V < \varepsilon\).</figcaption>
+</figure>
+
+<!-- Banco F: reacciones químicas en una célula de plomo-ácido -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0733.webp">
+    <img src="../imagenes/webp/ImagenF0733.webp" alt="Reacciones químicas en una célula de plomo-ácido que separan la carga entre ánodo y cátodo" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.4.</strong> Las reacciones químicas en una célula de plomo-ácido separan la carga, enviando la carga negativa al ánodo, que está conectado a las placas de plomo. Las placas de óxido de plomo se conectan al terminal positivo o catódico de la célula. El ácido sulfúrico conduce la carga, además de participar en la reacción química. Este es el <strong>origen microscópico de la fem</strong>: la energía química se convierte en energía eléctrica por unidad de carga, y esa es la razón por la que \(\varepsilon\) es una propiedad del generador independiente del circuito externo.</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -311,6 +338,15 @@ details.desmitificando .contenido-ejercicios {
         <div class="step">
             <span class="step-num">1</span>
             <strong>Modelo de generador real.</strong> Un generador real se modela como una fuente ideal de fuerza electromotriz \( \varepsilon \) (fem) en serie con una resistencia interna \( r \). La fem representa la energía química, mecánica o de otro tipo convertida en energía eléctrica por unidad de carga. La resistencia interna modela las pérdidas irreversibles dentro del propio generador.
+
+<!-- Banco F: modelo emf + resistencia interna -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0735.webp">
+    <img src="../imagenes/webp/ImagenF0735.webp" alt="Una batería modelada como una emf idealizada ε con una resistencia interna r; el voltaje del terminal es V = ε − I·r" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.6.</strong> Una batería puede ser modelada como una <strong>emf idealizada</strong> (\(\varepsilon\)) con una <strong>resistencia interna</strong> (\(r\)). El voltaje del terminal de la batería es \(V_{\text{terminal}} = \varepsilon - I\,r\). Este es exactamente el modelo que vamos a usar en la demostración: la fem empuja la carga, pero la resistencia interna consume una parte de esa energía por unidad de carga, y por eso la tensión disponible en los bornes es menor que \(\varepsilon\) cuando circula corriente.</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -353,6 +389,15 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ \varepsilon = I \cdot (R + r) = I \cdot R + I \cdot r \]
             </div>
+
+<!-- Banco F: fuente de voltaje con resistor de carga R en serie con r -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0736.webp">
+    <img src="../imagenes/webp/ImagenF0736.webp" alt="Esquema de una fuente de voltaje y su resistor de carga R; la resistencia interna r está en serie con la carga" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.7.</strong> Esquema de una fuente de voltaje y su resistor de carga \(R\). Como la <strong>resistencia interna \(r\) está en serie con la carga</strong>, puede afectar significativamente al voltaje de los terminales y a la corriente entregada a la carga. El circuito completo es, por tanto, una asociación en serie cuya resistencia total es \(R + r\), lo que justifica que \(I = \varepsilon/(R+r)\) y que la caída total de potencial sea \(I \cdot r + I \cdot R\).</figcaption>
+</figure>
+
         </div>
         <div class="step">
             <span class="step-num">6</span>
@@ -391,6 +436,15 @@ details.desmitificando .contenido-ejercicios {
             \[ V = \varepsilon \cdot \frac{R}{R + r} \quad \text{(Forma alternativa)} \]
         </div>
         <p>La tensión terminal de un generador real es igual a su fem menos la caída de potencial en su resistencia interna. Esta caída es proporcional a la corriente suministrada. En el caso límite de resistencia externa infinita (circuito abierto), la tensión terminal coincide con la fem.</p>
+
+<!-- Banco F: gráfico del voltaje a través del circuito batería+resistencia -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0737.webp">
+    <img src="../imagenes/webp/ImagenF0737.webp" alt="Gráfico del voltaje a través de un circuito con una batería y una resistencia de carga, mostrando el aumento de potencial por la emf y las caídas por la resistencia interna y la carga" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.8.</strong> Gráfico del voltaje a través del circuito de una batería y una resistencia de carga. <strong>El potencial eléctrico aumenta en la emf de la batería</strong> debido a las reacciones químicas que realizan trabajo sobre las cargas. <strong>Hay una disminución del potencial eléctrico en la batería debido a la resistencia interna</strong> (\(-I\,r\)), haciendo que el voltaje de la batería sea igual a (\(\varepsilon - I\,r\)). El voltaje disminuye entonces en (\(IR\)). <strong>La corriente es igual a \(I = \varepsilon/(r+R)\).</strong> Este gráfico es la representación geométrica exacta del balance energético que hemos utilizado en la demostración.</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
@@ -435,6 +489,15 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Despejamos \( r \) de \( V = \varepsilon - I \cdot r \): \( r = \frac{\varepsilon - V}{I} = \frac{9 - 8{,}7}{0{,}058} = \frac{0{,}3}{0{,}058} \approx 5{,}17\,\Omega \).</div>
                         <div class="paso"><strong>Resultado:</strong> La resistencia interna es \( \approx 5{,}2\,\Omega \).</div>
                     </div>
+
+<!-- Banco F: comprobadores de baterías miden el voltaje bajo carga -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0738.webp">
+    <img src="../imagenes/webp/ImagenF0738.webp" alt="Comprobadores de baterías que miden el voltaje de los terminales bajo una carga" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.9.</strong> Los comprobadores de baterías miden el voltaje de los terminales <strong>bajo una carga</strong> para determinar el estado de una batería. (a) Un técnico de electrónica de la Armada de los EE. UU. utiliza un comprobador de baterías para probar grandes baterías a bordo del portaaviones USS Nimitz; el comprobador tiene una pequeña resistencia que puede disipar grandes cantidades de energía. (b) El pequeño dispositivo que se muestra se utiliza en baterías pequeñas y tiene una pantalla digital para indicar la aceptabilidad del voltaje de los terminales. <strong>Es una verificación experimental directa de la Ley de Ohm generalizada:</strong> una batería en buen estado mantiene \(V \approx \varepsilon\) incluso bajo carga; una batería agotada tiene \(r\) grande y su \(V\) cae drásticamente al demandar corriente.</figcaption>
+</figure>
+
                 </div>
             </div>
 
@@ -488,6 +551,15 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Potencia disipada en la resistencia interna: \( P_r = I^2 \cdot r = 150^2 \times 0{,}02 = 22500 \times 0{,}02 = 450\,\text{W} \).</div>
                         <div class="paso"><strong>Resultado:</strong> Durante el arranque, la tensión cae a \( 9{,}6\,\text{V} \) y se disipan \( 450\,\text{W} \) en el interior de la batería (se calienta). Esto explica por qué las baterías se calientan durante arranques prolongados.</div>
                     </div>
+
+<!-- Banco F: dos baterías en serie con un resistor de carga -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0760.webp">
+    <img src="../imagenes/webp/ImagenF0760.webp" alt="Dos baterías conectadas en serie con un resistor de carga; cada batería modelada como emf idealizada más resistencia interna" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption"><strong>Figura 10.31.</strong> (a) Dos baterías conectadas en serie con un resistor de carga. (b) El diagrama del circuito de las dos baterías y el resistor de carga, con <strong>cada batería modelada como una fuente de emf idealizada y una resistencia interna</strong>. Es la generalización natural del modelo de una sola batería al caso de varias fuentes en serie: las emf se suman, las resistencias internas también, y la Ley de Ohm generalizada se aplica al conjunto.</figcaption>
+</figure>
+
                 </div>
             </div>
 
@@ -547,5 +619,8 @@ details.desmitificando .contenido-ejercicios {
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

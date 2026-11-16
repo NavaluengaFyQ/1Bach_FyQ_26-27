@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T02.03. Relación ondulatoria de la radiación electromagnética</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- FontAwesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
@@ -312,11 +312,6 @@
                 \[ c = \lambda \nu \]
             </div>
 
-
-
-
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -330,12 +325,6 @@
 
 
 <!-- -----FIN-------- -->
-
-
-
-
-
-
 
         </div>
 
@@ -352,6 +341,13 @@
             <div class="step">
                 <span class="step-num">1</span>
                 <strong>Definir la longitud de onda \(\lambda\):</strong> es la distancia espacial entre dos puntos equivalentes y consecutivos de la onda (por ejemplo, entre dos crestas o dos valles sucesivos).
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ129.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Onda sinusoidal con longitud de onda, frecuencia y amplitud">
+                        <img src="../imagenes/webp/ImagenQ129.webp" alt="Onda sinusoidal unidimensional que muestra la relación entre longitud de onda, frecuencia y velocidad; la onda con menor longitud de onda tiene mayor frecuencia y la amplitud es la mitad de la altura pico-valle" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Las tres magnitudes en un solo dibujo.</strong> En esta onda sinusoidal se ve la <em>longitud de onda</em> \(\lambda\) (distancia entre dos crestas consecutivas), la <em>amplitud</em> (mitad de la altura pico-valle) y la relación entre \(\lambda\) y \(\nu\): cuanto menor es la longitud de onda, mayor es la frecuencia. Este es el punto de partida intuitivo de la relación \(c = \lambda\nu\).</div>
+                </div>
             </div>
 
             <div class="step">
@@ -367,6 +363,13 @@
                 <strong>Expresar la velocidad de propagación:</strong> durante un periodo \(T\), la onda recorre exactamente una longitud de onda \(\lambda\). Por tanto, la velocidad de propagación es:
                 <div class="formula-box">
                     \[ c = \frac{\lambda}{T} \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0436.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Onda sonora emanando de un diapasón con longitud de onda y frecuencia">
+                        <img src="../imagenes/webp/ImagenF0436.webp" alt="Una fuente (un diapasón) vibrando a frecuencia f emite una onda que se propaga a velocidad v y tiene una longitud de onda lambda" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>De dónde sale \(c = \lambda/T\).</strong> La fuente vibra a frecuencia \(f\) (o \(\nu\)): cada vibración completa emite una nueva cresta. En el tiempo de un periodo \(T\), la primera cresta ya ha recorrido una longitud \(\lambda\). Por eso la velocidad de propagación es, necesariamente, \(v = \lambda/T\). El razonamiento es idéntico para cualquier onda electromagnética en el vacío, con \(v = c\).</div>
                 </div>
             </div>
 
@@ -393,6 +396,20 @@
             <div class="note">
                 <strong>Observaciones sobre el alumnado:</strong> Es fundamental que los estudiantes interioricen que \(c\) es constante en el vacío (\(3{,}00 \times 10^{8}\ \text{m s}^{-1}\)). Por ello, la longitud de onda y la frecuencia son magnitudes inversamente proporcionales: a mayor \(\lambda\) menor \(\nu\), y viceversa. Esto explica por qué los rayos X (baja \(\lambda\)) tienen alta frecuencia y energía, mientras que las radiofrecuencias (alta \(\lambda\)) tienen baja frecuencia.
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ130.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro electromagnético completo">
+                    <img src="../imagenes/webp/ImagenQ130.webp" alt="Espectro electromagnético completo ordenado por frecuencia decreciente y longitud de onda creciente, desde los rayos cósmicos hasta las ondas de radio AM, con ejemplos aplicados de cada banda" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La relación \(c = \lambda\nu\), a escala universal.</strong> El espectro electromagnético ordena todas las radiaciones por frecuencia decreciente y longitud de onda creciente. Como \(c\) es constante, ambos ejes son simétricamente inversos: la posición de cada banda (rayos X, UV, visible, IR, microondas, radio) queda determinada por su \(\lambda\) y su \(\nu\). Los rayos X (λ diminuta) tienen frecuencias altísimas; las ondas de radio AM (λ enorme), frecuencias bajísimas. Este gráfico es, literalmente, la ecuación \(c = \lambda\nu\) desplegada sobre todo el espectro.</div>
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ136.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Distribución espectral de la luz solar">
+                    <img src="../imagenes/webp/ImagenQ136.webp" alt="Distribución espectral de la luz solar que llega a la atmósfera terrestre: intensidad frente a longitud de onda, cubriendo UV, visible e IR, y comparada con la curva de cuerpo negro a 5.250 °C" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La luz solar como ejemplo real de \(c = \lambda\nu\).</strong> El Sol emite simultáneamente todo el espectro electromagnético: UV, visible e IR. Cada componente viaja a la misma velocidad \(c\), pero con distinto \(\lambda\) y \(\nu\). Analizar esta distribución es la base de la espectroscopía y de técnicas como el efecto fotoeléctrico, donde el comportamiento de la luz depende de \(\nu\), no de su intensidad.</div>
+            </div>
         </div>
 
         <!-- ============================================ -->
@@ -407,6 +424,13 @@
                 </span>
             </summary>
             <div class="contenido-desplegable">
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ132.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Modulación de amplitud (AM) y modulación de frecuencia (FM)">
+                        <img src="../imagenes/webp/ImagenQ132.webp" alt="Esquema que compara la modulación de amplitud (AM) y la modulación de frecuencia (FM) de una onda portadora para transmitir información" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Modulación AM/FM: la aplicación más cotidiana de \(c = \lambda\nu\).</strong> Las ondas de radio transportan información modificando su amplitud (AM) o su frecuencia (FM). Puesto que \(c\) es constante, cada frecuencia de emisión corresponde a una longitud de onda concreta: en FM (88–108 MHz) las longitudes de onda son del orden de 3 m, como verás en el primer ejercicio.</div>
+                </div>
 
                 <!-- EJERCICIO 1 -->
                 <div class="ejercicio-card">
@@ -514,8 +538,6 @@
 
             </div> <!-- fin contenido-desplegable -->
         </details>
-
-
 
 <!-- ============================================================ -->
 <!-- BLOQUE DESPLEGABLE: Fórmula 7 · Relación ondulatoria          -->
@@ -746,11 +768,6 @@
     </details>
 </div>
 
-
-
-
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -798,15 +815,7 @@
 
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
-
-
-
-
-
-
-
-
-
     </div> <!-- fin container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

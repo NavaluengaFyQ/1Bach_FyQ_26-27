@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T02.06. Fórmula de Rydberg para el espectro del hidrógeno</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!-- FontAwesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Fuente monoespaciada con cobertura Unicode amplia (flechas, superíndices…) -->
@@ -262,6 +263,13 @@
 
 <!-- -----FIN-------- -->
 
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ140.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectros continuos y de líneas">
+                    <img src="../imagenes/webp/ImagenQ140.webp" alt="Comparación entre el espectro continuo de la luz blanca y los espectros de líneas de emisión de sodio, hidrógeno, calcio y mercurio" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Del espectro continuo a las líneas espectrales.</strong> Al dispersar la luz blanca se obtiene un espectro continuo, pero un gas excitado como el hidrógeno solo emite unas pocas longitudes de onda concretas, formando líneas brillantes muy definidas. Explicar por qué aparecen justo esas líneas (y no otras) es precisamente el objetivo de la fórmula de Rydberg.</div>
+            </div>
+
         </div>
 
         <!-- SECCIÓN OBJETIVO -->
@@ -281,6 +289,36 @@
                     \[ E_n = -\frac{13{,}6\ \text{eV}}{n^2} \]
                 </div>
                 donde \(n = 1, 2, 3, \ldots\) es el número cuántico principal.
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenF0006.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Modelo atómico de Bohr">
+                            <img src="../imagenes/webp/ImagenF0006.webp" alt="Modelo de Bohr de un átomo de un solo electrón: el electrón orbita alrededor del núcleo en una de varias órbitas circulares posibles" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>El modelo de Bohr del átomo de hidrógeno.</strong> El electrón solo puede ocupar ciertas órbitas circulares permitidas, cada una asociada a una energía discreta. Este modelo, aunque incompleto, es el punto de partida imprescindible para entender por qué las líneas espectrales están cuantizadas.</div>
+                    </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ141.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Niveles de energía del hidrógeno">
+                            <img src="../imagenes/webp/ImagenQ141.webp" alt="Niveles de energía del átomo de hidrógeno etiquetados con su número cuántico principal y su energía" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>Niveles de energía del hidrógeno.</strong> Cada nivel se etiqueta con su número cuántico principal \(n=1,2,3\ldots\) y su energía \(E_n = -13{,}6/n^2\) eV. Cuanto mayor es \(n\), más cercano a cero (menos negativo) es el nivel, hasta alcanzar el continuo cuando \(n \to \infty\).</div>
+                    </div>
+                </div>
+
+                <div class="photo-pair">
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ144.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Onda de De Broglie en la órbita de Bohr">
+                            <img src="../imagenes/webp/ImagenQ144.webp" alt="Onda de electrón circular alrededor del núcleo, con un número entero de longitudes de onda encajadas en la órbita" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>¿Por qué están cuantizados los niveles?</strong> Si el electrón se comporta como una onda estacionaria alrededor del núcleo, solo caben órbitas cuyo perímetro contenga un número entero de longitudes de onda. Esta condición de onda estacionaria explica de forma natural la cuantización que Bohr postuló.</div>
+                    </div>
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenF1106.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Analogía entre onda de cuerda y onda de electrón">
+                            <img src="../imagenes/webp/ImagenF1106.webp" alt="Comparación entre una onda estacionaria en una cuerda sujeta por los extremos y una onda de electrón en la tercera órbita de Bohr" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La misma idea que una cuerda de guitarra.</strong> Igual que una cuerda sujeta por sus extremos solo puede vibrar con longitudes de onda que encajen un número entero de semilongitudes, el electrón en su órbita solo admite ciertos patrones de onda estacionaria. De ahí surgen los niveles de energía discretos del átomo de hidrógeno.</div>
+                    </div>
+                </div>
             </div>
 
             <div class="step">
@@ -288,6 +326,20 @@
                 <strong>Postulado de emisión/absorción:</strong> cuando el electrón salta de un nivel \(n_2\) a otro \(n_1\) (con \(n_2 > n_1\)), emite un fotón cuya energía es igual a la diferencia de energía entre ambos niveles:
                 <div class="formula-box">
                     \[ \Delta E = E_{n_2} - E_{n_1} = -\frac{13{,}6}{n_2^2} - \left(-\frac{13{,}6}{n_1^2}\right) = 13{,}6 \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ142.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Emisión y absorción de fotones">
+                        <img src="../imagenes/webp/ImagenQ142.webp" alt="Niveles de energía del hidrógeno con flechas verticales que representan la absorción y emisión de fotones en las transiciones entre órbitas" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Saltos cuantizados y emisión de fotones.</strong> Cuando el electrón baja de un nivel \(n_2\) a otro inferior \(n_1\), emite un fotón cuya energía es exactamente la diferencia \(E_{n_2}-E_{n_1}\). Esa diferencia, dividida entre \(hc\), es la que da la longitud de onda que predice la fórmula de Rydberg.</div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF1105.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro energético del hidrógeno con transiciones y bandas espectrales">
+                        <img src="../imagenes/webp/ImagenF1105.webp" alt="Espectro energético del átomo de hidrógeno con los niveles n=1,2,3,4,... y las flechas verticales de las transiciones permitidas, junto a la banda espectral a la que pertenecen" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Transiciones permitidas y series espectrales.</strong> Cada flecha vertical representa un salto electrónico posible entre dos niveles. Las flechas hacia abajo indican emisión de un fotón cuya longitud de onda cae en la banda espectral que se indica al lado: así se visualizan de un golpe las series de Lyman (UV), Balmer (visible) y Paschen (IR).</div>
                 </div>
             </div>
 
@@ -323,6 +375,14 @@
             <div class="formula-box">
                 \[ \frac{1}{\lambda} = R_{\infty} \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right) \]
             </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF1103.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Espectro de emisión del hidrógeno atómico">
+                    <img src="../imagenes/webp/ImagenF1103.webp" alt="Espectro de emisión del hidrógeno atómico con las líneas espectrales características agrupadas en series" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Las líneas que predice Rydberg.</strong> El espectro real de emisión del hidrógeno muestra líneas nítidas agrupadas en series: Lyman en el ultravioleta, Balmer en el visible y Paschen en el infrarrojo. La fórmula de Rydberg predice con exactitud la longitud de onda de cada una de ellas a partir de dos números enteros \(n_1\) y \(n_2\).</div>
+            </div>
+
             <div class="note">
                 <strong>Observaciones sobre el alumnado:</strong> Es muy ilustrativo mostrar que cuando \(n_1 = 1\) se obtiene la serie de Lyman (ultravioleta), cuando \(n_1 = 2\) la serie de Balmer (visible) y cuando \(n_1 = 3\) la serie de Paschen (infrarrojo). Esto conecta la matemática abstracta con la observación experimental del espectro del hidrógeno.
             </div>
@@ -2455,5 +2515,6 @@ Resultado: \(n_1\approx 3{,}00\Rightarrow n_1=3\). Transición \(\mathbf{4\to 3}
 <!-- =================== FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

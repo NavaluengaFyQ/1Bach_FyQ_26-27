@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#T05.04 - Demostración: Cálculo del grado de insaturación</title>
+    <title>#T05.04 - Demostración: Hibridación del carbono y geometría molecular</title>
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -134,6 +135,29 @@
         }
         p { line-height: 1.7; margin-bottom: 10px; }
         ul { margin-left: 20px; line-height: 1.7; }
+        .geometry-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .geometry-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 14px 16px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .geometry-table td {
+            padding: 14px 16px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .geometry-table tr:last-child td { border-bottom: none; }
+        .geometry-table tr:nth-child(even) { background: #f7fafc; }
 
         /* ============================================
            ESTILOS PARA EL BLOQUE DESPLEGABLE
@@ -243,6 +267,8 @@
             .section { padding: 18px; margin: 10px; }
             details { margin: 10px; }
             .details-content { padding: 0 16px 16px 16px; }
+            .geometry-table { font-size: 0.85em; }
+            .geometry-table th, .geometry-table td { padding: 10px 8px; }
         }
 
         /* =========================================================
@@ -282,8 +308,8 @@
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
                 <img src="../img_comunes/Cápsula.png" width="40" height="auto">
-                <span class="codigo">#T05.05.- </span>
-                <span class="texto">Demostración: Cálculo del grado de insaturación</span>
+                <span class="codigo">#T05.03.- </span>
+                <span class="texto">Demostración: Hibridación del carbono y geometría molecular</span>
             </div>
         </div>
         <div class="header-right">
@@ -294,11 +320,14 @@
     <!-- ENUNCIADO -->
     <div class="section enunciado">
         <h2>📘 Enunciado</h2>
-        <p>Partiendo de la fórmula general de los alcanos acíclicos saturados \( C_nH_{2n+2} \), demostrar que el grado de insaturación (IHD, <em>Index of Hydrogen Deficiency</em>) de un hidrocarburo de fórmula molecular \( C_xH_y \) se calcula mediante la expresión:</p>
+        <p>Partiendo de la configuración electrónica del carbono (\( 1s^2\,2s^2\,2p^2 \)) y del concepto de hibridación de orbitales atómicos, demostrar que el tipo de hibridación del carbono determina la geometría molecular y los ángulos de enlace en los compuestos orgánicos, estableciendo la siguiente correspondencia:</p>
         <div class="formula-box">
-            \( IHD = \dfrac{2x + 2 - y}{2} \)
+            \( sp^3 \rightarrow \text{tetraédrica} \rightarrow 109{,}5^\circ \)
+            <br>
+            \( sp^2 \rightarrow \text{trigonal plana} \rightarrow 120^\circ \)
+            <br>
+            \( sp \rightarrow \text{lineal} \rightarrow 180^\circ \)
         </div>
-
 
 
 
@@ -313,26 +342,37 @@
   }
 </style>
 
+<img src="../imagenes/U05c03 - Relación entre el tipo de hibridación del carbono y la geometría molecular.png" alt="Imagen" width="800">
+<img src="../imagenes/U05c03 - Relación entre el tipo de hibridación del carbono y la geometría molecular_2.png" alt="Imagen" width="800">
 
-<img src="../imagenes/U05c04 - Cálculo del grado de insaturación a partir de la fórmula molecular_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
 
-
-
-
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ229.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Resumen de las hibridaciones y geometrías moleculares">
+                <img src="../imagenes/webp/ImagenQ229.webp" alt="Resumen visual que relaciona cada hibridación (sp, sp², sp³) con la geometría de los pares de electrones correspondiente: lineal, trigonal plana y tetraédrica" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>Las formas de los orbitales híbridos coinciden con las geometrías de los pares de electrones.</strong> Un átomo rodeado por dos regiones de densidad electrónica está hibridado sp y adopta una disposición lineal; con tres regiones, es sp² y trigonal plana; con cuatro, es sp³ y tetraédrico. Esta correspondencia entre hibridación y geometría es el núcleo de la demostración que se desarrolla en esta página.</div>
+        </div>
 
     </div>
 
     <!-- OBJETIVO -->
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
-        <p>Obtener una herramienta algebraica que permita predecir, únicamente a partir de la fórmula molecular, cuántos anillos y/o enlaces múltiples contiene una estructura orgánica. Esto permite:</p>
+        <p>Justificar geométricamente por qué las cadenas de alcanos presentan forma de zigzag, por qué los alquenos son planos, y por qué los alquinos son lineales. Esta comprensión es esencial para:</p>
         <ul>
-            <li>Descartar estructuras imposibles antes de comenzar a dibujarlas.</li>
-            <li>Verificar que una fórmula propuesta es consistente con una estructura dada.</li>
-            <li>Predecir la reactividad química asociada a las insaturaciones.</li>
+            <li>Predecir la forma tridimensional de cualquier molécula orgánica.</li>
+            <li>Comprender la imposibilidad de rotación alrededor de un doble enlace (base de la isomería cis-trans).</li>
+            <li>Entender la formación de los orbitales \( \sigma \) y \( \pi \) en los enlaces múltiples.</li>
         </ul>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenQ048.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Investigación en química de sistemas complejos">
+                <img src="../imagenes/webp/ImagenQ048.webp" alt="El químico Lee Cronin en su laboratorio, investigando sistemas químicos complejos y su relación con la nanotecnología y la biología sintética" loading="lazy" decoding="async">
+            </a>
+            <div class="figure-caption"><strong>De la geometría molecular a la química del futuro.</strong> Comprender la hibridación del carbono y la geometría tridimensional de las moléculas es la base de disciplinas tan actuales como la nanotecnología, la biología sintética o el diseño de nuevos materiales. La imagen muestra al químico Lee Cronin, cuyo trabajo combina sistemas químicos complejos con estas áreas emergentes.</div>
+        </div>
     </div>
 
     <!-- PROCEDIMIENTO -->
@@ -341,62 +381,133 @@
 
         <div class="step">
             <span class="step-num">1</span>
-            <strong>Establecer el hidrocarburo de referencia saturado.</strong> Para un número \( x \) de átomos de carbono, el alcano acíclico saturado correspondiente tiene fórmula:
-            <div class="formula-box">
-                \( C_xH_{2x+2} \)
-            </div>
-
-            <div class="photo-figure">
-                <img src="../imagenes/webp/ImagenQ043.webp" alt="Molécula de metano representada como fórmula molecular, fórmula estructural, modelo de barras y esferas y modelo de espacio lleno">
-                <div class="figure-caption"><strong>El punto de partida: el alcano saturado.</strong> El metano (CH₄) es el alcano más simple y ejemplifica el estado de referencia totalmente saturado, con IHD = 0. Sus representaciones —fórmula molecular, fórmula estructural, modelo de barras y esferas y modelo de espacio lleno— muestran cuatro enlaces sencillos alrededor del carbono. Cualquier hidrocarburo con menos hidrógenos que su alcano de referencia tendrá uno o más grados de insaturación.</div>
-            </div>
+            <strong>Configuración base del carbono.</strong> El carbono tiene 4 electrones de valencia (\( 2s^2\,2p^2 \)). Para formar 4 enlaces, promueve un electrón del orbital \( 2s \) al orbital \( 2p \) vacío, obteniendo \( 2s^1\,2p^3 \). Los orbitales híbridos se forman por combinación lineal de orbitales atómicos.
         </div>
 
         <div class="step">
             <span class="step-num">2</span>
-            <strong>Comparar con el compuesto real.</strong> Sea el hidrocarburo problema de fórmula \( C_xH_y \). El número de hidrógenos <em>que faltan</em> respecto al alcano saturado de referencia es:
+            <strong>Hibridación \( sp^3 \) (4 orbitales híbridos):</strong>
+            <ul>
+                <li>Se combinan 1 orbital \( s \) y 3 orbitales \( p \).</li>
+                <li>Se generan 4 orbitales híbridos equivalentes dirigidos hacia los vértices de un tetraedro regular.</li>
+                <li>La repulsión electrónica mínima se alcanza con ángulos de \( 109{,}5^\circ \).</li>
+                <li><strong>Ejemplo:</strong> Metano (\( CH_4 \)), etano (\( C_2H_6 \)). Todos los alcanos saturados.</li>
+            </ul>
             <div class="formula-box">
-                \( \Delta H = (2x + 2) - y \)
+                \( \text{Ángulo } sp^3 = \arccos\left(-\frac{1}{3}\right) \approx 109{,}47^\circ \approx 109{,}5^\circ \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ223.webp" alt="Hibridación de un orbital s y tres orbitales p para producir cuatro orbitales sp3 orientados a 109,5°">
+                <div class="figure-caption"><strong>La geometría tetraédrica, construida orbital a orbital.</strong> La combinación de un orbital s y tres orbitales p genera cuatro orbitales híbridos sp³ equivalentes, orientados hacia los vértices de un tetraedro regular con ángulos de 109,5°. Esta disposición minimiza la repulsión entre los pares electrónicos y es la responsable de la forma en zigzag de las cadenas de alcanos.</div>
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ224.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Hibridación sp³ en el metano">
+                    <img src="../imagenes/webp/ImagenQ224.webp" alt="Los cuatro orbitales atómicos de valencia del carbono se hibridan para formar cuatro orbitales sp³ equivalentes, que se superponen con orbitales s del hidrógeno para formar los enlaces C-H del metano" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>El carbono del metano, paso a paso.</strong> En un átomo de carbono aislado, los orbitales de valencia son un s y tres p. Cuando el carbono se une a cuatro hidrógenos, estos orbitales se hibridan para generar cuatro orbitales sp³ equivalentes, que se superponen con los orbitales s del hidrógeno. Cada enlace C-H es un enlace σ, y el resultado es la geometría tetraédrica característica del metano.</div>
             </div>
         </div>
 
         <div class="step">
             <span class="step-num">3</span>
-            <strong>Relacionar la deficiencia de hidrógeno con insaturaciones.</strong> Cada grado de insaturación (un anillo o un doble enlace) supone la pérdida de exactamente <strong>2 átomos de hidrógeno</strong> respecto al saturado. Un triple enlace equivale a <strong>2 grados de insaturación</strong> (pérdida de 4 H).
+            <strong>Hibridación \( sp^2 \) (3 orbitales híbridos + 1 orbital \( p \) puro):</strong>
+            <ul>
+                <li>Se combinan 1 orbital \( s \) y 2 orbitales \( p \).</li>
+                <li>Se generan 3 orbitales híbridos coplanarios dirigidos a los vértices de un triángulo equilátero.</li>
+                <li>El orbital \( p \) restante, no hibridado, forma el enlace \( \pi \) por solapamiento lateral.</li>
+                <li>La repulsión mínima en el plano da ángulos de \( 120^\circ \).</li>
+                <li><strong>Ejemplo:</strong> Eteno (\( C_2H_4 \)), benceno (\( C_6H_6 \)).</li>
+            </ul>
+            <div class="formula-box">
+                \( \text{Ángulo } sp^2 = 120^\circ \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ231.webp" alt="Hibridación sp2 en el eteno con formación de enlaces sigma y pi">
+                <div class="figure-caption"><strong>La planaridad del doble enlace.</strong> En el eteno, cada carbono está hibridado sp²: tres orbitales híbridos forman el esqueleto σ (plano, 120°) y el orbital p no hibridado se solapa lateralmente con el del otro carbono para formar el enlace π. Esa nube electrónica por encima y por debajo del plano impide la rotación libre y da lugar a la isomería cis-trans.</div>
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ232.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Enlaces σ y π en el eteno">
+                    <img src="../imagenes/webp/ImagenQ232.webp" alt="Detalle de los enlaces σ y π en el eteno: los orbitales sp² forman los enlaces σ del plano, mientras que los orbitales p no hibridados se superponen lateralmente para formar el enlace π por encima y por debajo del plano" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Los dos niveles del doble enlace.</strong> En el eteno hay cinco enlaces σ (uno C-C y cuatro C-H) formados por solapamiento frontal de orbitales híbridos sp², y un enlace π formado por solapamiento lateral de los dos orbitales p no hibridados. Los dos lóbulos del enlace π están por encima y por debajo del plano del sistema σ: por eso la molécula es plana y no puede rotar alrededor del doble enlace.</div>
+            </div>
         </div>
 
         <div class="step">
             <span class="step-num">4</span>
-            <strong>Deducir la fórmula del IHD.</strong> Como cada grado de insaturación consume 2 hidrógenos, el número total de grados de insaturación es la mitad de la deficiencia de hidrógeno:
+            <strong>Hibridación \( sp \) (2 orbitales híbridos + 2 orbitales \( p \) puros):</strong>
+            <ul>
+                <li>Se combinan 1 orbital \( s \) y 1 orbital \( p \).</li>
+                <li>Se generan 2 orbitales híbridos linealmente opuestos.</li>
+                <li>Los 2 orbitales \( p \) restantes forman dos enlaces \( \pi \) perpendiculares entre sí (enlaces \( \pi \) ortogonales).</li>
+                <li>La geometría es lineal con ángulo de \( 180^\circ \).</li>
+                <li><strong>Ejemplo:</strong> Etino (\( C_2H_2 \)), cianuro de hidrógeno (HCN).</li>
+            </ul>
             <div class="formula-box">
-                \( IHD = \dfrac{(2x + 2) - y}{2} \)
+                \( \text{Ángulo } sp = 180^\circ \)
+            </div>
+
+            <div class="photo-figure">
+                <img src="../imagenes/webp/ImagenQ234.webp" alt="Enlaces sigma y pi en la molécula de acetileno con hibridación sp">
+                <div class="figure-caption"><strong>La linealidad del triple enlace.</strong> En el acetileno (C₂H₂), los dos carbonos están hibridados sp: sus orbitales híbridos se orientan a 180°, dando una molécula lineal. Los dos orbitales p no hibridados de cada carbono, perpendiculares entre sí, forman dos enlaces π ortogonales. El resultado es un triple enlace rígido y una geometría completamente lineal.</div>
+            </div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ233.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Los dos orbitales sp lineales y los dos p no hibridados">
+                    <img src="../imagenes/webp/ImagenQ233.webp" alt="Diagrama de los dos orbitales híbridos sp lineales de un carbono y los dos orbitales p no hibridados, situados en ángulos perpendiculares entre sí" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La geometría interna del carbono sp.</strong> Cuando un carbono se hibrida sp, sus dos orbitales híbridos se colocan en línea recta (180°) y los dos orbitales p no hibridados quedan perpendiculares a esa línea, también entre sí. Esa disposición es la que permite formar dos enlaces π ortogonales: la base estructural del triple enlace de los alquinos y de los nitrilos.</div>
             </div>
         </div>
 
         <div class="step">
             <span class="step-num">5</span>
-            <strong>Verificación con ejemplos representativos:</strong>
-            <ul>
-                <li><strong>Ciclohexano</strong> (\( C_6H_{12} \)): \( IHD = \dfrac{14 - 12}{2} = 1 \) (1 anillo) ✓</li>
-                <li><strong>Hex-1-eno</strong> (\( C_6H_{12} \)): \( IHD = \dfrac{14 - 12}{2} = 1 \) (1 doble enlace) ✓</li>
-                <li><strong>Benceno</strong> (\( C_6H_6 \)): \( IHD = \dfrac{14 - 6}{2} = 4 \) (3 dobles enlaces + 1 anillo) ✓</li>
-                <li><strong>Hexa-1,3-dien-5-ino</strong> (\( C_6H_6 \)): \( IHD = 4 \) (2 dobles + 1 triple = 2 + 2 = 4) ✓</li>
-            </ul>
-
-            <div class="photo-pair">
-                <div class="photo-figure">
-                    <img src="../imagenes/webp/ImagenQ046.webp" alt="Benceno representado como fórmula estructural, modelo de barras y esferas y modelo de espacio lleno">
-                    <div class="figure-caption"><strong>Benceno: IHD = 4.</strong> El benceno (C₆H₆) tiene tres dobles enlaces y un anillo aromático, lo que suma cuatro grados de insaturación. Aplicando la fórmula, IHD = (2·6 + 2 − 6)/2 = 4, resultado que coincide exactamente con su estructura. Es un ejemplo clásico de cómo el IHD permite verificar la coherencia entre fórmula molecular y estructura.</div>
-                </div>
-                <div class="photo-figure">
-                    <img src="../imagenes/webp/ImagenQ606.webp" alt="Isómeros estructurales y geométricos del buteno">
-                    <div class="figure-caption"><strong>Buteno: IHD = 1.</strong> Los isómeros del buteno (C₄H₈) —1-buteno, 2-buteno, cis-2-buteno y trans-2-buteno— comparten un único grado de insaturación: el doble enlace. Aplicando la fórmula, IHD = (2·4 + 2 − 8)/2 = 1. Los modelos moleculares muestran la rigidez del doble enlace, responsable de la isomería geométrica.</div>
-                </div>
-            </div>
+            <strong>Tabla resumen de correspondencias:</strong>
+            <table class="geometry-table">
+                <tr>
+                    <th>Hibridación</th>
+                    <th>Nº orbitales \( sp \)</th>
+                    <th>Geometría</th>
+                    <th>Ángulo de enlace</th>
+                    <th>Ejemplo típico</th>
+                </tr>
+                <tr>
+                    <td>\( sp^3 \)</td>
+                    <td>4</td>
+                    <td>Tetraédrica</td>
+                    <td>\( 109{,}5^\circ \)</td>
+                    <td>Metano</td>
+                </tr>
+                <tr>
+                    <td>\( sp^2 \)</td>
+                    <td>3</td>
+                    <td>Trigonal plana</td>
+                    <td>\( 120^\circ \)</td>
+                    <td>Eteno</td>
+                </tr>
+                <tr>
+                    <td>\( sp \)</td>
+                    <td>2</td>
+                    <td>Lineal</td>
+                    <td>\( 180^\circ \)</td>
+                    <td>Etino</td>
+                </tr>
+            </table>
         </div>
 
         <div class="note">
-            <strong>Observaciones sobre el alumnado:</strong> Si el compuesto contiene oxígeno, la fórmula no cambia (el oxígeno no altera el balance de hidrógenos). Si contiene nitrógeno, cada átomo de N añade un H al numerador de referencia: \( IHD = \dfrac{2x + 2 + N - y}{2} \). Si contiene halógenos, se tratan como hidrógenos (restan del numerador). Es recomendable practicar con compuestos heteroátomos solo tras dominar la versión básica para hidrocarburos.
+            <strong>Observaciones sobre el alumnado:</strong> Es crucial que los estudiantes comprendan que la hibridación no es un proceso real que ocurre en la molécula, sino un <em>modelo teórico</em> que permite explicar la geometría observada experimentalmente. La imposibilidad de rotación libre en los alquenos (por la ruptura del enlace \( \pi \)) y la forma zigzag de los alcanos (por los ángulos tetraédricos) son consecuencias directas de este modelo. Se recomienda utilizar modelos moleculares de bolas y varillas para reforzar la comprensión espacial.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ230.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Límites del modelo de hibridación">
+                    <img src="../imagenes/webp/ImagenQ230.webp" alt="Texto explicativo sobre cómo la hibridación funciona bien para átomos centrales pequeños pero no tanto para átomos grandes, donde los pares de electrones están más alejados del núcleo y sus compuestos presentan estructuras que a menudo no son consistentes con la teoría VSEPR" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>Un modelo útil, pero no universal.</strong> La hibridación funciona muy bien para explicar la geometría de moléculas con átomos centrales pequeños (como el carbono), donde los pares electrónicos están cerca del núcleo. Sin embargo, en átomos centrales grandes, los pares de electrones están más alejados y la geometría observada puede no ajustarse al modelo. Es importante entender la hibridación como una herramienta explicativa, no como una ley universal de la naturaleza.</div>
+            </div>
         </div>
     </div>
 
@@ -404,12 +515,31 @@
     <div class="section resultado">
         <h2>✅ Resultado</h2>
         <div class="formula-box">
-            <strong>Grado de insaturación (IHD)</strong><br>
-            \( \boxed{IHD = \dfrac{2x + 2 - y}{2}} \)
+            <strong>Resumen de la demostración</strong>
+            <p style="text-align: left; font-size: 0.95em; margin: 10px 0 0 0;">
+                <strong>\( sp^3 \):</strong> 4 enlaces \( \sigma \) &nbsp;&rarr;&nbsp; Tetraédrica &nbsp;&rarr;&nbsp; \( \boxed{109{,}5^\circ} \)<br><br>
+                <strong>\( sp^2 \):</strong> 3 enlaces \( \sigma \) + 1 enlace \( \pi \) &nbsp;&rarr;&nbsp; Trigonal plana &nbsp;&rarr;&nbsp; \( \boxed{120^\circ} \)<br><br>
+                <strong>\( sp \):</strong> 2 enlaces \( \sigma \) + 2 enlaces \( \pi \) &nbsp;&rarr;&nbsp; Lineal &nbsp;&rarr;&nbsp; \( \boxed{180^\circ} \)
+            </p>
         </div>
-        <p>La demostración realizada mediante la comparación con el alcano saturado de referencia confirma que el IHD es una herramienta fiable y versátil para determinar el número de anillos y enlaces múltiples en un hidrocarburo a partir de su fórmula molecular. Esta expresión es fundamental en el análisis estructural de compuestos orgánicos.</p>
+        <p>La demostración realizada mediante el análisis de la combinación de orbitales atómicos y la teoría de repulsión de pares electrónicos (TRPECV) confirma la correspondencia entre el tipo de hibridación y la geometría molecular. Esta relación es fundamental para comprender la estructura tridimensional de los compuestos orgánicos y sus propiedades físicas y químicas.</p>
         <div style="background: #e6fffa; border-radius: 8px; padding: 10px; margin-top: 12px; border-left: 4px solid #319795;">
-            <p style="margin: 0;"><strong>📌 Conclusión:</strong> El índice de deficiencia de hidrógeno (IHD) permite conocer rápidamente el grado de insaturación de una molécula, facilitando la identificación de posibles estructuras y la comprensión de su reactividad química.</p>
+            <p style="margin: 0;"><strong>📌 Conclusión:</strong> La hibridación del carbono es un modelo predictivo que permite establecer la geometría molecular, los ángulos de enlace y la disposición espacial de los átomos en las moléculas orgánicas, siendo la base para entender la isomería y la reactividad química.</p>
+        </div>
+
+        <div class="photo-pair">
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ235.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Hibridación sp² en el benceno">
+                    <img src="../imagenes/webp/ImagenQ235.webp" alt="Cada átomo de carbono del benceno (C₆H₆) está hibridado sp² y los electrones π están deslocalizados en toda la molécula" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La hibridación, más allá de los enlaces simples y dobles.</strong> En el benceno (C₆H₆), todos los carbonos están hibridados sp². Los electrones π no están localizados en un único doble enlace, sino deslocalizados por toda la molécula: por eso la estructura real es un híbrido de resonancia entre varias formas. Es un ejemplo paradigmático de cómo el modelo de hibridación explica la estabilidad y la reactividad de los compuestos aromáticos.</div>
+            </div>
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenQ606.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Isómeros estructurales y geométricos del buteno">
+                    <img src="../imagenes/webp/ImagenQ606.webp" alt="Modelos moleculares de los isómeros estructurales (1-buteno y 2-buteno) y geométricos (cis-2-buteno y trans-2-buteno) del buteno" loading="lazy" decoding="async">
+                </a>
+                <div class="figure-caption"><strong>La rigidez del doble enlace da lugar a isómeros.</strong> En los alquenos, los carbonos sp² no pueden rotar libremente alrededor del doble enlace. Esa restricción geométrica es la responsable de la isomería geométrica cis-trans, visible aquí en el buteno. Lo que en la primera parte de la página era una consecuencia orbital (el enlace π), aquí se manifiesta como una propiedad molecular macroscópica con consecuencias químicas y biológicas.</div>
+            </div>
         </div>
     </div>
 
@@ -419,7 +549,7 @@
     <details id="ejerciciosDesplegable">
         <summary>
             <i class="fas fa-chevron-circle-down"></i>
-            <span>🧪 DESMITIFICANDO Cálculo del grado de insaturación</span>
+            <span>🧪 DESMITIFICANDO Demostración: Hibridación del carbono y geometría molecular</span>
             <span style="margin-left: auto; font-size: 0.8em; color: #64748b; font-weight: 400;">
                 <i class="fas fa-hand-pointer"></i> Pulsame
             </span>
@@ -430,19 +560,20 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 1</span>
-                    Aplicación directa: calcular IHD
+                    Identificación de hibridación en una molécula sencilla
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Calcula el grado de insaturación de un hidrocarburo de fórmula molecular \( C_8H_{14} \). ¿Qué tipo de estructura podría tener?
+                        <strong>Enunciado:</strong> Indica el tipo de hibridación de cada átomo de carbono en el <strong>propan-1-ol</strong> (\( CH_3-CH_2-CH_2OH \)) y determina los ángulos de enlace aproximados alrededor de cada carbono.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. Aplicamos la fórmula: \( IHD = \dfrac{2x + 2 - y}{2} \).</div>
-                        <div class="paso">2. Con \( x=8 \), \( y=14 \): \( IHD = \dfrac{2\cdot8 + 2 - 14}{2} = \dfrac{16+2-14}{2} = \dfrac{4}{2} = 2 \).</div>
-                        <div class="paso">3. Interpretación: dos grados de insaturación. Puede ser un <strong>alquino</strong> (un triple enlace, que vale 2) o un <strong>dieno</strong> (dos dobles enlaces) o un <strong>cicloalqueno</strong> (un anillo + un doble) o dos anillos, etc.</div>
+                        <div class="paso">1. El propan-1-ol tiene 3 carbonos: C1 (\( CH_3 \)), C2 (\( CH_2 \)) y C3 (\( CH_2OH \)).</div>
+                        <div class="paso">2. Todos los carbonos forman exclusivamente <strong>enlaces sencillos</strong> (C—C y C—H, C—O). No hay enlaces múltiples.</div>
+                        <div class="paso">3. Por tanto, los tres carbonos presentan <strong>hibridación \( sp^3 \).</strong></div>
+                        <div class="paso">4. La geometría alrededor de cada carbono es <strong>tetraédrica</strong>, con ángulos de enlace aproximados de <strong>\( 109{,}5^\circ \).</strong></div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ IHD = 2. Posibles estructuras: alquino, dieno, cicloalqueno, biciclo, etc.
+                            ✔ Todos los carbonos son \( sp^3 \). Ángulos: \( 109{,}5^\circ \).
                         </div>
                     </div>
                 </div>
@@ -452,21 +583,28 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 2</span>
-                    Verificación de una estructura propuesta
+                    Hibridación mixta en un compuesto insaturado
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Un estudiante propone la estructura del <strong>cicloheptatrieno</strong> (anillo de 7 carbonos con 3 dobles enlaces) con fórmula \( C_7H_8 \). ¿Es correcta? Utiliza el IHD para comprobarlo.
+                        <strong>Enunciado:</strong> Determina la hibridación de cada carbono en el <strong>but-1-en-3-ino</strong> (\( CH_2=CH-C\equiv CH \)) y predice su geometría global.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. Fórmula propuesta: \( C_7H_8 \) → \( x=7 \), \( y=8 \).</div>
-                        <div class="paso">2. Calculamos IHD: \( \dfrac{2\cdot7 + 2 - 8}{2} = \dfrac{14+2-8}{2} = \dfrac{8}{2} = 4 \).</div>
-                        <div class="paso">3. Un cicloheptatrieno tiene: 1 anillo + 3 dobles enlaces = 1 + 3 = 4 grados de insaturación. Coincide perfectamente.</div>
-                        <div class="paso">4. Por tanto, la fórmula \( C_7H_8 \) es coherente con esa estructura.</div>
+                        <div class="paso">1. Numeramos los carbonos: C1 (\( CH_2= \)), C2 (\( =CH- \)), C3 (\( -C\equiv \)), C4 (\( \equiv CH \)).</div>
+                        <div class="paso">2. C1 y C2 están unidos por un doble enlace → hibridación \( sp^2 \). Geometría <strong>trigonal plana</strong> (\( 120^\circ \)).</div>
+                        <div class="paso">3. C3 y C4 están unidos por un triple enlace → hibridación \( sp \). Geometría <strong>lineal</strong> (\( 180^\circ \)).</div>
+                        <div class="paso">4. La molécula presenta una zona plana (los dos \( sp^2 \)) y una zona lineal (los dos \( sp \)).</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ IHD = 4, coincide con anillo + 3 dobles. Estructura correcta.
+                            ✔ C1, C2: \( sp^2 \) (plana, \( 120^\circ \)). C3, C4: \( sp \) (lineal, \( 180^\circ \)).
                         </div>
+                    </div>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ603.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Eteno, propeno y 1-buteno">
+                            <img src="../imagenes/webp/ImagenQ603.webp" alt="Estructuras ampliadas y modelos de barras y esferas del eteno, propeno y 1-buteno, mostrando la planaridad del doble enlace" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La planitud del carbono sp².</strong> El eteno, el propeno y el 1-buteno contienen carbonos sp² en el doble enlace, lo que confiere a esa parte de la molécula una geometría plana con ángulos de 120°. Esta planaridad es la que se manifiesta después en propiedades como la isomería cis-trans o la rigidez de los enlaces dobles en los ácidos grasos insaturados.</div>
                     </div>
                 </div>
             </div>
@@ -475,21 +613,28 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 3</span>
-                    Determinación de fórmula a partir del IHD
+                    Imposibilidad de rotación (isomería cis-trans)
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Un hidrocarburo de 6 carbonos tiene un IHD = 3. Escribe una posible fórmula molecular y sugiere una estructura.
+                        <strong>Enunciado:</strong> Explica, utilizando el concepto de hibridación, por qué el <strong>but-2-eno</strong> (\( CH_3-CH=CH-CH_3 \)) presenta isomería cis-trans, mientras que el <strong>butano</strong> no.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. Sabemos que \( IHD = \dfrac{2\cdot6 + 2 - y}{2} = 3 \).</div>
-                        <div class="paso">2. Despejamos: \( 2\cdot6 + 2 - y = 6 \) → \( 12 + 2 - y = 6 \) → \( 14 - y = 6 \) → \( y = 8 \).</div>
-                        <div class="paso">3. Fórmula molecular: \( C_6H_8 \).</div>
-                        <div class="paso">4. IHD = 3 puede ser, por ejemplo, un <strong>ciclohexadieno</strong> (anillo + 2 dobles = 1+2=3), o un <strong>hexatrieno</strong> (3 dobles), etc.</div>
+                        <div class="paso">1. En el but-2-eno, los carbonos del doble enlace son \( sp^2 \). El enlace \( \pi \) se forma por solapamiento lateral de orbitales \( p \) puros.</div>
+                        <div class="paso">2. Para rotar alrededor del enlace C=C, el enlace \( \pi \) debe romperse, lo que requiere mucha energía. Por tanto, la molécula es <strong>rígida y plana</strong>.</div>
+                        <div class="paso">3. Esto permite que los sustituyentes (los grupos \( CH_3 \)) se sitúen del mismo lado (<em>cis</em>) o en lados opuestos (<em>trans</em>), dando lugar a isómeros.</div>
+                        <div class="paso">4. En el butano, todos los carbonos son \( sp^3 \). Solo hay enlaces \( \sigma \) sencillos, que permiten la rotación libre, por lo que no hay isomería cis-trans.</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ \( C_6H_8 \). Posible estructura: ciclohexa-1,3-dieno.
+                            ✔ La rigidez del enlace \( C=C \) (por el enlace \( \pi \)) impide la rotación y da lugar a la isomería geométrica.
                         </div>
+                    </div>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ606.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Isómeros estructurales y geométricos del buteno">
+                            <img src="../imagenes/webp/ImagenQ606.webp" alt="Modelos moleculares del 1-buteno, 2-buteno cis y 2-buteno trans: la rigidez del doble enlace permite la existencia de isómeros geométricos" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La rigidez del doble enlace, en modelos.</strong> Los isómeros estructurales (1-buteno y 2-buteno) y geométricos (cis-2-buteno y trans-2-buteno) del buteno comparten la misma fórmula molecular, C₄H₈. La diferencia entre ellos está en la disposición espacial de los sustituyentes alrededor del doble enlace, posible gracias a que la hibridación sp² de los carbonos impide la rotación libre alrededor del enlace C=C.</div>
                     </div>
                 </div>
             </div>
@@ -498,20 +643,19 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 4</span>
-                    Compuestos con heteroátomos (N, O, halógenos)
+                    Conteo de enlaces \( \sigma \) y \( \pi \)
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Calcula el IHD para la <strong>piridina</strong> (\( C_5H_5N \)) y el <strong>cloroformo</strong> (\( CHCl_3 \)). ¿Qué estructuras son compatibles?
+                        <strong>Enunciado:</strong> Calcula el número de enlaces \( \sigma \) y \( \pi \) presentes en las moléculas de <strong>etano</strong>, <strong>eteno</strong> y <strong>etino</strong>. Relaciona el resultado con el tipo de hibridación de cada carbono.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. Para la piridina (\( C_5H_5N \)): \( x=5, y=5 \), pero hay 1 nitrógeno, que añade un H al numerador. Fórmula general: \( IHD = \dfrac{2x + 2 + N - y}{2} \).</div>
-                        <div class="paso">2. \( IHD = \dfrac{2\cdot5 + 2 + 1 - 5}{2} = \dfrac{10+2+1-5}{2} = \dfrac{8}{2} = 4 \). La piridina tiene un anillo aromático (3 dobles + 1 anillo = 4) → coherente.</div>
-                        <div class="paso">3. Para el cloroformo (\( CHCl_3 \)): el cloro se cuenta como hidrógeno a efectos de IHD (porque es monovalente). \( x=1, y \) sería H+Cl = 1+3 = 4.</div>
-                        <div class="paso">4. \( IHD = \dfrac{2\cdot1 + 2 - 4}{2} = \dfrac{2+2-4}{2} = 0 \). No tiene insaturaciones, es saturado (metano con 3 Cl).</div>
+                        <div class="paso">1. <strong>Etano (\( C_2H_6 \)):</strong> solo enlaces sencillos. \( sp^3 \). Enlaces: 1 C—C + 6 C—H = 7 enlaces \( \sigma \), 0 enlaces \( \pi \).</div>
+                        <div class="paso">2. <strong>Eteno (\( C_2H_4 \)):</strong> doble enlace C=C. \( sp^2 \). Enlaces: 1 C—C (\( \sigma \)) + 1 C—C (\( \pi \)) + 4 C—H (\( \sigma \)) = 5 enlaces \( \sigma \), 1 enlace \( \pi \).</div>
+                        <div class="paso">3. <strong>Etino (\( C_2H_2 \)):</strong> triple enlace C≡C. \( sp \). Enlaces: 1 C—C (\( \sigma \)) + 2 C—C (\( \pi \)) + 2 C—H (\( \sigma \)) = 3 enlaces \( \sigma \), 2 enlaces \( \pi \).</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ Piridina: IHD = 4 (aromático). Cloroformo: IHD = 0 (saturado).
+                            ✔ Etano: 7σ, 0π. Eteno: 5σ, 1π. Etino: 3σ, 2π. Coincide con el aumento de orbitales \( p \) no hibridados.
                         </div>
                     </div>
                 </div>
@@ -521,28 +665,35 @@
             <div class="ejercicio-card">
                 <div class="card-header">
                     <span class="badge">Ejercicio 5</span>
-                    Aplicación en espectroscopía (contexto real)
+                    Forma de las cadenas (zigzag vs. plana)
                 </div>
                 <div class="card-body">
                     <div class="enunciado-ej">
-                        <strong>Enunciado:</strong> Un compuesto orgánico de fórmula \( C_4H_6O_2 \) presenta IHD = 2. ¿Qué posibilidades estructurales existen si contiene dos oxígenos? Nombra al menos dos familias funcionales posibles.
+                        <strong>Enunciado:</strong> El ácido oleico (un ácido graso insaturado) tiene un doble enlace en su cadena. Explica por qué su cadena presenta un "quiebro" (kink) en lugar de la forma de zigzag típica de los ácidos grasos saturados.
                     </div>
                     <div class="resolucion">
                         <strong>Resolución paso a paso:</strong>
-                        <div class="paso">1. \( x=4, y=6 \). El oxígeno no afecta al IHD.</div>
-                        <div class="paso">2. \( IHD = \dfrac{2\cdot4 + 2 - 6}{2} = \dfrac{8+2-6}{2} = \dfrac{4}{2} = 2 \).</div>
-                        <div class="paso">3. Dos grados de insaturación. Con dos oxígenos, podría ser un <strong>ácido carboxílico insaturado</strong> (ej. ácido but-2-enoico, que tiene un doble enlace y el carbonilo = 2 insaturaciones).</div>
-                        <div class="paso">4. También podría ser un <strong>éster insaturado</strong> (ej. acrilato de metilo, \( CH_2=CH-COOCH_3 \)), que tiene un doble C=C y el carbonilo del éster = 2.</div>
+                        <div class="paso">1. En los ácidos grasos saturados, todos los carbonos son \( sp^3 \), con ángulos de \( 109{,}5^\circ \), lo que produce una <strong>estructura en zigzag</strong> en el espacio.</div>
+                        <div class="paso">2. En el ácido oleico, los dos carbonos del doble enlace son \( sp^2 \), con un ángulo de \( 120^\circ \).</div>
+                        <div class="paso">3. La geometría \( sp^2 \) es plana y fuerza un cambio brusco en la dirección de la cadena, creando un <strong>quiebro</strong> (kink) de aproximadamente \( 60^\circ \) con respecto a la dirección del zigzag.</div>
+                        <div class="paso">4. Este quiebro impide que las moléculas se empaqueten tan estrechamente como en las saturadas, por lo que los aceites insaturados son líquidos a temperatura ambiente.</div>
                         <div class="paso" style="margin-top: 8px; font-weight: 500; color: #2b6cb0;">
-                            ✔ IHD = 2. Posibilidades: ácido insaturado, éster insaturado, lactona, etc.
+                            ✔ El \( sp^2 \) (plano, \( 120^\circ \)) introduce un quiebro en la cadena, alterando el zigzag \( sp^3 \) habitual.
                         </div>
+                    </div>
+
+                    <div class="photo-figure">
+                        <a class="lightbox-link" href="../imagenes/webp/ImagenQ603.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Eteno, propeno y 1-buteno">
+                            <img src="../imagenes/webp/ImagenQ603.webp" alt="Estructuras ampliadas y modelos de barras y esferas del eteno, propeno y 1-buteno, mostrando la planaridad del doble enlace" loading="lazy" decoding="async">
+                        </a>
+                        <div class="figure-caption"><strong>La planitud que genera el quiebro.</strong> Los dobles enlaces de las cadenas insaturadas son planos (hibridación sp²). Esta planaridad, en una cadena larga, obliga a que la cadena cambie de dirección: es la base molecular de la diferencia entre las grasas saturadas (sólidas, con empaquetamiento compacto) y los aceites insaturados (líquidos, con cadenas menos empaquetadas).</div>
                     </div>
                 </div>
             </div>
 
             <!-- PIE DIDÁCTICO -->
             <div class="pie-didactico">
-                <strong>🧠 Observaciones claves:</strong> El IHD es una herramienta de <em>cribado estructural</em> que permite, a partir de una fórmula molecular, acotar el número de posibles estructuras. Es especialmente útil en espectroscopía (RMN, IR) para interpretar los resultados y proponer estructuras coherentes. La fórmula \( IHD = \dfrac{2x+2-y}{2} \) es la base de la <em>regla del número de insaturaciones</em> y debe dominarse antes de abordar compuestos con heteroátomos.
+                <strong>🧠 Observaciones claves:</strong> La hibridación no es una realidad física, sino un <em>modelo matemático</em> que nos permite predecir la geometría observada. Entender que \( sp^3 \) da tetraedros (zigzag), \( sp^2 \) da planitud (imposibilidad de rotación y quiebros) y \( sp \) da linealidad es fundamental para explicar propiedades macroscópicas como puntos de fusión, solubilidad o reactividad, así como la existencia de isómeros geométricos.
             </div>
 
         </div><!-- fin details-content -->
@@ -562,7 +713,6 @@
             });
         }
     });
-
 
 
 
@@ -595,7 +745,7 @@
 
         <div style="text-align:center;">
             <a
-                href="../index.html"
+                href="https://clasesinstitutofyq-netizen.github.io/1Bach/"
                 target="_blank"
                 style="
                     display:inline-block;
@@ -624,5 +774,6 @@
 
 
 </script>
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

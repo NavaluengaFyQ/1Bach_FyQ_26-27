@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T01.06 - Precisión, Exactitud y Sensibilidad</title>
+    <link rel="stylesheet" href="../css/unidades.css">
     <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (CDN) para iconos -->
@@ -360,6 +361,21 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Clarificar las diferencias conceptuales entre tres cualidades fundamentales de los instrumentos de medida. Esta distinción es esencial para interpretar correctamente los resultados experimentales, diseñar protocolos de medida adecuados y comprender por qué un mismo aparato puede comportarse de forma muy diferente según el contexto de uso.</p>
+
+            <div class="photo-pair">
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ026.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud y precisión ilustradas con dianas">
+                        <img src="../imagenes/webp/ImagenQ026.webp" alt="Tres dianas: flechas agrupadas y centradas (exactas y precisas), agrupadas pero descentradas (precisas no exactas) y dispersas sin centro (ni exactas ni precisas)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>La analogía clásica.</strong> La <em>exactitud</em> es acercarse al centro de la diana (el valor real); la <em>precisión</em>, que las flechas caigan agrupadas entre sí. Las dos cualidades son independientes: se puede fallar siempre por el mismo margen (preciso pero no exacto) o acertar por término medio con mucha dispersión (exacto pero impreciso).</div>
+                </div>
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0012.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Exactitud y precisión aplicadas al posicionamiento GPS">
+                        <img src="../imagenes/webp/ImagenF0012.webp" alt="Dos diagramas: a la izquierda, puntos dispersos pero centrados en el restaurante (exactos pero imprecisos); a la derecha, puntos agrupados pero desplazados del centro (precisos pero inexactos)" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>El mismo fenómeno en un GPS.</strong> Cuando el receptor intenta localizar un restaurante, sus cálculos pueden quedar dispersos alrededor del punto real o agruparse lejos del mismo. Cada punto negro es una medida: el paralelismo con las dianas es total. Este ejemplo ayuda a entender que ningún instrumento es «preciso» o «exacto» por separado; son cualidades que se manifiestan al conjunto de sus mediciones.</div>
+                </div>
+            </div>
         </div>
         
         <!-- PROCEDIMIENTO -->
@@ -374,6 +390,14 @@
                     <div class="def-title">Exactitud</div>
                     Grado de concordancia entre el valor medio de un conjunto de mediciones y el <strong>valor verdadero</strong> (o de referencia) de la magnitud. Un aparato exacto produce valores cercanos al valor real.
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ023.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Prototipo internacional de kilogramo">
+                        <img src="../imagenes/webp/ImagenQ023.webp" alt="Réplica del prototipo internacional de kilogramo conservada en el NIST, utilizado históricamente como patrón de masa" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>¿A qué llamamos «valor verdadero»?</strong> Para poder hablar de exactitud hace falta una referencia. Durante más de un siglo, este prototipo de kilogramo definió la unidad de masa del SI. Sin una referencia acordada, el concepto de exactitud no tiene sentido: lo que se compara siempre es <em>frente a un patrón</em>.</div>
+                </div>
+
                 <div class="def-box">
                     <div class="def-title">Precisión</div>
                     Grado de concordancia entre <strong>mediciones repetidas</strong> de la misma magnitud en las mismas condiciones. Un aparato preciso produce valores muy próximos entre sí, independientemente de si coinciden con el valor real.
@@ -381,6 +405,13 @@
                 <div class="def-box">
                     <div class="def-title">Sensibilidad</div>
                     Capacidad del aparato para <strong>detectar pequeñas variaciones</strong> en la magnitud medida. Relacionada con la mínima división de la escala o la resolución del instrumento digital.
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0011.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Balanza mecánica frente a balanza digital">
+                        <img src="../imagenes/webp/ImagenF0011.webp" alt="Balanza mecánica de doble plato que aprecia décimas de gramo y balanza digital que aprecia milésimas de gramo" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Dos instrumentos, dos sensibilidades.</strong> La balanza mecánica distingue décimas de gramo; la digital, milésimas. Esta última es <em>más sensible</em>: puede detectar variaciones más finas de masa. Pero eso no la convierte automáticamente en más precisa ni en más exacta: son conceptos distintos.</div>
                 </div>
             </div>
             
@@ -433,6 +464,13 @@
                     \text{Sensibilidad alta} \;\nRightarrow\; \text{Precisión alta}
                     \]
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenQ025.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Lectura de una probeta graduada">
+                        <img src="../imagenes/webp/ImagenQ025.webp" alt="Probeta graduada entre 21 y 22 mililitros donde el usuario subdivide mentalmente la escala para estimar la décima de mililitro" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Una escala fina no garantiza repetibilidad.</strong> Esta probeta permite estimar hasta la décima de mililitro (buena sensibilidad), pero dos observadores —o el mismo en dos intentos— pueden estimar la última cifra de forma distinta. La sensibilidad fija el <em>límite teórico</em> de lo que se puede detectar; la precisión depende de cuán reproducible es esa estimación.</div>
+                </div>
             </div>
             
             <div class="step">
@@ -445,6 +483,13 @@
                     \]
                 </div>
                 <p>Si \( S \) es muy grande, pequeñas fluctuaciones de \( M \) producen grandes variaciones de \( L \). Si la magnitud \( M \) no es estable, un instrumento muy sensible registrará cada fluctuación, haciendo que las lecturas sean menos repetibles (menos precisas).</p>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0008.webp" target="_blank" rel="noopener noreferrer" title="Ampliar imagen" aria-label="Ampliar imagen: Reloj atómico de cesio">
+                        <img src="../imagenes/webp/ImagenF0008.webp" alt="Reloj atómico que utiliza las vibraciones de los átomos de cesio para mantener el tiempo con precisión superior al microsegundo por año" loading="lazy" decoding="async">
+                    </a>
+                    <div class="figure-caption"><strong>Cuando sensibilidad + referencia estable = precisión extrema.</strong> Un reloj atómico es un caso «de libro»: altísima sensibilidad a las vibraciones atómicas, pero también altísima precisión (superior al microsegundo por año). La clave no es sólo la sensibilidad, sino que la referencia (la transición del cesio) es extraordinariamente estable. Si la señal fuera inestable, la misma sensibilidad destruiría la repetibilidad.</div>
+                </div>
             </div>
         </div>
         
@@ -631,7 +676,7 @@
                             <div class="paso">
                                 <strong>Conclusión:</strong>
                                 \[
-                                \boxed{\text{Mayor sensibilidad} \rightarrow \text{menor precisión (si la señal fluctúa)}}
+                                \boxed{\text{Mayor sensibilidad} \rightarrow \text{menor precisión (si la señal fluctúa)}}}
                                 \]
                                 \text{La escala de 10 V es menos sensible pero más precisa en este caso.}
                             </div>
@@ -669,7 +714,7 @@
                             <div class="paso">
                                 <strong>Conclusión:</strong>
                                 \[
-                                \boxed{\text{El termómetro B es el más adecuado (tras calibrarlo)}}
+                                \boxed{\text{El termómetro B es el más adecuado (tras calibrarlo)}}}
                                 \]
                                 \text{La exactitud se puede corregir (calibración), pero la precisión y resolución son condiciones necesarias.}
                             </div>
@@ -742,5 +787,6 @@
 <!-- ===================FIN DE ES HORA DE ==================== -->
 
     </div> <!-- fin .container -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

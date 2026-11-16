@@ -8,6 +8,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
 /* ============================================
    ESTILOS EXISTENTES (no modificados)
@@ -258,6 +259,41 @@ details.desmitificando .contenido-ejercicios {
     margin-right: 8px;
     color: #d69e2e;
 }
+
+/* ============================================
+   ESTILOS PARA FIGURAS DEL BANCO DE IMÁGENES
+   ============================================ */
+figure.figura-banco {
+    margin: 18px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+figure.figura-banco img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+}
+figure.figura-banco figcaption {
+    font-size: 0.9em;
+    color: #4a5568;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+}
+figure.figura-banco figcaption .creditos {
+    display: block;
+    font-size: 0.82em;
+    color: #718096;
+    font-style: italic;
+    margin-top: 4px;
+}
 </style>
 </head>
 <body>
@@ -304,7 +340,7 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Fundamentar matemáticamente por qué las resistencias en paralelo siguen una regla de suma de inversos. Esta demostración conecta la Ley de Ohm con la conservación de la carga en nodos y la equipotencialidad de los puntos comunes. Es fundamental para el análisis de circuitos domésticos, sistemas de distribución eléctrica y diseño de redes eléctricas.</p>
-    </div>
+
 
     <div class="section procedimiento">
         <h2>🔧 Procedimiento</h2>
@@ -314,6 +350,16 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ V = V_1 = V_2 = \cdots = V_n \]
             </div>
+
+            <!-- FIGURA: serie vs paralelo (V mismo en paralelo) -->
+            <figure class="figura-banco">
+                <img src="../imagenes/webp/ImagenF0740.webp"
+                     alt="Comparación: en serie la corriente es la misma; en paralelo el voltaje es el mismo en cada resistor"
+                     loading="lazy">
+                <figcaption>
+                    <strong>Figura 10.11.</strong> (a) Para una conexión en <strong>serie</strong> de resistores, la corriente es la misma en cada uno de ellos. (b) Para una conexión en <strong>paralelo</strong> de resistores, el voltaje es el mismo en cada resistor. Este es el punto de partida de la demostración: la equipotencialidad de los nodos compartidos.
+                </figcaption>
+            </figure>
         </div>
         <div class="step">
             <span class="step-num">2</span>
@@ -346,6 +392,16 @@ details.desmitificando .contenido-ejercicios {
             <div class="formula-box">
                 \[ I_{\text{total}} = \frac{V}{R_{\text{eq}}} \]
             </div>
+
+            <!-- FIGURA: dos resistores en paralelo y reducción a R_eq -->
+            <figure class="figura-banco">
+                <img src="../imagenes/webp/ImagenF0743.webp"
+                     alt="Dos resistores conectados en paralelo a una fuente de voltaje y su reducción a una resistencia equivalente"
+                     loading="lazy">
+                <figcaption>
+                    <strong>Figura 10.14.</strong> (a) Dos resistores conectados en <strong>paralelo</strong> a una fuente de voltaje. (b) El circuito original se reduce a una <strong>resistencia equivalente</strong> y una fuente de voltaje. La caída de potencial a través de cada resistor es la misma; la corriente total se reparte entre las ramas según la Ley de Ohm \( I = V/R \). Este es exactamente el modelo que fundamenta la definición de \( R_{\text{eq}} \).
+                </figcaption>
+            </figure>
         </div>
         <div class="step">
             <span class="step-num">6</span>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,7 +265,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -279,11 +278,12 @@
 <img src="../imagenes/U08c04 - Energía potencial elástica_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
 
-
-
-
-
-
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0071.webp">
+                    <img src="../imagenes/webp/ImagenF0071.webp" alt="Resorte estirado como unidad de fuerza estándar y balanza de resorte">
+                </a>
+                <figcaption class="figure-caption">Figura 5.5. La fuerza ejercida por un resorte estirado puede utilizarse como unidad de fuerza estándar. (a) Este resorte tiene una longitud x cuando está inalterado. (b) Cuando se estira una distancia Δx, el resorte ejerce una fuerza restauradora reproducible. (c) Una balanza de resorte es un dispositivo que utiliza un resorte para medir la fuerza.</figcaption>
+            </figure>
 
         </div>
 
@@ -305,6 +305,13 @@
                     \[ F = -k \cdot \Delta x \]
                 </div>
                 <p>donde \( k \) es la constante elástica (rigidez del muelle) y \( \Delta x \) es el estiramiento o compresión respecto a la longitud natural. El signo negativo indica que la fuerza se opone a la deformación.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0097.webp">
+                        <img src="../imagenes/webp/ImagenF0097.webp" alt="Resorte relajado, comprimido y estirado con fuerza restauradora proporcional al desplazamiento">
+                    </a>
+                    <figcaption class="figure-caption">Figura 5.29. Un resorte ejerce su fuerza de forma proporcional a un desplazamiento, tanto si está comprimido como estirado. (a) El resorte está en posición relajada y no ejerce ninguna fuerza sobre el bloque. (b) El resorte está comprimido por el desplazamiento Δx₁ y ejerce una fuerza restauradora −kΔx₁. (c) El resorte está estirado por el desplazamiento Δx₂ y ejerce una fuerza restauradora −kΔx₂.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -315,6 +322,13 @@
                     \[ F_{\text{ext}} = k \cdot \Delta x \]
                 </div>
                 <p>Esta fuerza no es constante: aumenta linealmente a medida que aumenta la deformación \( \Delta x \).</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0142.webp">
+                        <img src="../imagenes/webp/ImagenF0142.webp" alt="Resorte sin fuerza, estirado y comprimido con la fuerza recuperadora correspondiente">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.7. (a) El resorte no ejerce ninguna fuerza en su posición de equilibrio. El resorte ejerce una fuerza en sentido contrario a (b) una extensión o estiramiento, y (c) una compresión.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -325,6 +339,13 @@
                     \[ W = \int_{0}^{\Delta x} F_{\text{ext}} \, dx = \int_{0}^{\Delta x} k \cdot x \, dx \]
                 </div>
                 <p>Donde hemos llamado \( x \) a la variable de integración (deformación instantánea).</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0143.webp">
+                        <img src="../imagenes/webp/ImagenF0143.webp" alt="Curva f(x) con el área de una franja infinitesimal y la suma de dichas áreas (integral)">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.8. Curva de f(x) en función de x que muestra el área de una franja infinitesimal, f(x)dx, y la suma de dichas áreas, que es la integral de f(x). Este es el fundamento geométrico para pasar de una fuerza variable al trabajo mediante integración.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -347,6 +368,13 @@
                     \[ W = \text{Área} = \frac{1}{2} \cdot \text{base} \cdot \text{altura} = \frac{1}{2} \cdot \Delta x \cdot k \Delta x = \frac{1}{2} k (\Delta x)^{2} \]
                 </div>
                 <p>Esta interpretación geométrica es útil para estudiantes que aún no dominan el cálculo integral.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0144.webp">
+                        <img src="../imagenes/webp/ImagenF0144.webp" alt="Curva de la fuerza del resorte f(x) = −kx con las áreas bajo la línea para valores positivos y negativos de x">
+                    </a>
+                    <figcaption class="figure-caption">Figura 7.9. Curva de la fuerza del resorte f(x) = −kx en función de la x, donde se muestran las áreas bajo la línea, entre x_A y x_B, tanto para valores positivos como negativos de x_A. El área (trabajo) es siempre positiva porque el cuadrado de la deformación elimina el signo.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -382,6 +410,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> Esta demostración es didácticamente valiosa porque introduce la integración de una fuerza variable de forma natural y geométrica. Es importante destacar que la Ley de Hooke es una aproximación válida solo para deformaciones pequeñas (régimen elástico); para deformaciones grandes, el comportamiento es no lineal. El factor \( \frac{1}{2} \) suele sorprender a los estudiantes que intentan aplicar directamente \( W = F \cdot \Delta x \); debe enfatizarse que la fuerza no es constante. La simetría estiramiento/compresión es un excelente ejemplo de cómo las potencias pares conservan la simetría de un sistema.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0161.webp">
+                    <img src="../imagenes/webp/ImagenF0161.webp" alt="Sistema masa-resorte horizontal y su diagrama de energía potencial">
+                </a>
+                <figcaption class="figure-caption">Figura 8.11. (a) Un planeador entre resortes en una pista de aire es un ejemplo de un sistema masa-resorte horizontal. (b) El diagrama de energía potencial para este sistema, donde se indican diversas cantidades. La parábola U(x) refleja la dependencia cuadrática \( E_e = \frac{1}{2}k x^2 \).</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -451,6 +486,13 @@
                     <p>Energía elástica inicial: \( E_e = \frac{1}{2} \cdot 400 \cdot (0,08)^2 = 0,5 \cdot 400 \cdot 0,0064 = 1,28 \, \text{J} \).</p>
                     <p>Por conservación, esa energía se convierte en cinética: \( \frac{1}{2} m v^2 = 1,28 \Rightarrow v = \sqrt{\frac{2 \cdot 1,28}{0,50}} = \sqrt{5,12} \approx 2,26 \, \text{m/s} \).</p>
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0154.webp">
+                        <img src="../imagenes/webp/ImagenF0154.webp" alt="Sistema vertical masa-resorte: masa en reposo, expandiéndose más allá del punto B hasta el punto C">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.4. Un sistema vertical de masa-resorte, con el eje Y positivo apuntando hacia arriba. La masa se encuentra inicialmente en una longitud de resorte sin estirar (punto A), luego se suelta y se expande más allá del punto B hasta el punto C, donde se detiene. La energía oscila entre formas elástica, cinética y gravitatoria.</figcaption>
+                </figure>
             </div>
 
             <!-- EJERCICIO 5: Trabajo de deformación con fuerza variable (gráfica) -->
@@ -476,8 +518,6 @@
 
         </details>
         <!-- FIN BLOQUE DESPLEGABLE -->
-
-
 
 
 
@@ -536,9 +576,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

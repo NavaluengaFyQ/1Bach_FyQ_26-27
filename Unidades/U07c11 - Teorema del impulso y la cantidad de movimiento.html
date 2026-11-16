@@ -7,8 +7,11 @@
     <!-- FontAwesome CDN (versión 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -273,6 +276,35 @@
             font-size: 1.6rem;
             color: #2563eb;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -282,7 +314,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T07.11.- </span>
                 <span class="texto">Teorema del Impulso y la Cantidad de Movimiento</span>
             </div>
@@ -358,6 +390,13 @@
                 \[ \vec{I} = \vec{p}_f - \vec{p}_i = \Delta \vec{p} \]
             </div>
             Esto demuestra que el impulso de la fuerza neta es igual a la variación de la cantidad de movimiento del cuerpo.
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0176.webp">
+                    <img src="../imagenes/webp/ImagenF0176.webp" alt="Ilustración del teorema del momento-impulso: un balón con velocidad inicial v0 y momento p0 recibe un impulso J, que se suma vectorialmente al momento inicial para dar el nuevo momento pf">
+                </a>
+                <div class="figure-caption"><strong>El teorema del impulso, visualmente.</strong> (a) Un balón con velocidad inicial \(\vec{v}_0\) y momento \(\vec{p}_0\) recibe un impulso \(\vec{J}\). (b) El impulso se suma vectorialmente al momento inicial. (c) El resultado de esa suma es el nuevo momento: \(\vec{J} = \Delta\vec{p} = \vec{p}_f - \vec{p}_0\). (d) Tras el impulso, el balón se mueve con su nuevo momento \(\vec{p}_f\). Este esquema recoge la esencia de la demostración: el impulso y el cambio de momento son la misma magnitud, uno como causa y otro como efecto, y ambos son vectores que se suman según la regla del paralelogramo.</div>
+            </div>
         </div>
         <div class="step">
             <span class="step-num">5</span>
@@ -373,6 +412,13 @@
         <div class="step">
             <span class="step-num">6</span>
             <strong>Interpretación física:</strong> El teorema del impulso establece que no es la fuerza individualmente, sino su acumulación temporal (impulso), la que determina el cambio en el movimiento. Esto explica por qué una fuerza pequeña aplicada durante mucho tiempo puede producir el mismo efecto que una fuerza grande aplicada durante un instante, siempre que el impulso sea el mismo. En colisiones, donde \( \Delta t \) es muy pequeño, las fuerzas de interacción son enormes (fuerzas impulsivas).
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0170.webp">
+                    <img src="../imagenes/webp/ImagenF0170.webp" alt="El cambio de momento de un objeto es proporcional a la duración de la fuerza aplicada; si la fuerza se ejerce durante el doble de tiempo, el cambio de momento es el doble">
+                </a>
+                <div class="figure-caption"><strong>El impulso mide la acumulación temporal de la fuerza.</strong> Dos balones idénticos reciben la misma fuerza, pero sobre el de abajo la fuerza actúa durante el doble de tiempo. El cambio de momento del balón inferior es el doble que el del superior. Es la esencia del teorema: no basta con saber qué fuerza se aplica, hay que saber durante cuánto tiempo se aplica. En colisiones y golpes, el tiempo de contacto es muy breve, de modo que el mismo \(\Delta\vec{p}\) requiere fuerzas medias muy grandes.</div>
+            </div>
         </div>
     </div>
 
@@ -386,6 +432,13 @@
         <p>Para fuerzas variables, el impulso se calcula como \( \vec{I} = \int_{t_i}^{t_f} \vec{F}(t) \, \mathrm{d}t \), y el teorema sigue siendo válido.</p>
         <div class="note">
             <strong>💡 Observaciones sobre el alumnado:</strong> Este teorema es especialmente útil cuando se desconocen los detalles de la fuerza durante una colisión, pero sí se conocen los estados inicial y final. Es el fundamento del análisis de colisiones en una dimensión. Se recomienda enfatizar la naturaleza vectorial del impulso: una fuerza perpendicular a la velocidad inicial cambia la dirección pero no el módulo del momento. En deportes como el tenis o el fútbol, el "efecto" de un golpe depende tanto de la fuerza como del tiempo de contacto.
+        </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0175.webp">
+                <img src="../imagenes/webp/ImagenF0175.webp" alt="Colisión de un auto con un muro: el conductor protegido por el cinturón y el airbag sufre menor fuerza media porque el tiempo de colisión se alarga; sin protección, el tiempo es mucho más corto y la fuerza mucho mayor">
+            </a>
+            <div class="figure-caption"><strong>La aplicación más importante: el airbag y el cinturón de seguridad.</strong> Cuando un coche a 27 m/s choca contra un edificio, el conductor debe pasar de su velocidad inicial a cero. El cambio de momento \(\Delta\vec{p}\) es el mismo con o sin sistemas de seguridad, porque depende solo de \(m\) y de \(\Delta v\). Lo que cambia es el tiempo de colisión: el airbag y el cinturón de tensión variable alargan el intervalo de frenado de \(0{,}2\ \text{s}\) a unos \(2{,}5\ \text{s}\). Como \(F_{\text{media}} = \Delta p/\Delta t\), alargar el tiempo reduce la fuerza media en más de diez veces. Es el teorema del impulso salvando vidas: no cambia el cambio de momento, pero reparte la fuerza en un tiempo mucho mayor y evita que el cuerpo sufra una fuerza impulsiva enorme.</div>
         </div>
     </div>
 
@@ -445,6 +498,13 @@
                     <div class="paso">
                         <strong>b)</strong> \(F_{\text{media}} = \frac{\Delta p}{\Delta t} = \frac{-5,0}{0,030} \approx -166,7\,\text{N}\). La magnitud es \(1,67 \times 10^2\,\text{N}\).
                     </div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0179.webp">
+                        <img src="../imagenes/webp/ImagenF0179.webp" alt="La raqueta de Venus Williams golpea la pelota de tenis a 58 m/s en 5 ms, produciendo una fuerza media enorme sobre la pelota">
+                    </a>
+                    <div class="figure-caption"><strong>Un rebote real: el saque más rápido de Venus Williams.</strong> En el Abierto de Francia de 2007, Venus Williams sacó a \(58\ \text{m/s}\) (209 km/h). La pelota de tenis pesa \(0{,}057\ \text{kg}\) y estuvo en contacto con la raqueta solo \(5{,}0\ \text{ms}\). Aunque el cambio de momento de la pelota es relativamente pequeño (unas \(3{,}3\ \text{kg·m/s}\)), el tiempo brevísimo de contacto obliga a una fuerza media de unos \(660\ \text{N}\) (unos \(67\ \text{kg}\) de «peso aparente»). Es el mismo fenómeno que en el ejercicio 2: cuanto menor es el tiempo de interacción, mayor es la fuerza media necesaria para producir un cambio dado de momento.</div>
                 </div>
             </div>
 

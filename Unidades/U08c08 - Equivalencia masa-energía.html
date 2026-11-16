@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,8 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (gratuito) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -266,7 +266,6 @@
 
 
 
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -279,7 +278,6 @@
 
 <img src="../imagenes/U08c08 - Equivalencia masa-energía_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
 
 
 
@@ -357,6 +355,13 @@
                     \[ 1 \, \text{kg} \leftrightarrow 9 \times 10^{16} \, \text{J} \]
                 </div>
                 <p>Esto equivale aproximadamente a la energía producida por una central eléctrica de 1000 MW funcionando durante 3 años.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0164.webp">
+                        <img src="../imagenes/webp/ImagenF0164.webp" alt="Consumo mundial de energía por fuentes, con porcentaje creciente de renovables">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.14. Consumo mundial de energía por fuentes; el porcentaje de renovables va en aumento, lo que representa el 19 % en 2012. La escala de la gráfica permite valorar la enormidad del factor \(c^2\): 1 kg de masa equivale a la energía que consume una gran ciudad durante años.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
@@ -366,12 +371,26 @@
                 <div class="formula-box">
                     \[ \Delta E = \Delta m \cdot c^{2} \]
                 </div>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0186.webp">
+                        <img src="../imagenes/webp/ImagenF0186.webp" alt="Formación de un deuterón a partir de un protón y un neutrón">
+                    </a>
+                    <figcaption class="figure-caption">Figura 9.10. Formación de un deuterón. Un protón (masa 1,67×10⁻²⁷ kg) colisiona con un neutrón (con esencialmente la misma masa) para formar una partícula llamada deuterón. En este proceso de fusión nuclear, una pequeña parte de la masa se transforma en energía según \(E = mc^2\): es una de las reacciones que alimentan las estrellas.</figcaption>
+                </figure>
             </div>
 
             <div class="step">
                 <span class="step-num">9</span>
                 <strong>Conexión con la conservación de la energía</strong>
                 <p>La ecuación \( E = mc^{2} \) unifica la conservación de la masa y la energía. En física moderna, se habla de <strong>conservación de la masa-energía</strong>: en un sistema aislado, la suma de todas las formas de energía (incluida la energía en reposo) se conserva. En nuestro entorno cotidiano, las transformaciones de energía no implican cambios apreciables de masa, por lo que las leyes de conservación clásicas siguen siendo válidas.</p>
+
+                <figure class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0163.webp">
+                        <img src="../imagenes/webp/ImagenF0163.webp" alt="Formas de energía en la sociedad: sol, paneles solares y quemador de gas">
+                    </a>
+                    <figcaption class="figure-caption">Figura 8.13. La energía que utilizamos en la sociedad adopta muchas formas, que se convierten de una en otra, dependiendo del proceso que se realice. Todas esas transformaciones son manifestaciones de la conservación de la masa-energía: la suma total (incluida la energía en reposo) permanece constante en un sistema aislado.</figcaption>
+                </figure>
             </div>
         </div>
 
@@ -385,6 +404,13 @@
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> A nivel de 1º de Bachillerato, esta demostración debe presentarse de manera conceptual y cualitativa, sin entrar en el formalismo de las transformaciones de Lorentz. El énfasis debe ponerse en: (1) la enormidad del factor de conversión \( c^{2} \), (2) la verificación experimental (bombas atómicas, centrales nucleares, física de partículas), (3) la distinción entre procesos químicos (mínima conversión de masa) y nucleares (conversión apreciable). El ejercicio 41 del libro (bomba de Hiroshima) es excelente para cuantificar la pequeña cantidad de masa que se transforma en energía. Es importante desmentir la idea popular de que la masa "se convierte" en energía: más bien, la masa es una forma de energía que se manifiesta de diferentes maneras.
             </div>
+
+            <figure class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0188.webp">
+                    <img src="../imagenes/webp/ImagenF0188.webp" alt="Modelos de Thomson y Rutherford del átomo: contexto histórico de la física nuclear">
+                </a>
+                <figcaption class="figure-caption">Figura 9.21. Los modelos de Thomson y Rutherford del átomo. Los experimentos de Rutherford y Geiger con partículas alfa abrieron el camino a la física nuclear: precisamente en el núcleo atómico es donde las variaciones de masa se traducen en energías apreciables según \(E = mc^2\), tanto en la fisión como en la fusión.</figcaption>
+            </figure>
         </div>
 
         <!-- ========================================================= -->
@@ -487,8 +513,6 @@
 
 
 
-
-
 <!-- ============================================
      BLOQUE "ES HORA DE" (versión fija, sin desplegar)
      ============================================ -->
@@ -542,9 +566,9 @@
 
 
 
-
-
-
     </div> <!-- /container -->
+
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>

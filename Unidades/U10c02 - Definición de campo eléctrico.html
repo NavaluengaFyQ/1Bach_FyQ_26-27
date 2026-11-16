@@ -1,19 +1,16 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>#T10.02 · Definición de Campo Eléctrico</title>
-<!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+<!-- MathJax -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!-- FontAwesome (versión 6) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS compartido de Unidades -->
+<link rel="stylesheet" href="../css/unidades.css">
 <style>
-/* ============================================
-   ESTILOS EXISTENTES (no modificados)
-   ============================================ */
 .container {
     max-width: 900px;
     width: 100%;
@@ -146,9 +143,6 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   NUEVOS ESTILOS PARA EL BLOQUE DESPLEGABLE
-   ============================================ */
 details.desmitificando {
     margin: 30px 15px 20px 15px;
     border: 2px solid #ed8936;
@@ -287,12 +281,7 @@ details.desmitificando .contenido-ejercicios {
         <div class="formula-box">
             \[ \vec{E} = K \frac{Q}{r^2} \hat{u}_r \]
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -303,13 +292,23 @@ details.desmitificando .contenido-ejercicios {
 
 <img src="../imagenes/U10c02 - Definición de campo eléctrico.png" alt="Imagen" width="800">
 <img src="../imagenes/U10c02 - Definición de campo eléctrico_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
+<!-- Banco Q: medida de la carga elemental -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ034.webp">
+    <img src="../imagenes/webp/ImagenQ034.webp" alt="Experimento de Millikan: medida de la carga de gotas de aceite individuales" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">El experimento de Millikan midió la carga de gotas de aceite individuales, demostrando que la carga eléctrica está cuantizada en múltiplos de la carga elemental \(e\). La definición operacional del campo eléctrico como \(\vec{F}/q_0\) exige poder disponer de cargas de prueba bien conocidas: precisamente lo que permitió este experimento.</figcaption>
+</figure>
 
-
-
-
-
+<!-- Banco F: vector unitario -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0014.webp">
+    <img src="../imagenes/webp/ImagenF0014.webp" alt="Vector desde su cola hasta su cabeza con la punta de flecha marcando la dirección" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un vector se dibuja desde su punto inicial ("cola") hasta su punto extremo o terminal ("cabeza"), marcado por una punta de flecha; su magnitud es la longitud. El vector unitario \(\hat{u}_r\) del campo eléctrico se construye exactamente así: apuntando desde la carga fuente \(Q\) hacia el punto donde se mide el campo.</figcaption>
+</figure>
 
         </div>
     </div>
@@ -317,6 +316,23 @@ details.desmitificando .contenido-ejercicios {
     <div class="section objetivo">
         <h2>🎯 Objetivo</h2>
         <p>Fundamentar el concepto de campo eléctrico como entidad física que describe la modificación del espacio por una carga fuente. Esta demostración conecta directamente la Ley de Coulomb con la noción de campo, permitiendo estudiar la interacción electrostática sin necesidad de una segunda carga en el punto de análisis. Es el paso previo indispensable para comprender las líneas de campo y el principio de superposición.</p>
+
+<!-- Banco Q: catión Na+ vs Na neutro -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ054.webp">
+    <img src="../imagenes/webp/ImagenQ054.webp" alt="Átomo de sodio neutro frente a catión de sodio (Na+) con carga positiva" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Un átomo de sodio neutro tiene el mismo número de protones y electrones; cuando pierde un electrón se convierte en un catión Na⁺. La carga neta de la fuente \(Q\) es la que genera el campo eléctrico: su signo determina si \(\vec{E}\) apunta hacia fuera (positiva) o hacia dentro (negativa).</figcaption>
+</figure>
+
+<!-- Banco Q: patrones de carga iónica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ055.webp">
+    <img src="../imagenes/webp/ImagenQ055.webp" alt="Patrones regulares de carga iónica en la tabla periódica" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Muchos elementos presentan un patrón regular de carga iónica al formar iones (Na⁺, Mg²⁺, Al³⁺, Cl⁻, O²⁻...). Conocer la carga de cada ion permite aplicar la definición de campo eléctrico a problemas concretos de física atómica y química.</figcaption>
+</figure>
+
     </div>
 
     <div class="section procedimiento">
@@ -360,6 +376,23 @@ details.desmitificando .contenido-ejercicios {
                 <li>Si \( Q < 0 \): \( \vec{E} \) apunta hacia dentro (sentido opuesto a \( \hat{u}_r \))</li>
             </ul>
             <p>La magnitud del campo disminuye con el cuadrado de la distancia: \( E \propto \frac{1}{r^2} \).</p>
+
+<!-- Banco F: componentes escalares con signo por cuadrante -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0025.webp">
+    <img src="../imagenes/webp/ImagenF0025.webp" alt="Componentes escalares de un vector: positivos en el primer y cuarto cuadrante, negativos en el segundo y tercero" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Los componentes escalares de un vector pueden ser positivos o negativos. El campo eléctrico \(\vec{E}\) es un vector: al expresarlo en coordenadas, el signo de sus componentes indicará hacia dónde apunta el campo en cada punto del espacio (hacia fuera o hacia dentro de la carga fuente).</figcaption>
+</figure>
+
+<!-- Banco Q: Rutherford, cargas a escala subatómica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ036.webp">
+    <img src="../imagenes/webp/ImagenQ036.webp" alt="Experimento de Geiger y Rutherford: partículas alfa disparadas contra una lámina de oro" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Geiger y Rutherford dispararon partículas α contra una lámina de oro: la mayoría pasaban, pero unas pocas se desviaban con ángulos muy grandes. Esa deflexión era la manifestación del campo eléctrico creado por la carga positiva del núcleo atómico: la definición \(\vec{E} = \vec{F}/q_0\) funciona también a escala subatómica.</figcaption>
+</figure>
+
         </div>
         <div class="note">
             💡 <strong>Observaciones sobre el alumnado:</strong> Es crucial destacar que el campo eléctrico es una magnitud <strong>vectorial</strong> que existe en cada punto del espacio independientemente de que haya una carga de prueba. El concepto de campo evita la acción a distancia y prepara el terreno para el estudio de ondas electromagnéticas. La dependencia \( \frac{1}{r^2} \) es idéntica a la del campo gravitatorio, lo que permite establecer paralelismos útiles. La unidad del campo en el SI es \( \text{N}\cdot\text{C}^{-1} \) o, equivalentemente, \( \text{V}\cdot\text{m}^{-1} \).
@@ -372,10 +405,19 @@ details.desmitificando .contenido-ejercicios {
             \[ \vec{E} = K \frac{Q}{r^2} \hat{u}_r \quad \text{(Campo eléctrico de una carga puntual)} \]
         </div>
         <p>El campo eléctrico es una propiedad del espacio que rodea a una carga eléctrica. Se define como la fuerza por unidad de carga de prueba y su dirección es radial, con magnitud inversamente proporcional al cuadrado de la distancia.</p>
+
+<!-- Banco Q: partículas alfa desviadas por el campo del núcleo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ037.webp">
+    <img src="../imagenes/webp/ImagenQ037.webp" alt="Partículas alfa desviadas por el núcleo atómico: campo eléctrico a escala nuclear" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Las partículas α solo se desvían cuando chocan o pasan cerca del núcleo de oro, mucho más pesado y cargado positivamente. Como el núcleo es muy pequeño comparado con el átomo, casi todas las partículas atraviesan la región ocupada por los electrones, donde el campo eléctrico es despreciable: una comprobación experimental directa de la ley \(\vec{E} = K\,Q\,\hat{u}_r/r^2\).</figcaption>
+</figure>
+
     </div>
 
     <!-- ======================================== -->
-    <!-- BLOQUE DESPLEGABLE AÑADIDO (TAREA 1)      -->
+    <!-- BLOQUE DESPLEGABLE                       -->
     <!-- ======================================== -->
     <details class="desmitificando">
         <summary>
@@ -430,7 +472,6 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Sustituimos: \( E = 2{,}0\times10^{5}\,\text{N/C} \), \( r = 0{,}30\,\text{m} \):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ |Q| = \frac{2{,}0\times10^{5} \times (0{,}30)^2}{8{,}99\times10^9}
-                            = \frac{2{,}0\times10^{5} \times 0{,}09}{8{,}99\times10^9}
                             = \frac{1{,}8\times10^{4}}{8{,}99\times10^9}
                             \approx 2{,}0\times10^{-6}\,\text{C} \]
                         </div>
@@ -453,13 +494,11 @@ details.desmitificando .contenido-ejercicios {
                         <div class="paso"><strong>Paso 2:</strong> Campo creado por \( q_1 \) (positiva, apunta hacia la derecha en \( P \)):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_1 = 8{,}99\times10^9 \cdot \frac{4{,}0\times10^{-6}}{(0{,}05)^2}
-                            = 8{,}99\times10^9 \cdot \frac{4{,}0\times10^{-6}}{2{,}5\times10^{-3}}
                             = 1{,}44\times10^{7}\,\text{N/C} \quad (+\hat{x}) \]
                         </div>
-                        <div class="paso"><strong>Paso 3:</strong> Campo creado por \( q_2 \) (negativa, atrae a la carga de prueba positiva, por lo que apunta hacia la izquierda o hacia la derecha? Carga negativa en \( x=0{,}10 \). Una carga de prueba en \( P \) (izquierda de \( q_2 \)) es atraída hacia la derecha (hacia \( q_2 \)). Por lo tanto, \( \vec{E}_2 \) apunta a la derecha (\( +\hat{x} \)):</div>
+                        <div class="paso"><strong>Paso 3:</strong> Campo creado por \( q_2 \) (negativa, atrae a la carga de prueba positiva, por lo que apunta hacia la derecha, hacia \( q_2 \)):</div>
                         <div class="formula-box" style="margin:5px 0;">
                             \[ E_2 = 8{,}99\times10^9 \cdot \frac{9{,}0\times10^{-6}}{(0{,}05)^2}
-                            = 8{,}99\times10^9 \cdot \frac{9{,}0\times10^{-6}}{2{,}5\times10^{-3}}
                             = 3{,}24\times10^{7}\,\text{N/C} \quad (+\hat{x}) \]
                         </div>
                         <div class="paso"><strong>Paso 4:</strong> Sumamos los vectores (misma dirección y sentido):</div>
@@ -468,6 +507,12 @@ details.desmitificando .contenido-ejercicios {
                             = 4{,}68\times10^{7}\,\text{N/C}\,\hat{x} \]
                         </div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0020.webp">
+                        <img src="../imagenes/webp/ImagenF0020.webp" alt="Regla del paralelogramo para la suma de dos vectores" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">La regla del paralelogramo para la suma de dos vectores: se traslada cada vector a un origen común y se construye un paralelogramo; la resultante es la diagonal. En este ejercicio los dos campos \(\vec{E}_1\) y \(\vec{E}_2\) tienen la misma dirección y sentido, por lo que la suma vectorial se reduce a sumar módulos, pero el mismo principio se aplica cuando apuntan en direcciones distintas.</figcaption>
+                    </figure>
                 </div>
             </div>
 
@@ -512,42 +557,33 @@ details.desmitificando .contenido-ejercicios {
                             \[ \vec{E} = 3{,}0\times10^{4}\,\text{N/C} \quad (\text{hacia la derecha}) \]
                         </div>
                     </div>
+                    <figure class="photo-figure">
+                      <a class="lightbox-link" href="../imagenes/webp/ImagenF0072.webp">
+                        <img src="../imagenes/webp/ImagenF0072.webp" alt="Diagrama de cuerpo libre del estudiante: fuerzas debidas a la silla, la mesa, el suelo y la gravedad" loading="lazy" decoding="async">
+                      </a>
+                      <figcaption class="figure-caption">Las fuerzas que actúan sobre un cuerpo se representan como vectores en un diagrama de cuerpo libre. La relación \(\vec{E} = \vec{F}/q_0\) se maneja con las mismas herramientas vectoriales: hay que distinguir el sentido de \(\vec{F}\) (sobre la carga real) del sentido de \(\vec{E}\) (definido siempre a partir de una carga positiva ficticia).</figcaption>
+                    </figure>
                 </div>
             </div>
 
-            <!-- PIE DE Observaciones claves -->
+            <!-- PIE -->
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> La definición de campo eléctrico \( \vec{E} = \vec{F}/q_0 \) es la piedra angular para pasar de la fuerza entre dos cargas (Ley de Coulomb) a una propiedad <strong>local del espacio</strong>. La principal "trampa" conceptual es olvidar que el campo es independiente de la carga de prueba: el campo existe aunque no pongamos ninguna carga para medirlo. La dirección del campo SIEMPRE se define como la dirección de la fuerza sobre UNA CARGA POSITIVA.
             </div>
 
-        </div> <!-- /contenido-ejercicios -->
+        </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -555,36 +591,21 @@ details.desmitificando .contenido-ejercicios {
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
-
 </div> <!-- /container -->
+
+<!-- Lightbox compartido -->
+<script src="../js/lightbox.js" defer></script>
 </body>
 </html>

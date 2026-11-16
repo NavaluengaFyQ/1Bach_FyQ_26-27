@@ -1,15 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.06 - Relación entre velocidad lineal y angular</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,6 +267,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +305,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.06.- </span>
                 <span class="texto">Relación entre velocidad lineal y angular</span>
             </div>
@@ -293,8 +324,6 @@
 
 
 
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -307,8 +336,6 @@
 <img src="../imagenes/U06c06 - Relación entre velocidad lineal y angular.png" alt="Imagen" width="800">
 <img src="../imagenes/U06c06 - Relación entre velocidad lineal y angular_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -338,6 +365,13 @@
             <strong>Relación arco-ángulo</strong>
             <p>En una circunferencia de radio \( r \), el arco de circunferencia \( \Delta s \) recorrido por un punto cuando el radio barre un ángulo \( \Delta\theta \) (medido en radianes) viene dado por la definición de radián:</p>
             <div class="formula-box">\[ \Delta s = r \Delta\theta \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0203.webp">
+                    <img src="../imagenes/webp/ImagenF0203.webp" alt="Partícula en una trayectoria circular barriendo un ángulo positivo θ respecto al eje x y trazando un arco de longitud s">
+                </a>
+                <div class="figure-caption"><strong>Arco y ángulo: la base geométrica de \(v = \omega r\).</strong> Cuando una partícula recorre una trayectoria circular, el radio barre un ángulo \(\theta\) y sobre la circunferencia se traza un arco de longitud \(s\). Por la definición de radián, \(s = r\theta\). Ese mismo \(\theta\) es el que aparece en la definición de velocidad angular \(\omega = \Delta\theta/\Delta t\), lo que conecta el movimiento a lo largo del arco con el giro del radio vector.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -369,6 +403,13 @@
         <div class="note">
             <strong>Observaciones sobre el alumnado:</strong> Todos los puntos de un cuerpo rígido en rotación comparten la misma velocidad angular \( \omega \), pero la velocidad lineal \( v \) aumenta linealmente con la distancia al eje. Por ello, los puntos del borde de una rueda se desplazan más rápido que los cercanos al centro.
         </div>
+
+        <div class="photo-figure">
+            <a class="lightbox-link" href="../imagenes/webp/ImagenF0205.webp">
+                <img src="../imagenes/webp/ImagenF0205.webp" alt="Dos partículas en un disco en rotación con distinta rapidez tangencial dependiendo de su distancia al eje de rotación">
+            </a>
+            <div class="figure-caption"><strong>Misma \(\omega\), distinta \(v\).</strong> Dos partículas situadas a distancias distintas del eje de rotación tienen la misma velocidad angular \(\omega\) (giran solidariamente con el disco), pero sus velocidades tangenciales difieren: \(v = \omega r\). La partícula más alejada del eje se mueve más rápido por el espacio que la más cercana, aunque ambas completen una vuelta completa en el mismo tiempo. Este es el sentido profundo de la relación \(v = \omega r\): separa la descripción «compartida» (ángulo) de la descripción «puntual» (longitud recorrida).</div>
+        </div>
     </div>
 
     <!-- ========================================================= -->
@@ -395,6 +436,13 @@
                     <div class="paso"><strong>Paso 1:</strong> Datos: \( \omega = 15 \, \text{rad/s} \), \( r = 0.40 \, \text{m} \).</div>
                     <div class="paso"><strong>Paso 2:</strong> Aplicamos la relación \( v = \omega r = 15 \cdot 0.40 = 6.0 \, \text{m/s} \).</div>
                     <div class="paso"><strong>Resultado:</strong> \( v = 6.0 \, \text{m/s} \).</div>
+                </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0211.webp">
+                        <img src="../imagenes/webp/ImagenF0211.webp" alt="Aerogenerador que rota en sentido contrario a las agujas del reloj visto de frente">
+                    </a>
+                    <div class="figure-caption"><strong>Aplicación real: las aspas de un aerogenerador.</strong> Las palas de un aerogenerador giran con una velocidad angular \(\omega\) común (todas dan las mismas vueltas por minuto). Sin embargo, la punta de cada aspa, al estar mucho más lejos del eje que la raíz, se mueve con una velocidad lineal \(v = \omega r\) mucho mayor. Esto explica por qué la punta de una pala puede alcanzar velocidades de cientos de km/h aunque el rotor gire a pocas rpm: es la relación \(v = \omega r\) aplicada a un cuerpo real.</div>
                 </div>
             </div>
 
@@ -474,67 +522,50 @@
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

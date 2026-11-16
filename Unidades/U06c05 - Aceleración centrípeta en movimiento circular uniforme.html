@@ -1,15 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T06.05 - Aceleración centrípeta en movimiento circular uniforme</title>
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
+    <!-- MathJax -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- FontAwesome 6 (gratuita) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
     <style>
         /* ============================================
            ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
@@ -265,6 +267,35 @@
             color: #1a365d;
             border-left: 6px solid #667eea;
         }
+
+        /* =========================================================
+           FOTOGRAFÍAS (figuras del banco con lightbox)
+           ========================================================= */
+        .photo-figure {
+            background: white; border: 1px solid #e2e8f0; border-radius: 14px;
+            padding: 15px 15px 10px 15px; margin: 20px auto; text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05); max-width: 520px;
+        }
+        .photo-figure img {
+            display: block; margin: 0 auto; max-width: 100%; max-height: 440px;
+            width: auto; height: auto; border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .photo-pair {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            align-items: stretch; gap: 16px; margin: 20px 0;
+        }
+        .photo-pair > .photo-figure {
+            flex: 1 1 240px; max-width: 320px; margin: 0;
+        }
+        .photo-pair > .photo-figure img {
+            max-height: 380px; object-fit: contain;
+        }
+        .figure-caption {
+            font-size: 0.9em; color: #4a5568; margin-top: 10px;
+            line-height: 1.5; text-align: left;
+        }
+        a.lightbox-link { display: block; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -274,7 +305,7 @@
         <div class="header-left">
             <h1>IES Valle del Alberche</h1>
             <div class="header-sub">
-                <img src="../img_comunes/Cápsula.png" width="40" height="auto">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="">
                 <span class="codigo">#T06.05.- </span>
                 <span class="texto">Aceleración centrípeta en movimiento circular uniforme</span>
             </div>
@@ -293,8 +324,6 @@
 
 
 
-
-
 <!-- Insertando imagen -->
 <style>
   img {
@@ -307,8 +336,6 @@
 <img src="../imagenes/U06c05 - Aceleración centrípeta en movimiento circular uniforme.png" alt="Imagen" width="800">
 <img src="../imagenes/U06c05 - Aceleración centrípeta en movimiento circular uniforme_2.png" alt="Imagen" width="800">
 <!-- -----FIN-------- -->
-
-
 
 
 
@@ -337,6 +364,13 @@
             <strong>Análisis vectorial de la velocidad</strong>
             <p>Trasladamos los vectores velocidad a un origen común. El vector diferencia \( \Delta\vec{v} = \vec{v}_2 - \vec{v}_1 \) apunta hacia el centro de la circunferencia. Para ángulos pequeños, el módulo de este vector se aproxima al arco de la circunferencia de radio \( v \):</p>
             <div class="formula-box">\[ |\Delta\vec{v}| \approx v \cdot \Delta\theta \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0061.webp">
+                    <img src="../imagenes/webp/ImagenF0061.webp" alt="Partícula en círculo con rapidez constante con vectores de posición y velocidad en tiempos t y t+Δt, y triángulos semejantes formados por los vectores velocidad">
+                </a>
+                <div class="figure-caption"><strong>La deducción geométrica de la aceleración centrípeta.</strong> (a) Una partícula recorre un círculo con rapidez constante. En tiempos \(t\) y \(t+\Delta t\) tiene vectores de posición y velocidad distintos; el triángulo formado por dos radios y el arco es semejante al triángulo formado por \(\vec{v}_1\), \(\vec{v}_2\) y \(\Delta\vec{v}\). (b) Al trasladar los vectores velocidad a un origen común, el triángulo de velocidades es semejante al de posiciones. De esa semejanza se obtiene \(|\Delta\vec{v}|/v = |\Delta\vec{r}|/r\), y en el límite \(\Delta t \to 0\) el vector \(\Delta\vec{v}\) apunta hacia el centro del círculo. Esa es la base de \(a_c = v^2/r\).</div>
+            </div>
         </div>
 
         <div class="step">
@@ -358,6 +392,13 @@
             <strong>Simplificación de la expresión</strong>
             <p>Simplificando \( \Delta\theta \) y reordenando:</p>
             <div class="formula-box">\[ a_c = \frac{v^2}{r} \]</div>
+
+            <div class="photo-figure">
+                <a class="lightbox-link" href="../imagenes/webp/ImagenF0062.webp">
+                    <img src="../imagenes/webp/ImagenF0062.webp" alt="Vector de aceleración centrípeta apuntando hacia el centro de la trayectoria circular y vector de velocidad tangente al círculo">
+                </a>
+                <div class="figure-caption"><strong>Dirección de la aceleración centrípeta.</strong> El vector de aceleración centrípeta \(\vec{a}_c\) apunta en todo instante hacia el centro de la circunferencia, mientras que el vector de velocidad \(\vec{v}\) es tangente a la trayectoria. Ambos son perpendiculares entre sí: por eso, aunque el módulo de la velocidad no cambie, sí cambia su dirección y aparece una aceleración. La expresión \(a_c = v^2/r\) cuantifica esa aceleración.</div>
+            </div>
         </div>
 
         <div class="step">
@@ -452,6 +493,13 @@
                     <div class="paso"><strong>Paso 3:</strong> El coche A tiene mayor aceleración centrípeta ( \( 12.5 \, \text{m/s}^2 \) vs \( 8.33 \, \text{m/s}^2 \) ).</div>
                     <div class="paso"><strong>Resultados:</strong> A: \( 12.5 \, \text{m/s}^2 \), B: \( 8.33 \, \text{m/s}^2 \).</div>
                 </div>
+
+                <div class="photo-figure">
+                    <a class="lightbox-link" href="../imagenes/webp/ImagenF0122.webp">
+                        <img src="../imagenes/webp/ImagenF0122.webp" alt="La fuerza de fricción como fuerza centrípeta en una curva; a mayor fuerza centrípeta, menor radio de curvatura para la misma velocidad">
+                    </a>
+                    <div class="figure-caption"><strong>Aplicación: la fuerza centrípeta en una curva.</strong> Cuando un vehículo toma una curva, la fricción lateral de los neumáticos con el asfalto proporciona la fuerza centrípeta necesaria. Esta fuerza es perpendicular a la velocidad y su módulo es \(F_c = m\,v^2/r\). Para una misma velocidad, cuanto mayor sea \(F_c\) disponible, más cerrada puede ser la curva (menor radio \(r\)). Por eso los coches más pesados o con mejor adherencia necesitan curvas más abiertas, y por eso también a mayor velocidad se requiere un coeficiente de fricción mayor. Es el fundamento del ejercicio 4: mismo \(v\), distintos radios → distintas aceleraciones centrípetas.</div>
+                </div>
             </div>
 
             <!-- EJERCICIO 5 -->
@@ -478,67 +526,50 @@
         </div>
     </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
-<div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
-    <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    ">
-        <p style="
-            font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-            padding: 0 10px;
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija, sin desplegar)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         ">
-                     <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
-            <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
-        </p>
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
 
-        <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
-                    font-weight:bold;
-                "
-            >
-                Volver al inicio
-            </a>
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- ===================FIN DE ES HORA DE ==================== -->
-
-
-
-
-
-
-
-
-
+    <!-- ===================FIN DE ES HORA DE ==================== -->
 
 </div> <!-- fin container -->
 </body>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#T09.08 - Demostración: Relación de Mayer</title>
     <!-- MathJax -->
-    <!--  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>  -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome 6 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS compartido de Unidades -->
+    <link rel="stylesheet" href="../css/unidades.css">
     <style>
-        /* ============================================
-           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
-           ============================================ */
-        /* Contenedor principal (opcional, da fondo blanco y sombra) */
         .container {
             max-width: 900px;
             width: 100%;
@@ -25,7 +20,6 @@
             overflow: hidden;
             margin: 20px auto;
         }
-        /* Cabecera general */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -35,271 +29,135 @@
             justify-content: space-between;
             gap: 20px;
         }
-        /* Zona izquierda de la cabecera */
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .header-left h1 {
-            font-size: 1.8em;
-            margin: 0;
-        }
-        .header-left p {
-            margin: 6px 0 0 0;
-            font-size: 1em;
-        }
-        .header-sub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .header-sub img {
-            max-height: 30px;
-            width: auto;
-        }
+        .header-left { display: flex; flex-direction: column; justify-content: center; }
+        .header-left h1 { font-size: 1.8em; margin: 0; }
+        .header-left p { margin: 6px 0 0 0; font-size: 1em; }
+        .header-sub { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+        .header-sub img { max-height: 30px; width: auto; }
         .header-sub .codigo {
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: bold; font-size: 1em;
             background: rgba(255,255,255,0.15);
-            padding: 2px 8px;
-            border-radius: 12px;
+            padding: 2px 8px; border-radius: 12px;
         }
-        .header-sub .texto {
-            font-size: 1em;
-        }
-        /* Zona derecha de la cabecera */
-        .header-right img {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            display: block;
-        }
+        .header-sub .texto { font-size: 1em; }
+        .header-right img { max-height: 70px; max-width: 180px; object-fit: contain; display: block; }
 
-        /* ---------- SECCIONES PRINCIPALES ---------- */
         .section {
-            padding: 25px 30px;
-            margin: 15px;
-            border-radius: 12px;
-            border-left: 5px solid;
+            padding: 25px 30px; margin: 15px;
+            border-radius: 12px; border-left: 5px solid;
         }
-        /* Variantes de color para cada tipo de sección */
         .enunciado { background: #f7fafc; border-color: #a0aec0; }
         .objetivo  { background: #fffaf0; border-color: #ed8936; }
         .procedimiento { background: #f0fff4; border-color: #48bb78; }
         .resultado { background: #ebf8ff; border-color: #4299e1; }
-        /* Títulos de sección */
         .section h2 {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.3em; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
         }
         .enunciado h2 { color: #4a5568; }
         .objetivo h2  { color: #c05621; }
         .procedimiento h2 { color: #276749; }
         .resultado h2 { color: #2b6cb0; }
 
-        /* ---------- CAJA DE FÓRMULA ---------- */
         .formula-box {
-            background: #edf2f7;
-            border: 2px solid #cbd5e0;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
+            background: #edf2f7; border: 2px solid #cbd5e0;
+            border-radius: 10px; padding: 15px; margin: 15px 0;
+            text-align: center; font-size: 1.1em;
         }
-        /* ---------- PASOS DEL PROCEDIMIENTO ---------- */
         .step {
-            background: white;
-            border-left: 4px solid #a0aec0;
-            padding: 15px;
-            margin: 12px 0;
+            background: white; border-left: 4px solid #a0aec0;
+            padding: 15px; margin: 12px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .step-num {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: bold;
-            margin-right: 10px;
+            display: inline-block; background: #667eea; color: white;
+            width: 28px; height: 28px; border-radius: 50%;
+            text-align: center; line-height: 28px;
+            font-weight: bold; margin-right: 10px;
         }
-        /* ---------- NOTA DESTACADA ---------- */
         .note {
-            background: #fffbeb;
-            border: 1px solid #f6e05e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #744210;
+            background: #fffbeb; border: 1px solid #f6e05e;
+            border-radius: 8px; padding: 12px; margin-top: 15px;
+            font-size: 0.95em; color: #744210;
         }
-        /* ---------- TEXTO BASE (párrafos) ---------- */
-        p {
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        /* Ajustes para listas y tablas */
-        ul, ol {
-            padding-left: 25px;
-            margin: 10px 0;
-        }
-        li {
-            line-height: 1.7;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e0;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #edf2f7;
-        }
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; margin: 10px 0; }
+        li { line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #cbd5e0; padding: 8px; text-align: left; }
+        th { background: #edf2f7; }
 
-        /* ============================================
-           ESTILOS PARA EL BLOQUE DESPLEGABLE
-           ============================================ */
         details.ejercicios-desplegable {
             margin: 30px 25px 20px 25px;
-            background: #f1f5f9;
-            border-radius: 20px;
+            background: #f1f5f9; border-radius: 20px;
             padding: 0.5rem 1.5rem 1.5rem 1.5rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #cbd5e0;
         }
         details.ejercicios-desplegable summary {
-            list-style: none;
-            cursor: pointer;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1e293b;
-            padding: 0.8rem 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            user-select: none;
-            transition: color 0.2s;
+            list-style: none; cursor: pointer; font-size: 1.4rem;
+            font-weight: 600; color: #1e293b; padding: 0.8rem 0.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
+            user-select: none; transition: color 0.2s;
         }
-        details.ejercicios-desplegable summary::-webkit-details-marker {
-            display: none;
-        }
+        details.ejercicios-desplegable summary::-webkit-details-marker { display: none; }
         details.ejercicios-desplegable summary .fa-chevron-circle-down {
             transition: transform 0.3s ease;
-            color: #667eea;
-            font-size: 1.8rem;
+            color: #667eea; font-size: 1.8rem;
         }
         details.ejercicios-desplegable[open] summary .fa-chevron-circle-down {
             transform: rotate(180deg);
         }
         details.ejercicios-desplegable summary .icono-pulsame {
-            background: #667eea;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-            margin-left: 0.3rem;
+            background: #667eea; color: white; font-size: 0.75rem;
+            font-weight: 500; padding: 0.2rem 0.9rem;
+            border-radius: 30px; letter-spacing: 0.3px; margin-left: 0.3rem;
         }
         .contenido-ejercicios {
             margin-top: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
+            display: flex; flex-direction: column; gap: 1.8rem;
         }
         .tarjeta-ej {
-            background: white;
-            border-radius: 18px;
+            background: white; border-radius: 18px;
             padding: 1.2rem 1.8rem 1.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             border: 1px solid #e9edf4;
         }
         .tarjeta-ej .ej-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
+            display: flex; align-items: baseline; gap: 1rem;
             border-bottom: 2px solid #dbeafe;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            padding-bottom: 0.5rem; margin-bottom: 1rem;
         }
         .tarjeta-ej .ej-num {
-            background: #667eea;
-            color: white;
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
+            background: #667eea; color: white; font-weight: 700;
+            font-size: 0.9rem; padding: 0.2rem 1rem; border-radius: 30px;
         }
         .tarjeta-ej .ej-titulo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #1e293b;
+            font-weight: 600; font-size: 1.2rem; color: #1e293b;
         }
-        .tarjeta-ej .enunciado {
-            margin-bottom: 0.8rem;
-        }
-        .tarjeta-ej .enunciado ul {
-            margin-left: 1.5rem;
-        }
+        .tarjeta-ej .enunciado { margin-bottom: 0.8rem; }
+        .tarjeta-ej .enunciado ul { margin-left: 1.5rem; }
         .resolucion {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.2rem 1.5rem;
-            border-left: 4px solid #667eea;
-            margin-top: 0.8rem;
-            font-size: 0.98rem;
+            background: #f8fafc; border-radius: 14px;
+            padding: 1.2rem 1.5rem; border-left: 4px solid #667eea;
+            margin-top: 0.8rem; font-size: 0.98rem;
         }
-        .resolucion p {
-            margin: 0.5rem 0;
-        }
-        .resolucion .step-label {
-            font-weight: 600;
-            color: #1e293b;
-        }
+        .resolucion p { margin: 0.5rem 0; }
+        .resolucion .step-label { font-weight: 600; color: #1e293b; }
         .pie-clave {
-            margin-top: 1.8rem;
-            background: #e0f2fe;
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            font-size: 0.98rem;
-            border-left: 6px solid #0ea5e9;
+            margin-top: 1.8rem; background: #e0f2fe;
+            border-radius: 14px; padding: 1rem 1.5rem;
+            font-size: 0.98rem; border-left: 6px solid #0ea5e9;
             color: #0c4a6e;
         }
-        .pie-clave i {
-            margin-right: 0.5rem;
-        }
+        .pie-clave i { margin-right: 0.5rem; }
         @media (max-width: 640px) {
-            .container {
-                margin: 10px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-right {
-                align-self: flex-end;
-            }
-            details.ejercicios-desplegable summary {
-                font-size: 1.1rem;
-                flex-wrap: wrap;
-            }
-            .tarjeta-ej {
-                padding: 1rem;
-            }
+            .container { margin: 10px; }
+            .header { flex-direction: column; align-items: flex-start; }
+            .header-right { align-self: flex-end; }
+            details.ejercicios-desplegable summary { font-size: 1.1rem; flex-wrap: wrap; }
+            .tarjeta-ej { padding: 1rem; }
         }
     </style>
 </head>
@@ -320,7 +178,6 @@
             </div>
         </div>
 
-        <!-- SECCIONES TRANSFORMADAS -->
         <!-- ENUNCIADO -->
         <div class="section enunciado">
             <h2>📘 Enunciado</h2>
@@ -333,12 +190,7 @@
                 \[ C_p = C_V + R \]
             </div>
 
-
-
-
-
-
-<!-- Insertando imagen -->
+<!-- PNG originales (se dejan como estaban) -->
 <style>
   img {
     width: 100%;
@@ -349,13 +201,23 @@
 
 <img src="../imagenes/U09c08 - Relación de Mayer.png" alt="Imagen" width="800">
 <img src="../imagenes/U09c08 - Relación de Mayer_2.png" alt="Imagen" width="800">
-<!-- -----FIN-------- -->
+<!-- -----FIN PNG originales-------- -->
 
+<!-- Banco Q: Primer Principio — ΔU con q y w -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ122.webp">
+    <img src="../imagenes/webp/ImagenQ122.webp" alt="Diagrama de energía interna: el flujo de calor y el trabajo modifican la energía interna de un sistema" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.5.19 — La energía interna \(U\) de un sistema puede modificarse mediante flujo de calor y trabajo: \(\Delta U = q + w\). Si el calor fluye hacia el sistema (\(q_\text{dentro}\)) o se realiza trabajo sobre él (\(w_\text{sobre}\)), su energía interna aumenta. Este es el punto de partida de la demostración de Mayer.</figcaption>
+</figure>
 
-
-
-
-
+<!-- Banco Q: capacidad calorífica -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ111.webp">
+    <img src="../imagenes/webp/ImagenQ111.webp" alt="Sartén grande y sartén pequeña: la capacidad calorífica depende de la masa" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.5.8 — Debido a su mayor masa, una sartén grande tiene mayor capacidad calorífica que una pequeña. El calor específico \(c\) (por unidad de masa) es una propiedad del material; la capacidad \(C = mc\) depende además de cuánta masa hay. Esta distinción es clave para distinguir \(c_p\) y \(c_V\).</figcaption>
+</figure>
 
         </div>
 
@@ -363,6 +225,23 @@
         <div class="section objetivo">
             <h2>🎯 Objetivo</h2>
             <p>Demostrar que el calor específico a presión constante es siempre mayor que el calor específico a volumen constante, y que la diferencia entre ambos es una constante universal dividida por la masa molar del gas. Esta relación es fundamental para comprender por qué se necesita más energía para calentar un gas a presión constante que a volumen constante: parte del calor suministrado se invierte en realizar trabajo de expansión.</p>
+
+<!-- Banco Q: movimiento molecular y temperatura -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ107.webp">
+    <img src="../imagenes/webp/ImagenQ107.webp" alt="Moléculas de agua caliente en movimiento rápido frente a moléculas de agua fría más lentas" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.5.4 — Las moléculas de una muestra de agua caliente se mueven más rápidamente que las de una muestra de agua fría. La energía interna de un gas ideal depende únicamente de su temperatura (energía cinética media de las moléculas), lo que justifica que \(\Delta U\) sea la misma en procesos isocórico e isobárico con el mismo \(\Delta T\).</figcaption>
+</figure>
+
+<!-- Banco F: definición de trabajo -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenF0137.webp">
+    <img src="../imagenes/webp/ImagenF0137.webp" alt="Vectores que definen el trabajo: fuerza y desplazamiento infinitesimal" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura F.7.2 — Vectores que definen el trabajo: \(dW = \vec{F}\cdot d\vec{s}\). En un gas, la fuerza es la presión ejercida sobre el pistón y el desplazamiento es \(dV\). Este trabajo de expansión es el que "consume" parte del calor a presión constante, haciendo \(c_p > c_V\).</figcaption>
+</figure>
+
         </div>
 
         <!-- PROCEDIMIENTO -->
@@ -433,6 +312,15 @@
                     \[ C_p = C_V + R \]
                 </div>
                 donde \( C_p = M c_p \) y \( C_V = M c_V \) son los calores molares.
+
+<!-- Banco Q: visión molecular de T, V, P -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ281.webp">
+    <img src="../imagenes/webp/ImagenQ281.webp" alt="Visión molecular del efecto de la temperatura, el volumen y la cantidad de gas sobre la presión" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.9.31 — Interpretación molecular: al calentar el gas a presión constante, el volumen aumenta para mantener constante la frecuencia de colisiones por unidad de superficie; es decir, el gas hace trabajo \(p\Delta V\). A volumen constante, en cambio, el calor solo aumenta la energía cinética (la temperatura): no hay trabajo. De aquí que \(Q_p > Q_V\) y, por tanto, \(c_p > c_V\).</figcaption>
+</figure>
+
             </div>
         </div>
 
@@ -445,14 +333,29 @@
             <div class="formula-box">
                 \[ C_p = C_V + R \quad \text{(forma molar)} \]
             </div>
+
+<!-- Banco Q: calorimetría -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ117.webp">
+    <img src="../imagenes/webp/ImagenQ117.webp" alt="Proceso de calorimetría: el calor fluye del metal caliente al agua fría hasta igualar temperaturas" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.5.14 — En un proceso de calorimetría simple, el calor \(q\) se transfiere del metal caliente \(M\) al agua fría \(W\) hasta que ambos están a la misma temperatura. La energía interna de un gas ideal solo depende de \(T\), mientras que en procesos reales el calor fluye hasta el equilibrio térmico: esta es la base experimental de las medidas de \(c_p\) y \(c_V\).</figcaption>
+</figure>
+
+<!-- Banco Q: velocidad molecular y masa -->
+<figure class="photo-figure">
+  <a class="lightbox-link" href="../imagenes/webp/ImagenQ284.webp">
+    <img src="../imagenes/webp/ImagenQ284.webp" alt="Velocidad molecular en función de la masa molecular: las moléculas ligeras se mueven más rápido" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="figure-caption">Figura Q.9.34 — La velocidad molecular está directamente relacionada con la masa molecular: a una temperatura dada, las moléculas más ligeras se mueven más rápido por término medio. La masa molar \(M\) que aparece en la relación de Mayer \(c_p = c_V + R/M\) es la responsable de que gases más ligeros tengan mayor \(c_p\) específico.</figcaption>
+</figure>
+
             <div class="note">
                 <strong>💡 Observaciones sobre el alumnado:</strong> La relación de Mayer muestra que \( c_p > c_V \) siempre, porque al calentar a presión constante parte de la energía se "pierde" en trabajo de expansión. Para gases monoatómicos, \( C_V = \frac{3}{2}R \) y \( C_p = \frac{5}{2}R \), por lo que \( \gamma = \frac{C_p}{C_V} = \frac{5}{3} \approx 1{,}67 \). Para gases diatómicos a temperatura ambiente, \( C_V = \frac{5}{2}R \) y \( C_p = \frac{7}{2}R \), dando \( \gamma = \frac{7}{5} = 1{,}4 \). Estos valores de \( \gamma \) se utilizan en la demostración de los procesos adiabáticos.
             </div>
         </div>
 
-        <!-- ========================================================== -->
-        <!-- BLOQUE DESPLEGABLE: EJERCICIOS TIPO RESUELTOS              -->
-        <!-- ========================================================== -->
+        <!-- BLOQUE DESPLEGABLE: EJERCICIOS -->
         <details class="ejercicios-desplegable">
             <summary>
                 <i class="fas fa-chevron-circle-down"></i>
@@ -462,7 +365,6 @@
 
             <div class="contenido-ejercicios">
 
-                <!-- EJERCICIO 1 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 1</span>
@@ -481,7 +383,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 2 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 2</span>
@@ -500,7 +401,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 3 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 3</span>
@@ -520,7 +420,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 4 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 4</span>
@@ -544,7 +443,6 @@
                     </div>
                 </div>
 
-                <!-- EJERCICIO 5 -->
                 <div class="tarjeta-ej">
                     <div class="ej-header">
                         <span class="ej-num">Ejercicio 5</span>
@@ -567,38 +465,23 @@
                     </div>
                 </div>
 
-            </div> <!-- fin contenido-ejercicios -->
+            </div>
 
             <div class="pie-clave">
                 <i class="fas fa-lightbulb"></i> <strong>Observaciones claves:</strong> La relación de Mayer (\(c_p = c_V + R/M\)) muestra que el calor específico a presión constante es siempre mayor porque parte del calor se convierte en trabajo de expansión. Esta diferencia es una constante universal (R) dividida por la masa molar, lo que la hace independiente de la temperatura para gases ideales. ¡Recuerda que la energía interna de un gas ideal solo depende de la temperatura!
             </div>
         </details>
 
-
-
-
-
-
-
-<!-- ============================================
-     BLOQUE "ES HORA DE" (versión fija, sin desplegar)
-     ============================================ -->
-
+<!-- BLOQUE "ES HORA DE" -->
 <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
     <div style="
-        max-width: 100%;
-        padding: 15px;
-        margin: 10px auto;
-        text-align: center;
-        background: #f8fafc;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-width: 100%; padding: 15px; margin: 10px auto;
+        text-align: center; background: #f8fafc;
+        border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     ">
         <p style="
             font-size: clamp(0.95rem, 3vw, 1.2rem);
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
+            color: #2d3748; margin-top: 0; margin-bottom: 12px;
             padding: 0 10px;
         ">
                      <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
@@ -606,36 +489,21 @@
         </p>
 
         <div style="text-align:center;">
-            <a
-                href="../index.html"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 24px;
-                    background:#0078D4;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:12px;
+            <a href="../index.html" target="_blank" style="
+                    display:inline-block; padding:12px 24px;
+                    background:#0078D4; color:white;
+                    text-decoration:none; border-radius:12px;
                     font-weight:bold;
-                "
-            >
+                ">
                 Volver al inicio
             </a>
         </div>
     </div>
 </div>
 
-<!-- ===================FIN DE ES HORA DE ==================== -->
+    </div>
 
-
-
-
-
-
-
-
-
-
-    </div> <!-- fin container -->
+    <!-- Lightbox compartido -->
+    <script src="../js/lightbox.js" defer></script>
 </body>
 </html>
