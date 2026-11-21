@@ -215,7 +215,7 @@
         details.ratio-alt .details-content { padding: 16px 20px; }
 
         /* ============================================
-           DESPLEGABLES DE LOS 9 PUNTOS PRINCIPALES
+           DESPLEGABLES DE LOS PUNTOS PRINCIPALES
            (plegados por defecto)
            ============================================ */
         details.step-details {
@@ -297,6 +297,8 @@
             <li><strong>Ley de Avogadro</strong>: volúmenes molares y factores de conversión.</li>
             <li><strong>Concentración</strong> porcentual y fracción molar en una mezcla.</li>
             <li><strong>Reactivo limitante</strong>.</li>
+            <li><strong>Ecuación de Clapeyron</strong>: aplicación a un caso concreto.</li>
+            <li><strong>Densidad y masa molecular</strong> mediante la ecuación de los gases: cálculo de la densidad del SO₂, de la masa molecular del SO₃ a partir de su densidad y de la masa molecular del SO₃ a partir de las densidades relativas.</li>
         </ol>
     </div>
 
@@ -308,6 +310,7 @@
             <li>Desarrollar la capacidad de <strong>resolver problemas de química de forma progresiva</strong>, conectando conceptos.</li>
             <li>Manejar con soltura las <strong>conversiones</strong> entre masa, moles, entidades y volumen.</li>
             <li>Comprender la importancia de la <strong>estequiometría</strong> en la resolución de problemas químicos.</li>
+            <li>Aplicar la <strong>ecuación de los gases ideales</strong> (Clapeyron) al cálculo de densidades y masas moleculares.</li>
         </ul>
     </div>
 
@@ -1137,6 +1140,132 @@
                 </div>
             </div>
         </details>
+
+        <!-- ============================================================
+             PASO 10: ECUACIÓN DE CLAPEYRON (GASES IDEALES)
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">10</span>
+                <strong>Ecuación de Clapeyron (gases ideales): aplicación a un caso concreto</strong>
+            </summary>
+            <div class="step-body">
+                <div class="note-blue">
+                    <strong>📌 Aclaración terminológica.</strong> La ecuación de los gases ideales, \(PV = nRT\), recibe también el nombre de <strong>ecuación de Clapeyron</strong> (o de Clapeyron-Mendeleiev). No debe confundirse con la <strong>ecuación de Clausius-Clapeyron</strong>, que es otra relación distinta (relaciona la presión de vapor con la temperatura). En este Paso 10 y en el Paso 11 se aplica la ecuación de Clapeyron, que es la que permite calcular densidades y masas moleculares de gases.
+                </div>
+
+                <p><strong>Ecuación de los gases ideales (Clapeyron):</strong></p>
+                <div class="formula-box">
+                    \[ P V = n R T \]
+                </div>
+                <p>donde \(P\) es la presión, \(V\) el volumen, \(n\) el número de moles, \(R = 0{,}08206\ \text{L·atm/(mol·K)}\) la constante de los gases y \(T\) la temperatura en kelvin.</p>
+
+                <p><strong>Formas derivadas de la ecuación de Clapeyron:</strong></p>
+                <div class="formula-box">
+                    \[ n = \frac{m}{M} \quad\Rightarrow\quad P V = \frac{m}{M} R T \quad\Rightarrow\quad P M = \frac{m}{V} R T \quad\Rightarrow\quad \boxed{P M = d R T} \]
+                </div>
+                <p>donde \(d = m/V\) es la densidad del gas y \(M\) su masa molar. De aquí se despejan directamente:</p>
+                <div class="formula-box">
+                    \[ d = \frac{P M}{R T} \qquad\qquad M = \frac{d R T}{P} \]
+                </div>
+
+                <p><strong>Caso concreto.</strong> Calcula la densidad del SO₂ a \(25\ ^\circ\text{C}\) y 1 atm.</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{SO_2}) &= 32{,}07 + 2\times 16{,}00 = 64{,}07\ \text{g/mol}\\[2pt]
+                    T &= 25 + 273{,}15 = 298{,}15\ \text{K}\\[2pt]
+                    d &= \frac{P M}{R T} = \frac{1 \times 64{,}07}{0{,}08206 \times 298{,}15}\\[4pt]
+                    &= \frac{64{,}07}{24{,}466} \approx \mathbf{2{,}62\ \text{g/L}}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <div class="note">
+                    💡 <strong>Interpretación:</strong> 1 L de SO₂ a 25 °C y 1 atm pesa 2,62 g. Conocida la densidad, también podríamos hacer el camino inverso y determinar la masa molar de un gas desconocido sin más que medir experimentalmente su densidad a P y T conocidas (véase el Paso 11).
+                </div>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 11: DENSIDAD Y MASA MOLECULAR
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">11</span>
+                <strong>Densidad y masa molecular mediante la ecuación de los gases (Clapeyron)</strong>
+            </summary>
+            <div class="step-body">
+                <div class="note-blue">
+                    <strong>📌 Recordatorio.</strong> Partimos de la forma densidad de la ecuación de Clapeyron (Paso 10):
+                    \[ P M = d R T \qquad\Longrightarrow\qquad d = \frac{P M}{R T} \quad\text{y}\quad M = \frac{d R T}{P} \]
+                    Con \(R = 0{,}08206\ \text{L·atm/(mol·K)}\).
+                </div>
+
+                <h3 style="font-size:1.05em; color:#2b6cb0; margin-top:20px;">Problema 1: Cálculo de la densidad del SO₂ a determinadas condiciones</h3>
+                <p><strong>Enunciado:</strong> Calcula la densidad del SO₂ a \(25\ ^\circ\text{C}\) y 1 atm.</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{SO_2}) &= 64{,}07\ \text{g/mol}\\
+                    T &= 25 + 273{,}15 = 298{,}15\ \text{K}\\
+                    P &= 1\ \text{atm}\\[2pt]
+                    d &= \frac{P M}{R T} = \frac{1 \times 64{,}07}{0{,}08206 \times 298{,}15}\\[4pt]
+                    &= \frac{64{,}07}{24{,}466} \approx \mathbf{2{,}62\ \text{g/L}}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <h3 style="font-size:1.05em; color:#2b6cb0; margin-top:20px;">Problema 2: Cálculo de la masa molecular del SO₃ a partir de su densidad</h3>
+                <p><strong>Enunciado:</strong> Se mide experimentalmente que, a \(25\ ^\circ\text{C}\) y 1 atm, la densidad del SO₃ es \(d = 3{,}273\ \text{g/L}\). Calcula su masa molar (como si no supiéramos que es SO₃).</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M &= \frac{d R T}{P} = \frac{3{,}273 \times 0{,}08206 \times 298{,}15}{1}\\[4pt]
+                    &= 3{,}273 \times 24{,}466 \approx \mathbf{80{,}07\ \text{g/mol}}
+                    \end{aligned}
+                    \]
+                </div>
+                <div class="note">
+                    💡 La masa molar obtenida (80,07 g/mol) coincide con la del SO₃ (32,07 + 3×16,00 = 80,07 g/mol). Así, midiendo la densidad de un gas podemos determinar su masa molecular sin conocer su fórmula.
+                </div>
+
+                <h3 style="font-size:1.05em; color:#2b6cb0; margin-top:20px;">Problema 3: Cálculo de la masa molecular del SO₃ a partir de la masa molecular del SO₂ y de las densidades de ambos</h3>
+                <p><strong>Enunciado:</strong> Sabemos que \(M(\mathrm{SO_2}) = 64{,}07\ \text{g/mol}\). A la misma presión y temperatura, la densidad del SO₂ es \(d_1 = 2{,}619\ \text{g/L}\) y la del SO₃ es \(d_2 = 3{,}273\ \text{g/L}\). Calcula \(M(\mathrm{SO_3})\) sin usar directamente su composición.</p>
+
+                <p><strong>Método: dividir las ecuaciones para ambos gases y simplificar las constantes.</strong></p>
+                <p>Para cada gas, la ecuación de Clapeyron en forma densidad es:</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \text{Gas 1 (SO}_2\text{): } &\quad P M_1 = d_1 R T \quad \text{(ec. 1)}\\[2pt]
+                    \text{Gas 2 (SO}_3\text{): } &\quad P M_2 = d_2 R T \quad \text{(ec. 2)}
+                    \end{aligned}
+                    \]
+                </div>
+                <p>Como ambos gases están a la misma \(P\) y \(T\), las constantes \(P\), \(R\) y \(T\) son idénticas. Dividiendo (ec. 2) entre (ec. 1):</p>
+                <div class="formula-box">
+                    \[
+                    \frac{P M_2}{P M_1} = \frac{d_2 R T}{d_1 R T}
+                    \qquad \Rightarrow \qquad \frac{M_2}{M_1} = \frac{d_2}{d_1}
+                    \]
+                </div>
+                <p>Las constantes \(P\), \(R\) y \(T\) se cancelan. Despejando \(M_2\):</p>
+                <div class="formula-box">
+                    \[ M_2 = M_1 \cdot \frac{d_2}{d_1} \]
+                </div>
+                <p>Sustituyendo los valores:</p>
+                <div class="formula-box">
+                    \[
+                    M(\mathrm{SO_3}) = 64{,}07 \times \frac{3{,}273}{2{,}619} = 64{,}07 \times 1{,}250 = \mathbf{80{,}07\ \text{g/mol}}
+                    \]
+                </div>
+
+                <div class="note-blue">
+                    💡 <strong>Conclusión.</strong> La masa molar del SO₃ calculada por este método (80,07 g/mol) coincide con el valor teórico (80,07 g/mol). El método de las <strong>densidades relativas</strong> permite determinar masas moleculares sin conocer la fórmula, a partir de un gas de referencia de masa molecular conocida. Las constantes \(P\), \(R\) y \(T\) desaparecen al dividir ambas ecuaciones, de modo que <strong>no es necesario conocer su valor</strong> para hacer el cálculo.
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- ===== RESULTADO ===== -->
@@ -1154,12 +1283,14 @@
             <p><strong>7. Factores de conversión:</strong> se incluyen factores en volumen (P y T ctes); \(20{,}0\ \text{L O}_2 \to 47{,}6\ \text{g SO}_3\); \(15{,}0\ \text{L O}_2 \to 10{,}0\ \text{L SO}_3\).</p>
             <p><strong>8. Concentración:</strong> % masa (22,2 / 33,3 / 44,4; total 45,0 g); fracción molar (0,301 / 0,338 / 0,361; total 0,692 mol); % volumen (30,1 / 33,8 / 36,1).</p>
             <p><strong>9. Reactivo limitante:</strong> por volúmenes molares efectivos, S limita (3,49 L &lt; 4,67 L); se producen 25,0 g SO₃ y sobran 5,02 g O₂.</p>
+            <p><strong>10. Clapeyron (gases ideales):</strong> \(PM = dRT\); a 25 °C y 1 atm, la densidad del SO₂ es \(d = 2{,}62\ \text{g/L}\).</p>
+            <p><strong>11. Densidad y masa molecular:</strong> d(SO₂) a 25 °C y 1 atm = 2,62 g/L; M(SO₃) a partir de su densidad = 80,07 g/mol; M(SO₃) a partir de la relación de densidades \(d(\mathrm{SO_3})/d(\mathrm{SO_2}) = 1{,}250\) → 80,07 g/mol (las constantes \(P, R, T\) se cancelan).</p>
         </div>
 
         <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La resolución progresiva permite conectar las leyes ponderales con las volumétricas y con la estequiometría, comprendiendo que todas ellas surgen de los mismos principios fundamentales.</p>
 
         <div class="note">
-            💡 <strong>Observaciones sobre el alumnado:</strong> Esta demostración integra todos los conceptos de la unidad. Es fundamental que el alumnado comprenda que la <strong>Ley de Proust</strong> permite identificar compuestos, la <strong>Ley de Dalton</strong> relaciona las fórmulas con proporciones enteras, la <strong>Ley de Lavoisier</strong> justifica el ajuste de reacciones, y la <strong>Ley de Avogadro</strong> conecta el mundo macroscópico con el microscópico. Se recomienda practicar la resolución de problemas en cadena (masa → moles → entidades → volumen) hasta automatizar el proceso.
+            💡 <strong>Observaciones sobre el alumnado:</strong> Esta demostración integra todos los conceptos de la unidad. Es fundamental que el alumnado comprenda que la <strong>Ley de Proust</strong> permite identificar compuestos, la <strong>Ley de Dalton</strong> relaciona las fórmulas con proporciones enteras, la <strong>Ley de Lavoisier</strong> justifica el ajuste de reacciones, y la <strong>Ley de Avogadro</strong> conecta el mundo macroscópico con el microscópico. Los Pasos 10 y 11 muestran cómo la <strong>ecuación de Clapeyron</strong> permite relacionar densidad y masa molecular de un gas, y cómo el <strong>método de las densidades relativas</strong> permite determinar masas molares sin conocer las constantes \(P\), \(R\), \(T\). Se recomienda practicar la resolución de problemas en cadena (masa → moles → entidades → volumen → densidad → masa molar) hasta automatizar el proceso.
         </div>
     </div>
 
@@ -1331,9 +1462,34 @@
                 </div>
             </div>
 
+            <!-- EJERCICIO 7 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 7</span>
+                    <span>Clapeyron: densidad y masa molecular</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Un gas desconocido tiene una densidad de 1,96 g/L a 25 °C y 1 atm.</p>
+                        <ul>
+                            <li>a) Calcula su masa molar aplicando \(M = dRT/P\).</li>
+                            <li>b) Si a la misma P y T un gas de referencia (O₂, M = 32,00 g/mol) tiene una densidad de 1,31 g/L, calcula la masa molar del gas problema mediante la relación de densidades y compara los resultados.</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>a) \(M = \dfrac{d R T}{P} = \dfrac{1{,}96 \times 0{,}08206 \times 298{,}15}{1} \approx 47{,}96\ \text{g/mol}\).</li>
+                            <li>b) \(M_2 = M_1 \times \dfrac{d_2}{d_1} = 32{,}00 \times \dfrac{1{,}96}{1{,}31} \approx 32{,}00 \times 1{,}496 \approx 47{,}88\ \text{g/mol}\).</li>
+                            <li>Ambos métodos coinciden (≈ 48 g/mol), lo que confirma que el gas podría ser, por ejemplo, O₃ (48 g/mol). El método de las densidades relativas no requiere conocer \(P\), \(R\) ni \(T\), solo que ambos gases estén en las mismas condiciones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- PIE DIDÁCTICO -->
             <div class="didactic-footer">
-                <strong>🧠 Observaciones claves:</strong> Las leyes ponderales (Proust, Dalton, Lavoisier) y volumétricas (Avogadro) son la base de la estequiometría. La <strong>Ley de Proust</strong> permite identificar compuestos puros; la <strong>Ley de Dalton</strong> explica por qué las fórmulas químicas tienen proporciones enteras; la <strong>Ley de Lavoisier</strong> justifica el ajuste de ecuaciones; y la <strong>Ley de Avogadro</strong> conecta los cálculos de masa con los de volumen para gases. Dominar la resolución progresiva de problemas —desde la identificación del compuesto hasta el cálculo del reactivo limitante— es esencial para abordar con éxito cualquier problema de química.
+                <strong>🧠 Observaciones claves:</strong> Las leyes ponderales (Proust, Dalton, Lavoisier) y volumétricas (Avogadro) son la base de la estequiometría. La <strong>Ley de Proust</strong> permite identificar compuestos puros; la <strong>Ley de Dalton</strong> explica por qué las fórmulas químicas tienen proporciones enteras; la <strong>Ley de Lavoisier</strong> justifica el ajuste de ecuaciones; y la <strong>Ley de Avogadro</strong> conecta los cálculos de masa con los de volumen para gases. La <strong>ecuación de Clapeyron</strong> (gases ideales) añade una herramienta esencial para relacionar densidad y masa molar. Dominar la resolución progresiva de problemas —desde la identificación del compuesto hasta el cálculo del reactivo limitante, la densidad y la masa molecular— es esencial para abordar con éxito cualquier problema de química.
             </div>
 
         </div>
