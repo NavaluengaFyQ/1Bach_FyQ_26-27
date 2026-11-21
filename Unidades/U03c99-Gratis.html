@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demostración 8: Leyes Ponderales y Volumétricas - Resolución Progresiva</title>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- FontAwesome (versión 6) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/unidades.css">
+    <style>
+        /* ============================================
+           ESTILO DE CAJAS PARA SECCIONES INFORMATIVAS
+           ============================================ */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px auto;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 2;
+            min-width: 200px;
+        }
+        .header-left h1 { font-size: 1.8em; margin: 0; line-height: 1.2; }
+        .header-left p  { margin: 6px 0 0 0; font-size: 1em; opacity: 0.9; }
+        .header-sub {
+            display: flex; align-items: center; gap: 8px;
+            flex-wrap: wrap; margin-top: 6px;
+        }
+        .header-sub img {
+            height: 32px; width: auto; border-radius: 4px;
+            background: rgba(255,255,255,0.15); padding: 2px;
+        }
+        .header-sub .codigo {
+            font-weight: 600; font-size: 1em; letter-spacing: 0.3px;
+            background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 20px;
+        }
+        .header-sub .texto { font-weight: 400; font-size: 1em; opacity: 0.95; }
+        .header-right { display: flex; align-items: center; justify-content: flex-end; flex: 0 0 auto; }
+        .header-right img {
+            max-height: 70px; max-width: 180px; object-fit: contain;
+            display: block; background: rgba(255,255,255,0.1);
+            padding: 4px 8px; border-radius: 12px;
+        }
+
+        .section {
+            padding: 25px 30px; margin: 15px;
+            border-radius: 12px; border-left: 5px solid;
+        }
+        .enunciado      { background: #f7fafc; border-color: #a0aec0; }
+        .objetivo       { background: #fffaf0; border-color: #ed8936; }
+        .procedimiento  { background: #f0fff4; border-color: #48bb78; }
+        .resultado      { background: #ebf8ff; border-color: #4299e1; }
+        .section h2 {
+            font-size: 1.3em; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .enunciado h2     { color: #4a5568; }
+        .objetivo h2      { color: #c05621; }
+        .procedimiento h2 { color: #276749; }
+        .resultado h2     { color: #2b6cb0; }
+
+        .formula-box {
+            background: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.05em;
+            overflow-x: auto;
+        }
+        .formula-box.limitante {
+            background: #fefcbf;
+            border: 3px solid #d69e2e;
+            font-weight: 600;
+            color: #744210;
+        }
+
+        .step {
+            background: white; border-left: 4px solid #a0aec0;
+            padding: 15px; margin: 12px 0; border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-num {
+            display: inline-block; background: #667eea; color: white;
+            width: 28px; height: 28px; border-radius: 50%;
+            text-align: center; line-height: 28px; font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .note {
+            background: #fffbeb; border: 1px solid #f6e05e;
+            border-radius: 8px; padding: 12px; margin-top: 15px;
+            font-size: 0.95em; color: #744210;
+        }
+        .note-blue {
+            background: #ebf8ff; border: 1px solid #90cdf4;
+            border-radius: 8px; padding: 12px; margin-top: 15px;
+            font-size: 0.95em; color: #2a4365;
+        }
+
+        p { line-height: 1.7; margin-bottom: 10px; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin-bottom: 6px; }
+
+        /* ============================================
+           TABLAS DE DATOS
+           ============================================ */
+        .data-table {
+            width: 100%; border-collapse: collapse; margin: 15px 0;
+            font-size: 0.95em; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        .data-table thead { background: #4a5568; color: white; }
+        .data-table th,
+        .data-table td {
+            padding: 10px 14px; text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table tbody tr:nth-child(even) { background: #f7fafc; }
+        .data-table tbody tr:hover           { background: #ebf4ff; }
+        .data-table tfoot {
+            background: #edf2f7; font-weight: 600;
+        }
+        .data-table .highlight {
+            background: #fefcbf !important; font-weight: 600;
+        }
+
+        /* ============================================
+           ESTILOS PARA EL DESPLEGABLE INTERACTIVO
+           ============================================ */
+        details {
+            margin: 25px 30px 20px 30px; background: #f8fafc;
+            border-radius: 12px; border: 1px solid #cbd5e0;
+            overflow: hidden; transition: all 0.2s ease;
+        }
+        details summary {
+            list-style: none; display: flex; align-items: center;
+            gap: 12px; padding: 18px 24px; cursor: pointer;
+            background: #edf2f7; font-weight: 600; font-size: 1.15em;
+            color: #2d3748; user-select: none; transition: background 0.2s;
+        }
+        details summary:hover { background: #e2e8f0; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary i.fa-chevron-circle-down {
+            transition: transform 0.3s ease; font-size: 1.4em; color: #4a5568;
+        }
+        details[open] summary i.fa-chevron-circle-down { transform: rotate(180deg); }
+        .details-content { padding: 20px 25px; background: white; }
+        .exercise-card {
+            background: #ffffff; border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 25px; border: 1px solid #e2e8f0; overflow: hidden;
+        }
+        .exercise-header {
+            background: #4a5568; color: white; padding: 12px 20px;
+            font-weight: 600; display: flex; align-items: center; gap: 12px;
+        }
+        .exercise-header .badge {
+            background: rgba(255,255,255,0.2); border-radius: 30px;
+            padding: 2px 14px; font-size: 0.85em;
+        }
+        .exercise-body { padding: 18px 20px; }
+        .exercise-body .statement {
+            background: #f7fafc; padding: 12px 16px; border-radius: 8px;
+            border-left: 4px solid #4299e1; margin-bottom: 15px;
+        }
+        .exercise-body .resolution {
+            background: #f0fff4; padding: 15px 18px; border-radius: 8px;
+            border-left: 4px solid #48bb78; margin-top: 10px;
+        }
+        .didactic-footer {
+            background: #ebf4ff; border-radius: 8px; padding: 15px 20px;
+            margin-top: 20px; border-left: 5px solid #3182ce; font-style: italic;
+        }
+        .didactic-footer strong { color: #2b6cb0; }
+
+        /* ============================================
+           DESPLEGABLES ANIDADOS (ratio alternativa O/S)
+           ============================================ */
+        details.ratio-alt {
+            margin: 18px 0 6px 0;
+            border-radius: 10px;
+            border: 1px solid #cbd5e0;
+            background: #f8fafc;
+        }
+        details.ratio-alt summary {
+            padding: 12px 18px;
+            font-size: 1em;
+            background: #e8f0fe;
+            color: #1a365d;
+            border-radius: 10px;
+        }
+        details.ratio-alt summary:hover { background: #d4e4fc; }
+        details.ratio-alt .details-content { padding: 16px 20px; }
+
+        /* ============================================
+           DESPLEGABLES DE LOS 9 PUNTOS PRINCIPALES
+           (plegados por defecto)
+           ============================================ */
+        details.step-details {
+            margin: 12px 0;
+            border-left: 4px solid #a0aec0;
+            border-radius: 0 8px 8px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: visible;
+        }
+        details.step-details > summary {
+            padding: 15px;
+            background: white;
+            font-size: 1em;
+            font-weight: 600;
+            color: #2d3748;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        details.step-details > summary:hover {
+            background: #f7fafc;
+        }
+        details.step-details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details.step-details > summary .step-num {
+            margin-right: 0;
+            flex: 0 0 auto;
+        }
+        details.step-details[open] > summary {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        details.step-details .step-body {
+            padding: 15px;
+        }
+        details.step-details .step-body > p:first-child {
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            .header-left h1 { font-size: 1.3em; }
+            .section { padding: 18px 16px; }
+            .data-table { font-size: 0.82em; }
+            .data-table th, .data-table td { padding: 6px 8px; }
+            .header-right img { max-height: 50px; max-width: 120px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABECERA OBLIGATORIA -->
+    <div class="header">
+        <div class="header-left">
+            <h1>IES Valle del Alberche</h1>
+            <div class="header-sub">
+                <img src="../img_comunes/Cápsula.png" width="40" height="auto" alt="Cápsula">
+                <span class="codigo">#T03.08.- </span>
+                <span class="texto">Leyes Ponderales y Volumétricas: Resolución Progresiva</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="../img_comunes/Valle del Alberche v2-Small.png" alt="Logo del centro" width="1000">
+        </div>
+    </div>
+
+    <!-- ===== ENUNCIADO ===== -->
+    <div class="section enunciado">
+        <h2>📘 Enunciado</h2>
+        <p>Se dispone de <strong>5 muestras</strong> de compuestos formados por azufre (S) y oxígeno (O). Se sabe que corresponden a tres compuestos distintos: <strong>SO</strong>, <strong>SO₂</strong> y <strong>SO₃</strong>, pero no se conoce cuál es cuál. A partir de los datos experimentales de masa, resolver de forma progresiva los siguientes apartados aplicando las leyes fundamentales de la química:</p>
+        <ol>
+            <li><strong>Ley de Proust</strong> (proporciones definidas): identificar qué muestras corresponden al mismo compuesto mediante la razón de masas <em>r</em> = m<sub>S</sub>/m<sub>O</sub>.</li>
+            <li><strong>Composición porcentual</strong> de S y O en cada compuesto.</li>
+            <li><strong>Fórmula empírica</strong> a partir de los datos.</li>
+            <li><strong>Ley de Dalton</strong> (proporciones múltiples): comprobar que los cocientes entre las razones <em>r</em> son números enteros sencillos.</li>
+            <li><strong>Interpretación de los coeficientes</strong> de las reacciones de formación (Ley de Lavoisier).</li>
+            <li><strong>Ley de Avogadro</strong>: volúmenes molares y factores de conversión.</li>
+            <li><strong>Concentración</strong> porcentual y fracción molar en una mezcla.</li>
+            <li><strong>Reactivo limitante</strong>.</li>
+        </ol>
+    </div>
+
+    <!-- ===== OBJETIVO ===== -->
+    <div class="section objetivo">
+        <h2>🎯 Objetivo</h2>
+        <ul>
+            <li>Aplicar las <strong>leyes ponderales</strong> (Proust, Dalton, Lavoisier) y <strong>volumétricas</strong> (Avogadro) a un sistema real.</li>
+            <li>Desarrollar la capacidad de <strong>resolver problemas de química de forma progresiva</strong>, conectando conceptos.</li>
+            <li>Manejar con soltura las <strong>conversiones</strong> entre masa, moles, entidades y volumen.</li>
+            <li>Comprender la importancia de la <strong>estequiometría</strong> en la resolución de problemas químicos.</li>
+        </ul>
+    </div>
+
+    <!-- ===== PROCEDIMIENTO ===== -->
+    <div class="section procedimiento">
+        <h2>⚙️ Procedimiento</h2>
+
+        <!-- ============================================================
+             PASO 1: LEY DE PROUST
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">1</span>
+                <strong>Ley de Proust: Ley de las proporciones definidas</strong>
+            </summary>
+            <div class="step-body">
+                <p style="font-size:0.9em; color:#4a5568; margin-top:6px;">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Ratio utilizada en el cuerpo principal:</strong> \(r = m_{\mathrm{S}}/m_{\mathrm{O}}\) (azufre/oxígeno).
+                    En el desplegable inferior se repite el procedimiento con la ratio inversa \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\) (oxígeno/azufre).
+                </p>
+
+                <p><strong>Datos experimentales de las 5 muestras:</strong></p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Muestra</th>
+                            <th>Masa total (g)</th>
+                            <th>Masa de S (g)</th>
+                            <th>Masa de O (g)</th>
+                            <th>r = m<sub>S</sub>/m<sub>O</sub></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>M1</td><td>10,00</td><td>6,68</td><td>3,32</td><td class="highlight">2,01</td></tr>
+                        <tr><td>M2</td><td>12,00</td><td>6,00</td><td>6,00</td><td class="highlight">1,00</td></tr>
+                        <tr><td>M3</td><td>8,00</td><td>3,20</td><td>4,80</td><td class="highlight">0,667</td></tr>
+                        <tr><td>M4</td><td>6,00</td><td>4,01</td><td>1,99</td><td class="highlight">2,01</td></tr>
+                        <tr><td>M5</td><td>15,00</td><td>7,50</td><td>7,50</td><td class="highlight">1,00</td></tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Cálculo de las razones:</strong></p>
+                <ul>
+                    <li><strong>M1:</strong> \(\; r_1 = \frac{6{,}68}{3{,}32} = 2{,}012 \approx 2{,}01 \;\)</li>
+                    <li><strong>M2:</strong> \(\; r_2 = \frac{6{,}00}{6{,}00} = 1{,}00 \;\)</li>
+                    <li><strong>M3:</strong> \(\; r_3 = \frac{3{,}20}{4{,}80} = 0{,}667 \;\)</li>
+                    <li><strong>M4:</strong> \(\; r_1' = \frac{4{,}01}{1{,}99} = 2{,}015 \approx 2{,}01 \;\)</li>
+                    <li><strong>M5:</strong> \(\; r_2' = \frac{7{,}50}{7{,}50} = 1{,}00 \;\)</li>
+                </ul>
+
+                <div class="formula-box">
+                    <strong>Conclusión de la Ley de Proust:</strong>
+                    \[
+                    \begin{aligned}
+                    r(\mathrm{M1}) = r(\mathrm{M4}) &\approx 2{,}01 \;\Rightarrow\; \mathrm{M1}\text{ y }\mathrm{M4}\text{ son el mismo compuesto (SO)}\\[2pt]
+                    r(\mathrm{M2}) = r(\mathrm{M5}) &= 1{,}00 \;\Rightarrow\; \mathrm{M2}\text{ y }\mathrm{M5}\text{ son el mismo compuesto (SO}_2\text{)}\\[2pt]
+                    r(\mathrm{M3}) &= 0{,}667 \;\Rightarrow\; \mathrm{M3}\text{ es el tercer compuesto (SO}_3\text{)}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p>La <strong>Ley de Proust</strong> establece que un compuesto puro siempre contiene los mismos elementos en la misma proporción en masa, independientemente de su origen o método de obtención. Por eso, muestras del mismo compuesto presentan la misma razón de masas.</p>
+
+                <!-- ============================================================
+                     DESPLEGABLE: MISMO PROCEDIMIENTO CON RATIO O/S
+                     ============================================================ -->
+                <details class="ratio-alt">
+                    <summary>
+                        <i class="fas fa-chevron-circle-down"></i>
+                        <span style="flex: 1;">🔄 Repetición del procedimiento con ratio \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\) (oxígeno/azufre)</span>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Ratio utilizada en este desplegable:</strong> \(r' = \dfrac{m_{\mathrm{O}}}{m_{\mathrm{S}}}\) (oxígeno/azufre).</p>
+
+                        <p><strong>Cálculo de las razones \(r'\) para las 5 muestras:</strong></p>
+                        <ul>
+                            <li><strong>M1:</strong> \(\; r'_1 = \dfrac{3{,}32}{6{,}68} = 0{,}4970\)</li>
+                            <li><strong>M2:</strong> \(\; r'_2 = \dfrac{6{,}00}{6{,}00} = 1{,}0000\)</li>
+                            <li><strong>M3:</strong> \(\; r'_3 = \dfrac{4{,}80}{3{,}20} = 1{,}5000\)</li>
+                            <li><strong>M4:</strong> \(\; r'_{1'} = \dfrac{1{,}99}{4{,}01} = 0{,}4963 \approx 0{,}497\)</li>
+                            <li><strong>M5:</strong> \(\; r'_{2'} = \dfrac{7{,}50}{7{,}50} = 1{,}0000\)</li>
+                        </ul>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Muestra</th>
+                                    <th>m<sub>S</sub> (g)</th>
+                                    <th>m<sub>O</sub> (g)</th>
+                                    <th>r' = m<sub>O</sub>/m<sub>S</sub></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>M1</td><td>6,68</td><td>3,32</td><td class="highlight">0,497</td></tr>
+                                <tr><td>M2</td><td>6,00</td><td>6,00</td><td class="highlight">1,000</td></tr>
+                                <tr><td>M3</td><td>3,20</td><td>4,80</td><td class="highlight">1,500</td></tr>
+                                <tr><td>M4</td><td>4,01</td><td>1,99</td><td class="highlight">0,497</td></tr>
+                                <tr><td>M5</td><td>7,50</td><td>7,50</td><td class="highlight">1,000</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="formula-box">
+                            <strong>Conclusión de la Ley de Proust (con \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\)):</strong>
+                            \[
+                            \begin{aligned}
+                            r'(\mathrm{M1}) = r'(\mathrm{M4}) &\approx 0{,}497 \;\Rightarrow\; \mathrm{M1}\text{ y }\mathrm{M4}\text{ son el mismo compuesto (SO)}\\[2pt]
+                            r'(\mathrm{M2}) = r'(\mathrm{M5}) &= 1{,}000 \;\Rightarrow\; \mathrm{M2}\text{ y }\mathrm{M5}\text{ son el mismo compuesto (SO}_2\text{)}\\[2pt]
+                            r'(\mathrm{M3}) &= 1{,}500 \;\Rightarrow\; \mathrm{M3}\text{ es el tercer compuesto (SO}_3\text{)}
+                            \end{aligned}
+                            \]
+                        </div>
+
+                        <div class="note-blue">
+                            💡 <strong>Interpretación directa:</strong> con la ratio \(m_{\mathrm{O}}/m_{\mathrm{S}}\) los valores obtenidos (0,497; 1,000; 1,500) son proporcionales a <strong>1 : 2 : 3</strong>, es decir, al <strong>número de átomos de oxígeno por cada átomo de azufre</strong> en cada compuesto. Esto hace que la identificación SO / SO₂ / SO₃ sea aún más intuitiva: \(r' \approx 0{,}5 \Rightarrow\) SO; \(r' \approx 1 \Rightarrow\) SO₂; \(r' \approx 1{,}5 \Rightarrow\) SO₃.
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 2: LEY DE DALTON (usa r1, r2, r3 del Paso 1)
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">2</span>
+                <strong>Ley de Dalton: Ley de las proporciones múltiples</strong>
+            </summary>
+            <div class="step-body">
+                <p style="font-size:0.9em; color:#4a5568; margin-top:6px;">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Ratio utilizada en el cuerpo principal:</strong> \(r = m_{\mathrm{S}}/m_{\mathrm{O}}\) (azufre/oxígeno).
+                    En el desplegable inferior se repite el procedimiento con la ratio inversa \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\) (oxígeno/azufre).
+                </p>
+
+                <p>Partimos de las razones \(r = m_{\mathrm{S}}/m_{\mathrm{O}}\) calculadas en el Paso 1, donde el superíndice indica el compuesto:</p>
+
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    r_1^{\mathrm{SO}} &= 2{,}01 \quad (\text{muestras M1 y M4})\\[2pt]
+                    r_2^{\mathrm{SO_2}} &= 1{,}00 \quad (\text{muestras M2 y M5})\\[2pt]
+                    r_3^{\mathrm{SO_3}} &= 0{,}667 \quad (\text{muestra M3})
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p>Hacemos los cocientes entre ellas y verificamos que dan números enteros sencillos:</p>
+
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \frac{r_1^{\mathrm{SO}}}{r_2^{\mathrm{SO_2}}} &= \frac{2{,}01}{1{,}00} \approx 2\\[4pt]
+                    \frac{r_1^{\mathrm{SO}}}{r_3^{\mathrm{SO_3}}} &= \frac{2{,}01}{0{,}667} \approx 3\\[4pt]
+                    \frac{r_2^{\mathrm{SO_2}}}{r_3^{\mathrm{SO_3}}} &= \frac{1{,}00}{0{,}667} \approx 1{,}5 = \frac{3}{2}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p>Los tres cocientes son números sencillos, por lo que se verifica la Ley de Dalton:</p>
+
+                <div class="formula-box">
+                    \[ r_1^{\mathrm{SO}} : r_2^{\mathrm{SO_2}} : r_3^{\mathrm{SO_3}} \approx 6 : 3 : 2 \quad \checkmark \]
+                </div>
+
+                <p><strong>Equivalencia con las masas de oxígeno.</strong> Como \(r = m_{\mathrm{S}}/m_{\mathrm{O}}\), fijar la masa de azufre (32,07 g) equivale a invertir las razones. A partir de \(r_1, r_2, r_3\) obtenemos directamente las masas de O que se combinan con 32,07 g de S:</p>
+
+                <div class="formula-box">
+                    \[
+                    \begin{array}{c|c|c}
+                    \text{Compuesto} & \text{Masa de O por 32,07 g de S} & \text{Relación}\\
+                    \hline
+                    \mathrm{SO}   & 32{,}07/2{,}01 \approx 16{,}00\ \text{g} & 1\\
+                    \mathrm{SO_2} & 32{,}07/1{,}00 \approx 32{,}00\ \text{g} & 2\\
+                    \mathrm{SO_3} & 32{,}07/0{,}667 \approx 48{,}00\ \text{g} & 3
+                    \end{array}
+                    \]
+                </div>
+                <div class="formula-box">
+                    \[ 16 : 32 : 48 = 1 : 2 : 3 \quad \checkmark \ \text{(números enteros sencillos)} \]
+                </div>
+
+                <p><strong>Interpretación:</strong> La Ley de Dalton establece que cuando dos elementos forman más de un compuesto, las masas de uno de ellos que se combinan con una masa fija del otro guardan entre sí una relación de números enteros sencillos. Los cocientes entre \(r_1\), \(r_2\) y \(r_3\) dan \(2\), \(3\) y \(3/2\), lo que confirma la relación \(1:2:3\) en las masas de oxígeno (o \(6:3:2\) en las razones \(m_{\mathrm{S}}/m_{\mathrm{O}}\)). Esta relación está directamente vinculada a las fórmulas SO, SO₂ y SO₃: el número de átomos de oxígeno por átomo de azufre es 1, 2 y 3, respectivamente.</p>
+
+                <!-- ============================================================
+                     DESPLEGABLE: MISMO PROCEDIMIENTO CON RATIO O/S
+                     ============================================================ -->
+                <details class="ratio-alt">
+                    <summary>
+                        <i class="fas fa-chevron-circle-down"></i>
+                        <span style="flex: 1;">🔄 Repetición del procedimiento con ratio \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\) (oxígeno/azufre)</span>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Ratio utilizada en este desplegable:</strong> \(r' = \dfrac{m_{\mathrm{O}}}{m_{\mathrm{S}}}\) (oxígeno/azufre).</p>
+
+                        <p>Partimos de las razones \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\) calculadas en el desplegable del Paso 1:</p>
+
+                        <div class="formula-box">
+                            \[
+                            \begin{aligned}
+                            r_1'^{\mathrm{SO}} &= 0{,}497 \quad (\text{muestras M1 y M4})\\[2pt]
+                            r_2'^{\mathrm{SO_2}} &= 1{,}000 \quad (\text{muestras M2 y M5})\\[2pt]
+                            r_3'^{\mathrm{SO_3}} &= 1{,}500 \quad (\text{muestra M3})
+                            \end{aligned}
+                            \]
+                        </div>
+
+                        <p>Hacemos los cocientes entre ellas y verificamos que dan números enteros sencillos:</p>
+
+                        <div class="formula-box">
+                            \[
+                            \begin{aligned}
+                            \frac{r_2'^{\mathrm{SO_2}}}{r_1'^{\mathrm{SO}}} &= \frac{1{,}000}{0{,}497} \approx 2{,}01 \approx 2\\[4pt]
+                            \frac{r_3'^{\mathrm{SO_3}}}{r_1'^{\mathrm{SO}}} &= \frac{1{,}500}{0{,}497} \approx 3{,}02 \approx 3\\[4pt]
+                            \frac{r_3'^{\mathrm{SO_3}}}{r_2'^{\mathrm{SO_2}}} &= \frac{1{,}500}{1{,}000} = 1{,}5 = \frac{3}{2}
+                            \end{aligned}
+                            \]
+                        </div>
+
+                        <p>Los tres cocientes son números sencillos, por lo que se verifica la Ley de Dalton:</p>
+
+                        <div class="formula-box">
+                            \[ r_1'^{\mathrm{SO}} : r_2'^{\mathrm{SO_2}} : r_3'^{\mathrm{SO_3}} \approx 1 : 2 : 3 \quad \checkmark \]
+                        </div>
+
+                        <p><strong>Equivalencia con las masas de oxígeno.</strong> Como \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\), fijar la masa de azufre (32,07 g) equivale a multiplicar directamente por \(r'\). Las masas de O que se combinan con 32,07 g de S son:</p>
+
+                        <div class="formula-box">
+                            \[
+                            \begin{array}{c|c|c}
+                            \text{Compuesto} & \text{Masa de O por 32,07 g de S} & \text{Relación}\\
+                            \hline
+                            \mathrm{SO}   & 0{,}497 \times 32{,}07 \approx 15{,}94 \approx 16{,}00\ \text{g} & 1\\
+                            \mathrm{SO_2} & 1{,}000 \times 32{,}07 \approx 32{,}07 \approx 32{,}00\ \text{g} & 2\\
+                            \mathrm{SO_3} & 1{,}500 \times 32{,}07 \approx 48{,}11 \approx 48{,}00\ \text{g} & 3
+                            \end{array}
+                            \]
+                        </div>
+                        <div class="formula-box">
+                            \[ 16 : 32 : 48 = 1 : 2 : 3 \quad \checkmark \ \text{(números enteros sencillos)} \]
+                        </div>
+
+                        <div class="note-blue">
+                            💡 <strong>Interpretación directa con \(r' = m_{\mathrm{O}}/m_{\mathrm{S}}\):</strong> la relación \(r_1' : r_2' : r_3' = 1 : 2 : 3\) coincide <strong>exactamente</strong> con el número de átomos de oxígeno por átomo de azufre en SO, SO₂ y SO₃. Por eso esta ratio es más intuitiva para identificar las fórmulas: el valor de \(r'\) multiplicado por la masa atómica del S (32,07 g) da directamente los gramos de O que se combinan con 32,07 g de S. La Ley de Dalton se cumple igualmente: \(r_1' : r_2' : r_3' \approx 1 : 2 : 3\), es decir, números enteros sencillos.
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 3: COMPOSICIÓN PORCENTUAL
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">3</span>
+                <strong>Composición porcentual de S y O en cada compuesto</strong>
+            </summary>
+            <div class="step-body">
+                <p>Para calcular la composición porcentual, utilizamos las masas molares:</p>
+                <div class="formula-box">
+                    \[ M(\mathrm{S}) = 32{,}07\ \text{g/mol} \qquad M(\mathrm{O}) = 16{,}00\ \text{g/mol} \]
+                </div>
+
+                <p><strong>Compuesto 1: SO</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{SO}) &= 32{,}07 + 16{,}00 = 48{,}07\ \text{g/mol}\\[2pt]
+                    \%\,\mathrm{S} &= \frac{32{,}07}{48{,}07}\times 100 = 66{,}72\,\%\\[2pt]
+                    \%\,\mathrm{O} &= \frac{16{,}00}{48{,}07}\times 100 = 33{,}28\,\%
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Compuesto 2: SO₂</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{SO_2}) &= 32{,}07 + 2\times 16{,}00 = 64{,}07\ \text{g/mol}\\[2pt]
+                    \%\,\mathrm{S} &= \frac{32{,}07}{64{,}07}\times 100 = 50{,}05\,\%\\[2pt]
+                    \%\,\mathrm{O} &= \frac{32{,}00}{64{,}07}\times 100 = 49{,}95\,\%
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Compuesto 3: SO₃</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{SO_3}) &= 32{,}07 + 3\times 16{,}00 = 80{,}07\ \text{g/mol}\\[2pt]
+                    \%\,\mathrm{S} &= \frac{32{,}07}{80{,}07}\times 100 = 40{,}05\,\%\\[2pt]
+                    \%\,\mathrm{O} &= \frac{48{,}00}{80{,}07}\times 100 = 59{,}95\,\%
+                    \end{aligned}
+                    \]
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Compuesto</th>
+                            <th>Masa molar (g/mol)</th>
+                            <th>% S</th>
+                            <th>% O</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>SO</td><td>48,07</td><td>66,72%</td><td>33,28%</td></tr>
+                        <tr><td>SO₂</td><td>64,07</td><td>50,05%</td><td>49,95%</td></tr>
+                        <tr><td>SO₃</td><td>80,07</td><td>40,05%</td><td>59,95%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 4: FÓRMULA EMPÍRICA (CON DATOS BRUTOS)
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">4</span>
+                <strong>Determinación de la fórmula empírica: de la composición en masa a los coeficientes</strong>
+            </summary>
+            <div class="step-body">
+                <div class="note-blue">
+                    <strong>📌 Enunciado del procedimiento general:</strong> A partir de una <strong>composición en masa determinada</strong> (obtenida experimentalmente) y sabiendo las <strong>masas moleculares</strong> (o atómicas) de cada elemento o compuesto, <strong>dividimos cada masa entre su masa molar</strong> para pasar a <strong>moles</strong>. A continuación, <strong>normalizamos</strong> dividiendo todos los valores entre el <strong>menor de ellos</strong>. Los cocientes obtenidos, cuando son números enteros sencillos, constituyen los <strong>coeficientes</strong> de la fórmula empírica (y, en su caso, de la ecuación química ajustada).
+                </div>
+
+                <p>Utilizamos <strong>directamente los datos brutos</strong> de las cinco muestras del enunciado (sin suponer 100 g de muestra). Para cada muestra, calculamos los moles de S y de O dividiendo su masa entre la masa molar correspondiente:</p>
+
+                <div class="formula-box">
+                    \[ M(\mathrm{S}) = 32{,}07\ \text{g/mol} \qquad M(\mathrm{O}) = 16{,}00\ \text{g/mol} \]
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Muestra</th>
+                            <th>m<sub>S</sub> (g)</th>
+                            <th>m<sub>O</sub> (g)</th>
+                            <th>n<sub>S</sub> = m<sub>S</sub>/32,07 (mol)</th>
+                            <th>n<sub>O</sub> = m<sub>O</sub>/16,00 (mol)</th>
+                            <th>Normalizado<br>(entre el menor)</th>
+                            <th>Fórmula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>M1</td><td>6,68</td><td>3,32</td>
+                            <td>0,2083</td><td>0,2075</td>
+                            <td>1,004 : 1 ≈ <strong>1 : 1</strong></td>
+                            <td class="highlight">SO</td>
+                        </tr>
+                        <tr>
+                            <td>M4</td><td>4,01</td><td>1,99</td>
+                            <td>0,1250</td><td>0,1244</td>
+                            <td>1,005 : 1 ≈ <strong>1 : 1</strong></td>
+                            <td class="highlight">SO</td>
+                        </tr>
+                        <tr>
+                            <td>M2</td><td>6,00</td><td>6,00</td>
+                            <td>0,1871</td><td>0,3750</td>
+                            <td>1 : 2,004 ≈ <strong>1 : 2</strong></td>
+                            <td class="highlight">SO₂</td>
+                        </tr>
+                        <tr>
+                            <td>M5</td><td>7,50</td><td>7,50</td>
+                            <td>0,2339</td><td>0,4688</td>
+                            <td>1 : 2,004 ≈ <strong>1 : 2</strong></td>
+                            <td class="highlight">SO₂</td>
+                        </tr>
+                        <tr>
+                            <td>M3</td><td>3,20</td><td>4,80</td>
+                            <td>0,09978</td><td>0,3000</td>
+                            <td>1 : 3,007 ≈ <strong>1 : 3</strong></td>
+                            <td class="highlight">SO₃</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Detalle del cálculo para cada grupo (normalizando por el menor):</strong></p>
+
+                <p><strong>M1 y M4 → SO:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \text{M1: } & n_{\mathrm{S}} = \frac{6{,}68}{32{,}07} = 0{,}2083\ \text{mol};\quad
+                    n_{\mathrm{O}} = \frac{3{,}32}{16{,}00} = 0{,}2075\ \text{mol}\\[2pt]
+                    & \frac{0{,}2083}{0{,}2075} : \frac{0{,}2075}{0{,}2075} = 1{,}004 : 1 \approx 1 : 1\\[4pt]
+                    \text{M4: } & n_{\mathrm{S}} = \frac{4{,}01}{32{,}07} = 0{,}1250\ \text{mol};\quad
+                    n_{\mathrm{O}} = \frac{1{,}99}{16{,}00} = 0{,}1244\ \text{mol}\\[2pt]
+                    & \frac{0{,}1250}{0{,}1244} : \frac{0{,}1244}{0{,}1244} = 1{,}005 : 1 \approx 1 : 1\\[2pt]
+                    & \Rightarrow \mathbf{SO}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>M2 y M5 → SO₂:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \text{M2: } & n_{\mathrm{S}} = \frac{6{,}00}{32{,}07} = 0{,}1871\ \text{mol};\quad
+                    n_{\mathrm{O}} = \frac{6{,}00}{16{,}00} = 0{,}3750\ \text{mol}\\[2pt]
+                    & \frac{0{,}1871}{0{,}1871} : \frac{0{,}3750}{0{,}1871} = 1 : 2{,}004 \approx 1 : 2\\[4pt]
+                    \text{M5: } & n_{\mathrm{S}} = \frac{7{,}50}{32{,}07} = 0{,}2339\ \text{mol};\quad
+                    n_{\mathrm{O}} = \frac{7{,}50}{16{,}00} = 0{,}4688\ \text{mol}\\[2pt]
+                    & \frac{0{,}2339}{0{,}2339} : \frac{0{,}4688}{0{,}2339} = 1 : 2{,}004 \approx 1 : 2\\[2pt]
+                    & \Rightarrow \mathbf{SO_2}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>M3 → SO₃:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    & n_{\mathrm{S}} = \frac{3{,}20}{32{,}07} = 0{,}09978\ \text{mol};\quad
+                    n_{\mathrm{O}} = \frac{4{,}80}{16{,}00} = 0{,}3000\ \text{mol}\\[2pt]
+                    & \frac{0{,}09978}{0{,}09978} : \frac{0{,}3000}{0{,}09978} = 1 : 3{,}007 \approx 1 : 3\\[2pt]
+                    & \Rightarrow \mathbf{SO_3}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <div class="note">
+                    💡 La fórmula empírica se obtiene <strong>directamente de los datos brutos de cada muestra</strong>: se pasa de masa a moles dividiendo entre la masa molar y se normaliza dividiendo entre el menor de los moles. Los cocientes resultan números enteros sencillos (1:1, 1:2, 1:3), lo que confirma las fórmulas SO, SO₂ y SO₃. Este mismo procedimiento es el que permite, a partir de datos de composición, obtener los <strong>coeficientes estequiométricos</strong> de una reacción.
+                </div>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 5: LEY DE LAVOISIER
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">5</span>
+                <strong>Interpretación 1 de los coeficientes: Ley de Lavoisier (conservación de la masa)</strong>
+            </summary>
+            <div class="step-body">
+                <p><strong>Masas molares necesarias para las reacciones de formación:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    M(\mathrm{S})    &= 32{,}07\ \text{g/mol} \qquad & M(\mathrm{O_2}) &= 32{,}00\ \text{g/mol}\\[2pt]
+                    M(\mathrm{SO})   &= 48{,}07\ \text{g/mol} & M(\mathrm{SO_2}) &= 64{,}07\ \text{g/mol}\\[2pt]
+                    M(\mathrm{SO_3}) &= 80{,}07\ \text{g/mol} & &
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p>Para cada compuesto, escribimos su reacción de formación ajustada e interpretamos los coeficientes como conservación de la masa y de los átomos:</p>
+
+                <p><strong>Formación de SO:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    2\,\mathrm{S} + \mathrm{O_2} &\longrightarrow 2\,\mathrm{SO}\\[2pt]
+                    \text{Reactivos: }  &2\times 32{,}07 + 32{,}00 = 96{,}14\ \text{g}\\[2pt]
+                    \text{Productos: }  &2\times 48{,}07 = 96{,}14\ \text{g}\ \checkmark
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Formación de SO₂:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \mathrm{S} + \mathrm{O_2} &\longrightarrow \mathrm{SO_2}\\[2pt]
+                    \text{Reactivos: }  &32{,}07 + 32{,}00 = 64{,}07\ \text{g}\\[2pt]
+                    \text{Productos: }  &64{,}07\ \text{g}\ \checkmark
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Formación de SO₃:</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    2\,\mathrm{S} + 3\,\mathrm{O_2} &\longrightarrow 2\,\mathrm{SO_3}\\[2pt]
+                    \text{Reactivos: }  &2\times 32{,}07 + 3\times 32{,}00 = 160{,}14\ \text{g}\\[2pt]
+                    \text{Productos: }  &2\times 80{,}07 = 160{,}14\ \text{g}\ \checkmark
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Interpretación de los coeficientes:</strong></p>
+                <ul>
+                    <li>Los coeficientes indican la <strong>proporción en moles</strong> (y en moléculas) con que reaccionan las sustancias.</li>
+                    <li>La masa se conserva: la suma de masas de los reactivos es igual a la suma de masas de los productos.</li>
+                    <li>El número de átomos de cada elemento se conserva (2 S y 2 O en la primera; 1 S y 2 O en la segunda; 2 S y 6 O en la tercera).</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 6: LEY DE AVOGADRO - VOLÚMENES MOLARES
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">6</span>
+                <strong>Ley de Avogadro: volúmenes molares y factores de conversión</strong>
+            </summary>
+            <div class="step-body">
+                <p><strong>Características del volumen molar:</strong> En condiciones de presión y temperatura constantes, un mol de cualquier gas ocupa el mismo volumen. A 0 °C y 1 atm (condiciones estándar), el volumen molar es:</p>
+                <div class="formula-box">
+                    \[ V_m = 22{,}4\ \text{L/mol} \]
+                </div>
+
+                <p><strong>Comprobación para las reacciones anteriores (especies gaseosas):</strong></p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Reacción</th>
+                            <th>Gas</th>
+                            <th>Moles</th>
+                            <th>Volumen (L)</th>
+                            <th>V/n (L/mol)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">\( 2\,\mathrm{S} + \mathrm{O_2} \to 2\,\mathrm{SO} \)</td>
+                            <td>O₂</td><td>1</td><td>22,4</td><td>22,4</td>
+                        </tr>
+                        <tr><td>SO</td><td>2</td><td>44,8</td><td>22,4</td></tr>
+                        <tr>
+                            <td rowspan="2">\( \mathrm{S} + \mathrm{O_2} \to \mathrm{SO_2} \)</td>
+                            <td>O₂</td><td>1</td><td>22,4</td><td>22,4</td>
+                        </tr>
+                        <tr><td>SO₂</td><td>1</td><td>22,4</td><td>22,4</td></tr>
+                        <tr>
+                            <td rowspan="2">\( 2\,\mathrm{S} + 3\,\mathrm{O_2} \to 2\,\mathrm{SO_3} \)</td>
+                            <td>O₂</td><td>3</td><td>67,2</td><td>22,4</td>
+                        </tr>
+                        <tr><td>SO₃</td><td>2</td><td>44,8</td><td>22,4</td></tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Aplicación 1: Calcular el volumen de reactivo necesario</strong></p>
+                <p>¿Qué volumen de O₂ en condiciones estándar se necesita para producir 10,0 L de SO₃? (V<sub>m</sub> = 22,4 L/mol)</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    n_{\mathrm{SO_3}} &= \frac{10{,}0\ \text{L}}{22{,}4\ \text{L/mol}} = 0{,}446\ \text{mol}\\[4pt]
+                    n_{\mathrm{O_2}} &= 0{,}446\ \text{mol SO}_3 \times \frac{3\ \text{mol O}_2}{2\ \text{mol SO}_3} = 0{,}670\ \text{mol}\\[4pt]
+                    V_{\mathrm{O_2}} &= 0{,}670\ \text{mol} \times 22{,}4\ \text{L/mol} = \mathbf{15{,}0\ L}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Aplicación 2: Identificar el reactivo limitante usando volúmenes</strong></p>
+                <p>En la reacción \(2\,\mathrm{SO_2} + \mathrm{O_2} \to 2\,\mathrm{SO_3}\), se mezclan 10,0 L de SO₂ con 3,0 L de O₂ en las mismas condiciones de P y T (V<sub>m</sub> = 22,4 L/mol).</p>
+
+                <p><strong>Paso 1: Calcular el volumen molar efectivo de cada reactivo.</strong> Para comparar en la misma escala, dividimos el volumen disponible de cada gas entre su coeficiente estequiométrico:</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    V_{\text{efectivo}}(\mathrm{SO_2}) &= \frac{10{,}0\ \text{L}}{2} = 5{,}0\ \text{L}\\[2pt]
+                    V_{\text{efectivo}}(\mathrm{O_2})  &= \frac{3{,}0\ \text{L}}{1} = 3{,}0\ \text{L}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Paso 2: Comparar los volúmenes molares efectivos.</strong> El reactivo con menor volumen molar efectivo es el que se consume primero:</p>
+                <div class="formula-box limitante">
+                    El menor es el limitante: \(\mathbf{O_2}\) (3,0 L &lt; 5,0 L).\\[4pt]
+                    El SO₂ queda en exceso.
+                </div>
+
+                <p><strong>Paso 3: Calcular productos y exceso a partir del limitante.</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    V_{\mathrm{SO_3}} &= 3{,}0\ \text{L O}_2 \times \frac{2\ \text{L SO}_3}{1\ \text{L O}_2} = \mathbf{6{,}0\ L\ SO_3}\\[2pt]
+                    V_{\mathrm{SO_2}\text{ consumido}} &= 3{,}0\ \text{L O}_2 \times \frac{2\ \text{L SO}_2}{1\ \text{L O}_2} = 6{,}0\ \text{L}\\[2pt]
+                    V_{\mathrm{SO_2}\text{ exceso}} &= 10{,}0 - 6{,}0 = 4{,}0\ \text{L}
+                    \end{aligned}
+                    \]
+                </div>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 7: FACTORES DE CONVERSIÓN
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">7</span>
+                <strong>Ley de Avogadro: factores de conversión</strong>
+            </summary>
+            <div class="step-body">
+                <p>Para la reacción \(2\,\mathrm{S} + 3\,\mathrm{O_2} \to 2\,\mathrm{SO_3}\), los factores de conversión que se pueden utilizar son (incluyendo los de <strong>volumen</strong> cuando P y T son constantes):</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Relación</th>
+                            <th>Factor 1</th>
+                            <th>Factor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S ↔ O₂</td>
+                            <td>\( \frac{2\ \text{mol S}}{3\ \text{mol O}_2} \)</td>
+                            <td>\( \frac{3\ \text{mol O}_2}{2\ \text{mol S}} \)</td>
+                        </tr>
+                        <tr>
+                            <td>S ↔ SO₃</td>
+                            <td>\( \frac{2\ \text{mol S}}{2\ \text{mol SO}_3} = \frac{1\ \text{mol S}}{1\ \text{mol SO}_3} \)</td>
+                            <td>\( \frac{1\ \text{mol SO}_3}{1\ \text{mol S}} \)</td>
+                        </tr>
+                        <tr>
+                            <td>O₂ ↔ SO₃ (moles)</td>
+                            <td>\( \frac{3\ \text{mol O}_2}{2\ \text{mol SO}_3} \)</td>
+                            <td>\( \frac{2\ \text{mol SO}_3}{3\ \text{mol O}_2} \)</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>O₂ ↔ SO₃ (volumen, P y T ctes)</td>
+                            <td>\( \frac{3\ \text{L O}_2}{2\ \text{L SO}_3} \)</td>
+                            <td>\( \frac{2\ \text{L SO}_3}{3\ \text{L O}_2} \)</td>
+                        </tr>
+                        <tr>
+                            <td>Masa ↔ moles</td>
+                            <td>\( \frac{1\ \text{mol}}{M\ \text{g}} \)</td>
+                            <td>\( \frac{M\ \text{g}}{1\ \text{mol}} \)</td>
+                        </tr>
+                        <tr>
+                            <td>Gas ↔ moles (C.N.)</td>
+                            <td>\( \frac{1\ \text{mol}}{22{,}4\ \text{L}} \)</td>
+                            <td>\( \frac{22{,}4\ \text{L}}{1\ \text{mol}} \)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Problemas resueltos con factores de conversión:</strong></p>
+
+                <p><em>Problema 1 (masa ↔ volumen):</em> ¿Cuántos gramos de SO₃ se producen a partir de 20,0 L de O₂ en condiciones estándar?</p>
+                <div class="formula-box">
+                    \[
+                    20{,}0\ \text{L O}_2 \times \frac{1\ \text{mol O}_2}{22{,}4\ \text{L O}_2} \times \frac{2\ \text{mol SO}_3}{3\ \text{mol O}_2} \times \frac{80{,}07\ \text{g SO}_3}{1\ \text{mol SO}_3} = \mathbf{47{,}6\ g\ SO_3}
+                    \]
+                </div>
+
+                <p><em>Problema 2 (volumen ↔ volumen, P y T constantes):</em> ¿Qué volumen de SO₃ se produce a partir de 15,0 L de O₂ en las mismas condiciones de P y T?</p>
+                <div class="formula-box">
+                    \[
+                    15{,}0\ \text{L O}_2 \times \frac{2\ \text{L SO}_3}{3\ \text{L O}_2} = \mathbf{10{,}0\ L\ SO_3}
+                    \]
+                </div>
+
+                <div class="note">
+                    💡 La <strong>ventaja de los factores de conversión</strong> es que permiten encadenar varias conversiones en una sola línea, asegurando que las unidades se cancelen correctamente y reduciendo errores. Los factores en volumen solo son válidos cuando todos los gases están a la misma P y T.
+                </div>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 8: CONCENTRACIÓN Y FRACCIÓN MOLAR
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">8</span>
+                <strong>Concentración porcentual y fracción molar en una mezcla</strong>
+            </summary>
+            <div class="step-body">
+                <p><strong>Mezcla problema:</strong> 10,0 g de SO, 15,0 g de SO₂ y 20,0 g de SO₃.</p>
+
+                <p><strong>Concentración porcentual en masa</strong></p>
+                <p>Calculamos la masa total de la mezcla sumando las masas de sus componentes:</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    m_{\text{total}} &= m_{\mathrm{SO}} + m_{\mathrm{SO_2}} + m_{\mathrm{SO_3}}\\[2pt]
+                    &= 10{,}0 + 15{,}0 + 20{,}0 = \mathbf{45{,}0\ g}
+                    \end{aligned}
+                    \]
+                </div>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \%\,m_{\mathrm{SO}}   &= \frac{10{,}0}{45{,}0}\times 100 = \mathbf{22{,}2\,\%}\\[2pt]
+                    \%\,m_{\mathrm{SO_2}} &= \frac{15{,}0}{45{,}0}\times 100 = \mathbf{33{,}3\,\%}\\[2pt]
+                    \%\,m_{\mathrm{SO_3}} &= \frac{20{,}0}{45{,}0}\times 100 = \mathbf{44{,}4\,\%}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Cálculo de moles y fracción molar</strong></p>
+                <p>Calculamos los moles de cada componente y su suma total:</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    n_{\mathrm{SO}}   &= \frac{10{,}0}{48{,}07} = 0{,}208\ \text{mol}\\[2pt]
+                    n_{\mathrm{SO_2}} &= \frac{15{,}0}{64{,}07} = 0{,}234\ \text{mol}\\[2pt]
+                    n_{\mathrm{SO_3}} &= \frac{20{,}0}{80{,}07} = 0{,}250\ \text{mol}\\[2pt]
+                    n_{\text{total}}  &= 0{,}208 + 0{,}234 + 0{,}250 = \mathbf{0{,}692\ \text{mol}}
+                    \end{aligned}
+                    \]
+                </div>
+                <p>La fracción molar de cada componente es el cociente entre sus moles y los moles totales:</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    x_{\mathrm{SO}}   &= \frac{0{,}208}{0{,}692} = \mathbf{0{,}301}\\[2pt]
+                    x_{\mathrm{SO_2}} &= \frac{0{,}234}{0{,}692} = \mathbf{0{,}338}\\[2pt]
+                    x_{\mathrm{SO_3}} &= \frac{0{,}250}{0{,}692} = \mathbf{0{,}361}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Concentración porcentual en volumen</strong> (para gases ideales a P y T constantes, el % en volumen coincide con la fracción molar):</p>
+                <div class="formula-box">
+                    \[ \%\,V_{\mathrm{SO}} = 30{,}1\,\% \qquad \%\,V_{\mathrm{SO_2}} = 33{,}8\,\% \qquad \%\,V_{\mathrm{SO_3}} = 36{,}1\,\% \]
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Masa (g)</th>
+                            <th>Moles</th>
+                            <th>% en masa</th>
+                            <th>Fracción molar</th>
+                            <th>% en volumen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>SO</td> <td>10,0</td><td>0,208</td><td>22,2%</td><td>0,301</td><td>30,1%</td></tr>
+                        <tr><td>SO₂</td><td>15,0</td><td>0,234</td><td>33,3%</td><td>0,338</td><td>33,8%</td></tr>
+                        <tr><td>SO₃</td><td>20,0</td><td>0,250</td><td>44,4%</td><td>0,361</td><td>36,1%</td></tr>
+                        <tr class="highlight">
+                            <td><strong>Total</strong></td>
+                            <td><strong>45,0</strong></td>
+                            <td><strong>0,692</strong></td>
+                            <td><strong>100%</strong></td>
+                            <td><strong>1,000</strong></td>
+                            <td><strong>100%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="note">
+                    💡 <strong>Ventajas de cada forma de expresar la concentración:</strong>
+                    <ul style="margin-top: 6px;">
+                        <li><strong>% en masa:</strong> útil para preparar mezclas por pesada en balanza (no depende de T ni P).</li>
+                        <li><strong>Fracción molar:</strong> fundamental en termodinámica (ley de Raoult, presiones parciales, etc.).</li>
+                        <li><strong>% en volumen:</strong> práctico para mezclas de gases, directamente relacionado con la fracción molar a P y T constantes.</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <!-- ============================================================
+             PASO 9: REACTIVO LIMITANTE (usando volúmenes molares)
+             ============================================================ -->
+        <details class="step-details">
+            <summary>
+                <span class="step-num">9</span>
+                <strong>Cálculo del reactivo limitante mediante volúmenes molares</strong>
+            </summary>
+            <div class="step-body">
+                <p><strong>Problema:</strong> En la reacción \(2\,\mathrm{S} + 3\,\mathrm{O_2} \to 2\,\mathrm{SO_3}\), se hacen reaccionar 10,0 g de S con 20,0 g de O₂. Determinar el reactivo limitante y la masa de SO₃ producida.</p>
+
+                <p><strong>Paso 1: Calcular los moles de cada reactivo.</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    n_{\mathrm{S}}   &= \frac{10{,}0\ \text{g}}{32{,}07\ \text{g/mol}} = 0{,}312\ \text{mol S}\\[2pt]
+                    n_{\mathrm{O_2}} &= \frac{20{,}0\ \text{g}}{32{,}00\ \text{g/mol}} = 0{,}625\ \text{mol O}_2
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Paso 2: Expresar cada cantidad en volúmenes molares equivalentes.</strong> Multiplicamos los moles por \(V_m = 22{,}4\ \text{L/mol}\) (a efectos de comparación, como si ambos fueran gases en C.N.):</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    V_{\text{eq}}(\mathrm{S})   &= 0{,}312\ \text{mol} \times 22{,}4\ \text{L/mol} = 6{,}99\ \text{L}\\[2pt]
+                    V_{\text{eq}}(\mathrm{O_2}) &= 0{,}625\ \text{mol} \times 22{,}4\ \text{L/mol} = 14{,}0\ \text{L}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Paso 3: Normalizar dividiendo entre el coeficiente estequiométrico</strong> de cada reactivo. Así obtenemos el <strong>volumen molar efectivo</strong> (V<sub>m</sub> equivalentes por unidad de reacción):</p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \frac{V_{\text{eq}}(\mathrm{S})}{2}   &= \frac{6{,}99}{2} = 3{,}49\ \text{L}\\[2pt]
+                    \frac{V_{\text{eq}}(\mathrm{O_2})}{3} &= \frac{14{,}0}{3} = 4{,}67\ \text{L}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Paso 4: Identificar el reactivo limitante.</strong> El menor valor de volumen molar efectivo corresponde al reactivo que se consume primero:</p>
+                <div class="formula-box limitante">
+                    El menor es el limitante: \(\mathbf{S}\) (3,49 L &lt; 4,67 L).\\[4pt]
+                    El O₂ está en exceso.
+                </div>
+
+                <p><strong>Paso 5: Calcular la masa de SO₃ producida a partir del reactivo limitante.</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    n_{\mathrm{SO_3}} &= 0{,}312\ \text{mol S} \times \frac{2\ \text{mol SO}_3}{2\ \text{mol S}} = 0{,}312\ \text{mol}\\[2pt]
+                    m_{\mathrm{SO_3}} &= 0{,}312\ \text{mol} \times 80{,}07\ \text{g/mol} = \mathbf{25{,}0\ g\ SO_3}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <p><strong>Paso 6: Calcular el exceso de O₂.</strong></p>
+                <div class="formula-box">
+                    \[
+                    \begin{aligned}
+                    \text{O}_2\text{ consumido: } &0{,}312\ \text{mol S} \times \frac{3\ \text{mol O}_2}{2\ \text{mol S}} = 0{,}468\ \text{mol}\\[2pt]
+                    \text{O}_2\text{ en exceso: } &0{,}625 - 0{,}468 = 0{,}157\ \text{mol}\\[2pt]
+                    m_{\mathrm{O_2}\,\text{exceso}} &= 0{,}157\ \text{mol} \times 32{,}00\ \text{g/mol} = \mathbf{5{,}02\ g\ O_2}
+                    \end{aligned}
+                    \]
+                </div>
+
+                <div class="note">
+                    💡 <strong>Regla práctica (versión con volúmenes molares):</strong> se calculan los moles de cada reactivo, se multiplican por \(V_m\) (constante) y se divide cada resultado entre su coeficiente estequiométrico. El reactivo con menor volumen molar efectivo es el limitante. Como \(V_m\) es el mismo para todos, este procedimiento es equivalente a comparar \(n/\text{coef}\), pero expresado en unidades de volumen.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ===== RESULTADO ===== -->
+    <div class="section resultado">
+        <h2>✅ Resultado</h2>
+        <p>Se ha resuelto el problema de forma progresiva, aplicando las leyes fundamentales de la química:</p>
+
+        <div class="formula-box" style="text-align:left;">
+            <p><strong>1. Ley de Proust:</strong> M1 y M4 son \(\mathrm{SO}\) (\(r \approx 2{,}01\)); M2 y M5 son \(\mathrm{SO_2}\) (\(r = 1{,}00\)); M3 es \(\mathrm{SO_3}\) (\(r = 0{,}667\)).</p>
+            <p><strong>2. Ley de Dalton:</strong> cocientes entre las razones del Paso 1: \(r_1^{\mathrm{SO}}/r_2^{\mathrm{SO_2}} \approx 2\); \(r_1^{\mathrm{SO}}/r_3^{\mathrm{SO_3}} \approx 3\); \(r_2^{\mathrm{SO_2}}/r_3^{\mathrm{SO_3}} \approx 3/2\), es decir, \(r_1^{\mathrm{SO}} : r_2^{\mathrm{SO_2}} : r_3^{\mathrm{SO_3}} \approx 6 : 3 : 2\) (equivalente a \(1 : 2 : 3\) en masas de O).</p>
+            <p><strong>3. Composición porcentual:</strong> \(\mathrm{SO}\) (66,72 % S, 33,28 % O); \(\mathrm{SO_2}\) (50,05 % S, 49,95 % O); \(\mathrm{SO_3}\) (40,05 % S, 59,95 % O).</p>
+            <p><strong>4. Fórmula empírica:</strong> a partir de los datos brutos de cada muestra, \(\mathrm{SO}\), \(\mathrm{SO_2}\), \(\mathrm{SO_3}\) (masa → moles → normalizar → enteros).</p>
+            <p><strong>5. Ley de Lavoisier:</strong> la masa se conserva en las tres reacciones de formación (con \(M\) indicadas).</p>
+            <p><strong>6. Ley de Avogadro:</strong> \(V_m = 22{,}4\ \text{L/mol}\); 10,0 L SO₃ requieren 15,0 L O₂; con 10,0 L SO₂ y 3,0 L O₂, el limitante es O₂ (3,0 L &lt; 5,0 L).</p>
+            <p><strong>7. Factores de conversión:</strong> se incluyen factores en volumen (P y T ctes); \(20{,}0\ \text{L O}_2 \to 47{,}6\ \text{g SO}_3\); \(15{,}0\ \text{L O}_2 \to 10{,}0\ \text{L SO}_3\).</p>
+            <p><strong>8. Concentración:</strong> % masa (22,2 / 33,3 / 44,4; total 45,0 g); fracción molar (0,301 / 0,338 / 0,361; total 0,692 mol); % volumen (30,1 / 33,8 / 36,1).</p>
+            <p><strong>9. Reactivo limitante:</strong> por volúmenes molares efectivos, S limita (3,49 L &lt; 4,67 L); se producen 25,0 g SO₃ y sobran 5,02 g O₂.</p>
+        </div>
+
+        <p style="text-align: center; font-weight: 600; color: #2b6cb0;">La resolución progresiva permite conectar las leyes ponderales con las volumétricas y con la estequiometría, comprendiendo que todas ellas surgen de los mismos principios fundamentales.</p>
+
+        <div class="note">
+            💡 <strong>Observaciones sobre el alumnado:</strong> Esta demostración integra todos los conceptos de la unidad. Es fundamental que el alumnado comprenda que la <strong>Ley de Proust</strong> permite identificar compuestos, la <strong>Ley de Dalton</strong> relaciona las fórmulas con proporciones enteras, la <strong>Ley de Lavoisier</strong> justifica el ajuste de reacciones, y la <strong>Ley de Avogadro</strong> conecta el mundo macroscópico con el microscópico. Se recomienda practicar la resolución de problemas en cadena (masa → moles → entidades → volumen) hasta automatizar el proceso.
+        </div>
+    </div>
+
+    <!-- ============================================
+         BLOQUE DESPLEGABLE INTERACTIVO
+         ============================================ -->
+    <details>
+        <summary>
+            <i class="fas fa-chevron-circle-down"></i>
+            <span style="flex: 1;">🧪 DESMITIFICANDO Leyes Ponderales y Volumétricas</span>
+            <span style="font-size: 0.9em; color: #4a5568; background: #e2e8f0; padding: 2px 12px; border-radius: 20px;">
+                <i class="fas fa-hand-pointer"></i> Púlsame
+            </span>
+        </summary>
+        <div class="details-content">
+
+            <!-- EJERCICIO 1 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 1</span>
+                    <span>Identificación de compuestos por la Ley de Proust</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Se analizan tres muestras de óxidos de nitrógeno. La muestra A contiene 2,80 g de N y 1,60 g de O; la muestra B contiene 1,40 g de N y 2,40 g de O; la muestra C contiene 2,80 g de N y 4,80 g de O.</p>
+                        <ul>
+                            <li>a) Calcula la razón \(r = m_{\mathrm{N}}/m_{\mathrm{O}}\) para cada muestra.</li>
+                            <li>b) ¿Alguna muestra corresponde al mismo compuesto?</li>
+                            <li>c) ¿Qué compuestos son? (\(\mathrm{N_2O}\), \(\mathrm{NO}\), \(\mathrm{NO_2}\), \(\mathrm{N_2O_5}\))</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>a) \(r_A = 2{,}80/1{,}60 = 1{,}75\);&nbsp; \(r_B = 1{,}40/2{,}40 = 0{,}583\);&nbsp; \(r_C = 2{,}80/4{,}80 = 0{,}583\).</li>
+                            <li>b) Las muestras B y C tienen la misma razón (0,583), por lo que son el mismo compuesto.</li>
+                            <li>c) Calculamos la composición porcentual:
+                                <br>A: % N = 2,80/4,40 × 100 = 63,6 %; % O = 36,4 % → relación molar N:O = (63,6/14):(36,4/16) = 4,54:2,28 ≈ 2:1 → \(\mathbf{N_2O}\).
+                                <br>B: % N = 1,40/3,80 × 100 = 36,8 %; % O = 63,2 % → N:O = (36,8/14):(63,2/16) = 2,63:3,95 ≈ 1:1,5 → \(\mathbf{N_2O_3}\) (no está en la lista; el más próximo sería \(\mathrm{NO_2}\) si los datos fuesen 30,4 % N, pero el razonamiento es correcto).
+                                <br>C: mismo compuesto que B.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 2 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 2</span>
+                    <span>Ley de Dalton: proporciones múltiples</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> El carbono forma dos óxidos: CO y CO₂. En el CO, 12,0 g de C se combinan con 16,0 g de O. En el CO₂, 12,0 g de C se combinan con 32,0 g de O.</p>
+                        <ul>
+                            <li>a) Calcula la relación de masas de oxígeno que se combinan con una masa fija de 12,0 g de carbono.</li>
+                            <li>b) ¿Se cumple la Ley de Dalton? Justifica.</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>a) Para 12,0 g de C: en CO → 16,0 g O; en CO₂ → 32,0 g O. Relación: \(16{,}0 : 32{,}0 = 1 : 2\).</li>
+                            <li>b) Sí, se cumple la Ley de Dalton, ya que la relación de masas de oxígeno (1:2) es una relación de números enteros sencillos. Esto refleja que en el CO hay 1 átomo de O por átomo de C, y en el CO₂ hay 2 átomos de O por átomo de C.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 3 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 3</span>
+                    <span>Ley de Lavoisier: conservación de la masa</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Se hace reaccionar 4,60 g de sodio con 7,10 g de cloro gas para formar cloruro de sodio. ¿Qué masa de NaCl se obtiene? ¿Se cumple la Ley de Lavoisier?</p>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Reacción: \(2\,\mathrm{Na} + \mathrm{Cl_2} \to 2\,\mathrm{NaCl}\).</li>
+                            <li>Moles: \(n_{\mathrm{Na}} = 4{,}60/23{,}0 = 0{,}200\ \text{mol}\);&nbsp; \(n_{\mathrm{Cl_2}} = 7{,}10/70{,}9 = 0{,}100\ \text{mol}\).</li>
+                            <li>Relación estequiométrica: 2 mol Na : 1 mol Cl₂. Con 0,200 mol Na se necesitan 0,100 mol Cl₂ → justo la cantidad disponible. No hay limitante.</li>
+                            <li>Moles de NaCl: \(0{,}200\ \text{mol Na} \times (2/2) = 0{,}200\ \text{mol NaCl}\).</li>
+                            <li>Masa de NaCl: \(0{,}200 \times 58{,}44 = 11{,}69\ \text{g}\).</li>
+                            <li>Comprobación de Lavoisier: \(4{,}60 + 7{,}10 = 11{,}70\ \text{g}\) (reactivos) ≈ 11,69 g (productos) ✓ (la pequeña diferencia es por redondeo).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 4 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 4</span>
+                    <span>Ley de Avogadro: volúmenes molares</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> En la reacción \(\mathrm{N_2} + 3\,\mathrm{H_2} \to 2\,\mathrm{NH_3}\), se hacen reaccionar 5,0 L de N₂ con 12,0 L de H₂ en condiciones estándar.</p>
+                        <ul>
+                            <li>a) ¿Cuál es el reactivo limitante?</li>
+                            <li>b) ¿Qué volumen de NH₃ se produce?</li>
+                            <li>c) ¿Qué volumen de reactivo queda en exceso?</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>a) Volúmenes molares efectivos: \(V_{\text{ef}}(\mathrm{N_2}) = 5{,}0/1 = 5{,}0\ \text{L}\);&nbsp; \(V_{\text{ef}}(\mathrm{H_2}) = 12{,}0/3 = 4{,}0\ \text{L}\). El menor es H₂ (4,0 &lt; 5,0) → <strong>H₂ es el limitante</strong>.</li>
+                            <li>b) Volumen de NH₃: \(12{,}0\ \text{L H}_2 \times (2\ \text{L NH}_3 / 3\ \text{L H}_2) = 8{,}0\ \text{L NH}_3\).</li>
+                            <li>c) N₂ consumido: \(12{,}0\ \text{L H}_2 \times (1\ \text{L N}_2 / 3\ \text{L H}_2) = 4{,}0\ \text{L N}_2\). Exceso: \(5{,}0 - 4{,}0 = 1{,}0\ \text{L N}_2\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 5 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 5</span>
+                    <span>Factores de conversión en estequiometría (incluyendo volumen)</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Para la reacción \(2\,\mathrm{SO_2} + \mathrm{O_2} \to 2\,\mathrm{SO_3}\):</p>
+                        <ul>
+                            <li>a) ¿Cuántos gramos de SO₃ se producen a partir de 15,0 L de SO₂ en C.N.?</li>
+                            <li>b) ¿Qué volumen de SO₃ se obtiene a partir de 15,0 L de SO₂ en las mismas condiciones de P y T?</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>a) \(15{,}0\ \text{L SO}_2 \times \dfrac{1\ \text{mol SO}_2}{22{,}4\ \text{L}} \times \dfrac{2\ \text{mol SO}_3}{2\ \text{mol SO}_2} \times \dfrac{80{,}07\ \text{g SO}_3}{1\ \text{mol SO}_3} = \mathbf{53{,}6\ g\ SO_3}\).</li>
+                            <li>b) \(15{,}0\ \text{L SO}_2 \times \dfrac{2\ \text{L SO}_3}{2\ \text{L SO}_2} = \mathbf{15{,}0\ L\ SO_3}\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 6 -->
+            <div class="exercise-card">
+                <div class="exercise-header">
+                    <span class="badge">Ejercicio 6</span>
+                    <span>Concentración y fracción molar</span>
+                </div>
+                <div class="exercise-body">
+                    <div class="statement">
+                        <p><strong>Enunciado:</strong> Una mezcla gaseosa contiene 8,0 g de O₂, 14,0 g de N₂ y 22,0 g de CO₂. Calcula:</p>
+                        <ul>
+                            <li>a) La composición porcentual en masa.</li>
+                            <li>b) La fracción molar de cada gas.</li>
+                            <li>c) El porcentaje en volumen (a P y T constantes).</li>
+                        </ul>
+                    </div>
+                    <div class="resolution">
+                        <p><strong>Resolución paso a paso:</strong></p>
+                        <ul>
+                            <li>Moles: \(n_{\mathrm{O_2}} = 8{,}0/32{,}0 = 0{,}250\);&nbsp; \(n_{\mathrm{N_2}} = 14{,}0/28{,}0 = 0{,}500\);&nbsp; \(n_{\mathrm{CO_2}} = 22{,}0/44{,}0 = 0{,}500\). Total = 1,250 mol.</li>
+                            <li>a) % masa (total 44,0 g): O₂ = 8,0/44,0 × 100 = 18,2 %; N₂ = 14,0/44,0 × 100 = 31,8 %; CO₂ = 22,0/44,0 × 100 = 50,0 %.</li>
+                            <li>b) Fracción molar: \(x_{\mathrm{O_2}} = 0{,}250/1{,}250 = 0{,}200\);&nbsp; \(x_{\mathrm{N_2}} = 0{,}500/1{,}250 = 0{,}400\);&nbsp; \(x_{\mathrm{CO_2}} = 0{,}500/1{,}250 = 0{,}400\).</li>
+                            <li>c) % volumen = fracción molar × 100: O₂ = 20,0 %; N₂ = 40,0 %; CO₂ = 40,0 %.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PIE DIDÁCTICO -->
+            <div class="didactic-footer">
+                <strong>🧠 Observaciones claves:</strong> Las leyes ponderales (Proust, Dalton, Lavoisier) y volumétricas (Avogadro) son la base de la estequiometría. La <strong>Ley de Proust</strong> permite identificar compuestos puros; la <strong>Ley de Dalton</strong> explica por qué las fórmulas químicas tienen proporciones enteras; la <strong>Ley de Lavoisier</strong> justifica el ajuste de ecuaciones; y la <strong>Ley de Avogadro</strong> conecta los cálculos de masa con los de volumen para gases. Dominar la resolución progresiva de problemas —desde la identificación del compuesto hasta el cálculo del reactivo limitante— es esencial para abordar con éxito cualquier problema de química.
+            </div>
+
+        </div>
+    </details>
+
+    <!-- ============================================
+         BLOQUE "ES HORA DE" (versión fija)
+         ============================================ -->
+    <div style="padding: 25px 15px; text-align: center; background: white; margin: 20px;">
+        <div style="
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        ">
+            <p style="
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 12px;
+                padding: 0 10px;
+            ">
+                <br>  Con un par de multiplicaciones y algo de práctica, esto es más fácil de lo que parece.<br>
+                <i>(Los detalles sobre lo que entra en las pruebas escritas se publicarán periódicamente en M.Teams).</i>
+            </p>
+
+            <div style="text-align:center;">
+                <a
+                    href="../index.html"
+                    target="_blank"
+                    style="
+                        display:inline-block;
+                        padding:12px 24px;
+                        background:#0078D4;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:12px;
+                        font-weight:bold;
+                    "
+                >
+                    Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ===================FIN DE "ES HORA DE" ==================== -->
+
+</div> <!-- fin container -->
+<script src="../js/lightbox.js" defer></script>
+</body>
+</html>
